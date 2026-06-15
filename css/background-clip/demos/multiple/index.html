@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Несколько фонов — background-clip — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    /*
+      Два слоя:
+      1. Белая полупрозрачная подложка → background-clip: content-box
+         (матовый эффект только в контентной области)
+      2. Градиент синий→розовый → background-clip: border-box
+         (заполняет весь элемент включая рамку)
+    */
+    .box {
+      width: 300px;
+      padding: 36px 28px;
+      border: 20px solid rgb(255 255 255 / 0.12);
+      border-radius: 4px;
+      background-image:
+        linear-gradient(rgb(255 255 255 / 0.18), rgb(255 255 255 / 0.18)),
+        linear-gradient(135deg, #2E9AFF 0%, #F498AD 100%);
+      background-clip: content-box, border-box;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #FFFFFF;
+    }
+
+    .box-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-label {
+      font-size: 12px;
+      font-family: monospace;
+      color: rgb(255 255 255 / 0.55);
+    }
+
+    .toggle-label b {
+      color: #2E9AFF;
+      font-weight: 500;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #2E9AFF;
+      border-radius: 20px;
+      transition: background-color 0.2s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .switch input:not(:checked) + .slider {
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+    }
+
+    .switch input:not(:checked) + .slider::before {
+      transform: translateX(16px);
+    }
+
+    .code-hint {
+      font-family: monospace;
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.35);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .code-hint b {
+      color: rgb(255 255 255 / 0.65);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label">белый слой: <b id="clip-label">content-box</b></span>
+  </div>
+
+  <div class="box" id="box">
+    <p class="box-title">Два фона, два значения clip</p>
+    <p>Белая подложка и градиент обрезаются независимо. Посмотри что происходит с отступами при переключении.</p>
+  </div>
+
+  <div class="code-hint" id="code-hint">
+    background-clip: <b>content-box</b>, border-box
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-clip/">background-clip — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const box = document.getElementById('box');
+    const label = document.getElementById('clip-label');
+    const hint = document.getElementById('code-hint');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        box.style.backgroundClip = 'content-box, border-box';
+        label.textContent = 'content-box';
+        hint.innerHTML = 'background-clip: <b>content-box</b>, border-box';
+      } else {
+        box.style.backgroundClip = 'border-box, border-box';
+        label.textContent = 'border-box';
+        hint.innerHTML = 'background-clip: <b>border-box</b>, border-box';
+      }
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
