@@ -137,7 +137,7 @@ parentElement.addEventListener(
   (event) => {
     console.log("Элемент получил фокус")
   },
-  true //тоже самое, что прописать { capture: true }
+  true // тоже самое, что прописать { capture: true }
 )
 ```
 ### Пример
