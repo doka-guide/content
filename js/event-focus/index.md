@@ -130,7 +130,7 @@ parentElement.addEventListener(
   { capture: true }
 )
 
-//либо эквивалентная запись:
+// либо эквивалентная запись:
 
 parentElement.addEventListener(
   "focus",
