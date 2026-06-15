@@ -1,5 +1,5 @@
 ---
-title: "focus"
+title: 'focus'
 description: "Событие получения фокуса элементом"
 authors:
   - lira_bazh
@@ -17,7 +17,7 @@ tags:
 
 <aside>
 
-💡 Похожее событие — `focusin` (вызывается при получении элементом фокуса, всплывает). Противоположное событие — [`blur`](/js/event-blur/) (потеря фокуса).
+💡 Похожее событие — `focusin` (вызывается после получения элементом фокуса, всплывает). Противоположное событие — [`blur`](/js/event-blur/) (потеря фокуса).
 
 </aside>
 
@@ -32,8 +32,8 @@ tags:
 Современный способ с [addEventListener](/js/element-addeventlistener/):
 
 ```js
-element.addEventListener("focus", (event) => {
-  console.log("Элемент получил фокус")
+element.addEventListener('focus', (event) => {
+  console.log('Элемент получил фокус')
 })
 ```
 
@@ -41,7 +41,7 @@ element.addEventListener("focus", (event) => {
 
 ```js
 element.onfocus = (event) => {
-  console.log("Элемент получил фокус")
+  console.log('Элемент получил фокус')
 }
 ```
 
@@ -99,33 +99,41 @@ element.onfocus = (event) => {
 ```
 
 ```js
-const block1 = document.getElementById("block1");
-const block2 = document.getElementById("block2");
-const block3 = document.getElementById("block3");
+const block2 = document.getElementById('block2')
+const block3 = document.getElementById('block3')
+const block1 = document.getElementById('block1')
 
 function focusHandler(event) {
-  event.target.classList.add("green")
-  event.target.innerHTML = "👋 Я получил фокус"
+  event.target.classList.add('green')
+  event.target.innerHTML = '👋 Я получил фокус'
 }
 
-block1.addEventListener("focus", focusHandler);
-block2.addEventListener("focus", focusHandler);
-block3.addEventListener("focus", focusHandler);
+block1.addEventListener('focus', focusHandler)
+block2.addEventListener('focus', focusHandler)
+block3.addEventListener('focus', focusHandler)
 ```
 
 <iframe title="Пример добавления focus на div" src="demos/focusable-elements/" height="370"></iframe>
 
 ## Делегирование события
 
-Из-за того, что у события `focus` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Вариант решения этой проблемы — передать в метод `addEventListener` параметр `{ capture: true }`.
+Из-за того, что у события `focus` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Есть два варианта решения этой проблемы.
+
+### Использование focusin
+
+Можно использовать вместо события `focus` — событие `focusin`. У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
+
+### Обработка события в фазе всплытия
+
+Так же проблему делегирования получения фокуса можно решить передачей в метод `addEventListener` параметра `{ capture: true }`.
 
 Обычно слушатель обрабатывает события на [фазе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [фазе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), т.к. [фаза захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
 
 ```js
 parentElement.addEventListener(
-  "focus",
+  'focus',
   (event) => {
-    console.log("Элемент получил фокус")
+    console.log('Элемент получил фокус')
   },
   { capture: true }
 )
@@ -133,14 +141,15 @@ parentElement.addEventListener(
 // либо эквивалентная запись:
 
 parentElement.addEventListener(
-  "focus",
+  'focus',
   (event) => {
-    console.log("Элемент получил фокус")
+    console.log('Элемент получил фокус')
   },
   true // тоже самое, что прописать { capture: true }
 )
 ```
-### Пример
+
+#### Пример
 
 В примере ниже одинаковый обработчик события, записывающий лог, вешается на две формы. В первой форме параметр `{ capture: true }` не установлен, во второй установлен.
 
@@ -163,32 +172,32 @@ parentElement.addEventListener(
 ```
 
 ```js
-const form1 = document.getElementById("form1");
-const form2 = document.getElementById("form2");
-const logs = document.getElementById("logs");
+const form1 = document.getElementById('form1')
+const form2 = document.getElementById('form2')
+const logs = document.getElementById('logs')
 const logEntries = [];
 
 function focusHandler(event) {
   const input = event.target;
 
   if (input.id) {
-    const timestamp = new Date().toLocaleTimeString();
-    const message = `${timestamp}: фокус на ${input.id}`;
+    const timestamp = new Date().toLocaleTimeString()
+    const message = `${timestamp}: фокус на ${input.id}`
 
-    logEntries.unshift(message);
+    logEntries.unshift(message)
 
     if (logEntries.length > 5) {
-      logEntries.pop();
+      logEntries.pop()
     }
 
     logs.innerHTML = logEntries.map((entry, index) =>
       `<li>${entry}</li>`
-    ).join("");
+    ).join('')
   }
 }
 
-form1.addEventListener("focus", focusHandler);
-form2.addEventListener("focus", focusHandler, { capture: true });
+form1.addEventListener('focus', focusHandler)
+form2.addEventListener('focus', focusHandler, { capture: true })
 
 ```
 

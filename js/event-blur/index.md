@@ -99,25 +99,33 @@ element.onblur = (event) => {
 ```
 
 ```js
-const block1 = document.getElementById("block1");
-const block2 = document.getElementById("block2");
-const block3 = document.getElementById("block3");
+const block1 = document.getElementById('block1')
+const block2 = document.getElementById('block2')
+const block3 = document.getElementById('block3')
 
 function blurHandler(event) {
   event.target.classList.add('green')
   event.target.innerHTML = '👋 Я потерял фокус'
 }
 
-block1.addEventListener('blur', blurHandler);
-block2.addEventListener('blur', blurHandler);
-block3.addEventListener('blur', blurHandler);
+block1.addEventListener('blur', blurHandler)
+block2.addEventListener('blur', blurHandler)
+block3.addEventListener('blur', blurHandler)
 ```
 
 <iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="400"></iframe>
 
 ## Делегирование события
 
-Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Вариант решения этой проблемы — передать в метод `addEventListener` параметр `{ capture: true }`.
+Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Есть два варианта решения этой проблемы.
+
+### Использование focusout
+
+Можно использовать вместо события `blur` — событие `focusout`. У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
+
+### Обработка события в фазе всплытия
+
+Так же проблему делегирования получения фокуса можно решить передачей в метод `addEventListener` параметра `{ capture: true }`.
 
 Обычно слушатель обрабатывает события на [фазе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [фазе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), т.к. [фаза захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
 
@@ -140,7 +148,7 @@ parentElement.addEventListener(
   true //тоже самое, что прописать { capture: true }
 )
 ```
-### Пример
+#### Пример
 
 В примере ниже одинаковый обработчик события, выводящий ошибку о незаполненном поле, вешается на две формы. В первой форме параметр `{ capture: true }` не установлен, во второй установлен.
 
@@ -158,23 +166,23 @@ parentElement.addEventListener(
 ```
 
 ```js
-const form1 = document.getElementById("form1");
-const form2 = document.getElementById("form2");
+const form1 = document.getElementById('form1')
+const form2 = document.getElementById('form2')
 
 function blurHandler(event) {
-  const input = event.target;
+  const input = event.target
 
   if (!event.target.value) {
-    input.classList.add('invalid');
-    const error = document.createElement('div');
-    error.textContent = 'Поле обязательно для заполнения!';
-    error.classList.add('error-message');
-    input.insertAdjacentElement('afterend', error);
+    input.classList.add('invalid')
+    const error = document.createElement('div')
+    error.textContent = 'Поле обязательно для заполнения!'
+    error.classList.add('error-message')
+    input.insertAdjacentElement('afterend', error)
   }
 }
 
-form1.addEventListener('blur', blurHandler);
-form2.addEventListener('blur', blurHandler, { capture: true });
+form1.addEventListener('blur', blurHandler)
+form2.addEventListener('blur', blurHandler, { capture: true })
 ```
 
 <iframe title="Пример делегирования blur" src="demos/delegation/" height="600"></iframe>
