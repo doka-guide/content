@@ -34,15 +34,13 @@
     }
 
     .frame {
-      /* контейнер, по ширине которого срабатывает @container */
       container-type: inline-size;
       border: 1px solid #2E3138;
       background-color: #1E2024;
       border-radius: 12px;
       padding: 16px;
-      /* Ресайз ширины контейнера */
-      width: 560px;
-      min-width: 240px;
+      width: 50%;
+      min-width: 170px;
       max-width: 100%;
       overflow: auto;
       resize: horizontal;
@@ -75,7 +73,7 @@
     .hint { grid-column: 1 / -1; color: #9AA0A6; font-size: 14px; }
 
     .aside {
-      flex: 1 1 auto;
+      width: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
