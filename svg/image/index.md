@@ -2,17 +2,17 @@
 title: "`<image>`"
 description: "Разбираемся, как вставлять растровые изображения внутрь SVG-документов с помощью элемента <image>."
 authors:
-- drakesbot12
+  - drakesbot12
 keywords:
-- svg image
-- image
-- svg images
+  - svg image
+  - image
+  - svg images
 related:
-- svg/svg
-- svg/rect
-- svg/use
+  - svg/svg
+  - svg/rect
+  - svg/use
 tags:
-- doka
+  - doka
 ---
 
 ## Кратко
