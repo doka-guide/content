@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры font-feature-settings — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @font-face {
+      font-family: "LibertinusSerif";
+      src: url("../fonts/LibertinusSerif-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: sans-serif;
+    }
+
+    .demo {
+      width: 100%;
+      max-width: 540px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .row {
+      background-color: #282A2E;
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .row-state {
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.4);
+      margin-bottom: 10px;
+      min-height: 14px;
+    }
+
+    .row-state.on {
+      color: #2E9AFF;
+    }
+
+    .row-text {
+      font-family: "LibertinusSerif", serif;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    /* тоггл */
+    .toggle {
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .toggle input {
+      display: none;
+    }
+
+    .toggle-track {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      background-color: rgb(255 255 255 / 0.15);
+      border-radius: 11px;
+      transition: background-color 0.2s;
+    }
+
+    .toggle input:checked + .toggle-track {
+      background-color: #2E9AFF;
+    }
+
+    .toggle-thumb {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: left 0.2s;
+    }
+
+    .toggle input:checked + .toggle-track .toggle-thumb {
+      left: 21px;
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover { opacity: 1; }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body { padding: 24px 20px; }
+      .row-text { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo">
+
+    <!-- liga: стандартные лигатуры fi, fl, ff -->
+    <div class="row">
+      <div>
+        <div class="row-state" id="state-liga">normal — лигатуры включены по умолчанию</div>
+        <div class="row-text" id="text-liga">office, flight, cliff</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-liga">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      </label>
+    </div>
+
+    <!-- frac: автоматические дроби -->
+    <div class="row">
+      <div>
+        <div class="row-state" id="state-frac">normal</div>
+        <div class="row-text" id="text-frac">1/2 + 1/4 = 3/4</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-frac">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      </label>
+    </div>
+
+    <!-- onum: цифры старого стиля -->
+    <div class="row">
+      <div>
+        <div class="row-state" id="state-onum">normal</div>
+        <div class="row-text" id="text-onum">0123456789</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-onum">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      </label>
+    </div>
+
+    <!-- smcp: строчные капители -->
+    <div class="row">
+      <div>
+        <div class="row-state" id="state-smcp">normal</div>
+        <div class="row-text" id="text-smcp">Hello World</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-smcp">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      </label>
+    </div>
+
+    <!-- zero: перечёркнутый ноль -->
+    <div class="row">
+      <div>
+        <div class="row-state" id="state-zero">normal</div>
+        <div class="row-text" id="text-zero">0OO0, A0B</div>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="toggle-zero">
+        <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      </label>
+    </div>
+
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/font-feature-settings/">font-feature-settings — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const features = [
+      {
+        id: 'liga',
+        on:  { settings: '"liga" 0, "calt" 0', label: '"liga" 0 — лигатуры выключены' },
+        off: { settings: 'normal',              label: 'normal — лигатуры включены по умолчанию' },
+      },
+      {
+        id: 'frac',
+        on:  { settings: '"frac"', label: '"frac" — автоматические дроби' },
+        off: { settings: 'normal', label: 'normal' },
+      },
+      {
+        id: 'onum',
+        on:  { settings: '"onum"', label: '"onum" — цифры старого стиля' },
+        off: { settings: 'normal', label: 'normal' },
+      },
+      {
+        id: 'smcp',
+        on:  { settings: '"smcp"', label: '"smcp" — строчные капители' },
+        off: { settings: 'normal', label: 'normal' },
+      },
+      {
+        id: 'zero',
+        on:  { settings: '"zero"', label: '"zero" — перечёркнутый ноль' },
+        off: { settings: 'normal', label: 'normal' },
+      },
+      {
+        id: 'dlig',
+        on:  { settings: '"dlig"', label: '"dlig" — дискретные лигатуры' },
+        off: { settings: 'normal', label: 'normal' },
+      },
+    ]
+
+    features.forEach(({ id, on, off }) => {
+      const checkbox = document.getElementById('toggle-' + id)
+      const textEl   = document.getElementById('text-' + id)
+      const stateEl  = document.getElementById('state-' + id)
+
+      checkbox.addEventListener('change', () => {
+        const state = checkbox.checked ? on : off
+        textEl.style.fontFeatureSettings = state.settings
+        stateEl.textContent = state.label
+        stateEl.classList.toggle('on', checkbox.checked)
+      })
+    })
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex'
+      document.querySelector('.demo-logo').style.display = 'block'
+    }
+  </script>
+</body>
+</html>
