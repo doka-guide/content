@@ -132,7 +132,7 @@ tags:
   .card {
     font-size: 1.2rem;
   }
-  
+
   @container (width > 700px) {
     .card {
       font-size: 1.5rem; /* сработает, если sidebar > 400px И его родитель > 700px */
