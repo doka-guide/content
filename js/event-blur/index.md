@@ -127,7 +127,7 @@ block3.addEventListener('blur', blurHandler)
 
 Так же проблему делегирования получения фокуса можно решить передачей в метод `addEventListener` параметра `{ capture: true }`.
 
-Обычно слушатель обрабатывает события на [этапе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [этапе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), т.к. [этап захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
+Обычно слушатель обрабатывает события на [этапе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [этапе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), т.к. [фаза захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
 
 ```js
 parentElement.addEventListener(
@@ -138,14 +138,14 @@ parentElement.addEventListener(
   { capture: true }
 )
 
-//либо эквивалентная запись:
+// Эквивалентная запись:
 
 parentElement.addEventListener(
   'blur',
   (event) => {
     console.log('Элемент потерял фокус')
   },
-  true //тоже самое, что прописать { capture: true }
+  true // тоже самое, что прописать { capture: true }
 )
 ```
 #### Пример
