@@ -196,7 +196,7 @@ tags:
 💡 Граница `to (...)` может ссылаться на элементы **вне корня области** с помощью `:scope`. Это позволяет создавать сложные условия для исключения:
 
 ```css
-/* figure становится границей только если :scope находится внутри .feature */
+/* figure становится границей области только если .article-body находится внутри .feature */
 @scope (.article-body) to (.feature :scope figure) {
   img {
     border: 3px solid black;
