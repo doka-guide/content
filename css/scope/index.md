@@ -208,7 +208,7 @@ tags:
 <article class="feature">
   <section class="article-body">
     <img src="photo.jpg" alt="Фото" />
-    
+
     <figure>
       <img src="photo2.jpg" alt="Фото в фигуре" />
     </figure>
