@@ -1,6 +1,13 @@
 ---
 title: "`font-kerning`"
 description: "Управляем кернингом. Если вы понимаете о чём я."
+baseline:
+  - group: font-kerning
+    features:
+      - css.properties.font-kerning
+      - css.properties.font-kerning.auto
+      - css.properties.font-kerning.none
+      - css.properties.font-kerning.normal
 authors:
   - solarrust
 related:
