@@ -2,6 +2,19 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2026
+
+- 18 июня, [`@scope`](https://doka.guide/css/scope/), DrakesWeb
+- 18 июня, [`@container`](https://doka.guide/css/container/), DrakesWeb
+- 18 июня, [`font-kerning`](https://doka.guide/css/font-kerning/), Алёна Батицкая
+- 18 июня, [`font-language-override`](https://doka.guide/css/font-language-override/), Алёна Батицкая
+- 18 июня, [`font-feature-settings`](https://doka.guide/css/font-feature-settings/), Алёна Батицкая
+- 17 июня, [`background-blend-mode`](https://doka.guide/css/background-blend-mode/), Алёна Батицкая
+- 17 июня, [`background-attachment`](https://doka.guide/css/background-attachment/), Алёна Батицкая
+- 17 июня, [`background-clip`](https://doka.guide/css/background-clip/), Алёна Батицкая
+- 17 июня, [`hyphens`](https://doka.guide/css/hyphens/), Алёна Батицкая
+- 2 июня, [`font-variant-ligatures`](https://doka.guide/css/font-variant-ligatures/), Лея М
+
 ## Май 2026
 
 - 25 мая, [`Iterator.prototype.filter()`](https://doka.guide/js/iterator-filter/), Viktar Nezhbart
