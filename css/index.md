@@ -98,6 +98,7 @@ groups:
       - layer
       - starting-style
       - namespace
+      - container
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
