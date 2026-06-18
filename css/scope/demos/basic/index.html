@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример работы директивы @scope — @scope — Дока</title>
+  <title>Область действия @scope — @scope — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -17,7 +15,6 @@
     }
 
     html {
-      font-size: 16px;
       color-scheme: dark;
     }
 
@@ -25,93 +22,185 @@
       min-height: 100vh;
       padding: 50px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 20px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    .container {
+    /* === Сетка === */
+
+    .layout {
       width: 100%;
-      max-width: 900px;
+      max-width: 840px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 20px;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
+    /* === Карточки === */
 
-      .container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    section {
+    .card {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      border: 1px solid #2E3138;
+      gap: 14px;
+      padding: 20px;
+      border: 1px solid rgb(255 255 255 / 0.08);
+      border-radius: 14px;
       background-color: #1E2024;
-      border-radius: 12px;
-      padding: 16px;
+    }
+
+    .card.article {
+      border-color: rgb(46 154 255 / 0.4);
+    }
+
+    .selector-tag {
+      align-self: flex-start;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      background-color: rgb(255 255 255 / 0.07);
+      color: rgb(255 255 255 / 0.35);
     }
 
     .title {
+      font-size: 1rem;
       font-weight: 500;
+      color: rgb(255 255 255 / 0.5);
     }
 
+    p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    /* === Медиа-блок === */
+
     .media {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
       border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgb(255 255 255 / 0.06);
       background-color: #26292F;
     }
 
     .media img {
       display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .media-caption {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px 12px;
+    }
+
+    .media .selector-tag {
+      flex-shrink: 0;
     }
 
     .media .title {
-      color: #9AA0A6;
-      font-size: 14px;
+      font-size: 0.8125rem;
       font-weight: 400;
     }
 
-    p {
-      color: #C8CDD4;
-    }
+    /* === @scope: только внутри .article, но не внутри .media === */
 
     @scope (.article) to (.media) {
       .title {
-        color: #FF8D59;
+        color: #2E9AFF;
       }
     }
+
+    /* === Легенда === */
+
+    .legend {
+      width: 100%;
+      max-width: 840px;
+      display: flex;
+      gap: 20px;
+      font-size: 0.8125rem;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .legend-dot.active {
+      background-color: #2E9AFF;
+    }
+
+    .legend-dot.inactive {
+      background-color: rgb(255 255 255 / 0.25);
+    }
+
+    /* === Адаптив === */
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <section class="article">
+
+  <div class="layout">
+
+    <article class="card article">
+      <span class="selector-tag">.article</span>
       <h2 class="title">Заголовок статьи</h2>
+
       <figure class="media">
-        <img src="https://i.pinimg.com/originals/4a/e9/be/4ae9bebdae6385973feda9fcbfc8c85b.jpg" alt="Котик" />
-        <figcaption class="title">Подпись к изображению</figcaption>
+        <img src="../images/cat1.jpg" alt="Котик" />
+        <div class="media-caption">
+          <span class="selector-tag">.media</span>
+          <figcaption class="title">Подпись к изображению</figcaption>
+        </div>
       </figure>
-      <p>Текст статьи...</p>
-    </section>
-    <section class="aside">
+
+      <p>Текст статьи — стили @scope действуют здесь.</p>
+    </article>
+
+    <aside class="card">
+      <span class="selector-tag">.aside</span>
       <h2 class="title">Боковая колонка</h2>
-      <p>Текст...</p>
-    </section>
+      <p>Этот блок вне корня @scope — цвет заголовка не затронут.</p>
+    </aside>
+
   </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot active"></div>
+      <span>Цвет применён (@scope)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot inactive"></div>
+      <span>Цвет не затронут (вне области или за границей to)</span>
+    </div>
+  </div>
+
 </body>
 </html>
