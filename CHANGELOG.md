@@ -13,6 +13,7 @@
 - 17 июня, [`background-attachment`](https://doka.guide/css/background-attachment/), Алёна Батицкая
 - 17 июня, [`background-clip`](https://doka.guide/css/background-clip/), Алёна Батицкая
 - 17 июня, [`hyphens`](https://doka.guide/css/hyphens/), Алёна Батицкая
+- 2 июня, [`font-variant-ligatures`](https://doka.guide/css/font-variant-ligatures/), Лея М
 
 ## Май 2026
 
