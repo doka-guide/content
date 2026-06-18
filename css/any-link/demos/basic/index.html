@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:any-link — Псевдокласс — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+    }
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 840px; }
+    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    p { margin: 7px 0; font-size: 1rem; line-height: 1.4; }
+    code { font-family: "Roboto Mono", monospace; font-size: calc(1em - 1px); }
+
+    .card { background: #222328; border: 1px solid #34353B; border-radius: 10px; padding: 18px; margin-top: 10px; }
+    .list { display: grid; gap: 12px; margin-top: 10px; }
+
+    /* Стили ссылок по гайду */
+    .card :any-link {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+    .card :any-link:hover,
+    .card :any-link:focus {
+      background-color: #2E9AFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    /* Некликабельные <a> без href не совпадают с :any-link */
+    .muted { color: #9AA0A6; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>:any-link</code></h1>
+    <p>Стилизуем любые ссылки одним селектором: и непосещённые, и посещённые. Некликабельные <code>&lt;a&gt;</code> без <code>href</code> сюда не попадают.</p>
+
+    <div class="card">
+      <div class="list">
+        <div>Внутренняя ссылка: <a href="#demo">прыгнуть к демо</a></div>
+        <div>Внешняя ссылка: <a href="https://doka.guide/" target="_blank" rel="noopener">doka.guide</a></div>
+        <div>Якорь без href (не ссылка): <a class="muted">просто текст</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
