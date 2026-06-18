@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:target — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      width: 420px;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 2px solid #2E9AFF;
+      padding-bottom: 2px;
+      transition: background-color 0.2s;
+      border-radius: 3px;
+    }
+
+    nav a:hover {
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    section {
+      padding: 25px;
+      border: 1px solid #2E9AFF;
+      border-radius: 10px;
+      background-color: #1f2023;
+      display: none;
+    }
+
+    section:target {
+      display: block;
+      animation: fade 0.2s ease-in;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hint {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="#html">HTML</a>
+      <a href="#css">CSS</a>
+      <a href="#js">JS</a>
+    </nav>
+
+    <div class="hint">
+      Нажми на пункт меню — меняется <code>:target</code>
+    </div>
+
+    <section id="html">
+      <h2>HTML</h2>
+      <p>Это содержимое становится активным, потому что его id совпадает с якорем в URL.</p>
+    </section>
+
+    <section id="css">
+      <h2>CSS</h2>
+      <p>Когда этот блок становится :target, он отображается и получает акцентную рамку.</p>
+    </section>
+
+    <section id="js">
+      <h2>JavaScript</h2>
+      <p>Псевдокласс :target реагирует на изменение fragment identifier (#js).</p>
+    </section>
+  </div>
+</body>
+</html>
