@@ -97,6 +97,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - counter-style
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
