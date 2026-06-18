@@ -24,10 +24,11 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) { body { padding: 30px; } }
-
     .container { width: 100%; max-width: 900px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
-    text { font-size: 8px; }
+
+    @media (max-width: 768px) { body { padding: 30px; } .container { grid-template-columns: 1fr;} }
+
+    text { font-size: 10px; }
     .panel { border: 1px solid #2E3138; background-color: #1E2024; border-radius: 12px; padding: 16px; }
     .panel h3 { font-weight: 500; margin-bottom: 8px; }
     .panel p { color: #C8CDD4; }
