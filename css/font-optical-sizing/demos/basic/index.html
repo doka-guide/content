@@ -20,7 +20,7 @@
 
     body {
       min-height: 100vh;
-      padding: 32px 40px;
+      padding: 36px 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -30,88 +30,112 @@
     }
 
     .demo {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       width: 100%;
-      max-width: 680px;
+      max-width: 640px;
     }
 
-    .column {
+    /* ---- Образцы ---- */
+    .showcase {
       background-color: #282A2E;
       border-radius: 8px;
-      padding: 22px 18px 20px;
+      padding: 28px 24px 24px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-
-    .col-label {
-      border-bottom: 1px solid rgb(255 255 255 / 0.07);
-      padding-bottom: 14px;
-    }
-
-    .col-label strong {
-      display: block;
-      font-size: 11px;
-      font-weight: 500;
-      color: #2E9AFF;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 3px;
-    }
-
-    .col-label span {
-      font-size: 10px;
-      color: rgb(255 255 255 / 0.3);
-    }
-
-    /* Общие стили для всех образцов */
-    .samples {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .row {
-      display: flex;
-      align-items: baseline;
       gap: 10px;
-    }
-
-    .size-tag {
-      font-size: 9px;
-      color: rgb(255 255 255 / 0.2);
-      width: 24px;
-      text-align: right;
-      flex-shrink: 0;
     }
 
     .sample {
       font-family: "Source Serif 4", serif;
-      line-height: 1.15;
-      color: rgb(255 255 255 / 0.88);
-    }
-
-    .s-sm { font-size: 11px; }
-    .s-md { font-size: 26px; }
-    .s-lg { font-size: 54px; letter-spacing: -0.01em; }
-
-    /* auto: браузер передаёт font-size как opsz */
-    .col-auto .sample {
-      font-optical-sizing: auto;
-    }
-
-    /* none: opsz фиксируется на дефолтном значении шрифта */
-    .col-none .sample {
       font-optical-sizing: none;
+      color: rgb(255 255 255 / 0.9);
+      line-height: 1.2;
+      transition: font-variation-settings 0.05s linear;
     }
 
-    @media (width <= 540px) {
-      body { padding: 16px; }
-      .demo { gap: 10px; }
-      .s-lg { font-size: 38px; }
-      .s-md { font-size: 20px; }
+    .s-sm { font-size: 12px; }
+    .s-md { font-size: 30px; }
+    .s-lg { font-size: 58px; letter-spacing: -0.01em; }
+
+    /* ---- Слайдер ---- */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .opsz-label {
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.35);
+      width: 26px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      height: 4px;
+      appearance: none;
+      background: linear-gradient(
+        to right,
+        #2E9AFF var(--pct, 0%),
+        rgb(255 255 255 / 0.12) var(--pct, 0%)
+      );
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
+    }
+
+    /* ---- Статус ---- */
+    .status {
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.3);
+      padding: 8px 12px;
+      background-color: #282A2E;
+      border-radius: 6px;
+      line-height: 1.55;
+    }
+
+    .status strong {
+      color: #2E9AFF;
+      font-weight: 400;
+    }
+
+    .status em {
+      font-style: normal;
+      color: rgb(255 255 255 / 0.5);
+    }
+
+    @media (width <= 520px) {
+      body { padding: 20px; }
+      .s-lg { font-size: 40px; }
+      .s-md { font-size: 22px; }
     }
 
     .demo-logo {
@@ -154,46 +178,20 @@
 
   <div class="demo">
 
-    <div class="column col-auto">
-      <div class="col-label">
-        <strong>auto</strong>
-        <span>opsz = font-size</span>
-      </div>
-      <div class="samples">
-        <div class="row">
-          <span class="size-tag">11</span>
-          <p class="sample s-sm">Optical sizing for text</p>
-        </div>
-        <div class="row">
-          <span class="size-tag">26</span>
-          <p class="sample s-md">Форма глифов</p>
-        </div>
-        <div class="row">
-          <span class="size-tag">54</span>
-          <p class="sample s-lg">Шрифт</p>
-        </div>
-      </div>
+    <div class="showcase">
+      <p class="sample s-sm" id="t1">Optical sizing adjusts letterforms at different sizes</p>
+      <p class="sample s-md" id="t2">Вариативные шрифты</p>
+      <p class="sample s-lg" id="t3">Ось opsz</p>
     </div>
 
-    <div class="column col-none">
-      <div class="col-label">
-        <strong>none</strong>
-        <span>opsz = дефолт шрифта</span>
+    <div class="controls">
+      <div class="slider-row">
+        <span class="opsz-label">8</span>
+        <input type="range" id="slider" min="8" max="60" value="8" step="1">
+        <span class="opsz-label">60</span>
       </div>
-      <div class="samples">
-        <div class="row">
-          <span class="size-tag">11</span>
-          <p class="sample s-sm">Optical sizing for text</p>
-        </div>
-        <div class="row">
-          <span class="size-tag">26</span>
-          <p class="sample s-md">Форма глифов</p>
-        </div>
-        <div class="row">
-          <span class="size-tag">54</span>
-          <p class="sample s-lg">Шрифт</p>
-        </div>
-      </div>
+
+      <div class="status" id="status"></div>
     </div>
 
   </div>
@@ -210,6 +208,39 @@
       document.querySelector('.demo-meta').style.display = 'flex';
       document.querySelector('.demo-logo').style.display = 'block';
     }
+
+    const slider  = document.getElementById('slider');
+    const status  = document.getElementById('status');
+    const samples = ['t1', 't2', 't3'].map(id => document.getElementById(id));
+
+    const MIN = 8, MAX = 60;
+
+    function update() {
+      const opsz = Number(slider.value);
+      const pct  = ((opsz - MIN) / (MAX - MIN) * 100).toFixed(1);
+
+      // Прогресс-трек
+      slider.style.setProperty('--pct', pct + '%');
+
+      // Применяем ось opsz напрямую
+      samples.forEach(el => {
+        el.style.fontVariationSettings = `"opsz" ${opsz}`;
+      });
+
+      // Подсказка: что делает auto
+      const autoNote = opsz <= 14
+        ? `font-optical-sizing: auto при font-size ~${opsz}px выставил бы то же значение`
+        : opsz >= 50
+        ? `font-optical-sizing: auto при font-size ~${opsz}px выставил бы то же значение`
+        : `font-optical-sizing: auto выставляет opsz = font-size автоматически`;
+
+      status.innerHTML =
+        `font-variation-settings: <strong>"opsz" ${opsz}</strong>`
+        + `&nbsp;&nbsp;·&nbsp;&nbsp;<em>${autoNote}</em>`;
+    }
+
+    slider.addEventListener('input', update);
+    update();
   </script>
 </body>
 </html>
