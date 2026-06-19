@@ -5,9 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    @font-face {
+      font-family: "Newsreader";
+      src: url("Newsreader.woff2") format("woff2");
+      font-weight: 200 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -20,7 +27,6 @@
 
     body {
       min-height: 100vh;
-      padding: 36px 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,148 +35,137 @@
       font-family: "Roboto", sans-serif;
     }
 
+    /* ---- Оболочка ---- */
+
     .demo {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
       width: 100%;
       max-width: 640px;
-    }
-
-    /* ---- Образцы ---- */
-    .showcase {
-      background-color: #282A2E;
-      border-radius: 8px;
-      padding: 28px 24px 24px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 0;
     }
 
-    .sample {
-      font-family: "Source Serif 4", serif;
-      font-optical-sizing: none;
-      color: rgb(255 255 255 / 0.9);
-      line-height: 1.2;
-      transition: font-variation-settings 0.05s linear;
-    }
+    /* ---- Разделённый просмотр ---- */
 
-    .s-sm { font-size: 12px; }
-    .s-md { font-size: 30px; }
-    .s-lg { font-size: 58px; letter-spacing: -0.01em; }
-
-    /* ---- Слайдер ---- */
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .slider-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .opsz-label {
-      font-size: 11px;
-      color: rgb(255 255 255 / 0.35);
-      width: 26px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    input[type="range"] {
-      flex: 1;
-      height: 4px;
-      appearance: none;
-      background: linear-gradient(
-        to right,
-        #2E9AFF var(--pct, 0%),
-        rgb(255 255 255 / 0.12) var(--pct, 0%)
-      );
-      border-radius: 2px;
-      outline: none;
-      cursor: pointer;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      background-color: #FFFFFF;
-      border-radius: 50%;
-      box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
-    }
-
-    input[type="range"]::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      background-color: #FFFFFF;
-      border-radius: 50%;
-      border: none;
-      box-shadow: 0 1px 4px rgb(0 0 0 / 0.4);
-    }
-
-    /* ---- Статус ---- */
-    .status {
-      font-size: 11px;
-      color: rgb(255 255 255 / 0.3);
-      padding: 8px 12px;
+    .split-wrapper {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
       background-color: #282A2E;
-      border-radius: 6px;
-      line-height: 1.55;
+      border-radius: 8px 8px 0 0;
+      cursor: ew-resize;
+      user-select: none;
+      touch-action: none;
     }
 
-    .status strong {
-      color: #2E9AFF;
-      font-weight: 400;
-    }
-
-    .status em {
-      font-style: normal;
-      color: rgb(255 255 255 / 0.5);
-    }
-
-    @media (width <= 520px) {
-      body { padding: 20px; }
-      .s-lg { font-size: 40px; }
-      .s-md { font-size: 22px; }
-    }
-
-    .demo-logo {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 16px;
-      color: #FFFFFF;
-      font-size: 13px;
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .demo-logo:hover { opacity: 1; }
-
-    .demo-meta {
-      display: none;
-      position: fixed;
-      bottom: 0;
+    .layer {
+      position: absolute;
+      top: 0;
       left: 0;
       right: 0;
-      padding: 8px 20px;
-      border-top: 2px solid #2E9AFF;
-      background-color: #18191C;
-      font-size: 13px;
-      font-style: italic;
-      justify-content: space-between;
+      bottom: 0;
+      display: flex;
       align-items: center;
+      justify-content: center;
     }
 
-    .demo-meta a {
-      color: inherit;
-      text-decoration-color: #2E9AFF;
-      text-decoration-thickness: 2px;
+    .sample-text {
+      font-family: "Newsreader", serif;
+      font-size: 88px;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    .layer-auto .sample-text { font-optical-sizing: auto; }
+    .layer-none .sample-text { font-optical-sizing: none; }
+
+    /* ---- Разделитель ---- */
+
+    .divider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #2E9AFF;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .divider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #2E9AFF;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* ---- Метки ---- */
+
+    .split-labels {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 14px;
+      pointer-events: none;
+    }
+
+    .split-label {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background-color: rgb(0 0 0 / 0.5);
+    }
+
+    .split-label-auto { color: #2E9AFF; }
+    .split-label-none { color: rgb(255 255 255 / 0.4); }
+
+    /* ---- Информационная полоса ---- */
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+    }
+
+    .info-cell {
+      padding: 12px 16px;
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.3);
+      line-height: 1.6;
+      background-color: #1E1F23;
+    }
+
+    .info-cell + .info-cell {
+      border-left: 1px solid rgb(255 255 255 / 0.06);
+    }
+
+    .info-cell strong {
+      font-weight: 400;
+      color: #2E9AFF;
+    }
+
+    /* ---- Адаптив ---- */
+
+    @media (width <= 520px) {
+      .split-wrapper { height: 160px; }
+      .sample-text { font-size: 60px; }
     }
   </style>
 </head>
@@ -178,69 +173,82 @@
 
   <div class="demo">
 
-    <div class="showcase">
-      <p class="sample s-sm" id="t1">Optical sizing adjusts letterforms at different sizes</p>
-      <p class="sample s-md" id="t2">Вариативные шрифты</p>
-      <p class="sample s-lg" id="t3">Ось opsz</p>
-    </div>
+    <div class="split-wrapper" id="split">
 
-    <div class="controls">
-      <div class="slider-row">
-        <span class="opsz-label">8</span>
-        <input type="range" id="slider" min="8" max="60" value="8" step="1">
-        <span class="opsz-label">60</span>
+      <div class="layer layer-auto" id="layerAuto">
+        <p class="sample-text">Display</p>
       </div>
 
-      <div class="status" id="status"></div>
+      <div class="layer layer-none" id="layerNone">
+        <p class="sample-text">Display</p>
+      </div>
+
+      <div class="split-labels">
+        <span class="split-label split-label-auto">auto</span>
+        <span class="split-label split-label-none">none</span>
+      </div>
+
+      <div class="divider-line" id="dividerLine">
+        <div class="divider-handle">⟺</div>
+      </div>
+
+    </div>
+
+    <div class="info-strip">
+      <div class="info-cell">
+        <strong>auto</strong> — opsz = font-size (~88).
+        Штрихи тоньше, контраст между жирными и тонкими частями выше.
+      </div>
+      <div class="info-cell">
+        <strong>none</strong> — opsz зафиксирован на 18 (дефолт шрифта).
+        Штрихи одинаковые при любом размере.
+      </div>
     </div>
 
   </div>
 
-  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
-
-  <footer class="demo-meta">
-    <a href="https://doka.guide/css/font-optical-sizing/">font-optical-sizing — Дока</a>
-    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
-  </footer>
-
   <script>
-    if (!new URLSearchParams(window.location.search).has('embed')) {
-      document.querySelector('.demo-meta').style.display = 'flex';
-      document.querySelector('.demo-logo').style.display = 'block';
+  const split = document.getElementById('split');
+    const dividerLine = document.getElementById('dividerLine');
+    const layerAuto = document.getElementById('layerAuto');
+    const layerNone = document.getElementById('layerNone');
+
+    let dragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(5, Math.min(95, pct));
+      dividerLine.style.left = pct + '%';
+      layerAuto.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      layerNone.style.clipPath = `inset(0 0 0 ${pct}%)`;
     }
 
-    const slider  = document.getElementById('slider');
-    const status  = document.getElementById('status');
-    const samples = ['t1', 't2', 't3'].map(id => document.getElementById(id));
+    split.addEventListener('mousedown', e => {
+      dragging = true;
+      e.preventDefault();
+    });
 
-    const MIN = 8, MAX = 60;
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const rect = split.getBoundingClientRect();
+      setPosition((e.clientX - rect.left) / rect.width * 100);
+    });
 
-    function update() {
-      const opsz = Number(slider.value);
-      const pct  = ((opsz - MIN) / (MAX - MIN) * 100).toFixed(1);
+    document.addEventListener('mouseup', () => { dragging = false; });
 
-      // Прогресс-трек
-      slider.style.setProperty('--pct', pct + '%');
+    split.addEventListener('touchstart', e => {
+      dragging = true;
+      e.preventDefault();
+    }, { passive: false });
 
-      // Применяем ось opsz напрямую
-      samples.forEach(el => {
-        el.style.fontVariationSettings = `"opsz" ${opsz}`;
-      });
+    document.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      const rect = split.getBoundingClientRect();
+      setPosition((e.touches[0].clientX - rect.left) / rect.width * 100);
+    });
 
-      // Подсказка: что делает auto
-      const autoNote = opsz <= 14
-        ? `font-optical-sizing: auto при font-size ~${opsz}px выставил бы то же значение`
-        : opsz >= 50
-        ? `font-optical-sizing: auto при font-size ~${opsz}px выставил бы то же значение`
-        : `font-optical-sizing: auto выставляет opsz = font-size автоматически`;
+    document.addEventListener('touchend', () => { dragging = false; });
 
-      status.innerHTML =
-        `font-variation-settings: <strong>"opsz" ${opsz}</strong>`
-        + `&nbsp;&nbsp;·&nbsp;&nbsp;<em>${autoNote}</em>`;
-    }
-
-    slider.addEventListener('input', update);
-    update();
+    setPosition(50);
   </script>
 </body>
 </html>
