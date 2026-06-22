@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Режимы наложения фона — background-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .preview {
+      width: 320px;
+      height: 220px;
+      border-radius: 8px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='220'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='30%25' cy='30%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23000000'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='70%25' cy='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23333333'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='320' height='220' fill='url(%23g1)'/%3E%3Ccircle cx='210' cy='155' r='80' fill='url(%23g2)' opacity='0.7'/%3E%3Crect x='40' y='40' width='100' height='100' rx='12' fill='%23ffffff' opacity='0.15'/%3E%3Ccircle cx='80' cy='160' r='40' fill='%23000' opacity='0.3'/%3E%3C/svg%3E");
+      background-color: #2E9AFF;
+      background-blend-mode: normal;
+      background-size: cover;
+      transition: background-blend-mode 0s;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 320px;
+    }
+
+    .color-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .color-label {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.5);
+      min-width: 100px;
+    }
+
+    .color-swatches {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .swatch.active {
+      border-color: #FFFFFF;
+    }
+
+    .mode-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mode-label {
+      font-size: 13px;
+      color: rgb(255 255 255 /0.5);
+    }
+
+    .mode-select {
+      width: 100%;
+      padding: 8px 12px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 6px;
+      font-family: "Roboto", monospace;
+      font-size: 14px;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-opacity='.5' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    .mode-select:focus {
+      outline: none;
+      border-color: #2E9AFF;
+    }
+
+    .current-mode {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.4);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .current-mode span {
+      color: #2E9AFF;
+      font-style: normal;
+      font-family: monospace;
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px 16px 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview" id="preview"></div>
+
+  <div class="controls">
+    <div class="color-row">
+      <span class="color-label">background-color</span>
+      <div class="color-swatches" id="swatches">
+        <div class="swatch active" data-color="#2E9AFF" style="background:#2E9AFF"></div>
+        <div class="swatch" data-color="#F498AD" style="background:#F498AD"></div>
+        <div class="swatch" data-color="#4CAF50" style="background:#4CAF50"></div>
+        <div class="swatch" data-color="#9C27B0" style="background:#9C27B0"></div>
+        <div class="swatch" data-color="#FF5252" style="background:#FF5252"></div>
+        <div class="swatch" data-color="#FFFFFF" style="background:#FFFFFF; border-color: rgb(255 255 255 / 0.2)"></div>
+        <div class="swatch" data-color="#000000" style="background:#000000"></div>
+      </div>
+    </div>
+
+    <div class="mode-row">
+      <span class="mode-label">background-blend-mode</span>
+      <select class="mode-select" id="modeSelect">
+        <option value="normal">normal</option>
+        <optgroup label="Затемнение">
+          <option value="darken">darken</option>
+          <option value="multiply">multiply</option>
+          <option value="color-burn">color-burn</option>
+        </optgroup>
+        <optgroup label="Осветление">
+          <option value="lighten">lighten</option>
+          <option value="screen">screen</option>
+          <option value="color-dodge">color-dodge</option>
+        </optgroup>
+        <optgroup label="Контраст">
+          <option value="overlay">overlay</option>
+          <option value="hard-light">hard-light</option>
+          <option value="soft-light">soft-light</option>
+        </optgroup>
+        <optgroup label="Сравнение">
+          <option value="difference">difference</option>
+          <option value="exclusion">exclusion</option>
+        </optgroup>
+        <optgroup label="Компонентные">
+          <option value="hue">hue</option>
+          <option value="saturation">saturation</option>
+          <option value="color">color</option>
+          <option value="luminosity">luminosity</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <p class="current-mode">
+      background-blend-mode: <span id="modeLabel">normal</span>
+    </p>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-blend-mode/">background-blend-mode — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const preview = document.getElementById('preview');
+    const modeSelect = document.getElementById('modeSelect');
+    const modeLabel = document.getElementById('modeLabel');
+    const swatches = document.querySelectorAll('.swatch');
+
+    let currentColor = '#2E9AFF';
+
+    modeSelect.addEventListener('change', () => {
+      const mode = modeSelect.value;
+      preview.style.backgroundBlendMode = mode;
+      modeLabel.textContent = mode;
+    });
+
+    swatches.forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        swatches.forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        currentColor = swatch.dataset.color;
+        preview.style.backgroundColor = currentColor;
+      });
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

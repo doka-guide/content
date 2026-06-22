@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/infinite-scroll
   - tools/webpack
-  - tools/bundlers
-  - html/img
-  - css/box-sizing
-  - js/function-context
-  - tools/network
-  - css/display
+  - recipes/lets-encrypt-nginx
   - tools/clean-architecture
-  - js/deal-with-forms
-  - tools/oop
-  - css/box-model
-  - html/form
-  - js/array-reduce-right
-  - tools/how-the-browser-creates-pages
   - css/pseudoelements
-  - html/div
-  - recipes/center
+  - css/box-model
+  - js/async-in-js
+  - css/display
+  - js/array-reduce-right
+  - tools/ci-cd
+  - html/img
+  - css/custom-properties
+  - recipes/character-counter
+  - html/section
+  - tools/static-types
+  - js/geolocation-api
+  - tools/how-to-test-and-why
+  - css/box-sizing
+  - recipes/ajax-form
   - css/specificity
+  - js/closures
+  - tools/how-the-browser-creates-pages
+  - tools/docker
+  - js/deal-with-forms
   - a11y/aria-hidden
   - tools/cors
-  - css/keyframes
-  - a11y/content-hidden
-  - css/grid-guide
-  - css/attr
-  - tools/ci-cd
-  - js/async-in-js
-  - tools/gitlab-ci-cd
-  - tools/how-to-test-and-why
-  - html/input
-  - css/position
-  - a11y/live-region
-  - tools/static-types
-  - recipes/popup
-  - html/section
-  - js/function
-  - js/execution-order
-  - css/flexbox-guide
-  - js/boolean
-  - html/article
-  - tools/markdown
-  - html/nav
-  - js/closures
-  - recipes/lets-encrypt-nginx
-  - recipes/git-rebase-onto
-  - js/var-let
   - recipes/progress
-  - recipes/ajax-form
-  - tools/cli
-  - tools/docker
-  - tools/agile
+  - html/nav
+  - recipes/git-rebase-onto
+  - js/infinite-scroll
+  - a11y/css-impact-on-a11y
+  - html/article
+  - html/div
   - html/head
-  - css/box-shadow
+  - css/grid-guide
+  - recipes/snow
+  - a11y/aria-intro
+  - recipes/popup
+  - css/attr
+  - html/form
+  - a11y/live-region
+  - html/doctype
+  - recipes/center
+  - js/var-let
+  - a11y/content-hidden
   - html/video
   - css/transform-function
-  - a11y/aria-intro
-  - js/geolocation-api
-  - css/media
-  - recipes/snow
-  - a11y/screenreaders
-  - html/doctype
-  - html/flow
-  - css/custom-properties
   - css/scrollbar-gutter
+  - css/flexbox-guide
+  - tools/markdown
   - js/array-entries
-  - a11y/css-impact-on-a11y
-  - recipes/character-counter
+  - css/position
+  - html/input
+  - html/flow
+  - js/function-context
+  - js/boolean
+  - css/box-shadow
+  - a11y/screenreaders
+  - tools/network
+  - tools/cli
+  - tools/gitlab-ci-cd
+  - css/keyframes
+  - tools/bundlers
+  - tools/oop
+  - js/execution-order
+  - js/function
+  - tools/agile
+  - css/media
 ---
 
