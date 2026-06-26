@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/webpack
-  - recipes/lets-encrypt-nginx
-  - tools/clean-architecture
-  - css/pseudoelements
-  - css/box-model
-  - js/async-in-js
-  - css/display
-  - js/array-reduce-right
-  - tools/ci-cd
-  - html/img
-  - css/custom-properties
-  - recipes/character-counter
-  - html/section
-  - tools/static-types
-  - js/geolocation-api
-  - tools/how-to-test-and-why
-  - css/box-sizing
-  - recipes/ajax-form
-  - css/specificity
-  - js/closures
-  - tools/how-the-browser-creates-pages
-  - tools/docker
-  - js/deal-with-forms
-  - a11y/aria-hidden
-  - tools/cors
-  - recipes/progress
-  - html/nav
-  - recipes/git-rebase-onto
-  - js/infinite-scroll
-  - a11y/css-impact-on-a11y
-  - html/article
-  - html/div
-  - html/head
-  - css/grid-guide
-  - recipes/snow
-  - a11y/aria-intro
-  - recipes/popup
-  - css/attr
+  - tools/agile
   - html/form
-  - a11y/live-region
-  - html/doctype
-  - recipes/center
-  - js/var-let
-  - a11y/content-hidden
-  - html/video
-  - css/transform-function
-  - css/scrollbar-gutter
-  - css/flexbox-guide
-  - tools/markdown
-  - js/array-entries
-  - css/position
-  - html/input
-  - html/flow
-  - js/function-context
-  - js/boolean
+  - a11y/aria-intro
   - css/box-shadow
-  - a11y/screenreaders
-  - tools/network
+  - css/media
+  - html/video
+  - css/grid-guide
+  - js/infinite-scroll
+  - css/position
+  - recipes/git-rebase-onto
+  - css/transform-function
+  - js/array-reduce-right
+  - html/nav
+  - js/boolean
+  - js/deal-with-forms
+  - html/input
+  - tools/webpack
+  - tools/cors
+  - a11y/css-impact-on-a11y
   - tools/cli
+  - html/article
+  - recipes/ajax-form
+  - recipes/character-counter
+  - tools/network
+  - tools/how-the-browser-creates-pages
+  - tools/how-to-test-and-why
+  - html/section
+  - tools/clean-architecture
+  - css/box-sizing
+  - a11y/live-region
+  - css/scrollbar-gutter
+  - js/function-context
+  - tools/oop
+  - js/async-in-js
+  - css/custom-properties
   - tools/gitlab-ci-cd
+  - recipes/popup
+  - js/geolocation-api
+  - tools/ci-cd
+  - recipes/lets-encrypt-nginx
+  - css/box-model
+  - css/attr
+  - css/flexbox-guide
+  - html/div
   - css/keyframes
   - tools/bundlers
-  - tools/oop
-  - js/execution-order
   - js/function
-  - tools/agile
-  - css/media
+  - recipes/center
+  - css/display
+  - html/img
+  - recipes/snow
+  - tools/static-types
+  - tools/docker
+  - html/head
+  - js/closures
+  - js/execution-order
+  - css/specificity
+  - css/pseudoelements
+  - html/flow
+  - a11y/aria-hidden
+  - html/doctype
+  - js/var-let
+  - a11y/screenreaders
+  - js/array-entries
+  - recipes/progress
+  - tools/markdown
+  - a11y/content-hidden
 ---
 
