@@ -262,6 +262,7 @@ groups:
       - event-change
       - element-click
       - event-dblclick
+      - event-focus
       - event-input
       - event-invalid
       - element-keydown
