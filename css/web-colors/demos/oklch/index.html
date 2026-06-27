@@ -239,9 +239,6 @@
       swatch.style.backgroundColor = value;
 
       // Обновляем градиент полоски оттенка под текущую светлоту и насыщенность
-      hueTrack.style.background = [0, 60, 120, 180, 240, 300, 360]
-        .map(deg => `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${deg})`)
-        .join(', ');
       hueTrack.style.background = `linear-gradient(in oklch to right, ${
         [0, 60, 120, 180, 240, 300, 360]
           .map(deg => `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${deg})`)

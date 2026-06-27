@@ -183,43 +183,13 @@
       'oklch(0.65 0.22 215)',  // циан
     ];
 
-    // Производные варианты: name + функция (baseColor) → {cssColor, codeStr}
+    // Производные варианты: name + функция (baseColor) → cssColor
     const VARIANTS = [
-      {
-        name: 'Базовый',
-        make: (b) => ({
-          css:  b,
-          code: b,
-        }),
-      },
-      {
-        name: 'Светлее',
-        make: (b) => ({
-          css:  `oklch(from ${b} calc(l + 0.15) c h)`,
-          code: `oklch(from ${b}  calc(l + 0.15) c h)`,
-        }),
-      },
-      {
-        name: 'Темнее',
-        make: (b) => ({
-          css:  `oklch(from ${b} calc(l - 0.15) c h)`,
-          code: `oklch(from ${b}  calc(l - 0.15) c h)`,
-        }),
-      },
-      {
-        name: 'Дополн. +180°',
-        make: (b) => ({
-          css:  `oklch(from ${b} l c calc(h + 180))`,
-          code: `oklch(from ${b}  l c calc(h + 180))`,
-        }),
-      },
-      {
-        name: 'Аналог +60°',
-        make: (b) => ({
-          css:  `oklch(from ${b} l c calc(h + 60))`,
-          code: `oklch(from ${b}  l c calc(h + 60))`,
-        }),
-      },
+      { name: 'Базовый',       make: (b) => b },
+      { name: 'Светлее',       make: (b) => `oklch(from ${b} calc(l + 0.15) c h)` },
+      { name: 'Темнее',        make: (b) => `oklch(from ${b} calc(l - 0.15) c h)` },
+      { name: 'Дополн. +180°', make: (b) => `oklch(from ${b} l c calc(h + 180))` },
+      { name: 'Аналог +60°',   make: (b) => `oklch(from ${b} l c calc(h + 60))` },
     ];
 
     let activeIndex = 0;
@@ -247,14 +217,14 @@
       paletteEl.innerHTML = '';
 
       VARIANTS.forEach(variant => {
-        const { css, code } = variant.make(base);
+        const value = variant.make(base);
 
         const card = document.createElement('div');
         card.className = 'color-card';
 
         const swatch = document.createElement('div');
         swatch.className = 'color-swatch';
-        swatch.style.backgroundColor = css;
+        swatch.style.backgroundColor = value;
 
         const info = document.createElement('div');
         info.className = 'color-info';
@@ -265,7 +235,7 @@
 
         const codeEl = document.createElement('span');
         codeEl.className = 'color-code';
-        codeEl.textContent = code;
+        codeEl.textContent = value;
 
         info.appendChild(name);
         info.appendChild(codeEl);
