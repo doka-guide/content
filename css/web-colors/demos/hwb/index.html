@@ -131,9 +131,39 @@
       text-decoration-thickness: 2px;
     }
 
-    @media (width <= 768px) {
+    /* На узких экранах круг не помещается по ширине, поэтому
+       превращаем его в скруглённую карточку с тем же цветным кантом */
+    @media (width <= 680px) {
       body {
-        padding: 30px;
+        padding: 20px;
+        font-size: 16px;
+      }
+
+      .container {
+        inline-size: 100%;
+        max-inline-size: 380px;
+        padding: 1.5rem;
+        background-color: transparent;
+      }
+
+      .result {
+        min-inline-size: auto;
+        white-space: nowrap;
+        font-size: clamp(16px, 6vw, 31px);
+      }
+
+      .circle {
+        inset: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        padding: 0;
+        border-radius: 24px;
+        transform: none;
+      }
+
+      .circle::before {
+        inset: 6px;
+        border-radius: 18px;
       }
     }
   </style>
