@@ -104,13 +104,13 @@ const blob = new Blob([buffer], { type: 'application/octet-stream' })
 if (socket.readyState === WebSocket.OPEN) {
   // Отправляем строку
   socket.send('Сообщение')
-  
+
   // Отправляем JSON
   socket.send(JSON.stringify({ type: 'message', text: 'Привет' }))
-  
+
   // Отправляем бинарные данные
   socket.send(buffer)
-  
+
   // Отправляем Blob
   socket.send(blob)
 }
