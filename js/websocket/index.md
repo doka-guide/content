@@ -43,7 +43,7 @@ new WebSocket(url, [protocols]?)
 ```
 
 - `url`: строка с адресом сервера, должна начинаться с `ws://` или `wss://`;
-- `protocols`: строка или массив строк с названиями [подпротоколов WebSocket](https://www.iana.org/assignments/websocket/websocket.xhtml), необязательный параметр. Какой подпротокол выбрал сервер, можно узнать из свойства [`protocol`](#protocol).
+- `protocols` — строка или массив строк с названиями предпочитаемых [подпротоколов WebSocket](https://www.iana.org/assignments/websocket/websocket.xhtml), необязательный параметр. Какой подпротокол выбрал сервер, можно узнать из свойства [`protocol`](#protocol).
 
 <aside>
 
