@@ -12,7 +12,7 @@ editors:
   - tachisis
 contributors:
   - vitya-ne
-  - lira_bazh
+  - lira-bazh
 keywords:
   - замыкание
   - closure

@@ -2,7 +2,7 @@
 title: 'focus'
 description: "Событие получения фокуса элементом"
 authors:
-  - lira_bazh
+  - lira-bazh
 related:
   - js/events
   - js/event-blur

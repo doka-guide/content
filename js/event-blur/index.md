@@ -2,7 +2,7 @@
 title: "blur"
 description: "Событие потери фокуса элементом"
 authors:
-  - lira_bazh
+  - lira-bazh
 related:
   - js/event-change
   - js/element-blur
