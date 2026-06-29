@@ -32,7 +32,7 @@ tags:
 
 ☝️ `WebSocket` можно использовать не только в основном потоке, но и в [Web Workers](/js/web-workers/): dedicated, shared и service worker. Синтаксис тот же, но так как [DOM](/js/dom/) недоступен, для передачи данные основному потоку применяется `postMessage()`.
 
-Service worker браузер может завершить при простое, поэтому долгое соединение там менее надёжно, чем в dedicated worker.
+Браузер может завершить `Service worker`  при простое, поэтому `WebSocket`-соединение там менее надёжно, чем в `dedicated worker`.
 
 </aside>
 
