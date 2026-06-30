@@ -5,6 +5,7 @@ baseline:
   - group: webvtt
     features:
       - css.selectors.cue
+      - css.selectors.cue.selector_argument
 authors:
   - drakesbot12
 related:
