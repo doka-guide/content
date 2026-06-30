@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - dir
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
