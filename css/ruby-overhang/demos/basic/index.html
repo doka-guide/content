@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример работы ruby-overhang — ruby-overhang — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      font-size: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    ruby {
+      text-align: center;
+      ruby-align: center;
+    }
+
+    rt {
+      color: #FF8630;
+    }
+
+    .container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .auto {
+      ruby-overhang: auto;
+    }
+
+    .none {
+      ruby-overhang: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ruby class="auto">
+      表
+      <rp> (</rp>
+      <rt>поверхность</rt>
+      <rp>) </rp>
+    </ruby>
+    <ruby class="none">
+      現
+      <rp> (</rp>
+      <rt>проявление</rt>
+      <rp>) </rp>
+    </ruby>
+  </div>
+</body>
+</html>
