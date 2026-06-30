@@ -67,6 +67,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - scrollbar
   - name: 'Функции'
     items:
       - attr
