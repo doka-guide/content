@@ -71,11 +71,28 @@
       text-decoration: underline;
     }
   </style>
+
 </head>
 <body>
-  <div class="container">
-    <a href="#target">Перейти к секции</a>
+  <div class="container" id="container">
+    <a href="#target" id="link">Перейти к секции</a>
     <h2 id="target">Заголовок секции</h2>
   </div>
+  <script>
+    const container = document.getElementById('container')
+    const link = document.getElementById('link')
+    const target = document.getElementById('target')
+
+    function scrollInContainer(event) {
+      event.preventDefault(); // Отменяем стандартное поведение клика
+
+      container.scrollTo({
+        top: target.offsetTop - container.offsetTop,
+        behavior: 'smooth'
+      })
+    }
+
+    link.addEventListener('click', scrollInContainer)
+  </script>
 </body>
 </html>
