@@ -1,6 +1,10 @@
 ---
 title: "`::cue`"
 description: "Псевдоэлемент для стилизации реплик WebVTT (субтитров и подсказок) в `<video>` с подключённой дорожкой `<track>`."
+baseline:
+  - group: webvtt
+    features:
+      - css.selectors.cue
 authors:
   - drakesbot12
 related:
