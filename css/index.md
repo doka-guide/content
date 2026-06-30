@@ -67,6 +67,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - file-selector-button
   - name: 'Функции'
     items:
       - attr
