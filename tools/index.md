@@ -98,6 +98,7 @@ groups:
       - http-protocol
       - tcp-udp-protocols
       - ipv6-for-webdevs
+      - dns
 
   - name: Безопасность
     items:
