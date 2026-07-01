@@ -1,6 +1,10 @@
 ---
 title: 'focusin'
 description: "Событие получения фокуса элементом (всплывает)"
+baseline:
+  - group: focus-events
+    features:
+      - api.Element.focusin_event
 authors:
   - lira-bazh
 related:

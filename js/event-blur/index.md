@@ -1,6 +1,10 @@
 ---
 title: "blur"
 description: "Событие потери фокуса элементом"
+baseline:
+  - group: focus-events
+    features:
+      - api.Element.blur_event
 authors:
   - lira-bazh
 related:

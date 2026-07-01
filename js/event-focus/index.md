@@ -1,6 +1,10 @@
 ---
 title: 'focus'
 description: "Событие получения фокуса элементом"
+baseline:
+  - group: focus-events
+    features:
+      - api.Element.focus_event
 authors:
   - lira-bazh
 related:
