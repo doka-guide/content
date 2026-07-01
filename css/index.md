@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - picture-in-picture
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
