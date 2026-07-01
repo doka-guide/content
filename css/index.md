@@ -67,6 +67,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - cue
   - name: 'Функции'
     items:
       - attr
