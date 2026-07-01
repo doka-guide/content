@@ -97,6 +97,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - namespace
       - container
   - name: 'Глобальные ключевые слова'
     items:
