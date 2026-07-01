@@ -1,6 +1,10 @@
 ---
 title: "`:picture-in-picture`"
 description: "Совпадает с элементом `<video>`, который в данный момент отображается в режиме «картинка в картинке» (Picture‑in‑Picture)."
+baseline:
+  - group: picture-in-picture
+    features:
+      - css.selectors.picture-in-picture
 authors:
   - drakesbot12
 tags:
