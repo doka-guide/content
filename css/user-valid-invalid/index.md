@@ -1,6 +1,11 @@
 ---
 title: "`:user-valid` и `:user-invalid`"
 description: "Стилизуют элементы формы по валидности, но только после того, как пользователь взаимодействовал с ними."
+baseline:
+  - group: user-pseudos
+    features:
+      - css.selectors.user-invalid
+      - css.selectors.user-valid
 authors:
   - drakesbot12
 keywords:
