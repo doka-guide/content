@@ -67,6 +67,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - details-content
   - name: 'Функции'
     items:
       - attr
