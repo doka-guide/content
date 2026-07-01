@@ -1,6 +1,10 @@
 ---
 title: 'focus'
 description: "Событие получения фокуса элементом"
+baseline:
+  - group: focus-events
+    features:
+      - api.Element.focus_event
 authors:
   - lira-bazh
 related:
@@ -17,7 +21,7 @@ tags:
 
 <aside>
 
-💡 Похожее событие — `focusin` (вызывается после получения элементом фокуса, всплывает). Противоположное событие — [`blur`](/js/event-blur/) (потеря фокуса).
+💡 Похожее событие — [`focusin`](/js/event-focusin/) (вызывается после получения элементом фокуса, всплывает). Противоположное событие — [`blur`](/js/event-blur/) (потеря фокуса).
 
 </aside>
 
@@ -121,7 +125,7 @@ block3.addEventListener('focus', focusHandler)
 
 ### Использование focusin
 
-Можно использовать вместо события `focus` — событие `focusin`. У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
+Можно использовать вместо события `focus` — событие [`focusin`](/js/event-focusin/). У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
 
 ### Обработка события в фазе всплытия
 
