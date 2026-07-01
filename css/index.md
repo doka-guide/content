@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - user-valid-invalid
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
