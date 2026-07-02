@@ -41,7 +41,7 @@ element.addEventListener('focusin', (event) => {
 })
 ```
 
-Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим и [не поддерживается большинством браузеров](https://caniuse.com/mdn-api_element_focusin_event).
 
 ```js
 element.onfocusin = (event) => {
