@@ -26,8 +26,6 @@ related:
 
 ## Пример
 
-## Пример
-
 Нажмите на кнопку «Включить PiP», чтобы перевести видео в режим «картинка в картинке». При этом к видео применятся стили из CSS-правила `video:picture-in-picture`.
 
 <iframe title=":picture-in-picture — оформление видео в режиме PiP" src="demos/basic/" height="380"></iframe>
