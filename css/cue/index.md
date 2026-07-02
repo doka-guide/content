@@ -1,6 +1,11 @@
 ---
 title: "`::cue`"
-description: "Псевдоэлемент `::cue` позволяет стилизовать субтитры и текстовые дорожки в видео. Узнайте, как менять цвет, шрифт, фон субтитров с помощью CSS."
+description: "Псевдоэлемент для стилизации реплик WebVTT (субтитров и подсказок) в `<video>` с подключённой дорожкой `<track>`."
+baseline:
+  - group: webvtt
+    features:
+      - css.selectors.cue
+      - css.selectors.cue.selector_argument
 authors:
   - drakesbot12
 related:
