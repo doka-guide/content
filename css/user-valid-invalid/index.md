@@ -15,8 +15,9 @@ keywords:
   - формы
   - constraint validation
 related:
-  - css/required
   - html/input
+  - css/valid
+  - css/invalid
 tags:
   - doka
 ---
