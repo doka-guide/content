@@ -59,6 +59,8 @@ await el.requestFullscreen()
 await document.exitFullscreen()
 ```
 
+<iframe title="Пример псевдокласса :fullscreen" src="/demos/basic/" height="610"></iframe>
+
 ## Как понять
 
 Fullscreen API выводит выбранный элемент (а не всю страницу) на весь экран. Пока элемент в таком режиме, к нему применяется `:fullscreen`. Это состояние снимается при выходе из полноэкранного режима или по инициативе пользователя.
