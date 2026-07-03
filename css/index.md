@@ -99,6 +99,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - namespace
       - font-feature-values
       - charset
       - container
