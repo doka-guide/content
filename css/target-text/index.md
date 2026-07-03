@@ -28,13 +28,15 @@ tags:
 
 ```html
 <p>
-  Пример ссылки на <a href="#:~:text=целевой%20текст">целевой текст</a> на этой же странице.
+  Пример ссылки на
+  <a href="#:~:text=целевой%20текст">целевой текст</a>
+  на этой же странице.
 </p>
 ```
 
 ```css
 ::target-text {
-  background-color: yellow;
+  background-color: #2E9AFF;
   color: black;
   text-shadow: none;
 }
@@ -59,7 +61,9 @@ tags:
 Работает совместно с механизмом текстовых фрагментов в URL. Пример ссылки:
 
 ```html
-<a href="https://example.com/page#:~:text=целевой%20текст">Перейти к целевому тексту</a>
+<a href="https://example.com/page#:~:text=целевой%20текст">
+  Перейти к целевому тексту
+</a>
 ```
 
 ## Как понять
