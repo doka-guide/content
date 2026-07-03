@@ -123,8 +123,12 @@ ol.roman { list-style: romans; }
 Использование:
 
 ```css
-ul { list-style: <name>; }
-ol { list-style-type: <name>; }
+ul {
+  list-style: <name>;
+}
+ol {
+  list-style-type: <name>;
+}
 ```
 
 ## Как понять
