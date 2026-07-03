@@ -29,6 +29,18 @@ tags:
 
 `focusin` можно использовать, например, для подсветки группы полей:
 
+```js
+const group = document.getElementById('address-group')
+
+group.addEventListener('focusin', () => {
+  group.style.border = '1px solid #41E847'
+});
+
+group.addEventListener('focusout', () => {
+  group.style.border = 'none'
+});
+```
+
 <iframe title="Подстветка группы полей с помощью focusin" src="demos/highlighting-group/" height="400"></iframe>
 
 ## Как пишется
