@@ -67,6 +67,8 @@ groups:
       - selection
       - marker
       - backdrop
+      - file-selector-button
+      - target-text
   - name: 'Функции'
     items:
       - attr
@@ -98,6 +100,7 @@ groups:
       - layer
       - starting-style
       - font-feature-values
+      - charset
       - container
   - name: 'Глобальные ключевые слова'
     items:
