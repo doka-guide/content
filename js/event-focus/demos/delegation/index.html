@@ -170,32 +170,32 @@
     <ol reversed id="logs"></ol>
   </div>
   <script>
-    const form1 = document.getElementById("form1");
-    const form2 = document.getElementById("form2");
-    const logs = document.getElementById('logs');
-    const logEntries = [];
+    const form1 = document.getElementById('form1')
+    const form2 = document.getElementById('form2')
+    const logs = document.getElementById('logs')
+    const logEntries = []
 
     function focusHandler(event) {
-      const input = event.target;
+      const input = event.target
 
       if (input.id) {
-        const timestamp = new Date().toLocaleTimeString();
-        const message = `${timestamp}: фокус на ${input.id}`;
+        const timestamp = new Date().toLocaleTimeString()
+        const message = `${timestamp}: фокус на ${input.id}`
 
-        logEntries.unshift(message);
+        logEntries.unshift(message)
 
         if (logEntries.length > 5) {
-          logEntries.pop();
+          logEntries.pop()
         }
 
         logs.innerHTML = logEntries.map((entry, index) =>
           `<li>${entry}</li>`
-        ).join("");
+        ).join("")
       }
     }
 
-    form1.addEventListener('focus', focusHandler);
-    form2.addEventListener('focus', focusHandler, { capture: true });
+    form1.addEventListener('focus', focusHandler)
+    form2.addEventListener('focus', focusHandler, { capture: true })
   </script>
 </body>
 
