@@ -9,9 +9,17 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     @namespace svg url(http://www.w3.org/2000/svg);
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { color-scheme: dark; font-size: 16px; }
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
 
     body {
       min-height: 100vh;
@@ -24,20 +32,54 @@
       font-family: "Roboto", sans-serif;
     }
 
-    .container { width: 100%; max-width: 900px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+    }
 
-    @media (max-width: 768px) { body { padding: 30px; } .container { grid-template-columns: 1fr;} }
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
 
-    text { font-size: 10px; }
-    .panel { border: 1px solid #2E3138; background-color: #1E2024; border-radius: 12px; padding: 16px; }
-    .panel h3 { font-weight: 500; margin-bottom: 8px; }
-    .panel p { color: #C8CDD4; }
+    text {
+      font-size: 10px;
+    }
 
-    *|a { color: #8AB4F8; }
+    .panel {
+      border: 1px solid #2E3138;
+      background-color: #1E2024;
+      border-radius: 12px;
+      padding: 16px;
+     }
 
-    svg|a { fill: #8AB4F8; }
+    .panel h3 {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
 
-    svg|circle { fill: #2E9AFF; }
+    .panel p {
+      color: #C8CDD4;
+    }
+
+    *|a {
+      color: #8AB4F8;
+    }
+
+    svg|a {
+      fill: #8AB4F8;
+    }
+
+    svg|circle {
+      fill: #2E9AFF;
+    }
   </style>
 </head>
 <body>
