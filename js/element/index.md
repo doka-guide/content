@@ -6,7 +6,7 @@ authors:
 contributors:
   - furtivite
   - skorobaeus
-  - lira_bazh
+  - lira-bazh
 related:
   - js/bom
   - js/element-positioning-js
