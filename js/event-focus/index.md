@@ -1,5 +1,5 @@
 ---
-title: 'focus'
+title: "`focus`"
 description: "Событие получения фокуса элементом"
 baseline:
   - group: focus-events
@@ -33,7 +33,7 @@ tags:
 
 ## Как пишется
 
-Современный способ с [addEventListener](/js/element-addeventlistener/):
+Современный способ с [`addEventListener`](/js/element-addeventlistener/):
 
 ```js
 element.addEventListener('focus', (event) => {
@@ -51,24 +51,24 @@ element.onfocus = (event) => {
 
 ## Как понять
 
-Событие `focus` инициируется в момент, когда интерактивный элемент получает фокус (например, по клику или переключению по `Tab`).
+Событие `focus` инициируется в момент, когда интерактивный элемент получает фокус (например, по клику или переключению по <kbd>Tab</kbd>).
 
-Событие срабатывает на тех html-элементах, которые имеют атрибут [tabindex](/html/tabindex/), либо атрибут [contenteditable](/html/global-attrs/#contenteditable).
+Событие срабатывает на тех HTML-элементах, которые имеют атрибут [`tabindex`](/html/tabindex/), либо атрибут [`contenteditable`](/html/global-attrs/#contenteditable).
 
-Некоторые html-элементы по умолчанию имеют `tabindex="0"`:
-- `<button>`;
-- `<input>`;
-- `<textarea>`;
-- `<select>`;
+Некоторые HTML-элементы по умолчанию имеют `tabindex="0"`:
+- [`<button>`](/html/button/);
+- [`<input>`](/html/input/);
+- [`<textarea>`](/html/textarea/);
+- [`<select>`](/html/select/);
 - `<frame>`;
-- `<iframe>`;
-- `<object>`;
-- `<a>` или `<area>` с атрибутом `href`;
-- `<summary>` в связке с `<details>`.
+- [`<iframe>`](/html/iframe/);
+- [`<object>`](/html/object/);
+- [`<a>`](/html/a/) или [`<area>`](/html/area/) с атрибутом `href`;
+- `<summary>` в связке с [`<details>`](/html/details/).
 
 ## Как добавить событие на любой элемент
 
-Чтобы `focus` работал на произвольном элементе (например, на `<div>`), добавьте ему атрибут `tabindex="0"` или атрибут `contenteditable="true"`.
+Чтобы `focus` работал на произвольном элементе (например, на [`<div>`](/html/div/)), добавьте ему атрибут `tabindex="0"` или атрибут `contenteditable="true"`.
 
 `tabindex="0"` указывает браузеру, что на элементе можно сфокусироваться (а, значит, и потерять фокус).
 
@@ -83,6 +83,7 @@ element.onfocus = (event) => {
   Здесь так же можно сфокусироваться
 </div>
 ```
+
 ### Пример
 
 В примере ниже одинаковый обработчик события окрашивает границы блока при получении фокуса. Кликните на любой блок:
@@ -123,7 +124,7 @@ block3.addEventListener('focus', focusHandler)
 
 Из-за того, что у события `focus` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Есть два варианта решения этой проблемы.
 
-### Использование focusin
+### Использование `focusin`
 
 Можно использовать вместо события `focus` — событие [`focusin`](/js/event-focusin/). У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
 
