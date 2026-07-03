@@ -68,6 +68,7 @@ groups:
       - marker
       - backdrop
       - file-selector-button
+      - target-text
   - name: 'Функции'
     items:
       - attr

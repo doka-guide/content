@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <title>Пример добавления blur на div — blur — Дока</title>
+  <title>Пример добавления focusin на div — focusin — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -16,7 +19,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     body {
@@ -33,7 +36,7 @@
     .container {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
     }
 
     .wrapper {
@@ -48,18 +51,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #FFD829;
-      color: #000;
+      border: 2px solid #FFD829;
+      border-radius: 5px;
       padding: 5px;
+      outline: none;
     }
 
     .block:hover {
       cursor: pointer;
-      transform: scale(1.05);
+      background-color: rgb(255 216 41 / 0.1);
     }
 
     .block.green {
-      background-color: #41E847;
+      border-color: #41E847;
     }
 
     @media (max-width: 768px) {
@@ -79,18 +83,19 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="wrapper">
-      <div>Блок не может получить и потерять фокус:</div>
+      <div>Блок не может получить фокус:</div>
       <div class="block" id="block1"></div>
     </div>
     <div class="wrapper">
-      <div>Блок может получить и потерять фокус (с tabindex):</div>
+      <div>Блок может получить фокус (с tabindex):</div>
       <div class="block" id="block2" tabindex="0"></div>
     </div>
     <div class="wrapper">
-      <div>Блок может получить и потерять фокус (с contenteditable):</div>
+      <div>Блок может получить фокус (с contenteditable):</div>
       <div class="block" id="block3" contenteditable="true"></div>
     </div>
   </div>
@@ -99,23 +104,24 @@
     const block2 = document.getElementById('block2')
     const block3 = document.getElementById('block3')
 
-    function blurHandler(event) {
+    function focusinHandler(event) {
       event.target.classList.add('green')
-      event.target.innerHTML = '👋 Я потерял фокус'
+      event.target.innerHTML = '👋 Я получил фокус'
     }
 
-    block1.addEventListener('blur', blurHandler)
-    block2.addEventListener('blur', blurHandler)
-    block3.addEventListener('blur', blurHandler)
+    block1.addEventListener('focusin', focusinHandler)
+    block2.addEventListener('focusin', focusinHandler)
+    block3.addEventListener('focusin', focusinHandler)
 
-    function focusHandler(event) {
+    function focusoutHandler(event) {
       event.target.classList.remove('green')
       event.target.innerHTML = ''
     }
 
-    block1.addEventListener('focus', focusHandler)
-    block2.addEventListener('focus', focusHandler)
-    block3.addEventListener('focus', focusHandler)
+    block1.addEventListener('focusout', focusoutHandler)
+    block2.addEventListener('focusout', focusoutHandler)
+    block3.addEventListener('focusout', focusoutHandler)
   </script>
 </body>
+
 </html>
