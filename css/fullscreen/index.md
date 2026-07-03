@@ -1,6 +1,10 @@
 ---
 title: "`:fullscreen`"
 description: "Совпадает с элементом, который отображается в режиме полноэкранного просмотра (Fullscreen API). Полезно менять оформление контента на весь экран."
+baseline:
+  - group: fullscreen
+    features:
+      - css.selectors.fullscreen
 authors:
   - drakesbot12
 keywords:
