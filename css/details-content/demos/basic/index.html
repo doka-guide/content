@@ -84,14 +84,11 @@
       .example-styled details::details-content {
         padding: 12px 16px;
         background: #111216;
-        opacity: 0;
-        transform: translateY(-4px);
-        transition: opacity .2s ease, transform .2s ease;
+        display: none;
       }
 
       .example-styled details[open]::details-content {
-        opacity: 1;
-        transform: translateY(0);
+        display: block;
       }
     }
   </style>

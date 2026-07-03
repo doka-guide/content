@@ -52,7 +52,7 @@ tags:
 }
 ```
 
-<iframe title="Стилизация и анимация раскрывающегося содержимого через ::details-content" src="demos/basic/" height="300"></iframe>
+<iframe title="Стилизация и анимация раскрывающегося содержимого через ::details-content" src="demos/basic/" height="380"></iframe>
 
 ## Как пишется
 
