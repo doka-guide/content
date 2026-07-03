@@ -6,7 +6,7 @@ authors:
 contributors:
   - nlopin
   - skorobaeus
-  - lira_bazh
+  - lira-bazh
 related:
   - js/events
   - js/dom
