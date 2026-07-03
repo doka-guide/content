@@ -99,6 +99,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - charset
       - container
   - name: 'Глобальные ключевые слова'
     items:
