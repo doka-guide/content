@@ -2,7 +2,7 @@
 title: "bind(), call() и apply()"
 description: "Методы привязки контекста: bind(), call() и apply()"
 authors:
-  - lira_bazh
+  - lira-bazh
 related:
   - js/function-context
   - js/function-as-datatype

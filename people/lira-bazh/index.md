@@ -2,6 +2,8 @@
 name: 'Лира'
 url: https://github.com/lira-bazh
 photo: photo.jpg
+badges:
+  - first-contribution-small
 ---
 Привет! 👋
 

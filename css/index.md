@@ -68,6 +68,8 @@ groups:
       - marker
       - backdrop
       - scrollbar
+      - file-selector-button
+      - target-text
   - name: 'Функции'
     items:
       - attr
@@ -98,6 +100,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - container
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
