@@ -154,34 +154,34 @@
     </div>
   </div>
   <script>
-    const form1 = document.getElementById("form1");
-    const form2 = document.getElementById("form2");
+    const form1 = document.getElementById('form1')
+    const form2 = document.getElementById('form2')
 
     function blurHandler(event) {
-      const input = event.target;
+      const input = event.target
 
       if (!event.target.value) {
-        input.classList.add('invalid');
-        const error = document.createElement('div');
-        error.textContent = 'Поле обязательно для заполнения!';
-        error.classList.add('error-message');
-        input.insertAdjacentElement('afterend', error);
+        input.classList.add('invalid')
+        const error = document.createElement('div')
+        error.textContent = 'Поле обязательно для заполнения!'
+        error.classList.add('error-message')
+        input.insertAdjacentElement('afterend', error)
       }
     }
 
-    form1.addEventListener('blur', blurHandler);
-    form2.addEventListener('blur', blurHandler, { capture: true });
+    form1.addEventListener('blur', blurHandler)
+    form2.addEventListener('blur', blurHandler, { capture: true })
 
     function focusHandler(event) {
-      const input = event.target;
-      input.classList.remove('invalid');
-      const error = input.nextElementSibling;
+      const input = event.target
+      input.classList.remove('invalid')
+      const error = input.nextElementSibling
       if (error) {
-        error.remove();
+        error.remove()
       }
     }
 
-    form2.addEventListener('focus', focusHandler, { capture: true });
+    form2.addEventListener('focus', focusHandler, { capture: true })
   </script>
 </body>
 </html>
