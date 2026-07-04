@@ -100,27 +100,27 @@
     </div>
   </div>
   <script>
-    const block1 = document.getElementById("block1");
-    const block2 = document.getElementById("block2");
-    const block3 = document.getElementById("block3");
+    const block1 = document.getElementById('block1')
+    const block2 = document.getElementById('block2')
+    const block3 = document.getElementById('block3')
 
     function focusHandler(event) {
       event.target.classList.add('green')
       event.target.innerHTML = '👋 Я получил фокус'
     }
 
-    block1.addEventListener('focus', focusHandler);
-    block2.addEventListener('focus', focusHandler);
-    block3.addEventListener('focus', focusHandler);
+    block1.addEventListener('focus', focusHandler)
+    block2.addEventListener('focus', focusHandler)
+    block3.addEventListener('focus', focusHandler)
 
     function blurHandler(event) {
-      event.target.classList.remove('green');
-      event.target.innerHTML = '';
+      event.target.classList.remove('green')
+      event.target.innerHTML = ''
     }
 
-    block1.addEventListener('blur', blurHandler);
-    block2.addEventListener('blur', blurHandler);
-    block3.addEventListener('blur', blurHandler);
+    block1.addEventListener('blur', blurHandler)
+    block2.addEventListener('blur', blurHandler)
+    block3.addEventListener('blur', blurHandler)
   </script>
 </body>
 

@@ -93,23 +93,23 @@
     </div>
   </form>
   <script>
-    const input = document.getElementById("name");
+    const input = document.getElementById('name')
     const error = document.getElementById('error')
 
     input.addEventListener('blur', (event) => {
       if (event.target.value.length <= 3) {
-        error.style.display = 'block';
-        input.classList.add('invalid');
+        error.style.display = 'block'
+        input.classList.add('invalid')
       } else {
-        error.style.display = 'none';
-        input.classList.remove('invalid');
+        error.style.display = 'none'
+        input.classList.remove('invalid')
       }
-    });
+    })
 
     input.addEventListener('focus', () => {
-      error.style.display = 'none';
-      input.classList.remove('invalid');
-    });
+      error.style.display = 'none'
+      input.classList.remove('invalid')
+    })
   </script>
 </body>
 </html>
