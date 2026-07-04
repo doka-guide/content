@@ -67,6 +67,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - cue
       - file-selector-button
       - target-text
   - name: 'Функции'
