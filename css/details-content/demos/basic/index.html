@@ -14,7 +14,10 @@
       box-sizing: border-box;
     }
 
-    html { color-scheme: dark; }
+    html {
+      color-scheme: dark;
+      interpolate-size: allow-keywords;
+    }
 
     body {
       min-height: 100vh;
@@ -28,7 +31,9 @@
     }
 
     @media (max-width: 768px) {
-      body { padding: 30px; }
+      body {
+        padding: 30px;
+      }
     }
 
     .container {
@@ -69,11 +74,13 @@
       user-select: none;
     }
 
-    summary::-webkit-details-marker { display: none; }
+    summary::-webkit-details-marker {
+      display: none;
+    }
 
     .example-plain details {
       border-color: #3a3d44;
-      background: #14161a;
+      background-color: #14161a;
     }
 
     .example-plain summary {
@@ -82,13 +89,30 @@
 
     @supports selector(::details-content) {
       .example-styled details::details-content {
-        padding: 12px 16px;
-        background: #111216;
-        display: none;
+        background-color: #111216;
+        overflow: clip;
+        block-size: 0;
+        padding: 0 16px;
+        opacity: 0;
+        transition:
+          block-size .3s ease,
+          padding .3s ease,
+          opacity .3s ease,
+          content-visibility .3s allow-discrete;
       }
 
       .example-styled details[open]::details-content {
-        display: block;
+        block-size: auto;
+        padding: 12px 16px;
+        opacity: 1;
+      }
+
+      @starting-style {
+        .example-styled details[open]::details-content {
+          block-size: 0;
+          padding: 0 16px;
+          opacity: 0;
+        }
       }
     }
   </style>
