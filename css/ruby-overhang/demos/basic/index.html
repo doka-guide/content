@@ -30,12 +30,6 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     ruby {
       text-align: center;
       ruby-align: center;
@@ -57,6 +51,16 @@
 
     .none {
       ruby-overhang: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+      .container {
+        gap: 3.5rem;
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
