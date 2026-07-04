@@ -262,6 +262,8 @@ groups:
       - event-change
       - element-click
       - event-dblclick
+      - event-focus
+      - event-focusin
       - event-input
       - event-invalid
       - element-keydown
@@ -298,6 +300,7 @@ groups:
       - promise-any
       - promise-race
       - promise-try
+      - promise-with-resolvers
       - async-await
   - name: "Обмен данными с API"
     items:
