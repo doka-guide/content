@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - fullscreen
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -68,6 +69,7 @@ groups:
       - marker
       - backdrop
       - scrollbar
+      - cue
       - file-selector-button
       - target-text
   - name: 'Функции'
@@ -100,6 +102,9 @@ groups:
       - supports
       - layer
       - starting-style
+      - namespace
+      - font-feature-values
+      - charset
       - container
   - name: 'Глобальные ключевые слова'
     items:
