@@ -68,6 +68,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - details-content
       - cue
       - file-selector-button
       - target-text
