@@ -59,7 +59,7 @@ await el.requestFullscreen()
 await document.exitFullscreen()
 ```
 
-<iframe title="Пример псевдокласса :fullscreen" src="/demos/basic/" height="610"></iframe>
+<iframe title="Пример псевдокласса :fullscreen" src="demos/basic/" height="610"></iframe>
 
 ## Как понять
 
