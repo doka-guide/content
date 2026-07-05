@@ -4,7 +4,7 @@ description: "Вставляет код JavaScript на страницу или 
 baseline:
   - group: import-maps
     features:
-      - html.elements.script.type_importmap
+      - html.elements.script.type.importmap
 authors:
   - doka-dog
 contributors:
