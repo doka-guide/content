@@ -12,8 +12,8 @@ keywords:
   - prototype
 related:
   - js/typeof
-  - js/class
-  - js/prototype
+  - js/function
+  - js/object
 tags:
   - doka
 ---
