@@ -11,8 +11,8 @@ keywords:
   - javascript typeof
   - null typeof
 related:
-  - js/type-conversion
-  - js/data-types
+  - js/typecasting
+  - js/number
   - js/instanceof
 tags:
   - doka
