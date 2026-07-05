@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - picture-in-picture
       - fullscreen
   - name: 'Псевдоэлементы'
     items:
@@ -69,6 +70,7 @@ groups:
       - marker
       - backdrop
       - scrollbar
+      - details-content
       - cue
       - file-selector-button
       - target-text
