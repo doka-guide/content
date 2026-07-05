@@ -4,6 +4,7 @@ url: https://github.com/teplostanski
 photo: avatar.png
 badges:
   - first-contribution-small
+  - merged-pr-5
 ---
 
 Я frontend developer. В свободное время разрабатываю vite-plugin-readable-classnames, Moonbloom Theme и поддерживаю русскоязычную документацию tsdown.
