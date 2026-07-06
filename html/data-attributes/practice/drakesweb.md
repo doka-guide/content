@@ -8,7 +8,7 @@
 </article>
 ```
 
-В JavaScript доступ к этим данным идёт через `dataset`:
+В JavaScript для доступа к этим данным используется свойство [`dataset`](https://doka.guide/js/element-dataset/):
 
 ```js
 const article = document.querySelector('article');
