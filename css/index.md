@@ -56,6 +56,7 @@ groups:
       - root
       - indeterminate
       - user-valid-invalid
+      - picture-in-picture
       - fullscreen
   - name: 'Псевдоэлементы'
     items:
@@ -69,6 +70,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - details-content
       - cue
       - file-selector-button
       - target-text
