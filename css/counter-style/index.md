@@ -81,7 +81,9 @@ ul.yummy-list { list-style: yummy; }
   fallback: decimal;  /* если что-то не поддерживается */
 }
 
-ol.roman { list-style: romans; }
+ol.roman {
+  list-style: romans;
+}
 ```
 
 ```html
