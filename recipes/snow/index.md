@@ -10,6 +10,8 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - article
 ---
@@ -29,7 +31,7 @@ tags:
 Поместите HTML-разметку в конец страницы:
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -113,7 +115,7 @@ body {
 }
 
 .snow-toggle__control:focus + .snow-toggle__text::before {
-  border-color: #2E9AFF;
+  border-color: #C56FFF;
 }
 
 .snow-toggle__control:checked + .snow-toggle__text::before {
@@ -213,10 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Разметка
 
-Создадим разметку для снежинок. Понадобится родительский контейнер с классом `snow`. Внутри будут блоки с классом `snow__flake` и символом `﹡` в контенте.
+Создадим разметку для снежинок. Понадобится родительский контейнер с классом `snow`. Внутри будут блоки с классом `snow__flake` и символом `﹡` в контенте. Чтобы [скринридеры](/a11y/screenreaders/) не читали звёздочки, добавим атрибут [`aria-hidden`](/a11y/aria-hidden/) со значением `true`.
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -387,7 +389,7 @@ snowflakes.forEach(snowflake => {
 ### Финальный код
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -448,7 +450,7 @@ snowflakes.forEach(snowflake => {
 
 Используем в качестве переключателей радио-кнопки. Обязательно обернём их [`<label>`](/html/label/), чтобы кнопки были доступными для пользователей со [скринридерами](/a11y/screenreaders/).
 
-Так как это группа радиокнопок, используем также [`<fildset>`](/html/fieldset/) с названием группы в `<legend>`. Так мы свяжем их программно, зададим общую подпись и порадуем пользователей и [WCAG](/a11y/wcag/).
+Так как это группа радиокнопок, используем также [`<fildset>`](/html/fieldset/) с названием группы в [`<legend>`](/html/legend/). Так мы свяжем их программно, зададим общую подпись и порадуем пользователей и [WCAG](/a11y/wcag/).
 
 ```html
 <fieldset class="snow-toggle">
@@ -560,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ### Финальный код с переключателями
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>

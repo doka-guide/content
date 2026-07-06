@@ -135,7 +135,7 @@ tags:
   font-size: 16px;
 }
 
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 
@@ -195,8 +195,7 @@ tags:
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
-const sizeText = document.getElementById("uploadForm_Size")
+const statusText = document.getElementById("uploadForm_Hint")
 const uploadInput = document.querySelector(".form-upload__input")
 
 let setStatus = (text) => {
@@ -328,9 +327,9 @@ function processingDownloadFileWithFetch() {
 
 Кроме самой области для перетаскивания файла используем специальное поле для его загрузки `<input type="file" accept="image/*">`. Так добавим альтернативный способ загрузки для тех пользователей, которые не пользуются мышкой, и заодно выполним один из критериев [WCAG](/a11y/wcag/).
 
-Поле свяжем с подсказкой о том, что можно загружать только картинки, при помощи [`aria-describedby`](/a11y/aria-describedby/). Этот атрибут программно связывает подсказку с полем и полезно для пользователей [скринридеров](/a11y/screenreaders/).
+Поле свяжем с подсказкой о том, что можно загружать только картинки, при помощи [`aria-describedby`](/a11y/aria-describedby/). Этот атрибут программно связывает подсказку с полем и полезен для пользователей [скринридеров](/a11y/screenreaders/).
 
-Для показа процесса выполнения загрузки файла также можно использовать специальный элемент [`<progress>`](/html/progress/) — этот вариант подробно рассмотрен в рецепте «[Загрузка файла с прогресс-баром](/recipes/progress/)». В этот тег уже встроена роль [`progressbar`](/a11y/role-progressbar/), благодаря которой скринридеры объявляют прогресс загрузки автоматически.
+Для отображения загрузки файла также можно использовать специальный элемент [`<progress>`](/html/progress/) — этот вариант подробно рассмотрен в рецепте «[Загрузка файла с прогресс-баром](/recipes/progress/)». В этот тег уже встроена роль [`progressbar`](/a11y/role-progressbar/), благодаря которой скринридеры объявляют прогресс загрузки автоматически.
 
 ### Стили
 
@@ -354,7 +353,7 @@ function processingDownloadFileWithFetch() {
 При перетаскивании файла в область загрузки будем менять фоновый цвет при помощи дополнительного класса:
 
 ```css
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 ```
@@ -370,7 +369,7 @@ function processingDownloadFileWithFetch() {
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
+const statusText = document.getElementById("uploadForm_Hint")
 const uploadInput = document.querySelector(".form-upload__input")
 
 let setStatus = (text) => {

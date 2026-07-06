@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - tatianafokina
 keywords:
   - цитата
 related:

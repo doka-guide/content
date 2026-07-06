@@ -1,97 +1,263 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Форма с отключённой валидацией — novalidate — Дока</title>
+  <title>Форма с отключённой валидацией — Атрибут novalidate — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
-    body {
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
-      padding: 5%;
+      padding: 0;
     }
 
-    form {
-      margin: 0 auto;
-      padding: 0 1rem;
-      width: 350px;
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-swither-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+      gap: 30px;
     }
 
     .form-tag {
-      display: block;
-      font-family: monospace;
-      text-align: right;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1.125rem;
+      color: inherit;
     }
 
     .form-row {
-      display: block;
-      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .form-row.required span::after {
-      color: #ff0000;
-      content: '*';
+    .form-row-control {
+      justify-content: end;
     }
 
-    input:not([type=checkbox]), textarea {
-      border: 2px solid transparent;
-      border-radius: 4px;
-      box-sizing: border-box;
-      padding: 5px 20px 5px 8px;
-      width: 100%;
+    .form-row + .form-row {
+      margin-top: 25px;
     }
 
-    textarea {
+    .row-label {
+      display: inline-block;
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .form-row.required .row-label::after {
+      content: "*:";
+      color: #FFFFFF;
+    }
+
+    .row-input {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 300;
       font-family: inherit;
-      resize: none;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    input:invalid, textarea:invalid {
-      border-color: #ff0000;
+    .row-textarea {
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 300;
+      font-family: inherit;
     }
 
-    .form-toolbar {
-      text-align: right;
+    .row-input:focus, .row-textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .row-input:invalid, .row-textarea:invalid {
+      border-color: #2E9AFF;
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #FF8630;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #FF8630;
+    }
+
+    .button {
+      display: block;
+      min-width: 230px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1.125rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .row-input, .button-form {
+      width: 350px;
+    }
+
+    .row-textarea {
+      min-width: 350px;
+      max-width: 350px;
     }
 
     .submission-result {
-      color: #90ee90;
-      display: none;
-      font-size: 0.875rem;
-      font-style: italic;
+      visibility: hidden;
+      margin-top: 20px;
+      font-size: 1.125rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .row-input, .button-form {
+        width: 100%;
+      }
+
+      .row-textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <form novalidate>
-    <span class="form-tag" data-form-tag>&lt;form novalidate&gt;</span>
-    <label class="form-row">
-      <span>Имя</span>
-      <input type="text" name="name" placeholder="Микки">
-    </label>
-    <label class="form-row required">
-      <span>Почта</span>
-      <input type="email" name="email" placeholder="email@example.com" required>
-    </label>
-    <label class="form-row required">
-      <span>Комментарий</span>
-      <textarea name="comment" placeholder="Мне всё понравилось!" required></textarea>
-    </label>
-    <label class="form-row">
-      <input type="checkbox" name="agree" required>
-      Я согласен с политикой обработки персональных данных
-    </label>
-    <div class="form-toolbar">
-      <button type="button" data-validation-control>Вернуть валидацию</button>
-      <button type="submit">Отправить</button>
+  <div class="container">
+    <div class="form-swither-container">
+      <button role="switch" aria-selected="false" class="button button-orange" type="button" data-validation-control>
+        Вернуть валидацию
+      </button>
+      <output class="form-tag" data-form-tag>&lt;form novalidate&gt;</output>
     </div>
-    <span class="submission-result" data-submission-result>Спасибо, ваш отзыв отправлен!</span>
-  </form>
+
+    <form novalidate>
+      <div class="form-row">
+        <label class="row-label" for="name">Имя:</label>
+        <input class="row-input" type="text" name="name" id="name" placeholder="Микки">
+      </div>
+      <div class="form-row required">
+        <label class="row-label" for="email">Почта</label>
+        <input class="row-input" type="email" name="email" id="email" placeholder="email@example.com" required>
+      </div>
+      <div class="form-row required">
+        <label class="row-label" for="comment">Комментарий</label>
+        <textarea class="row-textarea" name="comment" id="comment" placeholder="Мне всё понравилось!" required></textarea>
+      </div>
+      <div class="form-row">
+        <label class="checkbox-label">
+          <input class="checkbox" type="checkbox" name="agree" required>
+          <span class="checkbox-title">Соглашаюсь с обработкой персональных данных</span>
+        </label>
+      </div>
+      <div class="form-row form-row-control">
+        <button class="button button-form button-orange" type="submit">Отправить</button>
+      </div>
+      <div aria-live="polite" class="submission-result" data-submission-result>Спасибо, ваш отзыв отправлен 🎉</div>
+    </form>
+  </div>
 
   <script>
     const formTag = document.querySelector('[data-form-tag]')
@@ -103,20 +269,22 @@
       if (form.getAttribute('novalidate') === '') {
         form.removeAttribute('novalidate')
         validationControl.innerText = 'Выключить валидацию'
+        validationControl.setAttribute('aria-selected', 'true')
         formTag.innerText = '<form>'
       } else {
         form.setAttribute('novalidate', '')
         validationControl.innerText = 'Вернуть валидацию'
+        validationControl.setAttribute('aria-selected', 'false')
         formTag.innerText = '<form novalidate>'
       }
 
-      submissionResult.style.display = 'none'
+      submissionResult.style.visibility = 'hidden'
     })
 
     form.addEventListener('submit', (event) => {
       event.preventDefault()
 
-      submissionResult.style.display = 'block'
+      submissionResult.style.visibility = 'visible'
     })
   </script>
 </body>

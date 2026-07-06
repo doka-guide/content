@@ -1,0 +1,42 @@
+<html lang="ru">
+<html>
+<title>Адаптивный container с использованием clamp() — Колонка с контентом по центру экрана — Дока</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    background-color: #18191C;
+    display: grid;
+    place-content: center;
+    min-width: 550px;
+    margin: auto;
+  }
+
+  iframe {
+    margin-bottom: 1em;
+    width: 550px;
+    height: 480px;
+    border: none;
+  }
+
+  input {
+    margin: auto;
+    display: block;
+    width: 350px;
+    accent-color: #FFFFFF;
+  }
+</style>
+<body>
+  <iframe src="code.html"></iframe>
+  <input type="range" min="350" max="550" value="550">
+
+  <script>
+    const range = document.querySelector('input')
+    const frame = document.querySelector('iframe')
+
+    range.addEventListener('input', () => {
+      frame.style.width = range.value + 'px'
+    })
+  </script>
+</body>
+</html>

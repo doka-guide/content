@@ -3,13 +3,19 @@ title: "`<sup>`"
 description: "Выводит надстрочный текст."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
+  - skorobaeus
 keywords:
   - надстрочный
   - индекс
+  - семантика
+  - screen reader
+  - ридер
 related:
-  - html/var
+  - a11y/role-superscript
   - css/tag-selector
-  - css/font-size
+  - html/var
 tags:
   - doka
 ---
@@ -31,7 +37,7 @@ tags:
 </p>
 ```
 
-<iframe title="Теорема пифагора" src="demos/basic/" height="100"></iframe>
+<iframe title="Теорема пифагора" src="demos/basic/" height="400"></iframe>
 
 ## Как пишется
 
@@ -41,7 +47,7 @@ tags:
 <p>
   Квадрат суммы может быть вычислен как сумма
   квадратов слагаемых и их удвоенное произведение:
-  <var>(a + b)<sup>2</sup> = a<sup>2</sup> + 2*a*b + b<sup>2</sup></var>
+  <var>(a + b)<sup>2</sup> = a<sup>2</sup> + 2 × a × b + b<sup>2</sup></var>
 </p>
 ```
 
@@ -51,7 +57,7 @@ var {
 }
 ```
 
-<iframe title="Пример с математической формулой" src="demos/variables/" height="150"></iframe>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="400"></iframe>
 
 Теги `<sup>` можно вкладывать друг в друга, тогда на каждом шаге текст будет подниматься вверх, а его размер будет уменьшаться.
 
@@ -66,7 +72,7 @@ var {
 </p>
 ```
 
-<iframe title="Пример с математической формулой" src="demos/nested/" height="180"></iframe>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="470"></iframe>
 
 Также `<sup>` можно комбинировать с тегом [`<sub>`](/html/sub/) для построения сложных формул.
 
@@ -81,4 +87,8 @@ var {
 </p>
 ```
 
-<iframe title="Пример с тегом sub" src="demos/sub/" height="120"></iframe>
+<iframe title="Пример с тегом sub" src="demos/sub/" height="300"></iframe>
+
+### Доступность
+
+У `<sup>` есть роль [`superscript`](/a11y/role-superscript/). [Скринридеры](/a11y/screenreaders/) пока не сообщают об этой роли и не выделяют содержимое тега интонацией, но это добавляет семантический вес и приносит потенциальную пользу для доступности.

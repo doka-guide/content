@@ -8,15 +8,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     .parent {
-      color: #49a16c;
+      color: #2E9AFF;
       padding: 20px 0;
       border-top: 1px solid currentColor;
       border-bottom: 1px solid currentColor;
@@ -31,7 +45,7 @@
 </head>
 <body>
   <div class="parent">
-    Мы сделали этот текст зелёным с помощью свойства «color». Рамки блока наследуют цвет от текста.
+    Мы сделали этот текст голубым с помощью свойства «color». Рамки блока наследуют цвет от текста.
     <div class="child"></div>
     Блок выше 👆 тоже наследует фоновый цвет от текста, для которого задано свойство «color».
   </div>

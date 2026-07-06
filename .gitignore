@@ -68,6 +68,7 @@ dist
 ## Для редактора VSCode
 .vscode/*
 .history/
+*.code-workspace
 *.vsix
 .history
 .ionide

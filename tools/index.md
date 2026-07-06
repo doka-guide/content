@@ -6,6 +6,7 @@ groups:
     items:
       - api
       - web-app-types
+      - pwa
       - web-app-works
       - web-security
 
@@ -21,7 +22,6 @@ groups:
       - design-patterns-structural
       - design-patterns-behaviorial
 
-
   - name: Стили программирования
     items:
       - programming-paradigms
@@ -30,6 +30,11 @@ groups:
       - reactivity
       - tdd
 
+  - name: Алгоритмы
+    items:
+      - structure-data-in-js
+      - algorithm-complexity
+
   - name: Фреймворки
     items:
       - react-and-alternatives
@@ -37,7 +42,6 @@ groups:
   - name: TypeScript и другие языки
     items:
       - static-types
-
 
   - name: Как устроен браузер
     items:
@@ -61,6 +65,7 @@ groups:
       - static-analysis
       - nodejs
       - nodejs-tooling
+      - deno
       - rollup
       - gulp
 
@@ -92,6 +97,7 @@ groups:
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+      - ipv6-for-webdevs
 
   - name: Безопасность
     items:
@@ -124,6 +130,7 @@ groups:
       - testing-and-fake-objects
       - integration-and-system-testing
       - testing-with-jest
+
   - name: Инструменты
     items:
       - git-cli
@@ -131,7 +138,6 @@ groups:
       - ssh
       - gulp
       - version-control
-
 ---
 
 Здесь собраны технологии, теория и хорошие практики, которые пригодятся при разработке веб-приложений.

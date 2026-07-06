@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Поля только для чтения — Атрибут readonly — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    form {
+      width: 80%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 500;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    input[readonly] {
+      border-color: #FF8630;
+      cursor: not-allowed;
+    }
+
+    input[readonly]:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    input[disabled] {
+      border-color: #979797;
+      background-color: #9797971A;
+      color: #979797;
+      cursor: not-allowed;
+    }
+
+    .hint {
+      margin-top: 4px;
+      color: #979797;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div class="form-group">
+      <label for="editable">Обычное поле</label>
+      <input type="text" id="editable" value="Можно редактировать">
+      <p class="hint">Это поле можно редактировать</p>
+    </div>
+
+    <div class="form-group">
+      <label for="readonly">Поле только для чтения</label>
+      <input type="text" id="readonly" value="Нельзя редактировать" readonly>
+      <p class="hint">Поле с атрибутом readonly можно выделить и скопировать</p>
+    </div>
+
+    <div class="form-group">
+      <label for="disabled">Неактивное поле</label>
+      <input type="text" id="disabled" value="Полностью неактивно" disabled>
+      <p class="hint">Поле с атрибутом disabled нельзя редактировать и получить фокус</p>
+    </div>
+  </form>
+</body>
+
+</html>

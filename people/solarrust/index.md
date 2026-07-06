@@ -6,6 +6,7 @@ roles:
   - doka-core-team
 badges:
   - first-contribution-small
+  - merged-pr-500
 ---
 
 Привет! 🖖

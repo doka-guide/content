@@ -61,14 +61,12 @@ tags:
 
 ```html
 <input type="file" accept="image/*" capture>
-
 ```
 
 2. Атрибут [`multiple`](/html/multiple/) позволяет загружать несколько файлов. Если вы хотите, чтобы пользователь мог загружать несколько изображений с помощью камеры, вы можете использовать следующий код:
 
 ```html
 <input type="file" accept="image/*" capture multiple>
-
 ```
 
 ## Поддержка браузеров

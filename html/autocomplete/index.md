@@ -27,7 +27,7 @@ tags:
 <form action="">
   <div>
     <label for="name">Введите имя</label>
-    <input id="name" type="text">
+    <input id="name" type="text" autocomplete="off">
   </div>
   <div>
     <label for="email">Электронная почта</label>

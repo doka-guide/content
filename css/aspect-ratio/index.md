@@ -1,6 +1,13 @@
 ---
 title: "`aspect-ratio`"
 description: "Помогает задать соотношение сторон для элемента."
+baseline:
+  - group: aspect-ratio
+    features:
+      - html.elements.video.aspect_ratio_computed_from_attributes
+      - html.elements.img.aspect_ratio_computed_from_attributes
+      - css.properties.aspect-ratio
+      - css.properties.aspect-ratio.auto
 authors:
   - denisputnov
 contributors:

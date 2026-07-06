@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Использование атрибута size в input — Атрибут size — Дока</title>
+  <title>Использование атрибута size в поле — Атрибут size — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&Roboto+Mono&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,39 +14,77 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 100px 50px;
-      font-family: "Roboto Mono", monospace;
-      font-size: 18px;
+      background-color: #18191C;
+      font-size: 16px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
     }
 
     .input-label {
-      display: block;
-      font-size: 20px;
-      margin-right: 20px;
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .input {
-      border: 1px solid;
-      border-radius: 3px;
-      padding: 3px 15px;
-      font-family: inherit;
-      font-size: inherit;
-      cursor: pointer;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size:  1.125rem;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+      font-family: "Roboto Mono", monospace;
     }
 
     .input:focus {
+      border-color: #ff8630;
       outline: none;
-      border: 1px solid #ff8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .input-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .container {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <label class="input-label" for="input-field">Поле ввода:</label>
-  <input class="input" id="input-field" size="9" placeholder="123456789">
+  <div class="container">
+    <label class="input-label" for="input-field">Поле ввода:</label>
+    <input class="input" id="input-field" size="9" placeholder="123456789">
+  </div>
 </body>
 </html>

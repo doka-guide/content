@@ -1,6 +1,11 @@
 ---
 title: "Интерфейс командной строки"
 description: "Что такое командная строка и какие команды можно отдавать компьютеру."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Коробка с инструментами, где есть даже ковш от экскаватора'
 authors:
   - igsekor
 editors:

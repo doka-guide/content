@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значение auto — Атрибут dir — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 15px;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      color: #ffffff;
+      accent-color: darkmagenta;
+      background-color: #18191c;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    p {
+      margin-block-start: 12px;
+      margin-block-end: 12px;
+    }
+
+    bdi {
+      padding-inline-start: 10px;
+      padding-inline-end: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <p dir="auto">
+      <bdi>1.</bdi>
+      <span class="msg">Как сказать «Как тебя зовут» на арабском?</span>
+    </p>
+    <p dir="auto">
+      <bdi>2.</bdi>
+      <span class="msg"> ما اسمك؟</span>
+    </p>
+    <p dir="auto">
+      <bdi>3.</bdi>
+      <span class="msg">Спасибо.</span>
+    </p>
+    <p dir="auto">
+      <bdi>4.</bdi>
+      <span class="msg">Тут написано спасибо на арабском языке - «شكرًا».</span>
+    </p>
+    <p dir="auto">
+      <bdi>5.</bdi>
+      <span class="msg">Ты знаешь как пишется «Пожалуйста»?</span>
+    </p>
+    <p dir="auto">
+      <bdi>6.</bdi>
+      <span class="msg">«من فضلك», верно?</span>
+    </p>
+  </div>
+</body>
+</html>

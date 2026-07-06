@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример двух изображений с разной плотностью пикселей — Плотность пикселей — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .demo {
+      width: 65%;
+    }
+
+    .demo__section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo__title {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .demo__subtitle {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .demo__images-wr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+    }
+
+    .demo__picture {
+      width: 128px;
+      height: 128px;
+      aspect-ratio: 1 / 1;
+    }
+
+    .demo__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 769px) {
+      .demo__picture {
+        width: 256px;
+        height: 256px;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .demo__picture {
+        width: 512px;
+        height: 512px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo">
+    <section class="demo__section">
+      <h1 class="demo__title">Изображения одинакового размера с разной плотностью пикселей</h1>
+      <p class="demo__subtitle">У изображения слева одинарная плотность пикселей, справа — двойная.</p>
+      <div class="demo__images-wr">
+        <picture class="demo__picture">
+          <source srcset="../../images/cat-512.jpg" media="(min-width: 1200px)">
+          <source srcset="../../images/cat-256.jpg" media="(min-width: 769px)">
+          <img
+            class="demo__image"
+            src="../../images/cat-128.jpg"
+            alt="Нарисованный рыжий котёнок в очках сидит перед ноутбуком и что-то изучает с умным видом"
+          >
+        </picture>
+
+        <picture class="demo__picture">
+          <source srcset="../../images/cat-1024.jpg" media="(min-width: 1200px)">
+          <source srcset="../../images/cat-512.jpg" media="(min-width: 769px)">
+          <img
+            class="demo__image"
+            src="../../images/cat-256.jpg"
+            alt=""
+          >
+        </picture>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

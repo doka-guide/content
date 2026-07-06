@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Корзина с товарами — aria-atomic — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    h3 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .button {
+      display: block;
+      align-self: center;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    form > .button {
+      margin-top: 15px;
+      min-width: 130px;
+      align-self: end;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    form > .button:focus-visible {
+      background-color: #10F3AF;
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:hover,
+    form > .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    form > .button:hover {
+      border: 2px solid #000000;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    label {
+      margin-right: 25px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      width: 130px;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .cards {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card, form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card {
+      max-width: 310px;
+      padding: 15px 10px;
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+
+    .card > p {
+      margin-bottom: 15px;
+    }
+
+    .card > form {
+      margin-top: auto;
+    }
+
+    form > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart > div {
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #10F3AF;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .cards {
+        flex-direction: column;
+      }
+
+      form > .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Новинки игровой индустрии</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Scream</h3>
+        <p>Победи драконов и спаси мир 🐲</p>
+        <form>
+          <div>
+            <label for="game-1">Количество:</label>
+            <input type="number" min="0" id="game-1">
+          </div>
+          <button type="button" class="button button-aqua">Добавить</button>
+        </form>
+      </article>
+      <article class="card">
+        <h3>Autumnout 78</h3>
+        <p>Построй и потеряй дом 🤠</p>
+        <form>
+          <div>
+          <label for="game-2">Количество:</label>
+            <input type="number" min="0" id="game-2">
+          </div>
+          <button type="button" class="button button-aqua">Добавить</button>
+        </form>
+      </article>
+    </div>
+    <div class="cart">
+      <h2>Корзина</h2>
+      <div aria-live="polite" aria-atomic="true">
+        <ul>
+          <li>Scream, количество — <span id="item-1">0</span></li>
+          <li>Autumnout 78, количество — <span id="item-2">0</span></li>
+        </ul>
+      </div>
+      <button class="button button-aqua">Купить</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const updateCartQuantity = (gameName, quantity) => {
+        const itemSpan = document.querySelector(`#item-${gameName === 'Scream' ? '1' : '2'}`)
+        itemSpan.textContent = quantity
+      }
+
+      document.querySelectorAll('.card').forEach((card, index) => {
+        const gameName = card.querySelector('h3').textContent
+        const input = card.querySelector('input[type="number"]')
+        const addButton = card.querySelector('.button')
+
+        addButton.addEventListener('click', () => {
+          let quantity = parseInt(input.value) || 0
+          if (quantity < 0) {
+            quantity = 0
+          }
+
+          updateCartQuantity(gameName, quantity)
+        })
+      })
+    })
+  </script>
+</body>
+</html>

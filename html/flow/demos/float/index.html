@@ -20,7 +20,6 @@
       color: #FFFFFF;
       font-size: 16px;
       font-family: "Roboto", sans-serif;
-      overflow: hidden;
     }
 
     .container {
@@ -63,6 +62,37 @@
 
     .thin {
       width: 60%;
+    }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: auto;
+        min-width: auto;
+      }
+    }
+
+    @media (max-width: 579px) {
+      .floated {
+        font-size: 78%;
+        width: 42%;
+        margin-right: 8px;
+        padding: 4px;
+      }
+
+      .in-float {
+        padding: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body,
+      .normal-flow-child {
+        padding: 20px;
+      }
     }
   </style>
 </head>

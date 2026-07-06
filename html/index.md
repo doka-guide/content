@@ -31,8 +31,12 @@ groups:
       - small
       - pre
       - code
+      - dir
+      - math
+      - ruby
   - name: 'Семантика'
     items:
+      - semantics
       - div
       - span
       - header
@@ -42,6 +46,7 @@ groups:
       - article
       - aside
       - nav
+      - search
       - time
       - data
       - sub
@@ -58,6 +63,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
@@ -90,11 +96,14 @@ groups:
   - name: 'Картинки'
     items:
       - img
+      - alt
       - figure-figcaption
       - picture
       - source
       - map
       - area
+      - svg-sprite
+      - images-paste-methods
   - name: 'Ссылки'
     items:
       - a
@@ -121,10 +130,13 @@ groups:
       - progress
       - canvas
       - dialog
+      - popover
   - name: 'Таблицы'
     items:
       - tables
       - caption
+      - col
+      - colgroup
   - name: 'Мета'
     items:
       - head
@@ -136,16 +148,25 @@ groups:
       - script
       - noscript
       - defer-async
+      - crossorigin
       - template
       - output
+      - data-attributes
   - name: 'Глобальные атрибуты'
     items:
       - global-attrs
       - class
       - hidden
+      - inert
+      - dir
+      - tabindex
+      - enterkeyhint
+      - data-attributes
+      - autofocus
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners
+      - noindex
 ---
 
 HTML — язык разметки для создания структуры веб-страницы и представления контента. Благодаря разметке браузер знает в каком порядке отображать элементы, и что они значат.

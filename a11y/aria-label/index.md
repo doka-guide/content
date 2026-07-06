@@ -3,10 +3,16 @@ title: "`aria-label`"
 description: "Атрибут для добавления доступного имени элемента."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
+  - a11y
   - доступность
   - ARIA
   - ARIA-атрибут
+  - лейбл
+  - доступный лейбл
+  - accessible name
 related:
   - a11y/aria-attrs
   - a11y/aria-describedby
@@ -25,13 +31,18 @@ tags:
 
 ```html
 <button aria-label="Пауза">
-  <svg viewBox="0 0 35 42" width="35" height="42" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    viewBox="0 0 35 42"
+    width="35"
+    height="42"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <!-- Описание фигуры -->
   </svg>
 </button>
 ```
 
-<iframe title="Кнопка паузы с иконкой и aria-label" src="demos/button-with-icon/" height="150"></iframe>
+<iframe title="Кнопка паузы с иконкой и скрытым именем" src="demos/button-with-icon/" height="200"></iframe>
 
 ## Как пишется
 
@@ -41,20 +52,20 @@ tags:
 
 Есть теги и роли, для которых точно нельзя использовать `aria-label`:
 
-- [`<caption>`](/html/caption/) и роль [`caption`](/a11y/role-caption/).
+- [`<caption>`](/html/caption/) и [роль `caption`](/a11y/role-caption/).
 - [`<code>`](/html/code/) и роль [`code`](/a11y/role-code/).
 - [`<dd>`](/html/dl-dd-dt/) и роль [`definition`](/a11y/role-definition/).
-- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роль [`term`](/a11y/role-term/).
-- [`<del>`](/html/del/) и роль [`deletion`](/a11y/role-deletion/).
-- [`<em>`](/html/em/) и роль [`emphasis`](/a11y/role-emphasis/).
+- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и [роль `term`](/a11y/role-term/).
+- [`<del>`](/html/del/) и [роль `deletion`](/a11y/role-deletion/).
+- [`<em>`](/html/em/) и [роль `emphasis`](/a11y/role-emphasis/).
 - [`<ins>`](/html/ins/) и роль [`insertion`](/a11y/role-insertion/).
-- [`<mark>`](/html/mark/) и роль [`mark`](/a11y/role-mark/).
-- [`<p>`](/html/p/) и роль [`paragraph`](/a11y/role-paragraph/).
-- [`<strong>`](/html/strong/) и роль [`strong`](/a11y/role-strong/).
-- [`<sub>`](/html/sub/) и роль [`subscript`](/a11y/role-subscript/).
-- [`<sup>`](/html/sup/) и роль [`superscript`](/a11y/role-superscript/).
-- [`<time>`](/html/time/) и роль [`time`](/a11y/role-time/).
-- [`<span>`](/html/span/), [`<div>`](/html/div/) и роль [`generic`](/a11y/role-generic/).
+- [`<mark>`](/html/mark/) и [роль `mark`](/a11y/role-mark/).
+- [`<p>`](/html/p/) и [роль `paragraph`](/a11y/role-paragraph/).
+- [`<strong>`](/html/strong/) и [роль `strong`](/a11y/role-strong/).
+- [`<sub>`](/html/sub/) и [роль `subscript`](/a11y/role-subscript/).
+- [`<sup>`](/html/sup/) и [роль `superscript`](/a11y/role-superscript/).
+- [`<time>`](/html/time/) и [роль `time`](/a11y/role-time/).
+- [`<span>`](/html/span/), [`<div>`](/html/div/) и [роль `generic`](/a11y/role-generic/).
 - роли [`presentation`/`none`](/a11y/role-presentation-none/) и [`suggestion`](/a11y/role-suggestion/).
 
 Имя в `aria-label` должно быть кратким и не повторять роль элемента. Например, если это главная навигация, назовите её «Главная» вместо «Главная навигация». Во втором случае [скринридер](/a11y/screenreaders/) скажет «Главная навигация, навигация». Слишком много навигаций! Также старайтесь задавать уникальные имена ориентирам — частям страницы, к которым могут быстро переместиться пользователи скринридеров.

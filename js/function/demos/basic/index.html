@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -29,11 +29,11 @@
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
     }
 
     label {
-      margin-right: 10px;
+      margin-right: 55px;
       font-size: 24px;
       font-weight: 500;
       line-height: 1;
@@ -60,11 +60,11 @@
 
     .button {
       display: block;
-      min-width: 210px;
+      width: 300px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
-      margin-top: 30px;
+      margin-top: 25px;
       color: #000000;
       font-size: 18px;
       font-weight: 300;
@@ -95,6 +95,12 @@
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      label {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
       }
     }
   </style>

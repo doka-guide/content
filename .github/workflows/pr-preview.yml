@@ -5,6 +5,7 @@ on:
 
 jobs:
   prepare:
+    name: Подготовка списка файлов
     runs-on: ubuntu-latest
     outputs:
       files: ${{ steps.files.outputs.all }}
@@ -21,6 +22,7 @@ jobs:
           echo "::set-output name=all::$returnReplaced"
           echo $returnReplaced
   pr-preview:
+    name: Сборка и загрузка превью
     runs-on: ubuntu-latest
     needs:
       - prepare
@@ -30,22 +32,22 @@ jobs:
       PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           path: content
       - name: Загрузка кеша
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: doka-guide/cache
           path: cache
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Кэширование модулей
         uses: actions/cache@v3
         env:
@@ -66,7 +68,7 @@ jobs:
       - name: Установка модулей
         run: npm ci
       - name: Копирование кеша
-        run: cp -r ./cache/.cache ./
+        run: cp ./cache/issues.json ./.issues.json
       - name: Сообщение о начале публикации превью
         uses: hasura/comment-progress@v2.1.0
         with:

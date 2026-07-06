@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример выключения выделения текста — user-select — Дока</title>
+  <title>Варианты выделения текста — user-select — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,31 +29,177 @@
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    h1 {
+      margin-block-end: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-block-end: 17px;
+    }
+
+    .user-selector-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .user-selector {
+      width: 100px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      margin-inline-start: .5rem;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .user-selector:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url(images/arrow-down.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    .content {
+      padding: 55px 40px;
+      background-color: #282A2E;
+      color: #E6E6E6;
     }
 
     p {
-      font-size: 18px;
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    .select-none {
       user-select: none;
+    }
+
+    .select-text {
+      user-select: text;
+    }
+
+    .select-all {
+      user-select: all;
+    }
+
+    .select-auto {
+      user-select: auto;
     }
 
     @media (max-width: 768px) {
       body {
         padding: 30px;
       }
+
+      .content {
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <p>
-      Три — эльфийским владыкам в подзвёздный предел;
-      <br>
-      Семь — для гномов царящих в подгорном просторе;
-      <br>
-      Девять — смертным, чей выведен срок и удел;
-      <br>
-      И Одно — Властелину на чёрном престоле.
-    </p>
+    <h1 class="title">Значение user-select</h1>
+    <form class="form">
+      <div class="user-selector-container">
+        <label for="user-selector1">Весь текст</label>
+        <div class="select-wrapper">
+          <select
+            name="user-selectorAll"
+            id="user-selector1"
+            class="user-selector"
+          >
+            <option value="none" selected>none</option>
+            <option value="text">text</option>
+            <option value="all">all</option>
+            <option value="auto">auto</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="user-selector-container">
+        <label for="user-selector2">Последняя строка</label>
+        <div class="select-wrapper">
+          <select
+            name="user-selectorLast"
+            id="user-selector2"
+            class="user-selector"
+          >
+            <option value="none">none</option>
+            <option value="text">text</option>
+            <option value="all">all</option>
+            <option value="auto" selected>auto</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="content select-none">
+      <p>
+        Три — эльфийским владыкам в подзвёздный предел;
+      </p>
+      <p>
+        Семь — для гномов царящих в подгорном просторе;
+      </p>
+      <p>
+        Девять — смертным, чей выведен срок и удел;
+      </p>
+      <p class="last-string-text select-auto">
+        И Одно — Властелину на чёрном престоле.
+      </p>
+    </div>
   </div>
+  <script>
+    const container = document.querySelector('.container')
+    const form = container.querySelector('.form')
+    const allText = container.querySelector('.content')
+    const lastString = container.querySelector('.last-string-text')
+
+    function onSelect(event) {
+      const { id, value } = event.target
+
+      if (id === 'user-selector1') {
+        allText.className = `content select-${value}`
+      } else if (id === 'user-selector2') {
+        lastString.className = `last-string-text select-${value}`
+      }
+    }
+
+    form.addEventListener('change', onSelect)
+  </script>
 </body>
 </html>

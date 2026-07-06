@@ -1,6 +1,6 @@
 ---
 title: "`Error` и стандартные ошибки"
-description: "Какие бывают стандартные ошибки в JavaScript и как создавать собственные типы ошибок."
+description: "Какие бывают стандартные ошибки в JavaScript, и как создавать собственные типы ошибок."
 authors:
   - stegur
   - alexbaumgertner
@@ -18,7 +18,7 @@ tags:
 
 ## Как понять
 
-### Error
+### `Error`
 
 Общий конструктор ошибок.
 
@@ -28,7 +28,7 @@ new Error('Общая ошибка. Проверьте код')
 
 Вызов конструктора возвращает объект ошибки со следующими свойствами:
 
-- `message` представляет человекопонятное описание ошибки для встроенных типов (`SyntaxError`, `TypeError` и так далее) и переданное в конструктор значение для общего типа `Error`.
+- `message` представляет понятное человеку описание ошибки для встроенных типов (`SyntaxError`, `TypeError` и так далее) и переданное в конструктор значение для общего типа `Error`;
 - `name` — имя типа (класса) ошибки.
 
 ```js
@@ -61,7 +61,7 @@ ReferenceError: FAIL is not defined
 
 ## Встроенные ошибки
 
-### SyntaxError
+### `SyntaxError`
 
 Чаще всего встречаются опечатки — неправильные названия методов, лишние или отсутствующие точки с запятой или скобочки и так далее. Такой тип ошибок называется «синтаксическим», `SyntaxError`:
 
@@ -73,7 +73,7 @@ console.log(()
 // SyntaxError: missing ) after argument list
 ```
 
-### ReferenceError
+### `ReferenceError`
 
 Если попытаться обратиться к несуществующей переменной, произойдёт ошибка `ReferenceError`:
 
@@ -82,7 +82,7 @@ console.log(name)
 // ReferenceError: name is not defined
 ```
 
-### TypeError
+### `TypeError`
 
 Если попытаться обратиться к несуществующему свойству, произойдёт ошибка `TypeError`:
 
@@ -94,7 +94,7 @@ undefined()
 // TypeError: undefined is not a function
 ```
 
-### RangeError
+### `RangeError`
 
 Ошибка для значений, которые выходят за диапазон допустимого.
 
@@ -103,7 +103,7 @@ new Array(10000000000)
 // RangeError: Недопустимая длина массива
 ```
 
-### URIError
+### `URIError`
 
 Этот тип ошибок возникает при неправильном использовании обработки URI.
 
@@ -118,7 +118,7 @@ decodeURIComponent('%')
 URI = scheme:[//authority]path[?query][#fragment]
 ```
 
-### EvalError
+### `EvalError`
 
 EvalError представляет ошибку, возникающую в глобальной функции `eval()`.
 
@@ -130,7 +130,7 @@ eval(
 
 Эта ошибка в настоящее время не используется и остаётся для совместимости с предыдущими версиями JavaScript.
 
-### InternalError (не стандарт)
+### `InternalError` (не стандарт)
 
 Ошибка внутри движка JavaScript. Не является стандартом и почти не используется. Например:
 
@@ -150,7 +150,8 @@ class WrongDataTypeForSumError extends Error {
   }
 }
 
-const myCustomError = new WrongDataTypeForSumError('Невалидный тип данных для суммирования')
+const myCustomError =
+  new WrongDataTypeForSumError('Невалидный тип данных для суммирования')
 ```
 
 Сгенерируем ошибку `WrongDataTypeForSumError` в случае, если хотя бы один из аргументов функции `sum` — не число.
@@ -165,7 +166,8 @@ function sum(a, b) {
 }
 
 console.log(sum('1', 2))
-// VM840:3 Uncaught WrongDataTypeForSumError: Невалидный тип данных для суммирования
+// VM840:3 Uncaught WrongDataTypeForSumError:
+// Невалидный тип данных для суммирования
 // at sum (<anonymous>:3:11)
 // at <anonymous>:9:13
 // WrongDataTypeForSumError @ VM830:3
@@ -173,6 +175,6 @@ console.log(sum('1', 2))
 // (anonymous) @ VM840:9
 ```
 
-Функция будет выполняться только в том случае если оба аргумента будут числами, в противном случае функция будет возвращать ошибку `WrongDataTypeForSumError`.
+Функция будет выполняться только в том случае, если оба аргумента будут числами, в противном случае функция будет возвращать ошибку `WrongDataTypeForSumError`.
 
-Собственные типы ошибок делают отладку более наглядной — например из имени `WrongDataTypeForSumError` сразу понятно, что не так с кодом. Стандартная ошибка для таких случаев, `TypeError` — менее читаема.
+Собственные типы ошибок делают отладку более наглядной — например, из имени `WrongDataTypeForSumError` сразу понятно, что не так с кодом. Стандартная ошибка для таких случаев — `TypeError` — менее читаема.

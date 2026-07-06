@@ -3,6 +3,8 @@ title: "`blockquote`"
 description: "Роль для цитат, взятых из других источников."
 authors:
   - alextaraskina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - ARIA-роль

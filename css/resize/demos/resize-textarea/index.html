@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Многострочное поле ввода — resize — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    textarea {
+      min-width: 200px;
+      max-width: 600px;
+      min-height: 50px;
+      max-height: 180px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .resize-demo__textarea {
+      padding: 16px;
+    }
+  </style>
+</head>
+<body>
+  <main class="resize-demo">
+    <textarea class="resize-demo__textarea" name="example" id="example" cols="30" rows="5" placeholder="Введите любой текст. Вы также можете изменить размер этой области если захотите. Просто потяните за трегольник в нижнем правом углу!"></textarea>
+  </main>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Граф на базе Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 80px;
+    }
+
+    .point {
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      border-radius: 50px;
+      background-color: #2E9AFF;
+      align-content: center;
+      text-align: center;
+      z-index: 1;
+      touch-action: none;
+    }
+
+    .caption {
+      font-size: 0.5em;
+    }
+
+    .draggable {
+      user-select: none;
+      cursor: grab;
+    }
+
+    .draggable:active {
+      cursor: grabbing;
+    }
+
+    /*
+      credits to
+      @link https://kizu.dev/anchor-positioning-experiments/
+    */
+    .connection {
+      container-type: size;
+      position: absolute;
+      --min: 0.5em;
+      top:    calc(anchor(var(--from) center) - var(--min));
+      right:  calc(anchor(var(--to)   center) - var(--min));
+      bottom: calc(anchor(var(--to)   center) - var(--min));
+      left:   calc(anchor(var(--from) center) - var(--min));
+      --flip-x: 0;
+      --flip-y: 0;
+      transform:
+          scaleX(calc(1 - 2 * var(--flip-x)))
+          scaleY(calc(1 - 2 * var(--flip-y)));
+    }
+    .connection--flip-x {
+      --flip-x: 1;
+      left:  calc(anchor(var(--to)   center) - var(--min));
+      right: calc(anchor(var(--from) center) - var(--min));
+    }
+    .connection--flip-y {
+      --flip-y: 1;
+      top:    calc(anchor(var(--to)   center) - var(--min));
+      bottom: calc(anchor(var(--from) center) - var(--min));
+    }
+
+    svg {
+      position: absolute;
+      --distance: calc(0.5em);
+      top: var(--distance);
+      left: var(--distance);
+      width: calc(100% - 2 * var(--distance));
+      height: calc(100% - 2 * var(--distance));
+      overflow: visible;
+      min-width: 1px;
+      min-height: 1px;
+    }
+
+    line {
+      stroke: white;
+      stroke-width: 4px;
+    }
+
+    @container (max-width: calc(1em - 0.2px)) or (max-height: calc(1em - 0.2px)) {
+      svg {
+        display: none;
+      }
+    }
+
+    .graph {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 980px) {
+      .graph {
+        scale: 0.9;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .graph {
+        scale: 0.8;
+        translate: -10%;
+      }
+    }
+
+    @media (max-width: 770px) {
+      .graph {
+        scale: 0.6;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .graph {
+        scale: 0.5;
+        translate: -15%;
+      }
+    }
+
+    @media (max-width: 650px) {
+      body {
+        font-size: 100px;
+      }
+
+      .graph {
+        scale: 0.4;
+        translate: -20%;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .graph {
+        scale: 0.3;
+        translate: -25%;
+      }
+    }
+
+    @media (max-width: 330px) {
+      .graph {
+        translate: -35%;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+      font-size: 18px;
+      z-index: 100;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="graph">
+    <div class="point draggable" style="anchor-name: --a;   top: 160px;     left: 60px;">
+      <div class="caption">A</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --b; top: 60px; left: 260px;">
+      <div class="caption">B</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --c;   top: 310px; left: 360px;">
+      <div class="caption">C</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --d; top: 160px; left: 460px;">
+      <div class="caption">D</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --e; top: 20px; left: 560px;">
+      <div class="caption">E</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --f; top: 280px; left: 620px;">
+      <div class="caption">F</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --g; top: 90px; left: 710px;">
+      <div class="caption">G</div>
+    </div>
+    <div class="point draggable" style="anchor-name: --h; top: 190px; left: 860px;">
+      <div class="caption">H</div>
+    </div>
+
+    <div class="connection-group" style="--from: --a; --to: --b;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --a; --to: --c;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --a; --to: --d;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --b; --to: --e;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --c; --to: --f;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --d; --to: --f;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --e; --to: --g;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --f; --to: --g;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --g; --to: --h;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --d; --to: --e;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --d; --to: --g;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --f; --to: --h;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --b; --to: --d;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+    <div class="connection-group" style="--from: --c; --to: --d;">
+      <div class="connection">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+      <div class="connection connection--flip-x connection--flip-y">
+        <svg xmlns="https://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%"></line></svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    const dragElement = (element) => {
+      let x = 0;
+      let y = 0;
+      let xOffset = 0;
+      let yOffset = 0;
+
+      element.onpointerdown = (event) => {
+        event.preventDefault();
+        xOffset = event.clientX;
+        yOffset = event.clientY;
+
+        document.onpointerup = () => {
+          document.onpointerup = null;
+          document.onpointermove = null;
+        };
+
+        document.onpointermove = (event) => {
+          x = xOffset - event.clientX;
+          y = yOffset - event.clientY;
+          xOffset = event.clientX;
+          yOffset = event.clientY;
+          element.style.top = `${element.offsetTop - y}px`;
+          element.style.left = `${element.offsetLeft - x}px`;
+        };
+      };
+    };
+
+    const draggableElements = document.querySelectorAll('.draggable');
+    draggableElements.forEach(dragElement);
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

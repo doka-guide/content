@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Обработка жестов — .touch — Дока</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 22px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      touch-action: none;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>Проведите пальцем по экрану</h1>
+<h2 id="result">#</h2>
+  <script>
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+
+    const result = document.getElementById('result')
+
+    // Здесь будем хранить координаты прикосновения
+    const touchCoords = {
+      x: 0,
+      y: 0
+    };
+
+    function handleTouchStart(event) {
+      const firstTouch = event.touches[0];
+      // Сохраняем начальные координаты когда прикоснулись
+      touchCoords.x = firstTouch.clientX;
+      touchCoords.y = firstTouch.clientY;
+    }
+
+    const DETECT_TRESHHOLD = 100;
+
+    function handleTouchMove(event) {
+      if (!touchCoords.x || !touchCoords.y) {
+        return;
+      }
+
+      const { x, y } = touchCoords;
+
+      // Сохраняем текущие координаты
+      const xUp = event.touches[0].clientX;
+      const yUp = event.touches[0].clientY;
+
+      // Вычисляем разницу
+      const xDiff = x - xUp;
+      const yDiff = y - yUp;
+
+      // Определяем в какую сторону было больше движения
+      const isHorizontal = Math.abs(xDiff) > Math.abs(yDiff);
+
+      if (isHorizontal) {
+        // Реагируем только если движение было существенным
+        if (Math.abs(xDiff) > DETECT_TRESHHOLD) {
+          if (xDiff > 0) {
+            result.textContent = 'Свайп налево'
+          } else {
+            result.textContent = 'Свайп направо'
+          }
+        }
+      } else {
+        if (Math.abs(yDiff) > DETECT_TRESHHOLD) {
+          if (yDiff > 0) {
+            result.textContent = 'Свайп вверх'
+          } else {
+            result.textContent = 'Свайп вниз'
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

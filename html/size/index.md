@@ -3,6 +3,9 @@ title: "Атрибут `size`"
 description: "Задаёт размеры тегам `<input>` и `<select>`."
 authors:
   - inventoris
+contributors:
+  - skorobaeus
+  - tatianafokina
 related:
   - html/input
   - html/select
@@ -24,12 +27,12 @@ tags:
 <input id="input-field" size="9" placeholder="123456789">
 ```
 
-<iframe title="Использование атрибута size в input" src="demos/basic-input/" height="250"></iframe>
+<iframe title="Использование атрибута size в поле" src="demos/basic-input/" height="250"></iframe>
 
 В примере ниже зададим `size` для `<select>`. Число 3 определит количество видимых параметров списка.
 
 ```html
-<label for="city-select">Ваш город</label>
+<label for="city-select">Ваш город:</label>
 <select id="city-select" size="3">
   <option value="novosibirsk">Калининград</option>
   <option value="petrozavodsk">Петрозаводск</option>
@@ -40,7 +43,7 @@ tags:
 </select>
 ```
 
-<iframe title="Использование атрибута size в select" src="demos/basic-select/" height="250"></iframe>
+<iframe title="Использование атрибута size в select" src="demos/basic-select/" height="400"></iframe>
 
 Поскольку `size="3"`, видимая часть списка содержит только 3 города. Чтобы изучить остальные, нужно воспользоваться прокруткой.
 
@@ -62,6 +65,7 @@ body {
   /* Подключаем немоноширинный шрифт */
   font-family: "Roboto", sans-serif;
 }
+
 input {
   font-family: inherit;
 }
@@ -78,6 +82,6 @@ input {
 
 ## Подсказки
 
-💡 Если поставить в теге `<select>` атрибут `multiple` и задать `size="1"`, из списка получится обыкновенная «прокрутка».
+💡 Если поставить в теге `<select>` атрибут [`multiple`](/html/multiple/) и задать `size="1"`, из списка получится обыкновенная «прокрутка».
 
 💡 Хотя атрибут `size` выглядит удобным, использовать его для `<input>` следует с осторожностью. Порой даже с моноширинными шрифтами он может сделать что-то странное, растягивая поле ввода на неожиданное число символов.

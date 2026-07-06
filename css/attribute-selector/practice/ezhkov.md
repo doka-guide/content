@@ -4,7 +4,7 @@
 <a href="https://doka.guide/about/">О нас</a>
 <a href="https://doka.guide/subscribe/">Рассылка</a>
 <a href="https://doka.guide/people/">Участники</a>
-<a href="https://discord.gg/NjaevcW8k8">Мы в Discord</a>
+<a href="https://t.me/+qYFPI2mExuQxZTFi">Мы в Telegram</a>
 ```
 
 Все ссылки будут с иконкой стрелочки:

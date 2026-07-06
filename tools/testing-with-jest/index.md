@@ -26,7 +26,7 @@ related:
 
 - [Пишем первый тест в проект](https://youtu.be/-7G6WBYaTeU),
 - [Пишем тест для асинхронного кода](https://youtu.be/OSX9Fbr6faE),
-- [Пишем тест для работы с DOM](https://youtu.be/-7G6WBYaTeU).
+- [Пишем тест для работы с DOM](https://youtu.be/QfQUk_0nHvg).
 
 В них показано всё, что будем делать.
 

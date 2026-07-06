@@ -5,7 +5,7 @@
 Допустим, нужно по-разному поприветствовать нового и уже зарегистрированного пользователя. Здесь удобно использовать тернарный оператор, так как проверка короткая:
 
 ```js
-const greetings = function(isRegistered, userName) {
+function greet(isRegistered, userName) {
   return isRegistered ? `Привет, ${userName}!` : 'Привет, незнакомец'
 }
 ```
@@ -13,7 +13,7 @@ const greetings = function(isRegistered, userName) {
 Когда появляются вложенные тернарные операторы, лучше переходить на `if...else`. Сравните код с тернарным оператором:
 
 ```js
-const greetings = function(isRegistered, userName, bePolite) {
+function greet(isRegistered, userName, bePolite) {
   return isRegistered ? `Привет, ${userName}!` : bePolite ? 'Здравствуйте!' : 'Привет, незнакомец'
 }
 ```
@@ -21,7 +21,7 @@ const greetings = function(isRegistered, userName, bePolite) {
 И код с `if...else`:
 
 ```js
-const greetings = function(isRegistered, userName, bePolite) {
+function greet(isRegistered, userName, bePolite) {
   if (isRegistered) {
     return `Привет, ${userName}!`
   } else if (bePolite) {
@@ -35,7 +35,7 @@ const greetings = function(isRegistered, userName, bePolite) {
 Если же приветствие зависит от роли, то цепочки вложенных тернарных операторов становятся нечитаемыми:
 
 ```js
-const greetings = function(role) {
+function greet(role) {
   return result = role === 'admin' ? 'Приветствую, босс' : role === 'moder' ? 'Приветствую, смотритель порядка' : role === 'user' ? 'Здравствуй, пользователь' : role === 'guest' ? 'Здравствуй, гость' : 'Привет, некто'
 }
 ```
@@ -43,7 +43,7 @@ const greetings = function(role) {
 Такой код можно улучшить форматированием, но лучше использовать [`switch`](/js/switch/):
 
 ```js
-const greetings = function(role) {
+function greet(role) {
     switch (role) {
         case 'admin':
             return 'Приветствую, босс'

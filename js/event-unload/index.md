@@ -29,9 +29,9 @@ window.addEventListener('unload', function () {
 
 ```js
 window.addEventListener('unload', function () {
-  const someUsefulData = getSomeUsefulData();
+  const someUsefulData = getSomeUsefulData()
 
-  navigator.sendBeacon('/some-endpoint', someUsefulData);
+  navigator.sendBeacon('/some-endpoint', someUsefulData)
 })
 ```
 
