@@ -21,7 +21,7 @@ async function updateDates() {
 
       return [
         // учитываем только файлы, находящиеся в папках статей
-        ['html', 'css', 'js', 'tools'].includes(tag),
+        ['html', 'css', 'js', 'tools', 'a11y', 'recipes'].includes(tag),
         // не учитывем файлы индексов статей, например, 'css/index.md'
         pathSegments.length >= 3,
         // исключаем файлы index.11tydata.json

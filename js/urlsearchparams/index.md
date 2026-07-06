@@ -226,14 +226,17 @@ console.log(params.toString())
 
 ### Перебор
 
-Метод `forEach()` перебирает значения, содержащиеся в поиске. Функция, переданная в метод, будет вызвана для каждого элемента в поиске и получит три аргумента – название параметра, значение параметра и сам экземпляр поиска.
+Метод `forEach()` перебирает значения, содержащиеся в поиске. Функция, переданная в метод, будет вызвана для каждого элемента в поиске и получит три аргумента – значение параметра, название параметра и сам экземпляр поиска.
 
 ```js
 const params = new URLSearchParams('count=10&size=lg&size=xl')
 
-params.forEach((key, value, params) => {
-  console.log(key, value, params)
+params.forEach((value, key, params) => {
+  console.log(value, key, params)
 })
+// 10 count URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
+// lg size URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
+// xl size URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
 ```
 
 ### Приведение параметров к строке

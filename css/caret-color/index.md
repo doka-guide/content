@@ -68,11 +68,11 @@ form {
   caret-color: #FF8630;
 }
 
-form textarea {
+textarea {
   caret-color: #2E9AFF;
 }
 
-form p {
+p {
   caret-color: #F498AD;
 }
 ```

@@ -31,7 +31,7 @@ tags:
 - `match-parent` — по значению `direction` родителя.
 
 Значение, поддержка для которого в будущем будет расширена:
-- `justify-all` — тоже самое, что `justify`, но включая последнюю строку.
+- `justify-all` — то же самое, что `justify`, но включая последнюю строку.
 
 <iframe title="Интерактивный пример выравния текста по горизонтали" src="demos/text-align/" height="300"></iframe>
 
@@ -45,4 +45,4 @@ tags:
 
 💡 Выравнивание текста нельзя анимировать при помощи [`transition`](/css/transition/) ☹️
 
-💡 В случае необходимости выравнивания последней строки используйте [`text-align-last`](https://developer.mozilla.org/ru/docs/Web/CSS/text-align-last), значения свойства совпадают с `text-align`.
+💡 В случае необходимости выравнивания последней строки используйте [`text-align-last`](/css/text-align-last/), значения свойства совпадают с `text-align`.

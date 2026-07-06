@@ -28,7 +28,7 @@
     }
 
     .portfolio-header {
-      background-color: #FFFFFF;
+      background-color: #FF8630;
       color: #000000;
       padding: 45px 0 20px;
     }
@@ -91,6 +91,88 @@
     .portfolio-footer .text + .text {
       margin-top: 5px;
     }
+
+    .portfolio-articles {
+      display: grid;
+      align-items: stretch;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-block-start: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .card-article {
+      display: flex;
+      flex-flow: column;
+      padding: 20px;
+      border: 1px solid rgb(104, 104, 104);
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    .card-article__title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .portfolio-work {
+      max-width: 400px;
+      aspect-ratio: 1;
+      margin-block: 20px;
+    }
+
+    .portfolio-work_color_orange-1 {
+      background-color: #DD8E55;
+    }
+
+    .portfolio-work_color_orange-2 {
+      background-color: #FF8630;
+    }
+
+    .portfolio-work_color_orange-3 {
+      background-color: #663613;
+    }
+
+    .card-article__description {
+      margin-block-end: 20px;
+      line-height: 1.5;
+    }
+
+    .card-article__header {
+      font-size: 14px;
+      color: rgb(168, 168, 168);
+    }
+
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 30px;
+      }
+
+      .portfolio-container, .portfolio, .portfolio-footer {
+        width: 100%;
+        min-width: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      nav {
+        position: relative;
+      }
+
+      nav::before {
+        content: "...";
+        font-size: 5rem;
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -107,13 +189,51 @@
   </header>
   <!-- / Шапка -->
   <main class="portfolio">
-    <h1 class="portfolio-title">Портфолио Ольги Сасквоч</h1>
+    <h1 class="portfolio-title">Портфолио Ольги Сасквотч</h1>
     <p class="text">Добро пожаловать!</p>
     <p class="text">Рада приветствовать вас на своём сайте. Здесь вы можете посмотреть уже готовые работы и узнать, что ещё я могу сделать для вас.</p>
+
+    <ul class="portfolio-articles">
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Следы на снегу: бигфут или йети</h2>
+            <div class="portfolio-work portfolio-work_color_orange-1"></div>
+            <p class="card-article__description">
+              Анализ гималайских экспедиций прошлого века.
+            </p>
+            <!--
+              header может находится в любом месте секционного контента.
+              Он отделяет сопутствующего описание от основного контента
+            -->
+            <header class="card-article__header">Авторы: Ольга Сасквотч</header>
+          </article>
+        </li>
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Йети в культурах мира</h2>
+            <div class="portfolio-work portfolio-work_color_orange-2"></div>
+            <p class="card-article__description">
+              Документальный фильм о снежном человеке.
+            </p>
+            <header class="card-article__header">Авторы: Ольга Сасквотч, Нина Альпинова</header>
+          </article>
+        </li>
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Тайны ледяных пещер</h2>
+            <div class="portfolio-work portfolio-work_color_orange-3"></div>
+            <p class="card-article__description">
+              Экспедиция в ледяные пещеры в высокогорных регионах.
+            </p>
+            <header class="card-article__header">Авторы: Ольга Сасквотч, Александр Ледянин</header>
+          </article>
+        </li>
+      </ul>
+
   </main>
   <footer class="portfolio-footer">
-    <p class="text">Ольга Сасквоч</p>
-    <p class="text">2021</p>
+    <p class="text">Ольга Сасквотч</p>
+    <p class="text">2023</p>
   </footer>
 </body>
 </html>

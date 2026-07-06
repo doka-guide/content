@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Как работают значения polite, assertive, off — aria-live — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    #container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #itemContainer {
+      margin: 8px;
+      min-width: 200px;
+    }
+
+    #content {
+      padding: 20px;
+      min-height: 140px;
+      border: 1px solid #FFFFFF;
+      text-align: center;
+    }
+
+    #content > p {
+      font-size: 1.25rem;
+      color: #F498AD;
+      padding-top: 20px;
+    }
+
+    #buttonContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    button#politeButtonLive {
+      background-color: #10F3AF;
+    }
+
+    button#politeButtonStop {
+      background-color: #F498AD;
+    }
+
+    button#politeButtonLive:hover,
+    button#politeButtonStop:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div id="buttonContainer">
+      <button id="politeButtonLive">Оживить</button>
+      <button id="politeButtonStop">Остановить</button>
+    </div>
+
+    <div id="container">
+      <div id="itemContainer">
+        <div id="content">
+          <span>polite</span>
+          <p id="politeContent" aria-live="polite"></p>
+        </div>
+      </div>
+      <div id="itemContainer">
+        <div id="content">
+          <span>assertive</span>
+          <p id="assertiveContent" aria-live="assertive"></p>
+        </div>
+      </div>
+      <div id="itemContainer">
+        <div id="content">
+          <span>off</span>
+          <p id="offContent" aria-live="off"></p>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<script>
+  politeButtonLive.addEventListener('click', () => {
+    const assertiveLetters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    const offText = ['Меня', 'игнорируют', ';(']
+    const randomLetters = () => {
+      return assertiveLetters[Math.round(Math.random() * 32)]
+    }
+    const randomText = () => {
+      return offText[Math.round(Math.random() * 2)]
+    }
+
+    politeContent.innerHTML = '1'
+    assertiveContent.innerHTML = assertiveLetters[32]
+    offContent.innerHTML = `${offText[0]} <br> ${offText[1]} ${offText[2]}`
+
+    const liveInterval = setInterval(() => {
+      assertiveContent.innerHTML = randomLetters()
+      politeContent.innerHTML = Math.round(Math.random() * 10)
+      offContent.innerHTML = randomText()
+    }, 2_000)
+
+    politeButtonStop.addEventListener('click', () => {
+      clearInterval(liveInterval)
+      politeContent.innerHTML = ''
+      assertiveContent.innerHTML = ''
+      offContent.innerHTML = ''
+    })
+  })
+</script>
+</html>

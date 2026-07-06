@@ -21,9 +21,11 @@ groups:
       - ternary-operator
       - spread
       - for-in
+      - for-of
       - shallow-or-deep-clone
       - iterator
       - date
+      - destructuring-assignment
   - name: "Примитивные типы данных"
     items:
       - number
@@ -38,8 +40,14 @@ groups:
     items:
       - object
       - arrays
+      - typed-array
+      - data-view
+      - array-buffer
+      - shared-array-buffer
+      - atomics
       - function-as-datatype
       - set
+      - weak-set
       - map
       - collection-weakmap
   - name: "Числа"
@@ -48,6 +56,7 @@ groups:
       - parseint
       - parsefloat
       - number-wrapper
+      - number-toexponential
       - number-tostring
       - number-is-nan
       - number-isfinite
@@ -59,6 +68,7 @@ groups:
       - index-of
       - includes
       - string-length
+      - string-trim
   - name: "Булев тип"
     items:
       - boolean
@@ -69,18 +79,30 @@ groups:
       - function
       - return
       - function-context
+      - bind-call-apply
       - closures
       - recursion
       - function-arguments-object
+      - arrow-function
   - name: "Массивы"
     items:
       - arrays
       - array-foreach
       - array-map
       - array-reduce
+      - array-reduce-right
+      - array-fill
+      - array-keys
+      - array-values
+      - array-entries
+      - array-sort
+      - array-tosorted
       - array-filter
+      - array-at
       - array-find
+      - array-find-last
       - array-find-index
+      - array-find-last-index
       - array-flat
       - array-flatmap
       - array-every
@@ -89,16 +111,33 @@ groups:
       - includes
       - index-of
       - last-index-of
+      - array-push
+      - array-pop
+      - array-shift
+      - array-unshift
+      - array-slice
+      - array-splice
+      - array-with
+      - array-copy-within
       - array-length
       - array-from
       - array-of
+      - array-concat
+      - array-join
+      - array-to-reversed
+      - array-to-spliced
+      - array-to-string
+      - array-to-locale-string
       - array-isarray
   - name: "Объекты"
     items:
       - object
-      - object-tostring
-      - descriptors
       - objects-objects-everywhere
+      - descriptors
+      - generators
+      - object-tostring
+      - group-by
+      - intl-datetimeformat
   - name : "Множества (`Set`)"
     items:
       - set
@@ -112,6 +151,19 @@ groups:
       - set-keys
       - set-entries
       - set-size
+      - set-union
+      - set-difference
+      - set-intersection
+      - set-symmetric-difference
+      - set-is-subset-of
+      - set-is-superset-of
+      - set-is-disjoint-from
+  - name: "Итераторы"
+    items:
+      - iterator
+      - iterator-take
+      - iterator-to-array
+      - iterator-filter
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -127,6 +179,7 @@ groups:
       - dom
       - fetch
       - form-data
+      - console
       - console-log
       - window-history
       - window-location
@@ -147,15 +200,15 @@ groups:
       - clearinterval
       - window-print
       - window-open
+      - window-close
       - intersection-observer
-
+      - abort-controller
   - name: "Объектная модель документа DOM"
     items:
       - dom
       - element
       - events
       - htmlcollection-and-nodelist
-
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
@@ -167,6 +220,8 @@ groups:
       - query-selector-all
       - forms
       - cookie
+      - css-style-declaration
+      - document-design-mode
   - name: "Элемент на странице (`Element`)"
     items:
       - element
@@ -177,6 +232,7 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-closest
       - element-getattribute
       - element-focus
       - element-blur
@@ -197,32 +253,41 @@ groups:
     items:
       - events
       - event
-      - event-change
-      - event-reset
-      - event-input
-      - event-dblclick
-      - element-click
-      - event-invalid
-      - event-submit
+      - custom-event
+      - dispatch-event
+      - event-prevent-default
       - event-domcontentloaded
-      - event-load
-      - event-unload
       - event-beforeunload
+      - event-blur
+      - event-change
+      - element-click
+      - event-dblclick
+      - event-focus
+      - event-focusin
+      - event-input
+      - event-invalid
       - element-keydown
       - element-keyup
+      - event-load
       - element-mouseout
       - element-mouseover
-      - event-prevent-default
+      - event-reset
       - element-scroll
-      - element-wheel
+      - element-scrollsnapchange
+      - element-scrollsnapchanging
+      - event-submit
       - element-touch
-
+      - event-unload
+      - element-wheel
   - name: "Хранение данных в браузере"
     items:
       - cookie
       - local-storage
       - session-storage
-
+  - name: "Работа с памятью"
+    items:
+      - weak-ref
+      - finalization-registry
   - name: "Асинхронность"
     items:
       - async-in-js
@@ -234,18 +299,18 @@ groups:
       - promise-allsettled
       - promise-any
       - promise-race
+      - promise-try
+      - promise-with-resolvers
       - async-await
-
   - name: "Обмен данными с API"
     items:
       - fetch
       - async-await
-
   - name: "Веб-приложение"
     items:
       - language-versions
       - modules
-
+      - web-workers
   - name: "Типовые решения"
     items:
       - deal-with-forms

@@ -53,7 +53,7 @@ console.log(isAllUsersAnna);
 
 Интерактивный пример:
 
-<iframe title="Используем every для проверки массива — Array.every — Дока" src="demos/index/" height="980"></iframe>
+<iframe title="every для проверки массива" src="demos/index/" height="980"></iframe>
 
 ## Как пишется
 
@@ -68,7 +68,9 @@ console.log(isAllUsersAnna);
 ```js
 const balls = ['🎾', '🎾', '🎾', '🎾']
 
-const areAllBallsAreGreen = balls.every((ball, index, arr) => ball === '🎾')
+const areAllBallsAreGreen = balls.every(
+  (ball, index, arr) => ball === '🎾'
+)
 // true
 ```
 
@@ -81,7 +83,7 @@ const areAllBallsAreGreen = balls.every((ball, index, arr) => ball === '🎾')
 ```js
 const nums = [10, 303, 16, 20, 21]
 
-let areGreater = true;
+let areGreater = true
 for (let i = 0; i < nums.length; i++) {
   if (nums[i] < 10) {
     areGreater = false
@@ -94,9 +96,9 @@ for (let i = 0; i < nums.length; i++) {
 
 ```js
 const nums = [10, 303, 16, 20, 21]
-
 const areGreater = nums.every(num => num >= 10)
-console.log(areGreater);
+
+console.log(areGreater)
 // true
 ```
 

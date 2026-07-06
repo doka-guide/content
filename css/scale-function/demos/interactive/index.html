@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демонстрация — scale — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      color: white;
+      margin: 0;
+      padding: 20px;
+      background: #000;
+      text-align: center;
+      perspective: 1000px;
+    }
+
+    .controls {
+      margin: 30px 0;
+    }
+
+    input {
+      width: 80px;
+      padding: 10px;
+      margin: 0 15px;
+      background: #222;
+      color: white;
+      border: 2px solid #444;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    input:focus {
+      border-color: #0066ff;
+      outline: none;
+    }
+
+    .cube-container {
+      transform-style: preserve-3d;
+      margin: 60px auto;
+      width: 100px;
+      height: 100px;
+      transform: rotateX(-25deg) rotateY(25deg);
+      transition: transform 0.5s ease;
+    }
+
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+
+    .face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 102, 255, 0.8);
+      border: 2px solid #0044cc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: white;
+    }
+
+    .front  { transform: translateZ(50px); }
+    .back   { transform: translateZ(-50px) rotateY(180deg); }
+    .right  { transform: translateX(50px) rotateY(90deg); }
+    .left   { transform: translateX(-50px) rotateY(-90deg); }
+    .top    { transform: translateY(-50px) rotateX(90deg); }
+    .bottom { transform: translateY(50px) rotateX(-90deg); }
+
+    .labels {
+      margin-top: 10px;
+    }
+
+    .labels span {
+      display: inline-block;
+      width: 80px;
+      margin: 0 15px;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .info {
+      margin-top: 20px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .rotation-controls {
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 0 10px;
+      background: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0055cc;
+    }
+  </style>
+</head>
+<body>
+      <h1>3D Cube Scale Демонстрация</h1>
+
+    <div class="controls">
+        <input type="number" id="scaleX" value="1" step="0.1" min="0.1" max="3" placeholder="X">
+        <input type="number" id="scaleY" value="1" step="0.1" min="0.1" max="3" placeholder="Y">
+        <input type="number" id="scaleZ" value="1" step="0.1" min="0.1" max="3" placeholder="Z">
+    </div>
+
+    <div class="labels">
+        <span>Ось X</span>
+        <span>Ось Y</span>
+        <span>Ось Z</span>
+    </div>
+
+    <div class="rotation-controls">
+        <button onclick="rotateX()">Вращать X</button>
+        <button onclick="rotateY()">Вращать Y</button>
+        <button onclick="rotateZ()">Вращать Z</button>
+        <button onclick="resetRotation()">Сброс</button>
+    </div>
+
+    <div class="cube-container" id="cubeContainer">
+        <div class="cube" id="cube">
+            <div class="face front">Front</div>
+            <div class="face back">Back</div>
+            <div class="face right">Right</div>
+            <div class="face left">Left</div>
+            <div class="face top">Top</div>
+            <div class="face bottom">Bottom</div>
+        </div>
+    </div>
+
+    <div class="info">
+        💡 Изменяйте значения масштаба и вращайте куб чтобы увидеть 3D-эффекты
+    </div>
+        <script>
+        const cube = document.getElementById('cube');
+        const cubeContainer = document.getElementById('cubeContainer');
+        const inputs = document.querySelectorAll('input');
+
+        let rotation = { x: -25, y: 25, z: 0 };
+
+        function updateCube() {
+            const x = parseFloat(document.getElementById('scaleX').value) || 1;
+            const y = parseFloat(document.getElementById('scaleY').value) || 1;
+            const z = parseFloat(document.getElementById('scaleZ').value) || 1;
+
+            // Применяем масштабирование
+            cube.style.transform = `scale3d(${x}, ${y}, ${z})`;
+
+            // Обновляем вращение контейнера
+            updateContainerRotation();
+        }
+
+        function updateContainerRotation() {
+            cubeContainer.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) rotateZ(${rotation.z}deg)`;
+        }
+
+        function rotateX() {
+            rotation.x += 45;
+            updateContainerRotation();
+        }
+
+        function rotateY() {
+            rotation.y += 45;
+            updateContainerRotation();
+        }
+
+        function rotateZ() {
+            rotation.z += 45;
+            updateContainerRotation();
+        }
+
+        function resetRotation() {
+            rotation = { x: -25, y: 25, z: 0 };
+            updateContainerRotation();
+        }
+
+        // Обработчики для всех полей ввода
+        inputs.forEach(input => {
+            input.addEventListener('input', updateCube);
+        });
+
+        // Инициализация
+        updateCube();
+    </script>
+</body>
+</html>

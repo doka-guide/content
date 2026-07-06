@@ -1,10 +1,12 @@
 ---
 title: "`<b>`"
-description: "Тег для привлечения внимания, но без лишней важности"
+description: "Тег для привлечения внимания, но без лишней важности."
 authors:
   - gkhabada
 contributors:
   - gingerraccoon
+  - tatianafokina
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -36,7 +38,7 @@ tags:
 
 В этом примере выделены названия моделей в обзоре, чтобы их проще было найти среди текста.
 
-<iframe title="Пример использования" src="demos/view/" height="200"></iframe>
+<iframe title="Пример использования" src="demos/view/" height="350"></iframe>
 
 ## Как понять
 

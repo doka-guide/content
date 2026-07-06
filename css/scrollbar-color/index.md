@@ -1,6 +1,10 @@
 ---
 title: "`scrollbar-color`"
 description: "Изменяем цвет полосы прокрутки."
+baseline:
+  - group: scrollbar-color
+    features:
+      - css.properties.scrollbar-color
 authors:
   - xpleesid
 keywords:
@@ -21,7 +25,7 @@ tags:
 
 <aside>
 
-🦊 На данный момент `scrollbar-color` очень слабо поддерживается браузерами ([Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-color)). Свойство будет работать только в Firefox.
+🦊 На данный момент `scrollbar-color` очень слабо поддерживается браузерами ([Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-color)). Свойство будет работать только в Firefox и Google Chrome выше 121 версии.
 
 Если вы используете любой другой браузер, то `scrollbar-color` не сработает. Поэтому под каждым демо мы добавим картинку того, как это выглядит в Firefox.
 

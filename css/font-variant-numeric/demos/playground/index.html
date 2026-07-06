@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — font-variant-numeric — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&family=Coda&display=swap">
+  <style>
+    @font-face {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://mdn.github.io/css-examples/font-features/SourceSansPro-Regular.otf) format("opentype");
+    }
+
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    h1 code {
+      line-height: 1;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h1, .option-description {
+      text-transform: lowercase;
+      text-align: right;
+      inline-size: 320px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    .option-description {
+      line-height: 1.2;
+      margin-inline-end: 50px;
+    }
+
+    .option-example {
+      margin: 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 36px;
+      color: #2E9AFF;
+    }
+
+    .normal {
+      font-variant-numeric: normal;
+    }
+
+    .ordinal {
+      font-variant-numeric: ordinal;
+    }
+
+    .slashed-zero {
+      font-variant-numeric: slashed-zero;
+    }
+
+    .lining-nums {
+      position: relative;
+      font-variant-numeric: lining-nums;
+    }
+
+    .oldstyle-nums {
+      position: relative;
+      font-variant-numeric: oldstyle-nums;
+    }
+
+    .lining-nums::after, .oldstyle-nums::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.25em;
+      border-bottom: 1px dashed #F498AD;
+      pointer-events: none;
+      z-index: 1;
+}
+
+    .proportional-nums {
+      font-variant-numeric: proportional-nums;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .diagonal-fractions {
+      font-variant-numeric: diagonal-fractions;
+    }
+
+    .stacked-fractions {
+      font-family: "Coda";
+      font-size: 40px;
+      line-height: 0.8;
+      font-variant-numeric: stacked-fractions;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .option-description {
+        inline-size: 100%;
+      }
+
+      .option {
+        flex-direction: column;
+        margin-block-start: 50px;
+      }
+
+      .option-description {
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
+
+      .option-example {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>font-variant-numeric</code></h1>
+    <div class="options">
+      <div class="option">
+        <p class="option-description"><code>normal</code></p>
+        <p class="option-example normal">01234567890</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>ordinal</code></p>
+        <p class="option-example ordinal">1st 2nd 3rd 4th 5th</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>slashed-zero</code></p>
+        <p class="option-example slashed-zero">01234567890</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>lining-nums</code></p>
+        <p class="option-example lining-nums">01234567890</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>oldstyle-nums</code></p>
+        <p class="option-example oldstyle-nums">01234567890</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>proportional-nums</code></p>
+        <p class="option-example proportional-nums">
+          12121.12121
+          <br />
+          12345.67890
+        </p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>tabular-nums</code></p>
+        <p class="option-example tabular-nums">
+          12121.12121
+          <br />
+          12345.67890
+        </p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>diagonal-fractions</code></p>
+        <p class="option-example diagonal-fractions">1/2 1/4 3/4</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>stacked-fractions</code></p>
+        <p class="option-example stacked-fractions">1/2 1/4 3/4</p>
+      </div>
+    </div>
+  </div>
+  <script></script>
+</body>
+</html>

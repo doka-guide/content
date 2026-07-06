@@ -37,20 +37,26 @@ tags:
 Первый — явно указать значение, используя ключевые слова `true` и `false`:
 
 ```js
-const truthyValue = true // «Истина»
-const falsyValue = false // «Ложь»
+// «Истина»
+const truthyValue = true
+
+// «Ложь»
+const falsyValue = false
 ```
 
 Второй способ — использовать метод `Boolean`:
 
 ```js
-const truthyValue = Boolean(1) // «Истина»
-const falsyValue = Boolean('') // «Ложь»
+// «Истина»
+const truthyValue = Boolean(1)
+
+// «Ложь»
+const falsyValue = Boolean('')
 ```
 
 Как видите, даже значения других типов, например, числовые или строковые, приводятся к булеву типу.
 
-Третий способ — использовать выражения, значениями которых будут «истина» или «ложь» (мы поговорим о таких выражениях подробнее [ниже](#vyrazheniya)).
+Третий способ — использовать выражения, значениями которых будут «истина» или «ложь» (мы ниже [поговорим о таких выражениях подробнее](#vyrazheniya)).
 
 Следующие два выражения истинны, потому что 4 действительно меньше 5.
 
@@ -60,11 +66,12 @@ const anotherTruthy = 4 < 5
 
 console.log(truthyValue)
 // true
+
 console.log(anotherTruthy)
 // true
 ```
 
-Следующие два — ложны, потому что 2 * 2 === 4:
+Следующие два — ложны, потому что `2 * 2 === 4`:
 
 ```js
 const falsyValue = Boolean(2 * 2 === 5)
@@ -72,6 +79,7 @@ const anotherFalsy = 2 * 2 === 5
 
 console.log(falsyValue)
 // false
+
 console.log(anotherFalsy)
 // false
 ```
@@ -84,17 +92,17 @@ if (isCorrect) {
   // Выполнится эта ветка кода,
   // потому что оператор if проверяет,
   // истинно ли выражение в скобках,
-  // и если да, то выполняет этот код.
+  // и, если да, то выполняет этот код
 } else {
-  // Эта ветка не выполнится.
+  // Эта ветка не выполнится
 }
 
 const isWrong = false
 if (isWrong) {
   // Теперь не выполнится эта ветка,
-  // потому что выражение в скобках ложно.
+  // потому что выражение в скобках ложно
 } else {
-  // А вот эта — выполнится.
+  // А вот эта — выполнится
 }
 ```
 
@@ -127,18 +135,23 @@ const falsy1 = Boolean(),
 ```
 
 А все эти — в `true`:
+
 ```js
 const truthy1 = Boolean(true),
   truthy2 = Boolean('true'),
   truthy3 = Boolean('false'),
   truthy4 = Boolean('Су Лин'),
   truthy5 = Boolean([]),
-  truthy6 = Boolean({})
+  truthy6 = Boolean({}),
+  truthy7 = Boolean('0'),
+  truthy8 = Boolean(' ')
 ```
 
 Обратите внимание, что строка `'false'` преобразуется в логическое `true`. Так происходит потому, что непустая строка в JavaScript считается _truthy_ значением — то есть таким, которое приводится к `true`.
 
 То же и с пустыми массивом `[]` и объектом `{}`. Они считаются _truthy_ значениями, поэтому приводятся к `true`.
+
+Другой интересный нюанс: `'0'` превращается в `true`, как и `' '`, потому что это непустая строка.
 
 Обратите внимание на списки [truthy](https://developer.mozilla.org/ru/docs/Словарь/Truthy) и [falsy](https://developer.mozilla.org/ru/docs/Словарь/Falsy) значений в JavaScript.
 

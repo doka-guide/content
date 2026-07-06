@@ -5,6 +5,7 @@ authors:
   - webdb81
 contributors:
   - tatianafokina
+  - skorobaeus
 related:
   - html/output
   - js/element-innertext

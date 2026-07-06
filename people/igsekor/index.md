@@ -1,11 +1,12 @@
 ---
 name: 'Игорь Коровченко'
 url: https://twitter.com/igsekor
-photo: photo.jpg
+photo: logo.svg
 roles:
   - doka-core-team
 badges:
   - first-contribution-small
+  - merged-pr-100
 ---
 
 Привет! 🙃

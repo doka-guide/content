@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -29,14 +33,14 @@
     a {
       border-radius: 3px;
       color: inherit;
-      -webkit-text-decoration-color: #2E9AFF;
-      text-decoration-color: #2E9AFF;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
     }
 
     a:hover, a:focus {
-      background-color: #2E9AFF;
+      background-color: #FF8630;
       transition: background-color 0.2s linear;
       outline-width: 0;
     }
@@ -50,11 +54,8 @@
 </head>
 <body>
   <div class="container">
-    <object type="application/pdf"
-        data="example.pdf"
-        width="500"
-        height="200">
-        <a href="example.pdf">Лунная соната №14 PDF</a>
+    <object type="application/pdf" data="example.pdf" width="600" height="700">
+      <a href="example.pdf">Лунная соната № 14 PDF</a>
     </object>
   </div>
 </body>

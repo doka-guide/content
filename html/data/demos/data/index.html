@@ -8,21 +8,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
+
     body {
-      background: #000000;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      background-color: #18191C;
+      color: #000000;
       font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .dialogue {
       display: grid;
       gap: 1em;
-      max-width: 90%;
+      min-width: 40%;
       margin: 1em auto;
     }
 
@@ -34,14 +50,24 @@
 
     .dialogue__item--left {
       justify-self: start;
-      background-color: #2e9aff;
+      background-color: #FF8630;
       border-bottom-left-radius: 0;
     }
 
     .dialogue__item--right {
       justify-self: end;
-      background-color: #f498ad;
+      background-color: #2E9AFF;
       border-bottom-right-radius: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .dialogue {
+        min-width: 100%;
+      }
     }
   </style>
 </head>

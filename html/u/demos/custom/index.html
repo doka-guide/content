@@ -8,38 +8,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-  html {
-    height: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    min-height: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #18191c;
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-size: 24px;
-  }
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
 
-  p {
-    text-align: center;
-  }
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
 
-  u {
-    text-decoration-style: wavy;
-    text-decoration-color: red;
-  }
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    u {
+      text-decoration-style: wavy;
+      text-decoration-color: #FFFFFF;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <p>
-    В <u>чилавеке</u> должно быть всё <u>прикрасна</u>: и <u>лецо</u>, и одежда, и душа, и мысли.<!-- yaspeller ignore -->
-  </p>
+  <div class="container">
+    <p>
+      В <u>чилавеке</u> должно быть всё <u>прикрасна</u>: и <u>лецо</u>, и одежда, и душа, и мысли.<!-- yaspeller ignore -->
+    </p>
+  </div>
 </body>
 </html>

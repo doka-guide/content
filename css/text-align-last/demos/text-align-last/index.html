@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример значений — text-align-last — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    .option-title {
+      margin-inline-end: 50px;
+      font-size: 18px;
+      text-align: right;
+    }
+
+    h1,
+    .option-title {
+      inline-size: 270px;
+    }
+
+    .option {
+      inline-size: 340px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
+    }
+
+    .left {
+      text-align-last: left;
+    }
+
+    .right {
+      text-align-last: right;
+    }
+
+    .center {
+      text-align-last: center;
+    }
+
+    .justify {
+      text-align-last: justify;
+    }
+
+    .start {
+      text-align-last: start;
+    }
+
+    .end {
+      text-align-last: end;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+        overflow: scroll;
+      }
+
+      h1,
+      .option-title {
+        inline-size: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .option {
+        inline-size: calc(100vw - 60px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <h1><code>text-align-last</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>left</code></span>
+      <p class="option left"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>right</code></span>
+      <p class="option right"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>center</code></span>
+      <p class="option center"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>justify</code></span>
+      <p class="option justify"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>start</code></span>
+      <p class="option start"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>end</code></span>
+      <p class="option end"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+    </div>
+  </div>
+</body>
+
+</html>

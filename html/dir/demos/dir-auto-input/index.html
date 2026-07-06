@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значение auto для элементов форм — Атрибут dir — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 15px;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      color: #ffffff;
+      accent-color: darkmagenta;
+      background-color: #18191c;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    label + label {
+      margin-block-start: 25px;
+    }
+
+    input,
+    textarea {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    p {
+      margin-block-end: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <p>Вы можете скопировать текст на арабском из примера выше и проверить как он будет отображаться в поле ввода</p>
+
+    <label>
+      Введите текст
+      <input dir="auto" type="text" value="ما اسمك؟">
+    </label>
+
+    <label>
+      Оставьте комментарий
+      <textarea dir="auto" type="text" rows="6">
+ما اسمك؟
+Привет!
+ما اسمك؟
+      </textarea>
+    </label>
+  </div>
+</body>
+</html>

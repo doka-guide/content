@@ -12,7 +12,7 @@ if (drinks.every(drink => drink === '🍺')) {
 ```js
 const drinks = []
 
-if (drinks.every(drink => drink === '🍺') {
+if (drinks.every(drink => drink === '🍺')) {
   console.log('This is a beer party! 🎉 without BEER :)')
 }
 ```

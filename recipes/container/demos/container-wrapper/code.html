@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный container c дополнительным содержимым — Колонка с контентом по центру экрана — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+    }
+
+    section {
+      margin-block: 25px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      width: clamp(290px, 85%, 390px);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #C56FFF;
+      padding-bottom: 20px;
+    }
+
+    .wrapper {
+      width: clamp(200px, 90%, 320px);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #593273;
+      color: #FFFFFF;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1>Заголовок для блога</h1>
+      <div class="wrapper">
+        Социальные сети пожирают наши души взамен на одобрение.
+        Самые интересные цветы растут в тени.
+      </div>
+    </div>
+  </section>
+</body>
+</html>

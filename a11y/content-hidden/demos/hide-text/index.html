@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -22,7 +27,6 @@
       justify-content: center;
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
       color: #FFFFFF;
     }
 
@@ -32,18 +36,29 @@
       justify-content: space-between;
     }
 
+    .container-row {
+      position: relative;
+    }
+
     .container-row, .button {
       display: flex;
     }
 
+    .label {
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     .input {
+      width: 300px;
       border: 1px solid #FFFFFF;
       border-radius: 6px;
-      width: 100%;
-      padding: 10px 15px;
+      padding: 10px 60px 10px 15px;
       background-color: transparent;
       color: #FFFFFF;
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       -webkit-appearance: none;
@@ -55,23 +70,14 @@
       outline: none;
     }
 
-    .label {
-      margin-right: 55px;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
     .button {
       display: block;
+      position: absolute;
+      right: 3px;
+      top: 3px;
       border: 2px solid transparent;
       border-radius: 6px;
-      margin-left: 25px;
-      padding: 9px 15px;
-      color: #000000;
-      font-size: 18px;
-      font-weight: 300;
-      font-family: inherit;
+      padding: 3px 12px;
       transition: background-color 0.2s linear;
     }
 
@@ -121,6 +127,10 @@
         margin-right: 10px;
         margin-bottom: 10px;
       }
+
+      .input {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -131,8 +141,9 @@
       <input class="input" id="search" type="text">
       <button class="button button-aqua">
         <span class="sr-only">Искать на странице</span>
-        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 17 17">
-          <path fill="#000000" d="M16.958 15.527L11.75 10.32A6.455 6.455 0 0 0 13 6.5 6.5 6.5 0 1 0 6.5 13a6.465 6.465 0 0 0 3.839-1.263l5.205 5.204 1.414-1.414zM6.5 11C4.019 11 2 8.981 2 6.5S4.019 2 6.5 2 11 4.019 11 6.5 8.981 11 6.5 11z"></path>
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
         </svg>
       </button>
     </div>

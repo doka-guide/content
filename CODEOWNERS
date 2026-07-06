@@ -1,9 +1,12 @@
-css @solarrust
-html @solarrust
-js @hellsquirrel
-tools @igsekor @hellsquirrel
-recipes @solarrust @hellsquirrel @TatianaFokina
-a11y @TatianaFokina
+css @solarrust @Inventoris @vitya-ne
+html @solarrust @Inventoris @ra1nbow1 @vitya-ne
+js @hellsquirrel @Inventoris @ra1nbow1 @vitya-ne
+tools @igsekor @hellsquirrel @ra1nbow1 @vitya-ne
+recipes @solarrust @hellsquirrel @TatianaFokina @vitya-ne
+interviews @solarrust @hellsquirrel @TatianaFokina @igsekor @vitya-ne
+a11y @TatianaFokina @nasty23-star @vitya-ne
 svg @TatianaFokina
+settings @igsekor
+specials @igsekor
 **/demos @skorobaeus
 .github @igsekor

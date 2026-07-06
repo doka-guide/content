@@ -67,4 +67,4 @@ location: "/letuchka/"
 
 ## Архив летучек
 
-Посмотреть все летучки можно в [плейлисте на YouTube](https://www.youtube.com/playlist?list=PLXg6cx7lC8YOgdpjasoZLlvvuevUgx8lI). Мы будем рады любым комментариям и предложениям. Обсудить летучку можно на нашем [сервере в Discord](https://discord.gg/NjaevcW8k8).
+Посмотреть все летучки можно в [плейлисте на YouTube](https://www.youtube.com/playlist?list=PLXg6cx7lC8YOgdpjasoZLlvvuevUgx8lI). Мы будем рады любым комментариям и предложениям. Обсудить летучку можно на нашем [в телеграм-чате](https://t.me/+qYFPI2mExuQxZTFi).

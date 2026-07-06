@@ -24,11 +24,22 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 const input = document.querySelector('input')
+
 input.addEventListener('keyup', function (event) {
   alert('Нажата клавиша ' + event.key)
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+input.onkeyup = function (event) {
+  alert('Нажата клавиша ' + event.key)
+}
 ```
 
 ## Как понять

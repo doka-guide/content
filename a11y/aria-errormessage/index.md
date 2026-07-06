@@ -3,6 +3,8 @@ title: "`aria-errormessage`"
 description: "Атрибут, который нужен для описания ошибки при вводе данных."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - html/input
   - a11y/aria-invalid
@@ -24,7 +26,9 @@ tags:
 ## Пример
 
 ```html
-<label for="email">Ваша почта (обязательно):</label>
+<label for="email">
+  Ваша почта (обязательно):
+</label>
 <input
   id="email"
   type="email"
@@ -40,7 +44,9 @@ tags:
 >
   Поле с почтой обязательно для заполнения.
 </span>
-<button class="button button-aqua">Отправить</button>
+<button class="button button-aqua">
+  Отправить
+</button>
 ```
 
 ```css
@@ -51,18 +57,46 @@ tags:
 
 В демо показываем ошибку, когда поле почты не заполнено и при этом нажата кнопка «Отправить».
 
-<iframe title="aria-errormessage для пустого поля input" src="demos/field-with-aria-errormessage/" height="400"></iframe>
+<iframe title="aria-errormessage для пустого поля" src="demos/field-with-aria-errormessage/" height="400"></iframe>
 
 [Скринридер](/a11y/screenreaders/) прочтёт ошибку примерно так: «Ваша почта обязательно, редактировать, обязательно, неверно. Поле с почтой обязательно для заполнения».
 
 ## Как пишется
 
-Добавьте к тегу `aria-errormessage` со значением в виде ID и свяжите с ним другой тег с текстом ошибки и таким же ID.
+Добавьте к тегу `aria-errormessage` со значением в виде ID и свяжите с ним другой тег с текстом ошибки и таким же ID. Если элемент связан с несколькими ошибками, перечислите в атрибуте несколько ID через пробел.
+
+```html
+<label for="email">
+  Ваша почта (обязательно):
+</label>
+<input
+  id="email"
+  type="email"
+  name="email"
+  aria-invalid="false"
+  aria-errormessage="error success"
+  required
+>
+<span
+  id="error"
+  aria-live="assertive"
+  hidden
+>
+  <!-- Текст ошибки -->
+</span>
+<span
+  id="success"
+  aria-live="polite"
+  hidden
+>
+  <!-- Текст про успешное действие -->
+</span>
+```
 
 Этот атрибут раньше использовали для всех тегов и ролей, но сейчас его можно задавать только некоторым интерактивным элементам:
 
-- [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или роли [`textbox`](/a11y/role-textbox/).
-- [`<input type="checkbox">`](/html/input/#type) или роли [`checkbox`](/a11y/role-checkbox/).
+- [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или [роли `textbox`](/a11y/role-textbox/).
+- [`<input type="checkbox">`](/html/input/#type) или [роли `checkbox`](/a11y/role-checkbox/).
 - [`<input type="range">`](/html/input/#type) или роли [`slider`](/a11y/role-slider/).
 - [`<input type="number">`](/html/input/#type) или роли [`spinbutton`](/a11y/role-spinbutton/).
 - [`<select>`](/html/select/) или ролям [`combobox`](/a11y/role-combobox/) и [`listbox`](/a11y/role-listbox/).
@@ -80,7 +114,9 @@ tags:
 Так как текст ошибки из `aria-errormessage` не всегда озвучивается скринридерами, лучше использовать вместо него [`aria-describedby`](/a11y/aria-describedby/). Этот атрибут работает точно так же, но в него можно добавлять любое краткое описание элемента, не только текст ошибки.
 
 ```html
-<label for="email">Ваша почта (обязательно):</label>
+<label for="email">
+  Ваша почта (обязательно):
+</label>
 <input
   id="email"
   type="email"

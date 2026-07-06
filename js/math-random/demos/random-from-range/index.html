@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генерация случайного числа в диапазоне — Math.random — Дока</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .range {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 15px;
+    }
+
+    .input-title {
+      margin-right: 15px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 180px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    #result {
+      align-self: center;
+      font-size: 60px;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      label, .input {
+        width: 100%;
+      }
+
+      .input-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span id="result">
+      ❔
+    </span>
+    <div class="range">
+      <label for="from">
+        <span class="input-title">От:</span>
+        <input class="input" type="text" name="from" id="from" value="1">
+      </label>
+      <label for="to">
+        <span class="input-title">До:</span>
+        <input class="input" type="text" name="to" id="to" value="100">
+      </label>
+    </div>
+    <button class="button button-yellow" onclick="randomNumber()">Сгенерировать случайное число из заданного диапазона</button>
+  </div>
+
+  <script>
+    let div = document.getElementById('result')
+    let from = document.getElementById('from')
+    let to = document.getElementById('to')
+
+
+    function randomNumber(){
+      let min = parseInt(from.value) || 0
+      let max = parseInt(to.value) || 10
+      let num = min + Math.floor(Math.random() * (max-min))
+      div.textContent = num
+    }
+  </script>
+</body>
+</html>

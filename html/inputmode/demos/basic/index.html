@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -14,115 +14,149 @@
       padding: 0;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0;
-      padding: 32px;
-      font-family: 'Roboto', sans-serif;
-      background-color: #18191c;
-    }
-
-    .demo-wrapper {
-      margin: 0 auto;
-      width: 560px;
-    }
-
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -12px;
-      width: 100%;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     .form-field {
-      display: inline-flex;
-      flex-direction: column;
-      width: calc(50% - 24px);
-      margin: 0 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-field + .form-field {
+      margin-top: 25px;
     }
 
     .form-field__name {
       display: inline-block;
-      margin-bottom: 4px;
-      font-size: 17px;
-      color: #b8c0c8;
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      color: inherit;
     }
 
     .form-field__input {
-      width: 100%;
-      border: 1px solid #a8b4c0;
-      border-radius: 4px;
-      padding: 8px;
-      font-size: 16px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-field__input:focus {
+      border-color: #FF8630;
+      outline: none;
     }
 
     textarea {
-      width: 100%;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
       font-family: inherit;
-      padding: 8px;
-      resize: none;
     }
 
-    @media (max-width: 560px) {
+    textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .form-field__input {
+      width: 350px;
+    }
+
+    textarea {
+      min-width: 350px;
+      max-width: 350px;
+    }
+
+    @media (max-width: 768px) {
       body {
-        padding: 24px;
-      }
-
-      .demo-wrapper {
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      form {
-        flex-direction: column;
-        margin: 0;
+        padding: 30px;
       }
 
       .form-field {
+        display: block;
+      }
+
+      .form-field__input {
         width: 100%;
-        margin: 0 0 20px;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .form-field__name {
+        margin-right: 0;
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="demo-wrapper">
-    <form>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="none"</code></span>
-        <input type="text" inputmode="none" name="name_input" class="form-field__input">
-      </label>
-      <label class="form-field ">
-        <span class="form-field__name"><code>inputmode="text"</code></span>
-        <textarea inputmode="text" name="comment_input" placeholder="Оставьте комментарий"></textarea>
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="numeric"</code></span>
-        <input type="text" inputmode="numeric" name="numeric_input" class="form-field__input">
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="decimal"</code></span>
-        <input type="text" inputmode="decimal" name="decimal_input" class="form-field__input">
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="tel"</code></span>
-        <input type="tel" inputmode="tel" name="phone_input" class="form-field__input" pattern="[8]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="8 999 999-99-99">
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="email"</code></span>
-        <input type="email" inputmode="email" name="email_input" class="form-field__input" placeholder="email@example.com">
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="search"</code></span>
-        <input type="text" inputmode="search" name="search_input" class="form-field__input">
-      </label>
-      <label class="form-field">
-        <span class="form-field__name"><code>inputmode="url"</code></span>
-        <input type="text" inputmode="url" name="link_input" class="form-field__input">
-      </label>
-    </form>
-  </div>
+  <form>
+    <div class="form-field">
+      <label class="form-field__name" for="none"><code>none</code>:</label>
+      <input type="text" inputmode="none" name="name_input" class="form-field__input" id="none">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="text"><code>text</code>:</label>
+      <textarea inputmode="text" name="comment_input" placeholder="Оставьте комментарий" id="text"></textarea>
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="numeric"><code>numeric</code>:</label>
+      <input type="text" inputmode="numeric" name="numeric_input" class="form-field__input" id="numeric">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="decimal"><code>decimal</code>:</label>
+      <input type="text" inputmode="decimal" name="decimal_input" class="form-field__input" id="decimal">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="tel"><code>tel</code>:</label>
+      <input type="tel" inputmode="tel" name="phone_input" class="form-field__input" pattern="[8]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="8 999 999-99-99" id="tel">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="email"><code>email</code>:</label>
+      <input type="email" inputmode="email" name="email_input" class="form-field__input" placeholder="email@example.com" id="email">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="search"><code>search</code>:</label>
+      <input type="text" inputmode="search" name="search_input" class="form-field__input" id="search">
+    </div>
+    <div class="form-field">
+      <label class="form-field__name" for="url"><code>url</code>:</label>
+      <input type="text" inputmode="url" name="link_input" class="form-field__input" id="url">
+    </div>
+  </form>
 </body>
 </html>

@@ -2,7 +2,6 @@
 name: 'Андрей Пилюгин'
 url: https://github.com/reaferon
 photo: photo.png
-
 badges:
   - first-contribution-small
 ---

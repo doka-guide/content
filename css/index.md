@@ -15,6 +15,7 @@ groups:
       - adding-styles
       - display
       - all
+      - mobile-first-vs-desktop-first
   - name: 'Селекторы'
     items:
       - tag-selector
@@ -54,6 +55,8 @@ groups:
       - lang
       - root
       - indeterminate
+      - picture-in-picture
+      - fullscreen
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -65,6 +68,11 @@ groups:
       - first-line
       - selection
       - marker
+      - backdrop
+      - details-content
+      - cue
+      - file-selector-button
+      - target-text
   - name: 'Функции'
     items:
       - attr
@@ -82,6 +90,10 @@ groups:
       - filter-functions
       - transform-function
       - url
+      - clamp
+      - color-function
+      - light-dark
+      - color-mix
   - name: 'Директивы'
     items:
       - font-face
@@ -89,6 +101,12 @@ groups:
       - keyframes
       - media
       - supports
+      - layer
+      - starting-style
+      - namespace
+      - font-feature-values
+      - charset
+      - container
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -96,11 +114,20 @@ groups:
     items:
       - web-colors
       - currentcolor
+      - color-function
+      - light-dark
+      - color-mix
+  - name: 'Тёмная тема'
+    items:
+      - color-scheme
+      - light-dark
+      - prefers-color-scheme
   - name: 'Единицы измерения'
     items:
       - numeric-types
       - vw-vh
       - rem-em
+      - sv-lv-dv
   - name: 'Анимации'
     items:
       - animation
@@ -130,6 +157,7 @@ groups:
       - perspective-origin
       - backface-visibility
       - will-change
+      - rotate
   - name: 'Фон'
     items:
       - background
@@ -158,6 +186,7 @@ groups:
       - font-size
       - line-height
       - text-align
+      - text-align-last
       - text-transform
       - vertical-align
       - font-face
@@ -175,6 +204,7 @@ groups:
       - text-decoration-skip-ink
       - text-rendering
       - text-shadow
+      - text-wrap
       - white-space
       - quotes
       - overflow-wrap
@@ -186,6 +216,9 @@ groups:
       - text-size-adjust
       - text-underline-offset
       - text-underline-position
+      - text-box
+      - text-box-edge
+      - text-box-trim
       - word-break
       - word-spacing
       - word-wrap
@@ -225,6 +258,20 @@ groups:
       - stacking-context
       - z-index
       - inset
+  - name: 'Якорное позиционирование'
+    items:
+      - anchor-positioning-guide
+      - anchor-name
+      - position-anchor
+      - anchor-function
+      - position-area
+      - position-try-fallbacks
+      - position-try-rule
+      - position-try-order
+      - position-try
+      - position-visibility
+      - anchor-size-function
+      - anchor-scope
   - name: 'Списки'
     items:
       - list-style
@@ -235,6 +282,7 @@ groups:
   - name: 'Флексбоксы'
     items:
       - flexbox-guide
+      - flex-grow-shrink
       - flex
       - flex-basis
       - flex-direction
@@ -304,10 +352,12 @@ groups:
     items:
       - object-fit
       - object-position
+      - object-view-box
       - aspect-ratio
       - filter
       - filter-functions
       - image-rendering
+      - mix-blend-mode
   - name: 'Рамки, обводки и тени'
     items:
       - border
@@ -334,8 +384,12 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - overscroll-behavior
       - scroll-behavior
       - scroll-padding
+      - scroll-snap-type
+      - scroll-snap-align
+      - scroll-snap-stop
       - scrollbar-color
       - scrollbar-gutter
       - scrollbar-width
@@ -351,7 +405,10 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - page
+      - orphans
       - widows
+      - print-color-adjust
   - name: 'Колонки и таблицы'
     items:
       - columns

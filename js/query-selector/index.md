@@ -1,6 +1,11 @@
 ---
 title: "`.querySelector()`"
 description: "Получить DOM-элемент по CSS-селектору."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Генетическое дерево котиков'
 authors:
   - nlopin
 keywords:
@@ -45,9 +50,9 @@ tags:
   <script>
     const firstParagraph = document.querySelector('div > p')
     console.log(firstParagraph.textContent)
-    // напечатает текст, начинающийся с 'Князь Василий'
+    // Напечатает текст, начинающийся с 'Князь Василий'
 
-    // ищем несуществующий элемент
+    // Ищем несуществующий элемент
     const spanFromBody = document.querySelector('span')
     console.log(spanFromBody)
     // null
@@ -57,7 +62,7 @@ tags:
 
 Динамический пример, введите селектор в поле поиска и нажмите «Искать»:
 
-<iframe title="Название — querySelector — Дока" src="demos/Lopinopulos-oReWwv/" height="450"></iframe>
+<iframe title="Как работает querySelector" src="demos/Lopinopulos-oReWwv/" height="450"></iframe>
 
 ## Как понять
 

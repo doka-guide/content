@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример слайдера — Слайдер — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h2 {
+      margin: 20px auto 0;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 26px;
+    }
+
+    .controls {
+      margin-block-end: 20px;
+    }
+
+    .button {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .button-radio {
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      inline-size: 15px;
+      block-size: 15px;
+      border-radius: 50%;
+      border: 1px solid #FFFFFF;
+    }
+
+    .button-radio + .button-radio {
+      margin-inline-start: 12px;
+    }
+
+    .button-radio.active {
+      background-color: #C56FFF;
+      pointer-events: none;
+    }
+
+    .button-radio:focus-visible {
+      outline: 3px solid white;
+      outline-offset: -1px;
+    }
+
+    .button-prev,
+    .button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      inline-size: 30px;
+      block-size: 42px;
+      background-color: transparent;
+      background-image: url(./images/arrow.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .button-prev[aria-disabled="true"],
+    .button-next[aria-disabled="true"] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .button-prev {
+      inset-inline-start: -50px;
+    }
+
+    .button-next {
+      inset-inline-end: -50px;
+      transform: translateY(-50%) rotateY(180deg);
+      transform-origin: center;
+    }
+
+    .slide-img {
+      display: block;
+      inline-size: 100%;
+      block-size: 225px;
+      max-block-size: 225px;
+      object-fit: cover;
+    }
+
+    .slider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-inline-size: 600px;
+      inline-size: 100%;
+      position: relative;
+    }
+
+    .slides {
+      inline-size: 100%;
+    }
+
+    .slide {
+      display: none;
+      text-align: center;
+    }
+
+    .slide--active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .slider {
+        max-inline-size: 260px;
+      }
+
+      .slide-img {
+        block-size: 400px;
+      }
+
+      .button-prev {
+        inset-inline-start: -40px;
+      }
+
+      .button-next {
+        inset-inline-end: -40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider" role="region" aria-label="Паттерны">
+    <div class="controls" role="group" aria-label="Управление слайдами">
+      <button class="button button-radio" type="button" aria-current="true" aria-label="Показать 1 из 4">
+      </button>
+      <button class="button button-radio" type="button" aria-label="Показать 2 из 4">
+      </button>
+      <button class="button button-radio" type="button" aria-label="Показать 3 из 4">
+      </button>
+      <button class="button button-radio" type="button" aria-label="Показать 4 из 4">
+      </button>
+
+      <button aria-label="Предыдущий" class="button button-prev" type="button"></button>
+      <button aria-label="Следующий" class="button button-next" type="button"></button>
+    </div>
+
+    <div class="slides" aria-live="polite">
+      <div class="slide" role="group" aria-labelledby="item-1-label" id="carousel-item-1">
+        <img class="slide-img" src="./images/summer.jpg" alt="Абстрактные цветы розовых, синих, малиновых и оранжевых оттенков на зелёном фоне.">
+        <h2 id="item-1-label">Паттерн «Лето»</h2>
+      </div>
+      <div class="slide" role="group" aria-labelledby="item-2-label" id="carousel-item-2">
+        <img class="slide-img" src="./images/flowers.jpg" alt="Цветы с расплывчатыми контурами, похожие на маки. Преобладает розовый, тёмно-зелёный, красный и фиолетовый цвет.">
+        <h2 id="item-2-label">Паттерн «Цветочное поле»</h2>
+      </div>
+      <div class="slide" role="group" aria-labelledby="item-3-label" id="carousel-item-3">
+        <img class="slide-img" src="./images/lilac.jpg" alt="Несколько пятен розовых оттенков в форме цветов. На их фоне салатовые, тёмно-зелёные и фисташковые брызги.">
+        <h2 id="item-3-label">Паттерн «Лиловый»</h2>
+      </div>
+      <div class="slide" role="group" aria-labelledby="item-4-label" id="carousel-item-4">
+        <img class="slide-img" src="./images/scarlet.jpg" alt="Несколько абстрактных роз в виде пятен алого цвета.">
+        <h2 id="item-4-label">Паттерн «Алый»</h2>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const slider = document.querySelector('.slider')
+      const slides = slider.querySelectorAll('.slide')
+      const activeSlides = 'slide--active'
+      const slideCount = slides.length
+      const controlButtons = slider.querySelectorAll('.button-radio')
+      const prevButton = slider.querySelector('.button-prev')
+      const nextButton = slider.querySelector('.button-next')
+      const activeButton = 'active'
+      const inactiveButton = 'aria-disabled'
+      const currentButton = 'aria-current'
+      let currentSlide = 0
+
+      function updateSlider() {
+        slides.forEach((slide, index) => {
+          if(index === currentSlide) {
+            slide.classList.add(activeSlides)
+          } else {
+            slide.classList.remove(activeSlides)
+          }
+        })
+
+        controlButtons.forEach((button, index) => {
+          if (index === currentSlide) {
+            button.classList.add(activeButton)
+            button.setAttribute(currentButton, true)
+          } else {
+            button.classList.remove(activeButton)
+            button.removeAttribute(currentButton, true)
+          }
+
+          prevButton.setAttribute(inactiveButton, currentSlide === 0)
+          nextButton.setAttribute(inactiveButton, currentSlide === slideCount - 1)
+        })
+      }
+
+      controlButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          if (index < slideCount) {
+            currentSlide = index
+            updateSlider()
+          }
+        })
+      })
+
+      prevButton.addEventListener('click', () => {
+        if (currentSlide > 0) {
+          currentSlide--
+          updateSlider()
+        }
+      })
+
+      nextButton.addEventListener('click', () => {
+        if (currentSlide < slideCount - 1) {
+          currentSlide++
+          updateSlider()
+        }
+      })
+
+      slider.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowLeft' && currentSlide > 0) {
+          currentSlide--
+          updateSlider()
+        } else if (event.key === 'ArrowRight' && currentSlide < slideCount - 1) {
+          currentSlide++
+          updateSlider()
+        }
+      })
+
+      updateSlider()
+    })
+  </script>
+</body>
+
+</html>

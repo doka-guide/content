@@ -36,7 +36,7 @@
     }
 
     input:focus {
-      border-color: #2E9AFF;
+      border-color: #FF8630;
       outline: none;
     }
 
@@ -51,15 +51,31 @@
       font-family: "Roboto", sans-serif;
     }
 
+    .container {
+      display: flex;
+      align-items: center;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .container {
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-  <label for="number">Ваше любимое число:</label>
-  <input id="number" type="number">
+  <div class="container">
+    <label for="number">Ваше любимое число:</label>
+    <input id="number" type="number">
+  </div>
 </body>
 </html>

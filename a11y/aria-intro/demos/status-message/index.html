@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Сообщение об успешной очистке формы — Введение в ARIA — Статья</title>
+  <title>Кнопка с сообщением об успешной очистке формы — Введение в ARIA — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -22,7 +27,6 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      font-size: 18px;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
@@ -33,9 +37,10 @@
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
+      margin-bottom: 10px;
       text-align: center;
       color: #000000;
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
@@ -61,9 +66,8 @@
       background-color: #10F3AF;
     }
 
-    .alert-message {
-      display: none;
-      margin-top: 9px;
+    .status-message {
+      height: 20px;
     }
 
     @media (max-width: 768px) {
@@ -79,12 +83,12 @@
 
   <script>
     document.body.addEventListener('click', function() {
-      const button = document.querySelector('.button');
-      const alert = document.querySelector('.status-message');
+      const button = document.querySelector('.button')
+      const statusmMessage = document.querySelector('.status-message')
 
-      alert.innerHTML = 'Форма очищена!';
-      alert.style.display = 'block';
-    });
+      statusmMessage.innerHTML = 'Форма успешно очищена 🎉'
+      statusmMessage.style.display = 'block'
+    })
   </script>
 </body>
 </html>

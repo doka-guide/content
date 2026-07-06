@@ -1,0 +1,21 @@
+name: Create Release Draft
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 1 * *'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Загрузка контента
+        uses: actions/checkout@v4
+      - name: Создание черновика релиза
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+        run: sh .github/scripts/update-release.sh

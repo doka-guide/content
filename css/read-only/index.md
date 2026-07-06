@@ -22,6 +22,6 @@ tags:
 
 ## Как пишется
 
-Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) с атрибутом `readonly`. Также может быть применён к html-тегам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/).
+Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) с атрибутом [`readonly`](/html/readonly/). Также может быть применён к html-тегам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/).
 После селектора для поля ввода текста ([`<input>`](/html/input/) и [`<textarea>`](/html/textarea/)) или селектора с атрибутом [`contenteditable`](/html/global-attrs/) ставим двоеточие и пишем ключевое слово `read-only`.
 В браузере Firefox `:read-only` поддерживается с префиксом -moz: `:-moz-read-only`.

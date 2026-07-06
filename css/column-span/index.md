@@ -1,6 +1,12 @@
 ---
 title: "`column-span`"
 description: "Нарушаем правила колоночной вёрстки и растягиваем элемент сразу на несколько колонок."
+baseline:
+  - group: column-span
+    features:
+      - css.properties.column-span
+      - css.properties.column-span.all
+      - css.properties.column-span.none
 authors:
   - xpleesid
 related:

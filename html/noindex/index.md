@@ -52,7 +52,7 @@ tags:
 
 - Запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта файл [_robots.txt_](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru).
 - Запретить индексирование всей страницы: укажите тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/).
-- Запретить переходить по ссылке: у тега `<a>` укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
+- Запретить переходить по ссылке: у тега [`<a>`](/html/a/) укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
 
 ## Как понять
 

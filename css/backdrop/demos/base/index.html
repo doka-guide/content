@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — ::backdrop — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button-white {
+      background-color: #FFFFFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-white:hover {
+      border: 2px solid #FFFFFF;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    .button-white:focus-visible {
+      border: 2px solid #2E9AFF;
+    }
+
+    .button-white:focus {
+      border: 2px solid #2E9AFF;
+    }
+
+    .dialog {
+      width: calc(100% - 40px);
+      max-width: 400px;
+      margin: auto;
+      padding: 45px 40px;
+      border: none;
+      background-color: #18191C;
+    }
+
+    .dialog__title {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    p {
+      margin: 14px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .dialog__wrapper .button {
+      width: 100%;
+    }
+
+    .dialog::-webkit-backdrop {
+      background-image: linear-gradient(
+        90deg,
+        #123E66,
+        #593273 41.07%,
+        #623D45 76.05%
+      );
+      opacity: 0.6;
+    }
+
+    .dialog::backdrop {
+      background-image: linear-gradient(
+        90deg,
+        #123E66,
+        #593273 41.07%,
+        #623D45 76.05%
+      );
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-blue" type="button" aria-controls="modal-example" onclick="window['modal-example'].showModal()">
+    Открыть модальное окно
+  </button>
+
+  <dialog class="dialog" id="modal-example" aria-labelledby="dialog-name">
+    <form class="dialog__wrapper" method="dialog">
+      <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
+      <p>Полюбуйтесь на мою подложку</p>
+      <button class="button button-white">Красотища! 💅</button>
+    </form>
+  </dialog>
+</body>
+</html>

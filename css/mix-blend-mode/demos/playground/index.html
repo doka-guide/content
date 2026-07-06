@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — mix-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    :root {
+      --bkg-color: #000000;
+      --blend-mode: exclusion;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      grid-auto-columns: min(100%, 650px);
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
+      gap: 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      padding: 30px;
+      background-color: var(--bkg-color);
+    }
+
+    h1 {
+      margin: 0;
+      mix-blend-mode: var(--blend-mode);
+      color: #2E9AFF;
+      font-size: 85px;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .brick {
+      position: relative;
+      top: -0.4em;
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      color: #41E847;
+      font-size: 0.25em;
+      font-weight: 700;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0.4em;
+      line-height: 1;
+    }
+
+    .horse {
+      color: #C56FFF;
+    }
+
+    .controllers {
+      display: grid;
+      gap: 25px;
+      font-size: 20px;
+    }
+
+    .bkg-color-changer-label {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .bkg-color-changer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 50px;
+      align-items: center;
+    }
+
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    label span::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    input[type='radio'] {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 15px;
+    }
+
+    input[type='radio']:focus + span::before {
+      border-color: #2E9AFF;
+    }
+
+    input[type='radio']:checked + span::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .select-label {
+      display: block;
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .select {
+      position: relative;
+      width: 400px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: 97% center;
+      background-size: 16px 8px;
+    }
+
+    .select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        padding: 30px 10px;
+      }
+
+      .select {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="controllers">
+    <div class="select-wrapper">
+      <label for="modes" class="select-label"><code>mix-blend-mode</code></label>
+      <select name="modeSelect" id="modes" class="select">
+        <option value="normal">normal</option>
+        <option value="multiply">multiply</option>
+        <option value="screen">screen</option>
+        <option value="overlay">overlay</option>
+        <option value="darken">darken</option>
+        <option value="lighten">lighten</option>
+        <option value="color-dodge">color-dodge</option>
+        <option value="color-burn">color-burn</option>
+        <option value="hard-light">hard-light</option>
+        <option value="soft-light">soft-light</option>
+        <option value="difference">difference</option>
+        <option value="exclusion" selected>exclusion</option>
+        <option value="hue">hue</option>
+        <option value="saturation">saturation</option>
+        <option value="color">color</option>
+        <option value="luminosity">luminosity</option>
+      </select>
+    </div>
+
+    <div class="bkg-color-changer">
+      <span class="bkg-color-changer-label">Цвет фона:</span>
+      <label><input type="radio" name="bck-color" value="#FFFFFF"><span>Светлый</span></label>
+      <label><input type="radio" name="bck-color" value="#000000" checked><span>Тёмный</span></label>
+      <label><input type="radio" name="bck-color" value="#F498AD"><span>Яркий</span></label>
+    </div>
+  </div>
+  <div class="wrapper">
+    <h1>Я<span class="brick"><span>мал</span><span>ень</span><span>кая</span></span><span class="horse">лошадка</span></h1>
+  </div>
+
+  <script>
+    const target = document.querySelector('h1')
+    const wrapper = document.querySelector('.wrapper')
+    const selector = document.querySelector('#modes')
+    const bkgRadioButtons = document.querySelectorAll('input[type="radio"]')
+
+    selector.addEventListener('change', () => {
+      target.style.setProperty('--blend-mode', selector.value)
+    })
+
+    bkgRadioButtons.forEach((button) => {
+      button.addEventListener('change', (event) => {
+        wrapper.style.setProperty('--bkg-color', event.target.value)
+      })
+    })
+  </script>
+</body>
+</html>

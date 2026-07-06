@@ -6,6 +6,7 @@ authors:
 contributors:
   - furtivite
   - gurugray
+  - e-kucheriavyi
 keywords:
   - гит
 related:

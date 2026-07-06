@@ -23,11 +23,22 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 const divEl = document.getElementsByTagName('div')[0]
+
 divEl.addEventListener('mouseout', function () {
   console.log('курсор вышел за границы элемента!')
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+divEl.onmouseout = function () {
+  console.log('курсор вышел за границы элемента!')
+}
 ```
 
 ## Как понять
@@ -47,9 +58,12 @@ figure.addEventListener('mouseout', function() {
 })
 
 function getColor() {
-  const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
+  const colors = [
+    '#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD',
+    '#623D45', '#FF8630', '#663613', '#FFD829', '#665610'
+  ]
   return colors[Math.floor(Math.random() * colors.length)]
 }
 ```
 
-<iframe title="Смена цвета при событии mouseout — Element.mouseout — Дока" src="demos/index/" height="300"></iframe>
+<iframe title="Смена цвета при событии mouseout" src="demos/index/" height="300"></iframe>

@@ -1,6 +1,12 @@
 ---
 title: "`scroll-behavior`"
 description: "Делаем прокрутку на странице плавной."
+baseline:
+  - group: scroll-behavior
+    features:
+      - css.properties.scroll-behavior
+      - css.properties.scroll-behavior.auto
+      - css.properties.scroll-behavior.smooth
 authors:
   - vaiil
 related:

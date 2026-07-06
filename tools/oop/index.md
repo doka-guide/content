@@ -1,6 +1,11 @@
 ---
 title: "Объектно-ориентированное программирование"
 description: "На примере реального приложения разбираемся, чем так хорошо загадочное ООП."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Детская игрушка для развития логики. Коробка с разными формами, из которых вылетают приведения.'
 authors:
   - bespoyasov
 editors:
