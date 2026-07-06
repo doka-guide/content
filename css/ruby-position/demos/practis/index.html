@@ -30,12 +30,6 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     ruby {
       text-align: center;
       ruby-align: center;
@@ -65,7 +59,17 @@
     }
 
     #ruby-2 {
-        ruby-position: under;
+      ruby-position: under;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+      .container {
+        gap: 3.5rem;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
