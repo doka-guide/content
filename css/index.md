@@ -55,6 +55,8 @@ groups:
       - lang
       - root
       - indeterminate
+      - picture-in-picture
+      - fullscreen
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -67,6 +69,8 @@ groups:
       - selection
       - marker
       - backdrop
+      - details-content
+      - cue
       - file-selector-button
       - target-text
   - name: 'Функции'
