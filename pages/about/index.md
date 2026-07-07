@@ -33,7 +33,7 @@ location: "/about/"
 
 Отдельное спасибо — <!-- yaspeller ignore:start -->[Viktar Nezhbart](/people/vitya-ne/)<!-- yaspeller ignore:end -->, который так давно и так щедро помогает с ревью, что Доку без него сложно представить.
 
-Наши суперстар:
+Наши звёзды:
 
 - **<!-- yaspeller ignore:start -->[Алексей Никитченко](/people/inventoris/)<!-- yaspeller ignore:end -->**
 - **<!-- yaspeller ignore:start -->[Анастасия Ярош](/people/anastasiayarosh/)<!-- yaspeller ignore:end -->**
