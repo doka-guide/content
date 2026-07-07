@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
   />
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
   />
   <style>
     * {
@@ -26,14 +26,15 @@
     }
 
     body {
-      font-family: sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: #18191c;
-      color: white;
+      color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      padding: 20px;
     }
 
     .container {
@@ -42,143 +43,248 @@
       gap: 30px;
       max-width: 800px;
       width: 100%;
-      padding: 20px;
     }
 
-    #color-block {
+    #color-wrapper {
       flex: 1 1 300px;
       height: 200px;
       border-radius: 8px;
+      overflow: hidden;
+      background-image:
+        conic-gradient(
+          #ffffff33 0deg 90deg,
+          #00000033 90deg 180deg,
+          #ffffff33 180deg 270deg,
+          #00000033 270deg 360deg
+        );
+      background-size: 20px 20px;
+      flex-shrink: 0;
+    }
+
+    #color-block {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
       border: 1px solid #ffffff33;
+      background-color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: monospace;
-      text-align: center;
-      font-size: 1rem;
       padding: 10px;
-      transition: background-color 0.2s, color 0.2s;
+      transition: background-color 0.1s ease;
+    }
+
+    #color-block span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      text-align: center;
+      transition: color 0.2s ease;
+      user-select: text;
+      word-break: break-all;
     }
 
     .color-params {
       flex: 1 1 300px;
       display: flex;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
       gap: 15px;
     }
 
     .input-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    input[type="range"] {
-      flex-grow: 1;
-    }
-
-    input[type="number"] {
-      width: 70px;
-    }
-
-    label {
-      font-size: 0.9rem;
+    .input-group label {
+      font-size: 0.85rem;
       flex-shrink: 0;
-      width: fit-content;
+      width: 140px;
+      text-align: right;
+      color: #aaaaaa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .input-group input[type="range"] {
+      flex: 1;
+      min-width: 60px;
+    }
+
+    .input-group input[type="number"] {
+      width: 70px;
+      padding: 4px 6px;
+      border: 1px solid #ffffff33;
+      border-radius: 4px;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input[type="number"]:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .input-group input[type="number"]::-webkit-inner-spin-button,
+    .input-group input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .container {
+        gap: 20px;
+      }
+
+      #color-wrapper {
+        flex: 1 1 100%;
+        height: 150px;
+      }
+
+      .color-params {
+        flex: 1 1 100%;
+        gap: 12px;
+      }
+
+      .input-group {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+
+      .input-group label {
+        width: 100%;
+        text-align: left;
+        font-size: 0.8rem;
+      }
+
+      .input-group input[type="number"] {
+        width: 60px;
+      }
     }
   </style>
-  </head>
-  <body>
-    <div class="container">
-      <div id="color-block">#000000</div>
-      <div class="color-params">
-        <div class="input-group">
-          <label for="r">R (красный):</label>
-          <input type="range" id="r" min="0" max="255" value="0">
-          <input type="number" id="r-num" min="0" max="255" value="0">
-        </div>
-        <div class="input-group">
-          <label for="g">G (зелёный):</label>
-          <input type="range" id="g" min="0" max="255" value="0">
-          <input type="number" id="g-num" min="0" max="255" value="0">
-        </div>
-        <div class="input-group">
-          <label for="b">B (синий):</label>
-          <input type="range" id="b" min="0" max="255" value="0">
-          <input type="number" id="b-num" min="0" max="255" value="0">
-        </div>
-        <div class="input-group">
-          <label for="a">α (альфа канал):</label>
-          <input type="range" id="a" min="0" max="1" step="0.01" value="1">
-          <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
-        </div>
+</head>
+<body>
+  <div class="container">
+    <div id="color-wrapper">
+      <div id="color-block">
+        <span>#000000</span>
       </div>
     </div>
+    <div class="color-params">
+      <div class="input-group">
+        <label for="r">R (красный):</label>
+        <input type="range" id="r" min="0" max="255" value="0" />
+        <input type="number" id="r-num" min="0" max="255" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="g">G (зелёный):</label>
+        <input type="range" id="g" min="0" max="255" value="0" />
+        <input type="number" id="g-num" min="0" max="255" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="b">B (синий):</label>
+        <input type="range" id="b" min="0" max="255" value="0" />
+        <input type="number" id="b-num" min="0" max="255" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="a">α (альфа-канал):</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1" />
+        <input type="number" id="a-num" min="0" max="1" step="0.01" value="1" />
+      </div>
+    </div>
+  </div>
+
   <script>
-    const refs = {
-      r: document.getElementById("r"),
-      g: document.getElementById("g"),
-      b: document.getElementById("b"),
-      a: document.getElementById("a"),
-      rNum: document.getElementById("r-num"),
-      gNum: document.getElementById("g-num"),
-      bNum: document.getElementById("b-num"),
-      aNum: document.getElementById("a-num"),
-      block: document.getElementById("color-block"),
-    };
+    (function() {
+      'use strict';
 
-    function toHex(value) {
-      return Math.round(value).toString(16).padStart(2, "0").toUpperCase();
-    }
+      const refs = {
+        r: document.getElementById('r'),
+        g: document.getElementById('g'),
+        b: document.getElementById('b'),
+        a: document.getElementById('a'),
+        rNum: document.getElementById('r-num'),
+        gNum: document.getElementById('g-num'),
+        bNum: document.getElementById('b-num'),
+        aNum: document.getElementById('a-num'),
+        block: document.getElementById('color-block'),
+        text: document.querySelector('#color-block span')
+      };
 
-    function updateFromSliders() {
-      refs.rNum.value = refs.r.value;
-      refs.gNum.value = refs.g.value;
-      refs.bNum.value = refs.b.value;
-      refs.aNum.value = refs.a.value;
+      function toHex(value) {
+        return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
+      }
+
+      function getContrastColor(rgbString) {
+        const match = rgbString.match(/\d+/g);
+        if (!match) return '#ffffff';
+
+        const [r, g, b] = match.map(Number);
+
+        const srgb = [r, g, b].map(function(value) {
+          value /= 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
+
+        const luminance = 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
+
+        return luminance > 0.179 ? '#000000' : '#ffffff';
+      }
+
+      function updateColor() {
+        const r = Number(refs.r.value);
+        const g = Number(refs.g.value);
+        const b = Number(refs.b.value);
+        const a = Number(refs.a.value);
+
+        const alphaHex = toHex(a * 255);
+        const hexColor = '#' + toHex(r) + toHex(g) + toHex(b) + alphaHex;
+
+        refs.block.style.backgroundColor = hexColor;
+        refs.text.textContent = hexColor;
+
+        const appliedRGB = getComputedStyle(refs.block).backgroundColor;
+        refs.text.style.color = getContrastColor(appliedRGB);
+      }
+
+      function syncFromSliders() {
+        refs.rNum.value = refs.r.value;
+        refs.gNum.value = refs.g.value;
+        refs.bNum.value = refs.b.value;
+        refs.aNum.value = refs.a.value;
+        updateColor();
+      }
+
+      function syncFromNumbers() {
+        refs.r.value = refs.rNum.value;
+        refs.g.value = refs.gNum.value;
+        refs.b.value = refs.bNum.value;
+        refs.a.value = refs.aNum.value;
+        updateColor();
+      }
+
+      refs.r.addEventListener('input', syncFromSliders);
+      refs.g.addEventListener('input', syncFromSliders);
+      refs.b.addEventListener('input', syncFromSliders);
+      refs.a.addEventListener('input', syncFromSliders);
+
+      refs.rNum.addEventListener('input', syncFromNumbers);
+      refs.gNum.addEventListener('input', syncFromNumbers);
+      refs.bNum.addEventListener('input', syncFromNumbers);
+      refs.aNum.addEventListener('input', syncFromNumbers);
+
       updateColor();
-    }
-
-    function updateFromNumbers() {
-      refs.r.value = refs.rNum.value;
-      refs.g.value = refs.gNum.value;
-      refs.b.value = refs.bNum.value;
-      refs.a.value = refs.aNum.value;
-      updateColor();
-    }
-
-    function getContrastYIQ(r, g, b) {
-      const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-      return yiq >= 128 ? "#000000" : "#ffffff";
-    }
-
-    function updateColor() {
-      const r = Number(refs.r.value);
-      const g = Number(refs.g.value);
-      const b = Number(refs.b.value);
-      const a = Number(refs.a.value);
-
-      const alphaHex = a < 1 ? toHex(a * 255) : "";
-      const hex = "#" + toHex(r) + toHex(g) + toHex(b) + alphaHex;
-
-
-      refs.block.style.backgroundColor = hex;
-      refs.block.style.color = getContrastYIQ(r, g, b);
-      refs.block.textContent = hex;
-    }
-
-    refs.r.addEventListener("input", updateFromSliders);
-    refs.g.addEventListener("input", updateFromSliders);
-    refs.b.addEventListener("input", updateFromSliders);
-    refs.a.addEventListener("input", updateFromSliders);
-
-    refs.rNum.addEventListener("input", updateFromNumbers);
-    refs.gNum.addEventListener("input", updateFromNumbers);
-    refs.bNum.addEventListener("input", updateFromNumbers);
-    refs.aNum.addEventListener("input", updateFromNumbers);
-
-    updateColor();
+    })();
   </script>
 </body>
 </html>

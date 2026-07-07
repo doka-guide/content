@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LCH — Цвета в вебе — Дока</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+  />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
       color-scheme: dark;
     }
 
     body {
-      font-family: sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: #18191c;
-      color: white;
+      color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      padding: 20px;
     }
 
     .container {
@@ -27,142 +43,243 @@
       gap: 30px;
       max-width: 800px;
       width: 100%;
-      padding: 20px;
     }
 
-    #color-block {
+    #color-wrapper {
       flex: 1 1 300px;
       height: 200px;
       border-radius: 8px;
+      overflow: hidden;
+      background-image:
+        conic-gradient(
+          #ffffff33 0deg 90deg,
+          #00000033 90deg 180deg,
+          #ffffff33 180deg 270deg,
+          #00000033 270deg 360deg
+        );
+      background-size: 20px 20px;
+      flex-shrink: 0;
+    }
+
+    #color-block {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
       border: 1px solid #ffffff33;
+      background-color: lch(0% 0 0 / 1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: monospace;
-      text-align: center;
-      font-size: 1rem;
       padding: 10px;
-      transition: color 0.3s ease;
+      transition: background-color 0.1s ease;
+    }
+
+    #color-block span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      text-align: center;
+      transition: color 0.2s ease;
+      user-select: text;
+      word-break: break-all;
     }
 
     .color-params {
       flex: 1 1 300px;
       display: flex;
-      justify-content: center;
       flex-direction: column;
+      justify-content: center;
       gap: 15px;
     }
 
     .input-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    input[type="range"] {
-      flex-grow: 1;
-    }
-
-    input[type="number"] {
-      width: 70px;
-    }
-
-    label {
-      font-size: 0.9rem;
+    .input-group label {
+      font-size: 0.85rem;
       flex-shrink: 0;
-      width: fit-content;
+      width: 140px;
+      text-align: right;
+      color: #aaaaaa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .input-group input[type="range"] {
+      flex: 1;
+      min-width: 60px;
+    }
+
+    .input-group input[type="number"] {
+      width: 70px;
+      padding: 4px 6px;
+      border: 1px solid #ffffff33;
+      border-radius: 4px;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input[type="number"]:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .input-group input[type="number"]::-webkit-inner-spin-button,
+    .input-group input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+
+      .container {
+        gap: 20px;
+      }
+
+      #color-wrapper {
+        flex: 1 1 100%;
+        height: 150px;
+      }
+
+      .color-params {
+        flex: 1 1 100%;
+        gap: 12px;
+      }
+
+      .input-group {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+
+      .input-group label {
+        width: 100%;
+        text-align: left;
+        font-size: 0.8rem;
+      }
+
+      .input-group input[type="number"] {
+        width: 60px;
+      }
     }
   </style>
-  </head>
-  <body>
-    <div class="container">
-      <div id="color-block">lch(50% 30 60 / 1)</div>
-      <div class="color-params">
-        <div class="input-group">
-          <label for="L">L (светлота):</label>
-          <input type="range" id="L" min="0" max="100" value="50">
-          <input type="number" id="L-num" min="0" max="100" value="50">
-        </div>
-        <div class="input-group">
-          <label for="C">C (насыщенность):</label>
-          <input type="range" id="C" min="0" max="150" value="30">
-          <input type="number" id="C-num" min="0" max="150" value="30">
-        </div>
-        <div class="input-group">
-          <label for="H">H (тон):</label>
-          <input type="range" id="H" min="0" max="360" value="60">
-          <input type="number" id="H-num" min="0" max="360" value="60">
-        </div>
-        <div class="input-group">
-          <label for="a">α (альфа канал):</label>
-          <input type="range" id="a" min="0" max="1" step="0.01" value="1">
-          <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
-        </div>
+</head>
+<body>
+  <div class="container">
+    <div id="color-wrapper">
+      <div id="color-block">
+        <span>lch(0% 0 0 / 1)</span>
       </div>
     </div>
+    <div class="color-params">
+      <div class="input-group">
+        <label for="L">L (светлота):</label>
+        <input type="range" id="L" min="0" max="100" value="0" />
+        <input type="number" id="L-num" min="0" max="100" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="C">C (насыщенность):</label>
+        <input type="range" id="C" min="0" max="150" value="0" />
+        <input type="number" id="C-num" min="0" max="150" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="H">H (тон):</label>
+        <input type="range" id="H" min="0" max="360" value="0" />
+        <input type="number" id="H-num" min="0" max="360" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="a">α (альфа-канал):</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1" />
+        <input type="number" id="a-num" min="0" max="1" step="0.01" value="1" />
+      </div>
+    </div>
+  </div>
 
   <script>
-    const ids = ['L','C','H','a'];
-    const refs = ids.reduce((o,k) => {
-      o[k] = document.getElementById(k);
-      o[k+'Num'] = document.getElementById(k+'-num');
-      return o;
-    }, { block: document.getElementById('color-block') });
+    (function() {
+      'use strict';
 
-    function updateColor() {
-      const L = refs.L.value;
-      const C = refs.C.value;
-      const H = refs.H.value;
-      const a = refs.a.value;
-      const css = `lch(${L}% ${C} ${H} / ${a})`;
-      refs.block.style.backgroundColor = css;
-      refs.block.textContent = css;
-
-      // Пытаемся получить контрастный цвет текста
-      const temp = document.createElement("div");
-      temp.style.color = "white";
-      temp.style.backgroundColor = css;
-      temp.style.position = "absolute";
-      temp.style.visibility = "hidden";
-      document.body.appendChild(temp);
-      const white = window.getComputedStyle(temp).color;
-
-      temp.style.color = "black";
-      const black = window.getComputedStyle(temp).color;
-      document.body.removeChild(temp);
-
-      // Сравниваем яркость и выставляем подходящий цвет текста
-      const getLuminance = rgb => {
-        const [r, g, b] = rgb.match(/\d+/g).map(Number).map(v => {
-          const c = v / 255;
-          return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-        });
-        return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      const refs = {
+        L: document.getElementById('L'),
+        C: document.getElementById('C'),
+        H: document.getElementById('H'),
+        a: document.getElementById('a'),
+        LNum: document.getElementById('L-num'),
+        CNum: document.getElementById('C-num'),
+        HNum: document.getElementById('H-num'),
+        aNum: document.getElementById('a-num'),
+        block: document.getElementById('color-block'),
+        text: document.querySelector('#color-block span')
       };
 
-      const lumWhite = getLuminance(white);
-      const lumBlack = getLuminance(black);
-      refs.block.style.color = lumWhite > lumBlack ? "white" : "black";
-    }
+      function getContrastColor(rgbString) {
+        const match = rgbString.match(/\d+/g);
+        if (!match) return '#ffffff';
 
-    function syncSlider(e) {
-      const id = e.target.id;
-      refs[id+'Num'].value = refs[id].value;
+        const [r, g, b] = match.map(Number);
+
+        const srgb = [r, g, b].map(function(value) {
+          value /= 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
+
+        const luminance = 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
+
+        return luminance > 0.179 ? '#000000' : '#ffffff';
+      }
+
+      function updateColor() {
+        const L = refs.L.value;
+        const C = refs.C.value;
+        const H = refs.H.value;
+        const a = refs.a.value;
+
+        const cssColor = 'lch(' + L + '% ' + C + ' ' + H + ' / ' + a + ')';
+
+        refs.block.style.backgroundColor = cssColor;
+        refs.text.textContent = cssColor;
+
+        const appliedRGB = getComputedStyle(refs.block).backgroundColor;
+        refs.text.style.color = getContrastColor(appliedRGB);
+      }
+
+      function syncFromSliders() {
+        refs.LNum.value = refs.L.value;
+        refs.CNum.value = refs.C.value;
+        refs.HNum.value = refs.H.value;
+        refs.aNum.value = refs.a.value;
+        updateColor();
+      }
+
+      function syncFromNumbers() {
+        refs.L.value = refs.LNum.value;
+        refs.C.value = refs.CNum.value;
+        refs.H.value = refs.HNum.value;
+        refs.a.value = refs.aNum.value;
+        updateColor();
+      }
+
+      refs.L.addEventListener('input', syncFromSliders);
+      refs.C.addEventListener('input', syncFromSliders);
+      refs.H.addEventListener('input', syncFromSliders);
+      refs.a.addEventListener('input', syncFromSliders);
+
+      refs.LNum.addEventListener('input', syncFromNumbers);
+      refs.CNum.addEventListener('input', syncFromNumbers);
+      refs.HNum.addEventListener('input', syncFromNumbers);
+      refs.aNum.addEventListener('input', syncFromNumbers);
+
       updateColor();
-    }
-
-    function syncNumber(e) {
-      const id = e.target.id.replace('-num', '');
-      refs[id].value = refs[id+'Num'].value;
-      updateColor();
-    }
-
-    ids.forEach(k => {
-      refs[k].addEventListener('input', syncSlider);
-      refs[k+'Num'].addEventListener('input', syncNumber);
-    });
-
-    updateColor();
+    })();
   </script>
 </body>
 </html>
