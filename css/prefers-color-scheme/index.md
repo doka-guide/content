@@ -1,6 +1,10 @@
 ---
 title: "`prefers-color-scheme`"
 description: "Пользовательские настройки цветовых тем и как ими управлять."
+baseline:
+  - group: prefers-color-scheme
+    features:
+      - css.at-rules.media.prefers-color-scheme
 authors:
   - anastasiayarosh
 contributors:

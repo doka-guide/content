@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример паттерна "Простой пароль" — Атрибут `pattern` — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <form class="form" action="javascript:alert('Всё верно!');">
+    <div class="form-row">
+      <label for="pass" class="row-label">Введите пароль:</label>
+      <input
+        id="pass"
+        class="input"
+        type="password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Минимум 8 символов, хотя бы одна цифра, одна строчная и одна заглавная буква"
+        required
+      >
+    </div>
+    <button class="button button-orange" type="submit">Сохранить</button>
+  </form>
+</body>
+</html>

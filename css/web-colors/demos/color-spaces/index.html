@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Цветовые пространства — Цвета в вебе — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    /* Секция сравнения градиентов */
+    .section {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgb(255 255 255 / 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Таблица градиентов */
+    .gradients {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gradient-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .gradient-label {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.8rem;
+      color: #2E9AFF;
+      white-space: nowrap;
+    }
+
+    .gradient-bar {
+      height: 44px;
+      border-radius: 8px;
+    }
+
+    /* Шесть градиентов — одна и та же пара цветов, разные пространства */
+    .bar-srgb {
+      background: linear-gradient(in srgb to right,
+        oklch(0.67 0.31 29),
+        oklch(0.67 0.28 196)
+      );
+    }
+
+    .bar-hsl {
+      background: linear-gradient(in hsl to right,
+        oklch(0.67 0.31 29),
+        oklch(0.67 0.28 196)
+      );
+    }
+
+    .bar-oklab {
+      background: linear-gradient(in oklab to right,
+        oklch(0.67 0.31 29),
+        oklch(0.67 0.28 196)
+      );
+    }
+
+    .bar-oklch {
+      background: linear-gradient(in oklch to right,
+        oklch(0.67 0.31 29),
+        oklch(0.67 0.28 196)
+      );
+    }
+
+    .bar-oklch-longer {
+      background: linear-gradient(in oklch longer hue to right,
+        oklch(0.67 0.31 29),
+        oklch(0.67 0.28 196)
+      );
+    }
+
+    /* Разделитель */
+    .divider {
+      width: 100%;
+      max-width: 680px;
+      height: 1px;
+      background-color: rgb(255 255 255 / 0.1);
+    }
+
+    /* Нижняя секция — одинаковая светлота в oklch */
+    .palette-section {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .palette-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgb(255 255 255 / 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .palette-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+    }
+
+    .palette-swatch {
+      height: 60px;
+      border-radius: 8px;
+    }
+
+    /* Один и тот же L=0.65, C=0.22, разные H — одинаковая яркость */
+    .hsl-row {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+    }
+
+    .hsl-swatch {
+      height: 60px;
+      border-radius: 8px;
+    }
+
+    .palette-caption {
+      font-size: 0.78rem;
+      color: rgb(255 255 255 / 0.45);
+    }
+
+    /* Демо-логотип и футер */
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .gradient-row {
+        grid-template-columns: 90px 1fr;
+      }
+
+      .gradient-label {
+        font-size: 0.72rem;
+      }
+
+      .palette-row,
+      .hsl-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="section-title">Интерполяция градиента: одни цвета — разные пространства</div>
+    <div class="gradients">
+      <div class="gradient-row">
+        <span class="gradient-label">in srgb</span>
+        <div class="gradient-bar bar-srgb"></div>
+      </div>
+      <div class="gradient-row">
+        <span class="gradient-label">in hsl</span>
+        <div class="gradient-bar bar-hsl"></div>
+      </div>
+      <div class="gradient-row">
+        <span class="gradient-label">in oklab</span>
+        <div class="gradient-bar bar-oklab"></div>
+      </div>
+      <div class="gradient-row">
+        <span class="gradient-label">in oklch</span>
+        <div class="gradient-bar bar-oklch"></div>
+      </div>
+      <div class="gradient-row">
+        <span class="gradient-label">oklch longer</span>
+        <div class="gradient-bar bar-oklch-longer"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Сравнение одинаковой светлоты: oklch vs hsl -->
+  <div class="palette-section">
+    <div class="palette-label">Одинаковая светлота L=0.65 в oklch — все цвета воспринимаются одинаково яркими</div>
+    <div class="palette-row">
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 0)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 45)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 90)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 135)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 180)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 225)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 270)"></div>
+      <div class="palette-swatch" style="background: oklch(0.65 0.22 315)"></div>
+    </div>
+    <span class="palette-caption">oklch(0.65 0.22 0°…315°)</span>
+
+    <div class="palette-label" style="margin-top: 12px">Одинаковая светлота l=65% в hsl — разная воспринимаемая яркость</div>
+    <div class="hsl-row">
+      <div class="hsl-swatch" style="background: hsl(0 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(45 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(90 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(135 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(180 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(225 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(270 80% 65%)"></div>
+      <div class="hsl-swatch" style="background: hsl(315 80% 65%)"></div>
+    </div>
+    <span class="palette-caption">hsl(0–315 80% 65%) — жёлтый кажется намного ярче синего</span>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/web-colors/">Цвета в вебе — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

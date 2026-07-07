@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Задаём область отображения через inset() — object-view-box — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      width: 100%;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .subtile {
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .example {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 350px;
+    }
+
+    .example_caption {
+      font-size: 18px;
+    }
+
+    .image {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border: 4px solid #FFFFFF;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      accent-color: #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">object-view-box</h1>
+  <div class="layout">
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>none</code>
+      </figcaption>
+      <img src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image" alt="Три котёнка">
+    </figure>
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code id="cropped-caption">inset()</code>
+      </figcaption>
+      <img id="cropped-image" src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image" alt="Три котёнка">
+    </figure>
+  </div>
+  <div>
+    <h2 class="subtile">Параметры inset()</h2>
+    <div class="layout">
+      <div class="field">
+        <label for="top">top</label>
+        <input id="top" type="range" min="-100" max="100" value="15">
+      </div>
+      <div class="field">
+        <label for="right">right</label>
+        <input id="right" type="range" min="-100" max="100" value="15">
+      </div>
+      <div class="field">
+        <label for="bottom">bottom</label>
+        <input id="bottom" type="range" min="-100" max="100" value="15">
+      </div>
+      <div class="field">
+        <label for="left">left</label>
+        <input id="left" type="range" min="-100" max="100" value="15">
+      </div>
+    </div>
+  </div>
+  <script>
+    const croppedCaption = document.getElementById('cropped-caption')
+    const croppedImage = document.getElementById('cropped-image')
+
+    const inputs = Array.from(document.querySelectorAll('input[type="range"]'))
+
+    const getObjectViewBoxValue = () => {
+      const inputValues = inputs.map((input) => `${input.value}%`)
+      return `inset(${inputValues.join(' ')})`
+    }
+
+    const updateObjectViewBoxValue = () => {
+      const newValue = getObjectViewBoxValue()
+      croppedCaption.textContent = newValue
+      croppedImage.style.setProperty('object-view-box', newValue)
+    }
+
+    const throttle = (callee, timeout) => {
+      let timer = null
+
+      return function perform(...args) {
+        if (timer) return
+
+        timer = setTimeout(() => {
+          callee(...args)
+
+          clearTimeout(timer)
+          timer = null
+        }, timeout)
+      }
+    }
+
+    const updateObjectViewBoxValueWithTrottle = throttle(updateObjectViewBoxValue, 50)
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', updateObjectViewBoxValueWithTrottle)
+    })
+
+    updateObjectViewBoxValue()
+  </script>
+</body>
+</html>

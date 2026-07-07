@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Показываем работу значения no-overflow — position-visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      padding-left: 40px;
+
+      --color-code-selector: hsl(95 38% 62% / 1);
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .checkbox-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-family: "Roboto Mono", monospace;
+      margin: 5px 0 10px;
+    }
+
+    .iframe {
+      width: 380px;
+      height: 380px;
+      border: 6px solid #FFFFFF;
+    }
+
+    input[type="checkbox"] {
+      accent-color: #2E9AFF;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    input[type="checkbox"]:not(:checked) + span {
+      text-decoration: line-through;
+    }
+
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 9px;
+    }
+
+    pre code {
+      line-height: 2;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .no-break {
+      white-space: nowrap;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__selector {
+      color: var(--color-code-selector);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+
+    @media (width <= 1030px) {
+      body {
+        align-items: start;
+      }
+    }
+
+    @media (width <= 920px) {
+      .container {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 878px) {
+      body {
+        align-items: center;
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .iframe {
+        width: 100%;
+        height: 340px;
+      }
+
+      pre code {
+        display: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .iframe {
+        height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <pre><code class="code"><span class="code__selector">.target</span> {
+    <span class="code__properties">position-area</span>: <span class="code__value">top center</span>;
+    <span class="code__properties">position-try</span>: <span class="code__value">flip-block</span>;</code></pre>
+    <div class="checkbox-container">
+    <label>
+        <input type="checkbox" id="height-toggler"><span><span class="code__properties">height</span>: <span class="code__value">300px</span>;</span>
+    </label>
+    <label>
+        <input type="checkbox" id="visibility-toggler"><span><span class="code__properties">position-visibility</span>: <span class="code__value"><span class="no-break">no-overflow;</span></span></span>
+    </label>
+    </div>
+<pre><code class="code">}</code></pre>
+    </div>
+    <iframe src="./demo.html" id="demo" class="iframe" frameborder="0"></iframe>
+  </div>
+  <script>
+      const demo = document.getElementById('demo');
+
+      const target = document.getElementById('target');
+      const visibilityToggler = document.getElementById('visibility-toggler');
+
+      visibilityToggler.addEventListener('click', (event) => {
+          const message = event.target.checked ? 'add-no-overflow' : 'remove-no-overflow';
+          demo.contentWindow.postMessage(message);
+      });
+
+      const heightToggler = document.getElementById('height-toggler');
+
+      heightToggler.addEventListener('click', (event) => {
+          const message = event.target.checked ? 'add-height' : 'remove-height';
+          demo.contentWindow.postMessage(message);
+      });
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -38,6 +38,14 @@ button.addEventListener('click', function () {
 })
 ```
 
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+button.onclick = function () {
+  alert('Вы кликнули по кнопке!')
+}
+```
+
 ## Как понять
 
 Подробнее о механизме событий читайте в статье «[События](/js/events/)».

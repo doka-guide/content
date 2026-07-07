@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/attr
-  - tools/agile
-  - js/function
-  - js/array-reduce-right
-  - css/pseudoelements
-  - tools/gitlab-ci-cd
-  - css/position
-  - recipes/popup
-  - tools/how-to-test-and-why
+  - css/scrollbar-gutter
   - tools/markdown
-  - js/deal-with-forms
-  - recipes/center
-  - css/grid-guide
-  - js/array-entries
-  - js/closures
-  - recipes/ajax-form
-  - tools/how-the-browser-creates-pages
-  - a11y/aria-intro
-  - tools/bundlers
-  - js/geolocation-api
-  - html/nav
-  - css/custom-properties
-  - tools/network
-  - recipes/snow
-  - css/transform-function
-  - tools/ci-cd
-  - html/section
-  - recipes/lets-encrypt-nginx
-  - a11y/screenreaders
-  - css/box-sizing
-  - recipes/progress
-  - html/input
-  - js/boolean
-  - a11y/aria-hidden
-  - css/keyframes
-  - js/async-in-js
-  - html/img
-  - a11y/css-impact-on-a11y
-  - tools/oop
-  - css/specificity
-  - css/flexbox-guide
-  - html/article
-  - js/function-context
-  - css/box-shadow
-  - a11y/content-hidden
-  - a11y/live-region
-  - html/doctype
-  - css/media
-  - tools/static-types
-  - tools/webpack
   - tools/cli
-  - html/head
-  - css/display
+  - recipes/progress
+  - a11y/live-region
+  - recipes/center
+  - tools/static-types
+  - js/function-context
+  - js/var-let
+  - recipes/ajax-form
+  - css/box-shadow
+  - tools/docker
+  - js/array-reduce-right
   - js/infinite-scroll
+  - html/div
+  - js/async-in-js
+  - tools/bundlers
+  - tools/clean-architecture
+  - html/form
+  - tools/ci-cd
+  - css/attr
+  - js/boolean
+  - html/doctype
+  - css/custom-properties
+  - a11y/css-impact-on-a11y
+  - html/nav
+  - css/pseudoelements
+  - js/deal-with-forms
+  - css/box-model
+  - js/geolocation-api
+  - css/media
+  - html/img
+  - css/transform-function
+  - css/flexbox-guide
+  - recipes/snow
+  - a11y/aria-hidden
+  - tools/webpack
+  - html/flow
+  - js/function
+  - recipes/lets-encrypt-nginx
+  - tools/gitlab-ci-cd
+  - tools/how-to-test-and-why
+  - css/keyframes
+  - js/array-entries
+  - recipes/character-counter
+  - js/closures
+  - html/section
+  - css/position
+  - css/specificity
+  - css/grid-guide
+  - recipes/popup
+  - html/input
+  - css/box-sizing
+  - html/head
+  - tools/network
+  - tools/agile
+  - css/display
+  - a11y/aria-intro
   - recipes/git-rebase-onto
   - tools/cors
-  - css/scrollbar-gutter
+  - tools/oop
   - html/video
-  - html/form
-  - tools/clean-architecture
-  - js/var-let
+  - tools/how-the-browser-creates-pages
+  - a11y/screenreaders
+  - a11y/content-hidden
   - js/execution-order
-  - html/div
-  - css/box-model
-  - recipes/character-counter
-  - tools/docker
-  - html/flow
+  - html/article
 ---
 

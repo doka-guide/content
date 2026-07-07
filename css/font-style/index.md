@@ -1,6 +1,13 @@
 ---
 title: "`font-style`"
 description: "Задаём стиль отдельным словам или фразам."
+baseline:
+  - group: font-style
+    features:
+      - css.properties.font-style
+      - css.properties.font-style.italic
+      - css.properties.font-style.normal
+      - css.properties.font-style.oblique-angle
 authors:
   - doka-dog
 contributors:
