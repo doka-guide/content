@@ -52,13 +52,13 @@ tags:
 }
 ```
 
-<iframe title="Пример работы ruby-overhang" src="demos/basic/" height="180"></iframe>
-
 <aside>
 
 ⚠️ На данный момент свойство поддерживается только в Safari 18.2+, остальные браузеры игнорируют его. Проверяйте поддержку на [Can I Use](https://caniuse.com/mdn-css_properties_ruby-overhang).
 
 </aside>
+
+<iframe title="Пример работы ruby-overhang" src="demos/basic/" height="180"></iframe>
 
 ## Как пишется
 
