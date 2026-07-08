@@ -44,9 +44,9 @@ const titleIterator = iterator.map((station) => {
 // Получаем значения
 console.log(titleIterator.toArray())
 // [
-//  'Станция Green Park, работает с 1906г',
-//  'Станция Bond Street, работает с 1900г',
-//  'Станция Baker Street, работает с 1863г',
+//  "Станция Green Park, работает с 1906г",
+//  "Станция Bond Street, работает с 1900г",
+//  "Станция Baker Street, работает с 1863г",
 //  "Станция St. John's Wood, работает с 1939г"
 //]
 ```
