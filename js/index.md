@@ -164,6 +164,7 @@ groups:
       - iterator-take
       - iterator-to-array
       - iterator-filter
+      - iterator-map
   - name: "Обработка исключений"
     items:
       - try-catch
