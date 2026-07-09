@@ -63,4 +63,3 @@ input:user-invalid + .message {
   display: block;
 }
 ```
-💡 Для кросс‑браузерности можно продублировать стили на [`:invalid`](/css/invalid/) как "запасной вариант", если это уместно по UX.
