@@ -29,8 +29,8 @@ const iterator = [
   { title: "Green Park", opened: 1906, connections: 2 },
   { title: "Bond Street", opened: 1900, connections: 2 },
   { title: "Baker Street", opened: 1863, connections: 4 },
-  { title: "St. John's Wood", opened: 1939, connections: 0 }, // Abbey Road is nearby!
-].values();
+  { title: "St. John's Wood", opened: 1939, connections: 0 } // Abbey Road is nearby!
+].values()
 ```
 
 Необходимо получить итератор, содержащий информацию о станциях в виде строк:
@@ -44,11 +44,11 @@ const titleIterator = iterator.map((station) => {
 // Получаем значения
 console.log(titleIterator.toArray())
 // [
-//  "Станция Green Park, работает с 1906г",
-//  "Станция Bond Street, работает с 1900г",
-//  "Станция Baker Street, работает с 1863г",
-//  "Станция St. John's Wood, работает с 1939г"
-//]
+//  "Станция Green Park работает с 1906г",
+//  "Станция Bond Street работает с 1900г",
+//  "Станция Baker Street работает с 1863г",
+//  "Станция St. John's Wood работает с 1939г"
+// ]
 ```
 
 ## Как пишется
@@ -80,7 +80,7 @@ console.log(titleIterator.toArray())
 
 ```js
 function* eventGenerator() {
-  const eventTypes = ['info', "warn", 'error', 'debug'];
+  const eventTypes = ['info', 'warn', 'error', 'debug'];
   let id = 0;
   while (true) {
     const randomIndex = Math.floor(Math.random() * eventTypes.length)
@@ -119,18 +119,25 @@ console.log(eventTypes.next().value)
 ```js
 const days = ['пн', 'вт', 'ср', 'чт', 'пт'].values()
 
-// Создаём итератор с преобразованием значений исходного итератора
+// Создаём итератор с преобразованием строки в объект:
 const transformDays = days.map((item) => {
   return { day: item }
 })
 
-// Получим несколько значений
+// Первое значение исходного итератора
 console.log(days.next().value)
 // пн
+
+// Следующее доступное значение исходного итератора — 'вт'
+// Значение нового итератора — результат его преобразования:
 console.log(transformDays.next().value)
 // { day: 'вт' }
+
+// Следующее доступное значение исходного итератора — 'ср'
 console.log(days.next().value)
 // ср
-console.log(transformDays.next().value)
-// { day: 'чт' }
 ```
+
+## Подсказки
+
+Поддержка `map()` как и других [helper-методов](/js/iterator/#iterator-kak-globalnyy-obekt) появилась в Node.js начиная с версии 22.
