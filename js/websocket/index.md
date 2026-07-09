@@ -30,7 +30,7 @@ tags:
 
 <aside>
 
-☝️ `WebSocket` доступен и в [Web Workers](/js/web-workers/), но в `service worker` для постоянного канала он не годится, потому что браузер может в любой момент остановить `service worker`.
+☝️ WebSocket работает в [Web Workers](/js/web-workers/), но в `Service Worker` его не стоит использовать для постоянных соединений: браузер может завершить worker в любой момент (например, при простое), что разорвёт соединение.
 
 </aside>
 
