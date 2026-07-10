@@ -120,7 +120,7 @@ console.log(eventTypes.next().value)
 const days = ['пн', 'вт', 'ср', 'чт', 'пт'].values()
 
 // Создаём итератор с преобразованием строки в объект:
-const transformDays = days.map((item) => {
+const transformedDays = days.map((item) => {
   return { day: item }
 })
 
@@ -130,13 +130,36 @@ console.log(days.next().value)
 
 // Следующее доступное значение исходного итератора — 'вт'
 // Значение нового итератора — результат его преобразования:
-console.log(transformDays.next().value)
+console.log(transformedDays.next().value)
 // { day: 'вт' }
 
 // Следующее доступное значение исходного итератора — 'ср'
 console.log(days.next().value)
 // ср
 ```
+
+До сих пор мы использовали в колбэк-функции только текущее значение исходного итератора. Посмотрим на второй параметр — индекс элемента:
+
+```js
+// Исходный итератор
+const birds = ['🦆', '🦢', '🦉', '🦜'].values()
+
+// Создаём итератор с преобразованием значений
+const transformed = birds.map((item, index) => {
+  return `Значение:${item}, индекс: ${index}`
+})
+
+console.log(birds.next().value)
+// 🦆
+console.log(transformed.next().value)
+// Значение:🦢, индекс: 0
+console.log(birds.next().value)
+// 🦉
+console.log(transformed.next().value)
+// Значение:🦜, индекс: 1
+```
+
+`index` — это порядковый номер вызова колбэк-функции, а не индекс значения в исходном итераторе. Сдвиг указателя на исходном итераторе влияет на то, какое значение будет обработано, но не влияет на `index` в колбэке.
 
 ## Подсказки
 
