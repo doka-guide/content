@@ -48,7 +48,7 @@ blockquote {
 }
 
 blockquote:dir(rtl) {
-  text-align: right;
+  border-inline-start-color: #F498AD;
 }
 ```
 
