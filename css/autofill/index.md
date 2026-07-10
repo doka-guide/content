@@ -1,6 +1,10 @@
 ---
 title: "`:autofill`"
 description: "Совпадает с элементами форм, значения которых подставлены менеджером автозаполнения браузера (адрес, имя, email и т. п.)."
+baseline:
+  - group: autofill
+    features:
+      - css.selectors.autofill
 authors:
   - drakesbot12
 keywords:
