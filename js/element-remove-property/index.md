@@ -42,7 +42,7 @@ console.log(oldShadow) // '0 0 10px rgba(0,0,0,0.5)'
 
 ## Как понять
 
-Метод `removeProperty()` удаляет отдельное CSS-свойство элемента. Доступен метод в интерфейсе [CSSStyleDeclaration](/js/css-style-declaration/).
+Метод `removeProperty()` удаляет отдельное CSS-свойство элемента. Метод живёт в интерфейсе [CSSStyleDeclaration](/js/css-style-declaration/).
 
 Удалить свойство получится только для `inline` стилей. Для `read-only` свойств выбрасывается ошибка `NoModificationAllowedError`, изменять их напрямую не получится.
 
