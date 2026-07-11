@@ -1,6 +1,10 @@
 ---
 title: "`:scope`"
 description: "Позволяет ссылаться на текущий элемент‑корень в сложных селекторах: в JS‑поиске через querySelector* и внутри CSS‑области @scope."
+baseline:
+  - group: scope-pseudo
+    features:
+      - css.selectors.scope
 authors:
   - drakesbot12
 keywords:
