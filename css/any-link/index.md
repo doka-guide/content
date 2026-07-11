@@ -1,6 +1,10 @@
 ---
 title: "`:any-link`"
 description: "Выбирает любые ссылки — посещённые и непосещённые (`<a>` и `<area>` с `href`). Удобно стилизовать все ссылки одним селектором."
+baseline:
+  - group: link-selectors
+    features:
+      - css.selectors.any-link
 authors:
   - drakesbot12
 keywords:
