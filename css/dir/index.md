@@ -1,6 +1,10 @@
 ---
 title: "`:dir()`"
 description: "Функциональный псевдокласс, который совпадает с элементами по их направлению письма: слева направо (`ltr`) или справа налево (`rtl`)."
+baseline:
+  - group: dir-pseudo
+    features:
+      - css.selectors.dir
 authors:
   - drakesbot12
 keywords:
