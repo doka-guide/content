@@ -228,7 +228,7 @@ groups:
       - element
       - element-addeventlistener
       - element-removeeventlistener
-      - element-remove-property
+      - element-removeproperty
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
