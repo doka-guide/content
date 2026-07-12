@@ -4,10 +4,11 @@
   <title>Демонстрация разных временных функций — transition-timing-function — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -15,92 +16,254 @@
 
     html {
       color-scheme: dark;
-      block-size: 100%;
+      --duration: 1.8s;
     }
 
     body {
-      min-block-size: 100%;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 18px;
-      font-family: monospace;
-    }
-
-    .parent {
-      inline-size: 90vw;
-      margin-inline: auto;
-      display: grid;
+      min-height: 100vh;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    .parent > div[class] {
-      inline-size: 45vw;
-      min-inline-size: 13em;
-      padding: 10px;
-      margin-block-end: 10px;
-      background-color: black;
-      border: 1px solid #f498ad;
-      color: white;
-      transition-property: all;
-      transition-duration: 3s;
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    button {
+      padding: 9px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    button:hover {
+      transform: scale(1.04);
+    }
+
+    button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 10px;
+      background-color: #282A2E;
+    }
+
+    .item svg {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1.4;
+    }
+
+    .unit-box {
+      fill: rgb(46 154 255 / 8%);
+      stroke: #2E9AFF;
+      stroke-width: 1;
+      stroke-dasharray: 3 3;
+    }
+
+    .reference-line {
+      stroke: #545861;
+      stroke-width: 1;
+      stroke-dasharray: 2 2;
+    }
+
+    .curve {
+      fill: none;
+      stroke: #F498AD;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .track {
+      position: relative;
+      width: 100%;
+      height: 14px;
+      background-color: #18191C;
+      border-radius: 7px;
+    }
+
+    .track i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 50%;
+      background-color: #F498AD;
+      transition-property: left;
+      transition-duration: var(--duration);
+    }
+
+    .grid.is-active .track i {
+      left: calc(100% - 10px);
+    }
+
+    .label {
       text-align: center;
-      white-space: nowrap;
+      font-family: monospace;
+      font-size: 12px;
+      opacity: 0.9;
+      word-break: break-word;
     }
 
-    .parent > div.box1 {
-      inline-size: 100%;
-      min-inline-size: 26em;
-      background-color: #49a16c;
-      color: black;
-      border: 1px solid #1a5ad7;
-      transition-property: all;
-      transition-duration: 2s;
-    }
-
-    .ease {
-      transition-timing-function: ease;
-    }
-
-    .easein {
-      transition-timing-function: ease-in;
-    }
-
-    .easeout {
-      transition-timing-function: ease-out;
-    }
-
-    .easeinout {
-      transition-timing-function: ease-in-out;
-    }
-
-    .linear {
-      transition-timing-function: linear;
-    }
-
-    .cb {
-      transition-timing-function: cubic-bezier(0.2, -2, 0.8, 2);
+    @media (width <= 480px) {
+      body {
+        padding: 30px 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="parent">
-    <div class="ease">ease</div>
-    <div class="easein">ease-in</div>
-    <div class="easeout">ease-out</div>
-    <div class="easeinout">ease-in-out</div>
-    <div class="linear">linear</div>
-    <div class="cb">cubic-bezier(0.2,-2,0.8,2)</div>
-  </div>
-  <script>
-    function updateTransition() {
-      let els = document.querySelectorAll('.parent > div[class]')
-      for (let c = els.length, i = 0; i < c; i++) {
-        els[i].classList.toggle('box1')
-      }
-    }
 
-    let intervalID = window.setInterval(updateTransition, 5000)
+  <!--
+    Домен графиков: x от 0 до 1 (время), y от 0 до 1 (прогресс), с запасом
+    сверху и снизу для пружинного эффекта cubic-bezier. viewBox 0 0 60 60,
+    единичный квадрат — прямоугольник 0,16 60,20 (y=16 — прогресс 1, y=36 — прогресс 0).
+    Трек под графиком двигает точку той же transition-timing-function — график
+    даёт форму, точка даёт ощущение реального движения. Кнопка запускает переход
+    сразу у всех точек, ведь transition, в отличие от animation, не зациклен сам по себе.
+  -->
+
+  <div class="controls">
+    <button type="button" id="toggle">Запустить</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 L60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: linear"></i></div>
+      <span class="label">linear</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <polyline class="curve" points="0,36 15,26 30,21 45,19 60,16"></polyline>
+      </svg>
+      <div class="track"><i style="transition-timing-function: linear(0, 0.5, 0.75, 0.85, 1)"></i></div>
+      <span class="label">linear(0, 0.5, 0.75, 0.85, 1)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C15,34 15,16 60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: ease"></i></div>
+      <span class="label">ease</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C25.2,36 60,16 60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: ease-in"></i></div>
+      <span class="label">ease-in</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C0,36 34.8,16 60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: ease-out"></i></div>
+      <span class="label">ease-out</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C25.2,36 34.8,16 60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: ease-in-out"></i></div>
+      <span class="label">ease-in-out</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C20.4,4.8 38.4,16 60,16"></path>
+      </svg>
+      <div class="track"><i style="transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1)"></i></div>
+      <span class="label">cubic-bezier(0.34, 1.56, 0.64, 1)</span>
+    </div>
+
+  </div>
+
+  <script>
+    var button = document.getElementById('toggle');
+    var grid = document.getElementById('grid');
+    var dots = grid.querySelectorAll('.track i');
+    var isActive = false;
+
+    button.addEventListener('click', function () {
+      if (!isActive) {
+        grid.classList.add('is-active');
+        button.textContent = 'Сбросить';
+        isActive = true;
+        return;
+      }
+
+      // Мгновенно возвращаем точки в начало без перехода, затем возвращаем transition
+      dots.forEach(function (dot) {
+        dot.style.transitionDuration = '0s';
+      });
+      grid.classList.remove('is-active');
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          dots.forEach(function (dot) {
+            dot.style.transitionDuration = '';
+          });
+        });
+      });
+
+      button.textContent = 'Запустить';
+      isActive = false;
+    });
   </script>
 </body>
 </html>

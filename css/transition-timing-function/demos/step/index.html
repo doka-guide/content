@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -18,135 +16,189 @@
 
     html {
       color-scheme: dark;
-      block-size: 100%;
+      --duration: 2s;
     }
 
     body {
-      min-block-size: 100%;
-      display: grid;
-      place-items: center;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      min-height: 100vh;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     h3 {
       font-weight: 500;
-    }
-
-    .parent {
-      position: relative;
-      inline-size: 600px;
-      margin-inline: auto;
-      margin-block-end: 40px;
-      outline: 1px solid #FFFFFF;
-    }
-
-    .parent span {
-      position: absolute;
-      z-index: 1;
-      inline-size: fit-content;
-      inset: 50% 0 0 50%;
-      transform: translate(-50%, -50%);
-      font-family: monospace;
-    }
-
-    .elem {
-      inline-size: 0;
-      block-size: 50px;
-      background-color: #2e9aff;
-      color: white;
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .elem::before {
-      content: '';
-      position: absolute;
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      padding-inline-start: 30px;
-      inset-inline-start: 0;
-      inline-size: 600px;
-      block-size: 100%;
-      inset-block-start: 0;
-      background-color: #2e9aff;
-    }
-
-    .elem.active {
-      inline-size: 600px;
-      transition-property: width;
-      transition-duration: 3s;
-    }
-
-    .supports {
-      display: none;
-    }
-
-    .step-start {
-      transition-timing-function: step-start;
-    }
-
-    .step-end {
-      transition-timing-function: step-end;
-    }
-
-    .ticker {
-      inline-size: 1px;
-      block-size: 20px;
-      background-color: #fff;
-      inset-inline-start: -1px;
-      position: absolute;
-    }
-
-    .ticker.active {
-      inset-inline-start: 600px;
-      transition-property: left;
-      transition-duration: 3s;
-      transition-timing-function: linear;
-    }
-
-    h3 {
-      margin-block-end: 25px;
+      font-size: 18px;
       text-align: center;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      padding: 9px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    button:hover {
+      transform: scale(1.04);
+    }
+
+    button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .rows {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background-color: #282A2E;
+      cursor: pointer;
+    }
+
+    .row .name {
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .track {
+      position: relative;
+      height: 34px;
+      border-radius: 8px;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
+    .marker {
+      position: absolute;
+      inset-block: 0;
+      width: 1px;
+      background-color: #545861;
+    }
+
+    .step-start .marker { inset-inline-start: 0; }
+    .step-end .marker { inset-inline-start: calc(100% - 1px); }
+
+    .fill {
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: 0;
+      background-color: #2E9AFF;
+      transition-property: width;
+      transition-duration: var(--duration);
+    }
+
+    .row.is-active .fill {
+      width: 100%;
+    }
+
+    .step-start .fill { transition-timing-function: step-start; }
+    .step-end .fill { transition-timing-function: step-end; }
+
+    @media (width <= 480px) {
+      body {
+        padding: 30px 16px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h3>Нажми на прямоугольник</h3>
-    <div class="parent">
-      <span class="supports">step-start</span>
-      <span class="not-supports">start</span>
-      <div class="elem step-start"></div>
-      <div class="ticker"></div>
+
+  <!--
+    step-start и step-end — синонимы steps(1, jump-start) и steps(1, jump-end),
+    поэтому переход происходит одним скачком целиком в начале или в конце
+    отведённого времени. Вертикальная метка в треке показывает именно эту точку.
+  -->
+
+  <h3>Нажми на строку, чтобы запустить переход</h3>
+
+  <div class="controls">
+    <button type="button" id="run-all">Запустить всё</button>
+    <button type="button" id="reset-all">Сбросить всё</button>
+  </div>
+
+  <div class="rows" id="rows">
+    <div class="row step-start">
+      <span class="name">step-start</span>
+      <div class="track">
+        <div class="marker"></div>
+        <div class="fill"></div>
+      </div>
     </div>
 
-    <div class="parent">
-      <span class="supports">step-end</span>
-      <span class="not-supports">end</span>
-      <div class="elem step-end"></div>
-      <div class="ticker"></div>
+    <div class="row step-end">
+      <span class="name">step-end</span>
+      <div class="track">
+        <div class="marker"></div>
+        <div class="fill"></div>
+      </div>
     </div>
   </div>
 
   <script>
-    const parents = document.querySelectorAll('.parent')
+    var rows = document.querySelectorAll('.row');
+    var fills = document.querySelectorAll('.fill');
 
-    parents.forEach((parent) => {
-      parent.addEventListener('click', () => {
-        const elem = parent.querySelector('.elem')
-        const ticker = parent.querySelector('.ticker')
-        elem.classList.toggle('active')
-        ticker.classList.toggle('active')
-      })
-    })
+    rows.forEach(function (row) {
+      row.addEventListener('click', function () {
+        row.classList.toggle('is-active');
+      });
+    });
+
+    document.getElementById('run-all').addEventListener('click', function () {
+      rows.forEach(function (row) {
+        row.classList.add('is-active');
+      });
+    });
+
+    document.getElementById('reset-all').addEventListener('click', function () {
+      fills.forEach(function (fill) {
+        fill.style.transitionDuration = '0s';
+      });
+      rows.forEach(function (row) {
+        row.classList.remove('is-active');
+      });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          fills.forEach(function (fill) {
+            fill.style.transitionDuration = '';
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html>
