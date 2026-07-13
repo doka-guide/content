@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - blank
       - picture-in-picture
       - fullscreen
   - name: 'Псевдоэлементы'
