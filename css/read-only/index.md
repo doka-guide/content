@@ -1,6 +1,10 @@
 ---
 title: "`:read-only`"
 description: "Задаёт стили полям ввода, которые доступны только для чтения."
+baseline:
+  - group: read-write-pseudos
+    features:
+      - css.selectors.read-only
 authors:
   - kamenskaya
 contributors:
