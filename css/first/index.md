@@ -1,6 +1,10 @@
 ---
 title: "`:first`"
 description: "CSS псевдокласс для стилизации первой страницы документа при печати. Используется с @page правилом."
+baseline:
+  - group: page-selectors
+    features:
+      - css.selectors.first
 authors:
   - drakesbot12
 keywords:
