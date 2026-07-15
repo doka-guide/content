@@ -1,6 +1,10 @@
 ---
 title: "`:optional`"
 description: "Показывает элементы формы, которые не обязательны для заполнения."
+baseline:
+  - group: form-validity-pseudos
+    features:
+      - css.selectors.optional
 authors:
   - inventoris
 contributors:
