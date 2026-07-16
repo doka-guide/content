@@ -89,7 +89,7 @@ video::cue {
 - [`color`](/css/color/)
 - шрифтовые свойства: [`font`](/css/font/), `font-*`
 - [`outline`](/css/outline/), `outline-*`
-- [`ruby-position`](/css/ruby-position/)
+- `ruby-position`
 - `text-combine-upright`
 - [`text-decoration`](/css/text-decoration/), `text-decoration-*`
 - [`text-shadow`](/css/text-shadow/)
