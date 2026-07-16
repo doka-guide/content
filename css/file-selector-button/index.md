@@ -67,7 +67,7 @@ input[type="file"]::file-selector-button { ... }
 
 - Работает только на элементах [`<input type="file">`](/html/input/).
 - Кнопка `::file-selector-button` по умолчанию может не наследовать шрифт от элемента `<input>` или его родительских элементов. Чтобы кнопка выглядела единообразно с остальным интерфейсом, явно задайте ей [`font: inherit`](/css/font/) или другие шрифтовые свойства.
-- Поддерживаются обычные состояния: [`:hover`](/css/hover/), [`:active`](/css/active/), [`:focus`](/css/focus/), [`:disabled`](/css/disabled/) и [медиавыражения](/css/media/).
+- Поддерживаются обычные состояния: [`:hover`](/css/hover/), [`:active`](/css/active/), [`:focus`](/css/focus/), [`:disabled`](/css/disabled-enabled/) и [медиавыражения](/css/media/).
 
 ## Как понять
 
