@@ -27,6 +27,20 @@ location: "/about/"
 - **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — менеджер по развитию и коммуникациям.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
+## Наши звёзды
+
+У нас есть люди, которые отдают Доке своё сердце, время и умения. Мы зовём их звёздами: они придумывают идеи, до которых мы сами не додумались, и ревьюят пиары вместе с редакторами, поддерживают комьюнити. Мы правда их обожаем.
+
+Отдельное спасибо — <!-- yaspeller ignore:start -->[Viktar Nezhbart](/people/vitya-ne/)<!-- yaspeller ignore:end -->, который так давно и так щедро помогает с ревью, что Доку без него сложно представить.
+
+Наши звёзды:
+
+- **<!-- yaspeller ignore:start -->[Алексей Никитченко](/people/inventoris/)<!-- yaspeller ignore:end -->**
+- **<!-- yaspeller ignore:start -->[Анастасия Ярош](/people/anastasiayarosh/)<!-- yaspeller ignore:end -->**
+- **<!-- yaspeller ignore:start -->[Матвей Романов](/people/ra1nbow1/)<!-- yaspeller ignore:end -->**
+- **<!-- yaspeller ignore:start -->[Алекс Рассудихин](/people/punkmachine/)<!-- yaspeller ignore:end -->**
+- **<!-- yaspeller ignore:start -->[Антон Капустинский](/people/starhamster/)<!-- yaspeller ignore:end -->**
+
 ## Откуда мы взялись
 
 Идея Доки родилась в [Практикуме](https://practicum.yandex.ru/promo/courses/programming-reskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-reskilling_doka?utm_content=about-partnership), где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.

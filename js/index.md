@@ -164,6 +164,7 @@ groups:
       - iterator-take
       - iterator-to-array
       - iterator-filter
+      - iterator-map
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -227,7 +228,7 @@ groups:
       - element
       - element-addeventlistener
       - element-removeeventlistener
-      - element-remove-property
+      - element-removeproperty
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
@@ -262,6 +263,8 @@ groups:
       - event-change
       - element-click
       - event-dblclick
+      - event-focus
+      - event-focusin
       - event-input
       - event-invalid
       - element-keydown
@@ -298,6 +301,7 @@ groups:
       - promise-any
       - promise-race
       - promise-try
+      - promise-with-resolvers
       - async-await
   - name: "Обмен данными с API"
     items:
