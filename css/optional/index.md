@@ -20,7 +20,6 @@ related:
   - css/required
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
