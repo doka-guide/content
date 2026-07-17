@@ -155,7 +155,7 @@ color-mix(in hsl increasing hue, red, blue);
 Согласно спецификации [CSS Color Module Level 5](https://drafts.csswg.org/css-color-5/#color-syntax), в качестве цвета можно передавать:​
 
 - [HEX-коды](/css/web-colors/#hex)
-- [Именованные цвета (например, `red`, `blue`)](/css/web-colors/#nazvanie-cveta)
+- [Именованные цвета (например, `red`, `blue`)](/css/web-colors/#nazvaniya-cvetov)
 - Функции: [`rgb()`](/css/web-colors/#rgb), [`rgba()`](/css/web-colors/#rgb), [`hsl()`](/css/web-colors/#hsl), [`hsla()`](/css/web-colors/#hsl), [`hwb()`](/css/web-colors/#hwb), `lab()`, `lch()`, `oklab()`, `oklch()`
 - Функция [`color()`](/css/color-function/)
 - [`transparent​`](/css/web-colors/#transparent)

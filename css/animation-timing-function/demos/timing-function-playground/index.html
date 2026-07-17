@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Конструктор cubic-bezier() и linear() — animation-timing-function — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      --dur: 0.4s;
+      --easing: cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tab {
+      padding: 8px 14px;
+      border: 1px solid #2E9AFF;
+      border-radius: 6px;
+      background: transparent;
+      color: #FFFFFF;
+      font: inherit;
+      font-family: monospace;
+      cursor: pointer;
+    }
+
+    .tab.is-active {
+      background: #2E9AFF;
+      color: #18191C;
+      font-weight: 700;
+    }
+
+    .hint,
+    .note {
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    .graph-wrap {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+
+    .graph-wrap[hidden] {
+      display: none;
+    }
+
+    svg.graph {
+      width: 300px;
+      height: 300px;
+      overflow: visible;
+      touch-action: none;
+    }
+
+    .grid-line {
+      stroke: #282A2E;
+      stroke-width: 1;
+    }
+
+    .unit-box {
+      fill: rgb(46 154 255 / 8%);
+      stroke: #2E9AFF;
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+    }
+
+    .reference-line {
+      stroke: #545861;
+      stroke-width: 1;
+      stroke-dasharray: 3 3;
+    }
+
+    .curve-path {
+      fill: none;
+      stroke: #F498AD;
+      stroke-width: 3;
+    }
+
+    .handle-line {
+      stroke: #2E9AFF;
+      stroke-width: 2;
+    }
+
+    .anchor {
+      fill: #FFFFFF;
+    }
+
+    .handle {
+      fill: #2E9AFF;
+      cursor: grab;
+    }
+
+    .handle:active {
+      cursor: grabbing;
+    }
+
+    .point {
+      fill: #F498AD;
+      stroke: #18191C;
+      stroke-width: 2;
+      cursor: grab;
+    }
+
+    .point.is-selected {
+      fill: #2E9AFF;
+    }
+
+    .point:active {
+      cursor: grabbing;
+    }
+
+    .linear-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .linear-controls[hidden] {
+      display: none;
+    }
+
+    .presets {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .presets[hidden] {
+      display: none;
+    }
+
+    .preset {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: 1px solid #545861;
+      border-radius: 6px;
+      background: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      border-color: #2E9AFF;
+    }
+
+    .readout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: #282A2E;
+    }
+
+    .readout code {
+      flex: 1 1 auto;
+      overflow-wrap: anywhere;
+      font-family: monospace;
+      color: #F498AD;
+    }
+
+    .copied-msg {
+      color: #2E9AFF;
+      white-space: nowrap;
+    }
+
+    .copied-msg[hidden] {
+      display: none;
+    }
+
+    .stand {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding-top: 10px;
+      border-top: 1px solid #282A2E;
+    }
+
+    .stand-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .slow-mo-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stage {
+      width: 100%;
+      min-height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 8px;
+      background: #0F1012;
+    }
+
+    .card {
+      width: 260px;
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: #282A2E;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+      opacity: 0;
+      transform: translateY(16px) scale(0.96);
+      transition-property: opacity, transform;
+      transition-duration: var(--dur);
+      transition-timing-function: var(--easing);
+    }
+
+    .card.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      opacity: 0.75;
+    }
+
+    @media (width <= 480px) {
+      .graph-wrap, svg.graph {
+        width: 260px;
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel">
+    <div class="tabs">
+      <button class="tab is-active" data-mode="bezier" type="button">cubic-bezier()</button>
+      <button class="tab" data-mode="linear" type="button">linear()</button>
+    </div>
+
+    <p class="hint" data-hint-for="bezier">Тащите синие ручки, они управляют изгибом кривой.</p>
+    <p class="hint" data-hint-for="linear" hidden>Тащите точки. Добавляйте и удаляйте точки кнопками ниже.</p>
+
+    <div class="presets" data-presets-for="bezier">
+      <button class="preset" type="button" data-p1x="0.7" data-p1y="0" data-p2x="0.84" data-p2y="0">Разгон</button>
+      <button class="preset" type="button" data-p1x="0.16" data-p1y="1" data-p2x="0.3" data-p2y="1">Торможение</button>
+      <button class="preset" type="button" data-p1x="0.34" data-p1y="1.56" data-p2x="0.64" data-p2y="1">Перелёт</button>
+      <button class="preset" type="button" data-p1x="0.68" data-p1y="-0.6" data-p2x="0.32" data-p2y="1.6">Замах</button>
+    </div>
+
+    <div class="presets" data-presets-for="linear" hidden>
+      <button class="preset" type="button" data-points="0,0 0.3,1 0.5,0.75 0.7,1 0.85,0.9 1,1">Отскок</button>
+      <button class="preset" type="button" data-points="0,0 0.2,-0.2 0.4,1.3 0.6,0.85 0.8,1.05 1,1">Пружина</button>
+      <button class="preset" type="button" data-points="0,0 0.5,0.9 1,1">Плавный подъём</button>
+    </div>
+
+    <div class="graph-wrap" id="graph-bezier-wrap">
+      <svg class="graph" id="graph-bezier" viewBox="0 0 300 300">
+        <rect class="unit-box" x="0" y="87.5" width="300" height="125"></rect>
+        <line class="reference-line" x1="0" y1="212.5" x2="300" y2="87.5"></line>
+        <path class="curve-path" id="bezier-path" d=""></path>
+        <line class="handle-line" id="bezier-line-1" x1="0" y1="212.5" x2="0" y2="212.5"></line>
+        <line class="handle-line" id="bezier-line-2" x1="300" y1="87.5" x2="300" y2="87.5"></line>
+        <circle class="anchor" cx="0" cy="212.5" r="4"></circle>
+        <circle class="anchor" cx="300" cy="87.5" r="4"></circle>
+        <circle class="handle" id="bezier-handle-1" cx="0" cy="212.5" r="7"></circle>
+        <circle class="handle" id="bezier-handle-2" cx="300" cy="87.5" r="7"></circle>
+      </svg>
+    </div>
+
+    <div class="graph-wrap" id="graph-linear-wrap" hidden>
+      <svg class="graph" id="graph-linear" viewBox="0 0 300 300">
+        <rect class="unit-box" x="0" y="87.5" width="300" height="125"></rect>
+        <line class="reference-line" x1="0" y1="212.5" x2="300" y2="87.5"></line>
+        <polyline class="curve-path" id="linear-path" points=""></polyline>
+        <g id="linear-points"></g>
+      </svg>
+    </div>
+
+    <div class="linear-controls" hidden>
+      <button id="add-point" type="button">+ точка</button>
+      <button id="remove-point" type="button">− точка</button>
+    </div>
+
+    <div class="readout">
+      <code id="value-output"></code>
+      <button id="copy-value" type="button">Копировать</button>
+      <span class="copied-msg" id="copied-msg" hidden>Скопировано</span>
+    </div>
+  </div>
+
+  <div class="stand">
+    <p class="note">Кривая и скорость применяются к следующему клику. Жмите «Показать» или «Скрыть» после изменения настроек.</p>
+
+    <div class="stand-controls">
+      <button id="show-card" type="button">Показать</button>
+      <button id="hide-card" type="button">Скрыть</button>
+      <label class="slow-mo-label">
+        <input type="checkbox" id="slow-mo">
+        Замедлить (для отладки)
+      </label>
+    </div>
+
+    <div class="stage">
+      <div class="card" id="card">
+        <strong>Уведомление</strong>
+        <p>Новое сообщение от команды</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var GRAPH = 300;
+    var Y_MIN = -0.7;
+    var Y_MAX = 1.7;
+
+    function round2(n) {
+      return parseFloat(n.toFixed(2));
+    }
+
+    function clamp(n, min, max) {
+      return Math.min(max, Math.max(min, n));
+    }
+
+    // domain (0..1 по x, примерно -0.5..1.5 по y) -> пиксели SVG
+    function toPx(point) {
+      return {
+        x: point.x * GRAPH,
+        y: ((Y_MAX - point.y) / (Y_MAX - Y_MIN)) * GRAPH
+      };
+    }
+
+    // пиксели SVG -> domain
+    function fromPx(px) {
+      return {
+        x: px.x / GRAPH,
+        y: Y_MAX - (px.y / GRAPH) * (Y_MAX - Y_MIN)
+      };
+    }
+
+    function svgPoint(svg, evt) {
+      var rect = svg.getBoundingClientRect();
+      var scaleX = GRAPH / rect.width;
+      var scaleY = GRAPH / rect.height;
+      return {
+        x: (evt.clientX - rect.left) * scaleX,
+        y: (evt.clientY - rect.top) * scaleY
+      };
+    }
+
+    var root = document.documentElement;
+    var valueOutput = document.getElementById('value-output');
+    var copyButton = document.getElementById('copy-value');
+    var copiedMsg = document.getElementById('copied-msg');
+    var mode = 'bezier';
+
+    // ---------- cubic-bezier() ----------
+
+    var bezierSvg = document.getElementById('graph-bezier');
+    var bezierPath = document.getElementById('bezier-path');
+    var bezierLine1 = document.getElementById('bezier-line-1');
+    var bezierLine2 = document.getElementById('bezier-line-2');
+    var bezierHandle1 = document.getElementById('bezier-handle-1');
+    var bezierHandle2 = document.getElementById('bezier-handle-2');
+
+    var p1 = { x: 0.42, y: 0 };
+    var p2 = { x: 0.58, y: 1 };
+
+    function bezierValue() {
+      return 'cubic-bezier(' + round2(p1.x) + ', ' + round2(p1.y) + ', ' + round2(p2.x) + ', ' + round2(p2.y) + ')';
+    }
+
+    function renderBezier() {
+      var start = { x: 0, y: 0 };
+      var end = { x: 1, y: 1 };
+      var startPx = toPx(start);
+      var endPx = toPx(end);
+      var p1Px = toPx(p1);
+      var p2Px = toPx(p2);
+
+      bezierPath.setAttribute('d',
+        'M ' + startPx.x + ' ' + startPx.y +
+        ' C ' + p1Px.x + ' ' + p1Px.y + ' ' + p2Px.x + ' ' + p2Px.y + ' ' + endPx.x + ' ' + endPx.y
+      );
+
+      bezierLine1.setAttribute('x1', startPx.x);
+      bezierLine1.setAttribute('y1', startPx.y);
+      bezierLine1.setAttribute('x2', p1Px.x);
+      bezierLine1.setAttribute('y2', p1Px.y);
+
+      bezierLine2.setAttribute('x1', endPx.x);
+      bezierLine2.setAttribute('y1', endPx.y);
+      bezierLine2.setAttribute('x2', p2Px.x);
+      bezierLine2.setAttribute('y2', p2Px.y);
+
+      bezierHandle1.setAttribute('cx', p1Px.x);
+      bezierHandle1.setAttribute('cy', p1Px.y);
+      bezierHandle2.setAttribute('cx', p2Px.x);
+      bezierHandle2.setAttribute('cy', p2Px.y);
+
+      if (mode === 'bezier') {
+        valueOutput.textContent = bezierValue();
+        root.style.setProperty('--easing', bezierValue());
+      }
+    }
+
+    function dragBezierHandle(handleEl, point) {
+      handleEl.addEventListener('pointerdown', function (evt) {
+        handleEl.setPointerCapture(evt.pointerId);
+
+        function onMove(moveEvt) {
+          var px = svgPoint(bezierSvg, moveEvt);
+          var domain = fromPx(px);
+          point.x = clamp(domain.x, 0, 1);
+          point.y = clamp(domain.y, Y_MIN, Y_MAX);
+          renderBezier();
+        }
+
+        function onUp() {
+          handleEl.removeEventListener('pointermove', onMove);
+          handleEl.removeEventListener('pointerup', onUp);
+        }
+
+        handleEl.addEventListener('pointermove', onMove);
+        handleEl.addEventListener('pointerup', onUp);
+      });
+    }
+
+    dragBezierHandle(bezierHandle1, p1);
+    dragBezierHandle(bezierHandle2, p2);
+
+    // ---------- linear() ----------
+
+    var linearSvg = document.getElementById('graph-linear');
+    var linearPath = document.getElementById('linear-path');
+    var linearPointsGroup = document.getElementById('linear-points');
+    var addPointButton = document.getElementById('add-point');
+    var removePointButton = document.getElementById('remove-point');
+
+    var linearPoints = [
+      { x: 0, y: 0 },
+      { x: 0.5, y: 0.5 },
+      { x: 0.75, y: 1.1 },
+      { x: 0.88, y: 0.95 },
+      { x: 1, y: 1 }
+    ];
+    var selectedIndex = null;
+
+    function linearValue() {
+      var parts = linearPoints.map(function (point, index) {
+        if (index === 0 || index === linearPoints.length - 1) {
+          return String(round2(point.y));
+        }
+        return round2(point.y) + ' ' + Math.round(point.x * 100) + '%';
+      });
+      return 'linear(' + parts.join(', ') + ')';
+    }
+
+    // Обновляет положение уже существующих кружков — вызывается на каждое
+    // перемещение точки. Не трогает DOM-узлы, иначе ломается pointer capture
+    // прямо посреди перетаскивания.
+    function updateLinearPoints() {
+      var pixelPoints = linearPoints.map(toPx);
+
+      linearPath.setAttribute('points', pixelPoints.map(function (p) {
+        return p.x + ',' + p.y;
+      }).join(' '));
+
+      var circles = linearPointsGroup.children;
+
+      linearPoints.forEach(function (point, index) {
+        var circle = circles[index];
+        if (!circle) {
+          return;
+        }
+        var px = toPx(point);
+        circle.setAttribute('cx', px.x);
+        circle.setAttribute('cy', px.y);
+        circle.setAttribute('class', 'point' + (index === selectedIndex ? ' is-selected' : ''));
+      });
+
+      if (mode === 'linear') {
+        valueOutput.textContent = linearValue();
+        root.style.setProperty('--easing', linearValue());
+      }
+    }
+
+    // Пересобирает кружки с нуля — вызывается только когда меняется
+    // количество точек (добавление, удаление, двойной клик).
+    function buildLinearPoints() {
+      linearPointsGroup.innerHTML = '';
+
+      linearPoints.forEach(function (point, index) {
+        var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('r', 7);
+        circle.dataset.index = index;
+        dragLinearPoint(circle, index);
+        linearPointsGroup.appendChild(circle);
+      });
+
+      updateLinearPoints();
+    }
+
+    function dragLinearPoint(circleEl, index) {
+      circleEl.addEventListener('pointerdown', function (evt) {
+        evt.stopPropagation();
+        selectedIndex = index;
+        circleEl.setPointerCapture(evt.pointerId);
+
+        var isEdge = index === 0 || index === linearPoints.length - 1;
+        var minX = isEdge ? linearPoints[index].x : linearPoints[index - 1].x + 0.02;
+        var maxX = isEdge ? linearPoints[index].x : linearPoints[index + 1].x - 0.02;
+
+        function onMove(moveEvt) {
+          var px = svgPoint(linearSvg, moveEvt);
+          var domain = fromPx(px);
+          var point = linearPoints[index];
+          if (!isEdge) {
+            point.x = clamp(domain.x, minX, maxX);
+          }
+          point.y = clamp(domain.y, Y_MIN, Y_MAX);
+          updateLinearPoints();
+        }
+
+        function onUp() {
+          circleEl.removeEventListener('pointermove', onMove);
+          circleEl.removeEventListener('pointerup', onUp);
+        }
+
+        circleEl.addEventListener('pointermove', onMove);
+        circleEl.addEventListener('pointerup', onUp);
+      });
+    }
+
+    linearSvg.addEventListener('dblclick', function (evt) {
+      var px = svgPoint(linearSvg, evt);
+      var domain = fromPx(px);
+      var x = clamp(domain.x, 0.01, 0.99);
+      var y = clamp(domain.y, Y_MIN, Y_MAX);
+
+      var insertAt = linearPoints.findIndex(function (point) {
+        return point.x > x;
+      });
+      if (insertAt === -1) {
+        insertAt = linearPoints.length - 1;
+      }
+
+      linearPoints.splice(insertAt, 0, { x: x, y: y });
+      selectedIndex = insertAt;
+      buildLinearPoints();
+    });
+
+    addPointButton.addEventListener('click', function () {
+      var lastIndex = linearPoints.length - 1;
+      var a = linearPoints[Math.max(0, lastIndex - 1)];
+      var b = linearPoints[lastIndex];
+      var midX = (a.x + b.x) / 2;
+      var midY = (a.y + b.y) / 2;
+      linearPoints.splice(lastIndex, 0, { x: midX, y: midY });
+      selectedIndex = lastIndex;
+      buildLinearPoints();
+    });
+
+    removePointButton.addEventListener('click', function () {
+      if (selectedIndex === null) {
+        return;
+      }
+      if (selectedIndex === 0 || selectedIndex === linearPoints.length - 1) {
+        return;
+      }
+      linearPoints.splice(selectedIndex, 1);
+      selectedIndex = null;
+      buildLinearPoints();
+    });
+
+    // ---------- вкладки ----------
+
+    var tabs = document.querySelectorAll('.tab');
+    var graphBezierWrap = document.getElementById('graph-bezier-wrap');
+    var graphLinearWrap = document.getElementById('graph-linear-wrap');
+    var linearControls = document.querySelector('.linear-controls');
+    var hints = document.querySelectorAll('.hint');
+    var presetGroups = document.querySelectorAll('.presets');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        mode = tab.dataset.mode;
+
+        tabs.forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+        });
+
+        hints.forEach(function (hint) {
+          hint.hidden = hint.dataset.hintFor !== mode;
+        });
+
+        presetGroups.forEach(function (group) {
+          group.hidden = group.dataset.presetsFor !== mode;
+        });
+
+        graphBezierWrap.hidden = mode !== 'bezier';
+        graphLinearWrap.hidden = mode !== 'linear';
+        linearControls.hidden = mode !== 'linear';
+
+        if (mode === 'bezier') {
+          renderBezier();
+        } else {
+          updateLinearPoints();
+        }
+      });
+    });
+
+    // ---------- пресеты ----------
+
+    document.querySelectorAll('.presets[data-presets-for="bezier"] .preset').forEach(function (button) {
+      button.addEventListener('click', function () {
+        p1.x = parseFloat(button.dataset.p1x);
+        p1.y = parseFloat(button.dataset.p1y);
+        p2.x = parseFloat(button.dataset.p2x);
+        p2.y = parseFloat(button.dataset.p2y);
+        renderBezier();
+      });
+    });
+
+    document.querySelectorAll('.presets[data-presets-for="linear"] .preset').forEach(function (button) {
+      button.addEventListener('click', function () {
+        linearPoints = button.dataset.points.split(' ').map(function (pair) {
+          var parts = pair.split(',');
+          return { x: parseFloat(parts[0]), y: parseFloat(parts[1]) };
+        });
+        selectedIndex = null;
+        buildLinearPoints();
+      });
+    });
+
+    // ---------- копирование ----------
+
+    copyButton.addEventListener('click', function () {
+      var text = valueOutput.textContent;
+      var showCopied = function () {
+        copiedMsg.hidden = false;
+        setTimeout(function () {
+          copiedMsg.hidden = true;
+        }, 1500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showCopied);
+      } else {
+        var temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showCopied();
+      }
+    });
+
+    // ---------- живой стенд с карточкой ----------
+
+    var showButton = document.getElementById('show-card');
+    var hideButton = document.getElementById('hide-card');
+    var card = document.getElementById('card');
+    var slowMoCheckbox = document.getElementById('slow-mo');
+
+    // Каждая кнопка всегда проигрывает свою анимацию с нуля, независимо от
+    // текущего состояния карточки: сбрасываем в противоположное состояние
+    // без анимации, форсируем reflow, затем на следующем кадре включаем
+    // переход в нужную сторону с актуальными --easing и --dur.
+    function playCard(willShow) {
+      card.style.transitionProperty = 'none';
+      card.classList.toggle('is-visible', !willShow);
+      void card.offsetWidth; // форсируем reflow, чтобы сброс применился
+      card.style.transitionProperty = '';
+
+      requestAnimationFrame(function () {
+        card.classList.toggle('is-visible', willShow);
+      });
+    }
+
+    showButton.addEventListener('click', function () {
+      playCard(true);
+    });
+
+    hideButton.addEventListener('click', function () {
+      playCard(false);
+    });
+
+    slowMoCheckbox.addEventListener('change', function () {
+      root.style.setProperty('--dur', slowMoCheckbox.checked ? '2.4s' : '0.4s');
+    });
+
+    renderBezier();
+    buildLinearPoints();
+  </script>
+</body>
+</html>

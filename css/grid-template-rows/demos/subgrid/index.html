@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>subgrid для рядов — grid-template-rows — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === Переключатель === */
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .controls span {
+      font-size: 14px;
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    .toggle {
+      appearance: none;
+      width: 44px;
+      height: 24px;
+      background-color: #282A2E;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.2s;
+    }
+
+    .toggle::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: left 0.2s;
+    }
+
+    .toggle:checked {
+      background-color: #2E9AFF;
+    }
+
+    .toggle:checked::after {
+      left: 23px;
+    }
+
+    code {
+      font-size: 13px;
+      font-family: monospace;
+      color: rgb(255 255 255 / 0.45);
+      transition: color 0.2s;
+    }
+
+    code.prop {
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    code.active {
+      color: #2E9AFF;
+    }
+
+    /* === Карточки === */
+
+    /* Родительский грид: 3 колонки, ряды создаются автоматически */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 580px;
+      align-items: start;
+    }
+
+    /* В режиме subgrid каждая карточка занимает 3 ряда родителя */
+    .cards.use-subgrid {
+      align-items: stretch;
+    }
+
+    .card {
+      background-color: #282A2E;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* В режиме subgrid карточка — вложенный грид на 3 ряда */
+    .cards.use-subgrid .card {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+      gap: 0;
+      row-gap: 10px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: #FFFFFF;
+    }
+
+    .card-body {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgb(255 255 255 / 0.6);
+      /* Без subgrid кнопки не выравниваются */
+      flex-grow: 1;
+    }
+
+    /* В режиме subgrid flex-grow не нужен — ряд растягивается сам */
+    .cards.use-subgrid .card-body {
+      flex-grow: 0;
+    }
+
+    .card-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: transparent;
+      border: 1.5px solid #2E9AFF;
+      border-radius: 6px;
+      color: #2E9AFF;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: center;
+      align-self: start;
+      transition: background-color 0.15s;
+    }
+
+    .card-btn:hover {
+      background-color: rgb(46 154 255 / 0.1);
+    }
+
+    @media (width <= 600px) {
+      body {
+        padding: 30px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === Лого и футер === */
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <code class="prop">grid-template-rows:</code>
+    <input class="toggle" type="checkbox" id="toggle" aria-label="Включить subgrid">
+    <code id="status">auto auto auto</code>
+  </div>
+
+  <div class="cards" id="cards">
+    <div class="card">
+      <div class="card-title">Быстрый старт</div>
+      <div class="card-body">Установите пакет и запустите проект одной командой. Никаких лишних настроек.</div>
+      <button class="card-btn">Начать</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Документация</div>
+      <div class="card-body">Подробное описание всех возможностей. Примеры кода, советы по использованию и объяснение внутреннего устройства для тех, кто хочет разобраться глубже.</div>
+      <button class="card-btn">Читать</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Поддержка</div>
+      <div class="card-body">Застряли на чём-то? Напишите нам.</div>
+      <button class="card-btn">Написать</button>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/grid-template-rows/">grid-template-rows — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+
+    const toggle = document.getElementById('toggle');
+    const cards = document.getElementById('cards');
+    const status = document.getElementById('status');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        cards.classList.add('use-subgrid');
+        status.textContent = 'subgrid';
+        status.classList.add('active');
+      } else {
+        cards.classList.remove('use-subgrid');
+        status.textContent = 'auto auto auto';
+        status.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

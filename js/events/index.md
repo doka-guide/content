@@ -7,7 +7,7 @@ contributors:
   - furtivite
   - skorobaeus
   - vitya-ne
-  - lira_bazh
+  - lira-bazh
 keywords:
   - эвенты
 related:

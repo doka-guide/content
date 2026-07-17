@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Графики и движение временных функций — animation-timing-function — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      /* Длительность одного цикла анимации точки, управляется слайдером */
+      --speed: 2s;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font: 12px/1.4 monospace;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border: 1px solid #2E9AFF;
+      border-radius: 8px;
+      background: #282A2E;
+    }
+
+    .controls .speed-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .controls button {
+      padding: 5px 10px;
+      border: 1px solid #545861;
+      border-radius: 6px;
+      background: #18191C;
+      color: #FFFFFF;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      border-color: #2E9AFF;
+    }
+
+    .controls button.is-active {
+      background: #2E9AFF;
+      border-color: #2E9AFF;
+      color: #18191C;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      background: #282A2E;
+    }
+
+    .item svg {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+    }
+
+    .item .label {
+      text-align: center;
+      word-break: break-word;
+      opacity: 0.9;
+    }
+
+    .unit-box {
+      fill: rgb(46 154 255 / 8%);
+      stroke: #2E9AFF;
+      stroke-width: 1;
+      stroke-dasharray: 3 3;
+    }
+
+    .reference-line {
+      stroke: #545861;
+      stroke-width: 1;
+      stroke-dasharray: 2 2;
+    }
+
+    .curve {
+      fill: none;
+      stroke: #F498AD;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Трек снизу — реальное движение точки с тем же animation-timing-function,
+    что нарисован графиком выше. График показывает форму, точка — ощущение. */
+    .track {
+      position: relative;
+      width: 100%;
+      height: 14px;
+      background: #18191C;
+      border-radius: 7px;
+    }
+
+    .track i {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 50%;
+      background: #F498AD;
+      animation-name: move;
+      animation-duration: var(--speed);
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes move {
+      from {
+        left: 0;
+      }
+      to {
+        left: calc(100% - 10px);
+      }
+    }
+
+    .linear i { animation-timing-function: linear; }
+    .linear-fn i { animation-timing-function: linear(0, 0.5 50%, 1.1 75%, 0.95 88%, 1); }
+    .ease i { animation-timing-function: ease; }
+    .ease-in i { animation-timing-function: ease-in; }
+    .ease-out i { animation-timing-function: ease-out; }
+    .ease-in-out i { animation-timing-function: ease-in-out; }
+    .cubic-bezier-1 i { animation-timing-function: cubic-bezier(0.8, 1.5, 0.2, -1); }
+    .cubic-bezier-2 i { animation-timing-function: cubic-bezier(0.47, -0.44, 0.49, 1.46); }
+    .cubic-bezier-3 i { animation-timing-function: cubic-bezier(1, 0, 0, 0.5); }
+    .cubic-bezier-4 i { animation-timing-function: cubic-bezier(0.1, 0.7, 1, 0.1); }
+    .steps i { animation-timing-function: steps(10, end); }
+
+    @media (width <= 480px) {
+      body {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    Домен графиков: x от 0 до 1 (время), y примерно от -1.2 до 1.8 (прогресс,
+    с запасом на пружинный эффект cubic-bezier за пределами 0..1).
+    viewBox 0 0 60 60, единичный квадрат (y: 0..1) — прямоугольник 0,16 60,20.
+    Кривые cubic-bezier() нарисованы как есть — это буквально кубическая кривая
+    Безье с теми же контрольными точками, что и в CSS-функции. Трек под графиком
+    двигает точку тем же animation-timing-function — график даёт форму, точка даёт
+    ощущение реального движения.
+  -->
+
+  <div class="controls">
+    <span>Скорость</span>
+    <div class="speed-buttons">
+      <button type="button" data-speed="0.5">0.5×</button>
+      <button type="button" data-speed="1" class="is-active">1×</button>
+      <button type="button" data-speed="2">2×</button>
+      <button type="button" data-speed="3">3×</button>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 L60,16"></path>
+      </svg>
+      <div class="track linear"><i></i></div>
+      <span class="label">linear</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <polyline class="curve" points="0,36 30,26 45,14 52.8,17 60,16"></polyline>
+      </svg>
+      <div class="track linear-fn"><i></i></div>
+      <span class="label">linear(0, 0.5 50%, 1.1 75%, 0.95 88%, 1)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C15,34 15,16 60,16"></path>
+      </svg>
+      <div class="track ease"><i></i></div>
+      <span class="label">ease</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C25.2,36 60,16 60,16"></path>
+      </svg>
+      <div class="track ease-in"><i></i></div>
+      <span class="label">ease-in</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C0,36 34.8,16 60,16"></path>
+      </svg>
+      <div class="track ease-out"><i></i></div>
+      <span class="label">ease-out</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C25.2,36 34.8,16 60,16"></path>
+      </svg>
+      <div class="track ease-in-out"><i></i></div>
+      <span class="label">ease-in-out</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C48,6 12,56 60,16"></path>
+      </svg>
+      <div class="track cubic-bezier-1"><i></i></div>
+      <span class="label">cubic-bezier(0.8, 1.5, 0.2, -1)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C28.2,44.8 29.4,6.8 60,16"></path>
+      </svg>
+      <div class="track cubic-bezier-2"><i></i></div>
+      <span class="label">cubic-bezier(0.47, -0.44, 0.49, 1.46)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C60,36 0,26 60,16"></path>
+      </svg>
+      <div class="track cubic-bezier-3"><i></i></div>
+      <span class="label">cubic-bezier(1, 0, 0, 0.5)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <path class="curve" d="M0,36 C6,22 60,34 60,16"></path>
+      </svg>
+      <div class="track cubic-bezier-4"><i></i></div>
+      <span class="label">cubic-bezier(0.1, 0.7, 1, 0.1)</span>
+    </div>
+
+    <div class="item">
+      <svg viewBox="0 0 60 60">
+        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+        <polyline class="curve" points="0,36 6,36 6,34 12,34 12,32 18,32 18,30 24,30 24,28 30,28 30,26 36,26 36,24 42,24 42,22 48,22 48,20 54,20 54,18 60,18 60,16"></polyline>
+      </svg>
+      <div class="track steps"><i></i></div>
+      <span class="label">steps(10, end)</span>
+    </div>
+
+  </div>
+
+  <script>
+    // Кнопки задают множитель скорости: выше значение — быстрее анимация
+    var speedButtons = document.querySelectorAll('.speed-buttons button');
+    var root = document.documentElement;
+    var baseDuration = 2;
+
+    function setSpeed(multiplier) {
+      var duration = (baseDuration / multiplier).toFixed(2) + 's';
+      root.style.setProperty('--speed', duration);
+
+      speedButtons.forEach(function (button) {
+        button.classList.toggle('is-active', parseFloat(button.dataset.speed) === multiplier);
+      });
+    }
+
+    speedButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        setSpeed(parseFloat(button.dataset.speed));
+      });
+    });
+
+    setSpeed(1);
+  </script>
+</body>
+</html>
