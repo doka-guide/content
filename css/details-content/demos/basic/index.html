@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — ::details-content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      interpolate-size: allow-keywords;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .example-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .example-group .label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #8e939c;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    /* Стилизованный details */
+    details {
+      border: 1px solid #2b2e33;
+      border-radius: 12px;
+      overflow: clip;
+      background: #1c1f24;
+    }
+
+    summary {
+      padding: 12px 16px;
+      list-style: none;
+      cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .example-plain details {
+      border-color: #3a3d44;
+      background-color: #14161a;
+    }
+
+    .example-plain summary {
+      color: #8e939c;
+    }
+
+    @supports selector(::details-content) {
+      .example-styled details::details-content {
+        background-color: #111216;
+        overflow: clip;
+        block-size: 0;
+        padding: 0 16px;
+        opacity: 0;
+        transition:
+          block-size .3s ease,
+          padding .3s ease,
+          opacity .3s ease,
+          content-visibility .3s allow-discrete;
+      }
+
+      .example-styled details[open]::details-content {
+        block-size: auto;
+        padding: 12px 16px;
+        opacity: 1;
+      }
+
+      @starting-style {
+        .example-styled details[open]::details-content {
+          block-size: 0;
+          padding: 0 16px;
+          opacity: 0;
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="example-group example-styled">
+      <span class="label">✨ Стилизованный через ::details-content</span>
+      <details open>
+        <summary>Подробнее</summary>
+        <p>Контент, который стилизован псевдоэлементом <code>::details-content</code>. Он отделён от заголовка <code>&lt;summary&gt;</code>, поэтому можно независимо задавать фон, отступы и анимацию появления.</p>
+        <p>В неподдерживающих браузерах будет показано базовое содержимое без анимации.</p>
+      </details>
+    </div>
+
+    <div class="example-group example-plain">
+      <span class="label">🔘 Обычный <code>&lt;details&gt;</code> (без стилей)</span>
+      <details>
+        <summary>Подробнее</summary>
+        <p>Это обычный <code>&lt;details&gt;</code> без применения <code>::details-content</code>. Можно сравнить, как выглядит стандартный браузерный вариант и стилизованный.</p>
+        <p>Обратите внимание на отсутствие анимации, отступов и фона у раскрывающейся части.</p>
+      </details>
+    </div>
+  </div>
+</body>
+</html>

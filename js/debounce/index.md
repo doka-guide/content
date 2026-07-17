@@ -237,16 +237,19 @@ const server = {
 
 ```javascript
 function debounce(callee, timeoutMs) {
+  let lastCall
+  let previousCall
+  let lastCallTimer
+
   return function perform(...args) {
-    let previousCall = this.lastCall
+    previousCall = lastCall
+    lastCall = Date.now()
 
-    this.lastCall = Date.now()
-
-    if (previousCall && this.lastCall - previousCall <= timeoutMs) {
-      clearTimeout(this.lastCallTimer)
+    if (previousCall && lastCall - previousCall <= timeoutMs) {
+      clearTimeout(lastCallTimer)
     }
 
-    this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
+    lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
   }
 }
 ```

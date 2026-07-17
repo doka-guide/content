@@ -1,12 +1,16 @@
 ---
-title: "blur"
+title: "`blur`"
 description: "Событие потери фокуса элементом"
+baseline:
+  - group: focus-events
+    features:
+      - api.Element.blur_event
 authors:
-  - lira_bazh
+  - lira-bazh
 related:
-  - js/events
   - js/event-change
   - js/element-blur
+  - js/event-focus
 tags:
   - doka
 ---
@@ -17,7 +21,7 @@ tags:
 
 <aside>
 
-💡 Похожее событие — `focusout` (вызывается перед потерей элементом фокуса, всплывает). Противоположное событие — `focus` (получение фокуса).
+💡 Похожее событие — `focusout` (вызывается перед потерей элементом фокуса, всплывает). Противоположное событие — [`focus`](/js/element-focus/) (получение фокуса).
 
 </aside>
 
@@ -29,7 +33,7 @@ tags:
 
 ## Как пишется
 
-Современный способ с [addEventListener](/js/element-addeventlistener/):
+Современный способ с [`addEventListener`](/js/element-addeventlistener/):
 
 ```js
 element.addEventListener('blur', (event) => {
@@ -47,24 +51,24 @@ element.onblur = (event) => {
 
 ## Как понять
 
-Событие `blur` инициируется в момент, когда интерактивный элемент теряет фокус и он перемещается на другой элемент (например, по клику или нажатию `Tab`).
+Событие `blur` инициируется в момент, когда интерактивный элемент теряет фокус и он перемещается на другой элемент (например, по клику или нажатию <kbd>Tab</kbd>).
 
-Событие срабатывает на тех html-элементах, которые имеют атрибут [tabindex](/html/tabindex/), либо атрибут [contenteditable](/html/global-attrs/#contenteditable).
+Событие срабатывает на тех HTML-элементах, которые имеют атрибут `[tabindex`](/html/tabindex/), либо атрибут [`contenteditable`](/html/global-attrs/#contenteditable).
 
-Некоторые html-элементы по умолчанию имеют `tabindex="0"`:
-- `<button>`;
-- `<input>`;
-- `<textarea>`;
-- `<select>`;
+Некоторые HTML-элементы по умолчанию имеют `tabindex="0"`:
+- [`<button>`](/html/button/);
+- [`<input>`](/html/input/);
+- [`<textarea>`](/html/textarea/);
+- [`<select>`](/html/select/);
 - `<frame>`;
-- `<iframe>`;
-- `<object>`;
-- `<a>` или `<area>` с атрибутом `href`;
-- `<summary>` в связке с `<details>`.
+- [`<iframe>`](/html/iframe/);
+- [`<object>`](/html/object/);
+- [`<a>`](/html/a/) или [`<area>`](/html/area/) с атрибутом `href`;
+- `<summary>` в связке с [`<details>`](/html/details/).
 
 ## Как добавить событие на любой элемент
 
-Чтобы `blur` работал на произвольном элементе (например, на `<div>`), добавьте ему атрибут `tabindex="0"` или атрибут `contenteditable="true"`.
+Чтобы `blur` работал на произвольном элементе (например, на [`<div>`](/html/div/)), добавьте ему атрибут `tabindex="0"` или атрибут `contenteditable="true"`.
 
 `tabindex="0"` указывает браузеру, что на элементе можно сфокусироваться (а, значит, и потерять фокус).
 
@@ -79,6 +83,7 @@ element.onblur = (event) => {
   Здесь так же можно сфокусироваться и потерять фокус
 </div>
 ```
+
 ### Пример
 
 В примере ниже одинаковый обработчик события окрашивает границы блока при потере фокуса. Кликните на блок, а затем на любое другое место:
@@ -99,27 +104,35 @@ element.onblur = (event) => {
 ```
 
 ```js
-const block1 = document.getElementById("block1");
-const block2 = document.getElementById("block2");
-const block3 = document.getElementById("block3");
+const block1 = document.getElementById('block1')
+const block2 = document.getElementById('block2')
+const block3 = document.getElementById('block3')
 
 function blurHandler(event) {
   event.target.classList.add('green')
   event.target.innerHTML = '👋 Я потерял фокус'
 }
 
-block1.addEventListener('blur', blurHandler);
-block2.addEventListener('blur', blurHandler);
-block3.addEventListener('blur', blurHandler);
+block1.addEventListener('blur', blurHandler)
+block2.addEventListener('blur', blurHandler)
+block3.addEventListener('blur', blurHandler)
 ```
 
 <iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="400"></iframe>
 
 ## Делегирование события
 
-Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Вариант решения этой проблемы — передать в метод `addEventListener` параметр `{ capture: true }`.
+Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Есть два варианта решения этой проблемы.
 
-Обычно слушатель обрабатывает события на [фазе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [фазе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), т.к. [фаза захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
+### Использование `focusout`
+
+Вместо `blur` можно использовать событие `focusout`. У него есть фаза всплытия и его можно [делегировать родительскому элементу](/js/events/#lira-sovetuet).
+
+### Обработка события в фазе всплытия
+
+Так же проблему делегирования получения фокуса можно решить передачей в метод `addEventListener` параметра `{ capture: true }`.
+
+Обычно слушатель обрабатывает события на [этапе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен параметр `{ capture: true }`, будет обрабатывать событие раньше, на [этапе захвата](/js/events/#zahvat-sobytiy). Нужно иметь в виду, что в этом случае событие будет обработано родительским элементом раньше, чем целевым (дочерним), так как [фаза захвата](/js/events/#zahvat-sobytiy) происходит до того, как событие [достигает целевого элемента](/js/events/#rasprostranenie-sobytiy).
 
 ```js
 parentElement.addEventListener(
@@ -130,17 +143,18 @@ parentElement.addEventListener(
   { capture: true }
 )
 
-//либо эквивалентная запись:
+// Эквивалентная запись:
 
 parentElement.addEventListener(
   'blur',
   (event) => {
     console.log('Элемент потерял фокус')
   },
-  true //тоже самое, что прописать { capture: true }
+  true // тоже самое, что прописать { capture: true }
 )
 ```
-### Пример
+
+#### Пример
 
 В примере ниже одинаковый обработчик события, выводящий ошибку о незаполненном поле, вешается на две формы. В первой форме параметр `{ capture: true }` не установлен, во второй установлен.
 
@@ -158,23 +172,23 @@ parentElement.addEventListener(
 ```
 
 ```js
-const form1 = document.getElementById("form1");
-const form2 = document.getElementById("form2");
+const form1 = document.getElementById('form1')
+const form2 = document.getElementById('form2')
 
 function blurHandler(event) {
-  const input = event.target;
+  const input = event.target
 
   if (!event.target.value) {
-    input.classList.add('invalid');
-    const error = document.createElement('div');
-    error.textContent = 'Поле обязательно для заполнения!';
-    error.classList.add('error-message');
-    input.insertAdjacentElement('afterend', error);
+    input.classList.add('invalid')
+    const error = document.createElement('div')
+    error.textContent = 'Поле обязательно для заполнения!'
+    error.classList.add('error-message')
+    input.insertAdjacentElement('afterend', error)
   }
 }
 
-form1.addEventListener('blur', blurHandler);
-form2.addEventListener('blur', blurHandler, { capture: true });
+form1.addEventListener('blur', blurHandler)
+form2.addEventListener('blur', blurHandler, { capture: true })
 ```
 
 <iframe title="Пример делегирования blur" src="demos/delegation/" height="600"></iframe>
