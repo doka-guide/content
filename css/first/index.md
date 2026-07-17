@@ -16,8 +16,8 @@ keywords:
   - print styles
 related:
   - css/page
-  - css/left
-  - css/right
+  - css/orphans
+  - css/widows
 tags:
   - doka
 ---
