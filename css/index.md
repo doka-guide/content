@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - pseudo-class-scope
       - picture-in-picture
       - fullscreen
   - name: 'Псевдоэлементы'
