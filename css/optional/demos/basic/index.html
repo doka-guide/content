@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Название демо — Title статьи — Дока</title>
+  <title>Демонстрация применения стилей :optional и :required — :optional — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +38,7 @@
 
     form {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       gap: 1rem;
     }
 
@@ -49,16 +49,13 @@
     }
 
     input {
+      border: 2px solid rgba(255, 255, 255, 0.5);
       border-radius: 6px;
       padding: 4px 8px;
     }
 
     input:optional {
-      border: 2px solid #d77d31;
-    }
-
-    input:required {
-      border: 2px solid #2e9aff;
+      border-color: #2e9aff;
     }
   </style>
 </head>
@@ -66,13 +63,12 @@
   <div class="container">
     <form>
       <label>
-        Имя вашего котика:
-        <input type="text" name="cat-name">
-      </label>
-
-      <label>
         Email:
         <input type="email" name="email" required>
+      </label>
+      <label>
+        Имя вашего котика:
+        <input type="text" name="cat-name">
       </label>
     </form>
   </div>

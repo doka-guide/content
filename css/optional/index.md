@@ -43,11 +43,7 @@ tags:
 
 ```css
 input:optional {
-  border: 2px solid #d77d31;
-}
-
-input:required {
-  border: 2px solid #2e9aff;
+  border-color: #2e9aff;
 }
 ```
 
