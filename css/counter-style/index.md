@@ -102,22 +102,32 @@ ol.roman {
 
 ```css
 @counter-style <name> {
-  system: cyclic | numeric | alphabetic | symbolic | additive | fixed | <counter-style-name>;
-  symbols: <symbol>+;                /* для cyclic/numeric/alphabetic/symbolic */
-  additive-symbols: <value> <symbol> [, <value> <symbol>]*; /* для additive */
+  system:
+    cyclic | numeric | alphabetic | symbolic |
+    additive | fixed | <counter-style-name>;
+
+  /* для cyclic/numeric/alphabetic/symbolic */
+  symbols: <symbol>+;
+
+  /* для additive */
+  additive-symbols: <value> <symbol> [, <value> <symbol>]*;
+
   range: auto | <integer> <integer> | <integer> infinite;
   pad: <integer> <symbol>;
   prefix: <string>;
   suffix: <string>;
   negative: <prefix> <suffix>;
   fallback: <counter-style-name>;
-  speak-as: auto | bullets | numbers | words | spell-out | <counter-style-name>;
+
+  speak-as:
+    auto | bullets | numbers |
+    words | spell-out | <counter-style-name>;
 }
 ```
 
 - `system` — модель генерации: циклическая, числовая, алфавитная, символическая, аддитивная (сумма значений), фиксированная или расширение существующего стиля.
 - `symbols`/`additive-symbols` — набор символов или правил составления числа.
-- `prefix`/`suffix` — то, что дописывается до/после маркера (например, точка и пробел).
+- `prefix`/`suffix` — то, что дописывается до или после маркера (например, точка и пробел).
 - `fallback` — запасной стиль, если кастомный недоступен.
 - `range`, `pad` — ограничения диапазона и дополнение слева (например, ведущими нулями).
 - `speak-as` — подсказка для синтеза речи (поддержка ограничена).
