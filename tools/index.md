@@ -68,6 +68,7 @@ groups:
       - deno
       - rollup
       - gulp
+      - html-preprocessors
 
   - name: Развёртывание проекта
     items:
