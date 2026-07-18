@@ -1,8 +1,6 @@
 ---
 title: "`@counter-style`"
 description: "Создаёт собственные стили счётчиков и маркеров списков: от эмодзи‑буллетов до кастомной нумерации."
-authors:
-  - drakesbot12
 baseline:
   - group: counter-style
     features:
@@ -29,6 +27,8 @@ baseline:
       - css.at-rules.counter-style.system
       - css.at-rules.counter-style.speak-as
       - css.at-rules.counter-style.symbols
+authors:
+  - drakesbot12
 keywords:
   - счётчик
   - маркеры списков
@@ -145,4 +145,4 @@ ol {
 💡 Добавляйте `fallback`, чтобы сохранить читаемость, если кастомные счётчики не поддерживаются.
 💡 Символы можно брать из эмодзи или шрифтовых иконок; помните про межплатформенные различия глифов.
 💡 Для доступности проверяйте, как список читается скринридером. `speak-as` может помочь, но поддержка ограничена — не полагайтесь на него.
-💡 Комбинируйте с [`counter-reset`](/css/counter-reset/)/[`counter-increment`](/css/counter-increment), если строите сложные многоуровневые нумерации в компонентах.
+💡 Комбинируйте с [`counter-reset`](/css/counter-reset/)/[`counter-increment`](/css/counter-increment/), если строите сложные многоуровневые нумерации в компонентах.
