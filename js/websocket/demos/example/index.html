@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Жизненный цикл соединения — WebSocket — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .demo {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-top: 1px solid rgb(255 255 255 / 0.12);
+      border-right: 1px solid rgb(255 255 255 / 0.12);
+      border-bottom: 1px solid rgb(255 255 255 / 0.12);
+      border-left: 1px solid rgb(255 255 255 / 0.12);
+      border-radius: 10px;
+      background-color: #282A2E;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgb(255 255 255 / 0.3);
+      transition: background-color 0.2s;
+    }
+
+    .status[data-state="connecting"] .status-dot,
+    .status[data-state="closing"] .status-dot {
+      background-color: #FFD829;
+      animation: blink 1s ease-in-out infinite;
+    }
+
+    .status[data-state="open"] .status-dot {
+      background-color: #58E28C;
+    }
+
+    .status[data-state="closed"] .status-dot {
+      background-color: #F498AD;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .status-text {
+      font-size: 14px;
+    }
+
+    .status-code {
+      font-family: monospace;
+      color: #FFD829;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .message-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex-grow: 1;
+      padding: 10px 14px;
+      border-top: 1px solid rgb(255 255 255 / 0.12);
+      border-right: 1px solid rgb(255 255 255 / 0.12);
+      border-bottom: 1px solid rgb(255 255 255 / 0.12);
+      border-left: 1px solid rgb(255 255 255 / 0.12);
+      border-radius: 8px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+    }
+
+    input[type="text"]:focus {
+      outline: 2px solid #FFD829;
+      outline-offset: -1px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      border-left: none;
+      border-radius: 8px;
+      background-color: #FFD829;
+      color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    button:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    button:disabled {
+      background-color: #282A2E;
+      color: rgb(255 255 255 / 0.4);
+      cursor: not-allowed;
+    }
+
+    button.secondary {
+      background-color: #282A2E;
+      color: #FFFFFF;
+    }
+
+    .log {
+      height: 220px;
+      padding: 14px 16px;
+      overflow-y: auto;
+      border-top: 1px solid rgb(255 255 255 / 0.12);
+      border-right: 1px solid rgb(255 255 255 / 0.12);
+      border-bottom: 1px solid rgb(255 255 255 / 0.12);
+      border-left: 1px solid rgb(255 255 255 / 0.12);
+      border-radius: 10px;
+      background-color: #282A2E;
+      font-family: monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .log-entry {
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    .log-entry.sent {
+      color: #FFD829;
+    }
+
+    .log-entry.received {
+      color: #58E28C;
+    }
+
+    .log-entry.error {
+      color: #F498AD;
+    }
+
+    @media (width <= 480px) {
+      body {
+        padding: 24px;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+
+      .message-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo">
+
+    <div class="status" data-state="idle">
+      <span class="status-dot"></span>
+      <span class="status-text">Не подключено</span>
+    </div>
+
+    <div class="controls">
+      <button id="connect-btn" type="button">Подключиться</button>
+      <button id="close-btn" type="button" class="secondary" disabled>Закрыть соединение</button>
+    </div>
+
+    <div class="message-row">
+      <input id="message-input" type="text" placeholder="Текст сообщения" disabled>
+      <button id="send-btn" type="button" class="secondary" disabled>Отправить</button>
+    </div>
+
+    <div class="log" id="log"></div>
+
+  </div>
+
+  <script>
+    const statusEl = document.querySelector('.status');
+    const statusTextEl = document.querySelector('.status-text');
+    const connectBtn = document.getElementById('connect-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sendBtn = document.getElementById('send-btn');
+    const messageInput = document.getElementById('message-input');
+    const logEl = document.getElementById('log');
+
+    // Публичный echo-сервер: возвращает обратно всё, что ему отправили
+    const ECHO_SERVER_URL = 'wss://echo.websocket.org';
+
+    let socket = null;
+
+    function log(text, kind) {
+      const entry = document.createElement('div');
+      entry.className = 'log-entry' + (kind ? ' ' + kind : '');
+      const time = new Date().toLocaleTimeString('ru-RU');
+      entry.textContent = '[' + time + '] ' + text;
+      logEl.appendChild(entry);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function setState(state, text) {
+      statusEl.dataset.state = state;
+      statusTextEl.textContent = text;
+    }
+
+    function setControlsForState(state) {
+      connectBtn.disabled = state === 'connecting' || state === 'open' || state === 'closing';
+      closeBtn.disabled = state !== 'open';
+      sendBtn.disabled = state !== 'open';
+      messageInput.disabled = state !== 'open';
+    }
+
+    connectBtn.addEventListener('click', () => {
+      socket = new WebSocket(ECHO_SERVER_URL);
+
+      setState('connecting', 'Подключение… readyState: CONNECTING (0)');
+      setControlsForState('connecting');
+      log('Создали соединение, ждём открытия');
+
+      socket.onopen = () => {
+        setState('open', 'Соединение открыто · readyState: OPEN (1)');
+        setControlsForState('open');
+        log('Событие open: соединение установлено');
+      };
+
+      socket.onmessage = (event) => {
+        log('Получено: ' + event.data, 'received');
+      };
+
+      socket.onerror = () => {
+        log('Событие error: что-то пошло не так', 'error');
+      };
+
+      socket.onclose = (event) => {
+        const { code, reason, wasClean } = event;
+        setState('closed', 'Соединение закрыто · readyState: CLOSED (3)');
+        setControlsForState('closed');
+        log(
+          'Событие close: код ' + code +
+            ', причина «' + (reason || 'не указана') + '»' +
+            ', wasClean: ' + wasClean
+        );
+      };
+    });
+
+    closeBtn.addEventListener('click', () => {
+      if (!socket) {
+        return;
+      }
+
+      setState('closing', 'Закрываем соединение… readyState: CLOSING (2)');
+      setControlsForState('closing');
+      socket.close(1000, 'Пользователь закрыл соединение вручную');
+    });
+
+    sendBtn.addEventListener('click', () => {
+      sendMessage();
+    });
+
+    messageInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    function sendMessage() {
+      const text = messageInput.value.trim();
+
+      if (!text || !socket || socket.readyState !== WebSocket.OPEN) {
+        return;
+      }
+
+      socket.send(text);
+      log('Отправлено: ' + text, 'sent');
+      messageInput.value = '';
+    }
+  </script>
+</body>
+</html>
