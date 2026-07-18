@@ -180,11 +180,18 @@
 
     .message-row {
       display: flex;
+      align-items: flex-start;
       gap: 10px;
     }
 
-    input[type="text"] {
+    .message-field {
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    input[type="text"] {
       padding: 10px 14px;
       border: 1px solid rgb(255 255 255 / 0.12);
       border-radius: 8px;
@@ -201,6 +208,17 @@
 
     input[type="text"]:disabled {
       color: rgb(255 255 255 / 0.3);
+    }
+
+    .message-counter {
+      align-self: flex-end;
+      font-family: monospace;
+      font-size: 10px;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    .message-counter.is-near-limit {
+      color: #F498AD;
     }
 
     button {
@@ -347,7 +365,10 @@
     </div>
 
     <div class="message-row">
-      <input id="message-input" type="text" placeholder="Текст сообщения" disabled>
+      <div class="message-field">
+        <input id="message-input" type="text" placeholder="Текст сообщения" maxlength="200" disabled>
+        <span class="message-counter" id="message-counter">0 / 200</span>
+      </div>
       <button id="send-btn" type="button" class="secondary" disabled>Отправить</button>
     </div>
 
@@ -371,6 +392,7 @@
     const closeBtn = document.getElementById('close-btn');
     const sendBtn = document.getElementById('send-btn');
     const messageInput = document.getElementById('message-input');
+    const messageCounterEl = document.getElementById('message-counter');
     const logEl = document.getElementById('log');
     const handshakeEl = document.getElementById('handshake');
     const handshakeRequestStepEl = document.getElementById('handshake-request-step');
@@ -529,6 +551,16 @@
       }
     })
 
+    messageInput.addEventListener('input', updateMessageCounter)
+
+    function updateMessageCounter() {
+      const length = messageInput.value.length
+      const limit = Number(messageInput.maxLength)
+
+      messageCounterEl.textContent = length + ' / ' + limit
+      messageCounterEl.classList.toggle('is-near-limit', length >= limit)
+    }
+
     function sendMessage() {
       const text = messageInput.value.trim()
 
@@ -539,6 +571,7 @@
       socket.send(text)
       logMessage('Отправлено: ' + text, 'sent')
       messageInput.value = ''
+      updateMessageCounter()
     }
   </script>
 </body>
