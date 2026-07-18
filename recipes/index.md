@@ -38,6 +38,7 @@ groups:
       - github-pages-static-site
       - github-new-organization
       - github-add-ssh-access
+      - github-contributes-heatmap
   - name: 'React'
     items:
       - expressive-react-rectangle
