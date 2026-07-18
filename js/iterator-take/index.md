@@ -1,5 +1,5 @@
 ---
-title: "`Iterator.prototype.take(`)`"
+title: "`Iterator.prototype.take()`"
 description: "Возвращает итератор, завершающийся после фиксированного числа шагов"
 baseline:
   - group: iterator-methods
