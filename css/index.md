@@ -103,6 +103,7 @@ groups:
       - supports
       - layer
       - starting-style
+      - counter-style
       - namespace
       - font-feature-values
       - charset
