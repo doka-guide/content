@@ -20,15 +20,21 @@
     }
 
     body {
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
       padding: 40px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
     }
 
     h3 {
@@ -38,8 +44,16 @@
     }
 
     .controls {
+      position: sticky;
+      top: -40px;
+      z-index: 1;
+      width: 100%;
+      padding: 12px 0;
       display: flex;
+      justify-content: center;
       gap: 12px;
+      background-color: #18191C;
+      box-shadow: 0 12px 16px -8px rgb(0 0 0 / 60%);
     }
 
     button {
@@ -131,8 +145,16 @@
     .jump-both .fill { transition-timing-function: steps(5, jump-both); }
 
     @media (width <= 480px) {
-      body {
+      .page {
         padding: 30px 16px;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
       }
 
       .row {
@@ -144,52 +166,49 @@
 </head>
 <body>
 
-  <!--
-    Каждая строка кликабельна независимо — так удобно сравнивать steps(5, ...)
-    по одному значению за раз. Пунктирные линии в треке отмечают границы
-    пяти шагов, чтобы разница между jump-start/jump-end/jump-none/jump-both
-    была видна не только по ощущению, но и по позиции остановки.
-  -->
+  <div class="page">
 
-  <h3>Нажми на строку, чтобы запустить переход</h3>
+    <h3>Нажми на строку, чтобы запустить переход</h3>
 
-  <div class="controls">
-    <button type="button" id="run-all">Запустить всё</button>
-    <button type="button" id="reset-all">Сбросить всё</button>
-  </div>
+    <div class="controls">
+      <button type="button" id="run-all">Запустить всё</button>
+      <button type="button" id="reset-all">Сбросить всё</button>
+    </div>
 
-  <div class="rows" id="rows">
-    <div class="row jump-start">
-      <span class="name">jump-start</span>
-      <div class="track">
-        <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="fill"></div>
+    <div class="rows" id="rows">
+      <div class="row jump-start">
+        <span class="name">jump-start</span>
+        <div class="track">
+          <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+
+      <div class="row jump-end">
+        <span class="name">jump-end</span>
+        <div class="track">
+          <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+
+      <div class="row jump-none">
+        <span class="name">jump-none</span>
+        <div class="track">
+          <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+
+      <div class="row jump-both">
+        <span class="name">jump-both</span>
+        <div class="track">
+          <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="fill"></div>
+        </div>
       </div>
     </div>
 
-    <div class="row jump-end">
-      <span class="name">jump-end</span>
-      <div class="track">
-        <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-
-    <div class="row jump-none">
-      <span class="name">jump-none</span>
-      <div class="track">
-        <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-
-    <div class="row jump-both">
-      <span class="name">jump-both</span>
-      <div class="track">
-        <div class="ticks"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="fill"></div>
-      </div>
-    </div>
   </div>
 
   <script>

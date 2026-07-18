@@ -20,15 +20,21 @@
     }
 
     body {
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
       padding: 40px 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
     }
 
     h3 {
@@ -38,8 +44,16 @@
     }
 
     .controls {
+      position: sticky;
+      top: -40px;
+      z-index: 1;
+      width: 100%;
+      padding: 12px 0;
       display: flex;
+      justify-content: center;
       gap: 12px;
+      background-color: #18191C;
+      box-shadow: 0 12px 16px -8px rgb(0 0 0 / 60%);
     }
 
     button {
@@ -124,8 +138,16 @@
     .step-end .fill { transition-timing-function: step-end; }
 
     @media (width <= 480px) {
-      body {
+      .page {
         padding: 30px 16px;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
       }
 
       .row {
@@ -137,35 +159,33 @@
 </head>
 <body>
 
-  <!--
-    step-start и step-end — синонимы steps(1, jump-start) и steps(1, jump-end),
-    поэтому переход происходит одним скачком целиком в начале или в конце
-    отведённого времени. Вертикальная метка в треке показывает именно эту точку.
-  -->
+  <div class="page">
 
-  <h3>Нажми на строку, чтобы запустить переход</h3>
+    <h3>Нажми на строку, чтобы запустить переход</h3>
 
-  <div class="controls">
-    <button type="button" id="run-all">Запустить всё</button>
-    <button type="button" id="reset-all">Сбросить всё</button>
-  </div>
+    <div class="controls">
+      <button type="button" id="run-all">Запустить всё</button>
+      <button type="button" id="reset-all">Сбросить всё</button>
+    </div>
 
-  <div class="rows" id="rows">
-    <div class="row step-start">
-      <span class="name">step-start</span>
-      <div class="track">
-        <div class="marker"></div>
-        <div class="fill"></div>
+    <div class="rows" id="rows">
+      <div class="row step-start">
+        <span class="name">step-start</span>
+        <div class="track">
+          <div class="marker"></div>
+          <div class="fill"></div>
+        </div>
+      </div>
+
+      <div class="row step-end">
+        <span class="name">step-end</span>
+        <div class="track">
+          <div class="marker"></div>
+          <div class="fill"></div>
+        </div>
       </div>
     </div>
 
-    <div class="row step-end">
-      <span class="name">step-end</span>
-      <div class="track">
-        <div class="marker"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
   </div>
 
   <script>

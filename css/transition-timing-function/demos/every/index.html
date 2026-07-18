@@ -20,21 +20,35 @@
     }
 
     body {
-      min-height: 100vh;
-      padding: 40px 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
+      height: 100vh;
+      overflow: hidden;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    .controls {
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
+      padding: 40px 24px;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .controls {
+      position: sticky;
+      top: -40px;
+      z-index: 1;
+      width: 100%;
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
       align-items: center;
       gap: 12px;
+      background-color: #18191C;
+      box-shadow: 0 12px 16px -8px rgb(0 0 0 / 60%);
     }
 
     button {
@@ -138,7 +152,7 @@
     }
 
     @media (width <= 480px) {
-      body {
+      .page {
         padding: 30px 16px;
       }
     }
@@ -146,89 +160,84 @@
 </head>
 <body>
 
-  <!--
-    Домен графиков: x от 0 до 1 (время), y от 0 до 1 (прогресс), с запасом
-    сверху и снизу для пружинного эффекта cubic-bezier. viewBox 0 0 60 60,
-    единичный квадрат — прямоугольник 0,16 60,20 (y=16 — прогресс 1, y=36 — прогресс 0).
-    Трек под графиком двигает точку той же transition-timing-function — график
-    даёт форму, точка даёт ощущение реального движения. Кнопка запускает переход
-    сразу у всех точек, ведь transition, в отличие от animation, не зациклен сам по себе.
-  -->
+  <div class="page">
 
-  <div class="controls">
-    <button type="button" id="toggle">Запустить</button>
-  </div>
-
-  <div class="grid" id="grid">
-
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 L60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: linear"></i></div>
-      <span class="label">linear</span>
+    <div class="controls">
+      <button type="button" id="toggle">Запустить</button>
     </div>
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <polyline class="curve" points="0,36 15,26 30,21 45,19 60,16"></polyline>
-      </svg>
-      <div class="track"><i style="transition-timing-function: linear(0, 0.5, 0.75, 0.85, 1)"></i></div>
-      <span class="label">linear(0, 0.5, 0.75, 0.85, 1)</span>
-    </div>
+    <div class="grid" id="grid">
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 C15,34 15,16 60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: ease"></i></div>
-      <span class="label">ease</span>
-    </div>
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 L60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: linear"></i></div>
+        <span class="label">linear</span>
+      </div>
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 C25.2,36 60,16 60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: ease-in"></i></div>
-      <span class="label">ease-in</span>
-    </div>
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <polyline class="curve" points="0,36 15,26 30,21 45,19 60,16"></polyline>
+        </svg>
+        <div class="track"><i style="transition-timing-function: linear(0, 0.5, 0.75, 0.85, 1)"></i></div>
+        <span class="label">linear(0, 0.5, 0.75, 0.85, 1)</span>
+      </div>
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 C0,36 34.8,16 60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: ease-out"></i></div>
-      <span class="label">ease-out</span>
-    </div>
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 C15,34 15,16 60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: ease"></i></div>
+        <span class="label">ease</span>
+      </div>
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 C25.2,36 34.8,16 60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: ease-in-out"></i></div>
-      <span class="label">ease-in-out</span>
-    </div>
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 C25.2,36 60,16 60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: ease-in"></i></div>
+        <span class="label">ease-in</span>
+      </div>
 
-    <div class="item">
-      <svg viewBox="0 0 60 60">
-        <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
-        <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
-        <path class="curve" d="M0,36 C20.4,4.8 38.4,16 60,16"></path>
-      </svg>
-      <div class="track"><i style="transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1)"></i></div>
-      <span class="label">cubic-bezier(0.34, 1.56, 0.64, 1)</span>
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 C0,36 34.8,16 60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: ease-out"></i></div>
+        <span class="label">ease-out</span>
+      </div>
+
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 C25.2,36 34.8,16 60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: ease-in-out"></i></div>
+        <span class="label">ease-in-out</span>
+      </div>
+
+      <div class="item">
+        <svg viewBox="0 0 60 60">
+          <rect class="unit-box" x="0" y="16" width="60" height="20"></rect>
+          <line class="reference-line" x1="0" y1="36" x2="60" y2="16"></line>
+          <path class="curve" d="M0,36 C20.4,4.8 38.4,16 60,16"></path>
+        </svg>
+        <div class="track"><i style="transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1)"></i></div>
+        <span class="label">cubic-bezier(0.34, 1.56, 0.64, 1)</span>
+      </div>
+
     </div>
 
   </div>
