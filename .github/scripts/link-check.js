@@ -64,46 +64,113 @@ function maskNonLinkRegions(content) {
     .replace(/^---\n[\s\S]*?\n---/, maskRegion)
     .replace(/^```[^\n]*\n[\s\S]*?^```/gm, maskRegion)
     .replace(/^~~~[^\n]*\n[\s\S]*?^~~~/gm, maskRegion)
+    .replace(/`[^`\n]+`/g, maskRegion)
 }
 
 function cleanHeadingText(text) {
-  return text
+  // прячем код в бэктиках от чистки HTML-тегов ниже, иначе `<td>` в заголовке станет пустой строкой
+  const codeSpans = []
+  const withPlaceholders = text.replace(/`([^`]+)`/g, (_, code) => {
+    codeSpans.push(code)
+    return `\u0000${codeSpans.length - 1}\u0000`
+  })
+
+  const cleaned = withPlaceholders
     .replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-    .replace(/`([^`]+)`/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/<\/?[^>]+>/g, '')
     .replace(/\{#[^}]+\}/g, '')
+
+  return cleaned
+    .replace(/\u0000(\d+)\u0000/g, (_, i) => codeSpans[Number(i)])
     .trim()
+}
+
+function addAnchorWithDedupe(anchors, headingHashMap, headingText) {
+  if (!headingText) {
+    return
+  }
+
+  const id = slugify(headingText)
+  if (headingHashMap[id] >= 0) {
+    headingHashMap[id] += 1
+  } else {
+    headingHashMap[id] = 0
+  }
+
+  const postfix = headingHashMap[id] > 0 ? `-${headingHashMap[id]}` : ''
+  anchors.add(id + postfix)
 }
 
 function extractHeadingAnchors(content) {
   const anchors = new Set()
   const headingHashMap = {}
-  const body = content.replace(/^---[\s\S]*?---\n/, '')
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---\n?/)
+  const frontmatter = frontmatterMatch ? frontmatterMatch[1] : ''
+  const body = frontmatterMatch ? content.slice(frontmatterMatch[0].length) : content
   const headingRegex = /^(#{2,6})\s+(.+)$/gm
   let match
 
   while ((match = headingRegex.exec(body)) !== null) {
-    const headingText = cleanHeadingText(match[2])
-    if (!headingText) {
-      continue
-    }
+    addAnchorWithDedupe(anchors, headingHashMap, cleanHeadingText(match[2]))
+  }
 
-    const id = slugify(headingText)
-    if (headingHashMap[id] >= 0) {
-      headingHashMap[id] += 1
-    } else {
-      headingHashMap[id] = 0
-    }
+  // хабы разделов (html/index.md и т. п.) без ## заголовков — структура задаётся YAML groups[].name
+  const groupNameRegex = /^\s*-\s*name:\s*['"]?(.+?)['"]?\s*$/gm
+  while ((match = groupNameRegex.exec(frontmatter)) !== null) {
+    addAnchorWithDedupe(anchors, headingHashMap, match[1].trim())
+  }
 
-    const postfix = headingHashMap[id] > 0 ? `-${headingHashMap[id]}` : ''
-    anchors.add(id + postfix)
+  const legacyAnchorRegex = /<a\s+name=["']([^"']+)["']/gi
+  while ((match = legacyAnchorRegex.exec(body)) !== null) {
+    anchors.add(match[1])
   }
 
   return anchors
 }
+
+// вопрос интервью через related: привязывается к статье и рендерит на ней
+// блок «На собеседовании» с якорем #na-sobesedovanii (см. doc.11tydata.js)
+function buildQuestionsByArticle() {
+  const articlesWithQuestions = new Set()
+  const interviewsRoot = path.join(ROOT, 'interviews')
+
+  if (!fs.existsSync(interviewsRoot)) {
+    return articlesWithQuestions
+  }
+
+  for (const entry of fs.readdirSync(interviewsRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) {
+      continue
+    }
+
+    const content = readFile(path.join('interviews', entry.name, 'index.md'))
+    if (!content) {
+      continue
+    }
+
+    const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/)
+    const relatedBlock = frontmatterMatch
+      && frontmatterMatch[1].match(/^related:\n((?:[ \t]*-[ \t]*.+\n?)*)/m)
+    if (!relatedBlock) {
+      continue
+    }
+
+    const relatedLines = relatedBlock[1].match(/^[ \t]*-[ \t]*(.+)$/gm) || []
+    for (const line of relatedLines) {
+      const relatedPath = line.replace(/^[ \t]*-[ \t]*/, '').trim().replace(/^\/+|\/+$/g, '')
+      if (relatedPath) {
+        articlesWithQuestions.add(relatedPath)
+      }
+    }
+  }
+
+  return articlesWithQuestions
+}
+
+const articlesWithQuestions = buildQuestionsByArticle()
 
 function getPersonName(nick, readFn = readFile) {
   const personFile = `people/${nick}/index.md`
@@ -167,6 +234,10 @@ function extractArticleAnchors(articleIndexPath, readFn = readFile) {
     }
   }
 
+  if (articlesWithQuestions.has(articleDir)) {
+    anchors.add('na-sobesedovanii')
+  }
+
   return anchors
 }
 
@@ -217,6 +288,10 @@ function splitUrl(url) {
   }
 }
 
+// платформенные роуты без index.md в контент-репо (корень сайта, /people/, /subscribe/ и т. п.)
+const PLATFORM_ROUTE = Symbol('platform-route')
+const PLATFORM_ROUTES = new Set(['/', '/people/', '/subscribe/'])
+
 function resolveArticleFile(pathname) {
   let cleanPath = pathname.split('?')[0]
   if (!cleanPath.startsWith('/')) {
@@ -226,6 +301,10 @@ function resolveArticleFile(pathname) {
   cleanPath = cleanPath.replace(/\/+/g, '/')
   if (!cleanPath.endsWith('/')) {
     cleanPath += '/'
+  }
+
+  if (PLATFORM_ROUTES.has(cleanPath)) {
+    return PLATFORM_ROUTE
   }
 
   if (pagesByLocation.has(cleanPath)) {
@@ -239,8 +318,7 @@ function resolveArticleFile(pathname) {
 
   const [section] = parts
   if (!SECTION_ROOTS.has(section)) {
-    // /about/, /subscribe/ и другие pages без префикса pages/
-    return null
+    return PLATFORM_ROUTE
   }
 
   if (parts.length === 1) {
@@ -262,12 +340,17 @@ function extractLinks(content) {
   // поэтому match.index указывает на позицию в исходном content
   const body = maskNonLinkRegions(content)
 
-  const markdownLinkRegex = /!?\[([^\]]*)\]\(([^)\s]+)\)/g
+  // текст ссылки для сообщений берём из content, а не body: в body он мог быть замаскирован
+  const rawAt = (index, length) => content.slice(index, index + length)
+
+  // вторая ветка — URL в угловых скобках, может содержать «)»: [текст](<url_с_(скобками)>)
+  const markdownLinkRegex = /!?\[([^\]]*)\]\(\s*<([^>]+)>\s*\)|!?\[([^\]]*)\]\(([^)\s]+)\)/g
   let match
   while ((match = markdownLinkRegex.exec(body)) !== null) {
+    const url = match[2] !== undefined ? match[2] : match[4]
     links.push({
-      url: match[2].trim(),
-      raw: match[0],
+      url: url.trim(),
+      raw: rawAt(match.index, match[0].length),
       index: match.index,
     })
   }
@@ -276,7 +359,7 @@ function extractLinks(content) {
   while ((match = attrRegex.exec(body)) !== null) {
     links.push({
       url: match[1].trim(),
-      raw: match[0],
+      raw: rawAt(match.index, match[0].length),
       index: match.index,
     })
   }
@@ -303,12 +386,13 @@ function shouldSkipUrl(url) {
 
 function resolveRelativeAsset(fromFile, url) {
   const { pathname } = splitUrl(url)
-  if (!pathname || pathname.startsWith('/')) {
+  const cleanPathname = pathname.split('?')[0]
+  if (!cleanPathname || cleanPathname.startsWith('/')) {
     return null
   }
 
   const baseDir = path.dirname(fromFile)
-  return path.normalize(path.join(baseDir, pathname))
+  return path.normalize(path.join(baseDir, cleanPathname))
 }
 
 function checkAssetExists(relativePath) {
@@ -399,6 +483,10 @@ function checkForwardLinks(filePath) {
 
     const { pathname, hash } = splitUrl(url)
     const targetFile = resolveArticleFile(pathname)
+
+    if (targetFile === PLATFORM_ROUTE) {
+      continue
+    }
 
     if (!targetFile) {
       fail(`${filePath}:${line} → нет материала по пути «${pathname}» (ссылка ${link.raw})`)
