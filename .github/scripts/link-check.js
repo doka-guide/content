@@ -318,7 +318,7 @@ function resolveArticleFile(pathname) {
 
   const [section] = parts
   if (!SECTION_ROOTS.has(section)) {
-    return PLATFORM_ROUTE
+    return null
   }
 
   if (parts.length === 1) {
