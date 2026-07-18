@@ -307,6 +307,7 @@ groups:
     items:
       - fetch
       - async-await
+      - websocket
   - name: "Веб-приложение"
     items:
       - language-versions
