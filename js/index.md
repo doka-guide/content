@@ -303,6 +303,7 @@ groups:
       - promise-try
       - promise-with-resolvers
       - async-await
+      - micro-and-macro-tasks
   - name: "Обмен данными с API"
     items:
       - fetch
