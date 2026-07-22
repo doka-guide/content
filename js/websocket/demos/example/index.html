@@ -36,8 +36,18 @@
       max-width: 480px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 16px;
     }
+
+    /* Строка с адресом сервера */
+
+    .server-url {
+      font-family: monospace;
+      font-size: 14px;
+      color: #FFD829;
+    }
+
+    /* Индикатор состояния соединения */
 
     .status {
       display: flex;
@@ -50,6 +60,7 @@
     }
 
     .status-dot {
+      flex-shrink: 0;
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -84,10 +95,83 @@
       font-size: 14px;
     }
 
-    .status-code {
+    .status-ready-state {
       font-family: monospace;
+      color: rgb(255 255 255 / 0.5);
+    }
+
+    .handshake {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px 16px;
+      border: 1px solid rgb(255 255 255 / 0.12);
+      border-radius: 10px;
+      background-color: #282A2E;
+      transition: border-color 0.3s ease;
+    }
+
+    .handshake[data-active="true"] {
+      border-color: rgb(255 216 41 / 0.35);
+    }
+
+    .handshake-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgb(255 255 255 / 0.4);
+      transition: color 0.3s ease;
+    }
+
+    .handshake[data-active="true"] .handshake-title {
       color: #FFD829;
     }
+
+    .handshake-step {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .handshake-step-label {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.4);
+    }
+
+    .handshake-step pre {
+      margin: 0;
+      padding: 10px 12px;
+      overflow-x: auto;
+      border-radius: 6px;
+      background-color: #18191C;
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgb(255 255 255 / 0.3);
+      transition: color 0.3s ease;
+    }
+
+    /* Активный, ещё не полученный шаг — мигает, привлекает внимание */
+    .handshake-step.is-pending pre {
+      color: rgb(255 216 41 / 0.5);
+      animation: blink 1s ease-in-out infinite;
+    }
+
+    /* Шаг получен во время текущего (ещё живого) рукопожатия — зелёный */
+    .handshake[data-active="true"] .handshake-step.is-received pre {
+      color: #58E28C;
+    }
+
+    /* Рукопожатие когда-то прошло, но уже не актуально — просто приглушённый след */
+    .handshake[data-active="false"] .handshake-step.is-received pre {
+      color: rgb(255 255 255 / 0.4);
+    }
+
+    .handshake-note {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.4);
+    }
+
+    /* Кнопки управления */
 
     .controls {
       display: flex;
@@ -96,11 +180,18 @@
 
     .message-row {
       display: flex;
+      align-items: flex-start;
       gap: 10px;
     }
 
-    input[type="text"] {
+    .message-field {
       flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    input[type="text"] {
       padding: 10px 14px;
       border: 1px solid rgb(255 255 255 / 0.12);
       border-radius: 8px;
@@ -113,6 +204,21 @@
     input[type="text"]:focus {
       outline: 2px solid #FFD829;
       outline-offset: -1px;
+    }
+
+    input[type="text"]:disabled {
+      color: rgb(255 255 255 / 0.3);
+    }
+
+    .message-counter {
+      align-self: flex-end;
+      font-family: monospace;
+      font-size: 10px;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    .message-counter.is-near-limit {
+      color: #F498AD;
     }
 
     button {
@@ -143,8 +249,10 @@
       color: #FFFFFF;
     }
 
+    /* Журнал событий */
+
     .log {
-      height: 220px;
+      height: 200px;
       padding: 14px 16px;
       overflow-y: auto;
       border: 1px solid rgb(255 255 255 / 0.12);
@@ -153,6 +261,10 @@
       font-family: monospace;
       font-size: 13px;
       line-height: 1.6;
+    }
+
+    .log-placeholder {
+      color: rgb(255 255 255 / 0.3);
     }
 
     .log-entry {
@@ -169,6 +281,39 @@
 
     .log-entry.error {
       color: #F498AD;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.5);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .legend-dot.sent {
+      background-color: #FFD829;
+    }
+
+    .legend-dot.received {
+      background-color: #58E28C;
+    }
+
+    .legend-dot.error {
+      background-color: #F498AD;
     }
 
     @media (width <= 480px) {
@@ -190,9 +335,28 @@
 
   <div class="demo">
 
-    <div class="status" data-state="idle">
+    <div class="server-url">wss://echo.websocket.org</div>
+
+    <div class="status" data-state="idle" id="status">
       <span class="status-dot"></span>
-      <span class="status-text">Не подключено</span>
+      <span class="status-text" id="status-text">Не подключено</span>
+      <span class="status-ready-state" id="status-ready-state"></span>
+    </div>
+
+    <div class="handshake" id="handshake" data-active="false">
+      <div class="handshake-title" id="handshake-title">Рукопожатие: HTTP-запрос на переключение протокола</div>
+
+      <div class="handshake-step" id="handshake-request-step">
+        <span class="handshake-step-label">Клиент → сервер</span>
+        <pre id="handshake-request">— ждём подключения —</pre>
+      </div>
+
+      <div class="handshake-step" id="handshake-response-step">
+        <span class="handshake-step-label">Сервер → клиент</span>
+        <pre id="handshake-response">— ждём подключения —</pre>
+      </div>
+
+      <div class="handshake-note">Значения заголовков иллюстративные: браузер формирует их сам и не отдаёт в JavaScript, поэтому увидеть настоящие можно только во вкладке «Сеть» инструментов разработчика.</div>
     </div>
 
     <div class="controls">
@@ -201,112 +365,213 @@
     </div>
 
     <div class="message-row">
-      <input id="message-input" type="text" placeholder="Текст сообщения" disabled>
+      <div class="message-field">
+        <input id="message-input" type="text" placeholder="Текст сообщения" maxlength="200" disabled>
+        <span class="message-counter" id="message-counter">0 / 200</span>
+      </div>
       <button id="send-btn" type="button" class="secondary" disabled>Отправить</button>
     </div>
 
-    <div class="log" id="log"></div>
+    <div class="log" id="log">
+      <span class="log-placeholder">Здесь появятся события соединения</span>
+    </div>
+
+    <div class="legend">
+      <span class="legend-item"><span class="legend-dot sent"></span>Отправлено клиентом</span>
+      <span class="legend-item"><span class="legend-dot received"></span>Получено от сервера</span>
+      <span class="legend-item"><span class="legend-dot error"></span>Ошибка или закрытие</span>
+    </div>
 
   </div>
 
   <script>
-    const statusEl = document.querySelector('.status');
-    const statusTextEl = document.querySelector('.status-text');
+    const statusEl = document.getElementById('status');
+    const statusTextEl = document.getElementById('status-text');
+    const statusReadyStateEl = document.getElementById('status-ready-state');
     const connectBtn = document.getElementById('connect-btn');
     const closeBtn = document.getElementById('close-btn');
     const sendBtn = document.getElementById('send-btn');
     const messageInput = document.getElementById('message-input');
+    const messageCounterEl = document.getElementById('message-counter');
     const logEl = document.getElementById('log');
+    const handshakeEl = document.getElementById('handshake');
+    const handshakeRequestStepEl = document.getElementById('handshake-request-step');
+    const handshakeResponseStepEl = document.getElementById('handshake-response-step');
+    const handshakeRequestEl = document.getElementById('handshake-request');
+    const handshakeResponseEl = document.getElementById('handshake-response');
 
-    // Публичный echo-сервер: возвращает обратно всё, что ему отправили
-    const ECHO_SERVER_URL = 'wss://echo.websocket.org';
+    const ECHO_SERVER_URL = 'wss://echo.websocket.org'
 
-    let socket = null;
+    // Иллюстративный пример заголовков. Настоящие значения Sec-WebSocket-Key
+    // и Sec-WebSocket-Accept браузер вычисляет сам и не передаёт в JavaScript
+    const REQUEST_HEADERS =
+      'GET / HTTP/1.1\n' +
+      'Host: echo.websocket.org\n' +
+      'Upgrade: websocket\n' +
+      'Connection: Upgrade\n' +
+      'Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\n' +
+      'Sec-WebSocket-Version: 13'
 
-    function log(text, kind) {
-      const entry = document.createElement('div');
-      entry.className = 'log-entry' + (kind ? ' ' + kind : '');
-      const time = new Date().toLocaleTimeString('ru-RU');
-      entry.textContent = '[' + time + '] ' + text;
-      logEl.appendChild(entry);
-      logEl.scrollTop = logEl.scrollHeight;
+    const RESPONSE_HEADERS =
+      'HTTP/1.1 101 Switching Protocols\n' +
+      'Upgrade: websocket\n' +
+      'Connection: Upgrade\n' +
+      'Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo='
+
+    // Через сколько миллисекунд после запроса показать ответ сервера.
+    // Не зависит от того, как быстро реально открылось соединение —
+    // иначе на быстрых сетях два шага рукопожатия слипаются в один
+    const HANDSHAKE_RESPONSE_DELAY = 700
+    // Сколько миллисекунд после открытия панель остаётся «активной»
+    // (яркой), прежде чем погаснуть и стать историческим следом
+    const HANDSHAKE_ACTIVE_AFTER_OPEN = 1200
+
+    let socket = null
+
+    function logMessage(text, kind) {
+      const placeholder = logEl.querySelector('.log-placeholder')
+      if (placeholder) {
+        placeholder.remove()
+      }
+
+      const entry = document.createElement('div')
+      entry.className = 'log-entry' + (kind ? ' ' + kind : '')
+      const time = new Date().toLocaleTimeString('ru-RU')
+      entry.textContent = '[' + time + '] ' + text
+      logEl.appendChild(entry)
+      logEl.scrollTop = logEl.scrollHeight
     }
 
-    function setState(state, text) {
-      statusEl.dataset.state = state;
-      statusTextEl.textContent = text;
+    function setStatus(state, text, readyState) {
+      statusEl.dataset.state = state
+      statusTextEl.textContent = text
+      statusReadyStateEl.textContent = readyState !== undefined ? 'readyState: ' + readyState : ''
     }
 
     function setControlsForState(state) {
-      connectBtn.disabled = state === 'connecting' || state === 'open' || state === 'closing';
-      closeBtn.disabled = state !== 'open';
-      sendBtn.disabled = state !== 'open';
-      messageInput.disabled = state !== 'open';
+      connectBtn.disabled = state === 'connecting' || state === 'open' || state === 'closing'
+      closeBtn.disabled = state !== 'open'
+      sendBtn.disabled = state !== 'open'
+      messageInput.disabled = state !== 'open'
+    }
+
+    function startHandshake() {
+      handshakeEl.dataset.active = 'true'
+      handshakeRequestStepEl.classList.remove('is-received', 'is-pending')
+      handshakeResponseStepEl.classList.remove('is-received', 'is-pending')
+
+      // Запрос — это то, что отправляет сам браузер, ждать нечего
+      handshakeRequestEl.textContent = REQUEST_HEADERS
+      handshakeRequestStepEl.classList.add('is-received')
+
+      // Ответ ещё не пришёл — подсвечиваем шаг как ожидающий
+      handshakeResponseEl.textContent = 'ждём ответ сервера…'
+      handshakeResponseStepEl.classList.add('is-pending')
+    }
+
+    function revealHandshakeResponse() {
+      handshakeResponseStepEl.classList.remove('is-pending')
+      handshakeResponseStepEl.classList.add('is-received')
+      handshakeResponseEl.textContent = RESPONSE_HEADERS
+    }
+
+    function fadeHandshake() {
+      handshakeEl.dataset.active = 'false'
     }
 
     connectBtn.addEventListener('click', () => {
-      socket = new WebSocket(ECHO_SERVER_URL);
+      socket = new WebSocket(ECHO_SERVER_URL)
 
-      setState('connecting', 'Подключение… readyState: CONNECTING (0)');
-      setControlsForState('connecting');
-      log('Создали соединение, ждём открытия');
+      setStatus('connecting', 'Устанавливаем соединение…', WebSocket.CONNECTING)
+      setControlsForState('connecting')
+      logMessage('Вызвали new WebSocket() — браузер отправляет HTTP-запрос на переключение протокола')
+
+      startHandshake()
+
+      // Показываем ответ сервера с фиксированной задержкой, а не сразу
+      // по событию open — иначе на быстрой сети два шага рукопожатия
+      // проносятся мимо взгляда как один
+      const responseTimer = setTimeout(revealHandshakeResponse, HANDSHAKE_RESPONSE_DELAY)
 
       socket.onopen = () => {
-        setState('open', 'Соединение открыто · readyState: OPEN (1)');
-        setControlsForState('open');
-        log('Событие open: соединение установлено');
-      };
+        setStatus('open', 'Соединение открыто', WebSocket.OPEN)
+        setControlsForState('open')
+        logMessage('Событие open: рукопожатие завершено, соединение установлено')
+
+        // Панель остаётся яркой ещё немного после открытия, чтобы было
+        // видно, что рукопожатие только что закончилось, а потом гаснет
+        setTimeout(fadeHandshake, HANDSHAKE_RESPONSE_DELAY + HANDSHAKE_ACTIVE_AFTER_OPEN)
+      }
 
       socket.onmessage = (event) => {
-        log('Получено: ' + event.data, 'received');
-      };
+        logMessage('Получено: ' + event.data, 'received')
+      }
 
       socket.onerror = () => {
-        log('Событие error: что-то пошло не так', 'error');
-      };
+        clearTimeout(responseTimer)
+        handshakeResponseEl.textContent = 'сервер не ответил'
+        handshakeResponseStepEl.classList.remove('is-pending')
+        fadeHandshake()
+        logMessage('Событие error: соединение не удалось. Публичный echo-сервер иногда недоступен, попробуйте подключиться ещё раз', 'error')
+      }
 
       socket.onclose = (event) => {
-        const { code, reason, wasClean } = event;
-        setState('closed', 'Соединение закрыто · readyState: CLOSED (3)');
-        setControlsForState('closed');
-        log(
+        const { code, reason, wasClean } = event
+
+        clearTimeout(responseTimer)
+        fadeHandshake()
+
+        setStatus('closed', 'Соединение закрыто', WebSocket.CLOSED)
+        setControlsForState('closed')
+        logMessage(
           'Событие close: код ' + code +
             ', причина «' + (reason || 'не указана') + '»' +
-            ', wasClean: ' + wasClean
-        );
-      };
-    });
+            ', wasClean: ' + wasClean,
+          'error'
+        )
+      }
+    })
 
     closeBtn.addEventListener('click', () => {
       if (!socket) {
-        return;
+        return
       }
 
-      setState('closing', 'Закрываем соединение… readyState: CLOSING (2)');
-      setControlsForState('closing');
-      socket.close(1000, 'Пользователь закрыл соединение вручную');
-    });
+      setStatus('closing', 'Закрываем соединение…', WebSocket.CLOSING)
+      setControlsForState('closing')
+      logMessage('Вызвали close() — начинается закрывающее рукопожатие')
+      socket.close(1000, 'Пользователь закрыл соединение вручную')
+    })
 
-    sendBtn.addEventListener('click', () => {
-      sendMessage();
-    });
+    sendBtn.addEventListener('click', sendMessage)
 
     messageInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        sendMessage();
+        sendMessage()
       }
-    });
+    })
+
+    messageInput.addEventListener('input', updateMessageCounter)
+
+    function updateMessageCounter() {
+      const length = messageInput.value.length
+      const limit = Number(messageInput.maxLength)
+
+      messageCounterEl.textContent = length + ' / ' + limit
+      messageCounterEl.classList.toggle('is-near-limit', length >= limit)
+    }
 
     function sendMessage() {
-      const text = messageInput.value.trim();
+      const text = messageInput.value.trim()
 
       if (!text || !socket || socket.readyState !== WebSocket.OPEN) {
-        return;
+        return
       }
 
-      socket.send(text);
-      log('Отправлено: ' + text, 'sent');
-      messageInput.value = '';
+      socket.send(text)
+      logMessage('Отправлено: ' + text, 'sent')
+      messageInput.value = ''
+      updateMessageCounter()
     }
   </script>
 </body>
