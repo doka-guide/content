@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -18,38 +16,60 @@
 
     html {
       color-scheme: dark;
-      block-size: 100%;
     }
 
     body {
-      display: grid;
-      place-items: center;
-      min-block-size: 100%;
-      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      background-color: #18191c;
     }
 
     button {
-      padding: 10px 20px;
-      color: #000000;
-      background-color: #2E9AFF;
+      padding: 14px 28px;
       border: none;
-      font-size: 24px;
-      font-weight: 300;
+      border-radius: 8px;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-size: 22px;
+      font-weight: 500;
       font-family: inherit;
-      transition-property: padding;
-      transition-duration: .5s;
-      transition-timing-function: cubic-bezier(.52,0,.27,2);
+      box-shadow: 0 0 0 0 rgb(46 154 255 / 40%);
+      transition-property: padding, transform, box-shadow;
+      transition-duration: 0.6s;
+      transition-timing-function: cubic-bezier(0.52, 0, 0.27, 2);
     }
 
-    button:hover {
-      padding: 20px 30px;
+    button:hover, button:focus-visible {
+      padding: 22px 42px;
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgb(46 154 255 / 0%);
       cursor: pointer;
+      outline: none;
+    }
+
+    .caption {
+      font-family: monospace;
+      font-size: 14px;
+      color: #B7B9BE;
+      text-align: center;
+    }
+
+    @media (width <= 480px) {
+      body {
+        padding: 30px 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <button>Наведи на меня</button>
+  <button type="button">Наведи на меня</button>
+  <span class="caption">transition-timing-function: cubic-bezier(0.52, 0, 0.27, 2)</span>
 </body>
 </html>
