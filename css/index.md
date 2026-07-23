@@ -70,6 +70,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - scrollbar
       - details-content
       - cue
       - file-selector-button
