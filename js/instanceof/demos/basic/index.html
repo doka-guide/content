@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка оператора instanceof — Оператор instanceof — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --js: #FFD829;
+      --bg: #18191C;
+      --surface: #282A2E;
+      --surface-hover: #32343A;
+      --text: #FFFFFF;
+      --text-secondary: #AAAAAA;
+      --border: #444444;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    h1 code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 26px;
+      background-color: var(--js);
+      padding: 2px 14px;
+      border-radius: 6px;
+      color: #000;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8px 6px;
+      background-color: var(--surface);
+      border-radius: 6px;
+      font-family: "Roboto Mono", monospace;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.15s;
+      gap: 4px;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+
+    .grid-item:hover {
+      background-color: var(--surface-hover);
+      transform: scale(1.03);
+    }
+
+    .grid-item.active {
+      border-color: var(--js);
+    }
+
+    .grid-value {
+      color: var(--js);
+      font-size: 11px;
+      word-break: break-all;
+      line-height: 1.2;
+    }
+
+    .grid-badge {
+      background-color: var(--js);
+      color: #000;
+      padding: 1px 10px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .grid-badge.true { background-color: #41E847; }
+    .grid-badge.false { background-color: #F498AD; }
+
+    .interactive {
+      background-color: var(--surface);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .row input {
+      flex: 1;
+      min-width: 160px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .row input:focus {
+      border-color: var(--js);
+      outline: none;
+    }
+
+    .row input::placeholder {
+      color: #666;
+      font-family: "Roboto", sans-serif;
+      font-size: 13px;
+    }
+
+    .btn {
+      padding: 8px 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: var(--js);
+      color: #000;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background-color: var(--text);
+    }
+
+    .quick {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .quick button {
+      padding: 2px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: "Roboto Mono", monospace;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .quick button:hover {
+      border-color: var(--js);
+      color: var(--text);
+      background-color: #FFD82933;
+    }
+
+    .quick button.active {
+      border-color: var(--js);
+      background-color: #FFD82922;
+      color: var(--text);
+    }
+
+    .result {
+      padding: 10px 14px;
+      border-radius: 4px;
+      background-color: var(--bg);
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      min-height: 40px;
+    }
+
+    .result-label {
+      color: #888;
+      font-family: "Roboto", sans-serif;
+      font-size: 13px;
+    }
+
+    .result-expression {
+      color: var(--js);
+      word-break: break-all;
+      font-size: 13px;
+    }
+
+    .result-arrow {
+      color: #666;
+    }
+
+    .result-badge {
+      background-color: var(--js);
+      color: #000;
+      padding: 2px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .result-badge.true { background-color: #41E847; }
+    .result-badge.false { background-color: #F498AD; }
+
+    .note {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-left: 3px solid var(--js);
+      background-color: var(--surface);
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .note code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 12px;
+    }
+
+    .note strong {
+      color: var(--js);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px; }
+      h1 { font-size: 18px; margin-bottom: 14px; }
+      h1 code { font-size: 20px; padding: 2px 10px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 4px; margin-bottom: 12px; }
+      .grid-item { padding: 6px 4px; font-size: 10px; }
+      .grid-value { font-size: 10px; }
+      .grid-badge { font-size: 9px; padding: 1px 8px; }
+      .interactive { padding: 12px; }
+      .row { flex-direction: column; gap: 6px; }
+      .row input { min-width: unset; width: 100%; font-size: 13px; padding: 8px 10px; }
+      .btn { width: 100%; padding: 8px; font-size: 13px; }
+      .quick button { font-size: 10px; padding: 2px 8px; }
+      .result { font-size: 12px; padding: 8px 10px; gap: 6px; min-height: 34px; }
+      .result-expression { font-size: 12px; }
+      .result-badge { font-size: 11px; padding: 1px 10px; }
+      .note { font-size: 11px; padding: 6px 10px; margin-top: 8px; }
+      .note code { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>instanceof</code></h1>
+
+    <div class="grid" id="grid">
+      <div class="grid-item" data-object="[]" data-constructor="Array">
+        <span class="grid-value">[]</span>
+        <span class="grid-badge true">Array → true</span>
+      </div>
+      <div class="grid-item" data-object="[]" data-constructor="Object">
+        <span class="grid-value">[]</span>
+        <span class="grid-badge true">Object → true</span>
+      </div>
+      <div class="grid-item" data-object="new Date()" data-constructor="Date">
+        <span class="grid-value">Date</span>
+        <span class="grid-badge true">Date → true</span>
+      </div>
+      <div class="grid-item" data-object="new Date()" data-constructor="Array">
+        <span class="grid-value">Date</span>
+        <span class="grid-badge false">Array → false</span>
+      </div>
+      <div class="grid-item" data-object="{}" data-constructor="Object">
+        <span class="grid-value">{ }</span>
+        <span class="grid-badge true">Object → true</span>
+      </div>
+      <div class="grid-item" data-object="{}" data-constructor="Array">
+        <span class="grid-value">{ }</span>
+        <span class="grid-badge false">Array → false</span>
+      </div>
+      <div class="grid-item" data-object="function() {}" data-constructor="Function">
+        <span class="grid-value">fn()</span>
+        <span class="grid-badge false">Function → false</span>
+      </div>
+      <div class="grid-item" data-object="function() {}" data-constructor="Object">
+        <span class="grid-value">fn()</span>
+        <span class="grid-badge true">Object → true</span>
+      </div>
+    </div>
+
+    <div class="interactive">
+      <div class="row">
+        <input type="text" id="objectInput" placeholder='Объект: [1, 2, 3]' value='["123"]'>
+        <input type="text" id="constructorInput" placeholder='Конструктор: Array' value="Array">
+        <button class="btn" id="checkBtn">Проверить</button>
+      </div>
+
+      <div class="quick" id="quick">
+        <button data-object='["123"]' data-constructor="Array">["123"] instanceof Array</button>
+        <button data-object='["123"]' data-constructor="String">["123"] instanceof String</button>
+        <button data-object="new Date()" data-constructor="Date">Date instanceof Date</button>
+        <button data-object="new Date()" data-constructor="Array">Date instanceof Array</button>
+        <button data-object="{}" data-constructor="Object">{} instanceof Object</button>
+        <button data-object="class Dog {}" data-constructor="Object">Class instanceof Object</button>
+        <button data-object="function() {}" data-constructor="Function">fn instanceof Function</button>
+        <button data-object="null" data-constructor="Object">null instanceof Object</button>
+      </div>
+
+      <div class="result">
+        <span class="result-label">instanceof</span>
+        <span class="result-expression" id="displayObject">["123"] instanceof Array</span>
+        <span class="result-arrow">→</span>
+        <span class="result-badge true" id="displayType">true</span>
+      </div>
+    </div>
+
+    <div class="note">
+      💡 <strong>instanceof</strong> работает только с объектами. Для примитивов (числа, строки, boolean) всегда возвращает <strong>false</strong>.
+    </div>
+  </div>
+
+  <script>
+    const objectInput = document.getElementById('objectInput')
+    const constructorInput = document.getElementById('constructorInput')
+    const checkBtn = document.getElementById('checkBtn')
+    const displayObject = document.getElementById('displayObject')
+    const displayType = document.getElementById('displayType')
+    const gridItems = document.querySelectorAll('.grid-item')
+    const quickBtns = document.querySelectorAll('#quick button')
+
+    function safeEval(expr) {
+      const blocked = ['import', 'require', 'fetch', 'eval', 'Function', 'window', 'document', 'global', 'process']
+      if (blocked.some(w => expr.includes(w))) return null
+      try { return new Function(`"use strict"; return (${expr})`)() } catch { return null }
+    }
+
+    function parseObject(raw) {
+      const s = raw.trim()
+      if (s === 'undefined') return undefined
+      if (s === 'null') return null
+      if (s === 'true') return true
+      if (s === 'false') return false
+
+      const evaled = safeEval(s)
+      if (evaled !== null) return evaled
+
+      try { return JSON.parse(s) } catch { return s }
+    }
+
+    function parseConstructor(raw) {
+      const s = raw.trim()
+      const evaled = safeEval(s)
+      if (evaled !== null && typeof evaled === 'function') return evaled
+      return null
+    }
+
+    function formatDisplay(raw, val) {
+      if (typeof val === 'string' && !raw.startsWith('"') && !raw.startsWith("'") && !raw.startsWith('`')) {
+        return `"${raw}"`
+      }
+      if (val instanceof Set) return `Set(${val.size})`
+      if (val instanceof Map) return `Map(${val.size})`
+      if (val instanceof Date && !isNaN(val)) return 'new Date()'
+      if (val instanceof RegExp) return val.toString()
+      if (typeof val === 'function') {
+        const name = val.name || ''
+        return name ? `${name}()` : 'function() {}'
+      }
+      if (typeof val === 'object' && val !== null) {
+        const ctor = val.constructor?.name
+        if (ctor && ctor !== 'Object' && ctor !== 'Array') return ctor
+      }
+      return raw
+    }
+
+    function getConstructorName(constructor) {
+      if (typeof constructor === 'function') {
+        return constructor.name || 'function'
+      }
+      return String(constructor)
+    }
+
+    function check() {
+      const objectRaw = objectInput.value.trim()
+      const constructorRaw = constructorInput.value.trim()
+
+      if (!objectRaw || !constructorRaw) {
+        displayObject.textContent = '—'
+        displayType.textContent = '—'
+        displayType.className = 'result-badge'
+        return
+      }
+
+      const obj = parseObject(objectRaw)
+      const constructor = parseConstructor(constructorRaw)
+
+      let result = false
+      let resultLabel = 'false'
+
+      if (constructor && typeof constructor === 'function') {
+        try {
+          result = obj instanceof constructor
+          resultLabel = result ? 'true' : 'false'
+        } catch {
+          resultLabel = 'false'
+        }
+      } else {
+        resultLabel = 'false'
+      }
+
+      const displayRaw = formatDisplay(objectRaw, obj)
+      const constructorName = getConstructorName(constructor)
+
+      displayObject.textContent = `${displayRaw} instanceof ${constructorName}`
+      displayType.textContent = resultLabel
+      displayType.className = `result-badge ${resultLabel}`
+    }
+
+    function activate(el, selector) {
+      document.querySelectorAll(selector).forEach(e => e.classList.remove('active'))
+      if (el) el.classList.add('active')
+    }
+
+    gridItems.forEach(item => {
+      item.addEventListener('click', () => {
+        objectInput.value = item.dataset.object
+        constructorInput.value = item.dataset.constructor
+        activate(item, '.grid-item')
+        quickBtns.forEach(b => b.classList.remove('active'))
+        check()
+      })
+    })
+
+    quickBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        objectInput.value = btn.dataset.object
+        constructorInput.value = btn.dataset.constructor
+        activate(btn, '#quick button')
+        gridItems.forEach(e => e.classList.remove('active'))
+        check()
+      })
+    })
+
+    checkBtn.addEventListener('click', () => {
+      gridItems.forEach(e => e.classList.remove('active'))
+      quickBtns.forEach(e => e.classList.remove('active'))
+      check()
+    })
+
+    objectInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        gridItems.forEach(e => e.classList.remove('active'))
+        quickBtns.forEach(e => e.classList.remove('active'))
+        check()
+      }
+    })
+
+    constructorInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        gridItems.forEach(e => e.classList.remove('active'))
+        quickBtns.forEach(e => e.classList.remove('active'))
+        check()
+      }
+    })
+
+    check()
+  </script>
+</body>
+</html>
