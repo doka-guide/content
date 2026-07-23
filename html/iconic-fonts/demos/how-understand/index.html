@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка icon font — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    section {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    input[type="range"] {
+      width: 160px;
+    }
+
+    .icon {
+      font-family: "Material Symbols Outlined";
+      font-size: 64px;
+      color: #FF8630;
+      user-select: none;
+    }
+
+    output {
+      border: 2px solid gray;
+      border-radius: 10px;
+      padding: 12px;
+      width: fit-content;
+      min-width: 260px;
+      font-family: monospace;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <label>
+      Иконка
+      <select id="icon-name">
+        <option selected value="search">search</option>
+        <option value="home">home</option>
+        <option value="favorite">favorite</option>
+        <option value="settings">settings</option>
+      </select>
+    </label>
+
+    <label>
+      Размер
+      <input id="size" type="range" min="16" max="120" value="64">
+    </label>
+
+    <label>
+      Цвет
+      <input id="color" type="color" value="#FF8630">
+    </label>
+  </section>
+
+  <span id="icon" class="icon">search</span>
+
+  <output id="out"></output>
+
+  <script>
+    const icon = document.getElementById('icon')
+    const size = document.getElementById('size')
+    const color = document.getElementById('color')
+    const iconName = document.getElementById('icon-name')
+    const out = document.getElementById('out')
+
+    function update() {
+      const fontSize = size.value + 'px'
+      const fontColor = color.value
+      const name = iconName.value
+
+      icon.style.fontSize = fontSize
+      icon.style.color = fontColor
+      icon.textContent = name
+
+      out.innerHTML = `
+        <div><code>font-size: ${fontSize}</code></div>
+        <div><code>color: ${fontColor}</code></div>
+        <div><code>content: ${name}</code></div>
+        <br>
+        <div>Иконка — это текст из шрифта Material Symbols</div>
+      `
+    }
+
+    size.addEventListener('input', update)
+    color.addEventListener('input', update)
+    iconName.addEventListener('change', update)
+
+    update()
+  </script>
+
+</body>
+</html>
