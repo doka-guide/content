@@ -66,7 +66,7 @@ HTML-теги и ARIA-роли делятся на несколько больш
 
 ### `section`
 
-Структурные элементы для разделов документов или приложений. Роль-суперкласс для группы элементов [`group`](/a11y/role-group/), картинок [`img`](/a11y/role-img-image/), параграфов [`paragraph`](/a11y/role-paragraph/), цитат [`blockquote`](/a11y/role-blockquote/) или нумерованных и нумерованных списков [`list`](/a11y/role-list/).
+Структурные элементы для разделов документов или приложений. Роль-суперкласс для группы элементов [`group`](/a11y/role-group/), картинок [`img`](/a11y/role-img-image/), параграфов [`paragraph`](/a11y/role-paragraph/), цитат [`blockquote`](/a11y/role-blockquote/) или нумерованных и ненумерованных списков [`list`](/a11y/role-list/).
 
 #### `landmark`
 
