@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>HWB — Цвета в вебе — Дока</title>
+  <title>HEX — Цвета в вебе — Дока</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,7 +66,7 @@
       height: 100%;
       border-radius: 8px;
       border: 1px solid #ffffff33;
-      background-color: hwb(0deg 0% 100% / 1);
+      background-color: #000000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,46 +135,7 @@
       margin: 0;
     }
 
-    .demo-logo {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 16px;
-      color: #FFFFFF;
-      font-size: 13px;
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .demo-logo:hover {
-      opacity: 1;
-    }
-
-    .demo-meta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 20px;
-      border-top: 2px solid #2E9AFF;
-      background-color: #18191C;
-      font-size: 13px;
-      font-style: italic;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .demo-meta a {
-      color: inherit;
-      text-decoration-color: #2E9AFF;
-      text-decoration-thickness: 2px;
-    }
-
-    /* На узких экранах круг не помещается по ширине, поэтому
-      превращаем его в скруглённую карточку с тем же цветным кантом */
-    @media (width <= 680px) {
+    @media (max-width: 768px) {
       body {
         padding: 15px;
       }
@@ -214,24 +175,24 @@
   <div class="container">
     <div id="color-wrapper">
       <div id="color-block">
-        <span>hwb(0deg 0% 100% / 1)</span>
+        <span>#000000</span>
       </div>
     </div>
     <div class="color-params">
       <div class="input-group">
-        <label for="h">H (оттенок):</label>
-        <input type="range" id="h" min="0" max="360" value="0" />
-        <input type="number" id="h-num" min="0" max="360" value="0" />
+        <label for="r">R (красный):</label>
+        <input type="range" id="r" min="0" max="255" value="0" />
+        <input type="number" id="r-num" min="0" max="255" value="0" />
       </div>
       <div class="input-group">
-        <label for="w">W (количество белого):</label>
-        <input type="range" id="w" min="0" max="100" value="0" />
-        <input type="number" id="w-num" min="0" max="100" value="0" />
+        <label for="g">G (зелёный):</label>
+        <input type="range" id="g" min="0" max="255" value="0" />
+        <input type="number" id="g-num" min="0" max="255" value="0" />
       </div>
       <div class="input-group">
-        <label for="b">B (количество чёрного):</label>
-        <input type="range" id="b" min="0" max="100" value="100" />
-        <input type="number" id="b-num" min="0" max="100" value="100" />
+        <label for="b">B (синий):</label>
+        <input type="range" id="b" min="0" max="255" value="0" />
+        <input type="number" id="b-num" min="0" max="255" value="0" />
       </div>
       <div class="input-group">
         <label for="a">α (альфа-канал):</label>
@@ -246,17 +207,21 @@
       'use strict';
 
       const refs = {
-        h: document.getElementById('h'),
-        w: document.getElementById('w'),
+        r: document.getElementById('r'),
+        g: document.getElementById('g'),
         b: document.getElementById('b'),
         a: document.getElementById('a'),
-        hNum: document.getElementById('h-num'),
-        wNum: document.getElementById('w-num'),
+        rNum: document.getElementById('r-num'),
+        gNum: document.getElementById('g-num'),
         bNum: document.getElementById('b-num'),
         aNum: document.getElementById('a-num'),
         block: document.getElementById('color-block'),
         text: document.querySelector('#color-block span')
       };
+
+      function toHex(value) {
+        return Math.round(value).toString(16).padStart(2, '0').toUpperCase();
+      }
 
       function getContrastColor(rgbString) {
         const match = rgbString.match(/\d+/g);
@@ -277,43 +242,44 @@
       }
 
       function updateColor() {
-        const h = refs.h.value;
-        const w = refs.w.value;
-        const b = refs.b.value;
-        const a = refs.a.value;
+        const r = Number(refs.r.value);
+        const g = Number(refs.g.value);
+        const b = Number(refs.b.value);
+        const a = Number(refs.a.value);
 
-        const cssColor = 'hwb(' + h + 'deg ' + w + '% ' + b + '% / ' + a + ')';
+        const alphaHex = toHex(a * 255);
+        const hexColor = '#' + toHex(r) + toHex(g) + toHex(b) + alphaHex;
 
-        refs.block.style.backgroundColor = cssColor;
-        refs.text.textContent = cssColor;
+        refs.block.style.backgroundColor = hexColor;
+        refs.text.textContent = hexColor;
 
         const appliedRGB = getComputedStyle(refs.block).backgroundColor;
         refs.text.style.color = getContrastColor(appliedRGB);
       }
 
       function syncFromSliders() {
-        refs.hNum.value = refs.h.value;
-        refs.wNum.value = refs.w.value;
+        refs.rNum.value = refs.r.value;
+        refs.gNum.value = refs.g.value;
         refs.bNum.value = refs.b.value;
         refs.aNum.value = refs.a.value;
         updateColor();
       }
 
       function syncFromNumbers() {
-        refs.h.value = refs.hNum.value;
-        refs.w.value = refs.wNum.value;
+        refs.r.value = refs.rNum.value;
+        refs.g.value = refs.gNum.value;
         refs.b.value = refs.bNum.value;
         refs.a.value = refs.aNum.value;
         updateColor();
       }
 
-      refs.h.addEventListener('input', syncFromSliders);
-      refs.w.addEventListener('input', syncFromSliders);
+      refs.r.addEventListener('input', syncFromSliders);
+      refs.g.addEventListener('input', syncFromSliders);
       refs.b.addEventListener('input', syncFromSliders);
       refs.a.addEventListener('input', syncFromSliders);
 
-      refs.hNum.addEventListener('input', syncFromNumbers);
-      refs.wNum.addEventListener('input', syncFromNumbers);
+      refs.rNum.addEventListener('input', syncFromNumbers);
+      refs.gNum.addEventListener('input', syncFromNumbers);
       refs.bNum.addEventListener('input', syncFromNumbers);
       refs.aNum.addEventListener('input', syncFromNumbers);
 

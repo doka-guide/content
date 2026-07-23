@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>OKLCh-песочница — Цвета в вебе — Дока</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+  <title>OKLCH — Цвета в вебе — Дока</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+  />
   <style>
-    *, *::before, *::after {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -20,236 +26,260 @@
     }
 
     body {
+      font-family: 'Roboto', sans-serif;
+      background: #18191c;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 20px;
     }
 
-    .wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 780px;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
       width: 100%;
     }
 
-    .swatch-col {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .swatch {
-      border-radius: 16px;
-      background-color: oklch(0.65 0.2 160);
-      aspect-ratio: 1;
-      transition: background-color 0.05s;
-    }
-
-    .code-output {
-      font-family: "Roboto Mono", monospace;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #2E9AFF;
-      word-break: break-all;
-      padding: 14px 16px;
-      background-color: #282A2E;
+    #color-wrapper {
+      flex: 1 1 300px;
+      height: 200px;
       border-radius: 8px;
-      line-height: 1.4;
+      overflow: hidden;
+      background-image:
+        conic-gradient(
+          #ffffff33 0deg 90deg,
+          #00000033 90deg 180deg,
+          #ffffff33 180deg 270deg,
+          #00000033 270deg 360deg
+        );
+      background-size: 20px 20px;
+      flex-shrink: 0;
     }
 
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 22px;
-      justify-content: center;
-    }
-
-    .param {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .param-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .param-name {
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .param-desc {
-      font-size: 0.76rem;
-      color: rgb(255 255 255 / 0.5);
-    }
-
-    .param-value {
-      font-family: "Roboto Mono", monospace;
-      font-size: 0.9rem;
-      color: #2E9AFF;
-      min-width: 4ch;
-      text-align: right;
-    }
-
-    input[type="range"] {
+    #color-block {
       width: 100%;
-      height: 6px;
-      accent-color: #2E9AFF;
-      cursor: pointer;
-    }
-
-    .hue-track {
-      height: 6px;
-      border-radius: 3px;
-      margin-top: -4px;
-      pointer-events: none;
-    }
-
-    .demo-logo {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 16px;
-      color: #FFFFFF;
-      font-size: 13px;
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .demo-logo:hover {
-      opacity: 1;
-    }
-
-    .demo-meta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 20px;
-      border-top: 2px solid #2E9AFF;
-      background-color: #18191C;
-      font-size: 13px;
-      font-style: italic;
-      justify-content: space-between;
+      height: 100%;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      background-color: oklch(0% 0 0 / 1);
+      display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 10px;
+      transition: background-color 0.1s ease;
     }
 
-    .demo-meta a {
-      color: inherit;
-      text-decoration-color: #2E9AFF;
-      text-decoration-thickness: 2px;
+    #color-block span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1rem;
+      text-align: center;
+      transition: color 0.2s ease;
+      user-select: text;
+      word-break: break-all;
     }
 
-    @media (width <= 768px) {
+    .color-params {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      width: 140px;
+      text-align: right;
+      color: #aaaaaa;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .input-group input[type="range"] {
+      flex: 1;
+      min-width: 60px;
+    }
+
+    .input-group input[type="number"] {
+      width: 70px;
+      padding: 4px 6px;
+      border: 1px solid #ffffff33;
+      border-radius: 4px;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input[type="number"]:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .input-group input[type="number"]::-webkit-inner-spin-button,
+    .input-group input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
       body {
-        padding: 30px;
+        padding: 15px;
       }
 
-      .wrapper {
-        grid-template-columns: 1fr;
+      .container {
+        gap: 20px;
       }
 
-      .swatch {
-        aspect-ratio: 2 / 1;
+      #color-wrapper {
+        flex: 1 1 100%;
+        height: 150px;
+      }
+
+      .color-params {
+        flex: 1 1 100%;
+        gap: 12px;
+      }
+
+      .input-group {
+        flex-wrap: wrap;
+        gap: 6px 12px;
+      }
+
+      .input-group label {
+        width: 100%;
+        text-align: left;
+        font-size: 0.8rem;
+      }
+
+      .input-group input[type="number"] {
+        width: 60px;
       }
     }
   </style>
 </head>
 <body>
-
-  <div class="wrapper">
-    <div class="swatch-col">
-      <div class="swatch" id="swatch"></div>
-      <div class="code-output" id="output">oklch(0.65 0.20 160)</div>
+  <div class="container">
+    <div id="color-wrapper">
+      <div id="color-block">
+        <span>oklch(0% 0 0 / 1)</span>
+      </div>
     </div>
-
-    <div class="controls">
-      <div class="param">
-        <div class="param-header">
-          <span class="param-name">L — светлота</span>
-          <span class="param-value" id="l-val">0.65</span>
-        </div>
-        <span class="param-desc">от 0 (чёрный) до 1 (белый)</span>
-        <input type="range" id="l" min="0" max="1" step="0.01" value="0.65">
+    <div class="color-params">
+      <div class="input-group">
+        <label for="L">L (светлота):</label>
+        <input type="range" id="L" min="0" max="1" step="0.01" value="0" />
+        <input type="number" id="L-num" min="0" max="1" step="0.01" value="0" />
       </div>
-
-      <div class="param">
-        <div class="param-header">
-          <span class="param-name">C — насыщенность</span>
-          <span class="param-value" id="c-val">0.20</span>
-        </div>
-        <span class="param-desc">от 0 (серый) до ~0.37 (максимум)</span>
-        <input type="range" id="c" min="0" max="0.37" step="0.01" value="0.20">
+      <div class="input-group">
+        <label for="C">C (насыщенность):</label>
+        <input type="range" id="C" min="0" max="0.4" step="0.01" value="0" />
+        <input type="number" id="C-num" min="0" max="0.4" step="0.01" value="0" />
       </div>
-
-      <div class="param">
-        <div class="param-header">
-          <span class="param-name">H — оттенок</span>
-          <span class="param-value" id="h-val">160°</span>
-        </div>
-        <span class="param-desc">угол на цветовом колесе, 0–360°</span>
-        <input type="range" id="h" min="0" max="360" step="1" value="160">
-        <div class="hue-track" id="hue-track"></div>
+      <div class="input-group">
+        <label for="H">H (тон):</label>
+        <input type="range" id="H" min="0" max="360" value="0" />
+        <input type="number" id="H-num" min="0" max="360" value="0" />
+      </div>
+      <div class="input-group">
+        <label for="a">α (альфа-канал):</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1" />
+        <input type="number" id="a-num" min="0" max="1" step="0.01" value="1" />
       </div>
     </div>
   </div>
 
-  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
-
-  <footer class="demo-meta">
-    <a href="https://doka.guide/css/web-colors/">Цвета в вебе — Дока</a>
-    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
-  </footer>
-
   <script>
-    if (!new URLSearchParams(window.location.search).has('embed')) {
-      document.querySelector('.demo-meta').style.display = 'flex';
-      document.querySelector('.demo-logo').style.display = 'block';
-    }
+    (function() {
+      'use strict';
 
-    const swatch   = document.getElementById('swatch');
-    const output   = document.getElementById('output');
-    const lSlider  = document.getElementById('l');
-    const cSlider  = document.getElementById('c');
-    const hSlider  = document.getElementById('h');
-    const hueTrack = document.getElementById('hue-track');
+      const refs = {
+        L: document.getElementById('L'),
+        C: document.getElementById('C'),
+        H: document.getElementById('H'),
+        a: document.getElementById('a'),
+        LNum: document.getElementById('L-num'),
+        CNum: document.getElementById('C-num'),
+        HNum: document.getElementById('H-num'),
+        aNum: document.getElementById('a-num'),
+        block: document.getElementById('color-block'),
+        text: document.querySelector('#color-block span')
+      };
 
-    function update() {
-      const l = parseFloat(lSlider.value);
-      const c = parseFloat(cSlider.value);
-      const h = parseInt(hSlider.value, 10);
+      function getContrastColor(rgbString) {
+        const match = rgbString.match(/\d+/g);
+        if (!match) return '#ffffff';
 
-      document.getElementById('l-val').textContent = l.toFixed(2);
-      document.getElementById('c-val').textContent = c.toFixed(2);
-      document.getElementById('h-val').textContent = h + '°';
+        const [r, g, b] = match.map(Number);
 
-      const value = `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${h})`;
-      output.textContent = value;
-      swatch.style.backgroundColor = value;
+        const srgb = [r, g, b].map(function(value) {
+          value /= 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
 
-      // Обновляем градиент полоски оттенка под текущую светлоту и насыщенность
-      hueTrack.style.background = `linear-gradient(in oklch to right, ${
-        [0, 60, 120, 180, 240, 300, 360]
-          .map(deg => `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${deg})`)
-          .join(', ')
-      })`;
-    }
+        const luminance = 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
 
-    lSlider.addEventListener('input', update);
-    cSlider.addEventListener('input', update);
-    hSlider.addEventListener('input', update);
-    update();
+        return luminance > 0.179 ? '#000000' : '#ffffff';
+      }
+
+      function updateColor() {
+        const L = refs.L.value;
+        const C = refs.C.value;
+        const H = refs.H.value;
+        const a = refs.a.value;
+
+        const cssColor = 'oklch(' + L + ' ' + C + ' ' + H + ' / ' + a + ')';
+
+        refs.block.style.backgroundColor = cssColor;
+        refs.text.textContent = cssColor;
+
+        const appliedRGB = getComputedStyle(refs.block).backgroundColor;
+        refs.text.style.color = getContrastColor(appliedRGB);
+      }
+
+      function syncFromSliders() {
+        refs.LNum.value = refs.L.value;
+        refs.CNum.value = refs.C.value;
+        refs.HNum.value = refs.H.value;
+        refs.aNum.value = refs.a.value;
+        updateColor();
+      }
+
+      function syncFromNumbers() {
+        refs.L.value = refs.LNum.value;
+        refs.C.value = refs.CNum.value;
+        refs.H.value = refs.HNum.value;
+        refs.a.value = refs.aNum.value;
+        updateColor();
+      }
+
+      refs.L.addEventListener('input', syncFromSliders);
+      refs.C.addEventListener('input', syncFromSliders);
+      refs.H.addEventListener('input', syncFromSliders);
+      refs.a.addEventListener('input', syncFromSliders);
+
+      refs.LNum.addEventListener('input', syncFromNumbers);
+      refs.CNum.addEventListener('input', syncFromNumbers);
+      refs.HNum.addEventListener('input', syncFromNumbers);
+      refs.aNum.addEventListener('input', syncFromNumbers);
+
+      updateColor();
+    })();
   </script>
 </body>
 </html>

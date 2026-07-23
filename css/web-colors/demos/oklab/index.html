@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>HWB — Цвета в вебе — Дока</title>
+  <title>OKLAB — Цвета в вебе — Дока</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,7 +66,7 @@
       height: 100%;
       border-radius: 8px;
       border: 1px solid #ffffff33;
-      background-color: hwb(0deg 0% 100% / 1);
+      background-color: oklab(0% 0 0 / 1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,46 +135,7 @@
       margin: 0;
     }
 
-    .demo-logo {
-      display: none;
-      position: fixed;
-      top: 12px;
-      left: 16px;
-      color: #FFFFFF;
-      font-size: 13px;
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-    }
-
-    .demo-logo:hover {
-      opacity: 1;
-    }
-
-    .demo-meta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 8px 20px;
-      border-top: 2px solid #2E9AFF;
-      background-color: #18191C;
-      font-size: 13px;
-      font-style: italic;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .demo-meta a {
-      color: inherit;
-      text-decoration-color: #2E9AFF;
-      text-decoration-thickness: 2px;
-    }
-
-    /* На узких экранах круг не помещается по ширине, поэтому
-      превращаем его в скруглённую карточку с тем же цветным кантом */
-    @media (width <= 680px) {
+    @media (max-width: 768px) {
       body {
         padding: 15px;
       }
@@ -214,24 +175,24 @@
   <div class="container">
     <div id="color-wrapper">
       <div id="color-block">
-        <span>hwb(0deg 0% 100% / 1)</span>
+        <span>oklab(0% 0 0 / 1)</span>
       </div>
     </div>
     <div class="color-params">
       <div class="input-group">
-        <label for="h">H (оттенок):</label>
-        <input type="range" id="h" min="0" max="360" value="0" />
-        <input type="number" id="h-num" min="0" max="360" value="0" />
+        <label for="L">L (светлота):</label>
+        <input type="range" id="L" min="0" max="1" step="0.01" value="0" />
+        <input type="number" id="L-num" min="0" max="1" step="0.01" value="0" />
       </div>
       <div class="input-group">
-        <label for="w">W (количество белого):</label>
-        <input type="range" id="w" min="0" max="100" value="0" />
-        <input type="number" id="w-num" min="0" max="100" value="0" />
+        <label for="A">A (от зелёного до красного):</label>
+        <input type="range" id="A" min="-0.4" max="0.4" step="0.01" value="0" />
+        <input type="number" id="A-num" min="-0.4" max="0.4" step="0.01" value="0" />
       </div>
       <div class="input-group">
-        <label for="b">B (количество чёрного):</label>
-        <input type="range" id="b" min="0" max="100" value="100" />
-        <input type="number" id="b-num" min="0" max="100" value="100" />
+        <label for="B">B (от синего до жёлтого):</label>
+        <input type="range" id="B" min="-0.4" max="0.4" step="0.01" value="0" />
+        <input type="number" id="B-num" min="-0.4" max="0.4" step="0.01" value="0" />
       </div>
       <div class="input-group">
         <label for="a">α (альфа-канал):</label>
@@ -246,13 +207,13 @@
       'use strict';
 
       const refs = {
-        h: document.getElementById('h'),
-        w: document.getElementById('w'),
-        b: document.getElementById('b'),
+        L: document.getElementById('L'),
+        A: document.getElementById('A'),
+        B: document.getElementById('B'),
         a: document.getElementById('a'),
-        hNum: document.getElementById('h-num'),
-        wNum: document.getElementById('w-num'),
-        bNum: document.getElementById('b-num'),
+        LNum: document.getElementById('L-num'),
+        ANum: document.getElementById('A-num'),
+        BNum: document.getElementById('B-num'),
         aNum: document.getElementById('a-num'),
         block: document.getElementById('color-block'),
         text: document.querySelector('#color-block span')
@@ -277,12 +238,12 @@
       }
 
       function updateColor() {
-        const h = refs.h.value;
-        const w = refs.w.value;
-        const b = refs.b.value;
+        const L = refs.L.value;
+        const A = refs.A.value;
+        const B = refs.B.value;
         const a = refs.a.value;
 
-        const cssColor = 'hwb(' + h + 'deg ' + w + '% ' + b + '% / ' + a + ')';
+        const cssColor = 'oklab(' + L + ' ' + A + ' ' + B + ' / ' + a + ')';
 
         refs.block.style.backgroundColor = cssColor;
         refs.text.textContent = cssColor;
@@ -292,29 +253,29 @@
       }
 
       function syncFromSliders() {
-        refs.hNum.value = refs.h.value;
-        refs.wNum.value = refs.w.value;
-        refs.bNum.value = refs.b.value;
+        refs.LNum.value = refs.L.value;
+        refs.ANum.value = refs.A.value;
+        refs.BNum.value = refs.B.value;
         refs.aNum.value = refs.a.value;
         updateColor();
       }
 
       function syncFromNumbers() {
-        refs.h.value = refs.hNum.value;
-        refs.w.value = refs.wNum.value;
-        refs.b.value = refs.bNum.value;
+        refs.L.value = refs.LNum.value;
+        refs.A.value = refs.ANum.value;
+        refs.B.value = refs.BNum.value;
         refs.a.value = refs.aNum.value;
         updateColor();
       }
 
-      refs.h.addEventListener('input', syncFromSliders);
-      refs.w.addEventListener('input', syncFromSliders);
-      refs.b.addEventListener('input', syncFromSliders);
+      refs.L.addEventListener('input', syncFromSliders);
+      refs.A.addEventListener('input', syncFromSliders);
+      refs.B.addEventListener('input', syncFromSliders);
       refs.a.addEventListener('input', syncFromSliders);
 
-      refs.hNum.addEventListener('input', syncFromNumbers);
-      refs.wNum.addEventListener('input', syncFromNumbers);
-      refs.bNum.addEventListener('input', syncFromNumbers);
+      refs.LNum.addEventListener('input', syncFromNumbers);
+      refs.ANum.addEventListener('input', syncFromNumbers);
+      refs.BNum.addEventListener('input', syncFromNumbers);
       refs.aNum.addEventListener('input', syncFromNumbers);
 
       updateColor();
