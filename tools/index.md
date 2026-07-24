@@ -11,6 +11,7 @@ groups:
       - web-security
       - cms
       - site-readers
+      - web-vitals
 
   - name: Архитектура и хорошие практики
     items:
