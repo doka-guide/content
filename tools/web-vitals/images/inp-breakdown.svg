@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1000" height="320" fill="#f6f8fc"/>
+  <text x="500" y="46" fill="#1b2950" font-size="28" font-weight="800" text-anchor="middle">Из чего складывается INP</text>
+
+  <g transform="translate(40,95)">
+    <!-- input delay -->
+    <rect x="0" y="0" width="300" height="70" rx="8" fill="#c77f16"/>
+    <text x="150" y="32" fill="#fff" font-size="19" font-weight="700" text-anchor="middle">Задержка ввода</text>
+    <text x="150" y="56" fill="#fce9cf" font-size="15" text-anchor="middle">главный поток занят</text>
+
+    <rect x="306" y="0" width="300" height="70" rx="8" fill="#3f8f1f"/>
+    <text x="456" y="32" fill="#fff" font-size="19" font-weight="700" text-anchor="middle">Обработка</text>
+    <text x="456" y="56" fill="#dcefcf" font-size="15" text-anchor="middle">работа обработчиков</text>
+
+    <rect x="612" y="0" width="308" height="70" rx="8" fill="#1668c7"/>
+    <text x="766" y="32" fill="#fff" font-size="19" font-weight="700" text-anchor="middle">Отрисовка</text>
+    <text x="766" y="56" fill="#cfe2fb" font-size="15" text-anchor="middle">показ нового кадра</text>
+
+    <line x1="0" y1="92" x2="920" y2="92" stroke="#9fb0cc" stroke-width="2"/>
+    <text x="0" y="118" fill="#52617e" font-size="16">пользователь нажал</text>
+    <text x="920" y="118" fill="#52617e" font-size="16" text-anchor="end">увидел отклик</text>
+  </g>
+
+  <g transform="translate(40,210)" font-size="16" fill="#52617e">
+    <text x="0" y="0" font-weight="700" fill="#1b2950">Главный приём — уступать главный поток:</text>
+    <text x="0" y="28">• резать длинные задачи через scheduler.yield()</text>
+    <text x="0" y="54">• тяжёлые вычисления — в Web Worker</text>
+    <text x="500" y="28">• грузить меньше JS, дебаунсить частые события</text>
+    <text x="500" y="54">• в React — useTransition / useDeferredValue</text>
+  </g>
+</svg>

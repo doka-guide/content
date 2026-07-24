@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1000" height="320" fill="#f6f8fc"/>
+  <text x="500" y="46" fill="#1b2950" font-size="28" font-weight="800" text-anchor="middle">Из чего складывается LCP</text>
+
+  <!-- временная шкала, ширина пропорциональна доле времени -->
+  <g transform="translate(40,90)">
+    <!-- TTFB ~40% -->
+    <rect x="0" y="0" width="368" height="70" rx="8" fill="#1668c7"/>
+    <text x="184" y="34" fill="#fff" font-size="20" font-weight="700" text-anchor="middle">TTFB</text>
+    <text x="184" y="58" fill="#cfe2fb" font-size="16" text-anchor="middle">~40%</text>
+
+    <!-- resource load delay <10% -->
+    <rect x="372" y="0" width="84" height="70" rx="8" fill="#5b8def"/>
+    <text x="414" y="34" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">задержка</text>
+    <text x="414" y="54" fill="#e6efff" font-size="14" text-anchor="middle">&lt;10%</text>
+
+    <!-- resource load duration ~40% -->
+    <rect x="460" y="0" width="368" height="70" rx="8" fill="#3f8f1f"/>
+    <text x="644" y="34" fill="#fff" font-size="20" font-weight="700" text-anchor="middle">загрузка ресурса</text>
+    <text x="644" y="58" fill="#dcefcf" font-size="16" text-anchor="middle">~40%</text>
+
+    <!-- render delay <10% -->
+    <rect x="832" y="0" width="88" height="70" rx="8" fill="#c77f16"/>
+    <text x="876" y="34" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">отрисовка</text>
+    <text x="876" y="54" fill="#fce9cf" font-size="14" text-anchor="middle">&lt;10%</text>
+
+    <!-- ось -->
+    <line x1="0" y1="92" x2="920" y2="92" stroke="#9fb0cc" stroke-width="2"/>
+    <text x="0" y="118" fill="#52617e" font-size="16">переход на страницу</text>
+    <text x="920" y="118" fill="#52617e" font-size="16" text-anchor="end">элемент отрисован</text>
+  </g>
+
+  <g transform="translate(40,200)" font-size="16" fill="#52617e">
+    <text x="0" y="0" font-weight="700" fill="#1b2950">Что чинить на каждом отрезке:</text>
+    <text x="0" y="28">• TTFB — CDN, кеш, убрать редиректы</text>
+    <text x="0" y="54">• задержка — LCP-картинку в HTML, fetchpriority="high", без lazy</text>
+    <text x="500" y="28">• загрузка — AVIF/WebP, сжатие, адаптивные размеры</text>
+    <text x="500" y="54">• отрисовка — убрать блокирующие CSS и JS, SSR</text>
+  </g>
+</svg>

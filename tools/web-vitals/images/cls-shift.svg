@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif">
+  <rect width="1000" height="440" fill="#f6f8fc"/>
+  <text x="500" y="46" fill="#1b2950" font-size="28" font-weight="800" text-anchor="middle">Как сдвиг макета приводит к промаху</text>
+
+  <!-- ДО -->
+  <g transform="translate(120,90)">
+    <text x="130" y="-10" fill="#52617e" font-size="20" font-weight="700" text-anchor="middle">До загрузки баннера</text>
+    <rect width="260" height="300" rx="16" fill="#fff" stroke="#cdd8ea" stroke-width="2"/>
+    <rect x="24" y="28" width="212" height="70" rx="8" fill="#eef2f9"/>
+    <text x="130" y="70" fill="#9fb0cc" font-size="18" text-anchor="middle">заголовок</text>
+    <rect x="24" y="120" width="212" height="100" rx="8" fill="#eef2f9"/>
+    <text x="130" y="175" fill="#9fb0cc" font-size="18" text-anchor="middle">текст</text>
+    <rect x="24" y="240" width="212" height="44" rx="8" fill="#1f9d55"/>
+    <text x="130" y="269" fill="#fff" font-size="19" font-weight="700" text-anchor="middle">Отмена</text>
+    <circle cx="130" cy="262" r="16" fill="#1668c7" fill-opacity="0.25" stroke="#1668c7" stroke-width="2"/>
+  </g>
+
+  <text x="500" y="250" fill="#c77f16" font-size="40" font-weight="800" text-anchor="middle">→</text>
+
+  <!-- ПОСЛЕ -->
+  <g transform="translate(620,90)">
+    <text x="130" y="-10" fill="#52617e" font-size="20" font-weight="700" text-anchor="middle">Баннер догрузился</text>
+    <rect width="260" height="300" rx="16" fill="#fff" stroke="#cdd8ea" stroke-width="2"/>
+    <rect x="24" y="28" width="212" height="50" rx="8" fill="#d64545"/>
+    <text x="130" y="59" fill="#fff" font-size="17" font-weight="700" text-anchor="middle">★ реклама</text>
+    <rect x="24" y="92" width="212" height="56" rx="8" fill="#eef2f9"/>
+    <text x="130" y="126" fill="#9fb0cc" font-size="18" text-anchor="middle">заголовок</text>
+    <rect x="24" y="162" width="212" height="76" rx="8" fill="#eef2f9"/>
+    <text x="130" y="206" fill="#9fb0cc" font-size="18" text-anchor="middle">текст</text>
+    <rect x="24" y="252" width="212" height="44" rx="8" fill="#d64545"/>
+    <text x="130" y="281" fill="#fff" font-size="19" font-weight="700" text-anchor="middle">Купить</text>
+    <!-- палец остался на старом месте -->
+    <circle cx="130" cy="274" r="16" fill="#d64545" fill-opacity="0.3" stroke="#d64545" stroke-width="2"/>
+  </g>
+  <text x="500" y="415" fill="#52617e" font-size="20" text-anchor="middle">Контент уехал вниз — палец попадает на «Купить» вместо «Отмена»</text>
+</svg>
