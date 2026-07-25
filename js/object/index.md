@@ -124,7 +124,12 @@ const book = new Object(
 ```js
 const newBook = Object.create(
   {}, // Прототип создаваемого объекта
-  { title: { value: 'Пока без названия' } } // Свойства объекта
+  {
+    title: { // Параметры свойства title
+      value: 'Пока без названия',
+      enumerable: true
+    }
+  }
 )
 
 console.log(newBook)
