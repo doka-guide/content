@@ -10,7 +10,7 @@ groups:
       - web-app-works
       - web-security
       - cms
-      - site-readers      
+      - site-readers
 
   - name: Архитектура и хорошие практики
     items:
