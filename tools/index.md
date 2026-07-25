@@ -10,8 +10,7 @@ groups:
       - web-app-works
       - web-security
       - cms
-      - site-readers
-      - web-vitals
+      - site-readers      
 
   - name: Архитектура и хорошие практики
     items:
@@ -144,6 +143,7 @@ groups:
       - ssh
       - gulp
       - version-control
+      - web-vitals
 ---
 
 Здесь собраны технологии, теория и хорошие практики, которые пригодятся при разработке веб-приложений.
