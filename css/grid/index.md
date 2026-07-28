@@ -111,7 +111,7 @@ tags:
 ```css
 .container {
   display: grid;
-  grid:  auto-flow 30% / 200px 100px;
+  grid: auto-flow 30% / 200px 100px;
 }
 ```
 
@@ -124,7 +124,7 @@ tags:
 ```css
 .container {
   display: grid;
-  grid:  auto-flow dense 30% / 200px 100px;
+  grid: auto-flow dense 30% / 200px 100px;
 }
 ```
 
