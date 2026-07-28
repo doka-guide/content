@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="330" viewBox="0 0 600 330">
+  <!-- море -->
+  <g stroke="#000" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M0,260 Q20,250 40,260 T80,260 T120,260 T160,260"/>
+    <path d="M440,260 Q460,250 480,260 T520,260 T560,260 T600,260"/>
+    <path d="M0,300 Q25,288 50,300 T100,300 T150,300 T200,300"/>
+    <path d="M400,300 Q425,288 450,300 T500,300 T550,300 T600,300"/>
+  </g>
+
+  <!-- остров: земля -->
+  <path d="M180,270
+           C180,230 220,215 300,215
+           C380,215 420,230 420,270
+           C420,290 380,300 300,300
+           C220,300 180,290 180,270 Z"
+        fill="#4ade80" stroke="#000" stroke-width="4"/>
+
+  <!-- ствол пальмы -->
+  <path d="M303,218 C280,195 318,160 296,120" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- листья пальмы -->
+  <g fill="#4ade80" stroke="#000" stroke-width="4" stroke-linejoin="round">
+    <path d="M296,120 C296,120 235,108 205,135 C245,158 285,140 296,120Z"/>
+    <path d="M296,120 C296,120 355,100 390,120 C355,150 310,140 296,120Z"/>
+    <path d="M296,120 C296,120 258,75 268,40 C305,65 310,105 296,120Z"/>
+    <path d="M296,120 C296,120 330,68 320,35 C282,58 282,102 296,120Z"/>
+    <path d="M296,120 C296,120 280,158 240,168 C258,130 280,118 296,120Z"/>
+  </g>
+
+  <!-- камень 1 -->
+  <ellipse cx="230" cy="278" rx="18" ry="12" fill="#fff" stroke="#000" stroke-width="3"/>
+  <!-- камень 2 -->
+  <ellipse cx="370" cy="252" rx="22" ry="13" fill="#fff" stroke="#000" stroke-width="3"/>
+
+  <!-- чайка -->
+  <path d="M120,90 Q135,78 150,90" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+  <path d="M450,110 Q465,98 480,110" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+</svg>
