@@ -99,7 +99,7 @@ tags:
 }
 ```
 
-По умолчанию ссылки строчные. Это значит, что им нельзя задать размеры ([`width`](/css/width/) и [`height`](/css/height/)) и фоновую картинку.
+По умолчанию ссылки строчные. Это значит, что им нельзя задать размеры ([`width`](/css/width/) и [`height`](/css/height/)). Фоновую картинку задать можно, но ведёт она себя непривычно — обрезается по границам каждой строки текста, а не всего элемента целиком.
 
 Пишем `display: block`, и строка превращается в условный _прямоугольник_, у которого могут быть и размеры, и фон.
 
@@ -136,18 +136,22 @@ tags:
 ```css
 .element {
   /* Старая запись → новая двухкомпонентная */
-  display: block;        /* display: block flow;      */
-  display: inline;       /* display: inline flow;     */
+  display: block;        /* display: block flow;       */
+  display: inline;       /* display: inline flow;      */
   display: inline-block; /* display: inline flow-root; */
-  display: flex;         /* display: block flex;      */
-  display: inline-flex;  /* display: inline flex;     */
-  display: grid;         /* display: block grid;      */
-  display: inline-grid;  /* display: inline grid;     */
-  display: flow-root;    /* display: block flow-root; */
+  display: flex;         /* display: block flex;       */
+  display: inline-flex;  /* display: inline flex;      */
+  display: grid;         /* display: block grid;       */
+  display: inline-grid;  /* display: inline grid;      */
+  display: flow-root;    /* display: block flow-root;  */
 }
 ```
 
 Однословная запись при этом никуда не делась и продолжает работать — это просто сокращённая форма, где внешний тип браузер достраивает по умолчанию (обычно до `block`).
+
+Двухкомпонентный синтаксис поддерживается во всех основных браузерах с 2023 года (Firefox — с 2019).
+
+Кстати, слова `block` и `inline` здесь — это логические, а не физические направления: `inline` — направление письма (например, слева направо), а `block` — перпендикулярное ему. Та же логика лежит в основе логических свойств вроде `margin-inline` и `padding-block`.
 
 Практическая польза в том, что теперь можно менять только внешнее поведение элемента, не трогая внутреннее. Например, отлаживаете флекс-контейнер и хотите проверить, как раскладка будет смотреться, если контейнер сделать строчным, а не блочным — достаточно поменять одно слово, не переписывая всё значение:
 
