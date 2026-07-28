@@ -20,9 +20,9 @@
 
     body {
       min-height: 100vh;
-      padding: 50px;
+      padding: 40px 30px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
@@ -42,13 +42,20 @@
       visibility: visible;
     }
 
+    /*
+      Подсказка подвешена к viewport самой демки (position: fixed), а не к
+      слову-триггеру — иначе на узком экране или при длинном тексте подсказки
+      она вылезает за пределы iframe и появляется скролл. Фиксированный
+      отступ сверху и центрирование по ширине viewport держат её всегда
+      внутри видимой области.
+    */
     [data-tip]::after {
       content: attr(data-tip);
-      position: absolute;
-      top: 140%;
+      position: fixed;
+      top: 96px;
       left: 50%;
       width: max-content;
-      max-width: min(280px, 80vw);
+      max-width: min(280px, calc(100vw - 32px));
       transform: translateX(-50%);
       border: 1px solid #2E9AFF;
       padding: 10px 15px;
@@ -59,12 +66,6 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s, visibility 0.3s;
-    }
-
-    @media (width <= 768px) {
-      body {
-        padding: 30px;
-      }
     }
   </style>
 </head>
