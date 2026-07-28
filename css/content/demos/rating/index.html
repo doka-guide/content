@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Всплывающая подсказка к рейтингу — counter — Дока</title>
+  <title>Всплывающая подсказка к рейтингу — content — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #e6e6e6;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       text-align: center;
       font-size: 24px;
       font-family: "Roboto", sans-serif;
@@ -24,7 +33,7 @@
 
     [data-tip] {
       position: relative;
-      border-bottom: 2px solid #1a5ad7;
+      border-bottom: 2px solid #2E9AFF;
       cursor: help;
     }
 
@@ -39,14 +48,20 @@
       top: 140%;
       left: 50%;
       transform: translateX(-50%);
-      border: 1px solid #1a5ad7;
+      border: 1px solid #2E9AFF;
       padding: 10px 15px;
-      background-color: #18191c;
-      box-shadow: 5px 5px 0 #1a5ad7;
+      background-color: #18191C;
+      box-shadow: 5px 5px 0 #2E9AFF;
       font-size: 0.8em;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
