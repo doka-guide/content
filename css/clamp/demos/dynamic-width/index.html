@@ -5,7 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
+      color-scheme: dark;
       height: 100%;
       min-width: 550px;
       display: grid;
@@ -14,8 +21,8 @@
     }
 
     body {
-      margin: 0;
-      background-color: #18191c;
+      background-color: #18191C;
+      color: #FFFFFF;
       accent-color: #2E9AFF;
     }
 
@@ -26,23 +33,42 @@
       border: none;
     }
 
-    input {
-      margin: auto;
-      display: block;
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       width: 300px;
+      margin: 0 auto;
+      font-size: 13px;
+    }
+
+    input {
+      flex: 1;
+    }
+
+    .value {
+      min-width: 55px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
     }
   </style>
 </head>
 <body>
 <iframe src="code.html"></iframe>
-<input type="range" min="300" max="550" value="300">
+<div class="controls">
+  <span>Ширина</span>
+  <input type="range" min="300" max="550" value="300">
+  <span class="value">300px</span>
+</div>
 
 <script>
   const range = document.querySelector('input')
   const frame = document.querySelector('iframe')
+  const value = document.querySelector('.value')
 
   range.addEventListener('input', () => {
     frame.style.width = range.value + 'px'
+    value.textContent = range.value + 'px'
   })
 </script>
 </body>
