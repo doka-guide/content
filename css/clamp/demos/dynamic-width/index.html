@@ -4,6 +4,9 @@
   <title>Адаптивная ширина — clamp() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -13,41 +16,34 @@
 
     html {
       color-scheme: dark;
-      height: 100%;
     }
 
     body {
-      min-height: 100%;
-      padding: 24px;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 24px;
       background-color: #18191C;
       color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
       accent-color: #2E9AFF;
     }
 
-    iframe {
-      margin-bottom: 25px;
-      width: 300px;
-      max-width: 100%;
-      height: 230px;
-      border: none;
-    }
-
-    .controls {
+    .slider-row {
+      width: 100%;
+      max-width: 560px;
       display: flex;
       align-items: center;
       gap: 12px;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      font-size: 13px;
+      font-size: 14px;
     }
 
-    input {
+    input[type="range"] {
       flex: 1;
+      cursor: pointer;
     }
 
     .value {
@@ -55,25 +51,112 @@
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
+
+    .frame {
+      width: 300px;
+      max-width: 100%;
+      border: 1px dashed rgb(255 255 255 / 0.3);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .box {
+      width: clamp(140px, 80%, 210px);
+      padding: 50px 0;
+      background-color: #2E9AFF;
+      color: #18191C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
   </style>
 </head>
 <body>
-<iframe src="code.html"></iframe>
-<div class="controls">
-  <span>Ширина</span>
-  <input type="range" min="300" max="550" value="300">
-  <span class="value">300px</span>
-</div>
 
-<script>
-  const range = document.querySelector('input')
-  const frame = document.querySelector('iframe')
-  const value = document.querySelector('.value')
+  <div class="slider-row">
+    <span>Ширина родителя</span>
+    <input type="range" id="width" min="190" max="340" value="190">
+    <span class="value" id="value">190px</span>
+  </div>
 
-  range.addEventListener('input', () => {
-    frame.style.width = range.value + 'px'
-    value.textContent = range.value + 'px'
-  })
-</script>
+  <div class="frame" id="frame">
+    <div class="box" id="box"></div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/clamp/">clamp() — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const range = document.querySelector('#width')
+    const frame = document.querySelector('#frame')
+    const value = document.querySelector('#value')
+    const box = document.querySelector('#box')
+
+    const update = () => {
+      frame.style.width = range.value + 'px'
+      value.textContent = range.value + 'px'
+      box.textContent = `Ширина: ${Math.round(box.getBoundingClientRect().width)}px`
+    }
+
+    range.addEventListener('input', update)
+    update()
+    requestAnimationFrame(() => requestAnimationFrame(update))
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
