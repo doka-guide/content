@@ -28,7 +28,7 @@ tags:
 
 `WebSocket` — браузерный API для постоянного соединения с сервером. Клиент и сервер обмениваются данными в реальном времени, клиенту не нужно постоянно отправлять HTTP-запросы.
 
-<iframe title="Жизненный цикл WebSocket-соединения" src="demos/example/" height="520"></iframe>
+<iframe title="Жизненный цикл WebSocket-соединения" src="demos/example/" height="950"></iframe>
 
 <aside>
 
