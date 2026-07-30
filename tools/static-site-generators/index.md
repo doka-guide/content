@@ -22,6 +22,7 @@ keywords:
 related:
   - tools/cms
   - tools/how-the-browser-creates-pages
+  - tools/web-vitals
 tags:
   - article
 ---
