@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилевые запросы @container style() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    /* === демо === */
+
+    .demo {
+      width: 100%;
+      max-width: 700px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (width <= 600px) {
+      .demo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Контейнер для каждой карточки */
+    .wrapper {
+      container-type: inline-size;
+      container-name: card-wrap;
+    }
+
+    /* Переменная задана — это «избранная» карточка */
+    .wrapper.is-featured {
+      --featured: 1;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #2E3138;
+      background-color: #282A2E;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .card__label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      background-color: #2E3138;
+      color: #9AA0A6;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .card__title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .card__text {
+      font-size: 14px;
+      color: #9AA0A6;
+    }
+
+    /* Стилевой запрос: если --featured задана, применяем акцентные стили */
+    @container card-wrap style(--featured: 1) {
+      .card {
+        border-color: #2E9AFF;
+        background-color: rgb(46 154 255 / 0.08);
+      }
+
+      .card__label {
+        background-color: rgb(46 154 255 / 0.2);
+        color: #2E9AFF;
+      }
+    }
+
+    /* Подписи под блоками */
+    .caption {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #9AA0A6;
+      text-align: center;
+    }
+
+    .caption code {
+      color: #C8CDD4;
+      background-color: #282A2E;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div>
+      <div class="wrapper is-featured">
+        <div class="card">
+          <span class="card__label">Избранное</span>
+          <p class="card__title">Статья о CSS</p>
+          <p class="card__text">Контейнер имеет переменную <code>--featured: 1</code>, стилевой запрос сработал.</p>
+        </div>
+      </div>
+      <p class="caption"><code>--featured: 1</code> задана</p>
+    </div>
+
+    <div>
+      <div class="wrapper">
+        <div class="card">
+          <span class="card__label">Обычная</span>
+          <p class="card__title">Статья о CSS</p>
+          <p class="card__text">Контейнер без переменной, стилевой запрос не применяется.</p>
+        </div>
+      </div>
+      <p class="caption">переменная не задана</p>
+    </div>
+  </div>
+</body>
+</html>

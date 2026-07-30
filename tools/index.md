@@ -9,6 +9,8 @@ groups:
       - pwa
       - web-app-works
       - web-security
+      - cms
+      - site-readers
 
   - name: Архитектура и хорошие практики
     items:
@@ -48,6 +50,7 @@ groups:
       - how-the-browser-creates-pages
       - coordinates
       - browsers-storages
+      - pixel-density
 
   - name: Инженерная культура
     items:
@@ -68,6 +71,8 @@ groups:
       - deno
       - rollup
       - gulp
+      - preprocessors
+      - css-in-js
 
   - name: Развёртывание проекта
     items:

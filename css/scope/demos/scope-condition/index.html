@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Условная граница @scope через :scope — @scope — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === Сетка === */
+
+    .layout {
+      width: 100%;
+      max-width: 780px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* === Обёртки === */
+
+    .feature {
+      border: 1px dashed rgb(46 154 255 / 0.4);
+      border-radius: 14px;
+      padding: 12px;
+      position: relative;
+    }
+
+    .feature-label,
+    .no-feature-label {
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      background-color: #18191C;
+      color: rgb(46 154 255 / 0.7);
+    }
+
+    .no-feature-label {
+      color: rgb(255 255 255 / 0.3);
+    }
+
+    .no-feature-wrapper {
+      border: 1px dashed rgb(255 255 255 / 0.1);
+      border-radius: 14px;
+      padding: 12px;
+      position: relative;
+    }
+
+    /* === Карточка article-body === */
+
+    .article-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px;
+      border-radius: 10px;
+      background-color: #1E2024;
+    }
+
+    .article-body h3 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgb(255 255 255 / 0.5);
+    }
+
+    /* === Изображения === */
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 4px solid transparent;
+    }
+
+    /* === figure === */
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #26292F;
+    }
+
+    figcaption {
+      font-size: 0.75rem;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    /* === @scope с условной границей === */
+
+    @scope (.article-body) to (.feature :scope figure) {
+      img {
+        border-color: #2E9AFF;
+      }
+    }
+
+    /* === Легенда === */
+
+    .legend {
+      position: absolute;
+      bottom: 16px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    /* === Адаптив === */
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- Случай 1: .article-body внутри .feature — figure становится границей -->
+    <div class="feature">
+      <span class="feature-label">.feature</span>
+      <section class="article-body">
+        <h3>.article-body</h3>
+        <img src="../images/cat1.jpg" alt="Котик" />
+        <figure>
+          <img src="../images/cat2.jpg" alt="Другой котик" />
+          <figcaption>figure — граница to()</figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <!-- Случай 2: .article-body вне .feature — figure не становится границей -->
+    <div class="no-feature-wrapper">
+      <span class="no-feature-label">без .feature</span>
+      <section class="article-body">
+        <h3>.article-body</h3>
+        <img src="../images/cat1.jpg" alt="Котик" />
+        <figure>
+          <img src="../images/cat2.jpg" alt="Другой котик" />
+          <figcaption>figure — не граница</figcaption>
+        </figure>
+      </section>
+    </div>
+
+  </div>
+
+</body>
+</html>

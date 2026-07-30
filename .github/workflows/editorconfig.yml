@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 20
       - id: files
-        uses: Ana06/get-changed-files@v2.2.0
+        uses: Ana06/get-changed-files@v2.3.0
       - name: Проверка линтером
         run: |
           npm install editorconfig-checker --global
