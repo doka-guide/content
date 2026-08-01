@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Адаптивная ширина — clamp() — Дока</title>
+  <title>Плавность роста шрифта — clamp() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,31 +47,67 @@
     }
 
     .value {
-      min-width: 55px;
+      min-width: 60px;
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
+    /*
+      Настоящий vw в демке не сработает: iframe со статьёй имеет фиксированную
+      ширину, реальный viewport не меняется от перетаскивания. Чтобы честно
+      показать разницу в скорости роста, используем container query units
+      (cqw) — они устроены так же, как vw, но привязаны к ширине .frame,
+      которую как раз меняет ползунок.
+    */
     .frame {
-      width: 300px;
+      width: 280px;
       max-width: 100%;
+      container-type: inline-size;
+      overflow: hidden;
       border: 1px dashed rgb(255 255 255 / 0.3);
       padding: 16px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .box {
-      width: clamp(140px, 80%, 210px);
-      padding: 50px 0;
-      background-color: #2E9AFF;
-      color: #18191C;
+    .row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      flex-direction: column;
+      gap: 6px;
+      background-color: #282A2E;
+      border-radius: 8px;
+      padding: 12px 16px;
+      min-width: 0;
+    }
+
+    .row .top {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .row .label {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.6);
+      word-break: break-all;
+    }
+
+    .row .px {
+      font-size: 12px;
+      color: #2E9AFF;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .plain {
+      font-size: clamp(1rem, 8cqw, 3rem);
       font-weight: 500;
-      font-size: 24px;
+    }
+
+    .calm {
+      font-size: clamp(1rem, calc(0.5rem + 4cqw), 3rem);
+      font-weight: 500;
     }
 
     @media (width <= 768px) {
@@ -121,13 +157,26 @@
 <body>
 
   <div class="slider-row">
-    <span>Ширина родителя</span>
-    <input type="range" id="width" min="190" max="340" value="190">
-    <span class="value" id="value">190px</span>
+    <span>Ширина блока</span>
+    <input type="range" id="width" min="280" max="900" value="280">
+    <span class="value" id="value">280px</span>
   </div>
 
   <div class="frame" id="frame">
-    <div class="box" id="box"></div>
+    <div class="row">
+      <div class="top">
+        <span class="plain" id="plain">Aa</span>
+        <span class="px" id="plainPx">—</span>
+      </div>
+      <span class="label">clamp(1rem, 8cqw, 3rem)</span>
+    </div>
+    <div class="row">
+      <div class="top">
+        <span class="calm" id="calm">Aa</span>
+        <span class="px" id="calmPx">—</span>
+      </div>
+      <span class="label">clamp(1rem, calc(0.5rem + 4cqw), 3rem)</span>
+    </div>
   </div>
 
   <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
@@ -141,17 +190,21 @@
     const range = document.querySelector('#width')
     const frame = document.querySelector('#frame')
     const value = document.querySelector('#value')
-    const box = document.querySelector('#box')
+    const plain = document.querySelector('#plain')
+    const calm = document.querySelector('#calm')
+    const plainPx = document.querySelector('#plainPx')
+    const calmPx = document.querySelector('#calmPx')
 
     const update = () => {
       frame.style.width = range.value + 'px'
       value.textContent = range.value + 'px'
-      box.textContent = `Ширина: ${Math.round(box.getBoundingClientRect().width)}px`
+
+      plainPx.textContent = Math.round(parseFloat(getComputedStyle(plain).fontSize)) + 'px'
+      calmPx.textContent = Math.round(parseFloat(getComputedStyle(calm).fontSize)) + 'px'
     }
 
     range.addEventListener('input', update)
     update()
-    requestAnimationFrame(() => requestAnimationFrame(update))
 
     if (!new URLSearchParams(window.location.search).has('embed')) {
       document.querySelector('.demo-meta').style.display = 'flex';
