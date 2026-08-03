@@ -35,7 +35,7 @@ tags:
 
 ## Зачем Google предложил Core Web Vitals
 
-У производительности сайтов существуют две стороны, и обе важны бизнесу:
+У производительности сайтов существуют две стороны, и обе важны:
 
 - **Пользовательский опыт.** Медленный и нестабильный сайт заставляет людей уходить, не дойдя до просмотра, заявки или заказа. Core Web Vitals выражают в понятных показателях три главных раздражителя: долгую загрузку, медленную реакцию на действия и прыжки элементов.
 
@@ -47,7 +47,7 @@ tags:
 
 <aside>
 
-📊 **Core Web Vitals** - это три основные метрики: [**LCP** (Largest Contentful Paint)](/tools/LCP), [**INP** (Interaction to Next Paint)](/tools/INP) и [**CLS** (Cumulative Layout Shift)](/tools/CLS). Остальные метрики - [**FCP** (First Contentful Paint)](/tools/FCP) и [**TTFB** (Time to First Byte)](/tools/TTFB) не входят в Core Web Vitals, но считаются диагностическими метриками. Они помогают понять причины плохих значений LCP, INP и CLS.
+📊 **Core Web Vitals** - это три основные метрики: [**LCP** (Largest Contentful Paint)](/tools/LCP/), [**INP** (Interaction to Next Paint)](/tools/INP/) и [**CLS** (Cumulative Layout Shift)](/tools/CLS/). Остальные метрики - [**FCP** (First Contentful Paint)](/tools/FCP/) и [**TTFB** (Time to First Byte)](/tools/TTFB/) не входят в Core Web Vitals, но считаются «диагностическими» метриками. Они помогают понять причины плохих значений LCP, INP и CLS.
 
 </aside>
 
