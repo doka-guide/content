@@ -146,6 +146,7 @@ groups:
   - name: Core Web Vitals
     items:
       - what-is-web-vitals
+      - LCP
 
 ---
 

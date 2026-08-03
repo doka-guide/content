@@ -1,6 +1,6 @@
 ---
 title: "Что такое Core Web Vitals"
-description: "Разбираем метрики веба от Google: LCP, INP, CLS, FCP и TTFB. Зачем их ввел Google и какие у них есть метрики"
+description: "Разбираем Core Web Vitals — метрики, предложенные Google для оценки скорости загрузки, отзывчивости и визуальной стабильности веб-страниц."
 cover:
   author: shmakovdima
   desktop: "images/desktop.svg"

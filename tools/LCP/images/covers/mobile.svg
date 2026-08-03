@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" xml:space="preserve">
+<!-- экран браузера -->
+<rect x="25" y="160" width="1030" height="680" rx="30" fill="#fff" stroke="#000" stroke-width="12"/>
+
+<!-- навигация без текста -->
+<g stroke="#000" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M25 260h1030"/>
+  <circle cx="80" cy="210" r="14" fill="#41E847"/>
+  <circle cx="128" cy="210" r="14" fill="#fff"/>
+  <circle cx="176" cy="210" r="14" fill="#fff"/>
+  <rect x="300" y="194" width="160" height="32" rx="16" fill="#fff"/>
+  <rect x="495" y="194" width="140" height="32" rx="16" fill="#fff"/>
+  <rect x="670" y="194" width="170" height="32" rx="16" fill="#41E847"/>
+  <path d="M950 194v32M990 194v32"/>
+</g>
+
+<!-- содержимое viewport, нижняя часть намеренно обрезается -->
+<clipPath id="mobile-viewport">
+  <rect x="37" y="260" width="1006" height="556"/>
+</clipPath>
+<g clip-path="url(#mobile-viewport)">
+  <!-- самый большой элемент, занимающий всю ширину -->
+  <rect x="37" y="300" width="1006" height="240" fill="#41E847" stroke="#000" stroke-width="12"/>
+  <path d="M120 492 300 390l135 78 135-92 300 118" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- два следующих элемента находятся ниже экрана -->
+  <rect x="150" y="585" width="380" height="250" rx="16" fill="#fff" stroke="#000" stroke-width="12"/>
+  <rect x="600" y="585" width="380" height="250" rx="16" fill="#fff" stroke="#000" stroke-width="12"/>
+</g>
+
+<!-- нижняя граница экрана подчёркивает обрезание карточек -->
+<path d="M25 816h1030" stroke="#000" stroke-width="12"/>
+
+</svg>
