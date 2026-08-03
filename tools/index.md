@@ -143,7 +143,9 @@ groups:
       - ssh
       - gulp
       - version-control
-      - web-vitals
+  - name: Core Web Vitals
+    items:
+      - what-is-web-vitals
 
 ---
 
