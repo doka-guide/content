@@ -147,6 +147,7 @@ groups:
     items:
       - what-is-web-vitals
       - LCP
+      - INP
 
 ---
 

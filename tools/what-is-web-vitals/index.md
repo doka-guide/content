@@ -13,6 +13,7 @@ keywords:
   - FCP
   - TTFB
   - PageSpeed Insights
+  - Lighthouse
   - CrUX
 related:
   - js/performance
