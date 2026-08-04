@@ -1,11 +1,6 @@
 ---
 title: "Статические генераторы сайтов"
 description: "Разбираем, как работает статическая генерация сайтов, зачем она нужна в 2026 году и чем отличаются Astro, Next.js, Gatsby, Eleventy и ещё более десяти генераторов."
-cover:
-  author: shmakovdima
-  desktop: "images/cover-desktop.svg"
-  mobile: "images/cover-mobile.svg"
-  alt: "Island архитектура для статических генераторов сайтов"
 authors:
   - shmakovdima
 keywords:
