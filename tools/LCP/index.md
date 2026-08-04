@@ -1,11 +1,6 @@
 ---
 title: "LCP (Largest Contentful Paint)"
 description: "Что такое метрика Largest Contentful Paint в Core Web Vitals"
-cover:
-  author: shmakovdima
-  desktop: "images/covers/desktop.svg"
-  mobile: "images/covers/mobile.svg"
-  alt: "сейчас сделаем"
 authors:
   - shmakovdima
 keywords:

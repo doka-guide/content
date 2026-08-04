@@ -1,11 +1,6 @@
 ---
 title: "Что такое Core Web Vitals"
 description: "Разбираем Core Web Vitals - метрики, предложенные Google для оценки скорости загрузки, отзывчивости и визуальной стабильности веб-страниц."
-cover:
-  author: shmakovdima
-  desktop: "images/covers/desktop.svg"
-  mobile: "images/covers/mobile.svg"
-  alt: "Шкала Core Web Vitals с зонами «хорошо», «нужно улучшить» и «плохо»"
 authors:
   - shmakovdima
 keywords:
