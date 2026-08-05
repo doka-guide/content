@@ -68,6 +68,15 @@ LCP (Largest Contentful Paint) измеряет время от начала з�
 
 - Поставьте **`fetchpriority="high"`** на главную картинку - браузер начнёт загружать её с более высоким приоритетом. Не назначайте высокий приоритет более чем 1–2 ресурсам, иначе теряется смысл в оптимизации;
 
+- В Next.js укажите `priority` у LCP-картинки в компоненте [`<Image>`](https://nextjs.org/docs/app/getting-started/images): это отключит ленивую загрузку и выставит запросу высокий приоритет.
+
+```tsx
+import Image from "next/image";
+import hero from "./hero.png";
+
+<Image src={hero} alt="Обложка" priority placeholder="blur" />;
+```
+
 - Если LCP-изображение задаётся через CSS `background-image`, браузер обнаружит ее только после загрузки и разбора CSS. По возможности используйте `<img>`, а если это невозможно - добавьте `<link rel="preload" as="image" fetchpriority="high">`;
 
 ```html

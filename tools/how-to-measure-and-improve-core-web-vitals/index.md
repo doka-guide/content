@@ -21,7 +21,7 @@ tags:
 
 ## Лабораторные данные !== реальные
 
-Это самая частая причина недоумения: «Почему метрика в Lighthouse зелёная, а в Search Console красная?» Есть два принципиально разных источника данных:
+Это самая частая причина непонимания: «Почему метрика в Lighthouse зелёная, а в Search Console красная?» Есть два принципиально разных источника данных:
 
 - **Лабораторные (lab)** - синтетический прогон в контролируемых условиях: фиксированное устройство, заданная сеть, **без реального пользователя**. Это Lighthouse и симуляция в PageSpeed Insights.
 
@@ -49,7 +49,7 @@ tags:
 
 Инструменты, которые запускают контролируемые тесты и помогают найти конкретные проблемы в коде, загрузке и рендеринге страницы:
 
-- **Lighthouse** (в DevTools, CLI или CI) - лабораторный аудит с конкретными рекомендациями. Помните про оговорку с INP: в лабораторных тестах Lighthouse использует **TBT (Total Blocking Time)** как приближение, а реальный INP измеряется только на реальных пользователях. **Lighthouse CI** удобно ставить в пайплайн, чтобы ловить регрессии до релиза;
+- **Lighthouse** (в DevTools, CLI или CI) - лабораторный аудит с конкретными рекомендациями. Помните про оговорку с INP - в лабораторных тестах Lighthouse использует **TBT (Total Blocking Time)** как приближение, а реальный INP измеряется только на реальных пользователях. **Lighthouse CI** удобно ставить в пайплайн, чтобы ловить регрессии до релиза;
 
 - **Chrome DevTools** - основной инструмент глубокой диагностики:
 
@@ -92,6 +92,22 @@ function sendToAnalytics(metric) {
 onCLS(sendToAnalytics);
 onINP(sendToAnalytics);
 onLCP(sendToAnalytics);
+```
+
+В Next.js те же метрики у реальных пользователей собирает [`useReportWebVitals`](https://nextjs.org/docs/app/api-reference/functions/use-report-web-vitals). Вынесите хук в отдельный клиентский компонент, чтобы не добавлять `'use client'` всему layout:
+
+```tsx
+"use client";
+
+import { useReportWebVitals } from "next/web-vitals";
+
+const report = (metric) =>
+  navigator.sendBeacon("/analytics", JSON.stringify(metric));
+
+export function WebVitals() {
+  useReportWebVitals(report);
+  return null;
+}
 ```
 
 У библиотеки есть **attribution-сборка**, показывает, что именно виновато: для CLS, селектор самого двигающегося элемента, для INP, тип взаимодействия и разбивка по фазам, для LCP, какой элемент и из чего сложилось его время.
