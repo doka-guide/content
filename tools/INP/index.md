@@ -72,12 +72,12 @@ let controller;
 input.addEventListener("input", async (e) => {
   const query = e.target.value.trim();
 
+  controller?.abort();
+
   if (!query) {
-    controller?.abort();
     return;
   }
 
-  controller?.abort();
   controller = new AbortController();
 
   const res = await fetch(`/search?q=${encodeURIComponent(query)}`, {
@@ -172,7 +172,7 @@ async function saveSettings() {
 }
 ```
 
-У `scheduler.yield()` есть приятная особенность: продолжение после `await` встаёт в очередь **с приоритетом**, оно обычно выполняется раньше обычных задач из очереди благодаря механизму приоритетов Scheduler API (в отличие от [`setTimeout`](/js/settimeout/), который помещает продолжение в конец очереди - почитайте подробнее про [микро- и макрозадачи](/js/micro-and-macro-tasks/), если хочется понять механику целиком). Он появился в Chrome 129 (сентябрь 2024), поддерживается Chromium-браузерами. Но Safari пока не поддерживает, поэтому нужен фолбэк на `setTimeout`:
+У `scheduler.yield()` есть приятная особенность: продолжение после `await` встаёт в очередь **с приоритетом**, оно обычно выполняется раньше обычных задач из очереди благодаря механизму приоритетов Scheduler API (в отличие от [`setTimeout`](/js/settimeout/), который помещает продолжение в конец очереди - почитайте подробнее про [микро- и макрозадачи](/js/micro-and-macro-tasks/), если хочется понять механику целиком). Он появился в Chrome 129 (сентябрь 2024), поддерживается Chromium-браузерами и Firefox начиная с версии 142. Но Safari пока не поддерживает, поэтому нужен фолбэк на `setTimeout`:
 
 ```js
 function yieldToMain() {

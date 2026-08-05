@@ -43,7 +43,7 @@ tags:
 
 <aside>
 
-📊 **Core Web Vitals** - это три основные метрики: [**LCP** (Largest Contentful Paint)](/tools/LCP/), [**INP** (Interaction to Next Paint)](/tools/INP/) и [**CLS** (Cumulative Layout Shift)](/tools/CLS/). Остальные метрики - [**FCP** (First Contentful Paint)](/tools/FCP/) и [**TTFB** (Time to First Byte)](/tools/TTFB/) не входят в Core Web Vitals, но считаются «диагностическими» метриками. Они помогают понять причины плохих значений LCP, INP и CLS.
+📊 **Core Web Vitals** - это три основные метрики: [**LCP** (Largest Contentful Paint)](/tools/LCP/) - загрузка основного контента, [**INP** (Interaction to Next Paint)](/tools/INP/) - отзывчивость и [**CLS** (Cumulative Layout Shift)](/tools/CLS/) - визуальная стабильность. Остальные метрики - [**FCP** (First Contentful Paint)](/tools/FCP/) - первая отрисовка и [**TTFB** (Time to First Byte)](/tools/TTFB/) - время до первого байта - не входят в Core Web Vitals, но считаются «диагностическими» метриками. Они помогают понять причины плохих значений LCP, INP и CLS.
 
 </aside>
 
