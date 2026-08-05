@@ -151,6 +151,7 @@ groups:
       - CLS
       - FCP
       - TTFB
+      - how-to-measure-and-improve-core-web-vitals
 
 ---
 
