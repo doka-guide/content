@@ -148,6 +148,7 @@ groups:
       - what-is-web-vitals
       - LCP
       - INP
+      - CLS
 
 ---
 
