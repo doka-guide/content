@@ -149,6 +149,8 @@ groups:
       - LCP
       - INP
       - CLS
+      - FCP
+      - TTFB
 
 ---
 
