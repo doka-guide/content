@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Адаптивная ширина — clamp() — Дока</title>
+  <title>Утилитарный контейнер на clamp() — clamp() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +32,14 @@
       accent-color: #2E9AFF;
     }
 
+    .frame {
+      width: 280px;
+      max-width: 100%;
+      overflow: hidden;
+      border: 1px dashed rgb(255 255 255 / 0.3);
+      padding: 16px;
+    }
+
     .slider-row {
       width: 100%;
       max-width: 560px;
@@ -47,31 +55,36 @@
     }
 
     .value {
-      min-width: 55px;
+      min-width: 60px;
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
 
-    .frame {
-      width: 300px;
-      max-width: 100%;
-      border: 1px dashed rgb(255 255 255 / 0.3);
-      padding: 16px;
-      display: flex;
-      justify-content: center;
+    .container {
+      width: clamp(240px, 90%, 480px);
+      margin: 0 auto;
+      padding: clamp(16px, 4vw, 32px);
+      background-color: #282A2E;
+      border-radius: 8px;
+      text-align: center;
     }
 
-    .box {
-      width: clamp(140px, 80%, 210px);
-      padding: 50px 0;
-      background-color: #2E9AFF;
-      color: #18191C;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .container p {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .readout {
+      width: 100%;
+      max-width: 560px;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.7);
       text-align: center;
-      font-weight: 500;
-      font-size: 24px;
+    }
+
+    .readout .cap {
+      color: #2E9AFF;
     }
 
     @media (width <= 768px) {
@@ -122,12 +135,19 @@
 
   <div class="slider-row">
     <span>Ширина родителя</span>
-    <input type="range" id="width" min="190" max="340" value="190">
-    <span class="value" id="value">190px</span>
+    <input type="range" id="width" min="280" max="900" value="280">
+    <span class="value" id="value">280px</span>
   </div>
 
   <div class="frame" id="frame">
-    <div class="box" id="box"></div>
+    <div class="container" id="container">
+      Это блок с классом <code>.container</code>
+      <p><code>width: clamp(240px, 90%, 480px)</code></p>
+    </div>
+  </div>
+
+  <div class="readout">
+    Ширина <code>.container</code> сейчас: <span id="containerWidth">—</span> — <span id="capNote"></span>
   </div>
 
   <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
@@ -141,17 +161,25 @@
     const range = document.querySelector('#width')
     const frame = document.querySelector('#frame')
     const value = document.querySelector('#value')
-    const box = document.querySelector('#box')
+    const container = document.querySelector('#container')
+    const containerWidth = document.querySelector('#containerWidth')
+    const capNote = document.querySelector('#capNote')
 
     const update = () => {
       frame.style.width = range.value + 'px'
       value.textContent = range.value + 'px'
-      box.textContent = `Ширина: ${Math.round(box.getBoundingClientRect().width)}px`
+
+      const width = container.getBoundingClientRect().width
+      const capped = width >= 479.5
+      containerWidth.textContent = Math.round(width) + 'px'
+      capNote.textContent = capped
+        ? 'достигла максимума 480px, дальше расти некуда'
+        : 'ещё меньше максимума, растёт вместе с родителем'
+      capNote.classList.toggle('cap', capped)
     }
 
     range.addEventListener('input', update)
     update()
-    requestAnimationFrame(() => requestAnimationFrame(update))
 
     if (!new URLSearchParams(window.location.search).has('embed')) {
       document.querySelector('.demo-meta').style.display = 'flex';

@@ -144,6 +144,16 @@ groups:
       - gulp
       - version-control
       - static-site-generators
+  - name: Core Web Vitals
+    items:
+      - what-is-web-vitals
+      - lcp
+      - inp
+      - cls
+      - fcp
+      - ttfb
+      - how-to-measure-and-improve-core-web-vitals
+
 ---
 
 Здесь собраны технологии, теория и хорошие практики, которые пригодятся при разработке веб-приложений.
