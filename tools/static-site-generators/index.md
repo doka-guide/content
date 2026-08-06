@@ -16,7 +16,7 @@ keywords:
 related:
   - tools/cms
   - tools/how-the-browser-creates-pages
-  - tools/LCP
+  - tools/lcp
 tags:
   - article
 ---
