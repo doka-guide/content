@@ -146,11 +146,11 @@ groups:
   - name: Core Web Vitals
     items:
       - what-is-web-vitals
-      - LCP
-      - INP
-      - CLS
-      - FCP
-      - TTFB
+      - lcp
+      - inp
+      - cls
+      - fcp
+      - ttfb
       - how-to-measure-and-improve-core-web-vitals
 
 ---
