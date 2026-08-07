@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/function-context
-  - css/media
-  - html/doctype
   - a11y/live-region
-  - recipes/center
-  - a11y/screenreaders
-  - js/array-entries
-  - html/article
-  - html/div
-  - js/infinite-scroll
   - css/transform-function
-  - js/geolocation-api
-  - tools/markdown
-  - tools/agile
-  - tools/clean-architecture
-  - css/box-shadow
-  - html/nav
-  - recipes/lets-encrypt-nginx
-  - a11y/css-impact-on-a11y
-  - a11y/aria-intro
-  - css/position
-  - a11y/aria-hidden
-  - recipes/snow
-  - tools/static-types
-  - js/function
-  - html/img
-  - css/scrollbar-gutter
-  - css/flexbox-guide
-  - html/flow
-  - tools/ci-cd
-  - recipes/progress
-  - js/var-let
-  - tools/bundlers
+  - css/display
+  - recipes/character-counter
   - html/section
   - recipes/ajax-form
-  - css/pseudoelements
-  - js/boolean
-  - js/deal-with-forms
+  - a11y/css-impact-on-a11y
   - recipes/git-rebase-onto
-  - html/input
-  - css/grid-guide
-  - recipes/popup
-  - js/closures
-  - tools/cors
-  - tools/how-the-browser-creates-pages
-  - css/display
-  - js/async-in-js
-  - tools/network
-  - css/attr
-  - css/custom-properties
-  - tools/docker
-  - a11y/content-hidden
-  - html/form
-  - css/box-model
-  - tools/gitlab-ci-cd
-  - html/head
-  - tools/how-to-test-and-why
-  - css/specificity
-  - js/execution-order
-  - css/box-sizing
-  - recipes/character-counter
-  - css/keyframes
   - tools/oop
-  - html/video
-  - js/array-reduce-right
+  - tools/network
+  - js/execution-order
+  - js/infinite-scroll
+  - html/flow
+  - css/keyframes
+  - recipes/lets-encrypt-nginx
+  - js/async-in-js
+  - js/function
+  - css/specificity
+  - a11y/content-hidden
+  - js/function-context
+  - js/array-entries
+  - css/box-model
+  - tools/how-the-browser-creates-pages
+  - html/div
   - tools/cli
+  - css/attr
+  - a11y/screenreaders
+  - css/pseudoelements
+  - css/scrollbar-gutter
+  - tools/static-types
+  - css/box-shadow
+  - js/geolocation-api
+  - a11y/aria-hidden
+  - css/position
+  - css/media
+  - css/flexbox-guide
+  - html/form
+  - js/var-let
+  - css/custom-properties
+  - js/array-reduce-right
+  - a11y/aria-intro
+  - tools/ci-cd
+  - recipes/progress
+  - css/grid-guide
+  - html/doctype
+  - html/img
+  - tools/bundlers
+  - js/closures
   - tools/webpack
+  - html/nav
+  - tools/gitlab-ci-cd
+  - tools/how-to-test-and-why
+  - tools/cors
+  - html/head
+  - tools/clean-architecture
+  - tools/agile
+  - html/input
+  - css/box-sizing
+  - recipes/popup
+  - js/deal-with-forms
+  - tools/docker
+  - html/video
+  - html/article
+  - recipes/center
+  - recipes/snow
+  - js/boolean
+  - tools/markdown
 ---
 
