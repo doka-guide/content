@@ -148,7 +148,7 @@
     }
 
     .row.recalcs .value {
-      font-size: 22px;
+      font-size: 32px;
       color: #c4b5fd;
     }
 
@@ -250,13 +250,13 @@
       let light = 'red'
       let boardRecalcs = 0
 
-      let carsDirty = true
-      let pedestriansDirty = true
-      let boardDirty = true
+      let carsValue = carsMessage(light)
+      let pedestriansValue = pedestriansMessage(light)
+      let boardValue = boardMessage(carsValue, pedestriansValue)
 
-      let carsValue
-      let pedestriansValue
-      let boardValue
+      let carsDirty = false
+      let pedestriansDirty = false
+      let boardDirty = false
 
       const getCars = () => {
         if (carsDirty) {
@@ -318,11 +318,17 @@
       pubsubRecalcsEl.classList.remove('diff-worse', 'diff-better')
       signalRecalcsEl.classList.remove('diff-worse', 'diff-better')
 
-      if (pubsubRecalcs === signalRecalcs) return
+      if (pubsubRecalcs === signalRecalcs) {
+        pubsubRecalcsEl.classList.add('diff-better')
+        signalRecalcsEl.classList.add('diff-better')
+        return
+      }
 
       pubsubRecalcsEl.classList.add('diff-worse')
       signalRecalcsEl.classList.add('diff-better')
     }
+
+    updateRecalcsDiff()
 
     let step = 0
     let switching = false
