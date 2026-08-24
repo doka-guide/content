@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Зависимости на светофоре — Signals — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      color: #18191c;
+      background-color: #ffd166;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .light-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 18px;
+    }
+
+    .traffic-light {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px;
+      background-color: #0e0f11;
+      border-radius: 14px;
+    }
+
+    .bulb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      opacity: 0.25;
+      transition: opacity 0.15s ease;
+    }
+
+    .bulb--red { background-color: #ff6b6b; }
+    .bulb--yellow { background-color: #ffd166; }
+    .bulb--green { background-color: #6ee7b7; }
+
+    .traffic-light[data-state="red"] .bulb--red {
+      opacity: 1;
+      box-shadow: 0 0 14px 2px #ff6b6b;
+    }
+
+    .traffic-light[data-state="yellow"] .bulb--yellow {
+      opacity: 1;
+      box-shadow: 0 0 14px 2px #ffd166;
+    }
+
+    .traffic-light[data-state="green"] .bulb--green {
+      opacity: 1;
+      box-shadow: 0 0 14px 2px #6ee7b7;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .column {
+      border: 1px solid #33343a;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .column h2 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #a9abb3;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .row .label {
+      font-size: 12px;
+      color: #a9abb3;
+    }
+
+    .row .value {
+      font-variant-numeric: tabular-nums;
+      font-size: 15px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .row.recalcs .value {
+      font-size: 22px;
+      color: #c4b5fd;
+    }
+
+    .row.recalcs .value.diff-worse {
+      color: #ff6b6b;
+    }
+
+    .row.recalcs .value.diff-better {
+      color: #6ee7b7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="light-row">
+      <div class="traffic-light" id="light" data-state="red">
+        <span class="bulb bulb--red"></span>
+        <span class="bulb bulb--yellow"></span>
+        <span class="bulb bulb--green"></span>
+      </div>
+      <button id="switch-light" type="button">Переключить светофор</button>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <h2>Наивный pub/sub</h2>
+        <div class="row"><span class="label">Сигнал для машин</span><span class="value" id="pubsub-cars">🔴 Стоп</span></div>
+        <div class="row"><span class="label">Сигнал для пешеходов</span><span class="value" id="pubsub-pedestrians">🚶 Идите</span></div>
+        <div class="row total"><span class="label">Табло перекрёстка</span><span class="value" id="pubsub-board">🚶 Приоритет у пешеходов</span></div>
+        <div class="row recalcs"><span class="label">Пересчётов табло</span><span class="value" id="pubsub-recalcs">0</span></div>
+      </div>
+
+      <div class="column">
+        <h2>Сигналы</h2>
+        <div class="row"><span class="label">Сигнал для машин</span><span class="value" id="signal-cars">🔴 Стоп</span></div>
+        <div class="row"><span class="label">Сигнал для пешеходов</span><span class="value" id="signal-pedestrians">🚶 Идите</span></div>
+        <div class="row total"><span class="label">Табло перекрёстка</span><span class="value" id="signal-board">🚶 Приоритет у пешеходов</span></div>
+        <div class="row recalcs"><span class="label">Пересчётов табло</span><span class="value" id="signal-recalcs">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+
+    const byId = (id) => document.getElementById(id)
+
+    const LIGHTS = ['red', 'yellow', 'green', 'yellow']
+
+    const carsMessage = (light) => {
+      if (light === 'green') return '🟢 Езжайте'
+      if (light === 'yellow') return '🟡 Приготовьтесь'
+      return '🔴 Стоп'
+    }
+
+    const pedestriansMessage = (light) => light === 'red' ? '🚶 Идите' : '✋ Ждите'
+
+    const boardMessage = (cars, pedestrians) => {
+      if (cars.includes('🟢')) return '🚗 Приоритет у машин'
+      if (pedestrians.includes('🚶')) return '🚶 Приоритет у пешеходов'
+      return '⏳ Смена света, все ждут'
+    }
+
+    function createPubSubDiamond() {
+      let light = 'red'
+      let recalcs = 0
+
+      const listeners = { light: [] }
+      const emit = (key) => listeners[key]?.forEach((fn) => fn())
+
+      const getCars = () => carsMessage(light)
+      const getPedestrians = () => pedestriansMessage(light)
+
+      const recalcBoard = () => {
+        recalcs += 1
+        byId('pubsub-board').textContent = boardMessage(getCars(), getPedestrians())
+        byId('pubsub-recalcs').textContent = recalcs
+      }
+
+      listeners.light.push(() => {
+        byId('pubsub-cars').textContent = getCars()
+        recalcBoard()
+      })
+      listeners.light.push(() => {
+        byId('pubsub-pedestrians').textContent = getPedestrians()
+        recalcBoard()
+      })
+
+      return {
+        setLight(value) {
+          light = value
+          emit('light')
+        },
+        getRecalcs: () => recalcs
+      }
+    }
+
+    function createSignalDiamond() {
+      let light = 'red'
+      let boardRecalcs = 0
+
+      let carsDirty = true
+      let pedestriansDirty = true
+      let boardDirty = true
+
+      let carsValue
+      let pedestriansValue
+      let boardValue
+
+      const getCars = () => {
+        if (carsDirty) {
+          carsValue = carsMessage(light)
+          carsDirty = false
+        }
+        return carsValue
+      }
+
+      const getPedestrians = () => {
+        if (pedestriansDirty) {
+          pedestriansValue = pedestriansMessage(light)
+          pedestriansDirty = false
+        }
+        return pedestriansValue
+      }
+
+      const getBoard = () => {
+        if (boardDirty) {
+          boardRecalcs += 1
+          boardValue = boardMessage(getCars(), getPedestrians())
+          boardDirty = false
+        }
+        return boardValue
+      }
+
+      const render = () => {
+        byId('signal-cars').textContent = getCars()
+        byId('signal-pedestrians').textContent = getPedestrians()
+        byId('signal-board').textContent = getBoard()
+        byId('signal-recalcs').textContent = boardRecalcs
+      }
+
+      render()
+
+      return {
+        setLight(value) {
+          light = value
+          carsDirty = true
+          pedestriansDirty = true
+          boardDirty = true
+          render()
+        },
+        getRecalcs: () => boardRecalcs
+      }
+    }
+
+    const pubsub = createPubSubDiamond()
+    const signals = createSignalDiamond()
+    const switchButton = byId('switch-light')
+    const lightIndicator = byId('light')
+    const pubsubRecalcsEl = byId('pubsub-recalcs')
+    const signalRecalcsEl = byId('signal-recalcs')
+
+    const updateRecalcsDiff = () => {
+      const pubsubRecalcs = pubsub.getRecalcs()
+      const signalRecalcs = signals.getRecalcs()
+
+      pubsubRecalcsEl.classList.remove('diff-worse', 'diff-better')
+      signalRecalcsEl.classList.remove('diff-worse', 'diff-better')
+
+      if (pubsubRecalcs === signalRecalcs) return
+
+      pubsubRecalcsEl.classList.add('diff-worse')
+      signalRecalcsEl.classList.add('diff-better')
+    }
+
+    let step = 0
+    let switching = false
+
+    switchButton.addEventListener('click', () => {
+      if (switching) return
+      switching = true
+      switchButton.disabled = true
+
+      step = (step + 1) % LIGHTS.length
+      const next = LIGHTS[step]
+      lightIndicator.dataset.state = next
+      pubsub.setLight(next)
+      signals.setLight(next)
+      updateRecalcsDiff()
+
+      setTimeout(() => {
+        switching = false
+        switchButton.disabled = false
+      }, 200)
+    })
+  </script>
+</body>
+</html>
