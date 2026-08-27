@@ -31,7 +31,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    .container {
+    .demo {
       width: 100%;
       max-width: 560px;
       display: flex;
@@ -39,26 +39,7 @@
       gap: 14px;
     }
 
-    button {
-      appearance: none;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 500;
-      color: #18191c;
-      background-color: #ffd166;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
-
-    .light-row {
+    .demo__intersection {
       position: relative;
       display: flex;
       align-items: center;
@@ -66,117 +47,46 @@
       font-size: 18px;
     }
 
-    .traffic-light {
+    .demo__light {
       display: flex;
       flex-direction: column;
       gap: 6px;
       padding: 8px;
       background-color: #0e0f11;
       border-radius: 14px;
-    }
 
-    .bulb {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      opacity: 0.25;
-      transition: opacity 0.15s ease;
-    }
+      &-bulb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        opacity: 0.25;
+        transition: opacity 0.15s ease;
 
-    .bulb--red { background-color: #ff6b6b; }
-    .bulb--yellow { background-color: #ffd166; }
-    .bulb--green { background-color: #6ee7b7; }
-
-    .traffic-light[data-state="red"] .bulb--red {
-      opacity: 1;
-      box-shadow: 0 0 14px 2px #ff6b6b;
-    }
-
-    .traffic-light[data-state="yellow"] .bulb--yellow {
-      opacity: 1;
-      box-shadow: 0 0 14px 2px #ffd166;
-    }
-
-    .traffic-light[data-state="green"] .bulb--green {
-      opacity: 1;
-      box-shadow: 0 0 14px 2px #6ee7b7;
-    }
-
-    .columns {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    @media (max-width: 480px) {
-      .columns {
-        gap: 10px;
+        &--red { background-color: #ff6b6b; }
+        &--yellow { background-color: #ffd166; }
+        &--green { background-color: #6ee7b7; }
       }
 
-      .column {
-        padding: 12px;
+      &[data-state="red"] .demo__light-bulb--red {
+        opacity: 1;
+        box-shadow: 0 0 14px 2px #ff6b6b;
       }
 
-      .row .value {
-        font-size: 14px;
+      &[data-state="yellow"] .demo__light-bulb--yellow {
+        opacity: 1;
+        box-shadow: 0 0 14px 2px #ffd166;
+      }
+
+      &[data-state="green"] .demo__light-bulb--green {
+        opacity: 1;
+        box-shadow: 0 0 14px 2px #6ee7b7;
       }
     }
 
-    .column {
-      border: 1px solid #33343a;
-      border-radius: 12px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .column h2 {
-      font-size: 15px;
-      font-weight: 500;
-      color: #a9abb3;
-    }
-
-    .row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .row .label {
-      font-size: 12px;
-      color: #a9abb3;
-    }
-
-    .row .value {
-      overflow-wrap: anywhere;
-      font-variant-numeric: tabular-nums;
-      font-size: 15px;
-      font-weight: 500;
-      color: #ffffff;
-    }
-
-    .row.recalcs {
-      align-items: center;
-      margin-top: 2px;
-      padding-top: 10px;
-      border-top: 1px solid #33343a;
-    }
-
-    .row.recalcs .value {
-      font-size: 26px;
-      color: #c4b5fd;
-    }
-
-    .row.recalcs .value.diff-worse {
-      color: #ff6b6b;
-    }
-
-    .row.recalcs .value.diff-better {
-      color: #6ee7b7;
-    }
-
-    .switch {
+    .demo__switch {
+      appearance: none;
+      border: none;
+      cursor: pointer;
       position: absolute;
       top: 50%;
       right: 0;
@@ -188,23 +98,99 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #18191c;
+      background-color: #ffd166;
       transition: transform 0.15s ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-50%) scale(1.06);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
     }
 
-    .switch:hover:not(:disabled) {
-      transform: translateY(-50%) scale(1.06);
+    .demo__columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .demo__panel {
+      border: 1px solid #33343a;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-title {
+        font-size: 15px;
+        font-weight: 500;
+        color: #a9abb3;
+      }
+    }
+
+    .demo__row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      &-label {
+        font-size: 12px;
+        color: #a9abb3;
+      }
+
+      &-value {
+        overflow-wrap: anywhere;
+        font-variant-numeric: tabular-nums;
+        font-size: 15px;
+        font-weight: 500;
+        color: #ffffff;
+      }
+
+      &--recalcs {
+        align-items: center;
+        margin-top: 2px;
+        padding-top: 10px;
+        border-top: 1px solid #33343a;
+
+        .demo__row-value {
+          font-size: 26px;
+          color: #c4b5fd;
+
+          &--worse { color: #ff6b6b; }
+          &--better { color: #6ee7b7; }
+        }
+      }
+    }
+
+    @media (max-width: 480px) {
+      .demo__columns {
+        gap: 10px;
+      }
+
+      .demo__panel {
+        padding: 12px;
+      }
+
+      .demo__row-value {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="light-row">
-      <div class="traffic-light" id="light" data-state="red">
-        <span class="bulb bulb--red"></span>
-        <span class="bulb bulb--yellow"></span>
-        <span class="bulb bulb--green"></span>
+  <div class="demo">
+    <div class="demo__intersection">
+      <div class="demo__light" id="light" data-state="red">
+        <span class="demo__light-bulb demo__light-bulb--red"></span>
+        <span class="demo__light-bulb demo__light-bulb--yellow"></span>
+        <span class="demo__light-bulb demo__light-bulb--green"></span>
       </div>
-      <button id="switch-light" class="switch" type="button" title="Переключить свет" aria-label="Переключить свет">
+      <button id="switch-light" class="demo__switch" type="button" title="Переключить свет" aria-label="Переключить свет">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
           <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
           <path d="M3 3v5h5"/>
@@ -214,21 +200,45 @@
       </button>
     </div>
 
-    <div class="columns">
-      <div class="column">
-        <h2>Наивный pub/sub</h2>
-        <div class="row"><span class="label">Сигнал для машин</span><span class="value" id="pubsub-cars">🔴 Стоп</span></div>
-        <div class="row"><span class="label">Сигнал для пешеходов</span><span class="value" id="pubsub-pedestrians">🚶 Идите</span></div>
-        <div class="row total"><span class="label">Табло перекрёстка</span><span class="value" id="pubsub-board">🚶 Идут пешеходы</span></div>
-        <div class="row recalcs"><span class="label">Пересчётов табло</span><span class="value" id="pubsub-recalcs">0</span></div>
+    <div class="demo__columns">
+      <div class="demo__panel">
+        <h2 class="demo__panel-title">Наивный pub/sub</h2>
+        <div class="demo__row">
+          <span class="demo__row-label">Сигнал для машин</span>
+          <span class="demo__row-value" id="pubsub-cars">🔴 Стоп</span>
+        </div>
+        <div class="demo__row">
+          <span class="demo__row-label">Сигнал для пешеходов</span>
+          <span class="demo__row-value" id="pubsub-pedestrians">🚶 Идите</span>
+        </div>
+        <div class="demo__row">
+          <span class="demo__row-label">Табло перекрёстка</span>
+          <span class="demo__row-value" id="pubsub-board">🚶 Идут пешеходы</span>
+        </div>
+        <div class="demo__row demo__row--recalcs">
+          <span class="demo__row-label">Пересчётов табло</span>
+          <span class="demo__row-value" id="pubsub-recalcs">0</span>
+        </div>
       </div>
 
-      <div class="column">
-        <h2>Сигналы</h2>
-        <div class="row"><span class="label">Сигнал для машин</span><span class="value" id="signal-cars">🔴 Стоп</span></div>
-        <div class="row"><span class="label">Сигнал для пешеходов</span><span class="value" id="signal-pedestrians">🚶 Идите</span></div>
-        <div class="row total"><span class="label">Табло перекрёстка</span><span class="value" id="signal-board">🚶 Идут пешеходы</span></div>
-        <div class="row recalcs"><span class="label">Пересчётов табло</span><span class="value" id="signal-recalcs">0</span></div>
+      <div class="demo__panel">
+        <h2 class="demo__panel-title">Сигналы</h2>
+        <div class="demo__row">
+          <span class="demo__row-label">Сигнал для машин</span>
+          <span class="demo__row-value" id="signal-cars">🔴 Стоп</span>
+        </div>
+        <div class="demo__row">
+          <span class="demo__row-label">Сигнал для пешеходов</span>
+          <span class="demo__row-value" id="signal-pedestrians">🚶 Идите</span>
+        </div>
+        <div class="demo__row">
+          <span class="demo__row-label">Табло перекрёстка</span>
+          <span class="demo__row-value" id="signal-board">🚶 Идут пешеходы</span>
+        </div>
+        <div class="demo__row demo__row--recalcs">
+          <span class="demo__row-label">Пересчётов табло</span>
+          <span class="demo__row-value" id="signal-recalcs">0</span>
+        </div>
       </div>
     </div>
   </div>
@@ -357,17 +367,17 @@
       const pubsubRecalcs = pubsub.getRecalcs()
       const signalRecalcs = signals.getRecalcs()
 
-      pubsubRecalcsEl.classList.remove('diff-worse', 'diff-better')
-      signalRecalcsEl.classList.remove('diff-worse', 'diff-better')
+      pubsubRecalcsEl.classList.remove('demo__row-value--worse', 'demo__row-value--better')
+      signalRecalcsEl.classList.remove('demo__row-value--worse', 'demo__row-value--better')
 
       if (pubsubRecalcs === signalRecalcs) {
-        pubsubRecalcsEl.classList.add('diff-better')
-        signalRecalcsEl.classList.add('diff-better')
+        pubsubRecalcsEl.classList.add('demo__row-value--better')
+        signalRecalcsEl.classList.add('demo__row-value--better')
         return
       }
 
-      pubsubRecalcsEl.classList.add('diff-worse')
-      signalRecalcsEl.classList.add('diff-better')
+      pubsubRecalcsEl.classList.add('demo__row-value--worse')
+      signalRecalcsEl.classList.add('demo__row-value--better')
     }
 
     updateRecalcsDiff()
