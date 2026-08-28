@@ -63,17 +63,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: '*.md'
-          format: 'csv'
+          format: 'space-delimited'
       - name: Проверяет ссылки
-        if: ${{ steps.files.outputs.added_modified != '' }}
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: ${{ steps.files.outputs.added_modified }}
-          markdown: true
-          serverRoot: "/home/runner/work/content/content"
-          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
+        if: ${{ steps.files.outputs.added_modified != '' || steps.files.outputs.removed != '' }}
+        run: |
+          npm install transliteration --no-save
+          node .github/scripts/link-check.js \
+            ${{ steps.files.outputs.added_modified }} \
+            ${{ steps.files.outputs.removed }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}

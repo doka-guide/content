@@ -3,7 +3,7 @@ name: Product Deploy
 on:
   workflow_run:
     workflows:
-      - "Update Dates"
+      - "Update CHANGELOG"
     branches:
       - main
     types:
@@ -29,9 +29,13 @@ jobs:
         with:
           repository: doka-guide/cache
           path: cache
+      # Версия берётся из .nvmrc платформы: именно её зависимости здесь
+      # ставятся. Зашитая версия разъезжается с платформой — так превью и
+      # выкатка сломались, когда платформа перешла на Node 24, а здесь
+      # осталась двадцатая.
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
       - name: Кэширование модулей
         uses: actions/cache@v3
         env:
@@ -60,8 +64,6 @@ jobs:
         run: |
           cp .env.example .env
           npm run build
-      - name: Генерация карточек для социальных сетей
-        run: npx gulp socialCards
       - name: Публикация сайта
         run: |
           cd dist

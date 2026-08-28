@@ -31,8 +31,7 @@ tags:
 
 ```css
 .element {
-  background-color: #49a16c;
-  background-image: url("doggo.png");
+  background-image: url("doggo.svg");
   background-repeat: no-repeat;
 }
 ```

@@ -1,6 +1,10 @@
 ---
 title: "`prefers-contrast`"
 description: "Значение директивы `@media`, которое отслеживает настройки контрастности."
+baseline:
+  - group: prefers-contrast
+    features:
+      - css.at-rules.media.prefers-contrast
 authors:
   - ra1nbow1
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`scrollbar-color`"
 description: "Изменяем цвет полосы прокрутки."
+baseline:
+  - group: scrollbar-color
+    features:
+      - css.properties.scrollbar-color
 authors:
   - xpleesid
 keywords:

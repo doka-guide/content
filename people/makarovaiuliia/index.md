@@ -6,4 +6,4 @@ badges:
   - first-contribution-small
 ---
 
-Привет! Я начинающий frontend-developer:) 
+Привет! Я начинающий frontend-developer:)

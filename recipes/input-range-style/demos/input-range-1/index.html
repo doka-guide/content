@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Стандартный ползунок — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+    >
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (width < 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+
+      .range {
+        display: grid;
+        gap: 20px;
+        width: 210px;
+      }
+
+      .range-label {
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .range-input {
+        accent-color: #c56fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="range">
+      <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+      <input
+        class="range-input"
+        id="tailmetr"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        step="1"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-orientation="horizontal"
+      >
+    </div>
+  </body>
+</html>

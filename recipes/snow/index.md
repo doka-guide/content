@@ -31,7 +31,7 @@ tags:
 Поместите HTML-разметку в конец страницы:
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Разметка
 
-Создадим разметку для снежинок. Понадобится родительский контейнер с классом `snow`. Внутри будут блоки с классом `snow__flake` и символом `﹡` в контенте.
+Создадим разметку для снежинок. Понадобится родительский контейнер с классом `snow`. Внутри будут блоки с классом `snow__flake` и символом `﹡` в контенте. Чтобы [скринридеры](/a11y/screenreaders/) не читали звёздочки, добавим атрибут [`aria-hidden`](/a11y/aria-hidden/) со значением `true`.
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -389,7 +389,7 @@ snowflakes.forEach(snowflake => {
 ### Финальный код
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ### Финальный код с переключателями
 
 ```html
-<div class="snow">
+<div class="snow" aria-hidden="true">
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>

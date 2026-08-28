@@ -187,6 +187,10 @@
       const openButton = document.querySelector('.open-button')
       const closeButton = document.querySelector('.close-button')
 
+      dialog.addEventListener('close', () => {
+        document.body.style.overflowY = 'auto'
+      })
+
       openButton.addEventListener('click', () => {
         dialog.showModal()
         document.body.style.overflowY = 'hidden'
@@ -194,7 +198,6 @@
 
       closeButton.addEventListener('click', () => {
         dialog.close()
-        document.body.style.overflowY = 'auto'
       })
     </script>
   </body>

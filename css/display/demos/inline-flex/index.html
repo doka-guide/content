@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Двухкомпонентный синтаксис display — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .wrapper {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .toggle button {
+      padding: 8px 16px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .toggle button.active {
+      background-color: #2E9AFF;
+    }
+
+    .value {
+      font-size: 14px;
+      color: #F498AD;
+    }
+
+    .text {
+      line-height: 1.6;
+    }
+
+    .container {
+      background-color: #282A2E;
+      border: 2px dashed #2E9AFF;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .container.is-block {
+      display: block flex;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .container.is-inline {
+      display: inline flex;
+      vertical-align: middle;
+    }
+
+    .item {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2E9AFF;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    @media (width <= 480px) {
+      body {
+        padding: 30px;
+      }
+
+      .toggle {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="toggle">
+      <button type="button" class="active" data-mode="block">block flex</button>
+      <button type="button" data-mode="inline">inline flex</button>
+    </div>
+
+    <p class="text">
+      Текст до контейнера.
+      <span class="container is-block" id="container">
+        <span class="item">1</span>
+        <span class="item">2</span>
+        <span class="item">3</span>
+      </span>
+      Текст после контейнера.
+    </p>
+  </div>
+
+  <script>
+    const container = document.querySelector('#container')
+    const buttons = document.querySelectorAll('.toggle button')
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const mode = button.dataset.mode
+
+        container.classList.remove('is-block', 'is-inline')
+        container.classList.add(mode === 'block' ? 'is-block' : 'is-inline')
+
+        buttons.forEach((btn) => btn.classList.remove('active'))
+        button.classList.add('active')
+      })
+    })
+  </script>
+</body>
+</html>
