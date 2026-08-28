@@ -8,19 +8,33 @@ jobs:
     name: Подготовка списка файлов
     runs-on: ubuntu-latest
     outputs:
-      files: ${{ steps.files.outputs.all }}
+      urls: ${{ steps.files.outputs.urls }}
     steps:
-      - name: Выборка файлов для формирования списка
+      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
+      # и адреса разное у разных разделов:
+      #   css/optional/index.md   → /css/optional/
+      #   pages/about/index.md    → /about/        папка раздела выпадает
+      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
+      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
+      # страниц тоже не имеют, поэтому в список не попадают.
+      - name: Выборка изменённых материалов
         id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pr_files=$(echo $(curl \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files))
-          list=$(echo $pr_files | grep -o '"filename": "[^"]*' | cut -d'"' -f4)
-          mdReplaced=${list//md/html}
-          returnReplaced=${list//$"\n"/ }
-          echo "::set-output name=all::$returnReplaced"
-          echo $returnReplaced
+          set -eu
+          urls=$(gh api --paginate \
+            "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            --jq '.[].filename' \
+            | awk -F/ '
+                NF == 3 && $3 == "index.md" {
+                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
+                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
+                }' \
+            | sort -u \
+            | tr '\n' ' ')
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+          echo "Затронуто страниц: $(echo $urls | wc -w)"
   pr-preview:
     name: Сборка и загрузка превью
     runs-on: ubuntu-latest
@@ -83,19 +97,23 @@ jobs:
           id: preview-${{ github.event.pull_request.number }}
           message: "Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
           recreate: true
-      - name: Форматирование списка файлов
+      # Блок со ссылками добавляется к сообщению только когда есть что
+      # показать: у пулреквестов, которые правят воркфлоу или служебные файлы,
+      # затронутых материалов нет, и раскрывашка там пустая и бессмысленная.
+      - name: Формирование ссылок на материалы
         id: links
         run: |
-          file_list=""
-          for f in ${{ needs.prepare.outputs.files }}; do
-            if [[ $changed_file =~ ".html" ]]; then
-              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${f}">${f}</a></li>")
-            fi
+          set -eu
+          items=""
+          for url in ${{ needs.prepare.outputs.urls }}; do
+            items="${items}<li><a href=\"${{ env.DEPLOY_DOMAIN }}${url}\">${url}</a></li>"
           done
-          if ! [[ $file_list == "" ]]; then
-            file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
+          if [ -n "$items" ]; then
+            block="<details><summary>Затронутые материалы</summary><ul>${items}</ul></details>"
+          else
+            block=""
           fi
-          echo ::set-output name=list::$(echo -e "${file_list}")
+          echo "list=$block" >> "$GITHUB_OUTPUT"
       - name: Установка ключа для пользователя
         run: |
           set -eu
@@ -106,12 +124,30 @@ jobs:
         id: build-preview
         continue-on-error: true
         run: |
+          set -eu
           cp .env.example .env
+
+          # Сборка молчит около двух минут, а публикация — ещё дольше. Без
+          # отметок шаг выглядит зависшим, и непонятно, на чём именно он стоит.
+          echo "::group::Сборка сайта"
+          echo "Начало: $(date -u +%H:%M:%S) UTC. Сборка занимает пару минут и молчит до конца."
           npm run build
+          echo "Готово: $(date -u +%H:%M:%S) UTC. Страниц собрано: $(find dist -name '*.html' | wc -l)."
+          echo "::endgroup::"
+
+          echo "::group::Публикация превью"
+          echo "Начало: $(date -u +%H:%M:%S) UTC. Отправляется $(du -sh dist | cut -f1)."
           ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
-          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --compress --delete . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
+          # --info=progress2 показывает общий прогресс одной обновляемой строкой,
+          # а не портянку из десятков тысяч имён файлов, как прежний --progress.
+          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" \
+            --archive --compress --delete --info=progress2 \
+            . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
+          echo ""
+          echo "Готово: $(date -u +%H:%M:%S) UTC."
+          echo "::endgroup::"
+
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
-          echo -e "${{ steps.links.outputs.list }}"
       # Шаг сборки помечен continue-on-error, поэтому его падение не делает
       # джобу упавшей: if: failure() тут не срабатывает, а if: success()
       # срабатывает всегда. Смотрим на исход самого шага.
@@ -134,5 +170,5 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: preview-${{ github.event.pull_request.number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.pull_request.head.sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
+          message: '<a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.pull_request.head.sha }} опубликовано.${{ steps.links.outputs.list }}'
           recreate: true
