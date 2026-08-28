@@ -10,9 +10,13 @@ jobs:
     outputs:
       urls: ${{ steps.files.outputs.urls }}
     steps:
-      # Собирает адреса материалов, затронутых пулреквестом: пути вида
-      # css/optional/index.md превращаются в /css/optional/. Всё остальное —
-      # демки, картинки, служебные файлы — в список не попадает.
+      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
+      # и адреса разное у разных разделов:
+      #   css/optional/index.md   → /css/optional/
+      #   pages/about/index.md    → /about/        папка раздела выпадает
+      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
+      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
+      # страниц тоже не имеют, поэтому в список не попадают.
       - name: Выборка изменённых материалов
         id: files
         env:
@@ -22,12 +26,15 @@ jobs:
           urls=$(gh api --paginate \
             "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
             --jq '.[].filename' \
-            | grep -E '^[a-z0-9-]+/[^/]+/index\.md$' \
-            | sed 's|/index\.md$|/|; s|^|/|' \
+            | awk -F/ '
+                NF == 3 && $3 == "index.md" {
+                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
+                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
+                }' \
             | sort -u \
-            | tr '\n' ' ' || true)
+            | tr '\n' ' ')
           echo "urls=$urls" >> "$GITHUB_OUTPUT"
-          echo "Затронуто материалов: $(echo $urls | wc -w)"
+          echo "Затронуто страниц: $(echo $urls | wc -w)"
   pr-preview:
     name: Сборка и загрузка превью
     runs-on: ubuntu-latest
