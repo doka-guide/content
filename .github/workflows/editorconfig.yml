@@ -16,6 +16,8 @@ jobs:
       - id: files
         uses: Ana06/get-changed-files@v2.3.0
       - name: Проверка линтером
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig

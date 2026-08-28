@@ -16,6 +16,8 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v2.2.0
       - name: Работает линтер
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig
