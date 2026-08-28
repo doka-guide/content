@@ -107,14 +107,17 @@ jobs:
         continue-on-error: true
         run: |
           cp .env.example .env
-          npm run preview
+          npm run build
           ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
           cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --compress --delete . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
           echo -e "${{ steps.links.outputs.list }}"
+      # Шаг сборки помечен continue-on-error, поэтому его падение не делает
+      # джобу упавшей: if: failure() тут не срабатывает, а if: success()
+      # срабатывает всегда. Смотрим на исход самого шага.
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: failure()
+        if: steps.build-preview.outcome == 'failure'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
@@ -125,7 +128,7 @@ jobs:
           recreate: true
       - name: Сообщение об успехе публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: success()
+        if: steps.build-preview.outcome == 'success'
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
