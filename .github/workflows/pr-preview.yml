@@ -4,49 +4,30 @@ on:
   pull_request_target:
 
 jobs:
-  prepare:
-    name: Подготовка списка файлов
+  # Всё превью одной джобой: заметка, ожидание проверок и сборка. Отдельными
+  # джобами это давало пять галок в списке проверок пулреквеста, хотя интересен
+  # только исход.
+  preview:
+    name: Сборка и загрузка превью
     runs-on: ubuntu-latest
-    outputs:
-      urls: ${{ steps.files.outputs.urls }}
-    steps:
-      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
-      # и адреса разное у разных разделов:
-      #   css/optional/index.md   → /css/optional/
-      #   pages/about/index.md    → /about/        папка раздела выпадает
-      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
-      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
-      # страниц тоже не имеют, поэтому в список не попадают.
-      - name: Выборка изменённых материалов
-        id: files
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -eu
-          urls=$(gh api --paginate \
-            "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
-            --jq '.[].filename' \
-            | awk -F/ '
-                NF == 3 && $3 == "index.md" {
-                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
-                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
-                }' \
-            | sort -u \
-            | tr '\n' ' ')
-          echo "urls=$urls" >> "$GITHUB_OUTPUT"
-          echo "Затронуто страниц: $(echo $urls | wc -w)"
-  # Заметка живёт в описании пулреквеста, а не отдельным комментарием: GitHub
-  # шлёт письмо на создание комментария, а правку описания не рассылает вовсе.
-  # Прежний hasura/comment-progress стоял с recreate: true, то есть пересоздавал
-  # комментарий на каждый пуш — письмо приходило на каждый прогон, иногда дважды.
-  note-start:
-    name: Заметка о начале
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # Заметку пишем в описание пулреквеста, проверки читаем через Checks API.
     permissions:
       pull-requests: write
+      checks: read
+      contents: read
+    outputs:
+      checks: ${{ steps.gate.outcome }}
+      published: ${{ steps.build-preview.outcome == 'success' }}
+      links: ${{ steps.links.outputs.list }}
+    env:
+      DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PATH_TO_CONTENT: ./content
     steps:
-      - uses: actions/github-script@v7
+      # Заметка живёт в описании пулреквеста, а не отдельным комментарием: GitHub
+      # шлёт письмо на создание комментария, а правку описания не рассылает вовсе.
+      - name: Заметка о начале
+        uses: actions/github-script@v7
         env:
           MESSAGE: "Идут проверки и сборка превью... [Подробнее](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
         with:
@@ -69,19 +50,14 @@ jobs:
                   ? `${current.trimEnd()}\n\n${block}`
                   : block
             await github.rest.pulls.update({ owner, repo, pull_number, body })
-  # Гейт: превью не публикуется, пока проверки пулреквеста не зелёные.
-  # Проверки живут в отдельном воркфлоу (PR Checks) на триггере pull_request,
-  # а needs между воркфлоу не работает — поэтому опрашиваем Checks API.
-  # Переносить сами проверки сюда нельзя: они выполняют код из форка, а под
-  # pull_request_target у GITHUB_TOKEN права на запись.
-  checks:
-    name: Ожидание проверок
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    permissions:
-      checks: read
-    steps:
-      - uses: actions/github-script@v7
+      # Гейт: превью не публикуется, пока проверки пулреквеста не зелёные.
+      # Проверки живут в отдельном воркфлоу (PR Checks) на триггере pull_request,
+      # а needs между воркфлоу не работает — поэтому опрашиваем Checks API.
+      # Переносить сами проверки сюда нельзя: они выполняют код из форка, а под
+      # pull_request_target у GITHUB_TOKEN права на запись.
+      - name: Ожидание проверок
+        id: gate
+        uses: actions/github-script@v7
         with:
           script: |
             const names = ['Форматирование', 'Мета', 'Ссылки']
@@ -114,20 +90,31 @@ jobs:
             }
             core.setFailed('Проверки не завершились за 15 минут')
 
-  pr-preview:
-    name: Сборка и загрузка превью
-    runs-on: ubuntu-latest
-    needs:
-      - prepare
-      - checks
-    outputs:
-      published: ${{ steps.build-preview.outcome == 'success' }}
-      links: ${{ steps.links.outputs.list }}
-    env:
-      DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PATH_TO_CONTENT: ./content
-    steps:
+      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
+      # и адреса разное у разных разделов:
+      #   css/optional/index.md   → /css/optional/
+      #   pages/about/index.md    → /about/        папка раздела выпадает
+      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
+      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
+      # страниц тоже не имеют, поэтому в список не попадают.
+      - name: Выборка изменённых материалов
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          urls=$(gh api --paginate \
+            "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            --jq '.[].filename' \
+            | awk -F/ '
+                NF == 3 && $3 == "index.md" {
+                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
+                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
+                }' \
+            | sort -u \
+            | tr '\n' ' ')
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+          echo "Затронуто страниц: $(echo $urls | wc -w)"
       - name: Загрузка platform
         uses: actions/checkout@v4
         with:
@@ -173,7 +160,7 @@ jobs:
         run: |
           set -eu
           items=""
-          for url in ${{ needs.prepare.outputs.urls }}; do
+          for url in ${{ steps.files.outputs.urls }}; do
             items="${items}<li><a href=\"${{ env.DEPLOY_DOMAIN }}${url}\">${url}</a></li>"
           done
           if [ -n "$items" ]; then
@@ -216,7 +203,6 @@ jobs:
           echo "::endgroup::"
 
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
-
   # Итоговая заметка. always(), иначе при упавших проверках или сборке в
   # описании навсегда останется «Идут проверки и сборка...».
   report:
@@ -224,9 +210,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs:
-      - note-start
-      - checks
-      - pr-preview
+      - preview
     if: ${{ always() && !cancelled() }}
     permissions:
       pull-requests: write
@@ -237,9 +221,9 @@ jobs:
         env:
           # Обращение по индексу, а не через точку: в идентификаторе джобы есть
           # дефис, и выражение разобралось бы как вычитание.
-          CHECKS_PASSED: ${{ needs.checks.result == 'success' }}
-          IS_PUBLISHED: ${{ needs['pr-preview'].outputs.published == 'true' }}
-          LINKS: ${{ needs['pr-preview'].outputs.links }}
+          CHECKS_PASSED: ${{ needs.preview.outputs.checks == 'success' }}
+          IS_PUBLISHED: ${{ needs.preview.outputs.published == 'true' }}
+          LINKS: ${{ needs.preview.outputs.links }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           DEPLOY_DOMAIN: ${{ env.DEPLOY_DOMAIN }}
