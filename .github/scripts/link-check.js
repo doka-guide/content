@@ -468,7 +468,9 @@ function checkForwardLinks(filePath) {
     }
 
     if (url.startsWith('#')) {
-      if (isInterviewPath(filePath)) {
+      // Материалы из docs/ на сайт не попадают, их читают на GitHub, а он
+      // делает якоря из самого текста заголовка, без транслитерации.
+      if (isInterviewPath(filePath) || filePath.startsWith('docs/')) {
         continue
       }
       const anchors = extractArticleAnchors(
