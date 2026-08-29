@@ -1,7 +1,7 @@
 // node --test .github/scripts/sort-dictionary.test.mjs
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { sort, sortKey } from './sort-dictionary.mjs'
+import { merge, sort, sortKey } from './sort-dictionary.mjs'
 
 function sorted(input) {
   return JSON.parse(sort(JSON.stringify(input)))
@@ -51,4 +51,28 @@ test('переживает отсутствие списка латиницы', 
   const result = sorted({ dictionary: ['ховер'] })
 
   assert.deepEqual(result.latin, [])
+})
+
+test('складывает записи с одной основой', () => {
+  // Так они и копятся: дописал форму, не заметив старую строку.
+  assert.deepEqual(merge(['бандл(а)', 'бандл(ов|ы)']), ['бандл(а|ы|ов)'])
+})
+
+test('складывает слово целиком с записью той же основы', () => {
+  assert.deepEqual(merge(['фолбэк(|а)', 'фолбэков']), ['фолбэк(|а|ов)'])
+})
+
+test('не склеивает разные слова с общим началом', () => {
+  // «гридлок» не форма «грида»: «лок» не окончание.
+  assert.deepEqual(merge(['грид', 'гридлок']).sort(), ['грид', 'гридлок'])
+})
+
+test('одиночное слово остаётся без скобок', () => {
+  assert.deepEqual(merge(['ховер']), ['ховер'])
+})
+
+test('склейка попадает в итоговый файл', () => {
+  const { dictionary } = JSON.parse(sort(JSON.stringify({ dictionary: ['контрол(ом)', 'контрол(а|ы)'] })))
+
+  assert.deepEqual(dictionary, ['контрол(а|ы|ом)'])
 })
