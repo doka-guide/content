@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - html/head
-  - css/keyframes
-  - tools/docker
+  - a11y/aria-hidden
+  - css/pseudoelements
+  - recipes/git-rebase-onto
+  - html/flow
+  - tools/webpack
+  - recipes/character-counter
+  - recipes/progress
+  - js/execution-order
+  - html/nav
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - html/section
   - html/input
   - js/infinite-scroll
   - recipes/center
-  - html/nav
-  - recipes/ajax-form
-  - js/var-let
-  - css/attr
-  - recipes/popup
-  - a11y/live-region
-  - css/custom-properties
-  - css/box-sizing
-  - tools/cli
-  - tools/how-to-test-and-why
-  - html/video
-  - a11y/aria-hidden
-  - a11y/css-impact-on-a11y
-  - js/async-in-js
-  - tools/webpack
-  - css/box-model
-  - tools/cors
-  - js/function-context
-  - js/geolocation-api
-  - a11y/aria-intro
-  - js/execution-order
-  - css/specificity
-  - tools/ci-cd
-  - js/boolean
-  - html/doctype
-  - css/media
-  - html/img
-  - a11y/screenreaders
-  - tools/network
-  - a11y/content-hidden
-  - js/array-entries
-  - css/grid-guide
-  - recipes/git-rebase-onto
-  - css/scrollbar-gutter
-  - css/box-shadow
   - tools/how-the-browser-creates-pages
-  - tools/bundlers
-  - recipes/character-counter
-  - tools/markdown
-  - tools/oop
-  - recipes/progress
+  - css/keyframes
   - tools/agile
-  - css/flexbox-guide
-  - html/section
-  - js/closures
-  - recipes/lets-encrypt-nginx
-  - css/position
-  - js/deal-with-forms
-  - css/transform-function
-  - tools/clean-architecture
-  - tools/gitlab-ci-cd
-  - js/array-reduce-right
-  - html/div
-  - tools/static-types
-  - html/flow
-  - css/display
   - html/article
+  - js/boolean
+  - tools/cli
+  - js/async-in-js
+  - js/array-entries
+  - css/flexbox-guide
+  - tools/bundlers
+  - a11y/live-region
+  - css/attr
+  - css/box-sizing
+  - js/closures
+  - js/var-let
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/static-types
   - html/form
-  - js/function
-  - css/pseudoelements
+  - js/geolocation-api
+  - css/transform-function
+  - tools/cors
+  - tools/ci-cd
+  - css/custom-properties
+  - css/box-model
+  - tools/docker
+  - a11y/screenreaders
+  - html/video
+  - js/function-context
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/position
+  - tools/gitlab-ci-cd
+  - a11y/content-hidden
   - recipes/snow
+  - tools/network
+  - a11y/css-impact-on-a11y
+  - html/doctype
+  - tools/markdown
+  - html/head
+  - css/specificity
+  - css/box-shadow
+  - recipes/ajax-form
+  - css/grid-guide
+  - css/display
+  - js/array-reduce-right
+  - html/img
+  - tools/oop
+  - html/div
+  - js/function
+  - recipes/popup
+  - js/deal-with-forms
 ---
 
