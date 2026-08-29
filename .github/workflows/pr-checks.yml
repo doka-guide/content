@@ -57,6 +57,29 @@ jobs:
           else
             echo "В PR нет файлов для проверки"
           fi
+  # Тесты скрипта: node --test .github/scripts/check-yo.test.mjs
+  yo:
+    name: Буква ё
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - id: files
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: Ana06/get-changed-files@v2.2.0
+        with:
+          filter: '*.md'
+      - name: Работает проверка
+        run: |
+          files='${{ steps.files.outputs.added_modified }}'
+          if [[ $files == "" ]]; then
+            echo "В пулреквесте нет файлов для проверки"
+            exit 0
+          fi
+          node .github/scripts/check-yo.mjs $files
+
   link-checker:
     name: Ссылки
     needs:
