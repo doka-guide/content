@@ -12,9 +12,11 @@ import { spawnSync } from 'node:child_process'
 const DICTIONARY = '.yaspeller.json'
 const CONFIG = 'cspell.json'
 
+// Словарь разделён на два списка, чтобы русские слова и латиница не мешались:
+// dictionary — кириллица, latin — термины, имена и аббревиатуры.
 export function loadDictionary(source) {
-  const { dictionary = [] } = JSON.parse(source)
-  return dictionary.map((entry) => new RegExp('^(?:' + entry + ')$', 'iu'))
+  const { dictionary = [], latin = [] } = JSON.parse(source)
+  return [...dictionary, ...latin].map((entry) => new RegExp('^(?:' + entry + ')$', 'iu'))
 }
 
 export function isKnown(word, patterns) {

@@ -57,6 +57,13 @@ test('регистр не важен', () => {
   assert.ok(isKnown('АДАПТИВ', patterns))
 })
 
+test('латиница берётся из отдельного списка', () => {
+  const patterns = loadDictionary('{"dictionary":["ховер"],"latin":["OKLCH"]}')
+
+  assert.ok(isKnown('ховер', patterns))
+  assert.ok(isKnown('OKLCH', patterns))
+})
+
 test('разбор вывода cspell достаёт слово и координаты', () => {
   const found = parse('css/grid/index.md:12:5 - Unknown word (шорткат)')
 
