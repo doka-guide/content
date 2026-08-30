@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Фото сквозь текст — background-attachment — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: #FFFFFF;
+    }
+
+    /* === стили демо === */
+
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section--bottom {
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      color: rgb(255 255 255 / 0.4);
+    }
+
+    .clip-text {
+      font-size: clamp(56px, 12vw, 96px);
+      font-weight: 900;
+      line-height: 1;
+      text-align: center;
+      letter-spacing: -0.02em;
+      background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1440&h=900&fit=crop&auto=format&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      user-select: none;
+    }
+
+    .controls {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgb(24 25 28 / 0.85);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgb(255 255 255 / 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .toggle-label {
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 20px;
+      transition: background-color 0.15s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.15s;
+    }
+
+    .switch input:checked + .slider {
+      background-color: #2E9AFF;
+      border-color: #2E9AFF;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(16px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+      z-index: 100;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label" id="label">fixed</span>
+  </div>
+
+  <div class="page">
+    <section class="section">
+      <div class="clip-text" id="text">
+        SCROLL<br>DOWN
+      </div>
+    </section>
+    <section class="section section--bottom">
+      При fixed фото смещается сквозь буквы при прокрутке
+    </section>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-attachment/">background-attachment — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const text = document.getElementById('text');
+    const label = document.getElementById('label');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        text.style.backgroundAttachment = 'fixed';
+        label.textContent = 'fixed';
+      } else {
+        text.style.backgroundAttachment = 'scroll';
+        label.textContent = 'scroll';
+      }
+      document.querySelector('.page').scrollTop = 0;
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

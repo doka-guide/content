@@ -8,17 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
+      color-scheme: light;
       height: 100%;
     }
 
-    html {
-      display: grid;
-    }
-
     body {
-      background-color: #ffd829;
-      color: #000000;
+      height: 100%;
+      background-color: #2E9AFF;
+      color: #FFFFFF;
       display: grid;
       place-content: center;
       font-family: "Roboto Mono", monospace;

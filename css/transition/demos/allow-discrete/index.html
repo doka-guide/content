@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Плавное появление display: none — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .wrapper {
+      inline-size: 400px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .toggle {
+      padding-block: 10px;
+      padding-inline: 20px;
+      border: none;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .menu {
+      margin-block-start: 30px;
+      padding: 20px;
+      border-radius: 6px;
+      background-color: #282A2E;
+      text-align: left;
+
+      /* Описываем переход для display, opacity и transform */
+      transition: display 0.3s allow-discrete, opacity 0.3s, transform 0.3s;
+      /* Прячем меню */
+      display: none;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .menu.is-open {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Стартовое состояние для появления из display: none */
+    @starting-style {
+      .menu.is-open {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    .menu-item {
+      padding-block: 6px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        inline-size: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button class="toggle" type="button">Открыть меню</button>
+    <div class="menu">
+      <div class="menu-item">Профиль</div>
+      <div class="menu-item">Настройки</div>
+      <div class="menu-item">Выйти</div>
+    </div>
+  </div>
+
+  <script>
+    const button = document.querySelector('.toggle');
+    const menu = document.querySelector('.menu');
+
+    button.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      button.textContent = isOpen ? 'Закрыть меню' : 'Открыть меню';
+    });
+  </script>
+</body>
+</html>
