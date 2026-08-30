@@ -57,6 +57,7 @@ groups:
       - indeterminate
       - user-valid-invalid
       - dir
+      - blank
       - picture-in-picture
       - fullscreen
   - name: 'Псевдоэлементы'
@@ -418,6 +419,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - page
+      - break-after
       - orphans
       - widows
       - print-color-adjust
