@@ -1,5 +1,5 @@
 ---
-title: "Iterator.prototype.toArray()"
+title: "`Iterator.prototype.toArray()`"
 description: "Создаёт массив из значений, возвращаемых итератором"
 baseline:
   - group: iterator-methods
@@ -17,7 +17,7 @@ tags:
 
 ## Кратко
 
-Метод `Iterator.prototype.toArray()` возвращает массив значений, полученных при обходе итератора. О том, что такое итератор, можно прочитать в статье [«Итератор»](/js/iterator/).
+Метод `Iterator.prototype.toArray()` возвращает массив значений, полученных при обходе итератора. О том, что такое итератор, можно прочитать в статье «[Итератор](/js/iterator/)».
 
 ## Пример
 
