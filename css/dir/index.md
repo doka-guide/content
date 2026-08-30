@@ -15,8 +15,6 @@ keywords:
   - направление письма
 related:
   - html/bdo
-  - css/direction
-  - css/any-link
 tags:
   - doka
 ---
