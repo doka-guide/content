@@ -13,7 +13,7 @@ description: "Попробуйте разные значения display и по
         .demo-box:nth-child(3) { background: #e74c3c; }
         .demo-info { margin-top: 15px; padding: 10px; background: #e8f4fd; border-radius: 8px; font-size: 14px; }
     </style>
-    
+
     <div class="demo-controls">
         <label>🎮 Выберите значение <code>display</code>: </label>
         <select id="demoDisplaySelect">
@@ -24,28 +24,28 @@ description: "Попробуйте разные значения display и по
             <option value="grid">grid</option>
         </select>
     </div>
-    
+
     <div class="demo-boxes" id="demoDisplayBoxes">
         <div class="demo-box">Блок 1</div>
         <div class="demo-box">Блок 2</div>
         <div class="demo-box">Блок 3</div>
         <div class="demo-box">Блок 4</div>
     </div>
-    
+
     <div class="demo-info" id="demoDisplayInfo">
         Текущее значение: <code>block</code>
     </div>
-    
+
     <script>
         const select = document.getElementById('demoDisplaySelect');
         const container = document.getElementById('demoDisplayBoxes');
         const info = document.getElementById('demoDisplayInfo');
-        
+
         function updateDisplay() {
             const value = select.value;
             container.style.display = value;
             info.innerHTML = `Текущее значение: <code>${value}</code><br><br>`;
-            
+
             if (value === 'flex') {
                 container.style.gap = '8px';
                 container.style.flexWrap = 'wrap';
@@ -64,7 +64,7 @@ description: "Попробуйте разные значения display и по
                 else info.innerHTML += 'Режим <strong>block</strong> — каждый элемент с новой строки.';
             }
         }
-        
+
         select.addEventListener('change', updateDisplay);
         updateDisplay();
     </script>
