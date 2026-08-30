@@ -1,19 +1,16 @@
 ---
-
 title: "`:target`"
 description: "Управляет стилем элемента, на который ссылается якорная ссылка."
 authors:
-
-* bellabzhu
-  contributors:
-* drakesbot12
-  related:
-* css/pseudoclasses
-* css/id-selector
-* html/a
-  tags:
-* doka
-
+  - bellabzhu
+contributors:
+  - drakesbot12
+related:
+  - css/pseudoclasses
+  - css/id-selector
+  - html/a
+tags:
+  - doka
 ---
 
 ## Кратко
