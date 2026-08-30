@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Делегирование событий — Событийная модель — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-size: 24px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h4 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.125rem;
+      align-self: flex-start;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    ul {
+      padding-left: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style-type: none;
+    }
+
+    li {
+      cursor: pointer;
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #FF8630;
+    }
+
+    li:hover {
+      color: #FFD829;
+    }
+
+    li.completed {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h4>Задачи:</h4>
+    <ul id="tasks">
+      <li>Купить хлеб</li>
+      <li>Покормить кота</li>
+      <li>Сделать ДЗ</li>
+    </ul>
+  </div>
+
+
+  <script>
+    const tasksList = document.getElementById('tasks')
+
+    tasksList.addEventListener('click', (event) => {
+      const li = event.target.closest('li'); // Ищем ближайший li
+
+      if (li) {
+        li.classList.toggle('completed'); // Зачеркиваем задачу
+      }
+    });
+  </script>
+</body>
+</html>

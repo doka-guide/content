@@ -1,6 +1,10 @@
 ---
 title: "`scroll-snap-stop`"
 description: "Задаёт обязательность остановки прокрутки в каждой точке привязки."
+baseline:
+  - group: scroll-snap
+    features:
+      - css.properties.scroll-snap-stop
 authors:
   - akhmadullin
 related:

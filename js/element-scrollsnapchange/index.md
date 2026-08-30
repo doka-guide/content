@@ -23,10 +23,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 scrollContainer.addEventListener('scrollsnapchange', function(event) {
   console.log(event)
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+scrollContainer.onscrollsnapchange = function(event) {
+  console.log(event)
+}
 ```
 
 ## Как понять
