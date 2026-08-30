@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2026
+
+- 30 августа, [Разрыв страницы](https://doka.guide/css/break-after/), Егор Левченко, Татьяна Фокина
+
 ## Июль 2026
 
 - 18 июля, [`WebSocket`](https://doka.guide/js/websocket/), Игорь Теплостанский
