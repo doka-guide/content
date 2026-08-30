@@ -1,6 +1,6 @@
 ---
-title: "bind(), call() и apply()"
-description: "Методы привязки контекста: bind(), call() и apply()"
+title: "`bind()`, `call()` и `apply()`"
+description: "Методы привязки контекста: `bind()`, `call()` и `apply()`"
 authors:
   - lira-bazh
 related:

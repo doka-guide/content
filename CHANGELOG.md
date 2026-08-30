@@ -2,8 +2,28 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2026
+
+- 18 июля, [`WebSocket`](https://doka.guide/js/websocket/), Игорь Теплостанский
+- 18 июля, [`:user-valid`, `:user-invalid`](https://doka.guide/css/invalid-valid/), DrakesWeb
+- 18 июля, [`@counter-style`](https://doka.guide/css/counter-style/), DrakesWeb
+- 11 июля, [`.removeProperty()`](https://doka.guide/js/element-removeproperty/), Кирилл Белоусов
+- 11 июля, [`Iterator.prototype.map()`](https://doka.guide/js/iterator-map/), Viktar Nezhbart
+- 7 июля, [Контрастность цветов в интерфейсе](https://doka.guide/a11y/color-contrast/), Аэлита Файзуллина
+- 5 июля, [`:picture-in-picture`](https://doka.guide/css/picture-in-picture/), DrakesWeb
+- 5 июля, [`::details-content`](https://doka.guide/css/details-content/), DrakesWeb
+- 4 июля, [`:fullscreen`](https://doka.guide/css/fullscreen/), DrakesWeb
+- 4 июля, [`::cue`](https://doka.guide/css/cue/), DrakesWeb
+- 4 июля, [`@namespace`](https://doka.guide/css/namespace/), DrakesWeb
+- 4 июля, [`@font-feature-values`](https://doka.guide/css/font-feature-values/), DrakesWeb
+- 4 июля, [`@charset`](https://doka.guide/css/charset/), DrakesWeb
+- 3 июля, [`::file-selector-button`](https://doka.guide/css/file-selector-button/), DrakesWeb
+- 3 июля, [`::target-text`](https://doka.guide/css/target-text/), DrakesWeb
+- 3 июля, [`focusin`](https://doka.guide/js/event-focusin/), Лира
+
 ## Июнь 2026
 
+- 30 июня, [`scroll-margin`](https://doka.guide/css/scroll-margin/), DrakesWeb
 - 29 июня, [`Promise.withResolvers()`](https://doka.guide/js/promise-with-resolvers/), Viktar Nezhbart
 - 27 июня, [`focus`](https://doka.guide/js/event-focus/), Лира
 - 19 июня, [`font-size-adjust`](https://doka.guide/css/font-size-adjust/), Алёна Батицкая
