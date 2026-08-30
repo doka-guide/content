@@ -4,33 +4,117 @@ on:
   pull_request_target:
 
 jobs:
-  prepare:
-    name: Подготовка списка файлов
-    runs-on: ubuntu-latest
-    outputs:
-      files: ${{ steps.files.outputs.all }}
-    steps:
-      - name: Выборка файлов для формирования списка
-        id: files
-        run: |
-          pr_files=$(echo $(curl \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files))
-          list=$(echo $pr_files | grep -o '"filename": "[^"]*' | cut -d'"' -f4)
-          mdReplaced=${list//md/html}
-          returnReplaced=${list//$"\n"/ }
-          echo "::set-output name=all::$returnReplaced"
-          echo $returnReplaced
-  pr-preview:
+  # Всё превью одной джобой: заметка, ожидание проверок и сборка. Отдельными
+  # джобами это давало пять галок в списке проверок пулреквеста, хотя интересен
+  # только исход.
+  preview:
     name: Сборка и загрузка превью
     runs-on: ubuntu-latest
-    needs:
-      - prepare
+    # Заметку пишем в описание пулреквеста, проверки читаем через Checks API.
+    permissions:
+      pull-requests: write
+      checks: read
+      contents: read
+    outputs:
+      checks: ${{ steps.gate.outcome }}
+      published: ${{ steps.build-preview.outcome == 'success' }}
+      links: ${{ steps.links.outputs.list }}
     env:
       DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PATH_TO_CONTENT: ./content
     steps:
+      # Заметка живёт в описании пулреквеста, а не отдельным комментарием: GitHub
+      # шлёт письмо на создание комментария, а правку описания не рассылает вовсе.
+      - name: Заметка о начале
+        uses: actions/github-script@v7
+        env:
+          MESSAGE: "Идут проверки и сборка превью... [Подробнее](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const pull_number = context.payload.pull_request.number
+            const marker = `<!-- doka-preview-${pull_number} -->`
+            const endMarker = `<!-- /doka-preview-${pull_number} -->`
+            const block = `${marker}\n${process.env.MESSAGE}\n${endMarker}`
+            // Описание перечитываем прямо перед записью: автор мог поправить
+            // его, пока шли проверки и сборка.
+            const { data: pull } = await github.rest.pulls.get({ owner, repo, pull_number })
+            const current = pull.body || ''
+            const start = current.indexOf(marker)
+            const end = current.indexOf(endMarker)
+            const body =
+              start !== -1 && end !== -1 && end > start
+                ? current.slice(0, start) + block + current.slice(end + endMarker.length)
+                : current.trimEnd()
+                  ? `${current.trimEnd()}\n\n${block}`
+                  : block
+            await github.rest.pulls.update({ owner, repo, pull_number, body })
+      # Гейт: превью не публикуется, пока проверки пулреквеста не зелёные.
+      # Проверки живут в отдельном воркфлоу (PR Checks) на триггере pull_request,
+      # а needs между воркфлоу не работает — поэтому опрашиваем Checks API.
+      # Переносить сами проверки сюда нельзя: они выполняют код из форка, а под
+      # pull_request_target у GITHUB_TOKEN права на запись.
+      - name: Ожидание проверок
+        id: gate
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const names = ['Форматирование', 'Мета', 'Ссылки']
+            const { owner, repo } = context.repo
+            const ref = context.payload.pull_request.head.sha
+            const deadline = Date.now() + 15 * 60 * 1000
+
+            while (Date.now() < deadline) {
+              const { data } = await github.rest.checks.listForRef({ owner, repo, ref, per_page: 100 })
+              const runs = names.map((name) => data.check_runs.find((run) => run.name === name))
+              // skipped и neutral провалом не считаются: «Ссылки» пропускаются,
+              // когда упали предыдущие проверки, и их провал уже виден отдельно.
+              const failed = runs.filter(
+                (run) =>
+                  run &&
+                  run.status === 'completed' &&
+                  !['success', 'skipped', 'neutral'].includes(run.conclusion),
+              )
+              if (failed.length) {
+                core.setFailed(`Проверки не прошли: ${failed.map((run) => run.name).join(', ')}`)
+                return
+              }
+              if (runs.every((run) => run && run.status === 'completed')) {
+                core.info('Все проверки пройдены')
+                return
+              }
+              const pending = names.filter((name, index) => !runs[index] || runs[index].status !== 'completed')
+              core.info(`Ждём: ${pending.join(', ')}`)
+              await new Promise((resolve) => setTimeout(resolve, 15000))
+            }
+            core.setFailed('Проверки не завершились за 15 минут')
+
+      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
+      # и адреса разное у разных разделов:
+      #   css/optional/index.md   → /css/optional/
+      #   pages/about/index.md    → /about/        папка раздела выпадает
+      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
+      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
+      # страниц тоже не имеют, поэтому в список не попадают.
+      - name: Выборка изменённых материалов
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          urls=$(gh api --paginate \
+            "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            --jq '.[].filename' \
+            | awk -F/ '
+                NF == 3 && $3 == "index.md" {
+                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
+                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
+                }' \
+            | sort -u \
+            | tr '\n' ' ')
+          echo "urls=$urls" >> "$GITHUB_OUTPUT"
+          echo "Затронуто страниц: $(echo $urls | wc -w)"
       - name: Загрузка platform
         uses: actions/checkout@v4
         with:
@@ -40,57 +124,40 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           path: content
+          allow-unsafe-pr-checkout: true
       - name: Загрузка кеша
         uses: actions/checkout@v4
         with:
           repository: doka-guide/cache
           path: cache
+      # Версия берётся из .nvmrc платформы: именно её зависимости здесь
+      # ставятся. Зашитая версия разъезжается с платформой — так превью и
+      # выкатка сломались, когда платформа перешла на Node 24, а здесь
+      # осталась двадцатая.
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Кэширование модулей
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Получение идентификатора
-        id: check
-        run: |
-          check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
-          check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
-          echo "::set-output name=check_id::$check_run_id"
+          node-version-file: .nvmrc
       - name: Установка модулей
         run: npm ci
       - name: Копирование кеша
         run: cp ./cache/issues.json ./.issues.json
-      - name: Сообщение о начале публикации превью
-        uses: hasura/comment-progress@v2.1.0
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.pull_request.number }}
-          id: preview-${{ github.event.pull_request.number }}
-          message: "Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
-          recreate: true
-      - name: Форматирование списка файлов
+      # Блок со ссылками добавляется к сообщению только когда есть что
+      # показать: у пулреквестов, которые правят воркфлоу или служебные файлы,
+      # затронутых материалов нет, и раскрывашка там пустая и бессмысленная.
+      - name: Формирование ссылок на материалы
         id: links
         run: |
-          file_list=""
-          for f in ${{ needs.prepare.outputs.files }}; do
-            if [[ $changed_file =~ ".html" ]]; then
-              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${f}">${f}</a></li>")
-            fi
+          set -eu
+          items=""
+          for url in ${{ steps.files.outputs.urls }}; do
+            items="${items}<li><a href=\"${{ env.DEPLOY_DOMAIN }}${url}\">${url}</a></li>"
           done
-          if ! [[ $file_list == "" ]]; then
-            file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
+          if [ -n "$items" ]; then
+            block="<details><summary>Затронутые материалы</summary><ul>${items}</ul></details>"
+          else
+            block=""
           fi
-          echo ::set-output name=list::$(echo -e "${file_list}")
+          echo "list=$block" >> "$GITHUB_OUTPUT"
       - name: Установка ключа для пользователя
         run: |
           set -eu
@@ -101,30 +168,111 @@ jobs:
         id: build-preview
         continue-on-error: true
         run: |
+          set -eu
           cp .env.example .env
-          npm run preview
+
+          # Сборка молчит около двух минут, а публикация — ещё дольше. Без
+          # отметок шаг выглядит зависшим, и непонятно, на чём именно он стоит.
+          echo "::group::Сборка сайта"
+          echo "Начало: $(date -u +%H:%M:%S) UTC. Сборка занимает пару минут и молчит до конца."
+          npm run build
+          echo "Готово: $(date -u +%H:%M:%S) UTC. Страниц собрано: $(find dist -name '*.html' | wc -l)."
+          echo "::endgroup::"
+
+          echo "::group::Публикация превью"
+          echo "Начало: $(date -u +%H:%M:%S) UTC. Отправляется $(du -sh dist | cut -f1)."
           ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
-          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --compress --delete . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
+          # --info=progress2 показывает общий прогресс одной обновляемой строкой,
+          # а не портянку из десятков тысяч имён файлов, как прежний --progress.
+          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" \
+            --archive --compress --delete --info=progress2 \
+            . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
+          echo ""
+          echo "Готово: $(date -u +%H:%M:%S) UTC."
+          echo "::endgroup::"
+
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
-          echo -e "${{ steps.links.outputs.list }}"
-      - name: Сообщение о неудаче публикации превью
-        uses: hasura/comment-progress@v2.1.0
-        if: failure()
+  # Итоговая заметка. always(), иначе при упавших проверках или сборке в
+  # описании навсегда останется «Идут проверки и сборка...».
+  report:
+    name: Отчёт в пулреквесте
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs:
+      - preview
+    if: ${{ always() && !cancelled() }}
+    permissions:
+      pull-requests: write
+    env:
+      DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          # Обращение по индексу, а не через точку: в идентификаторе джобы есть
+          # дефис, и выражение разобралось бы как вычитание.
+          CHECKS_PASSED: ${{ needs.preview.outputs.checks == 'success' }}
+          IS_PUBLISHED: ${{ needs.preview.outputs.published == 'true' }}
+          LINKS: ${{ needs.preview.outputs.links }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          DEPLOY_DOMAIN: ${{ env.DEPLOY_DOMAIN }}
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.pull_request.number }}
-          id: preview-${{ github.event.pull_request.number }}
-          message: "Превью контента из ${{ github.event.after }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
-          fail: true
-          recreate: true
-      - name: Сообщение об успехе публикации превью
-        uses: hasura/comment-progress@v2.1.0
-        if: success()
+          script: |
+            const checksPassed = process.env.CHECKS_PASSED === 'true'
+            const isPublished = process.env.IS_PUBLISHED === 'true'
+            const sha = process.env.HEAD_SHA
+
+            let message
+            if (!checksPassed) {
+              message = `Превью контента из ${sha} не опубликовано: не прошли проверки пулреквеста. [Подробнее](${process.env.RUN_URL})`
+            } else if (isPublished) {
+              message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${process.env.LINKS || ''}`
+            } else {
+              message = `Превью контента из ${sha} не опубликовано. Ошибка сборки или публикации. [Подробнее](${process.env.RUN_URL})`
+            }
+
+            const { owner, repo } = context.repo
+            const pull_number = context.payload.pull_request.number
+            const marker = `<!-- doka-preview-${pull_number} -->`
+            const endMarker = `<!-- /doka-preview-${pull_number} -->`
+            const block = `${marker}\n${message}\n${endMarker}`
+            // Описание перечитываем прямо перед записью: автор мог поправить
+            // его, пока шли проверки и сборка.
+            const { data: pull } = await github.rest.pulls.get({ owner, repo, pull_number })
+            const current = pull.body || ''
+            const start = current.indexOf(marker)
+            const end = current.indexOf(endMarker)
+            const body =
+              start !== -1 && end !== -1 && end > start
+                ? current.slice(0, start) + block + current.slice(end + endMarker.length)
+                : current.trimEnd()
+                  ? `${current.trimEnd()}\n\n${block}`
+                  : block
+            await github.rest.pulls.update({ owner, repo, pull_number, body })
+
+            // Красная галка нужна только на нашей поломке: провал проверок уже
+            // виден отдельной красной джобой, дублировать его незачем.
+            if (checksPassed && !isPublished) {
+              core.setFailed('Превью не опубликовано')
+            }
+      # Комментарии прошлой схемы. Убираем оставшиеся, чтобы в ленте не висело
+      # вечное «Идёт сборка...». Шаг можно удалить, когда их не останется.
+      - name: Уборка старых комментариев
+        uses: actions/github-script@v7
+        continue-on-error: true
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.pull_request.number }}
-          id: preview-${{ github.event.pull_request.number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.after }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
-          recreate: true
+          script: |
+            const { owner, repo } = context.repo
+            const issue_number = context.payload.pull_request.number
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100,
+            })
+            for (const comment of comments) {
+              const isBot = comment.user?.login === 'github-actions[bot]'
+              if (isBot && (comment.body || '').includes('Превью контента')) {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id })
+              }
+            }

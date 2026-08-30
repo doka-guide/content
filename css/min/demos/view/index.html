@@ -8,24 +8,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    html {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html {
-      display: grid;
-      place-items: center;
+      color-scheme: dark;
     }
 
     body {
-      background-color: #18191c;
-      color: white;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto Mono", monospace;
+    }
+
+    p {
+      margin-bottom: 1em;
     }
 
     iframe {
       margin-bottom: 1em;
       width: 600px;
+      max-width: 100%;
       height: 250px;
       border: none;
       border-radius: 1em;
@@ -35,6 +47,13 @@
       margin: auto;
       display: block;
       width: 300px;
+      max-width: 100%;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

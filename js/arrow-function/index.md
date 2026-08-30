@@ -97,7 +97,7 @@ f('обычная функция')
 //  { 0: 'обычная функция', length: 1 }
 ```
 
-У стрелочных функций нет свойств `сonstructor` и `prototype`:
+У стрелочных функций нет свойств `constructor` и `prototype`:
 
 ```js
 const arrowFunction = () => {}
