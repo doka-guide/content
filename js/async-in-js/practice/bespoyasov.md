@@ -17,7 +17,7 @@
 - либо подождать, когда выполнятся все запросы, и потом сделать что-то;
 - либо дождаться выполнения первого запроса из списка и сделать что-то сразу после этого.
 
-Для этого мы можем использовать [`Promise.all()`](/js/promise-all/) и [`Promise.race()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/race).
+Для этого мы можем использовать [`Promise.all()`](/js/promise-all/) и [`Promise.race()`](/js/promise-race/).
 
 Когда мы хотим дождаться выполнения всех запросов и сделать что-то после этого:
 

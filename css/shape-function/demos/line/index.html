@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команда line — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .shape {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+    }
+
+    .arrow {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #f093fb, #f5576c);
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .shape {
+        clip-path: shape(from 0 0, line to 100% 0, line to 100% 100%, line to 0 100%, close);
+      }
+
+      .arrow {
+        clip-path: shape(from 0 30%, line to 60% 30%, line to 60% 0, line to 100% 50%, line to 60% 100%, line to 60% 70%, line to 0 70%, close);
+      }
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>.<br>
+    Проверьте <a href="https://caniuse.com/mdn-css_types_basic-shape_shape" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">актуальную поддержку</a> на Can I use.
+  </div>
+  <div class="container">
+    <div class="shape"></div>
+    <span class="label">Прямоугольник</span>
+  </div>
+  <div class="container">
+    <div class="arrow"></div>
+    <span class="label">Стрелка</span>
+  </div>
+</body>
+</html>

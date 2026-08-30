@@ -15,8 +15,11 @@ groups:
       - lazy-load-with-preview
       - validation
       - masonry
+      - input-range-style
       - slider
       - checkbox-radio-style
+      - tooltip
+      - skeleton
       - star-rating
   - name: 'Работа с GitHub'
     items:
@@ -36,6 +39,7 @@ groups:
       - github-pages-static-site
       - github-new-organization
       - github-add-ssh-access
+      - github-contributes-heatmap
   - name: 'React'
     items:
       - expressive-react-rectangle

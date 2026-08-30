@@ -1,6 +1,17 @@
 ---
 title: "`scroll-padding`"
 description: "Как отступы, только для прокрутки: свойство позволяет остановить прокрутку на определённом расстоянии от края контейнера"
+baseline:
+  - group: scroll-snap
+    features:
+      - css.properties.scroll-padding
+      - css.properties.scroll-padding-bottom
+      - css.properties.scroll-padding-left
+      - css.properties.scroll-padding-right
+      - css.properties.scroll-padding-top
+      - css.properties.scroll-padding.auto
+      - css.properties.scroll-padding-block
+      - css.properties.scroll-margin-inline
 authors:
   - vaiil
 related:

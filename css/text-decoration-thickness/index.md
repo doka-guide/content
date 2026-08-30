@@ -1,8 +1,14 @@
 ---
 title: "`text-decoration-thickness`"
 description: "Какой будет толщина декоративной линии под (или над) текстом?"
+baseline:
+  - group: text-decoration
+    features:
+      - css.properties.text-decoration-thickness.percentage
 authors:
   - nailheart
+contributors:
+  - vitya-ne
 keywords:
   - толщина декоративной линии
 related:
@@ -58,8 +64,6 @@ tags:
 - `auto` — значение по умолчанию, браузер сам определит толщину линии.
 - `from-font` — если в файле шрифта прописана предпочтительная толщина декоративной линии, то будет использована она. Если нет, то значение будет установлено в `auto`.
 - Толщина в единицах измерения — можно задать толщину линии во всех доступных [единицах измерения](/css/numeric-types/).
-
-Обратите внимание, что толщина в **процентах** поддерживается не всеми браузерами. Подробнее на [Can I use](https://caniuse.com/mdn-css_properties_text-decoration-thickness_percentage).
 
 ## Подсказки
 

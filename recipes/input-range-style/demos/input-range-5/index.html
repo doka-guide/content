@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Кроссбраузерный вариант — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+    >
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (width < 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+
+      .range {
+        --range-track-top: 90px;
+        --range-output-left: calc(var(--value) * 1%);
+        --range-output-offset-xy: calc(var(--value) * -1%), 0;
+
+        position: relative;
+        display: grid;
+        width: 210px;
+      }
+
+      .range-label {
+        margin-block-end: 50px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .range-input {
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        appearance: none;
+        background: none;
+      }
+
+      .range-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 0 5px inset #c56fff;
+        transition: 300ms;
+      }
+
+      .range-input::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 0 5px inset #c56fff;
+        transition: 300ms;
+      }
+
+      .range-input:hover::-webkit-slider-thumb,
+      .range-input:focus-visible::-webkit-slider-thumb {
+        box-shadow: 0 0 0 10px inset #c56fff;
+      }
+
+      .range-input:hover::-moz-range-thumb,
+      .range-input:focus-visible::-moz-range-thumb {
+        box-shadow: 0 0 0 10px inset #c56fff;
+      }
+
+      .range-input:active::-webkit-slider-thumb {
+        box-shadow: 0 0 0 30px inset #c56fff;
+      }
+      .range-input:active::-moz-range-thumb {
+        box-shadow: 0 0 0 30px inset #c56fff;
+      }
+
+      .range-input:disabled::-webkit-slider-thumb {
+        box-shadow: 0 0 0 30px inset gray;
+      }
+      .range-input:disabled::-moz-range-thumb {
+        box-shadow: 0 0 0 30px inset gray;
+      }
+
+      .range-input:focus-visible {
+        outline-offset: 10px;
+        outline: 1px solid #c56fff;
+      }
+
+      .range-input:focus-visible::-webkit-slider-thumb {
+        outline: 3px solid #41e847;
+      }
+
+      .range-input:focus-visible::-moz-range-thumb {
+        outline: 3px solid #41e847;
+      }
+
+      .track {
+        position: absolute;
+        top: var(--range-track-top);
+        width: 100%;
+        height: 8px;
+        border-radius: 10px;
+        background-color: #ababab;
+        z-index: -1;
+      }
+
+      .progress {
+        position: absolute;
+        top: var(--range-track-top);
+        width: calc(var(--value) * 1%);
+        height: 8px;
+        border-radius: 10px;
+        background-color: #c56fff;
+        z-index: -1;
+      }
+
+      .range-output {
+        position: absolute;
+        bottom: 40px;
+        left: var(--range-output-left);
+        padding: 0 4px;
+        background: transparent;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: end;
+        transform: translate(var(--range-output-offset-xy));
+        user-select: none;
+        transition: 300ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="range" style="--value: 80">
+      <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+      <div class="track"></div>
+      <div class="progress"></div>
+      <input
+        class="range-input"
+        id="tailmetr"
+        type="range"
+        min="0"
+        max="100"
+        value="80"
+        step="1"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-orientation="horizontal"
+      />
+      <output class="range-output" id="output" for="tailmetr">80</output>
+    </div>
+    <script>
+      const range = document.querySelector('.range-input')
+      range.addEventListener('input', handleInputRange)
+
+      function handleInputRange() {
+        event.target.parentNode.style.setProperty(
+          '--value',
+          event.target.value
+        )
+
+        event.target.nextElementSibling.value = event.target.value
+      }
+    </script>
+  </body>
+</html>

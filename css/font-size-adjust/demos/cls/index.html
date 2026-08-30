@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>font-size-adjust и CLS — font-size-adjust — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 40px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 30px 24px;
+      }
+    }
+
+    .btn {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      padding: 10px 24px;
+      border-radius: 6px;
+      border: none;
+      background-color: #2E9AFF;
+      color: #18191C;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.15s;
+    }
+
+    .btn:hover {
+      background-color: #5BB1FF;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #9B9FAB;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .text {
+      font-size: 18px;
+      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .text.loaded {
+      font-family: "Times New Roman", serif;
+    }
+
+    .no-adjust {
+      color: #F498AD;
+    }
+
+    .with-adjust {
+      color: #2E9AFF;
+      font-size-adjust: 0.52;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #2B2D31;
+    }
+
+    .hint {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #9B9FAB;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <button class="btn" id="toggle">Переключить шрифт</button>
+
+    <div class="container">
+      <div class="block">
+        <span class="label">Без font-size-adjust</span>
+        <p class="text no-adjust" id="t1">
+          Дока — открытая база знаний для веб-разработчиков.
+          Здесь собраны понятные статьи про HTML, CSS и JavaScript.
+        </p>
+      </div>
+      <div class="divider"></div>
+      <div class="block">
+        <span class="label">С font-size-adjust: 0.52</span>
+        <p class="text with-adjust" id="t2">
+          Дока — открытая база знаний для веб-разработчиков.
+          Здесь собраны понятные статьи про HTML, CSS и JavaScript.
+        </p>
+      </div>
+    </div>
+
+    <p class="hint" id="hint">Сейчас: Arial</p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggle')
+    const t1 = document.getElementById('t1')
+    const t2 = document.getElementById('t2')
+    const hint = document.getElementById('hint')
+    let loaded = false
+
+    btn.addEventListener('click', () => {
+      loaded = !loaded
+      t1.classList.toggle('loaded', loaded)
+      t2.classList.toggle('loaded', loaded)
+      hint.textContent = loaded ? 'Сейчас: Times New Roman' : 'Сейчас: Arial'
+      btn.textContent = loaded ? 'Вернуть обратно' : 'Переключить шрифт'
+    })
+  </script>
+</body>
+</html>

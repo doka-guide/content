@@ -1,5 +1,5 @@
 ---
-name: 'Лейла Мамедова'
+name: 'Лея М'
 url: https://gngtgg.space
 photo: photo.jpg
 badges:
