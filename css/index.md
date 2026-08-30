@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - user-valid-invalid
       - first
       - picture-in-picture
       - fullscreen
@@ -95,6 +96,8 @@ groups:
       - color-function
       - light-dark
       - color-mix
+      - env
+      - shape-function
   - name: 'Директивы'
     items:
       - font-face
@@ -104,10 +107,13 @@ groups:
       - supports
       - layer
       - starting-style
+      - counter-style
       - namespace
       - font-feature-values
       - charset
       - container
+      - scope
+      - view-transition
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -159,6 +165,8 @@ groups:
       - backface-visibility
       - will-change
       - rotate
+      - scale-function
+      - skew-function
   - name: 'Фон'
     items:
       - background
@@ -251,6 +259,7 @@ groups:
       - box-sizing
       - min
       - max
+      - logical-properties
   - name: 'Позиционирование'
     items:
       - position
@@ -388,6 +397,7 @@ groups:
       - overscroll-behavior
       - scroll-behavior
       - scroll-padding
+      - scroll-margin
       - scroll-snap-type
       - scroll-snap-align
       - scroll-snap-stop
@@ -404,6 +414,7 @@ groups:
       - custom-properties
       - root
       - var
+      - pseudo-private-custom-property
   - name: 'Стили для печати'
     items:
       - page

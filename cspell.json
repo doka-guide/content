@@ -1,0 +1,15 @@
+{
+  "version": "0.2",
+  "language": "ru,en",
+  "import": ["@cspell/dict-ru_ru/cspell-ext.json"],
+  "ignorePaths": ["people/**", "pages/about/**", "CHANGELOG.md", "**/demos/**", "**/images/**"],
+  "ignoreRegExpList": [
+    "/^---[\\s\\S]*?^---/m",
+    "/```[\\s\\S]*?```/",
+    "/`[^`\\n]*`/",
+    "/\\]\\([^)\\n]*\\)/",
+    "/<[^>\\n]+>/",
+    "/https?:\\/\\/\\S+/",
+    "/_[A-Za-z0-9][A-Za-z0-9_/-]*\\.[A-Za-z0-9]+_/"
+  ]
+}
