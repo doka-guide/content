@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Подстветка группы полей с помощью focusin — focusin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 20px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      margin: auto;
+    }
+
+    .form-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 24px;
+      border-radius: 6px;
+    }
+
+    .label {
+      margin-right: 55px;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      background-color: transparent;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .label {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form class="form">
+    <div class="form-column" id="address-group">
+      <label class="label">Адрес доставки</label>
+      <input class="input" type="text" placeholder="Улица">
+      <input class="input" type="text" placeholder="Дом">
+      <input class="input" type="text" placeholder="Квартира">
+    </div>
+  </form>
+  <script>
+    const group = document.getElementById('address-group')
+
+    group.addEventListener('focusin', () => {
+      group.style.border = '1px solid #41E847'
+    })
+
+    group.addEventListener('focusout', () => {
+      group.style.border = 'none'
+    })
+  </script>
+</body>
+
+</html>
