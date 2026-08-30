@@ -9,8 +9,8 @@
 Задача компонента - одинаково обработать успешный результат и ошибку в любом из этих случаев. Для этого можно обернуть вызов `onSubmit` в `Promise.try()`:
 
 ```js
-function handleSubmit(onSubmit) {
-  Promise.try(onSubmit)
+function handleSubmit(onSubmit, formData) {
+  return Promise.try(onSubmit, formData)
     .then((result) => {
       console.log('Успех:', result)
     })
@@ -24,24 +24,22 @@ function handleSubmit(onSubmit) {
 
 ```js
 // Синхронный обработчик
-handleSubmit(() => {
-  return 'Форма отправлена'
-})
-// Успех: Форма отправлена
+handleSubmit((formData) => {
+  return `Форма отправлена: ${formData.email}`
+}, { email: 'user@example.com' })
+// Успех: Форма отправлена: user@example.com
 
 // Асинхронный обработчик
-handleSubmit(() => {
-  return Promise.resolve('Данные отправлены на сервер')
-})
-// Успех: Данные отправлены на сервер
+handleSubmit((formData) => {
+  return Promise.resolve(`Данные отправлены на сервер: ${formData.email}`)
+}, { email: 'user@example.com' })
+// Успех: Данные отправлены на сервер: user@example.com
 
 // Обработчик с ошибкой
-handleSubmit(() => {
-  throw new Error('Поле email обязательно')
-})
+handleSubmit((formData) => {
+  if (!formData.email) throw new Error('Поле email обязательно')
+}, {})
 // Ошибка: Поле email обязательно
 ```
 
 Во всех случаях результат попадёт в `then()`, а ошибка — в `catch()`.
-
-`Promise.try()` возвращает промис, поэтому результат `onSubmit` можно обрабатывать одинаково, независимо от того, синхронная это функция или асинхронная.
