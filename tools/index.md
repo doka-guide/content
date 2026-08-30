@@ -16,6 +16,7 @@ groups:
     items:
       - architecture-and-design-patterns
       - architecture-data-flow
+      - signals
       - microservices
       - gateway-bff
       - clean-architecture
