@@ -1,9 +1,12 @@
 name: Update Index
 
+# Раньше цепочка заканчивалась на «Update CHANGELOG», но тот переехал на
+# слияние пулреквеста и в цепочке пуша больше не участвует. Якорь —
+# предыдущее звено: push → Frontmatter Lint → Update Dates → выкатка.
 on:
   workflow_run:
     workflows:
-      - "Update CHANGELOG"
+      - "Update Dates"
     branches:
       - main
     types:

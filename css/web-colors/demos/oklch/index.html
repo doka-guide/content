@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>OKLCh-песочница — Цвета в вебе — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 780px;
+      width: 100%;
+    }
+
+    .swatch-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .swatch {
+      border-radius: 16px;
+      background-color: oklch(0.65 0.2 160);
+      aspect-ratio: 1;
+      transition: background-color 0.05s;
+    }
+
+    .code-output {
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2E9AFF;
+      word-break: break-all;
+      padding: 14px 16px;
+      background-color: #282A2E;
+      border-radius: 8px;
+      line-height: 1.4;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      justify-content: center;
+    }
+
+    .param {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .param-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .param-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .param-desc {
+      font-size: 0.76rem;
+      color: rgb(255 255 255 / 0.5);
+    }
+
+    .param-value {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.9rem;
+      color: #2E9AFF;
+      min-width: 4ch;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      accent-color: #2E9AFF;
+      cursor: pointer;
+    }
+
+    .hue-track {
+      height: 6px;
+      border-radius: 3px;
+      margin-top: -4px;
+      pointer-events: none;
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .swatch {
+        aspect-ratio: 2 / 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="swatch-col">
+      <div class="swatch" id="swatch"></div>
+      <div class="code-output" id="output">oklch(0.65 0.20 160)</div>
+    </div>
+
+    <div class="controls">
+      <div class="param">
+        <div class="param-header">
+          <span class="param-name">L — светлота</span>
+          <span class="param-value" id="l-val">0.65</span>
+        </div>
+        <span class="param-desc">от 0 (чёрный) до 1 (белый)</span>
+        <input type="range" id="l" min="0" max="1" step="0.01" value="0.65">
+      </div>
+
+      <div class="param">
+        <div class="param-header">
+          <span class="param-name">C — насыщенность</span>
+          <span class="param-value" id="c-val">0.20</span>
+        </div>
+        <span class="param-desc">от 0 (серый) до ~0.37 (максимум)</span>
+        <input type="range" id="c" min="0" max="0.37" step="0.01" value="0.20">
+      </div>
+
+      <div class="param">
+        <div class="param-header">
+          <span class="param-name">H — оттенок</span>
+          <span class="param-value" id="h-val">160°</span>
+        </div>
+        <span class="param-desc">угол на цветовом колесе, 0–360°</span>
+        <input type="range" id="h" min="0" max="360" step="1" value="160">
+        <div class="hue-track" id="hue-track"></div>
+      </div>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/web-colors/">Цвета в вебе — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+
+    const swatch   = document.getElementById('swatch');
+    const output   = document.getElementById('output');
+    const lSlider  = document.getElementById('l');
+    const cSlider  = document.getElementById('c');
+    const hSlider  = document.getElementById('h');
+    const hueTrack = document.getElementById('hue-track');
+
+    function update() {
+      const l = parseFloat(lSlider.value);
+      const c = parseFloat(cSlider.value);
+      const h = parseInt(hSlider.value, 10);
+
+      document.getElementById('l-val').textContent = l.toFixed(2);
+      document.getElementById('c-val').textContent = c.toFixed(2);
+      document.getElementById('h-val').textContent = h + '°';
+
+      const value = `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${h})`;
+      output.textContent = value;
+      swatch.style.backgroundColor = value;
+
+      // Обновляем градиент полоски оттенка под текущую светлоту и насыщенность
+      hueTrack.style.background = `linear-gradient(in oklch to right, ${
+        [0, 60, 120, 180, 240, 300, 360]
+          .map(deg => `oklch(${l.toFixed(2)} ${c.toFixed(2)} ${deg})`)
+          .join(', ')
+      })`;
+    }
+
+    lSlider.addEventListener('input', update);
+    cSlider.addEventListener('input', update);
+    hSlider.addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>

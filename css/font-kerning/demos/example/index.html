@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кернинг включён и выключен — font-kerning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .stage {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .row {
+      padding: 12px 20px;
+      border-radius: 10px;
+      background-color: #282A2E;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 6px;
+      color: #2E9AFF;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .word {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 56px;
+      line-height: 1.2;
+    }
+
+    .row.off .word {
+      font-kerning: none;
+    }
+
+    .row.on .word {
+      font-kerning: normal;
+    }
+
+    .toggle {
+      padding: 10px 18px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    @media (width <= 768px) {
+      .word {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stage">
+    <div class="row off">
+      <span class="label">font-kerning: none</span>
+      <div class="word">WAVE Toy AVATAR</div>
+    </div>
+    <div class="row on">
+      <span class="label">font-kerning: normal</span>
+      <div class="word">WAVE Toy AVATAR</div>
+    </div>
+  </div>
+
+  <button class="toggle" type="button">Показать сетку различий</button>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/font-kerning/">font-kerning — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <style>
+    .row.grid .word {
+      background-image: repeating-linear-gradient(to right, rgb(46 154 255 / 0.18) 0, rgb(46 154 255 / 0.18) 1px, rgb(0 0 0 / 0) 1px, rgb(0 0 0 / 0) 24px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+
+    const toggle = document.querySelector('.toggle');
+    const rows = document.querySelectorAll('.row');
+    let grid = false;
+
+    toggle.addEventListener('click', () => {
+      grid = !grid;
+      rows.forEach((row) => {
+        row.classList.toggle('grid', grid);
+      });
+      toggle.textContent = grid ? 'Скрыть сетку различий' : 'Показать сетку различий';
+    });
+  </script>
+</body>
+</html>
