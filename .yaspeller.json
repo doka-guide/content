@@ -783,6 +783,7 @@
     "SVGOMG",
     "TTFB",
     "WCAG",
-    "yaspeller"
+    "yaspeller",
+    "CIELAB"
   ]
 }
