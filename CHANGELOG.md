@@ -4,6 +4,7 @@
 
 ## Август 2026
 
+- 30 августа, [Signals](https://doka.guide/tools/signals/), Денис Русаков
 - 30 августа, [`:optional`](https://doka.guide/css/optional/), Алексей Никитченко
 - 30 августа, [`::-webkit-scrollbar`](https://doka.guide/css/scrollbar/), DrakesWeb
 - 30 августа, [`:dir()`](https://doka.guide/css/dir/), DrakesWeb
