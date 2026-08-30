@@ -4,6 +4,7 @@
 
 ## Август 2026
 
+- 30 августа, [`::-webkit-scrollbar`](https://doka.guide/css/scrollbar/), DrakesWeb
 - 30 августа, [`:dir()`](https://doka.guide/css/dir/), DrakesWeb
 - 30 августа, [`:blank`](https://doka.guide/css/blank/), DrakesWeb
 - 30 августа, [Иконочные шрифты — да или нет?](https://doka.guide/html/iconic-fonts/), DrakesWeb
