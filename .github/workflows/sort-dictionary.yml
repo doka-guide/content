@@ -1,0 +1,43 @@
+name: Sort Dictionary
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .yaspeller.json
+
+concurrency:
+  group: Sort Dictionary
+
+# Порядок наводится после вливания, а не в пулреквесте: коммитить в ветку из
+# форка бот не может, а большинство пулреквестов приходит именно из форков.
+jobs:
+  sort:
+    name: Порядок в словаре
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Сортировка словаря
+        run: node .github/scripts/sort-dictionary.mjs
+      - name: Коммит с отсортированным словарём
+        run: |
+          if [[ -z $(git status -s) ]]
+          then
+            echo "Словарь и так в порядке"
+          else
+            git config user.name "Doka Dog"
+            git config user.email "<hi@doka.guide>"
+
+            git add .yaspeller.json
+            git commit -m "Наводит порядок в словаре" --author "Doka Dog <hi@doka.guide>"
+
+            git pull --rebase
+            git push origin main
+          fi
