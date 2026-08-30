@@ -746,6 +746,7 @@
     "APCA",
     "autoplay",
     "bfcache",
+    "CIELAB",
     "Colour",
     "Contentful",
     "coreruleset",
@@ -783,7 +784,6 @@
     "SVGOMG",
     "TTFB",
     "WCAG",
-    "yaspeller",
-    "CIELAB"
+    "yaspeller"
   ]
 }
