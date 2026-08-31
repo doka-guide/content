@@ -4,6 +4,7 @@
 
 ## Август 2026
 
+- 31 августа, [`:autofill`](https://doka.guide/css/autofill/), DrakesWeb
 - 31 августа, [`:any-link`](https://doka.guide/css/any-link/), DrakesWeb
 - 30 августа, [Signals](https://doka.guide/tools/signals/), Денис Русаков
 - 30 августа, [`:optional`](https://doka.guide/css/optional/), Алексей Никитченко
