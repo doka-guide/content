@@ -61,6 +61,7 @@ groups:
       - blank
       - picture-in-picture
       - fullscreen
+      - autofill
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
