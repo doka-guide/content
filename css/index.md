@@ -56,6 +56,7 @@ groups:
       - root
       - indeterminate
       - user-valid-invalid
+      - any-link
       - dir
       - blank
       - picture-in-picture
