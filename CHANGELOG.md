@@ -355,7 +355,7 @@
 ## Сентябрь 2023
 
 - 30 сентября, [Как создать организацию на GitHub](https://doka.guide/recipes/github-new-organization/), Игорь Коровченко
-- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/gihub-new-fork/), Игорь Коровченко
+- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/github-new-fork/), Игорь Коровченко
 - 30 сентября, [Как опубликовать сайт прямо на GitHub](https://doka.guide/recipes/github-pages-static-site/), Игорь Коровченко
 - 29 сентября, [`resize`](https://doka.guide/css/resize/), Сергей Дудко
 - 28 сентября, [Атрибут `tabindex`](https://doka.guide/html/tabindex/), Татьяна Фокина
@@ -475,7 +475,7 @@
 - 20 октября, [`aria-hidden`](https://doka.guide/a11y/aria-hidden/), Татьяна Фокина
 - 20 октября, [`aria-labelledby`](https://doka.guide/a11y/aria-labelledby/), Татьяна Фокина
 - 20 октября, [`aria-describedby`](https://doka.guide/a11y/aria-describedby/), Татьяна Фокина
-- 20 октября, [`role-presentation`](https://doka.guide/a11y/role-presentation/), Татьяна Фокина
+- 20 октября, [`presentation, none`](https://doka.guide/a11y/role-presentation-none/), Татьяна Фокина
 - 20 октября, [ARIA-роль `contentinfo`](https://doka.guide/a11y/role-contentinfo/), Татьяна Фокина
 - 19 октября, [`:default`](https://doka.guide/css/default/), Антон Капустинский
 - 17 октября, [`max()`](https://doka.guide/css/max/), Денис Путнов
@@ -599,7 +599,7 @@
 - 30 ноября, [`<u>`](https://doka.guide/html/u/), Иван Ельцов
 - 24 ноября, [Свойство `forms`](https://doka.guide/js/forms/), Владислав Чичужко
 - 23 ноября, [`filter`](https://doka.guide/css/filter/), Лена Райан
-- 18 ноября, [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
+- 18 ноября, [Скринридеры](https://doka.guide/a11y/screenreaders/), Татьяна Фокина
 - 15 ноября, [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
 - 15 ноября, [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
 - 15 ноября, [`<del>`](https://doka.guide/html/del/), Иван Ельцов
