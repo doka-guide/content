@@ -5,12 +5,19 @@
 ## Август 2026
 
 - 30 августа, [Signals](https://doka.guide/tools/signals/), Денис Русаков
-- 30 августа, [`:optional`](https://doka.guide/css/optional/), Алексей Никитченко
 - 30 августа, [`::-webkit-scrollbar`](https://doka.guide/css/scrollbar/), DrakesWeb
 - 30 августа, [`:dir()`](https://doka.guide/css/dir/), DrakesWeb
 - 30 августа, [`:blank`](https://doka.guide/css/blank/), DrakesWeb
 - 30 августа, [Иконочные шрифты — да или нет?](https://doka.guide/html/iconic-fonts/), DrakesWeb
 - 30 августа, [Разрыв страницы](https://doka.guide/css/break-after/), Егор Левченко, Татьяна Фокина
+- 6 августа, [Статические генераторы сайтов](https://doka.guide/tools/static-site-generators/), Дмитрий Шмаков
+- 6 августа, [Что такое Core Web Vitals](https://doka.guide/tools/what-is-web-vitals/), Дмитрий Шмаков
+- 6 августа, [`LCP (Largest Contentful Paint)`](https://doka.guide/tools/lcp/), Дмитрий Шмаков
+- 6 августа, [`INP (Interaction to Next Paint)`](https://doka.guide/tools/inp/), Дмитрий Шмаков
+- 6 августа, [`CLS (Cumulative Layout Shift)`](https://doka.guide/tools/cls/), Дмитрий Шмаков
+- 6 августа, [`FCP (First Contentful Paint) `](https://doka.guide/tools/fcp/), Дмитрий Шмаков
+- 6 августа, [`TTFB (Time to First Byte)`](https://doka.guide/tools/ttfb/), Дмитрий Шмаков
+- 6 августа, [Как измерять и улучшать Core Web Vitals](https://doka.guide/tools/how-to-measure-and-improve-core-web-vitals/), Дмитрий Шмаков
 
 ## Июль 2026
 
