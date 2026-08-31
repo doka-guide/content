@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
@@ -31,7 +31,7 @@
       font-size: 16px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -60,8 +60,8 @@
     }
 
     .card {
-      background: #222328;
-      border: 1px solid #34353B;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.1);
       border-radius: 10px;
       padding: 18px;
       margin-top: 10px;
@@ -90,12 +90,12 @@
     }
 
     /* <a> без href не совпадают с :any-link */
-    .muted { color: #9AA0A6; }
+    .muted { color: rgb(255 255 255 / 0.5); }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1><code>:any-link</code></h1>
+    <h1 id="demo"><code>:any-link</code></h1>
     <p>Стилизуем любые ссылки одним селектором: и непосещённые, и посещённые. Некликабельные <code>&lt;a&gt;</code> без <code>href</code> сюда не попадают.</p>
 
     <div class="card">
@@ -108,5 +108,3 @@
   </div>
 </body>
 </html>
-
-
