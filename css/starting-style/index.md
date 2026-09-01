@@ -112,7 +112,7 @@ dialog:not([open]) {
 }
 ```
 
-<iframe title="Анимация появления диалога" src="demos/dialog-animation" height="360"></iframe>
+<iframe title="Анимация появления диалога" src="demos/dialog-animation/" height="360"></iframe>
 
 Такой же подход можно применить и для анимации поповера:
 
@@ -149,7 +149,7 @@ dialog:not([open]) {
 }
 ```
 
-<iframe title="Анимация появления поповера" src="demos/popover-animation" height="360"></iframe>
+<iframe title="Анимация появления поповера" src="demos/popover-animation/" height="360"></iframe>
 
 <aside>
 

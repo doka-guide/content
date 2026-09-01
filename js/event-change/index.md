@@ -50,7 +50,7 @@ input.onchange = function (event) {
 
 💡 В зависимости от указанного типа в HTML-элементе, `change` срабатывает по-разному. Легче всего это понять на примере.
 
-<iframe title="Демонстрация работы события" src="demos/index"></iframe>
+<iframe title="Демонстрация работы события" src="demos/index/"></iframe>
 
 ## Отличие от события `input`
 
@@ -66,4 +66,4 @@ input.onchange = function (event) {
 `input` – срабатывает сразу же при изменении значения поля.
 `change` – срабатывает, когда значение поля изменено, но при условии снятия с него фокуса.
 
-<iframe title="Различие между событиями blur, input и change" src="demos/compare"></iframe>
+<iframe title="Различие между событиями blur, input и change" src="demos/compare/"></iframe>
