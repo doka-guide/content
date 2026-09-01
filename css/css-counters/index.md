@@ -552,7 +552,7 @@ li {
 
 ## Свойства `display` и `content`
 
-Свойства `counter-reset`, `counter-increment` и `counter-set` не будут действовать на элементах которые не создают блок. Например на элементах с [`display: none`](/css/display) или псевдоэлементах с [`content: none`](/css/content).
+Свойства `counter-reset`, `counter-increment` и `counter-set` не будут действовать на элементах которые не создают блок. Например на элементах с [`display: none`](/css/display/) или псевдоэлементах с [`content: none`](/css/content/).
 
 Рассмотрим пример:
 
@@ -611,7 +611,7 @@ p.second::before {
 
 <aside>
 
-🎰 Элементы с [`visibility: hidden`](/css/visibility) не подчиняются этому правилу и увеличивают значение счётчика.
+🎰 Элементы с [`visibility: hidden`](/css/visibility/) не подчиняются этому правилу и увеличивают значение счётчика.
 
 </aside>
 
