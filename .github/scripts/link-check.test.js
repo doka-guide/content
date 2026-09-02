@@ -272,3 +272,88 @@ test('reverse-check: ссылка на удалённую статью лови�
   assert.match(output, /ссылка на удалённый материал/)
   assert.match(output, /css\/other\/index\.md/)
 })
+
+test('путь к папке без завершающего слэша падает', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article('<iframe src="demos/basic"></iframe>'),
+    'css/color/demos/basic/index.html': '<html></html>',
+  })
+
+  const { code, output } = runCheck(dir, ['css/color/index.md'])
+
+  assert.equal(code, 1)
+  assert.match(output, /путь к папке должен заканчиваться слэшем/)
+})
+
+test('путь к папке со слэшем проходит', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article('<iframe src="demos/basic/"></iframe>'),
+    'css/color/demos/basic/index.html': '<html></html>',
+  })
+
+  const { code, output } = runCheck(dir, ['css/color/index.md'])
+
+  assert.equal(code, 0, output)
+})
+
+test('ссылка на файл без слэша проходит: правило только про папки', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article('![схема](images/scheme.png)'),
+    'css/color/images/scheme.png': 'png',
+  })
+
+  const { code, output } = runCheck(dir, ['css/color/index.md'])
+
+  assert.equal(code, 0, output)
+})
+
+test('внутренняя ссылка без завершающего слэша падает', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article('## Кратко\n\nПро цвет.'),
+    'css/border/index.md': article('Смотри [цвет](/css/color).'),
+  })
+
+  const { code, output } = runCheck(dir, ['css/border/index.md'])
+
+  assert.equal(code, 1)
+  assert.match(output, /внутренняя ссылка должна заканчиваться слэшем/)
+})
+
+test('внутренняя ссылка с якорем требует слэш перед решёткой', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article('## Кратко\n\nПро цвет.'),
+    'css/border/index.md': article('Смотри [цвет](/css/color#kratko) и [цвет](/css/color/#kratko).'),
+  })
+
+  const { code, output } = runCheck(dir, ['css/border/index.md'])
+
+  assert.equal(code, 1)
+  assert.match(output, /внутренняя ссылка должна заканчиваться слэшем/)
+  assert.equal(output.match(/внутренняя ссылка должна заканчиваться слэшем/g).length, 1)
+})
+
+test('корень сайта и платформенные роуты не требуют правки', () => {
+  const dir = makeRepo({
+    'css/border/index.md': article('[главная](/) и [участники](/people/)'),
+  })
+
+  const { code, output } = runCheck(dir, ['css/border/index.md'])
+
+  assert.equal(code, 0, output)
+})
+
+test('демка и картинка абсолютным путём падают с понятным сообщением', () => {
+  const dir = makeRepo({
+    'css/color/index.md': article(
+      '<iframe src="/css/color/demos/basic/"></iframe>\n\n![схема](/css/color/images/scheme.png)'
+    ),
+    'css/color/demos/basic/index.html': '<html></html>',
+    'css/color/images/scheme.png': 'png',
+  })
+
+  const { code, output } = runCheck(dir, ['css/color/index.md'])
+
+  assert.equal(code, 1)
+  assert.equal(output.match(/должна быть относительной/g).length, 2)
+  assert.doesNotMatch(output, /нет материала по пути/)
+})

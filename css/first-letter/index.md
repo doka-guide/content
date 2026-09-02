@@ -38,7 +38,7 @@ blockquote::first-letter {
 - Шорткат [`margin`](/css/margin/) и внешние отступы, начинающиеся на `margin-`;
 - Шорткат [`padding`](/css/padding/) и внутренние отступы, начинающиеся на `padding-`;
 - Шорткат [`border`](/css/border/) и свойства рамок, начинающиеся на `border-`;
-- цвет текста [`color`](/css/color);
+- цвет текста [`color`](/css/color/);
 - текстовые свойства [`text-decoration`](/css/text-decoration/), [`text-shadow`](/css/text-shadow/), [`text-transform`](/css/text-transform/), [`letter-spacing`](/css/letter-spacing/), [`word-spacing`](/css/word-spacing/), [`line-height`](/css/line-height/), [`text-decoration-color`](/css/text-decoration-color/), [`text-decoration-line`](/css/text-decoration-line/), [`text-decoration-style`](/css/text-decoration-style/), [`box-shadow`](/css/box-shadow/), [`float`](/css/float/), [`vertical-align`](/css/vertical-align/).
 
 ## Подсказки

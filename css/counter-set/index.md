@@ -66,7 +66,7 @@ li {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/counter-set-example" height="600"></iframe>
+<iframe title="Демонстрация свойства" src="demos/counter-set-example/" height="600"></iframe>
 
 ## Как понять
 
