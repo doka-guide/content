@@ -3,7 +3,7 @@ name: 'Анастасия Ярош'
 url: https://github.com/nasty23-star
 badges:
   - first-contribution-small
-  - merged-pr-5
+  - merged-pr-10
   - superstar
 ---
 

@@ -2,6 +2,115 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2026
+
+- 31 августа, [`:autofill`](https://doka.guide/css/autofill/), DrakesWeb
+- 31 августа, [`:any-link`](https://doka.guide/css/any-link/), DrakesWeb
+- 30 августа, [Signals](https://doka.guide/tools/signals/), Денис Русаков
+- 30 августа, [`:optional`](https://doka.guide/css/optional/), DrakesWeb
+- 30 августа, [`::-webkit-scrollbar`](https://doka.guide/css/scrollbar/), DrakesWeb
+- 30 августа, [`:dir()`](https://doka.guide/css/dir/), DrakesWeb
+- 30 августа, [`:blank`](https://doka.guide/css/blank/), DrakesWeb
+- 30 августа, [Иконочные шрифты — да или нет?](https://doka.guide/html/iconic-fonts/), DrakesWeb
+- 30 августа, [Разрыв страницы](https://doka.guide/css/break-after/), Егор Левченко, Татьяна Фокина
+- 6 августа, [Статические генераторы сайтов](https://doka.guide/tools/static-site-generators/), Дмитрий Шмаков
+- 6 августа, [Что такое Core Web Vitals](https://doka.guide/tools/what-is-web-vitals/), Дмитрий Шмаков
+- 6 августа, [`LCP (Largest Contentful Paint)`](https://doka.guide/tools/lcp/), Дмитрий Шмаков
+- 6 августа, [`INP (Interaction to Next Paint)`](https://doka.guide/tools/inp/), Дмитрий Шмаков
+- 6 августа, [`CLS (Cumulative Layout Shift)`](https://doka.guide/tools/cls/), Дмитрий Шмаков
+- 6 августа, [`FCP (First Contentful Paint) `](https://doka.guide/tools/fcp/), Дмитрий Шмаков
+- 6 августа, [`TTFB (Time to First Byte)`](https://doka.guide/tools/ttfb/), Дмитрий Шмаков
+- 6 августа, [Как измерять и улучшать Core Web Vitals](https://doka.guide/tools/how-to-measure-and-improve-core-web-vitals/), Дмитрий Шмаков
+
+## Июль 2026
+
+- 18 июля, [`WebSocket`](https://doka.guide/js/websocket/), Игорь Теплостанский
+- 18 июля, [`:user-valid`, `:user-invalid`](https://doka.guide/css/invalid-valid/), DrakesWeb
+- 18 июля, [`@counter-style`](https://doka.guide/css/counter-style/), DrakesWeb
+- 11 июля, [`.removeProperty()`](https://doka.guide/js/element-removeproperty/), Кирилл Белоусов
+- 11 июля, [`Iterator.prototype.map()`](https://doka.guide/js/iterator-map/), Viktar Nezhbart
+- 7 июля, [Контрастность цветов в интерфейсе](https://doka.guide/a11y/color-contrast/), Аэлита Файзуллина
+- 5 июля, [`:picture-in-picture`](https://doka.guide/css/picture-in-picture/), DrakesWeb
+- 5 июля, [`::details-content`](https://doka.guide/css/details-content/), DrakesWeb
+- 4 июля, [`:fullscreen`](https://doka.guide/css/fullscreen/), DrakesWeb
+- 4 июля, [`::cue`](https://doka.guide/css/cue/), DrakesWeb
+- 4 июля, [`@namespace`](https://doka.guide/css/namespace/), DrakesWeb
+- 4 июля, [`@font-feature-values`](https://doka.guide/css/font-feature-values/), DrakesWeb
+- 4 июля, [`@charset`](https://doka.guide/css/charset/), DrakesWeb
+- 3 июля, [`::file-selector-button`](https://doka.guide/css/file-selector-button/), DrakesWeb
+- 3 июля, [`::target-text`](https://doka.guide/css/target-text/), DrakesWeb
+- 3 июля, [`focusin`](https://doka.guide/js/event-focusin/), Лира
+
+## Июнь 2026
+
+- 30 июня, [`scroll-margin`](https://doka.guide/css/scroll-margin/), DrakesWeb
+- 29 июня, [`Promise.withResolvers()`](https://doka.guide/js/promise-with-resolvers/), Viktar Nezhbart
+- 27 июня, [`focus`](https://doka.guide/js/event-focus/), Лира
+- 19 июня, [`font-size-adjust`](https://doka.guide/css/font-size-adjust/), Алёна Батицкая
+- 19 июня, [`font-optical-sizing`](https://doka.guide/css/font-optical-sizing/), Алёна Батицкая
+- 18 июня, [`@scope`](https://doka.guide/css/scope/), DrakesWeb
+- 18 июня, [`@container`](https://doka.guide/css/container/), DrakesWeb
+- 18 июня, [`font-kerning`](https://doka.guide/css/font-kerning/), Алёна Батицкая
+- 18 июня, [`font-language-override`](https://doka.guide/css/font-language-override/), Алёна Батицкая
+- 18 июня, [`font-feature-settings`](https://doka.guide/css/font-feature-settings/), Алёна Батицкая
+- 17 июня, [`background-blend-mode`](https://doka.guide/css/background-blend-mode/), Алёна Батицкая
+- 17 июня, [`background-attachment`](https://doka.guide/css/background-attachment/), Алёна Батицкая
+- 17 июня, [`background-clip`](https://doka.guide/css/background-clip/), Алёна Батицкая
+- 17 июня, [`hyphens`](https://doka.guide/css/hyphens/), Алёна Батицкая
+- 2 июня, [`font-variant-ligatures`](https://doka.guide/css/font-variant-ligatures/), Лея М
+
+## Май 2026
+
+- 25 мая, [`Iterator.prototype.filter()`](https://doka.guide/js/iterator-filter/), Viktar Nezhbart
+- 16 мая, [`bind(), call() и apply()`](https://doka.guide/js/bind-call-apply/), Лира
+
+## Апрель 2026
+
+- 7 апреля, [`shape()`](https://doka.guide/css/shape-function/), Гильманов Наиль
+
+## Март 2026
+
+- 27 марта, [`blur`](https://doka.guide/js/event-blur/), Лира
+
+## Февраль 2026
+
+- 20 февраля, [`form`](https://doka.guide/a11y/role-form/), Татьяна Фокина
+- 14 февраля, [Гайд по Anchor Positioning](https://doka.guide/css/anchor-positioning-guide/), Рома Ахмадуллин
+- 14 февраля, [`position-visibility`](https://doka.guide/css/position-visibility/), Рома Ахмадуллин
+- 14 февраля, [`position-try`](https://doka.guide/css/position-try/), Рома Ахмадуллин
+- 14 февраля, [`position-try-order`](https://doka.guide/css/position-try-order/), Рома Ахмадуллин
+- 14 февраля, [`@position-try`](https://doka.guide/css/position-try-rule/), Рома Ахмадуллин
+- 14 февраля, [`position-try-fallbacks`](https://doka.guide/css/position-try-fallbacks/), Рома Ахмадуллин
+- 2 февраля, [`Iterator.prototype.take()`](https://doka.guide/js/iterator-take/), Viktar Nezhbart
+
+## Январь 2026
+
+- 31 января, [`Iterator.prototype.toArray()`](https://doka.guide/js/iterator-to-array/), Viktar Nezhbart
+- 20 января, [`anchor-size()`](https://doka.guide/css/anchor-size-function/), Рома Ахмадуллин
+- 20 января, [`anchor-scope`](https://doka.guide/css/anchor-scope/), Рома Ахмадуллин
+- 20 января, [`position-area`](https://doka.guide/css/position-area/), Рома Ахмадуллин
+- 20 января, [`anchor()`](https://doka.guide/css/anchor-function/), Рома Ахмадуллин
+- 20 января, [`position-anchor`](https://doka.guide/css/position-anchor/), Рома Ахмадуллин
+- 20 января, [`anchor-name`](https://doka.guide/css/anchor-name/), Рома Ахмадуллин
+- 6 января, [`font-variant-position`](https://doka.guide/css/font-variant-position/), Лея М
+
+## Декабрь 2025
+
+- 26 декабря, [`color-mix()`](https://doka.guide/css/color-mix/), Игорь Теплостанский
+- 3 декабря, [GitHub-плитка коммитов за год](https://doka.guide/recipes/github-contributes-heatmap/), Viktar Nezhbart
+
+## Ноябрь 2025
+
+- 3 ноября, [`font-variant-numeric`](https://doka.guide/css/font-variant-numeric/), Лея М
+
+## Октябрь 2025
+
+- 7 октября, [`scale()`](https://doka.guide/css/scale-function/), Анастасия Ярош
+- 7 октября, [`<math>`](https://doka.guide/html/math/), DrakesWeb
+- 7 октября, [`text-box`](https://doka.guide/css/text-box/), DrakesWeb
+- 7 октября, [`skew()`](https://doka.guide/css/skew-function/), Анастасия Ярош
+- 7 октября, [`object-view-box`](https://doka.guide/css/object-view-box/), Рома Ахмадуллин
+
 ## Август 2025
 
 - 29 августа, [`complementary`](https://doka.guide/a11y/role-complementary/), Татьяна Фокина
@@ -249,7 +358,7 @@
 ## Сентябрь 2023
 
 - 30 сентября, [Как создать организацию на GitHub](https://doka.guide/recipes/github-new-organization/), Игорь Коровченко
-- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/gihub-new-fork/), Игорь Коровченко
+- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/github-new-fork/), Игорь Коровченко
 - 30 сентября, [Как опубликовать сайт прямо на GitHub](https://doka.guide/recipes/github-pages-static-site/), Игорь Коровченко
 - 29 сентября, [`resize`](https://doka.guide/css/resize/), Сергей Дудко
 - 28 сентября, [Атрибут `tabindex`](https://doka.guide/html/tabindex/), Татьяна Фокина
@@ -369,7 +478,7 @@
 - 20 октября, [`aria-hidden`](https://doka.guide/a11y/aria-hidden/), Татьяна Фокина
 - 20 октября, [`aria-labelledby`](https://doka.guide/a11y/aria-labelledby/), Татьяна Фокина
 - 20 октября, [`aria-describedby`](https://doka.guide/a11y/aria-describedby/), Татьяна Фокина
-- 20 октября, [`role-presentation`](https://doka.guide/a11y/role-presentation/), Татьяна Фокина
+- 20 октября, [`presentation, none`](https://doka.guide/a11y/role-presentation-none/), Татьяна Фокина
 - 20 октября, [ARIA-роль `contentinfo`](https://doka.guide/a11y/role-contentinfo/), Татьяна Фокина
 - 19 октября, [`:default`](https://doka.guide/css/default/), Антон Капустинский
 - 17 октября, [`max()`](https://doka.guide/css/max/), Денис Путнов
@@ -493,7 +602,7 @@
 - 30 ноября, [`<u>`](https://doka.guide/html/u/), Иван Ельцов
 - 24 ноября, [Свойство `forms`](https://doka.guide/js/forms/), Владислав Чичужко
 - 23 ноября, [`filter`](https://doka.guide/css/filter/), Лена Райан
-- 18 ноября, [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
+- 18 ноября, [Скринридеры](https://doka.guide/a11y/screenreaders/), Татьяна Фокина
 - 15 ноября, [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
 - 15 ноября, [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
 - 15 ноября, [`<del>`](https://doka.guide/html/del/), Иван Ельцов

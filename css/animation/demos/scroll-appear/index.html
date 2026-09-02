@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Появление карточек по скроллу — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: sans-serif;
+    }
+
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .hint {
+      flex-shrink: 0;
+      text-align: center;
+      opacity: 0.7;
+      max-width: 300px;
+    }
+
+    .spacer {
+      flex-shrink: 0;
+      height: 55vh;
+    }
+
+    .card {
+      flex-shrink: 0;
+      width: 240px;
+      height: 200px;
+      border-radius: 20px;
+      background-color: #2E9AFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      text-align: center;
+
+      opacity: 0;
+      transform: translateY(60px) scale(0.85);
+
+      animation-name: appear;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+      animation-fill-mode: both;
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @supports not (animation-timeline: view()) {
+      .card {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <p class="hint">👇 Прокрутите вниз — каждая карточка проявляется, когда попадает во вьюпорт</p>
+    <div class="spacer"></div>
+    <div class="card">Карточка 1</div>
+    <div class="spacer"></div>
+    <div class="card">Карточка 2</div>
+    <div class="spacer"></div>
+    <div class="card">Карточка 3</div>
+    <div class="spacer"></div>
+  </div>
+</body>
+</html>
