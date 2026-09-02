@@ -3,6 +3,12 @@ name: PR Checks
 on:
   pull_request:
 
+# Новый коммит в пулреквест отменяет прогон на предыдущем, чтобы галки
+# относились к актуальному коммиту, а не к устаревшему.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   editorconfig:
     name: Форматирование

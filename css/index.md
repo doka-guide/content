@@ -56,11 +56,13 @@ groups:
       - root
       - indeterminate
       - user-valid-invalid
+      - any-link
       - first
       - dir
       - blank
       - picture-in-picture
       - fullscreen
+      - autofill
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
