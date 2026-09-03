@@ -71,4 +71,4 @@ window.onbeforeunload = () => false
 
 Как оно выглядит в вашем браузере можно проверить с помощью демо ниже.
 
-<iframe title="Демонстрация обработки события beforeunload" src="demos/beforeunload" height="350"></iframe>
+<iframe title="Демонстрация обработки события beforeunload" src="demos/beforeunload/" height="350"></iframe>

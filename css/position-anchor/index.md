@@ -52,4 +52,4 @@ tags:
 
 ## Подсказки
 
-💡 Не забудьте указать `position: absolute` или `position: fixed` для таргет элемента, так как [Anchor Positioning](/css/anchor-positioning-guide) работает только с этими видами позиционирования.
+💡 Не забудьте указать `position: absolute` или `position: fixed` для таргет элемента, так как [Anchor Positioning](/css/anchor-positioning-guide/) работает только с этими видами позиционирования.
