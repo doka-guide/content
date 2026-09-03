@@ -50,7 +50,7 @@ tags:
 
 Мы рекомендуем вставить как минимум метатеги `description`, `viewport`, `charset`. Они помогут оптимизировать сайт для браузера пользователя и поисковых систем.
 
-В `<meta>` прописывается информация, которую нельзя указать в [`<base>`](/html/base/), [`<link>`](/html/link/), [`<script>`](/html/script/), [`<style>`](/html/style) или [`<title>`](/html/title/).
+В `<meta>` прописывается информация, которую нельзя указать в [`<base>`](/html/base/), [`<link>`](/html/link/), [`<script>`](/html/script/), [`<style>`](/html/style/) или [`<title>`](/html/title/).
 
 ## Как пишется
 
