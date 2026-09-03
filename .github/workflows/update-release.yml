@@ -11,6 +11,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-22.04
+    timeout-minutes: 10
     steps:
       - name: Загрузка контента
         uses: actions/checkout@v4
