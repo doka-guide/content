@@ -292,6 +292,16 @@ function splitUrl(url) {
 const PLATFORM_ROUTE = Symbol('platform-route')
 const PLATFORM_ROUTES = new Set(['/', '/people/', '/subscribe/'])
 
+// Папки, которые лежат рядом со статьёй. Ссылки на них пишутся относительными,
+// чтобы статья переезжала вместе со своими файлами.
+const ASSET_DIRS = new Set(['demos', 'images', 'video', 'audio'])
+
+// Ищем папку с файлами только с третьего сегмента: в /html/video/ «video» —
+// это slug статьи про тег, а не папка с видео.
+function hasAssetDir(pathname) {
+  return pathname.split('/').slice(3).some((segment) => ASSET_DIRS.has(segment))
+}
+
 function resolveArticleFile(pathname) {
   let cleanPath = pathname.split('?')[0]
   if (!cleanPath.startsWith('/')) {
@@ -400,6 +410,11 @@ function checkAssetExists(relativePath) {
   return fs.existsSync(absolutePath)
 }
 
+function isDirectory(relativePath) {
+  const absolutePath = path.join(ROOT, relativePath)
+  return fs.existsSync(absolutePath) && fs.statSync(absolutePath).isDirectory()
+}
+
 function articlePathnameFromFile(filePath) {
   if (filePath.startsWith('pages/')) {
     const content = readFile(filePath) || readFileAtBase(filePath)
@@ -463,6 +478,17 @@ function checkForwardLinks(filePath) {
 
       if (!checkAssetExists(assetPath)) {
         fail(`${filePath}:${line} → не найден файл «${assetPath}» (ссылка ${link.raw})`)
+        continue
+      }
+
+      // Путь к папке без завершающего слэша существует на диске, поэтому
+      // проверка выше молчит. В браузере он тоже открывается — но только
+      // потому, что nginx отвечает редиректом. На дев-сервере платформы
+      // редиректа нет, и вместо демки читатель видит 404.
+      if (isDirectory(assetPath) && !splitUrl(url).pathname.split('?')[0].endsWith('/')) {
+        fail(
+          `${filePath}:${line} → путь к папке должен заканчиваться слэшем (ссылка ${link.raw})`
+        )
       }
       continue
     }
@@ -484,6 +510,17 @@ function checkForwardLinks(filePath) {
     }
 
     const { pathname, hash } = splitUrl(url)
+
+    // Абсолютный путь к демке или картинке резолвится в никуда: на сайте
+    // такого маршрута нет, файл лежит рядом со статьёй. Сообщение про
+    // «нет материала» тут только сбивает с толку.
+    if (hasAssetDir(pathname)) {
+      fail(
+        `${filePath}:${line} → ссылка на картинку, видео или демку должна быть относительной (ссылка ${link.raw})`
+      )
+      continue
+    }
+
     const targetFile = resolveArticleFile(pathname)
 
     if (targetFile === PLATFORM_ROUTE) {
@@ -493,6 +530,15 @@ function checkForwardLinks(filePath) {
     if (!targetFile) {
       fail(`${filePath}:${line} → нет материала по пути «${pathname}» (ссылка ${link.raw})`)
       continue
+    }
+
+    // resolveArticleFile сам дописывает недостающий слэш, поэтому материал
+    // находится и без него. Но правило репозитория — со слэшем: так ссылка
+    // ведёт на конечный адрес, а не на редирект.
+    if (!pathname.endsWith('/')) {
+      fail(
+        `${filePath}:${line} → внутренняя ссылка должна заканчиваться слэшем (ссылка ${link.raw})`
+      )
     }
 
     // до раздела интервью добрались только по существованию файла:
