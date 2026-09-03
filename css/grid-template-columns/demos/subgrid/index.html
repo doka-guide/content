@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>subgrid для колонок — grid-template-columns — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === Переключатель === */
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .controls span {
+      font-size: 14px;
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    .toggle {
+      appearance: none;
+      width: 44px;
+      height: 24px;
+      background-color: #282A2E;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.2s;
+    }
+
+    .toggle::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: left 0.2s;
+    }
+
+    .toggle:checked {
+      background-color: #2E9AFF;
+    }
+
+    .toggle:checked::after {
+      left: 23px;
+    }
+
+    code {
+      font-size: 13px;
+      font-family: monospace;
+      color: rgb(255 255 255 / 0.45);
+      transition: color 0.2s;
+    }
+
+    code.prop {
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    code.active {
+      color: #2E9AFF;
+    }
+
+    /* === Родительский грид: неравные колонки === */
+
+    .parent {
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr;
+      gap: 10px;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* Маркеры колонок */
+    .col-marker {
+      background-color: rgb(46 154 255 / 0.08);
+      border: 1px solid rgb(46 154 255 / 0.3);
+      border-radius: 6px;
+      padding: 10px;
+      text-align: center;
+      font-size: 12px;
+      font-family: monospace;
+      color: rgb(46 154 255 / 0.8);
+    }
+
+    /* Дочерний грид на всю ширину */
+    .child {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 2px dashed rgb(244 152 173 / 0.35);
+      border-radius: 8px;
+      padding: 10px;
+      transition: grid-template-columns 0s;
+    }
+
+    .child.subgrid {
+      grid-template-columns: subgrid;
+    }
+
+    .inner {
+      background-color: rgb(244 152 173 / 0.1);
+      border: 1.5px solid #F498AD;
+      border-radius: 6px;
+      padding: 14px 10px;
+      text-align: center;
+      font-size: 13px;
+      color: #F498AD;
+    }
+
+    @media (width <= 600px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    /* === Лого и футер === */
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <code class="prop">grid-template-columns:</code>
+    <input class="toggle" type="checkbox" id="toggle" aria-label="Включить subgrid">
+    <code id="status">1fr 1fr 1fr</code>
+  </div>
+
+  <div class="parent">
+    <!-- Маркеры колонок родителя -->
+    <div class="col-marker">2fr</div>
+    <div class="col-marker">1fr</div>
+    <div class="col-marker">2fr</div>
+
+    <!-- Дочерний грид, занимающий все три колонки -->
+    <div class="child" id="child">
+      <div class="inner">Элемент A</div>
+      <div class="inner">Элемент B</div>
+      <div class="inner">Элемент C</div>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/grid-template-columns/">grid-template-columns — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+
+    const toggle = document.getElementById('toggle');
+    const child = document.getElementById('child');
+    const status = document.getElementById('status');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        child.classList.add('subgrid');
+        status.textContent = 'subgrid';
+        status.classList.add('active');
+      } else {
+        child.classList.remove('subgrid');
+        status.textContent = '1fr 1fr 1fr';
+        status.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

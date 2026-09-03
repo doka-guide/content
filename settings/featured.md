@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/geolocation-api
-  - js/infinite-scroll
-  - tools/ci-cd
-  - tools/docker
-  - recipes/progress
-  - a11y/css-impact-on-a11y
-  - a11y/live-region
-  - css/box-sizing
-  - tools/gitlab-ci-cd
-  - recipes/center
+  - a11y/aria-hidden
+  - css/pseudoelements
+  - recipes/git-rebase-onto
+  - html/flow
+  - tools/webpack
   - recipes/character-counter
-  - css/box-model
+  - recipes/progress
+  - js/execution-order
+  - html/nav
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - html/section
+  - html/input
+  - js/infinite-scroll
+  - recipes/center
   - tools/how-the-browser-creates-pages
-  - tools/cors
+  - css/keyframes
+  - tools/agile
+  - html/article
+  - js/boolean
+  - tools/cli
+  - js/async-in-js
   - js/array-entries
   - css/flexbox-guide
-  - js/execution-order
-  - a11y/aria-intro
-  - html/video
-  - a11y/screenreaders
-  - a11y/content-hidden
-  - tools/webpack
-  - css/specificity
-  - tools/markdown
-  - css/box-shadow
-  - html/img
-  - js/closures
-  - tools/agile
-  - js/async-in-js
-  - tools/cli
-  - recipes/ajax-form
-  - css/keyframes
-  - html/article
-  - recipes/git-rebase-onto
-  - js/var-let
-  - html/input
-  - css/transform-function
-  - html/form
-  - css/scrollbar-gutter
-  - html/head
-  - css/grid-guide
-  - tools/clean-architecture
-  - css/display
   - tools/bundlers
-  - a11y/aria-hidden
+  - a11y/live-region
+  - css/attr
+  - css/box-sizing
+  - js/closures
+  - js/var-let
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/static-types
+  - html/form
+  - js/geolocation-api
+  - css/transform-function
+  - tools/cors
+  - tools/ci-cd
+  - css/custom-properties
+  - css/box-model
+  - tools/docker
+  - a11y/screenreaders
+  - html/video
+  - js/function-context
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/position
+  - tools/gitlab-ci-cd
+  - a11y/content-hidden
   - recipes/snow
   - tools/network
-  - html/flow
-  - tools/oop
-  - css/position
-  - html/nav
+  - a11y/css-impact-on-a11y
   - html/doctype
-  - html/section
-  - js/function-context
-  - tools/how-to-test-and-why
-  - tools/static-types
+  - tools/markdown
+  - html/head
+  - css/specificity
+  - css/box-shadow
+  - recipes/ajax-form
+  - css/grid-guide
+  - css/display
+  - js/array-reduce-right
+  - html/img
+  - tools/oop
   - html/div
   - js/function
-  - css/pseudoelements
-  - css/media
-  - recipes/lets-encrypt-nginx
-  - js/array-reduce-right
-  - js/deal-with-forms
   - recipes/popup
-  - js/boolean
-  - css/attr
-  - css/custom-properties
+  - js/deal-with-forms
 ---
 

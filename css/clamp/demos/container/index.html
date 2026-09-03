@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Утилитарный контейнер на clamp() — clamp() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      accent-color: #2E9AFF;
+    }
+
+    .frame {
+      width: 280px;
+      max-width: 100%;
+      overflow: hidden;
+      border: 1px dashed rgb(255 255 255 / 0.3);
+      padding: 16px;
+    }
+
+    .slider-row {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .value {
+      min-width: 60px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .container {
+      width: clamp(240px, 90%, 480px);
+      margin: 0 auto;
+      padding: clamp(16px, 4vw, 32px);
+      background-color: #282A2E;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .container p {
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .readout {
+      width: 100%;
+      max-width: 560px;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.7);
+      text-align: center;
+    }
+
+    .readout .cap {
+      color: #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-row">
+    <span>Ширина родителя</span>
+    <input type="range" id="width" min="280" max="900" value="280">
+    <span class="value" id="value">280px</span>
+  </div>
+
+  <div class="frame" id="frame">
+    <div class="container" id="container">
+      Это блок с классом <code>.container</code>
+      <p><code>width: clamp(240px, 90%, 480px)</code></p>
+    </div>
+  </div>
+
+  <div class="readout">
+    Ширина <code>.container</code> сейчас: <span id="containerWidth">—</span> — <span id="capNote"></span>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/clamp/">clamp() — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const range = document.querySelector('#width')
+    const frame = document.querySelector('#frame')
+    const value = document.querySelector('#value')
+    const container = document.querySelector('#container')
+    const containerWidth = document.querySelector('#containerWidth')
+    const capNote = document.querySelector('#capNote')
+
+    const update = () => {
+      frame.style.width = range.value + 'px'
+      value.textContent = range.value + 'px'
+
+      const width = container.getBoundingClientRect().width
+      const capped = width >= 479.5
+      containerWidth.textContent = Math.round(width) + 'px'
+      capNote.textContent = capped
+        ? 'достигла максимума 480px, дальше расти некуда'
+        : 'ещё меньше максимума, растёт вместе с родителем'
+      capNote.classList.toggle('cap', capped)
+    }
+
+    range.addEventListener('input', update)
+    update()
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
