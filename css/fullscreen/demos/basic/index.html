@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример работы с псевдоклассом — :fullscreen — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      background-color: #282A2E;
+      padding: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .container:fullscreen {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      background-color: #18191C;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .container:fullscreen .image-wrapper {
+      max-width: 90vw;
+      max-height: 85vh;
+    }
+
+    .container:fullscreen .image-wrapper img {
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #2E9AFF;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .container:fullscreen .header {
+      display: none;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #18191C;
+    }
+
+    .image-wrapper img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .caption {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #979797;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .container:fullscreen .caption {
+      display: none;
+    }
+
+    .controls-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      min-width: 140px;
+      padding: 10px 20px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+      text-align: center;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border-color: #FFFFFF;
+      outline: none;
+    }
+
+    .button-exit {
+      background-color: transparent;
+      color: #FFFFFF;
+      border-color: #FFFFFF;
+    }
+
+    .button-exit:hover {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    .container:fullscreen .button-exit {
+      background-color: #FF8630;
+      border-color: #FF8630;
+      color: #000000;
+    }
+
+    .container:fullscreen .button-exit:hover {
+      background-color: #FFFFFF;
+      border-color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container:fullscreen {
+        padding: 15px;
+      }
+
+      .container:fullscreen .image-wrapper {
+        max-width: 95vw;
+        max-height: 90vh;
+      }
+
+      .container:fullscreen .image-wrapper img {
+        max-height: 90vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="fullscreen-element">
+    <div class="header">
+      <span>🐾 Друзья</span>
+      <span>Нажмите «На весь экран»</span>
+    </div>
+    <div class="image-wrapper">
+      <img src="../../images/base.jpg" alt="Чёрная собака и бело-чёрная полосатая кошка сидят на траве и смотрят в одну сторону">
+    </div>
+    <p class="caption">Собака и кошка смотрят вдаль</p>
+    <div class="controls-wrapper">
+      <button class="button" id="fullscreen-btn">На весь экран</button>
+      <button class="button button-exit" id="exit-fullscreen-btn">Выйти</button>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('fullscreen-element');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const exitBtn = document.getElementById('exit-fullscreen-btn');
+
+    async function enterFullscreen() {
+      if (!document.fullscreenElement) {
+        try {
+          await container.requestFullscreen();
+        } catch (err) {
+          console.error('Ошибка при входе в полноэкранный режим:', err);
+        }
+      }
+    }
+
+    async function exitFullscreen() {
+      if (document.fullscreenElement) {
+        try {
+          await document.exitFullscreen();
+        } catch (err) {
+          console.error('Ошибка при выходе из полноэкранного режима:', err);
+        }
+      }
+    }
+
+    fullscreenBtn.addEventListener('click', enterFullscreen);
+    exitBtn.addEventListener('click', exitFullscreen);
+
+    document.addEventListener('fullscreenchange', () => {
+      const isFullscreen = document.fullscreenElement === container;
+      if (isFullscreen) {
+        fullscreenBtn.textContent = '🖥️ В полноэкранном режиме';
+        fullscreenBtn.style.opacity = '0.5';
+        fullscreenBtn.style.cursor = 'default';
+        fullscreenBtn.style.pointerEvents = 'none';
+      } else {
+        fullscreenBtn.textContent = 'На весь экран';
+        fullscreenBtn.style.opacity = '1';
+        fullscreenBtn.style.cursor = 'pointer';
+        fullscreenBtn.style.pointerEvents = 'auto';
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        fullscreenBtn.textContent = 'На весь экран';
+        fullscreenBtn.style.opacity = '1';
+        fullscreenBtn.style.cursor = 'pointer';
+        fullscreenBtn.style.pointerEvents = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>

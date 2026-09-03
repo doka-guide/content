@@ -111,7 +111,7 @@ tags:
 ```css
 .container {
   display: grid;
-  grid:  auto-flow 30% / 200px 100px;
+  grid: auto-flow 30% / 200px 100px;
 }
 ```
 
@@ -124,13 +124,15 @@ tags:
 ```css
 .container {
   display: grid;
-  grid:  auto-flow dense 30% / 200px 100px;
+  grid: auto-flow dense 30% / 200px 100px;
 }
 ```
 
 ## Подсказки
 
 💡 Перед тем как соблазниться возможностью расписать всё в одном свойстве, дважды (а то и трижды) подумайте о читабельности кода. Учтите и то, что гриды не такая уж простая технология. Не каждый коллега сможет прочесть этот шорткат.
+
+💡 Значение `subgrid` шорткат `grid` не принимает — только отдельные свойства `grid-template-columns` и `grid-template-rows`.
 
 <aside>
 

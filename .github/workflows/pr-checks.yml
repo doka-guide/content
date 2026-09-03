@@ -3,10 +3,23 @@ name: PR Checks
 on:
   pull_request:
 
+# Новый коммит в пулреквест отменяет прогон на предыдущем, чтобы галки
+# относились к актуальному коммиту, а не к устаревшему.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# Проверки только читают: чекаут и список изменённых файлов пулреквеста.
+# Права на запись здесь опасны — код из форка выполняется под этим токеном.
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   editorconfig:
     name: Форматирование
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,6 +29,8 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v2.2.0
       - name: Работает линтер
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig
@@ -33,6 +48,7 @@ jobs:
   frontmatter-checker:
     name: Мета
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -55,25 +71,70 @@ jobs:
           else
             echo "В PR нет файлов для проверки"
           fi
+  # Обе проверки текста в одной джобе: чекаут и Node общие, а сами проверки
+  # занимают секунды. Шаги не прерывают друг друга — при падении видно оба
+  # отчёта сразу, а не только первый упавший.
+  # Тесты: node --test .github/scripts/check-spelling.test.mjs
+  #        node --test .github/scripts/check-yo.test.mjs
+  spelling:
+    name: Орфография
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - id: files
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: Ana06/get-changed-files@v2.2.0
+        with:
+          filter: '*.md'
+      - name: Незнакомые слова
+        if: ${{ !cancelled() }}
+        run: |
+          files='${{ steps.files.outputs.added_modified }}'
+          if [[ $files == "" ]]; then
+            echo "В пулреквесте нет файлов для проверки"
+            exit 0
+          fi
+          node .github/scripts/check-spelling.mjs $files
+      - name: Буква ё
+        if: ${{ !cancelled() }}
+        run: |
+          files='${{ steps.files.outputs.added_modified }}'
+          if [[ $files == "" ]]; then
+            echo "В пулреквесте нет файлов для проверки"
+            exit 0
+          fi
+          node .github/scripts/check-yo.mjs $files
+
   link-checker:
     name: Ссылки
     needs:
       - editorconfig
       - frontmatter-checker
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: '*.md'
-          format: 'csv'
+          format: 'space-delimited'
       - name: Проверяет ссылки
-        if: ${{ steps.files.outputs.added_modified != '' }}
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: ${{ steps.files.outputs.added_modified }}
-          markdown: true
-          serverRoot: "/home/runner/work/content/content"
-          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
+        if: ${{ steps.files.outputs.added_modified != '' || steps.files.outputs.removed != '' }}
+        run: |
+          npm install transliteration --no-save
+          node .github/scripts/link-check.js \
+            ${{ steps.files.outputs.added_modified }} \
+            ${{ steps.files.outputs.removed }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}

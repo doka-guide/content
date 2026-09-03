@@ -105,6 +105,7 @@ groups:
       - area
       - svg-sprite
       - images-paste-methods
+      - d
   - name: 'Ссылки'
     items:
       - a
@@ -112,12 +113,14 @@ groups:
       - nav
       - map
       - area
+      - rel
   - name: 'Списки'
     items:
       - ol
       - ul
       - li
       - dl-dd-dt
+      - menu
   - name: 'Интерактив'
     items:
       - audio
@@ -132,6 +135,7 @@ groups:
       - canvas
       - dialog
       - popover
+      - track
   - name: 'Таблицы'
     items:
       - tables

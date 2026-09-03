@@ -108,4 +108,4 @@ tags:
 
 💡 Часто не получается сразу в уме составить правильную формулу. Не надо стесняться пользоваться калькулятором NTH.
 
-<iframe title="Калькулятор NTH" src="demos/nth-calculator" height="450"></iframe>
+<iframe title="Калькулятор NTH" src="demos/nth-calculator/" height="450"></iframe>
