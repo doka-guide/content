@@ -37,9 +37,10 @@ concurrency:
 
 # `pull-requests` нужен и заметке, и шагу выборки файлов: всё, что не
 # перечислено, выставляется в none, и `gh api .../pulls/N/files` падает с 403.
+# `checks: write` — ради итоговой галки, см. шаг «Отчёт в пулреквесте».
 permissions:
   contents: read
-  checks: read
+  checks: write
   pull-requests: write
 
 jobs:
@@ -62,6 +63,14 @@ jobs:
           ref: ${{ github.event.repository.default_branch }}
           sparse-checkout: .github/scripts
           path: base
+      # Скрипт уезжает за пределы рабочего дерева: чекаут платформы идёт в
+      # корень воркспейса без `path` и сносит там всё, включая `base` —
+      # «Deleting the contents of …» в логе. Раньше это сходило с рук, потому
+      # что отчёт был отдельной джобой со своим чекаутом. Теперь он шаг этой же
+      # джобы, и без копии падал бы с MODULE_NOT_FOUND ровно тогда, когда
+      # превью собралось.
+      - name: Копия скрипта заметки
+        run: cp base/.github/scripts/preview-note.js "$RUNNER_TEMP/preview-note.js"
 
       # Галки читаются один раз: проверки уже завершились, опрашивать нечего.
       - name: Галки проверок
@@ -140,7 +149,7 @@ jobs:
           PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
         with:
           script: |
-            const note = require(`${process.env.GITHUB_WORKSPACE}/base/.github/scripts/preview-note.js`)
+            const note = require(`${process.env.RUNNER_TEMP}/preview-note.js`)
             const { owner, repo } = context.repo
             const headSha = process.env.HEAD_SHA
 
@@ -222,10 +231,15 @@ jobs:
         if: ${{ steps.gate.outputs.state == 'passed' }}
         env:
           DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
+          # Через `env`, а не подстановкой в саму команду: адреса собраны из
+          # имён папок пулреквеста, а имя папки задаёт автор. Папка вида
+          # `css/$(...)/index.md` выполнилась бы прямо здесь — в джобе, у
+          # которой есть ключ выкатки.
+          URLS: ${{ steps.files.outputs.urls }}
         run: |
           set -eu
           items=""
-          for url in ${{ steps.files.outputs.urls }}; do
+          for url in $URLS; do
             items="${items}<li><a href=\"${DEPLOY_DOMAIN}${url}\">${url}</a></li>"
           done
           if [ -n "$items" ]; then
@@ -292,7 +306,7 @@ jobs:
           STATE: ${{ steps.gate.outputs.state }}
         with:
           script: |
-            const note = require(`${process.env.GITHUB_WORKSPACE}/base/.github/scripts/preview-note.js`)
+            const note = require(`${process.env.RUNNER_TEMP}/preview-note.js`)
             const { owner, repo } = context.repo
             const pullNumber = Number(process.env.PULL_NUMBER)
             const sha = process.env.HEAD_SHA
@@ -308,21 +322,48 @@ jobs:
             // кроме успеха, писалось «не прошли проверки» — в том числе когда
             // они не запускались вовсе.
             let message
+            let conclusion
             if (state === 'failed') {
               const failed = process.env.FAILED ? ` (${process.env.FAILED})` : ''
               message = `Превью контента из ${sha} не опубликовано: не прошли проверки пулреквеста${failed}. [Подробнее](${process.env.RUN_URL})`
+              // Красная галка нужна только на нашей поломке: провал проверок
+              // уже виден отдельной красной галкой, дублировать его незачем.
+              conclusion = 'neutral'
             } else if (state !== 'passed') {
               message = `Превью контента из ${sha} не опубликовано: проверки пулреквеста не завершились. [Подробнее](${process.env.RUN_URL})`
+              conclusion = 'neutral'
             } else if (isPublished) {
               message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${process.env.LINKS || ''}`
+              conclusion = 'success'
             } else {
               message = `Превью контента из ${sha} не опубликовано. Ошибка сборки или публикации. [Подробнее](${process.env.RUN_URL})`
+              conclusion = 'failure'
             }
 
             const written = await note.writeNote({ github, owner, repo, pullNumber, message, headSha: sha })
             if (written === null) {
               core.info(`Коммит ${sha} устарел, заметку не трогаем`)
+              return
             }
+
+            // Джобы воркфлоу на `workflow_run` в списке проверок пулреквеста
+            // не видны: сам прогон висит на вершине ветки по умолчанию, туда же
+            // уходят его галки, а коммит пулреквеста лежит в
+            // `workflow_run.head_sha` и только здесь. Поэтому итоговую галку
+            // заводим руками, иначе о превью в пулреквесте не будет ни строки.
+            await github.rest.checks.create({
+              owner,
+              repo,
+              name: 'Превью',
+              head_sha: sha,
+              status: 'completed',
+              conclusion,
+              details_url: process.env.RUN_URL,
+              output: {
+                title: conclusion === 'success' ? 'Превью опубликовано' : 'Превью не опубликовано',
+                summary: message,
+              },
+            })
 
       # Комментарии прошлой схемы. Убираем оставшиеся, чтобы в ленте не висело
       # вечное «Идёт сборка...». Шаг можно удалить, когда их не останется.
@@ -349,10 +390,10 @@ jobs:
               }
             }
 
-      # Красная строка — только на нашей поломке: провал проверок пулреквеста
-      # уже виден отдельной красной галкой, дублировать его незачем. Раньше эту
-      # роль играла галка «Превью», которую джоба заводила через API, — но
-      # джоба и так своя строка в списке проверок, и галка была дублем.
+      # Сломанная сборка красит саму джобу, иначе в списке прогонов Actions она
+      # висела бы зелёной: `continue-on-error` на шаге сборки гасит её падение.
+      # В пулреквесте эту роль играет галка «Превью» из шага отчёта — джобы
+      # `workflow_run` там не показываются.
       - name: Итог
         if: ${{ always() && steps.build.outcome == 'failure' }}
         run: |
