@@ -109,11 +109,11 @@ jobs:
           fi
           node .github/scripts/check-yo.mjs $files
 
+  # Без `needs`: проверка идёт наравне с остальными, а не после них. Иначе
+  # опечатка в отступе прятала битые ссылки до следующего пуша — человек чинил
+  # по одной находке за круг.
   link-checker:
     name: Ссылки
-    needs:
-      - editorconfig
-      - frontmatter-checker
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
