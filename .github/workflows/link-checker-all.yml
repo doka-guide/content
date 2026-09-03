@@ -7,9 +7,14 @@ on:
   schedule:
     - cron: '0 6 * * 5'
 
+permissions:
+  contents: read
+
 jobs:
   link-check:
     runs-on: ubuntu-latest
+    # У самого проверяльщика `run_timeout: 600`, остальное — установка и чекаут.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Проверка ссылок в собранном сайте
