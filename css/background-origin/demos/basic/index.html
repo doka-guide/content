@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — background-origin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      text-align: center;
+    }
+
+    .select-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 10px 15px;
+      width: 200px;
+      background-color: #18191C;
+      border: 1px solid #18191C;
+      border-bottom: 1px solid #979797;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      pointer-events: none;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+      border-radius: 6px;
+    }
+
+    .demo {
+      aspect-ratio: 16/9;
+      margin-top: 17px;
+      padding: 20px;
+      border: 10px dashed currentColor;
+      background-image: linear-gradient(#2E9AFF, #F498AD);
+      background-origin: content-box;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label>background-origin:
+      <span class="select-wrapper">
+        <select id="select">
+          <option value="border-box">border-box</option>
+          <option value="padding-box">padding-box</option>
+          <option value="content-box" selected>content-box</option>
+        </select>
+      </span>
+    </label>
+    <div class="demo"></div>
+  </div>
+  <script>
+    const select = document.getElementById('select');
+    const demo = document.getElementsByClassName('demo')[0];
+
+    select.addEventListener('change', () => {
+      demo.style.backgroundOrigin = select.value;
+    });
+  </script>
+</body>
+</html>

@@ -35,7 +35,7 @@ links.addEventListener('click', (event) => {
 
 ## Пример
 
-<iframe title="Как работает метод" src="demos/input-focus-delay" height="250"></iframe>
+<iframe title="Как работает метод" src="demos/input-focus-delay/" height="250"></iframe>
 
 ## Как понять
 
@@ -43,7 +43,7 @@ links.addEventListener('click', (event) => {
 
 ```js
 const runTimer = (inputElement) => {
-  setTimetout(() => {
+  setTimeout(() => {
     inputElement.focus()
   }, 5000)
 }

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Формула Тейлора в MathML — math — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      font-size: 2rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3>Формула Тейлора в MathML</h3>
+    <math>
+      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+      <munderover>
+        <mo>∑</mo>
+        <mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow>
+        <mo>∞</mo>
+      </munderover>
+      <mfrac>
+        <mrow>
+          <msup><mi>f</mi><mo>⁽ⁿ⁾</mo></msup>
+          <mo>(</mo><mi>a</mi><mo>)</mo>
+        </mrow>
+        <mrow>
+          <mi>n</mi><mo>!</mo>
+        </mrow>
+      </mfrac>
+      <msup>
+        <mrow>
+          <mo>(</mo><mi>x</mi><mo>−</mo><mi>a</mi><mo>)</mo>
+        </mrow>
+        <mi>n</mi>
+      </msup>
+    </math>
+  </div>
+</body>
+</html>

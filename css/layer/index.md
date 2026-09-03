@@ -1,6 +1,16 @@
 ---
 title: "`@layer`"
 description: "Управляем каскадными слоями своими руками."
+baseline:
+  - group: cascade-layers
+    features:
+      - api.CSSImportRule.layerName
+      - api.CSSLayerBlockRule
+      - api.CSSLayerBlockRule.name
+      - api.CSSLayerStatementRule
+      - api.CSSLayerStatementRule.nameList
+      - css.at-rules.import.layer
+      - css.at-rules.layer
 authors:
   - tatianafokina
 contributors:
@@ -577,7 +587,7 @@ p {
 }
 ```
 
-`layer()` даёт повторно использовать стили из одного и того же именованного слоя. Здесь стили из `base` объединяются с другими из файлов _headings.css_ и _links.css_:
+`layer()` даёт повторно использовать стили из одного и того же именованного слоя. Здесь стили из `base` объединяются с другими из файлов _buttons.css_ и _links.css_:
 
 ```css
 @import url(buttons.css) layer(base);

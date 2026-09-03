@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Относительные координаты — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      flex: 0 1 auto;
+    }
+
+    .absolute {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+    }
+
+    .relative {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #ee0979, #ff6a00);
+    }
+
+    .zigzag {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .absolute {
+        clip-path: shape(
+          from 0 0,
+          line to 100% 0,
+          line to 100% 100%,
+          line to 0 100%,
+          close
+        );
+      }
+
+      .relative {
+        clip-path: shape(
+          from 0 0,
+          line by 100% 0,
+          line by 0 100%,
+          line by -100% 0,
+          close
+        );
+      }
+
+      .zigzag {
+        clip-path: shape(
+          from 0 0,
+          line by 33% 50%,
+          line by 33% -50%,
+          line by 34% 50%,
+          line by 0 50%,
+          line by -100% 0,
+          close
+        );
+      }
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    .code {
+      color: #2E9AFF;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    /* Адаптивность для мобильных */
+    @media (max-width: 768px) {
+      body {
+        gap: 30px;
+        padding: 15px;
+      }
+
+      .absolute,
+      .relative,
+      .zigzag {
+        width: 150px;
+        height: 150px;
+      }
+
+      .label {
+        font-size: 13px;
+      }
+
+      .code {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        gap: 20px;
+        padding: 10px;
+      }
+
+      .absolute,
+      .relative,
+      .zigzag {
+        width: 120px;
+        height: 120px;
+      }
+
+      .label {
+        font-size: 12px;
+      }
+
+      .code {
+        font-size: 10px;
+      }
+    }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>.<br>
+    Проверьте <a href="https://caniuse.com/mdn-css_types_basic-shape_shape" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">актуальную поддержку</a> на Can I use.
+  </div>
+  <div class="container">
+    <div class="absolute"></div>
+    <span class="label">Абсолютные координаты<br><span class="code">line to 100% 0</span></span>
+  </div>
+  <div class="container">
+    <div class="relative"></div>
+    <span class="label">Относительные координаты<br><span class="code">line by 100% 0</span></span>
+  </div>
+  <div class="container">
+    <div class="zigzag"></div>
+    <span class="label">Зигзаг с by</span>
+  </div>
+</body>
+</html>

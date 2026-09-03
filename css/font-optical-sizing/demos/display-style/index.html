@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Display-стиль в мелком тексте — font-optical-sizing — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Fraunces:opsz,wght@9..144,300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 36px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .column {
+      background-color: #282A2E;
+      border-radius: 8px;
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .col-label {
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+      padding-bottom: 12px;
+    }
+
+    .col-label strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #2E9AFF;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+
+    .col-label span {
+      font-size: 10px;
+      color: rgb(255 255 255 / 0.35);
+      font-family: "Roboto", monospace;
+    }
+
+    /* Оба — одинаковый размер, разный opsz */
+    .subheader {
+      font-family: "Fraunces", serif;
+      font-size: 22px;
+      line-height: 1.3;
+      color: rgb(255 255 255 / 0.9);
+      font-optical-sizing: none; /* управляем вручную */
+    }
+
+    /* body-opsz: такой шрифт при маленьком font-size в обычном использовании */
+    .col-body .subheader {
+      font-variation-settings: "opsz" 9;
+    }
+
+    /* display-opsz: намеренно используем пропорции для крупных заголовков */
+    .col-display .subheader {
+      font-variation-settings: "opsz" 120;
+    }
+
+    .description {
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.35);
+      line-height: 1.55;
+    }
+
+    @media (width <= 520px) {
+      body { padding: 20px; }
+
+      .demo {
+        grid-template-columns: 1fr;
+      }
+
+      .subheader {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo">
+    <div class="column col-body">
+      <div class="col-label">
+        <strong>auto</strong>
+        <span>opsz ≈ 22 — body</span>
+      </div>
+      <p class="subheader">Вариативные шрифты и оптический размер</p>
+      <p class="description">Обычное поведение: шрифт подобран под размер набора</p>
+    </div>
+
+    <div class="column col-display">
+      <div class="col-label">
+        <strong>none + "opsz" 120</strong>
+        <span>display-пропорции при 22px</span>
+      </div>
+      <p class="subheader">Вариативные шрифты и оптический размер</p>
+      <p class="description">Тот же размер, но с display-начертанием: тоньше, изящнее</p>
+    </div>
+  </div>
+
+</body>
+</html>

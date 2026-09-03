@@ -51,7 +51,7 @@ const arr = Array.from(uniqueNumbers)
 // [1, 2, 3]
 ```
 
-### Массив из [NodeList](/js/htmlcollection-and-nodelist/)
+### Массив из [HTMLCollection](/js/htmlcollection-and-nodelist/)
 
 Получить URL из всех ссылок на странице:
 

@@ -1,6 +1,12 @@
 ---
 title: "`scrollbar-gutter`"
 description: "Добавляем отступ под скроллбар, чтобы его появление или скрытие не вызывало сдвиги контента."
+baseline:
+  - group: scrollbar-gutter
+    features:
+      - css.properties.scrollbar-gutter
+      - css.properties.scrollbar-gutter.auto
+      - css.properties.scrollbar-gutter.stable
 authors:
   - xpleesid
 keywords:
@@ -23,7 +29,7 @@ tags:
 
 В примере ниже у нас длина контента превышает высоту экрана, поэтому скроллбар виден всегда. Но при появлении модального окна мы прячем скроллбар, задав `overflow: hidden` у [`body`](/html/body/). Это довольно частое решение — мы не хотим чтобы можно было прокручивать страницу при открытом модальном окне.
 
-<iframe title="Пример с прыгающим контентом" src="demos/bad" height="400"></iframe>
+<iframe title="Пример с прыгающим контентом" src="demos/bad/" height="400"></iframe>
 
 Но как это исправить? Можно компенсировать удаление скроллбара добавлением отступов у `<body>`, но мы сразу натыкаемся на ряд проблем:
 
@@ -51,8 +57,4 @@ body {
 }
 ```
 
-<iframe title="Убираем сдвиги контента" src="demos/good" height="400"></iframe>
-
-## Поддержка
-
-`scrollbar-gutter` поддерживается всеми современными браузерами, кроме Safari. Подробнее можно посмотреть на [Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-gutter).
+<iframe title="Убираем сдвиги контента" src="demos/good/" height="400"></iframe>
