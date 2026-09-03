@@ -7,7 +7,7 @@
 1. Установите
     - на компьютер Windows или Mac: [Docker Desktop](https://www.docker.com/products/docker-desktop);
     - на Ubuntu Linux: [Docker Engine](https://docs.docker.com/engine/install/ubuntu/);
-        - на других Lunux-дистрибутивах не тестировалось, но найти их можно на [сайте Docker](https://docs.docker.com/engine/install/);
+        - на других Linux-дистрибутивах не тестировалось, но найти их можно на [сайте Docker](https://docs.docker.com/engine/install/);
         - на всех Linux-дистрибутивах, чтобы Docker не требовал прав супер-пользователя, его необходимо добавить в группу с правами после установки ([инструкция](https://docs.docker.com/engine/install/linux-postinstall/)).
 1. Откройте консоль и перейдите в папку с этого репозитория.
 1. Выполните команду `./start.sh` на Mac или Linux, либо `bash -c "./start.sh"` на Windows.

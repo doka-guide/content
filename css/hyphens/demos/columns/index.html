@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Переносы в многоколоночном тексте — hyphens — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .col-title {
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2E9AFF;
+    }
+
+    .article {
+      padding: 20px;
+      background-color: #282A2E;
+      font-size: 14px;
+      line-height: 1.6;
+      columns: 2;
+      column-gap: 20px;
+      column-rule: 1px solid rgb(255 255 255 / 0.1);
+    }
+
+    .with-hyphens {
+      hyphens: auto;
+    }
+
+    .without-hyphens {
+      hyphens: none;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .demo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div>
+      <p class="col-title">без <code>hyphens</code></p>
+      <div class="article without-hyphens">
+        Многоколоночная вёрстка разбивает текст на узкие столбцы. Длинные слова — «высококвалифицированный», «автоматизированный», «непоследовательный» — не умещаются в колонку и нарушают вёрстку.
+      </div>
+    </div>
+    <div>
+      <p class="col-title"><code>hyphens: auto</code></p>
+      <div class="article with-hyphens">
+        Многоколоночная вёрстка разбивает текст на узкие столбцы. Длинные слова — «высококвалифицированный», «автоматизированный», «непоследовательный» — не умещаются в колонку и нарушают вёрстку.
+      </div>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/hyphens/">hyphens — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -145,7 +145,7 @@ ARIA-атрибуты поддерживают [роли](/a11y/aria-roles/) и 
 - [`aria-orientation`](/a11y/aria-orientation/) (свойство) — ориентация элемента на странице.
 - [`aria-placeholder`](/a11y/aria-placeholder/) (свойство) — подсказка по заполнению поля. Эквивалент в HTML — [`placeholder`](/html/placeholder/).
 - [`aria-posinset`](/a11y/aria-posinset/) (свойство) — позиция или номер элемента среди элементов обычного или древовидного списка.
-- [`aria-pressed`](/a11y/aria-pressed) (состояние) — нажат или нет переключатель.
+- [`aria-pressed`](/a11y/aria-pressed/) (состояние) — нажат или нет переключатель.
 - [`aria-readonly`](/a11y/aria-readonly/) (свойство) — элемент недоступен, но можно прочесть его содержимое. Эквивалент в HTML — [`readonly`](/html/textarea/#readonly).
 - [`aria-required`](/a11y/aria-required/) (свойство) — обязательное ли поле или нет. Эквивалент в HTML — [`required`](/html/required/).
 - [`aria-selected`](/a11y/aria-selected/) — выбран или нет интерактивный элемент.
