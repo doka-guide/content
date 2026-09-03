@@ -51,7 +51,7 @@ div {
 }
 ```
 
-<iframe title="Пример зебры через повторяющийся линейный градиент" src="demos/zebra_repeating-linear-gradient" height="500"></iframe>
+<iframe title="Пример зебры через повторяющийся линейный градиент" src="demos/zebra_repeating-linear-gradient/" height="500"></iframe>
 
 Когда полоска чёрного цвета заканчивается на 20%, градиент снова наполняется белыми и чёрными полосами, хотя мы не задавали их снова, — поэтому он называется повторяющимся линейным градиентом. Такой эффект не сработает с обычным [`linear-gradient`](/css/linear-gradient/).
 
@@ -66,7 +66,7 @@ div {
 }
 ```
 
-<iframe title="Пример зебры через обычный линейный градиент" src="demos/zebra_linear-gradient" height="500"></iframe>
+<iframe title="Пример зебры через обычный линейный градиент" src="demos/zebra_linear-gradient/" height="500"></iframe>
 
 Когда чёрная полоска достигла 20%, градиент не повторился, а лишь заполнил фон элемента последним цветом.
 
@@ -84,4 +84,4 @@ div {
 }
 ```
 
-<iframe title="Пример смазанного градиента" src="demos/blurred_gradient" height="500"></iframe>
+<iframe title="Пример смазанного градиента" src="demos/blurred_gradient/" height="500"></iframe>

@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/keyframes
-  - html/head
-  - tools/gitlab-ci-cd
-  - js/geolocation-api
-  - tools/docker
-  - a11y/live-region
-  - js/execution-order
-  - js/closures
-  - css/box-shadow
-  - css/grid-guide
-  - tools/markdown
-  - html/div
-  - recipes/lets-encrypt-nginx
-  - html/article
-  - css/specificity
-  - html/input
-  - js/array-reduce-right
-  - recipes/progress
-  - css/box-model
-  - css/attr
-  - tools/agile
-  - css/display
-  - tools/how-the-browser-creates-pages
-  - js/function-context
-  - tools/cli
+  - a11y/aria-hidden
+  - css/pseudoelements
   - recipes/git-rebase-onto
-  - tools/clean-architecture
+  - html/flow
+  - tools/webpack
+  - recipes/character-counter
+  - recipes/progress
+  - js/execution-order
+  - html/nav
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - html/section
+  - html/input
   - js/infinite-scroll
-  - html/doctype
-  - tools/bundlers
+  - recipes/center
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - tools/agile
+  - html/article
+  - js/boolean
+  - tools/cli
+  - js/async-in-js
+  - js/array-entries
   - css/flexbox-guide
+  - tools/bundlers
+  - a11y/live-region
+  - css/attr
+  - css/box-sizing
+  - js/closures
+  - js/var-let
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/static-types
+  - html/form
+  - js/geolocation-api
   - css/transform-function
+  - tools/cors
+  - tools/ci-cd
   - css/custom-properties
+  - css/box-model
+  - tools/docker
+  - a11y/screenreaders
+  - html/video
+  - js/function-context
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/position
+  - tools/gitlab-ci-cd
+  - a11y/content-hidden
+  - recipes/snow
   - tools/network
   - a11y/css-impact-on-a11y
-  - a11y/aria-intro
-  - html/flow
-  - css/position
-  - css/media
-  - js/var-let
-  - recipes/popup
-  - js/function
-  - a11y/screenreaders
-  - recipes/character-counter
-  - html/section
-  - js/array-entries
-  - html/nav
-  - tools/cors
-  - a11y/content-hidden
+  - html/doctype
+  - tools/markdown
+  - html/head
+  - css/specificity
+  - css/box-shadow
   - recipes/ajax-form
-  - tools/static-types
-  - js/boolean
-  - a11y/aria-hidden
-  - js/async-in-js
-  - tools/oop
+  - css/grid-guide
+  - css/display
+  - js/array-reduce-right
   - html/img
-  - recipes/center
-  - tools/how-to-test-and-why
-  - css/box-sizing
+  - tools/oop
+  - html/div
+  - js/function
+  - recipes/popup
   - js/deal-with-forms
-  - css/pseudoelements
-  - html/video
-  - tools/webpack
-  - html/form
-  - tools/ci-cd
-  - recipes/snow
-  - css/scrollbar-gutter
 ---
 

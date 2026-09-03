@@ -1,4 +1,4 @@
-Типичными случаями для использования анонимных функций в JavaScript являются [замыкания](/js/closures/#funkcii-vnutri-funkciy-i-zamykaniya), [обработчики событий](/js/element-addeventlistener/), [таймеры](/js/settimeout/) и callback-и для методов и других функций. Приведу несколько примеров:
+Типичными случаями для использования анонимных функций в JavaScript являются [замыкания](/js/closures/#zamykanie), [обработчики событий](/js/element-addeventlistener/), [таймеры](/js/settimeout/) и callback-и для методов и других функций. Приведу несколько примеров:
 
 1. Callback метода массива:
 

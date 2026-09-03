@@ -112,7 +112,7 @@ dialog:not([open]) {
 }
 ```
 
-<iframe title="Анимация появления диалога" src="demos/dialog-animation" height="360"></iframe>
+<iframe title="Анимация появления диалога" src="demos/dialog-animation/" height="360"></iframe>
 
 Такой же подход можно применить и для анимации поповера:
 
@@ -149,11 +149,11 @@ dialog:not([open]) {
 }
 ```
 
-<iframe title="Анимация появления поповера" src="demos/popover-animation" height="360"></iframe>
+<iframe title="Анимация появления поповера" src="demos/popover-animation/" height="360"></iframe>
 
 <aside>
 
-🚧 В Firefox плавное закытие диалога и поповера пока не работает из-за отсутствия поддержки `transition-behavior: allow-discrete`. Проверяйте поддержку на [Can I use](https://caniuse.com/mdn-css_properties_display_is_transitionable).
+🚧 В Firefox плавное закрытие диалога и поповера пока не работает из-за отсутствия поддержки `transition-behavior: allow-discrete`. Проверяйте поддержку на [Can I use](https://caniuse.com/mdn-css_properties_display_is_transitionable).
 
 </aside>
 

@@ -4,7 +4,7 @@
 
 ```js
 let ulElement = document.getElementsByTagName('ul')[0]
-// Cреди потомков <ul> нашли последний <li>
+// Среди потомков <ul> нашли последний <li>
 let lastLi = ulElement.querySelector('li:last-child')
 
 lastLi.style.color = 'red'

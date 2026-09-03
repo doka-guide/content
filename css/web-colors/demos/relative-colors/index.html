@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Относительные цвета — Цвета в вебе — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .picker-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .picker-label {
+      font-size: 0.9rem;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .presets {
+      display: flex;
+      gap: 10px;
+    }
+
+    .preset-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.15s, transform 0.1s;
+    }
+
+    .preset-btn.active {
+      border-color: #FFFFFF;
+      transform: scale(1.15);
+    }
+
+    .palette {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .color-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .color-swatch {
+      flex-shrink: 0;
+      width: 80px;
+      height: 56px;
+      border-radius: 10px;
+      transition: background-color 0.2s;
+    }
+
+    .color-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .color-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .color-code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 0.65rem;
+      color: #2E9AFF;
+      word-break: break-all;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="picker-row">
+    <span class="picker-label">Базовый цвет:</span>
+    <div class="presets" id="presets"></div>
+  </div>
+
+  <div class="palette" id="palette"></div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/web-colors/">Цвета в вебе — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+
+    // Пресеты: [oklch-строка]
+    const PRESETS = [
+      'oklch(0.6 0.25 29)',    // оранжевый
+      'oklch(0.55 0.25 0)',    // красный
+      'oklch(0.7 0.22 145)',   // зелёный
+      'oklch(0.6 0.26 264)',   // фиолетовый
+      'oklch(0.65 0.22 215)',  // циан
+    ];
+
+    // Производные варианты: name + функция (baseColor) → cssColor
+    const VARIANTS = [
+      { name: 'Базовый',       make: (b) => b },
+      { name: 'Светлее',       make: (b) => `oklch(from ${b} calc(l + 0.15) c h)` },
+      { name: 'Темнее',        make: (b) => `oklch(from ${b} calc(l - 0.15) c h)` },
+      { name: 'Дополн. +180°', make: (b) => `oklch(from ${b} l c calc(h + 180))` },
+      { name: 'Аналог +60°',   make: (b) => `oklch(from ${b} l c calc(h + 60))` },
+    ];
+
+    let activeIndex = 0;
+
+    // Рендерим кнопки пресетов
+    const presetsEl = document.getElementById('presets');
+    PRESETS.forEach((color, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'preset-btn' + (i === 0 ? ' active' : '');
+      btn.style.backgroundColor = color;
+      btn.title = color;
+      btn.addEventListener('click', () => {
+        presetsEl.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeIndex = i;
+        renderPalette();
+      });
+      presetsEl.appendChild(btn);
+    });
+
+    const paletteEl = document.getElementById('palette');
+
+    function renderPalette() {
+      const base = PRESETS[activeIndex];
+      paletteEl.innerHTML = '';
+
+      VARIANTS.forEach(variant => {
+        const value = variant.make(base);
+
+        const card = document.createElement('div');
+        card.className = 'color-card';
+
+        const swatch = document.createElement('div');
+        swatch.className = 'color-swatch';
+        swatch.style.backgroundColor = value;
+
+        const info = document.createElement('div');
+        info.className = 'color-info';
+
+        const name = document.createElement('span');
+        name.className = 'color-name';
+        name.textContent = variant.name;
+
+        const codeEl = document.createElement('span');
+        codeEl.className = 'color-code';
+        codeEl.textContent = value;
+
+        info.appendChild(name);
+        info.appendChild(codeEl);
+        card.appendChild(swatch);
+        card.appendChild(info);
+        paletteEl.appendChild(card);
+      });
+    }
+
+    renderPalette();
+  </script>
+</body>
+</html>
