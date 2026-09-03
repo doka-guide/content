@@ -66,5 +66,5 @@ event.composed
 
 💡 Все события пользовательского интерфейса автоматически имеют `composed: true`.
 💡 События, созданные программно, по умолчанию имеют `composed: false`, если не указано иное.
-💡 Используйте метод [`composedPath()`](/js/event-composedpath) для определения пути распространения события через [Shadow DOM](/js/shadowdom/).
+💡 Используйте метод [`composedPath()`](/js/event-composedpath/) для определения пути распространения события через [Shadow DOM](/js/shadowdom/).
 💡 Даже если `composed: true`, события не могут проникнуть в закрытый [Shadow DOM](/js/shadowdom/).

@@ -83,7 +83,7 @@ const shadow = element.attachShadow({ mode: 'open' });
 console.log(element.shadowRoot); // ShadowRoot
 ```
 
-Позволяет получить доступ к [ShadowRoot](/js/shadowroot) извне через свойство [`element.shadowRoot`](/js/element-shadowroot/). Это удобно для отладки и взаимодействия с внутренним содержимым компонента из внешнего кода.
+Позволяет получить доступ к [ShadowRoot](/js/shadowroot/) извне через свойство [`element.shadowRoot`](/js/element-shadowroot/). Это удобно для отладки и взаимодействия с внутренним содержимым компонента из внешнего кода.
 
 **Закрытый режим** (`mode: 'closed'`):
 
@@ -92,7 +92,7 @@ const shadow = element.attachShadow({ mode: 'closed' });
 console.log(element.shadowRoot); // null
 ```
 
-В закрытом режиме получить доступ к [ShadowRoot](/js/shadowroot) извне невозможно — свойство [`element.shadowRoot`](/js/element-shadowroot/) всегда возвращает `null`. Это обеспечивает максимальную изоляцию внутренней структуры компонента: никакой внешний скрипт не сможет напрямую обратиться к содержимому Shadow DOM.
+В закрытом режиме получить доступ к [ShadowRoot](/js/shadowroot/) извне невозможно — свойство [`element.shadowRoot`](/js/element-shadowroot/) всегда возвращает `null`. Это обеспечивает максимальную изоляцию внутренней структуры компонента: никакой внешний скрипт не сможет напрямую обратиться к содержимому Shadow DOM.
 
 Открытый режим удобен для отладки, закрытый — для максимальной инкапсуляции.
 
