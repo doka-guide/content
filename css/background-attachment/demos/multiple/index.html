@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Несколько фонов — background-attachment — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: #FFFFFF;
+    }
+
+    /* === стили демо === */
+
+    .page {
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    .scene {
+      height: 220vh;
+      /*
+        Два слоя:
+        1. Белые частицы на прозрачном фоне — background-attachment: fixed
+        2. Фото леса — background-attachment: scroll
+        При прокрутке фото едет, частицы «висят» в воздухе.
+      */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='40' cy='70' r='2.5' fill='rgba(255,255,255,0.75)'/%3E%3Ccircle cx='120' cy='20' r='1.5' fill='rgba(255,255,255,0.5)'/%3E%3Ccircle cx='200' cy='90' r='3' fill='rgba(255,255,255,0.65)'/%3E%3Ccircle cx='310' cy='45' r='1' fill='rgba(255,255,255,0.45)'/%3E%3Ccircle cx='370' cy='130' r='2' fill='rgba(255,255,255,0.6)'/%3E%3Ccircle cx='80' cy='190' r='1.5' fill='rgba(255,255,255,0.5)'/%3E%3Ccircle cx='240' cy='160' r='1' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='350' cy='220' r='2.5' fill='rgba(255,255,255,0.7)'/%3E%3Ccircle cx='160' cy='280' r='2' fill='rgba(255,255,255,0.55)'/%3E%3Ccircle cx='60' cy='310' r='3' fill='rgba(255,255,255,0.65)'/%3E%3Ccircle cx='290' cy='315' r='1.5' fill='rgba(255,255,255,0.5)'/%3E%3Ccircle cx='390' cy='360' r='2' fill='rgba(255,255,255,0.6)'/%3E%3Ccircle cx='180' cy='375' r='1' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='20' cy='350' r='2.5' fill='rgba(255,255,255,0.7)'/%3E%3Ccircle cx='320' cy='380' r='1.5' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E"),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?w=1440&h=900&fit=crop&auto=format&q=80");
+      background-attachment: fixed, scroll;
+      background-size: 400px 400px, cover;
+      background-repeat: repeat, no-repeat;
+      background-position: center, center;
+    }
+
+    .hint {
+      position: sticky;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .hint-badge {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.6);
+      background: rgb(0 0 0 / 0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .controls {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgb(24 25 28 / 0.85);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgb(255 255 255 / 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .toggle-label {
+      font-size: 12px;
+      font-family: monospace;
+      white-space: nowrap;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 20px;
+      transition: background-color 0.15s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.15s;
+    }
+
+    .switch input:checked + .slider {
+      background-color: #2E9AFF;
+      border-color: #2E9AFF;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(16px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+      z-index: 100;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label" id="label">частицы: fixed, фото: scroll</span>
+  </div>
+
+  <div class="page">
+    <div class="scene" id="scene">
+      <div class="hint">
+        <span class="hint-badge" id="hint">↓ прокрути — частицы висят, фото едет</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-attachment/">background-attachment — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const scene = document.getElementById('scene');
+    const label = document.getElementById('label');
+    const hint = document.getElementById('hint');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        scene.style.backgroundAttachment = 'fixed, scroll';
+        label.textContent = 'частицы: fixed, фото: scroll';
+        hint.textContent = '↓ прокрути — частицы висят, фото едет';
+      } else {
+        scene.style.backgroundAttachment = 'scroll, scroll';
+        label.textContent = 'частицы: scroll, фото: scroll';
+        hint.textContent = '↓ прокрути — оба слоя едут вместе';
+      }
+      document.querySelector('.page').scrollTop = 0;
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

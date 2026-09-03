@@ -4,9 +4,16 @@ on:
   schedule:
     - cron: '0 5 * * 5'
 
+permissions:
+  contents: read
+
 jobs:
   featured-articles:
+    name: Избранные статьи
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -14,25 +21,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Обработка featured-статей
+      # Ставится один раз, а не на каждую попытку: цикл повторов переделывает
+      # только саму работу.
+      - name: Установка зависимостей скрипта
         run: |
           npm install --global gray-matter
           npm link gray-matter
-          node .github/scripts/featured-articles.js
-      - name: Создание коммита с обновлениями полей featured-файла
+      # Общий цикл повторов с обслуживанием main. В гонке мёржей этот воркфлоу
+      # не участвует — он ходит раз в неделю по расписанию, — но пушит в ту же
+      # main и однажды упал бы так же, столкнувшись с ботом обслуживания.
+      - name: Обработка featured-статей
         run: |
-          if [[ -z $(git status -s) ]]
-          then
-            echo $(git status)
-          else
-            git config user.name "Doka Dog"
-            git config user.email "<hi@doka.guide>"
-
-            git add "./settings/featured.md"
-            git commit -m "Обновляет featured-статьи" --author "Doka Dog <hi@doka.guide>"
-
-            git pull --rebase
-            git push origin main
-
-            exit
-          fi
+          bash .github/scripts/commit-and-push.sh \
+            "Обновляет featured-статьи" \
+            "node .github/scripts/featured-articles.js" \
+            settings/featured.md

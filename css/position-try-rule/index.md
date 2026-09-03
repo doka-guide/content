@@ -46,8 +46,8 @@ tags:
 - [`margin`](/css/margin/);
 - свойства размеров (например, [`width`](/css/width/), [`height`](/css/height/));
 - свойства выравнивания самого элемента (например, [`justify-self`](/css/justify-self/), [`align-self`](/css/align-self/));
-- [`position-anchor`](/css/position-anchor);
-- [`position-area`](/css/position-area).
+- [`position-anchor`](/css/position-anchor/);
+- [`position-area`](/css/position-area/).
 
 ## Как понять
 

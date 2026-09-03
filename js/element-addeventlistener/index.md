@@ -7,7 +7,7 @@ contributors:
   - nlopin
   - skorobaeus
   - vladislav149
-  - lira_bazh
+  - lira-bazh
 related:
   - js/dom
   - js/events

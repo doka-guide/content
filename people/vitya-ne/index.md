@@ -6,5 +6,5 @@ badges:
   - superstar
   - workafrolic
   - workafrolic-25
-  - merged-pr-50
+  - merged-pr-100
 ---
