@@ -60,8 +60,12 @@ groups:
       - root
       - indeterminate
       - user-valid-invalid
+      - any-link
+      - dir
+      - blank
       - picture-in-picture
       - fullscreen
+      - autofill
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -76,6 +80,7 @@ groups:
       - selection
       - marker
       - backdrop
+      - scrollbar
       - details-content
       - cue
       - file-selector-button
@@ -423,6 +428,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - page
+      - break-after
       - orphans
       - widows
       - print-color-adjust

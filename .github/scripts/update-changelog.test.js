@@ -13,6 +13,8 @@ const {
   isPlaceholder,
   sanitize,
   sanitizePerson,
+  peopleOf,
+  signers,
   entryFields,
   collect,
   RENAME_LIMIT,
@@ -291,25 +293,73 @@ test('битая строка переезда без второго пути о
   assert.deepEqual(parseChanges('R096\tcss/ph/index.md'), [])
 })
 
-const frontOf = (authors) => split(['---', 'title: "Статья"', 'authors:', ...authors.map((a) => `  - ${a}`), 'tags:', '  - doka', '---', ''].join('\n')).front
+const frontOf = (authors, contributors = []) =>
+  split(
+    [
+      '---',
+      'title: "Статья"',
+      'authors:',
+      ...authors.map((a) => `  - ${a}`),
+      ...(contributors.length > 0 ? ['contributors:', ...contributors.map((c) => `  - ${c}`)] : []),
+      'tags:',
+      '  - doka',
+      '---',
+      '',
+    ].join('\n'),
+  ).front
+
+const signedBy = (authors) => entryFields(frontOf(authors), authors).people
 
 test('Дока Дог из подписи выпадает, а один он запись не удержит', () => {
-  assert.deepEqual(entryFields(frontOf(['solarrust', 'doka-dog'])).people, ['Алёна Батицкая'])
-  assert.deepEqual(entryFields(frontOf(['doka-dog'])).people, [])
+  assert.deepEqual(signedBy(['solarrust', 'doka-dog']), ['Алёна Батицкая'])
+  assert.deepEqual(signedBy(['doka-dog']), [])
 })
 
 test('мусорный слаг в подпись не идёт и не оставляет висячей запятой', () => {
-  assert.deepEqual(entryFields(frontOf(['[клик](https://evil.example/)'])).people, [])
-  assert.deepEqual(entryFields(frontOf(['solarrust', '[]'])).people, ['Алёна Батицкая'])
-  assert.deepEqual(entryFields(frontOf(['../../../etc/passwd'])).people, [])
-  assert.deepEqual(entryFields(frontOf(['..'])).people, [])
+  assert.deepEqual(signedBy(['[клик](https://evil.example/)']), [])
+  assert.deepEqual(signedBy(['solarrust', '[]']), ['Алёна Батицкая'])
+  assert.deepEqual(signedBy(['../../../etc/passwd']), [])
+  assert.deepEqual(signedBy(['..']), [])
 })
 
 test('материал без заголовка записывать нечем', () => {
   const noTitle = ['---', 'authors:', '  - solarrust', 'tags:', '  - doka', '---', ''].join('\n')
 
-  assert.equal(entryFields(split(noTitle).front).title, '')
-  assert.equal(entryFields(split(article({ title: 'Статья' })).front).title, 'Статья')
+  assert.equal(entryFields(split(noTitle).front, ['solarrust']).title, '')
+  assert.equal(entryFields(split(article({ title: 'Статья' })).front, ['gartonot']).title, 'Статья')
+})
+
+test('новую статью подписывают авторы, а не все причастные', () => {
+  const after = frontOf(['solarrust'], ['furtivite'])
+
+  assert.deepEqual(signers({ reason: 'new', before: '', after }), ['solarrust'])
+})
+
+test('дописанную заготовку подписывает тот, кто её дописал', () => {
+  // Ровно случай пулреквеста #6027: заготовку завёл один человек, доку написал
+  // другой, и по конвенции репозитория он попал в `contributors`.
+  const before = frontOf(['inventoris'])
+  const after = frontOf(['inventoris'], ['drakesbot12'])
+
+  assert.deepEqual(signers({ reason: 'placeholder', before, after }), ['drakesbot12'])
+})
+
+test('дописавшего заготовку не теряем и когда он пришёл в авторы', () => {
+  const before = frontOf(['inventoris'])
+  const after = frontOf(['inventoris', 'solarrust'])
+
+  assert.deepEqual(signers({ reason: 'placeholder', before, after }), ['solarrust'])
+})
+
+test('заготовку, дописанную своим же автором, подписывает он сам', () => {
+  const front = frontOf(['solarrust'])
+
+  assert.deepEqual(signers({ reason: 'placeholder', before: front, after: front }), ['solarrust'])
+})
+
+test('человек в двух полях разом подпись не удваивает', () => {
+  assert.deepEqual(peopleOf(frontOf(['solarrust'], ['solarrust', 'furtivite'])), ['solarrust', 'furtivite'])
+  assert.deepEqual(signers({ reason: 'placeholder', before: frontOf(['inventoris']), after: frontOf(['inventoris', 'lira'], ['lira']) }), ['lira'])
 })
 
 test('порог поиска переименований задан явно', () => {
@@ -341,6 +391,7 @@ const sandbox = () => {
   // файл автора мог приехать тем же пулреквестом. Слеш после ссылки уводит
   // поиск адреса в ленте на сайте в хвост строки.
   write('people/solarrust/index.md', ["---", "name: 'Алёна / Батицкая'", '---', ''].join('\n'))
+  write('people/lira/index.md', ['---', "name: 'Лира'", '---', ''].join('\n'))
 
   const run = (sha, mergedAt) => {
     execFileSync('node', ['.github/scripts/update-changelog.js'], {
@@ -369,7 +420,9 @@ test('сквозной прогон: в ченджлог попадает тол
     write('css/notitle/index.md', ['---', 'authors:', '  - solarrust', 'tags:', '  - doka', '---', '', 'Текст.', ''].join('\n'))
     write('css/fresh-ph/index.md', ['---', 'title: "`fresh`"', 'authors:', '  - solarrust', 'tags:', '  - doka', '  - placeholder', '---', '', 'Текст.', ''].join('\n'))
     git('mv', 'css/ph', 'css/ph-done')
-    write('css/ph-done/index.md', ['---', 'title: "`ph`"', 'authors:', '  - solarrust', 'tags:', '  - doka', '---', '', LONG, ''].join('\n'))
+    // Заготовку дописал не её автор: подписать запись должен он, а не тот, кто
+    // когда-то завёл пустышку.
+    write('css/ph-done/index.md', ['---', 'title: "`ph`"', 'authors:', '  - solarrust', 'contributors:', '  - lira', 'tags:', '  - doka', '---', '', LONG, ''].join('\n'))
     git('mv', 'css/moved', 'css/moved-elsewhere')
     git('add', '-A')
     git('commit', '--quiet', '-m', 'Пулреквест со всеми случаями разом')
@@ -379,7 +432,7 @@ test('сквозной прогон: в ченджлог попадает тол
 
     assert.deepEqual(entries, [
       '- 30 августа, [`gap`](https://doka.guide/css/gap/), Алёна Батицкая',
-      '- 30 августа, [`ph`](https://doka.guide/css/ph-done/), Алёна Батицкая',
+      '- 30 августа, [`ph`](https://doka.guide/css/ph-done/), Лира',
     ])
 
     // Повторный прогон того же пулреквеста ничего не дублирует.
