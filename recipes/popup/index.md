@@ -40,12 +40,12 @@ tags:
   </button>
   <dialog class="child" id="myDialog">
     <div class="dialog__wrapper">
-      <h2>Дока — самая добрая документация &#128579</h2>
+      <h2>Дока — самая добрая документация &#128579;</h2>
       <button
         class="closeDialogBtn button-black"
         type="button"
       >
-        Согласен &#128156
+        Согласен &#128156;
       </button>
     </div>
   </dialog>
@@ -183,12 +183,12 @@ dialogCloser.addEventListener('click', (event) => {
   </button>
   <dialog class="child" id="myDialog">
     <div class="dialog__wrapper">
-      <h2>Дока — самая добрая документация &#128579</h2>
+      <h2>Дока — самая добрая документация &#128579;</h2>
       <button
         class="closeDialogBtn button-black"
         type="button"
       >
-        Согласен &#128156
+        Согласен &#128156;
       </button>
     </div>
   </dialog>

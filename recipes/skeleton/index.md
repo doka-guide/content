@@ -181,7 +181,7 @@ tags:
 - [`background-repeat`](/css/background-repeat/);
 - [`background-image`](/css/background-image/);
 - [`background-size`](/css/background-size/);
-- [`background-position`](/css/background-position).
+- [`background-position`](/css/background-position/).
 
 Для начала заведём [CSS-переменные](/css/custom-properties/), чтобы не повторять одни и те же значения и проще ориентироваться в коде. Параметры каждого нижеследующего блока используют размер и положение предыдущего. Важно, чтобы размеры и форма блоков были похожи на части контента, для которого делается скелетон.
 
