@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/keyframes
-  - tools/static-types
-  - js/closures
-  - html/section
-  - recipes/ajax-form
-  - js/function-context
-  - html/img
-  - html/head
-  - css/flexbox-guide
-  - html/input
-  - css/scrollbar-gutter
-  - a11y/aria-intro
-  - js/infinite-scroll
-  - js/array-entries
+  - a11y/aria-hidden
+  - css/pseudoelements
   - recipes/git-rebase-onto
-  - a11y/live-region
-  - css/media
-  - tools/docker
-  - tools/bundlers
+  - html/flow
+  - tools/webpack
   - recipes/character-counter
-  - js/array-reduce-right
-  - css/custom-properties
-  - tools/clean-architecture
-  - a11y/screenreaders
-  - css/box-sizing
-  - recipes/snow
-  - a11y/content-hidden
+  - recipes/progress
+  - js/execution-order
   - html/nav
-  - tools/how-the-browser-creates-pages
-  - html/div
-  - css/position
-  - html/doctype
-  - recipes/popup
-  - css/box-shadow
   - recipes/lets-encrypt-nginx
-  - tools/network
+  - css/scrollbar-gutter
+  - html/section
+  - html/input
+  - js/infinite-scroll
+  - recipes/center
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - tools/agile
+  - html/article
+  - js/boolean
+  - tools/cli
+  - js/async-in-js
+  - js/array-entries
+  - css/flexbox-guide
+  - tools/bundlers
+  - a11y/live-region
+  - css/attr
+  - css/box-sizing
+  - js/closures
+  - js/var-let
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/static-types
   - html/form
   - js/geolocation-api
-  - tools/how-to-test-and-why
-  - tools/agile
-  - js/var-let
-  - css/pseudoelements
-  - html/flow
-  - js/deal-with-forms
-  - html/article
-  - css/box-model
-  - css/specificity
-  - a11y/css-impact-on-a11y
-  - js/function
   - css/transform-function
-  - recipes/progress
-  - tools/webpack
-  - recipes/center
-  - tools/ci-cd
-  - tools/cli
-  - js/boolean
-  - css/attr
-  - js/async-in-js
-  - html/video
-  - css/display
-  - tools/markdown
-  - js/execution-order
-  - css/grid-guide
   - tools/cors
-  - a11y/aria-hidden
-  - tools/oop
+  - tools/ci-cd
+  - css/custom-properties
+  - css/box-model
+  - tools/docker
+  - a11y/screenreaders
+  - html/video
+  - js/function-context
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/position
   - tools/gitlab-ci-cd
+  - a11y/content-hidden
+  - recipes/snow
+  - tools/network
+  - a11y/css-impact-on-a11y
+  - html/doctype
+  - tools/markdown
+  - html/head
+  - css/specificity
+  - css/box-shadow
+  - recipes/ajax-form
+  - css/grid-guide
+  - css/display
+  - js/array-reduce-right
+  - html/img
+  - tools/oop
+  - html/div
+  - js/function
+  - recipes/popup
+  - js/deal-with-forms
 ---
 

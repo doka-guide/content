@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Оптическое масштабирование — font-optical-sizing — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    @font-face {
+      font-family: "Newsreader";
+      src: url("Newsreader.woff2") format("woff2");
+      font-weight: 200 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* ---- Оболочка ---- */
+
+    .demo {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ---- Разделённый просмотр ---- */
+
+    .split-wrapper {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background-color: #282A2E;
+      border-radius: 8px 8px 0 0;
+      cursor: ew-resize;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sample-text {
+      font-family: "Newsreader", serif;
+      font-size: 88px;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+
+    .layer-auto .sample-text { font-optical-sizing: auto; }
+    .layer-none .sample-text { font-optical-sizing: none; }
+
+    /* ---- Разделитель ---- */
+
+    .divider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: #2E9AFF;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .divider-handle {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #2E9AFF;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* ---- Метки ---- */
+
+    .split-labels {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 14px;
+      pointer-events: none;
+    }
+
+    .split-label {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background-color: rgb(0 0 0 / 0.5);
+    }
+
+    .split-label-auto { color: #2E9AFF; }
+    .split-label-none { color: rgb(255 255 255 / 0.4); }
+
+    /* ---- Информационная полоса ---- */
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 0 0 8px 8px;
+      overflow: hidden;
+    }
+
+    .info-cell {
+      padding: 12px 16px;
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.3);
+      line-height: 1.6;
+      background-color: #1E1F23;
+    }
+
+    .info-cell + .info-cell {
+      border-left: 1px solid rgb(255 255 255 / 0.06);
+    }
+
+    .info-cell strong {
+      font-weight: 400;
+      color: #2E9AFF;
+    }
+
+    /* ---- Адаптив ---- */
+
+    @media (width <= 520px) {
+      .split-wrapper { height: 160px; }
+      .sample-text { font-size: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo">
+
+    <div class="split-wrapper" id="split">
+
+      <div class="layer layer-auto" id="layerAuto">
+        <p class="sample-text">Display</p>
+      </div>
+
+      <div class="layer layer-none" id="layerNone">
+        <p class="sample-text">Display</p>
+      </div>
+
+      <div class="split-labels">
+        <span class="split-label split-label-auto">auto</span>
+        <span class="split-label split-label-none">none</span>
+      </div>
+
+      <div class="divider-line" id="dividerLine">
+        <div class="divider-handle">⟺</div>
+      </div>
+
+    </div>
+
+    <div class="info-strip">
+      <div class="info-cell">
+        <strong>auto</strong> — opsz = font-size (~88).
+        Штрихи тоньше, контраст между жирными и тонкими частями выше.
+      </div>
+      <div class="info-cell">
+        <strong>none</strong> — opsz зафиксирован на 18 (дефолт шрифта).
+        Штрихи одинаковые при любом размере.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+  const split = document.getElementById('split');
+    const dividerLine = document.getElementById('dividerLine');
+    const layerAuto = document.getElementById('layerAuto');
+    const layerNone = document.getElementById('layerNone');
+
+    let dragging = false;
+
+    function setPosition(pct) {
+      pct = Math.max(5, Math.min(95, pct));
+      dividerLine.style.left = pct + '%';
+      layerAuto.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      layerNone.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    }
+
+    split.addEventListener('mousedown', e => {
+      dragging = true;
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const rect = split.getBoundingClientRect();
+      setPosition((e.clientX - rect.left) / rect.width * 100);
+    });
+
+    document.addEventListener('mouseup', () => { dragging = false; });
+
+    split.addEventListener('touchstart', e => {
+      dragging = true;
+      e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      const rect = split.getBoundingClientRect();
+      setPosition((e.touches[0].clientX - rect.left) / rect.width * 100);
+    });
+
+    document.addEventListener('touchend', () => { dragging = false; });
+
+    setPosition(50);
+  </script>
+</body>
+</html>
