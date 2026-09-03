@@ -9,7 +9,8 @@
 ```
 
 ```js
-document.querySelector('.button').addEventListener('click', function (event) {
+document.querySelector('.button')
+.addEventListener('click', function (event) {
   console.log('Событие инициировано на', event.target)
   console.log('Событие поймано на', event.currentTarget)
 })
@@ -17,6 +18,6 @@ document.querySelector('.button').addEventListener('click', function (event) {
 
 <iframe title="Разница между target и currentTarget" src="../demos/target-vs-currenttarget/" height="400"></iframe>
 
-`currentTarget` всегда будет элементом, к которому привязан обработчик, то есть элементом, на котором вызывался [`addEventListener()`](/js/element-addeventlistener/).
+`currentTarget` всегда будет элементом, к которому привязан обработчик. То есть элементом, на котором вызывался [`addEventListener()`](/js/element-addeventlistener/).
 
 `target` — это элемент, на котором произошло событие. Оно может не совпадать с `currentTarget`, потому что большинство [событий всплывают](/js/events/#vsplytie-sobytiy).

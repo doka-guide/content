@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры нативных элементов — color-scheme — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    h1, .option-title {
+      width: 230px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .option-title {
+      margin-inline-end: 50px;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px 15px;
+      font-size: inherit;
+      font-family: inherit;
+    }
+
+    .dark {
+      color-scheme: dark;
+    }
+
+    .light {
+      color-scheme: light;
+    }
+
+    .normal {
+      color-scheme: light dark;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .option-title {
+        width: 100%;
+      }
+
+      .option-title {
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1><code>color-scheme</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>light</code></span>
+      <input class="light" placeholder="Светлый">
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>dark</code></span>
+      <input class="dark" placeholder="Тёмный">
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>light dark</code></span>
+      <input class="normal" placeholder="Системный">
+    </div>
+  </div>
+</body>
+</html>

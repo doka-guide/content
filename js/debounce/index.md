@@ -41,10 +41,10 @@ tags:
 
 ## Разметка
 
-Начнём с разметки формы. У нас будет сама форма `#search` и список ссылок, данные для которых мы будем получать в ответ. У формы есть атрибут `action`, который будет работать, если пользователи отключили скрипты. Для поля используем `<input>` с типом `search`, чтобы браузеры делали дополнительную магию с автозаполнением и подходящими кнопками на телефонных клавиатурах. Кнопкам необязательно проставлять тип, так как `submit` — тип по умолчанию.
+Начнём с разметки формы. У нас будет сама форма `#search-form` и список ссылок, данные для которых мы будем получать в ответ. У формы есть атрибут `action`, который будет работать, если пользователи отключили скрипты. Для поля используем [`<input>`](/html/input/) с типом `search`, чтобы браузеры делали дополнительную магию с автозаполнением и подходящими кнопками на телефонных клавиатурах. Кнопкам необязательно проставлять тип, так как `submit` — тип по умолчанию.
 
 ```html
-<form action="/some-route" method="GET" id="search">
+<form action="/some-route" method="GET" id="search-form">
   <label>Найди любимую пиццу:</label>
 
   <input type="search" name="query" placeholder="Маргарита">
@@ -237,16 +237,19 @@ const server = {
 
 ```javascript
 function debounce(callee, timeoutMs) {
+  let lastCall
+  let previousCall
+  let lastCallTimer
+
   return function perform(...args) {
-    let previousCall = this.lastCall
+    previousCall = lastCall
+    lastCall = Date.now()
 
-    this.lastCall = Date.now()
-
-    if (previousCall && this.lastCall - previousCall <= timeoutMs) {
-      clearTimeout(this.lastCallTimer)
+    if (previousCall && lastCall - previousCall <= timeoutMs) {
+      clearTimeout(lastCallTimer)
     }
 
-    this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
+    lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
   }
 }
 ```
@@ -317,4 +320,4 @@ searchInput.addEventListener('input', debouncedHandle)
 
 Полный пример строки поиска у нас получится такой:
 
-<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280"></iframe>
+<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="380"></iframe>

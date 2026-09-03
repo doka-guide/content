@@ -38,20 +38,39 @@ const collection = document.forms
 ```html
 <form>
   <label for="promocode">Промокод</label>
-  <input id="promocode" type="text" name="promocode" placeholder="WIN-1234" required>
+  <input
+    id="promocode"
+    type="text" name="promocode"
+    placeholder="WIN-1234"
+    required
+  >
   <button type="submit">Применить</button>
 </form>
 ...
 <form id="subscriptionFormId">
   <label for="email">Почта</label>
-  <input id="email" type="email" name="email" placeholder="email@example.com" required>
+  <input
+    id="email"
+    type="email"
+    name="email"
+    placeholder="email@example.com"
+    required
+  >
   <button type="submit">Подписаться</button>
 </form>
 ...
 <form id="loginFormId" name="loginFormName">
   <label for="phone">Ваш номер</label>
-  <input id="phone" type="tel" name="phone" placeholder="776-2323" required>
-  <button type="submit">Отправить код подтверждения</button>
+  <input
+    id="phone"
+    type="tel"
+    name="phone"
+    placeholder="776-2323"
+    required
+  >
+  <button type="submit">
+    Отправить код подтверждения
+  </button>
 </form>
 ```
 
@@ -78,15 +97,15 @@ document.forms[1]
 Третья форма содержит как атрибут `id`, так и `name`. У нас появляется возможность получить форму ещё и по имени, указанному в атрибуте `name`:
 
 ```js
-// По имени:
+// По имени
 document.forms['loginFormName']
 document.forms.loginFormName
 
-// По id:
+// По id
 document.forms['loginFormId']
 document.forms.loginFormId
 
-// По индексу:
+// По индексу
 document.forms[2]
 ```
 

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница значений атрибута popover — Popover API — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Roboto+Mono:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-size: 18px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .wrapper {
+      position: relative;
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    button {
+      display: block;
+      min-width: 300px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      background-color: #FF8630;
+      transition: background-color 0.2s linear;
+    }
+
+    .accent {
+      background-color: #2E9AFF;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    [popover] {
+      border: none;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    #popover-auto {
+      transform: translateY(-300%);
+    }
+
+    #popover-manual {
+      transform: translateY(200%);
+    }
+
+    #popover-auto-2 {
+      transform: translateY(-500%);
+    }
+
+    #popover-manual-2 {
+      transform: translateY(350%);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      #popover-auto {
+        transform: translateY(-240px);
+      }
+
+      #popover-manual {
+        transform: translateY(170px);
+      }
+
+      #popover-auto-2 {
+        transform: translateY(-300px);
+      }
+
+      #popover-manual-2 {
+        transform: translateY(260px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button popovertarget="popover-auto">
+      <code>popover="auto"</code>
+    </button>
+
+    <div id="popover-auto" popover="auto">
+      <p>Закрываю другие всплывашки. Легко закрываюсь сам.</p>
+    </div>
+
+    <button popovertarget="popover-auto-2">
+      Ещё один <code>popover="auto"</code>
+    </button>
+
+    <div id="popover-auto-2" popover="auto">
+      <p>Вы не видели моего брата?!</p>
+    </div>
+
+    <button popovertarget="popover-manual" class="accent">
+      <code>popover="manual"</code>
+    </button>
+
+    <div id="popover-manual" popover="manual">
+      <p>Не закрываю другие. Без кнопки не закроюсь.</p>
+    </div>
+
+    <button popovertarget="popover-manual-2" class="accent">
+      Ещё один <code>popover="manual"</code>
+    </button>
+
+    <div id="popover-manual-2" popover="manual">
+      <p>Теперь нас двое!</p>
+    </div>
+  </div>
+</body>

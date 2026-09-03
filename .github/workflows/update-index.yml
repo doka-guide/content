@@ -1,17 +1,30 @@
 name: Update Index
 
+# Цепочка: push в main → Main Maintenance → публикация индекса.
 on:
   workflow_run:
     workflows:
-      - "Update Dates"
+      - "Main Maintenance"
     branches:
       - main
     types:
       - completed
 
+# Группа без cancel-in-progress: шаг перезапускает докер-контейнер поиска, и
+# оборванный посередине прогон оставил бы поиск лежать.
+concurrency:
+  group: Update Index
+
+permissions:
+  contents: read
+
 jobs:
   update-index:
+    # `completed` приходит и на упавший прогон, и на отменённый, и на
+    # пропущенный: индекс собирался бы по контенту, который не обслужен.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

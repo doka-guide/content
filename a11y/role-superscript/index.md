@@ -20,6 +20,6 @@ tags:
 
 ## Как пишется
 
-Задайте тегу `role="superscript"`. Для этого больше всего подходит [`<span>`](/html/span/). В большинстве случаев лучше использовать тег `<sup>`.
+Задайте тегу `role="superscript"`. Для этого больше всего подходит [`<span>`](/html/span/). В большинстве случаев лучше использовать тег [`<sup>`](/html/sup/).
 
 Элементам с ролью `superscript` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), кроме [`aria-label`](/a11y/aria-label/) и [`aria-labelledby`](/a11y/aria-labelledby/).

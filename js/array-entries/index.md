@@ -1,6 +1,11 @@
 ---
 title: "`.entries()`"
 description: "Возвращает объект-итератор индексов и значений элементов массива."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Закрытые шкафчики из раздевалки, но один открыт, потому что в нём ключ Доки'
 authors:
   - vitya-ne
 related:

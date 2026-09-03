@@ -64,9 +64,15 @@ Promise.all([promise1, promise2, promise3])
 В примере ниже, промис `promise2` завершается с ошибкой:
 
 ```js
-const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
-const promise2 = new Promise((resolve, reject) => setTimeout(() => reject('error'), 2000))
-const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000))
+const promise1 = new Promise(
+  resolve => setTimeout(() => resolve(1), 5000)
+)
+const promise2 = new Promise(
+  (resolve, reject) => setTimeout(() => reject('error'), 2000)
+)
+const promise3 = new Promise(
+  resolve => setTimeout(() => resolve(3), 1000)
+)
 
 Promise.all([promise1, promise2, promise3])
   .then(([response1, response2, response3 ]) => {

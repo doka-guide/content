@@ -1,6 +1,6 @@
 ---
 title: "Почти всё в JavaScript — объект"
-description: "Что бы мы ни использовали при написании JS кода, почти всё это объекты под капотом."
+description: "Что бы мы ни использовали при написании JavaScript-кода, почти всё это объекты под капотом."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -10,7 +10,6 @@ authors:
   - windrushfarer
 keywords:
   - array
-  - массивы
 related:
   - js/function
   - js/arrays
@@ -46,25 +45,32 @@ console.dir(programmer)
 
 </aside>
 
-Если взглянуть на массив, то у него тоже есть набор свойств, но свой. Например, у массива есть длина, есть методы для работы с ним. Обращение к элементу массива по индексу, как можно заметить, это очень похоже на обращение к полю объекта с помощью квадратных скобок.
+Если взглянуть на массив, то у него тоже есть набор свойств, но свой. Например, у массива есть длина, методы для работы с ним. Обращение к элементу массива по индексу, как можно заметить, похоже на обращение к полю объекта с помощью квадратных скобок.
 
 ```javascript
-const shows = ['Breakind Bad', 'The Office', 'Silicon Valley']
+const shows =
+  ['Breakind Bad', 'The Office', 'Silicon Valley']
 
-shows.length // свойство массива
+// Свойство массива
+shows.length
 
-shows[1] // получить элемент массива, аналогично как у объекта shows['1']
+// Получить элемент массива,
+// аналогично как у объекта shows['1']
+shows[1]
 ```
 
-Аналогичная ситуация с функциями — у них тоже есть набор свойств, который можно увидеть, выведя информацию о ней в консоль.
+Аналогичная ситуация с функциями. У них тоже есть набор свойств, который можно увидеть, выведя информацию о ней в консоль.
 
 ```javascript
 function sum(a, b) {
   return a + b
 }
 
-sum.arguments // можно вызвать свойство функции
-sum.someField = 'value' // можно присвоить значение в поле
+// Можно вызвать свойство функции
+sum.arguments
+
+// Можно присвоить значение в поле
+sum.someField = 'value'
 
 console.dir(sum)
 ```
@@ -73,15 +79,17 @@ console.dir(sum)
 
 ![консоль, в которой выведены свойства функции](images/console-func.png)
 
-Такая структура массивов и функций очень похожа на структуру объектов. Но на самом деле это и есть объекты, и в этом можно легко убедиться.
+Такая структура массивов и функций очень похожа на структуру объектов. Но на самом деле это и есть объекты. В этом можно легко убедиться. Давайте посмотрим на свойство `__proto__` у функции `sum()`, описанной выше.
 
-Давайте посмотрим на свойство `__proto__` у функции `sum()`, описанной выше.
+<aside>
 
-_Свойство `__proto__` является [устаревшим (deprecated](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)), не используйте его в коде, особенно для того, чтобы самостоятельно устанавливать прототип._
+👉 Свойство `__proto__` [устаревшее (deprecated)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto). Не используйте его в коде, особенно для того, чтобы самостоятельно устанавливать прототип.
+
+</aside>
 
 ![консоль, в которой выведен прототип функции sum](images/console-func2.png)
 
-Если посмотреть свойство прототипа, то можно заметить, что прототипом текущего прототипа является объект. Заглянув в этот прототип, можно увидеть такую картину:
+Если посмотреть свойство прототипа, то можно заметить, что прототипом текущего является объект. Заглянув в этот прототип, можно увидеть такую картину:
 
 ![методы объекта в консоли](images/proto.png)
 
@@ -104,11 +112,12 @@ console.log(show.toUpperCase())
 // 'BREAKING BAD'
 ```
 
-Но строка является примитивным типом данных, откуда же у неё поведение как у объекта? Когда происходит обращение к какому-то свойству или методу у примитива, происходит автоматическая обёртка (`autoboxing`) в специальный конструктор для примитива, который является наследником объекта. Для строки это будет функция `String()`. У этого объекта есть свойства и методы, которые и вызываются.
+Если строка является примитивным типом данных, откуда у неё поведение как у объекта? Когда обращаемся к свойству или методу у примитива, происходит обёртка с помощью специального конструктора (`autoboxing`), который является наследником `Object`. Для строки это будет функция `String()`. У этого объекта есть свойства и методы, которые и вызываются.
 
 ```javascript
 const pet = 'dog'
-const pet2 = new String('dog') // будет создан объект
+// Будет создан объект
+const pet2 = new String('dog')
 
 console.log(pet === pet2)
 // false, потому что в pet2 находится объект
@@ -131,12 +140,16 @@ console.dir(pet2)
 ```javascript
 const cat = 'Boris'
 
-cat.color = 'red' // свойство не добавится
-delete color.length // также ничего не изменится
+// Свойство не добавится
+cat.color = 'red'
+// Также ничего не изменится
+delete color.length
 
 const cats = ['Boris', 'Vasya', 'Murzik']
-cats.length = 5 // теперь массив стал длинной в 5 элементов
-cats.someField = 'value' // добавилось поле
+// Теперь массив стал длинной в пять элементов
+cats.length = 5
+// Добавилось поле
+cats.someField = 'value'
 
 console.dir(cats)
 /*
@@ -149,17 +162,18 @@ console.dir(cats)
 }
 */
 ```
-Но не стоит путать примитив и объект, созданный через конструктор для примитива:
+
+Не путайте примитив и объект, созданный через конструктор для примитива:
 
 ```js
 const cat = new String('Boris')
 cat.color = 'black'
-// добавится, так как в cat лежит объект, а не строка
+// Добавится, так как в cat лежит объект, а не строка
 ```
 
 ## Как пишется
 
-У объектов и массивов поля и методы можно вызывать всегда: и через переменную, и инлайн (inline), то есть без использования переменной.
+Поля и методы объектов и массивов можно вызывать всегда: через переменную и инлайн (inline), то есть без использования переменной.
 
 ```javascript
 const array = [1, 2, 3, 4]
@@ -212,7 +226,8 @@ Symbol('tag').toString()
 
 ```js
 42.toString()
-// Uncaught SyntaxError: Invalid or unexpected token
+// Uncaught SyntaxError:
+// Invalid or unexpected token
 ```
 
 Чтобы этого избежать, можно использовать две точки, взять выражение в скобки или вызвать обёртку примитивного типа:
@@ -232,20 +247,26 @@ Number(42).toString()
 
 ```js
 null.toString()
-// Uncaught TypeError: Cannot read property 'toString' of null
+// Uncaught TypeError:
+// Cannot read property 'toString' of null
 
 null.valueOf()
-// Uncaught TypeError: Cannot read property 'valueOf' of null
+// Uncaught TypeError:
+// Cannot read property 'valueOf' of null
 
 null.length
-// Uncaught TypeError: Cannot read property 'length' of null
+// Uncaught TypeError:
+// Cannot read property 'length' of null
 
 undefined.toString()
-// Uncaught TypeError: Cannot read property 'toString' of undefined
+// Uncaught TypeError:
+// Cannot read property 'toString' of undefined
 
 undefined.valueOf()
-// Uncaught TypeError: Cannot read property 'valueOf' of undefined
+// Uncaught TypeError:
+// Cannot read property 'valueOf' of undefined
 
 undefined.length
-// Uncaught TypeError: Cannot read property 'length' of undefined
+// Uncaught TypeError:
+// Cannot read property 'length' of undefined
 ```

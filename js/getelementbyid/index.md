@@ -19,13 +19,12 @@ tags:
 
 ```html
 <html>
-  <head></head>
   <body>
     <h1 id="title">Привет, незнакомец!</h1>
     <script>
-      let title = document.getElementById("title")
+      let title = document.getElementById('title')
       console.log(title.textContent)
-      // напечатает "Привет, незнакомец!"
+      // Напечатает «Привет, незнакомец!»
     </script>
   </body>
 </html>
@@ -33,7 +32,7 @@ tags:
 
 Живой пример:
 
-<iframe title="Название — getElementById() — Дока" src="demos/Lopinopulos-XwKRaZ/" height="150"></iframe>
+<iframe title="Демонстрация работы метода" src="demos/Lopinopulos-XwKRaZ/" height="150"></iframe>
 
 ## Как понять
 

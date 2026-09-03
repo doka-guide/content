@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — backdrop-filter — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+
+    .filters__button {
+      padding: 0.8em 1.2em;
+      border: none;
+      background-color: #2e9aff;
+      color: #000000;
+      text-align: left;
+      font: inherit;
+      transition: margin 0.125s;
+    }
+
+    .filters__button[aria-pressed='true'] {
+      z-index: 1;
+      width: calc(100% + 1em);
+      clip-path: polygon(
+        0 0,
+        calc(100% - 1em) 0,
+        100% 50%,
+        calc(100% - 1em) 100%,
+        0 100%
+      );
+      margin-inline-start: 1em;
+      background-color: #f498ad;
+      color: #000000;
+    }
+
+    .filters__button:not([aria-pressed='true']):hover {
+      cursor: pointer;
+      filter: brightness(110%);
+    }
+
+    .filters__code {
+      pointer-events: none;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+    }
+
+    .filters__wrapper {
+      display: grid;
+      grid-column-start: 2;
+      grid-row: 1 / span 9;
+      align-self: stretch;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background-image: url('../../images/image.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .filters__target {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 350px;
+      height: 150px;
+      background-color: rgba(46, 154, 255, .3);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5em;
+      }
+
+      .filters__wrapper {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+      }
+
+      .filters__target {
+        width: 300px;
+        height: 100px;
+      }
+
+      .filters__button {
+        max-width: 180px;
+        grid-column: span 1;
+      }
+
+      .filters__button[aria-pressed='true'] {
+        width: 100%;
+        margin: 0;
+        clip-path: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="filters">
+    <button class="filters__button" aria-pressed="true">
+      <code class="filters__code">backdrop-filter: blur(15px)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: brightness(30%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: contrast(150%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: grayscale(80%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: hue-rotate(0.5turn)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: invert(100%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: blur(15px) opacity(50%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: saturate(390%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">backdrop-filter: sepia(0.6)</code>
+    </button>
+    <div class="filters__wrapper">
+      <p class="filters__target" style="backdrop-filter: blur(15px)">
+        Мороз рисует узоры
+      </p>
+    </div>
+  </div>
+  <script>
+    const filters = document.querySelector('.filters');
+    const filtersButtons = document.querySelectorAll('.filters__button');
+    const filtersTarget = document.querySelector('.filters__target');
+
+    filters.addEventListener('click', (event) => {
+      const isButton = event.target.tagName === 'BUTTON';
+      const isPressed = event.target.getAttribute('aria-pressed') === 'true';
+
+      if (isButton && !isPressed) {
+        const filter = event.target.firstElementChild.textContent;
+
+        [...filtersButtons].forEach((button) => {
+          button.setAttribute('aria-pressed', 'false');
+        });
+
+        filtersTarget.style = filter;
+        event.target.setAttribute('aria-pressed', 'true');
+      }
+    });
+  </script>
+</body>
+</html>

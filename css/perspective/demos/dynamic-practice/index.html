@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная песочница — perspective — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      accent-color: #2E9AFF;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      overflow: hidden;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .controls {
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: lowercase;
+    }
+
+    .value {
+      font-size: 40px;
+      font-weight: 500;
+    }
+
+    .slider {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    .plane {
+      width: 500px;
+      height: 250px;
+      perspective: 500px;
+      transform-style: preserve-3d;
+      background-color: #2e9aff80;
+      display: grid;
+      grid-template-rows: 40px 1fr 40px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .element {
+      text-align: left;
+      width: 500px;
+      height: 150px;
+      background-color: #F498AD;
+      transform: rotateY(45deg);
+      position: relative;
+    }
+
+    .line {
+      width: 1px;
+      height: calc(100% - 2px);
+      position: absolute;
+      top: 0;
+      left: -10px;
+      background-color: #fff;
+    }
+
+    .line::before,
+    .line::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 1px;
+      left: -4px;
+      width: 10px;
+      background-color: #fff;
+    }
+
+    .line::after {
+      top: 100%;
+    }
+
+    .height-calc {
+      transform: rotateZ(-90deg);
+      position: absolute;
+      left: -35px;
+      top: 44%;
+    }
+
+    @media (max-width: 768px) {
+    body {
+      padding: 30px;
+    }
+
+    .container, .plane, .element {
+      width: 300px;
+    }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="controls">
+        <label>
+          <code class="value"><span id="demo"></span></code>
+          <input type="range" min="200" max="1000" value="500" class="slider" id="myRange">
+        </label>
+        <p>Значение свойства <code>perspective</code></p>
+      </div>
+      <div class="plane">
+        Плоскость экрана
+        <div class="element">
+          <pre>
+            <code>
+.pink-element {
+  width: 500px;
+  height: 150px;
+  transform: rotateY(45deg);
+}
+            </code>
+          </pre>
+          <div class="line">
+            <code class="height-calc"></code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        const myRange = document.getElementById('myRange')
+        const output = document.getElementById('demo')
+        const plane = document.querySelector('.plane')
+        const element = document.querySelector('.element')
+        const heightCalc = document.querySelector('.height-calc')
+        const height = element.clientHeight
+        output.textContent = myRange.value + 'px'
+        heightCalc.textContent = "232px"
+
+        myRange.onchange = myRange.oninput = function () {
+            let value = myRange.value
+
+            plane.style.perspective = `${+value}px`
+            output.textContent = `${+value}px`
+
+            let multiplier = value / (value - (Math.sin(Math.PI / 4) * 250))
+
+            heightCalc.textContent = Math.round(height * multiplier) + "px"
+        }
+    </script>
+</body>
+</html>

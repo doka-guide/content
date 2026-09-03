@@ -62,7 +62,7 @@ tags:
 
 В случае со скринридером VoiceOver свойство `list-style: none` приведёт к ещё большей путанице. В Safari список с `list-style: none` вовсе не озвучивается как список. Мы не услышим ни количество элементов, ни слово «маркер».
 
-Если список нумерованный ([`<ol>`](/html/ol)), то для каждого пункта списка скринридер зачитывает порядковый номер, например:
+Если список нумерованный ([`<ol>`](/html/ol/)), то для каждого пункта списка скринридер зачитывает порядковый номер, например:
 
 > Один. Апельсины. Два. Хлеб.
 
@@ -170,19 +170,19 @@ tags:
 
 </aside>
 
-## `reading-order-items`
+## `reading-flow`
 
-Это [свойство из черновика CSS Display Module Level 4](https://drafts.csswg.org/css-display-4/#reading-order-items). Пока оно даже не определилось с тем, как точно называется. Может `reading-order-items`, может `reading-order`, а ещё лучше `reading-flow`?
+Это [свойство из черновика CSS Display Module Level 4](https://drafts.csswg.org/css-display-4/#reading-flow). Пока оно даже не определилось с тем, как точно называется. Может `reading-order-items`, а может `reading-order`?
 
 <aside>
 
-🏗️ В начале 2024 [команда браузерного движка Blink](https://groups.google.com/a/chromium.org/g/blink-dev/c/d9jIhcVw8zQ/m/aM5d-3P7AQAJ) начала прикидывать, как будет работать `reading-order-items` на практике.
+🏗️ В начале 2024 [команда браузерного движка Blink](https://groups.google.com/a/chromium.org/g/blink-dev/c/d9jIhcVw8zQ/m/aM5d-3P7AQAJ) начала прикидывать, как будет работать `reading-flow` на практике.
 
 </aside>
 
 Свойство предлагают использовать для решения проблемы с `order`, которое изменяет визуальный порядок флекс- и грид-элементов и никак не изменяет логический. С его помощью сможете управлять порядком озвучивания элементов скринридером или фокусом с клавиатуры.
 
-На практике `reading-order-items` будет выглядеть так:
+На практике `reading-flow` будет выглядеть так:
 
 ```html
 <div class="wrapper">
@@ -196,7 +196,7 @@ tags:
 .wrapper {
   display: flex;
   flex-direction: row-reverse;
-  reading-order-items: flex-visual;
+  reading-flow: flex-visual;
 }
 ```
 
@@ -228,7 +228,7 @@ p {
 }
 ```
 
-<iframe title="Обрезанный текст с text-overflow " src="demos/text-overflow/" height="340"></iframe>
+<iframe title="Обрезанный текст с text-overflow" src="demos/text-overflow/" height="340"></iframe>
 
 Скорее всего, если только у вас не огромный экран, такое сообщение заинтригует, но не даст нужной информации. На мобильных экранах интрига нарастает ещё больше.
 
@@ -308,9 +308,35 @@ p {
 
 <aside>
 
-🐛 Баг с `display: contents` поправили в [Chrome 89](https://issues.chromium.org/issues/41384724), [Firefox 68.0](https://bugzilla.mozilla.org/show_bug.cgi?id=1455357) и [Safari 114](https://bugs.webkit.org/show_bug.cgi?id=185679).
+🐛 Баг с теряющейся семантикой из-за `display: contents` поправили в [Chrome 89](https://issues.chromium.org/issues/41384724), [Firefox 68.0](https://bugzilla.mozilla.org/show_bug.cgi?id=1455357) и [Safari 114](https://bugs.webkit.org/show_bug.cgi?id=185679).
 
 </aside>
+
+Другая особенность поведения `display: contents` связана интерактивными элементами. Если это свойство задано ссылкам, кнопкам и похожим элементам, пользователи не могут взаимодействовать с ними с клавиатуры.
+
+```css
+a {
+  display: contents;
+  font-size: 34px;
+  border-radius: 3px;
+  color: inherit;
+  -webkit-text-decoration-color: #10F3AF;
+  text-decoration-color: #10F3AF;
+  text-decoration-thickness: 2px;
+  transition: background-color 0.2s linear;
+}
+
+a:hover,
+a:focus {
+  background-color: #10F3AF;
+  transition: background-color 0.2s linear;
+  outline-width: 0;
+}
+```
+
+<iframe title="Ссылка со значением contents у display" src="demos/display-contents/" height="400"></iframe>
+
+Такое поведение `display: contents` — не баг, а фича. Значение `contents` отменяет привычную [блочную модель](/css/box-model/). Из-за этого браузеры не знают какие размеры, отступы и расположение у элементов.
 
 ## Спрятанное содержимое
 
@@ -319,10 +345,11 @@ p {
 В Доке есть отдельная статья «[Как скрыть содержимое от скринридеров](/a11y/content-hidden/)». В ней подробно описаны способы скрытия и показа содержимого. Например, только визуально, только для скринридеров или всё вместе. Поэтому здесь только кратко процитируем описание CSS-свойств, которые _заставят скринридер замолчать_ 😈
 
 - [`width: 0px`](/css/width/) и [`height: 0px`](/css/height/) удаляют элементы из потока страницы, поэтому скринридеры их не прочитают. Не работает с NVDA. Он по-прежнему будет читать такие элементы.
-- [`visibility: hidden`](/css/visibility/) скрывает содержимое тега, но оставляет элемент в обычном потоке страницы таким образом, что он по-прежнему занимает место.
+- [`visibility: hidden`](/css/visibility/) скрывает элемент и его содержимое, но оставляет его в обычном потоке страницы, поэтому элемент по-прежнему занимает место.
+- `content-visibility: hidden` скрывает содержимое тега от браузеров и вспомогательных технологий.
 - `display: none` полностью удаляет элемент из документа. Он не занимает места, хотя всё ещё находится в исходном HTML-коде.
 
-Не используйте эти CSS-стили, если хотите, чтобы содержимое читалось программой чтения с экрана. Помните, что опыт незрячего пользователя не должен отличаться от опыта зрячего. Это важно для пользователей с частичными нарушениями зрения, которые используют скринридер не всё время, а только в некоторых ситуациях.
+Если хотите, чтобы содержимое читалось скринридером, лучше не использовать эти CSS-стили. Стремитесь к тому, чтобы опыт незрячего пользователя не отличался от опыта зрячего. Это важно для пользователей с частичными нарушениями зрения, которые используют скринридер не всё время, а только в некоторых ситуациях.
 
 ## Анимации и `prefers-reduced-motion`
 
@@ -387,7 +414,7 @@ CSS тоже может влиять на то, как контент стран
 - Новое свойство `reading-order-items` в будущем поможет победить `order`.
 - `text-overflow` не создаёт проблемы для вспомогательных технологий, но создаёт проблемы для всех остальных.
 - `display: table` не сделает для скринридера таблицу из обычных `<div>`-контейнеров. `display: grid` у `<table>` вовсе может сломать всю семантику для некоторых скринридеров.
-- `display: contents` ломает семантику в старых версиях браузеров до 2019 года.
+- `display: contents` ломает семантику в старых версиях браузеров до 2019 года и убирает интерактивные элементы из порядка фокуса.
 - `display: none` и `visibility: hidden` позволяют скрыть контент как визуально, так и от скринридеров. `width: 0px` и `height: 0px` тоже скрывают контент, но не для всех скринридеров. Например, NVDA прочитает блок, спрятанный таким образом.
 - С помощью директивы `@media` со значением `prefers-reduced-motion` можно предоставить фолбэк-стили на случай, если у пользователя в системе выключена анимация.
 
@@ -399,4 +426,3 @@ CSS тоже может влиять на то, как контент стран
 - [The effect of CSS on screen readers](https://uselessdivs.com/blog/the-effect-of-css-on-screen-readers/).
 - [Super short note on CSS text (again)](https://html5accessibility.com/stuff/2021/11/04/super-short-note-on-css-text-again/).
 - [Modern CSS Upgrades To Improve Accessibility](https://moderncss.dev/modern-css-upgrades-to-improve-accessibility/).
-- [`display: contents` considered harmful](https://ericwbailey.website/published/display-contents-considered-harmful/).

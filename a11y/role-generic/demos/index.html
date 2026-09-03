@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Две статьи с ролью и без роли generic — generic — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .block {
+      padding: 55px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    .block--semantic {
+      background-color: #10F3AF;
+    }
+
+    .block__title {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .block__content {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .highlight {
+      color: #FFFFFF;
+      border-radius: 3px;
+      padding: 0 3px;
+      background-color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <article class="block block--semantic">
+      <h2 class="block__title">Обычная статья</h2>
+      <p class="block__content">
+        Этот элемент <span class="highlight">article</span> имеет
+        семантическое значение статьи. Скринридеры объявят его как «статья».
+      </p>
+    </article>
+
+    <article class="block" role="generic">
+      <h2 class="block__title">Статья со сброшенной ролью</h2>
+      <p class="block__content">
+        Этот элемент <span class="highlight">article</span> с ролью
+        <span class="highlight">generic</span> теряет своё семантическое значение.
+        Скринридеры не объявят его как статью.
+      </p>
+    </article>
+  </section>
+</body>
+</html>

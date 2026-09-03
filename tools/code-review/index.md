@@ -1,6 +1,11 @@
 ---
 title: "Что такое код-ревью"
 description: "Зачем программисты смотрят и обсуждают код друг друга."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Бетмен даёт пощёчину Робину'
 authors:
   - igorkamyshev
 contributors:

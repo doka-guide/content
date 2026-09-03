@@ -48,6 +48,7 @@
     }
 
     .form-upload__input {
+      text-transform: lowercase;
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
@@ -64,12 +65,7 @@
       cursor: pointer;
     }
 
-    #uploadForm_File {
-      text-transform: lowercase;
-      cursor: pointer;
-    }
-
-    #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+    .form-upload__input, .form-upload__submit, progress, .form-upload__container {
       width: 360px;
     }
 
@@ -92,11 +88,7 @@
       transition: background-color 0.2s linear;
     }
 
-    .form-upload__submit:focus-visible {
-      border: 2px solid #ffffff;
-      outline: none;
-    }
-
+    .form-upload__submit:focus-visible,
     .form-upload__submit:focus {
       border: 2px solid #ffffff;
       outline: none;
@@ -136,13 +128,14 @@
       content: "Не загружено";
     }
 
-    .form-upload__status:empty + span {
-      display: none;
-    }
-
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      .form-upload {
+        width: min( 100vw - 30px, 360px );
+        max-width: 360px;
       }
 
       .form-upload__label {
@@ -156,9 +149,8 @@
         margin-bottom: 25px;
       }
 
-      #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+      .form-upload__label, .form-upload__submit, progress, .form-upload__container {
         width: 100%;
-        max-width: 360px;
       }
 
       .form-upload__input::file-selector-button {
@@ -167,8 +159,6 @@
       }
     }
   </style>
-</head>
-
 <body>
   <div class="demo-wrapper">
     <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
@@ -176,6 +166,7 @@
         <span class="form-upload__title">Изображение:</span>
         <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
       </label>
+
       <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
       <progress id="progressBar" value="0" max="100"></progress>
       <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
@@ -186,10 +177,40 @@
     const BYTES_IN_MB = 1048576
 
     const form = document.getElementById('uploadForm')
-    const fileInput = document.getElementById('uploadForm_File')
-    const sizeText = document.getElementById('uploadForm_Size')
-    const statusText = document.getElementById('uploadForm_Status')
-    const progressBar = document.getElementById('progressBar')
+    const submitButton = form.querySelector('.form-upload__submit')
+    const fileInput = form.querySelector('.form-upload__input')
+    const sizeText = form.querySelector('#uploadForm_Size')
+    const statusText = form.querySelector('.form-upload__status')
+    const progressBar = form.querySelector('#progressBar')
+
+    function resetProgress(status = '') {
+      statusText.textContent = status
+      sizeText.textContent = ''
+      progressBar.value = 0
+    }
+
+    function upload(fileToUpload) {
+      const formSent = new FormData()
+      formSent.append('uploadForm_File', fileToUpload)
+
+      const xhr = new XMLHttpRequest()
+      xhr.upload.addEventListener('progress', progressHandler, false)
+      xhr.addEventListener('load', loadHandler, false)
+      xhr.addEventListener('error', errorHandler);
+      xhr.open('POST', 'upload_processing.php')
+
+      xhr.send(formSent)
+    }
+
+    function updateProgress(loaded, total) {
+      const loadedMb = (loaded/BYTES_IN_MB).toFixed(1)
+      const totalSizeMb = (total/BYTES_IN_MB).toFixed(1)
+      const percentLoaded = Math.round((loaded / total) * 100)
+
+      progressBar.value = percentLoaded
+      sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+      statusText.textContent = `Загружено ${percentLoaded}% | `
+    }
 
     fileInput.addEventListener('change', function () {
       const file = this.files[0]
@@ -197,40 +218,45 @@
         alert('Принимается файл до 5 МБ')
         this.value = null
       }
-    });
+
+      resetProgress()
+    })
 
     form.addEventListener('submit', function (event) {
       event.preventDefault()
-      const fileToUpload = fileInput.files[0]
-      const formSent = new FormData()
-      const xhr = new XMLHttpRequest()
 
       if (fileInput.files.length > 0) {
-        formSent.append('uploadForm_File', fileToUpload)
-
-        xhr.upload.addEventListener('progress', progressHandler, false)
-        xhr.addEventListener('load', loadHandler, false)
-        xhr.open('POST', 'upload_processing.php')
-        xhr.send(formSent)
+        const fileToUpload = fileInput.files[0]
+        fileInput.disabled = true
+        submitButton.disabled = true
+        resetProgress()
+        upload(fileToUpload)
       } else {
         alert('Сначала выберите файл')
       }
+
       return false
-    });
+    })
 
     function progressHandler(event) {
-      const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
-      const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
-      const percentLoaded = Math.round((event.loaded / event.total) * 100)
-
-      progressBar.value = percentLoaded
-      sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
-      statusText.textContent = `Загружено ${percentLoaded}% | `
+      updateProgress(event.loaded, event.total)
     }
 
     function loadHandler(event) {
-      statusText.textContent = event.target.responseText
-      progressBar.value = 0
+      if (event.target.status !== 200) {
+        errorHandler()
+      } else {
+        statusText.textContent = event.target.responseText
+        progressBar.value = 0
+        fileInput.disabled = false
+        submitButton.disabled = false
+      }
+    }
+
+    function errorHandler() {
+      resetProgress('Ошибка загрузки')
+      fileInput.disabled = false
+      submitButton.disabled = false
     }
   </script>
 </body>

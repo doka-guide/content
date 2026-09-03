@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — mix-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@300&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      aspect-ratio: 2 / 3;
+      background-image: url(images/bg.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #18191c;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+    }
+
+    h1 {
+      position: fixed;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(50px, 8vw, 85px);
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+
+      mix-blend-mode: exclusion;
+    }
+
+    .brick {
+      position: relative;
+      top: -0.4em;
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      font-size: 0.25em;
+      font-weight: 700;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0.4em;
+      line-height: 1;
+    }
+
+    .hint {
+      position: fixed;
+      inset-block-start: 50%;
+      inset-inline-end: 30px;
+      transform: translateY(-50%);
+      font-size: 12px;
+      text-transform: uppercase;
+      mix-blend-mode: exclusion;
+    }
+
+    .hint::before, .hint::after {
+      position: absolute;
+      inset-inline-end: 50%;
+      font-size: 16px;
+      transform: translateX(50%) rotate(90deg);
+    }
+
+    .hint::before {
+      content: "<";
+      inset-block-start: -18px;
+    }
+
+    .hint::after {
+      content: ">";
+      inset-block-start: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .hint {
+        inset-block-start: 30px;
+        inset-inline-end: 50%;
+        transform: translateX(50%);
+      }
+    }
+
+    @media (orientation: portrait) {
+      body {
+        aspect-ratio: auto;
+        height: 200dvh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Я<span class="brick"><span>мал</span><span>ень</span><span>кая</span></span>лошадка</h1>
+  <span class="hint">Скролль</span>
+</body>
+</html>

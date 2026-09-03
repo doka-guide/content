@@ -1,28 +1,97 @@
 ---
 title: "`background-origin`"
-description: "Управляем тем, какую область фоновая картинка будет занимать внутри элемента.
-"
+description: "Управляем тем, какую область фоновая картинка будет занимать внутри элемента."
+baseline:
+  - group: background-origin
+    features:
+      - css.properties.background-origin
+      - css.properties.background-origin.border-box
+      - css.properties.background-origin.content-box
+      - css.properties.background-origin.padding-box
 authors:
-  - doka-dog
+  - drakesbot12
+contributors:
+  - starhamster
 keywords:
   - область положения фона
+  - отрисовка фона
 related:
   - css/box-model
   - css/padding
   - css/border
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
-Свойство `background-origin` определяет какие области блока будет занимать фоновая картинка: все области, включая рамку, внутренний отступ и контент или только контент. Не влияет на [`background-color`](/css/background-color/).
+Свойство `background-origin` определяет, откуда начинается отсчёт фона элемента — от границы ([`border`](/css/border/)), внутреннего отступа ([`padding`](/css/padding/)) или содержимого (`content`). Это влияет на позиционирование фонового изображения или градиента.
+
+## Пример
+
+```css
+.element {
+  padding: 20px;
+  border: 10px dashed;
+  background-image: linear-gradient(#2E9AFF, #F498AD);
+  background-repeat: no-repeat;
+}
+```
+
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
 
 ## Как пишется
 
 Доступные значения:
 
-- `border-box` — фоновая картинка заполняет все области блока: контентную, внутренний отступ и рамку.
-- `padding-box` — фоновая картинка заполняет область контента и внутреннего отступа, но не заходит под рамку (значение по умолчанию).
-- `content-box` — фоновая картинка заполняет только контентную область, но не заходит во внутренний отступ и под рамку.
+- `padding-box` — фон начинается от внутренней границы рамки, то есть с области отступа (значение по умолчанию).
+- `border-box` — фон начинает от внешней границы блока, включая рамку.
+- `content-box` — фон начинается от края содержимого, не затрагивая `padding` и `border`.
+
+Можно указать несколько значений через запятую, если в свойстве [`background-image`](/css/background-image/) используется несколько изображений. Тогда порядок значений `background-origin` соответствует порядку фоновых изображений:
+
+```css
+.element {
+  padding: 20px;
+  border: 10px dashed;
+  background-image:
+    url("doka.svg"),
+    linear-gradient(#2E9AFF, #F498AD);
+  background-origin: content-box, padding-box;
+  background-repeat: no-repeat;
+}
+```
+В примере выше первое изображение будет отрисовано от края содержимого, а второе — от внутреннего отступа.
+
+<iframe title="Два фоновых изображения" src="demos/two-backgrounds/" height="400"></iframe>
+
+## Как понять
+
+Когда добавляете фоновое изображение, браузер должен знать, **откуда его начинать рисовать**. Именно это определяет `background-origin`.
+
+Важно понимать разницу:
+
+- `background-origin` **не управляет тем, сколько места займет фон** — этим занимается свойство [`background-size`](/css/background-size/).
+- Вместо этого оно **указывает точку отсчёта** — откуда именно начать отрисовку изображения внутри элемента.
+
+Эта точка может быть:
+
+- от внешнего края рамки (`border-box`),
+- от внутреннего края рамки, то есть края отступа (`padding-box`),
+- от края содержимого, исключая padding и border (`content-box`).
+
+Если у элемента есть рамка или отступы, это визуально меняет положение фонового изображения, даже если его размер не меняется.
+
+<aside>
+
+🧠 Значение по умолчанию — `padding-box`. Это значит, что если явно не указать `background-origin`, фон начнёт отрисовываться от области отступа.
+
+</aside>
+
+## Подсказки
+
+💡 Если у элемента есть заметная рамка и фон должен «пролезать» под неё — используйте `border-box`. Если рамка должна быть отдельно от фона — `padding-box`.
+💡 Часто используется в паре с [`background-clip`](/css/background-clip/), чтобы управлять не только начальной точкой фона, но и областью, в которой он отображается.
+💡 `background-origin` работает только с фоновыми изображениями и градиентами, а не с цветом фона [`background-color`](/css/background-color/).
+💡 Если для фона указано свойство [`background-attachment`](/css/background-attachment/) со значением `fixed`, то `background-origin` **игнорируется** — фон будет привязан к видимому пространству, а не к элементу.
+💡 При использовании сокращённого свойства `background`, если вы не укажете `background-origin`, оно **сбросится к значению по умолчанию** — `padding-box`.

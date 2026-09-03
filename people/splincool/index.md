@@ -3,5 +3,6 @@ name: 'Максим Иванов'
 url: https://github.com/splincool
 photo: photo.jpeg
 badges:
-    - first-contribution-small
+  - first-contribution-small
+  - merged-pr-5
 ---

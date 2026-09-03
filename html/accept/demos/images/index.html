@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Выбор изображений — accept — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      form {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .file-input-container {
+        height: 135px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 20px;
+      }
+
+      .file-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+      }
+
+      .file-input-wrapper label {
+        margin-bottom: 10px;
+      }
+
+      input[type='file'] {
+        width: 370px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        padding: 10px;
+        background-color: transparent;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 300;
+        font-family: inherit;
+        position: relative;
+      }
+
+      input[type='file']::file-selector-button {
+        display: inline-block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        margin-inline-end: 10px;
+        padding: 9px 15px;
+        color: #000000;
+        background-color: #ff8630;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      input[type='file']::file-selector-button:hover {
+        background-color: #ffffff;
+      }
+
+      input:focus {
+        border-color: #ff8630;
+        outline: none;
+      }
+
+      .file-preview {
+        max-height: 135px;
+        overflow: hidden;
+      }
+
+      .file-preview img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+
+        form {
+          width: 400px;
+        }
+
+        .file-input-container {
+          height: 105px;
+        }
+
+        .file-input-wrapper {
+          font-size: 14px;
+        }
+
+        .file-preview img {
+          max-width: 100px;
+        }
+
+        input[type='file'] {
+          width: 280px;
+          font-size: 14px;
+        }
+
+        input[type='file']::file-selector-button {
+          min-width: 130px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        form {
+          width: auto;
+        }
+
+        .file-input-container {
+          gap: 0;
+        }
+
+        .file-preview {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form id="upload-form" onsubmit="return false;">
+      <div class="file-input-container">
+        <div class="file-input-wrapper">
+          <label for="gif-image-upload"> Только гифки: </label>
+          <input type="file" id="gif-image-upload" accept=".gif" />
+        </div>
+        <div id="gif-image-preview" class="file-preview"></div>
+      </div>
+
+      <div class="file-input-container">
+        <div class="file-input-wrapper">
+          <label for="jpg-image-upload"> Только джипеги: </label>
+          <input type="file" id="jpg-image-upload" accept=".jpg, .jpeg" />
+        </div>
+        <div id="jpg-image-preview" class="file-preview"></div>
+      </div>
+
+      <div class="file-input-container">
+        <div class="file-input-wrapper">
+          <label for="png-svg-upload"> Пнгшки и свгшки: </label>
+          <input type="file" id="png-svg-upload" accept=".png, .svg" />
+        </div>
+        <div id="png-svg-preview" class="file-preview"></div>
+      </div>
+    </form>
+
+    <script>
+      function handleFileSelect(event, previewId) {
+        const file = event.target.files[0]
+        const preview = document.getElementById(previewId)
+        preview.innerHTML = ''
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const fileType = file.type
+            if (fileType.startsWith('image/')) {
+              const img = document.createElement('img')
+              img.src = e.target.result
+              preview.appendChild(img)
+            } else {
+              preview.innerHTML =
+                'Тип файла не поддерживается для предпросмотра.'
+            }
+          };
+
+          reader.readAsDataURL(file)
+        }
+      }
+
+      document
+        .getElementById('gif-image-upload')
+        .addEventListener('change', (event) =>
+          handleFileSelect(event, 'gif-image-preview')
+        )
+      document
+        .getElementById('jpg-image-upload')
+        .addEventListener('change', (event) =>
+          handleFileSelect(event, 'jpg-image-preview')
+        )
+      document
+        .getElementById('png-svg-upload')
+        .addEventListener('change', (event) =>
+          handleFileSelect(event, 'png-svg-preview')
+        )
+    </script>
+  </body>
+</html>

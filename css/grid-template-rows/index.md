@@ -9,6 +9,9 @@ baseline:
       - css.properties.grid-template-rows.minmax
       - css.properties.grid-template-rows.repeat
       - css.properties.grid-template-rows.animation
+  - group: subgrid
+    features:
+      - css.properties.grid-template-rows.subgrid
 authors:
   - solarrust
 editors:
@@ -53,6 +56,25 @@ tags:
   grid-template-rows: 5px 50px 40% 14rem 8em 1fr;
 }
 ```
+
+Специальное значение `subgrid` позволяет дочернему грид-контейнеру наследовать ряды родителя вместо создания собственных. Ряды дочернего элемента будут совпадать с рядами родительского грида.
+
+```css
+.parent {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.child {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+}
+```
+
+Это позволяет выровнять содержимое вложенных элементов (например, шапку, тело и подвал карточек) по общим рядам родительского грида.
+
+<iframe title="subgrid для рядов" src="demos/subgrid/?embed=1" height="420"></iframe>
 
 ## Подсказки
 

@@ -6,12 +6,14 @@ authors:
 contributors:
   - furtivite
   - skorobaeus
+  - vitya-ne
+  - lira-bazh
 keywords:
   - эвенты
 related:
   - js/dom
+  - js/element-addeventlistener
   - recipes/progress
-  - html/button
 tags:
   - doka
 ---
@@ -51,7 +53,7 @@ tags:
 const buttonElement = document.getElementById('change')
 const squareDiv = document.getElementById('square')
 
-// чтобы реагировать на нажатие кнопки, записываем функцию в свойство onclick.
+// Чтобы реагировать на нажатие кнопки, записываем функцию в свойство onclick.
 // Эта функция будет вызываться при каждом нажатии на кнопку. Часто говорят,
 // что эта функция обрабатывает событие
 buttonElement.onclick = function() {
@@ -70,7 +72,7 @@ function getColor() {
 }
 ```
 
-<iframe title="Свойство DOM-элемента onclick — События — Дока" src="demos/onclick/" height="310"></iframe>
+<iframe title="Свойство DOM-элемента onclick" src="demos/onclick/" height="310"></iframe>
 
 Чтобы перестать обрабатывать событие, нужно записать в свойство значение [`null`](/js/null-primitive/).
 
@@ -84,14 +86,15 @@ function getColor() {
 const buttonElement = document.getElementById('change')
 const squareDiv = document.getElementById('square')
 
-// чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем
-// функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
+// Чтобы реагировать на нажатие кнопки, подписываемся
+// на событие click и передаём функцию-обработчик.
+// Эта функция будет вызываться при каждом нажатии на кнопку
 buttonElement.addEventListener('click', function() {
   squareDiv.style = `background-color: ${getColor()};`
 })
 ```
 
-<iframe title="Метод addEventListener — События — Дока" src="demos/click/" height="310"></iframe>
+<iframe title="Как работает метод" src="demos/click/" height="310"></iframe>
 
 ## Как понять
 
@@ -107,7 +110,8 @@ buttonElement.addEventListener('click', function() {
 
 ```js
 window.addEventListener('keydown', function (event) {
-  // используем объект события, чтобы получить информацию о нажатой клавише
+  // Используем объект события,
+  // чтобы получить информацию о нажатой клавише
   alert(`Вы нажали на кнопку: ${event.key}`)
 })
 ```
@@ -118,21 +122,32 @@ window.addEventListener('keydown', function (event) {
 
 ```js
 function changeColor() {
-  // меняем цвет кнопки, на которой произошло событие. кнопка доступна с помощью
-  // ключевого слова this
-  this.style = `background-color: ${getColor()};`;
-};
+  // Меняем цвет кнопки, на которой произошло событие.
+  // Кнопка доступна с помощью ключевого слова this
+  this.style = `background-color: ${getColor()};`
+}
 
-const buttons = document.getElementsByTagName('button');
+const buttons = document.getElementsByTagName('button')
 for (let i = 0; i < buttons.length; ++i) {
-  const button = buttons[i];
-  // к каждой кнопке привязываем обработчик
-  button.addEventListener('click', changeColor); // обратите внимание, что мы не вызываем
-  // функцию changeColor, а только пишем ее имя
+  const button = buttons[i]
+  // К каждой кнопке привязываем обработчик
+  button.addEventListener('click', changeColor)
+  // Обратите внимание, что мы не вызываем
+  // функцию changeColor, а только пишем её имя
 }
 ```
 
-<iframe title="This в функции-обработчике — События — Дока" src="demos/this/" height="230"></iframe>
+<iframe title="This в функции-обработчике" src="demos/this/" height="230"></iframe>
+
+### Распространение событий
+
+Важный аспект событийной модели — механизм _распространения событий (event propagation)_. Он определяет, как события взаимодействуют с узлами DOM при достижении целевого элемента.
+
+Возникая, событие проходит через все родительские элементы (capturing phase), достигает целевого элемента (target phase), и затем вновь поднимается по иерархии родительских элементов (bubbling phase).
+
+![Событийная модель](images/events-model.png)
+
+Обычно события обрабатывают на стадии достижения целевого элемента или всплытия.
 
 ### Всплытие событий
 
@@ -142,22 +157,25 @@ for (let i = 0; i < buttons.length; ++i) {
 const container = document.getElementById('container')
 const video = document.getElementById('cat')
 
-// обрабатываем событие click на <div>
+// Обрабатываем событие click на <div>
 container.addEventListener('click', function() {
-  const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA',
-                  '#FFD829', '#282A2E', '#5E6064']
+  const colors = [
+    '#49A16C', '#064236', '#ED6742', '#F498AD',
+    '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064'
+  ]
   const randomColorIndex = Math.floor(Math.random() * colors.length)
   container.style = `background-color: ${colors[randomColorIndex]}`
-});
+})
 
-// обрабатываем событие click на видео
+// Обрабатываем событие click на видео
 video.addEventListener('click', function() {
-  this.currentTime = 0 // отматываем видео на начало
+  // Отматываем видео на начало
+  this.currentTime = 0
   this.play()
 })
 ```
 
-<iframe title="Всплытие событий — События — Дока" src="demos/bubbling/" height="460"></iframe>
+<iframe title="Всплытие событий" src="demos/bubbling/" height="460"></iframe>
 
 🤖 Обратите внимание, что событие срабатывает на обоих элементах — цвет фона меняется и запускается видео. Этому есть объяснение, оно называется _всплытие событий (event bubbling)_.
 
@@ -173,7 +191,7 @@ video.addEventListener('click', function() {
 let active
 let counter = 0
 
-// обрабатываем событие click на всех <div>
+// Обрабатываем событие click на всех <div>
 let divs = Array.from(document.querySelectorAll('div')).reverse()
 for (let i = 0; i < divs.length; ++i) {
   const isLast = (i + 1 === divs.length)
@@ -204,7 +222,7 @@ function clickHandlerGenerator(isLast = false) {
 }
 ```
 
-<iframe title=">Всплытие событий по цепочке вложенности — События — Дока" src="demos/bubbling-chain/" height="510"></iframe>
+<iframe title=">Всплытие событий по цепочке вложенности" src="demos/bubbling-chain/" height="510"></iframe>
 
 Всплытие события можно остановить с помощью метода `stopPropagation()` у объекта события:
 
@@ -215,3 +233,66 @@ video.addEventListener('click', function (event) {
   this.play()
 })
 ```
+
+### Захват событий
+
+При всплытии очерёдность обработки события направлена от дочерних элементов к родительским. Это не позволяет элементу получить полный контроль над событиями дочерних элементов. Например, обработчик, привязанный к элементу, может «узнать» о произошедшем событии дочерних элементов только если всплытие не было остановлено в одном из них.
+
+Для решения некоторых задач требуется менять порядок обработки событий. Родительский элемент должен отреагировать на событие ещё до того, как оно получено и обработано дочерним элементом. Например, это нужно при создании элементов-«обёрток», не зависящих от реализации логики дочерних элементов.
+
+В качестве иллюстрации этого подхода, посмотрим на предыдущий пример с котиком в коробке. Допустим, нужно воспроизводить видео только когда фон родительского элемента салатовый или голубой, при этом не меняя логику дочернего элемента. Для этого нам нужно слегка изменить обработчик клика по контейнеру:
+
+```js
+// Обрабатываем событие click на <div>
+container.addEventListener('click', function(event) {
+  const colors = [
+    '#49A16C', '#064236', '#ED6742', '#F498AD',
+    '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064'
+  ]
+  const randomColorIndex = Math.floor(Math.random() * colors.length)
+  container.style = `background-color: ${colors[randomColorIndex]}`
+
+  // Если индекс цвета не соответствует условию (зелёный или голубой),
+  // останавливаем распространение события
+  if (randomColorIndex !== 0 && randomColorIndex !== 2 ) {
+        event.stopPropagation()
+  }
+}, true) // Событие обработается на стадии захвата
+```
+
+<iframe title="Захват событий" src="demos/capturing/" height="460"></iframe>
+
+Чтобы обработать событие на стадии захвата, добавьте параметр `{ capture: true }` в вызове [`addEventListener()`](/js/element-addeventlistener/#kak-pishetsya):
+
+```js
+element.addEventListener(
+  'click', // Событие
+  function (event) {
+    // Код обработки
+  },
+  // Регистрация обработчика для срабатывания на стадии захвата
+  { capture: true }
+)
+```
+
+Эквивалент этой записи - указать true вместо третьего аргумента:
+
+```js
+element.addEventListener(
+  'click', // Событие
+  function (event) {
+    // Код обработки
+  },
+  // Регистрация обработчика для срабатывания на стадии захвата
+  true //тоже самое, что прописать { capture: true }
+)
+```
+
+
+Теперь событие будет обработано сначала родительским элементом `<div>`, а затем, если не будет остановлено, станет доступно целевому элементу `<video>`.
+
+☝️ Обратите внимание, что обработка события происходит на стадии захвата. Из-за этого метод `stopPropagation()` останавливает распространение события от родительского элемента к дочерним, и целевой элемент не получает его.
+
+А вот демонстрация распространения события на стадии захвата. Если кликнуть по блокам из демо, увидите, как событие достигает целевого элемента:
+
+<iframe title="Захват событий по цепочке вложенности" src="demos/capturing-chain/" height="510"></iframe>

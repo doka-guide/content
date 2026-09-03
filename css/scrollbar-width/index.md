@@ -1,6 +1,13 @@
 ---
 title: "`scrollbar-width`"
 description: "Изменяем ширину полосы прокрутки."
+baseline:
+  - group: scrollbar-width
+    features:
+      - css.properties.scrollbar-width
+      - css.properties.scrollbar-width.auto
+      - css.properties.scrollbar-width.none
+      - css.properties.scrollbar-width.thin
 authors:
   - xpleesid
 keywords:
@@ -21,9 +28,9 @@ tags:
 
 <aside>
 
-На данный момент `scrollbar-width` очень слабо поддерживается браузерами ([Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-width)). Сейчас свойство будет работать только в Firefox.
+На данный момент `scrollbar-width` поддерживается всеми браузерами, кроме Safari ([Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-width)).
 
-Если вы используете любой другой браузер, то `scrollbar-width` не сработает. Поэтому под каждым демо мы добавим картинку того, как это выглядит в Firefox. Также во всех демо мы зададим ползунку скроллбара белый цвет при помощи [`scrollbar-color`](/css/scrollbar-color), чтобы он лучше выделялся на тёмном фоне.
+Также во всех демо мы зададим ползунку скроллбара белый цвет при помощи [`scrollbar-color`](/css/scrollbar-color/), чтобы он лучше выделялся на тёмном фоне.
 
 </aside>
 

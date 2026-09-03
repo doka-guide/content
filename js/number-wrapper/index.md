@@ -18,7 +18,7 @@ tags:
 
 `Number` — это обёртка над [примитивным числовым типом](/js/number/), которая содержит дополнительные значения и методы работы с числами:
 
-- проверки на специальные значения [`isNaN()`](/js/number-is-nan/), [`isFinite()`](/js/number-isfinite/).
+- проверки на специальные значения [`isNaN()`](/js/number-is-nan/), [`isFinite()`](/js/number-isfinite/);
 - конвертирование в строку [`toString()`](/js/number-tostring/) и `toLocaleString()`.
 
 Числа автоматически оборачиваются в обёртку `Number` при вызове методов над ними.
@@ -37,11 +37,14 @@ const num = new Number(100)
 ```js
 console.log(typeof primitive)
 // number
+
 console.log(typeof num)
 // object
 
 console.log(num == 100)
-// true, при приведении к числовому типу значения будут одинаковыми
+// true, при приведении к числовому типу значения
+// будут одинаковыми
+
 console.log(num === 100)
 // false, потому что разные типы данных
 ```
@@ -65,7 +68,6 @@ console.log((5).toFixed(3))
 
 console.log(6..toFixed(3))
 // '6.000'
-
 ```
 
 ## Как понять
@@ -80,7 +82,7 @@ console.log(6..toFixed(3))
 
 Тип данных «число» содержит [три специальных значения](/js/number/#specialnye-znacheniya): `NaN`, `Infinity` и `-Infinity`.
 
-Обёртка предоставляет две полезные функции для проверки специальных значений:
+Обёртка предоставляет две полезные функции для проверки специальных значений.
 
 1️⃣ Функция [`Number.isNaN()`](/js/number-is-nan/) — нативный способ проверить значение на `NaN`, потому что `NaN` не равен ничему, даже самому себе:
 
@@ -88,6 +90,7 @@ console.log(6..toFixed(3))
 const nanResult = 5 * undefined
 console.log(nanResult == NaN)
 // false
+
 console.log(nanResult === NaN)
 // false
 
@@ -95,7 +98,7 @@ console.log(Number.isNaN(nanResult))
 // true
 ```
 
-2️⃣ Функция [`Number.isFinite()`](/js/number-isfinite/) — проверит, что значение не является специальным. Возвращает `true` — если при вызове в неё было передано число и `false` — если специальное значение или нечисловой тип:
+2️⃣ Функция [`Number.isFinite()`](/js/number-isfinite/) — проверит, что значение не является специальным. Возвращает `true`, если при вызове в неё было передано число, и `false`, если специальное значение или нечисловой тип:
 
 ```js
 const number = 4
@@ -111,12 +114,11 @@ console.log(Number.isFinite(inf))
 // false
 console.log(Number.isFinite(string))
 // false
-
 ```
 
 ### Форматирование числа
 
-Обёртка содержит несколько методов для форматирования числа:
+Обёртка содержит несколько методов для форматирования числа.
 
 1️⃣ Метод [`toString()`](/js/number-tostring/) преобразует число в строку в указанной системе счисления. По умолчанию используется десятичная, но можно использовать и другую:
 
@@ -125,6 +127,7 @@ const num = 5
 
 console.log(num.toString())
 // '5'
+
 console.log(num.toString(2))
 // '101' в двоичной системе счисления
 ```
@@ -163,7 +166,7 @@ console.log(num.toFixed())
 
 Локаль — это информация о языке пользователя, а также региональных настройках: какие символы чисел используются, какие разделители между разрядами считаются стандартными и так далее.
 
-Локаль представляет собой [строку сформированную по спецификации](https://datatracker.ietf.org/doc/html/rfc5646). Чаще всего используются два вида:
+Локаль представляет собой [строку, сформированную по спецификации](https://datatracker.ietf.org/doc/html/rfc5646). Чаще всего используются два вида:
 
 - `код_языка`. Например, `'ru'` (русский язык), `'de'` (немецкий), `'en'` (английский).
 - `код_языка-код_региона`. Например, `de-AT` (австрийский немецкий), `'en-US'` (американский английский), `es-AR` (аргентинский испанский).
@@ -173,21 +176,28 @@ console.log(num.toFixed())
 ```js
 const bigNumber = 100_000_000
 
-console.log(bigNumber.toLocaleString("ru")) // 100 000 000
-console.log(bigNumber.toLocaleString("en-US")) // 100,000,000
-console.log(bigNumber.toLocaleString("ar-SA")) // ١٠٠٬٠٠٠٬٠٠٠
+console.log(bigNumber.toLocaleString("ru"))
+// 100 000 000
+
+console.log(bigNumber.toLocaleString("en-US"))
+// 100,000,000
+
+console.log(bigNumber.toLocaleString("ar-SA"))
+// ١٠٠٬٠٠٠٬٠٠٠
 ```
 
-<iframe title="Number - метод toLocaleString" src="demos/number-format/" height="150"></iframe>
+<iframe title="Метод toLocaleString()" src="demos/number-format/" height="150"></iframe>
 
 Вторым аргументом в метод можно передать объект с тонкими настройками форматирования. Например, указать, что форматируемое число — деньги:
 
 ```js
 const bigNumber = 100_000_000
-console.log(bigNumber.toLocaleString('es', { style: 'currency', currency: 'EUR' }))
+console.log(bigNumber.toLocaleString('es',
+  { style: 'currency', currency: 'EUR' }))
 // 100.000.000,00 €
 
-console.log(bigNumber.toLocaleString('ru', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }))
+console.log(bigNumber.toLocaleString('ru',
+{ style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }))
 // 100 000 000 ₽
 ```
 
@@ -200,4 +210,4 @@ console.log(bigNumber.toLocaleString('ru', { style: 'currency', currency: 'RUB',
 - `Number.MAX_VALUE` — максимально большое число, представимое с помощью числового типа;
 - `Number.MIN_VALUE` — минимальное _положительное_ число, представимое с помощью числового типа.
 
-Важно отметить, что `Number.MAX_VALUE` много больше, чем `Number.MAX_SAFE_INTEGER`, из-за особенностей хранения чисел с плавающей точкой.
+Важно отметить, что `Number.MAX_VALUE` намного больше, чем `Number.MAX_SAFE_INTEGER`, из-за особенностей хранения чисел с плавающей точкой.

@@ -182,7 +182,7 @@
     }
     gui.add(params, 'reset')
 
-    guiTranslate.add(params, 'translateX', -100, 100, 1).onChange(setter('--translateX', 'px')).listen()
+    guiTranslate.add(params, 'translateX', -100, 100, 1).onChange(setter('--translateX', 'px'))
     guiTranslate.add(params, 'translateY', -100, 100, 1).onChange(setter('--translateY', 'px'))
     guiTranslate.add(params, 'translateZ', -100, 100, 1).onChange(setter('--translateZ', 'px'))
     guiRotate.add(params, 'rotateX', -180, 180, 1).onChange(setter('--rotateX', 'deg'))

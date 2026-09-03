@@ -32,6 +32,8 @@ groups:
       - pre
       - code
       - dir
+      - math
+      - ruby
   - name: 'Семантика'
     items:
       - semantics
@@ -61,6 +63,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
@@ -93,6 +96,7 @@ groups:
   - name: 'Картинки'
     items:
       - img
+      - alt
       - figure-figcaption
       - picture
       - source
@@ -100,6 +104,8 @@ groups:
       - map
       - area
       - svg-sprite
+      - images-paste-methods
+      - d
   - name: 'Ссылки'
     items:
       - a
@@ -107,12 +113,14 @@ groups:
       - nav
       - map
       - area
+      - rel
   - name: 'Списки'
     items:
       - ol
       - ul
       - li
       - dl-dd-dt
+      - menu
   - name: 'Интерактив'
     items:
       - audio
@@ -126,10 +134,14 @@ groups:
       - progress
       - canvas
       - dialog
+      - popover
+      - track
   - name: 'Таблицы'
     items:
       - tables
       - caption
+      - col
+      - colgroup
   - name: 'Мета'
     items:
       - head
@@ -141,6 +153,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - crossorigin
       - template
       - output
       - data-attributes
@@ -152,7 +165,9 @@ groups:
       - inert
       - dir
       - tabindex
+      - enterkeyhint
       - data-attributes
+      - autofocus
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners

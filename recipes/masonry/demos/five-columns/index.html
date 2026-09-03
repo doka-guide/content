@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пять колонок — Плиточная раскладка — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 30px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px 4px;
+      height: 490px;
+      width: 100%;
+    }
+
+    .item {
+      width: calc(100% / 5 - 8px);
+    }
+
+    .item span {
+      display: inline-block;
+      padding: 12px;
+      color: #282a2e;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .item:nth-child(4n) {
+      background-color: #ff852e;
+    }
+
+    .item:nth-child(4n + 1) {
+      background-color: #2e9aff;
+    }
+
+    .item:nth-child(4n + 2) {
+      background-color: #ffd829;
+    }
+
+    .item:nth-child(4n + 3) {
+      background-color: #c670ff;
+    }
+
+    .item:nth-child(5n + 1) { order: 1; }
+    .item:nth-child(5n + 2) { order: 2; }
+    .item:nth-child(5n + 3) { order: 3; }
+    .item:nth-child(5n + 4) { order: 4; }
+    .item:nth-child(5n) { order: 5; }
+
+    .break {
+      flex-basis: 100%;
+      width: 0;
+      margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      body {
+        padding: 50px;
+      }
+
+      .item span {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" style="height: 120px"><span>1</span></div>
+        <div class="item" style="height: 200px"><span>2</span></div>
+        <div class="item" style="height: 150px"><span>3</span></div>
+        <div class="item" style="height: 90px;"><span>4</span></div>
+        <div class="item" style="height: 110px"><span>5</span></div>
+        <div class="item" style="height: 120px"><span>6</span></div>
+        <div class="item" style="height: 100px"><span>7</span></div>
+        <div class="item" style="height: 200px;"><span>8</span></div>
+        <div class="item" style="height: 110px"><span>9</span></div>
+        <div class="item" style="height: 100px"><span>10</span></div>
+        <div class="item" style="height: 200px;"><span>11</span></div>
+        <div class="item" style="height: 110px"><span>12</span></div>
+        <div class="item" style="height: 110px"><span>13</span></div>
+        <div class="item" style="height: 240px;"><span>14</span></div>
+        <div class="item" style="height: 200px"><span>15</span></div>
+
+        <div class="item break"></div>
+        <div class="item break"></div>
+        <div class="item break"></div>
+        <div class="item break"></div>
+    </div>
+</body>
+</html>

@@ -1,8 +1,12 @@
 ---
-title: "reset"
-description: "Событие reset"
+title: "`reset`"
+description: "Событие для сброса введённых данных."
 authors:
   - ivkrylova
+related:
+  - js/events
+  - html/input
+  - js/event-invalid
 tags:
   - doka
   - placeholder
@@ -39,8 +43,8 @@ tags:
 Когда пользователь нажимает на кнопку «Сбросить значение», браузер создаёт [событие](https://doka.guide/js/events/). Чтобы получить доступ к объекту события, на `reset` нужно [подписаться](https://doka.guide/js/element-addeventlistener/) и передать объект события в функцию-обработчик:
 
 ```js
-  const form = document.querySelector('.form')
-  form.addEventListener('reset', function (evt) {
-    console.log(evt)
-  })
+const form = document.querySelector('.form')
+form.addEventListener('reset', function (evt) {
+  console.log(evt)
+})
 ```

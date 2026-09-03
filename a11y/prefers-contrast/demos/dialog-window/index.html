@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация работы — prefers-contrast — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, min(100%, 255px));
+      place-items: start;
+      place-content: start center;
+      background-color: #18191c;
+      font-size: 16px;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (min-width: 580px) {
+      body {
+        align-content: center;
+        align-items: center;
+        padding: 30px;
+      }
+    }
+
+    .button {
+      display: block;
+      min-width: 260px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1.12rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog {
+      position: fixed;
+      max-width: 400px;
+      width: calc(100% - 40px);
+      inset: 0;
+      border: none;
+    }
+
+    .dialog__title {
+      margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .dialog p {
+      margin: 20px 0;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 579px) {
+      .dialog {
+        margin-bottom: 30px;
+        bottom: 0;
+      }
+    }
+
+    @media (prefers-contrast: more) {
+      .dialog {
+        border: 2px solid #FFFFFF;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-aqua" type="button" onclick="window['some-modal-id'].showModal()" aria-controls="some-modal-id">
+    Узнать правила
+  </button>
+
+  <dialog class="dialog" id="some-modal-id" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Наши правила</h2>
+    <p>Не обижай, не обижайся, всегда носи с собой шариковую ручку и фотографию черепашки.</p>
+    <form method="dialog">
+      <button class="button button-aqua">
+        Обязательно
+      </button>
+    </form>
+  </dialog>
+</body>
+</html>

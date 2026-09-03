@@ -11,9 +11,12 @@ groups:
       - accessible-forms
       - content-hidden
       - how-to-describe-pictures
+      - overlays
+      - color-contrast
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
+      - speech-recognition
   - name: 'CSS и доступность'
     items:
       - css-impact-on-a11y

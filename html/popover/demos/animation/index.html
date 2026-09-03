@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация всплывающей подсказки — Popover API — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-size: 18px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      background-color: #FF8630;
+      transition: background-color 0.2s linear;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    [popover] {
+      border: none;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      transform: translateY(-200%);
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    [popover]::backdrop {
+      background-color: rgb(102 54 19 / 0.5);
+    }
+
+    [popover]:popover-open {
+      opacity: 1;
+      rotate: 0turn;
+      transition: rotate .5s, opacity .5s, display .5s, overlay .5s;
+    }
+
+    @starting-style {
+      [popover]:popover-open {
+        opacity: 0;
+        rotate: 1turn;
+      }
+    }
+
+    [popover]:not(:popover-open) {
+      scale: 0;
+      transition: scale .3s, display .3s, overlay .3s;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <button popovertarget="my-popover">
+      Показать всплывающую подсказку
+    </button>
+
+    <div id="my-popover" popover>
+      <p>Я — космически анимированный поповер 🚀</p>
+    </div>
+  </div>
+</body>

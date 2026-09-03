@@ -3,4 +3,4 @@ related:
   - js/spread
 ---
 
-В чём отличия `rest` и `spread` операторов?
+В чём отличия операторов `rest` и `spread`?

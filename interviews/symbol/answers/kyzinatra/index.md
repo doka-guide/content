@@ -52,7 +52,7 @@ class MySplit {
 #### Пример работы
 
 ```js
-"foobarfoobaz".split(new MySplit("foo")) // "foo/var/foo/baz"
+"foobarfoobaz".split(new MySplit("foo")) // "foo/bar/foo/baz"
 "foobarfoobaz".split(new MySplit("bar")) // "bar/foo/bar/foobaz"
 ```
 

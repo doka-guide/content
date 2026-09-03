@@ -1,6 +1,5 @@
 ---
 related:
-  - js/promise
   - js/promise-all
 ---
 
