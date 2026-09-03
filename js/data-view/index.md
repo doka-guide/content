@@ -93,7 +93,7 @@ const dataView = new DataView(buffer, 2, 4)
 
 ### Методы
 
-Методы `DataView` начинаются с `get` (чтение) или `set` (запись), а дальше указывается тип данных: `Uint8`, `Int16`, `Float32` и так далее.  
+Методы `DataView` начинаются с `get` (чтение) или `set` (запись), а дальше указывается тип данных: `Uint8`, `Int16`, `Float32` и так далее.
 
 <aside>
 
@@ -177,9 +177,9 @@ console.log(dataView.getUint16(0, true))
 
   По умолчанию `DataView` использует _big-endian_, но многие платформы работают и с _little-endian_.
 
-  Например, _little-endian_ используется [в x86 процессорах](https://ru.wikipedia.org/wiki/X86#Основные_особенности_архитектуры) (Intel, AMD). [Архитектура ARM](https://ru.wikipedia.org/wiki/ARM_(архитектура)) тоже [чаще использует _little-endian_](https://ru.wikipedia.org/wiki/Порядок_байтов#Переключаемый_порядок).
+  Например, _little-endian_ используется [в x86 процессорах](https://ru.wikipedia.org/wiki/X86#%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5_%D0%BE%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B) (Intel, AMD). [Архитектура ARM](https://ru.wikipedia.org/wiki/ARM_(%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0)) тоже [чаще использует _little-endian_](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2#%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D1%8E%D1%87%D0%B0%D0%B5%D0%BC%D1%8B%D0%B9_%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA).
 
-  При этом популярные сетевые протоколы (TCP/IP, UDP) и форматы файлов (JPEG, PNG) [используют big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов#Порядок_от_старшего_к_младшему). Поэтому важно контролировать порядок байтов.
+  При этом популярные сетевые протоколы (TCP/IP, UDP) и форматы файлов (JPEG, PNG) [используют big-endian](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%B1%D0%B0%D0%B9%D1%82%D0%BE%D0%B2#%D0%9F%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D0%BA_%D0%BE%D1%82_%D1%81%D1%82%D0%B0%D1%80%D1%88%D0%B5%D0%B3%D0%BE_%D0%BA_%D0%BC%D0%BB%D0%B0%D0%B4%D1%88%D0%B5%D0%BC%D1%83). Поэтому важно контролировать порядок байтов.
 
 </details>
 
