@@ -3,14 +3,28 @@ name: PR Labels
 on:
   pull_request_target:
 
+# Новый коммит в пулреквест отменяет прогон на предыдущем, чтобы галки
+# относились к актуальному коммиту, а не к устаревшему.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# Ярлыки пулреквеста — это ярлыки задачи, но для пулреквеста их хватает
+# `pull-requests: write`.
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   labels:
     name: Ярлыки
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          allow-unsafe-pr-checkout: true
       - name: Устанавливает необходимые ярлыки
         uses: doka-guide/doka-labeler@v1.0.1
         with:

@@ -20,6 +20,7 @@
 
     body {
       min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -67,7 +68,7 @@
       content: '🚢';
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       .child {
         width: calc(33.3% - 40px);
         padding: 15px 0;
@@ -80,7 +81,7 @@
       }
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       .child {
         width: calc(33.3% - 30px);
         margin-left: 15px;

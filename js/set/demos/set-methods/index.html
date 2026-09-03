@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Операции над множествами — Set — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .sets {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .set-field {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #FFD829;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 12px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: inherit;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    .hint {
+      margin-top: 6px;
+      color: rgb(255 255 255 / 0.6);
+      font-size: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    caption {
+      margin-bottom: 12px;
+      text-align: left;
+      font-size: 14px;
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    tr {
+      border-bottom: 1px solid rgb(255 255 255 / 0.15);
+    }
+
+    td {
+      padding: 10px 0;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      width: 210px;
+      color: #FFD829;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    td:last-child {
+      word-break: break-word;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .sets {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      td:first-child {
+        width: auto;
+      }
+
+      tr {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      td {
+        padding: 2px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sets">
+      <div class="set-field">
+        <label for="set-a">Множество a</label>
+        <input type="text" id="set-a" value="1, 2, 3, 4">
+      </div>
+      <div class="set-field">
+        <label for="set-b">Множество b</label>
+        <input type="text" id="set-b" value="3, 4, 5, 6">
+      </div>
+    </div>
+    <p class="hint">Значения через запятую. Изменения пересчитывают таблицу сразу.</p>
+
+    <table>
+      <caption>Результат вызова метода на множестве <code>a</code> с аргументом <code>b</code></caption>
+      <tbody id="results"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const inputA = document.getElementById('set-a')
+    const inputB = document.getElementById('set-b')
+    const resultsEl = document.getElementById('results')
+
+    const methods = [
+      'union',
+      'intersection',
+      'difference',
+      'symmetricDifference',
+      'isSubsetOf',
+      'isSupersetOf',
+      'isDisjointFrom'
+    ]
+
+    function parseSet(value) {
+      return new Set(
+        value
+          .split(',')
+          .map((item) => item.trim())
+          .filter((item) => item !== '')
+      )
+    }
+
+    function formatResult(result) {
+      if (result instanceof Set) {
+        return `{ ${Array.from(result).join(', ')} }`
+      }
+      return String(result)
+    }
+
+    function render() {
+      const a = parseSet(inputA.value)
+      const b = parseSet(inputB.value)
+
+      resultsEl.innerHTML = ''
+
+      methods.forEach((method) => {
+        const row = document.createElement('tr')
+
+        const nameCell = document.createElement('td')
+        nameCell.textContent = `a.${method}(b)`
+
+        const valueCell = document.createElement('td')
+        valueCell.textContent = formatResult(a[method](b))
+
+        row.append(nameCell, valueCell)
+        resultsEl.append(row)
+      })
+    }
+
+    inputA.addEventListener('input', render)
+    inputB.addEventListener('input', render)
+
+    render()
+  </script>
+</body>
+</html>

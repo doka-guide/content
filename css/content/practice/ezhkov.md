@@ -73,7 +73,7 @@ section h2::before {
   left: 0;
   top: -0.35em;
   opacity: 0.5;
-  color: #1A5AD7;
+  color: #2E9AFF;
 }
 ```
 
