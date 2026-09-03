@@ -94,17 +94,57 @@ jobs:
               return
             }
 
-            // `workflow_run.pull_requests` пуст для веток из форков. Коммит
-            // лежит в `refs/pull/*/head` базового репозитория, и API находит по
-            // нему пулреквест.
-            const { data: pulls } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
-              owner,
-              repo,
-              commit_sha: sha,
-            })
-            const pull = pulls.find((item) => item.state === 'open') || pulls[0]
+            // Как найти пулреквест, если `workflow_run.pull_requests` пуст —
+            // а для веток из форков он пуст всегда.
+            //
+            // Поиск по коммиту (`commits/{sha}/pulls`) для форков не работает:
+            // на коммите e02898e9 пулреквеста #6025 он не показал ни через
+            // тринадцать секунд, ни через десять минут — ноль результатов.
+            // Превью уходило в `idle`, шаги пропускались, отчёт не писался, и
+            // в описании навсегда оставалось «идут проверки». С переезда на
+            // `workflow_run` так молча ломалось каждое превью из форка, #6069
+            // и #6025 в их числе.
+            //
+            // Поэтому запасной путь — поиск по ветке-источнику: для форка это
+            // `владелец:ветка`, и он отвечает сразу. Поиск по коммиту оставлен
+            // первым: для веток самого репозитория он точнее, потому что
+            // привязан к коммиту, а не к текущей вершине ветки.
+            const headRepository = run.head_repository?.full_name || ''
+            const headOwner = headRepository.split('/')[0]
+
+            const findPull = async () => {
+              const { data: byCommit } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                owner,
+                repo,
+                commit_sha: sha,
+              })
+              const fromCommit = byCommit.find((item) => item.state === 'open') || byCommit[0]
+              if (fromCommit) return fromCommit
+
+              if (!headOwner || !run.head_branch) return null
+              const { data: byHead } = await github.rest.pulls.list({
+                owner,
+                repo,
+                state: 'open',
+                head: `${headOwner}:${run.head_branch}`,
+                per_page: 100,
+              })
+              return byHead.find((item) => item.head.sha === sha) || byHead[0] || null
+            }
+
+            // Две попытки: обычно хватает первой, вторая — на случай, когда
+            // пулреквест только что открыли и он ещё не виден ни одной ручке.
+            let pull = null
+            for (let attempt = 1; attempt <= 2; attempt += 1) {
+              pull = await findPull()
+              if (pull) break
+              core.info(`Попытка ${attempt}: пулреквест для ${sha} не нашёлся`)
+              if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 10000))
+            }
             if (!pull) {
-              core.info(`Пулреквест по коммиту ${sha} не нашёлся`)
+              // Предупреждением, а не тихой строкой в логе: без пулреквеста
+              // заметку писать некуда, и человек останется с «идут проверки».
+              core.warning(`Пулреквест по коммиту ${sha} не нашёлся, превью не собираем`)
               core.setOutput('state', 'idle')
               return
             }
