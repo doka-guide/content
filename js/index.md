@@ -79,6 +79,7 @@ groups:
       - function
       - return
       - function-context
+      - bind-call-apply
       - closures
       - recursion
       - function-arguments-object
@@ -157,6 +158,13 @@ groups:
       - set-is-subset-of
       - set-is-superset-of
       - set-is-disjoint-from
+  - name: "Итераторы"
+    items:
+      - iterator
+      - iterator-take
+      - iterator-to-array
+      - iterator-filter
+      - iterator-map
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -220,7 +228,7 @@ groups:
       - element
       - element-addeventlistener
       - element-removeeventlistener
-      - element-remove-property
+      - element-removeproperty
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
@@ -246,27 +254,32 @@ groups:
     items:
       - events
       - event
-      - event-change
-      - event-reset
-      - event-input
-      - event-dblclick
-      - element-click
-      - event-invalid
-      - event-submit
+      - custom-event
+      - dispatch-event
+      - event-prevent-default
       - event-domcontentloaded
-      - event-load
-      - event-unload
       - event-beforeunload
+      - event-blur
+      - event-change
+      - element-click
+      - event-dblclick
+      - event-focus
+      - event-focusin
+      - event-input
+      - event-invalid
       - element-keydown
       - element-keyup
+      - event-load
       - element-mouseout
       - element-mouseover
-      - event-prevent-default
+      - event-reset
       - element-scroll
       - element-scrollsnapchange
       - element-scrollsnapchanging
-      - element-wheel
+      - event-submit
       - element-touch
+      - event-unload
+      - element-wheel
   - name: "Хранение данных в браузере"
     items:
       - cookie
@@ -288,11 +301,14 @@ groups:
       - promise-any
       - promise-race
       - promise-try
+      - promise-with-resolvers
       - async-await
+      - micro-and-macro-tasks
   - name: "Обмен данными с API"
     items:
       - fetch
       - async-await
+      - websocket
   - name: "Веб-приложение"
     items:
       - language-versions

@@ -19,10 +19,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 window.addEventListener('beforeunload', function () {
   // ...
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+window.onbeforeunload = function () {
+  // ...
+}
 ```
 
 ## Как понять
@@ -61,4 +71,4 @@ window.onbeforeunload = () => false
 
 Как оно выглядит в вашем браузере можно проверить с помощью демо ниже.
 
-<iframe title="Демонстрация обработки события beforeunload" src="demos/beforeunload" height="350"></iframe>
+<iframe title="Демонстрация обработки события beforeunload" src="demos/beforeunload/" height="350"></iframe>

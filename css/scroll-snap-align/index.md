@@ -1,6 +1,14 @@
 ---
 title: "`scroll-snap-align`"
 description: "Задаёт выравнивание элемента при прокрутке внутри контейнера."
+baseline:
+  - group: scroll-snap
+    features:
+      - css.properties.scroll-snap-align
+      - css.properties.scroll-snap-align.center
+      - css.properties.scroll-snap-align.end
+      - css.properties.scroll-snap-align.none
+      - css.properties.scroll-snap-align.start
 authors:
   - akhmadullin
 related:
@@ -25,7 +33,7 @@ tags:
 
 ## Как понять
 
-Свойство `scroll-snap-type` управляет тем, в каком месте прокручиваемой оси остановится элемент: началe, серединe или концe.
+Свойство `scroll-snap-type` управляет тем, в каком месте прокручиваемой оси остановится элемент: начале, середине или конце.
 
 ## Как пишется
 

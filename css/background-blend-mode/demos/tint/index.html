@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Один снимок, три настроения — background-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .cards {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .card-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .card {
+      width: 165px;
+      height: 220px;
+      border-radius: 8px;
+      background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=330&h=440&fit=crop&auto=format&q=80");
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: multiply;
+    }
+
+    .card--blue   { background-color: #2E9AFF; }
+    .card--orange { background-color: #FF8630; }
+    .card--purple { background-color: #C56FFF; }
+
+    .card-label {
+      font-size: 12px;
+      font-family: monospace;
+      color: rgb(255 255 255 / 0.55);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-label {
+      font-size: 13px;
+      font-family: monospace;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 24px;
+      transition: background-color 0.15s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.15s;
+    }
+
+    .switch input:checked + .slider {
+      background-color: #2E9AFF;
+      border-color: #2E9AFF;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px 16px 70px;
+      }
+
+      .cards {
+        gap: 12px;
+      }
+
+      .card {
+        width: 100px;
+        height: 140px;
+      }
+
+      .card-label {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cards">
+    <div class="card-wrap">
+      <div class="card card--blue"></div>
+      <span class="card-label">#2E9AFF</span>
+    </div>
+    <div class="card-wrap">
+      <div class="card card--orange"></div>
+      <span class="card-label">#FF8630</span>
+    </div>
+    <div class="card-wrap">
+      <div class="card card--purple"></div>
+      <span class="card-label">#C56FFF</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label">background-blend-mode: multiply</span>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-blend-mode/">background-blend-mode — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const cards = document.querySelectorAll('.card');
+
+    toggle.addEventListener('change', () => {
+      cards.forEach(card => {
+        card.style.backgroundBlendMode = toggle.checked ? 'multiply' : 'normal';
+      });
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,10 +1,15 @@
 ---
 title: "`transition-timing-function`"
 description: "Будет ли элемент меняться линейно или более причудливо?"
+baseline:
+  - group: linear-easing
+    features:
+      - css.types.easing-function.linear-function
 authors:
   - ezhkov
 keywords:
   - функция времени
+  - linear()
 related:
   - css/animation-timing-function
   - css/transform-function
@@ -51,6 +56,7 @@ tags:
 .selector {
   transition-timing-function: steps(4, jump-end);
   transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  transition-timing-function: linear(0, 0.5, 0.75, 0.85, 1);
 }
 ```
 
@@ -71,7 +77,8 @@ tags:
 
 ```css
 .selector {
-  transition-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  transition-timing-function:
+    ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
 }
 ```
 
@@ -87,6 +94,28 @@ tags:
 
 ![Функция ease-out](images/2.png)
 
+### Функция `linear()`
+
+Не путать с ключевым словом `linear` выше — это отдельная функция. Она задаёт кривую через набор контрольных точек прогресса, между которыми браузер интерполирует линейно.
+
+```css
+.box {
+  transition-timing-function: linear(0, 0.5, 0.75, 0.85, 1);
+}
+```
+
+Первое и последнее число — обычно `0` и `1` (начало и конец перехода), между ними можно указать сколько угодно промежуточных точек. Чем их больше, тем точнее можно приблизить сложную кривую, например «пружину», без `cubic-bezier()`.
+
+У каждой точки можно явно задать процент времени, к которому она должна быть достигнута:
+
+```css
+.box {
+  transition-timing-function: linear(0, 0.25 75%, 1);
+}
+```
+
+Без процентов точки распределяются по временной шкале равномерно.
+
 ### Функция `cubic-bezier`
 
 В общем случае график функции описывается значением `cubic-bezier(p1, p2, p3, p4)`. В качестве параметров p1 и p3 обязательно должны быть числа от 0 до 1.
@@ -99,7 +128,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-<iframe title="Демонстрация разных временных функций" src="demos/every/" height="410"></iframe>
+<iframe title="Демонстрация разных временных функций" src="demos/every/" height="640"></iframe>
 
 ### Функция `steps`
 
@@ -124,12 +153,9 @@ tags:
 - или сделает 5 остановок в промежутке между 0% и 100% (16%, 33%, 50%, 66%, 84%) — `jump-both`
 - или сделает 5 остановок, включая 0% и 100% (0%, 25%, 50%, 75%, 100%) — `jump-none`
 
-Интересно, что Safari вплоть до версии 13.1 (Catalina) не поддерживал эти значения 🤷‍♂️
-Начиная с версии 14 (Big Sur) в Safari все хорошо 🙂
+Сейчас все четыре значения поддерживаются во всех современных браузерах:
 
-В зависимости от используемого сейчас браузера пример ниже может изменяться:
-
-<iframe title="Демонстрация разных значений jump" src="demos/jump/" height="520"></iframe>
+<iframe title="Демонстрация разных значений jump" src="demos/jump/" height="580"></iframe>
 
 Ключевые слова `step-start`, `step-end` являются синонимами для записи `steps(1, jump-start)` и `steps(1, jump-end)`. Изменение происходит скачком за один шаг.
 
@@ -137,7 +163,7 @@ tags:
 
 `step-end` дожидается конца анимации и потом переходит в конечное состояние
 
-<iframe title="Демонстрация разных значений step" src="demos/step/" height="350"></iframe>
+<iframe title="Демонстрация разных значений step" src="demos/step/" height="380"></iframe>
 
 ## Подсказки
 
@@ -145,4 +171,4 @@ tags:
 
 💡 Задавая коэффициенты `p2` и `p4` меньше 0 или больше 1, можно добиться эффекта «пружины», что в некоторых случаях может сделать анимацию более интересной
 
-<iframe title="Cubic-bezier" src="demos/cubic-bezier/" height="150"></iframe>
+<iframe title="Cubic-bezier" src="demos/cubic-bezier/" height="210"></iframe>
