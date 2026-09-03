@@ -4,10 +4,17 @@ on:
   pull_request_target:
     types:
       - labeled
+
+# Чекаута здесь нет: чеклист забирается по сырой ссылке, а всё, что воркфлоу
+# делает, — оставляет комментарий в пулреквесте.
+permissions:
+  pull-requests: write
+
 jobs:
   thank-user:
     if: contains(fromJSON('["дока", "статья"]'), github.event.label.name)
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     name: Чеклисты
     steps:
       - name: Выбор файла чек-листа
