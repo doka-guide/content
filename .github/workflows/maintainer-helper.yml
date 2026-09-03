@@ -5,9 +5,16 @@ on:
     branches:
       - main
 
+# `editor-helper.js`, `demos-helper.js` и `description-helper.js` переписывают
+# тела задач-списков через `PATCH /repos/{owner}/{repo}/issues/{issue_number}`.
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   update-lists:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
