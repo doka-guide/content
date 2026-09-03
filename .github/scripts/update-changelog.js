@@ -101,14 +101,32 @@ const personName = (slug) => {
   return sanitize(readValue(split(fs.readFileSync(file, 'utf8')).front, 'name'))
 }
 
+// Кого записать в подпись. У новой статьи это `authors`. У дописанной заготовки
+// — те, кто появился во фронтматтере этим же пулреквестом: дописывает заготовку
+// обычно не тот, кто её когда-то завёл, и по `docs/contributing.md` он нередко
+// оказывается в `contributors`. Без этого запись подписывал бы автор пустой
+// заготовки, а тот, кто написал текст, в ченджлог не попадал бы вовсе.
+// Если не добавился никто, заготовку дописал её же автор — подписываемся
+// `authors`.
+const PEOPLE_FIELDS = ['authors', 'contributors']
+
+const peopleOf = (front) => [...new Set(PEOPLE_FIELDS.flatMap((field) => readList(front, field)))]
+
+const signers = ({ reason, before, after }) => {
+  if (reason !== 'placeholder') return readList(after, 'authors')
+  const listed = new Set(peopleOf(before))
+  const added = peopleOf(after).filter((slug) => !listed.has(slug))
+  return added.length > 0 ? added : readList(after, 'authors')
+}
+
 // Что подставляется в запись. Пусто — значит, записывать нечего: без заголовка
 // вышло бы `[](адрес)`, а без подписи запись некому подписать. Дока Дог
 // подписывается под каждым автоматическим коммитом, ему в ченджлоге не место;
 // слаг, не прошедший проверку, в подпись не идёт вовсе — иначе в ченджлог уехал
 // бы мусор из фронтматтера форка.
-const entryFields = (front) => ({
+const entryFields = (front, slugs) => ({
   title: sanitize(readValue(front, 'title')),
-  people: readList(front, 'authors')
+  people: slugs
     .filter((slug) => slug !== 'doka-dog')
     .map((slug) => personName(slug) || (isPersonSlug(slug) ? slug : ''))
     .map(sanitizePerson)
@@ -168,7 +186,8 @@ const collect = ({ sha, mergedAt }) => {
     const reason = reasonFor({ status, before, after })
     if (!reason) continue
 
-    const { title, people } = entryFields(split(after).front)
+    const afterFront = split(after).front
+    const { title, people } = entryFields(afterFront, signers({ reason, before: split(before).front, after: afterFront }))
     if (!title) {
       console.log(`У материала ${file} нет заголовка, пропускаем`)
       continue
@@ -212,6 +231,6 @@ const main = () => {
   console.log(`Добавлено в ченджлог записей: ${fresh.length}`)
 }
 
-module.exports = { split, readValue, readList, isPlaceholder, sanitize, sanitizePerson, entryFields, collect, RENAME_LIMIT, personName, parseChanges, reasonFor, buildEntry, insertEntries, alreadyListed, moscowDate }
+module.exports = { split, readValue, readList, isPlaceholder, sanitize, sanitizePerson, peopleOf, signers, entryFields, collect, RENAME_LIMIT, personName, parseChanges, reasonFor, buildEntry, insertEntries, alreadyListed, moscowDate }
 
 if (require.main === module) main()
