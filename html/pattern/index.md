@@ -4,7 +4,7 @@ description: "Говорим браузеру, каким должно быть 
 authors:
   - solarrust
 contributors:
-  - lira_bazh
+  - lira-bazh
 keywords:
   - валидация regexp
   - валидация регулярное выражение

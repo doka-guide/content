@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Параллакс с background-attachment — background-attachment — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-height: 560px;
+    }
+
+    /* === стили демо === */
+
+    .intro {
+      padding: 10px 16px;
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.4);
+      text-align: center;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      flex: 1;
+      gap: 2px;
+      background-color: #282A2E;
+      min-height: 0;
+    }
+
+    .column {
+      overflow-y: scroll;
+      position: relative;
+      background-color: #18191C;
+      scrollbar-width: thin;
+      scrollbar-color: rgb(255 255 255 / 0.15) transparent;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      padding: 10px 14px;
+      background-color: #18191C;
+      border-bottom: 2px solid #2E9AFF;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: monospace;
+      color: #2E9AFF;
+      z-index: 1;
+    }
+
+    .col-fixed .header {
+      border-bottom-color: #F498AD;
+      color: #F498AD;
+    }
+
+    .content-area {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /*
+      background-attachment задаём на карточках, а не на колонке.
+      При прокрутке колонки:
+        scroll — фон движется вместе с карточкой (обычное поведение)
+        fixed  — фон остаётся на месте (параллакс внутри колонки)
+        local  — для незамкнутых элементов ведёт себя как scroll
+    */
+    .card {
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgb(255 255 255 / 0.65);
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgb(46 154 255 / 0.22),
+        rgb(46 154 255 / 0.22) 1px,
+        transparent 0,
+        transparent 12px
+      );
+      background-color: #222428;
+    }
+
+    .col-scroll .card { background-attachment: scroll; }
+    .col-fixed  .card { background-attachment: fixed; }
+    .col-local  .card { background-attachment: local; }
+
+    .fade {
+      position: sticky;
+      bottom: 0;
+      height: 36px;
+      background: linear-gradient(to bottom, transparent, #18191C);
+      pointer-events: none;
+      margin-top: -36px;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 600px) {
+      .demo {
+        grid-template-columns: 1fr;
+      }
+
+      .column {
+        max-height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="intro">↓ прокрути каждую колонку и сравни, как ведёт себя фон карточек</p>
+
+  <div class="demo">
+    <div class="column col-scroll">
+      <div class="header">scroll</div>
+      <div class="content-area">
+        <div class="card">Фон карточки прикреплён к самой карточке. При прокрутке колонки фон движется вместе с ней.</div>
+        <div class="card">Это поведение по умолчанию — фон и элемент всегда двигаются как единое целое.</div>
+        <div class="card">Полосы на фоне скроллятся вместе с этим текстом.</div>
+        <div class="card">Подходит для большинства случаев.</div>
+        <div class="card">Отличие от local заметно только в элементах с собственной прокруткой.</div>
+      </div>
+      <div class="fade"></div>
+    </div>
+
+    <div class="column col-fixed">
+      <div class="header">fixed</div>
+      <div class="content-area">
+        <div class="card">Фон карточки зафиксирован относительно вьюпорта. При прокрутке колонки фон остаётся на месте.</div>
+        <div class="card">Карточка движется, а полосы на её фоне — нет. Это и есть параллакс.</div>
+        <div class="card">Именно так работает параллакс на лендингах: контент движется, фон стоит.</div>
+        <div class="card">На iOS Safari fixed работает как scroll.</div>
+        <div class="card">background-origin при fixed игнорируется.</div>
+      </div>
+      <div class="fade"></div>
+    </div>
+
+    <div class="column col-local">
+      <div class="header">local</div>
+      <div class="content-area">
+        <div class="card">Фон привязан к содержимому. Для карточек без overflow ведёт себя так же, как scroll.</div>
+        <div class="card">Разница между local и scroll заметна только в элементах с overflow: scroll или auto.</div>
+        <div class="card">Если у блока есть прокрутка — фон скроллится вместе с текстом внутри него.</div>
+        <div class="card">Полезно когда паттерн должен ощущаться частью содержимого, а не рамкой.</div>
+        <div class="card">На обычной странице без overflow — то же, что scroll.</div>
+      </div>
+      <div class="fade"></div>
+    </div>
+  </div>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-attachment/">background-attachment — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+# Всё обслуживание main одной джобой и одним коммитом.
+#
+# Раньше в main писали четыре воркфлоу: «Frontmatter Lint», «Update Dates»,
+# «Sort Dictionary» и «Update CHANGELOG». Каждый по схеме
+# `git pull --rebase && git push` — и между чтением и записью успевал влезть
+# соседний бот, пуш отклонялся с «fetch first». Реальное падение случилось на
+# окне в 0.7 секунды. А ещё четыре пуша будили цепочку выкатки по нескольку
+# раз: на коммитах cdd51348 и af32aa64 «Product Deploy» стартовал трижды за
+# сорок секунд, и три `rsync --archive --delete` шли параллельно в живой
+# продакшен.
+#
+# `concurrency` здесь нет намеренно: GitHub держит ровно один ожидающий прогон,
+# и третий мёрж вытеснил бы второй вместе с его работой. Столкновения разбирает
+# цикл повторов в `commit-and-push.sh`.
+#
+# Тесты: node --test .github/scripts/commit-and-push.test.js
+
+name: Main Maintenance
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  maintenance:
+    name: Обслуживание main
+    # Коммит бота уходит под DOKA_BOT_ACCESS_TOKEN, а это PAT — его пуш будит
+    # этот же воркфлоу заново. Отсекаем по сообщению коммита, а не по автору:
+    # под тем же Doka Dog в main пишет ещё и еженедельный featured, и его
+    # правки выкатывать надо. Сообщение задано в `main-maintenance.sh`.
+    if: ${{ !startsWith(github.event.head_commit.message, 'Обновляет мету, даты, словарь и ченджлог') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          # Ченджлогу нужна вся история: он читает `git show ${sha}^:${file}`,
+          # а нужный коммит на повторной попытке уже не в вершине ветки.
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Мета, даты, словарь и ченджлог
+        env:
+          # Коммит, ради которого всё затеяно. Даты и ченджлог считаются по
+          # нему, а не по вершине: на повторной попытке вершина принадлежит уже
+          # чужому пушу.
+          TARGET_SHA: ${{ github.event.after }}
+        run: bash .github/scripts/main-maintenance.sh
