@@ -1,6 +1,10 @@
 ---
 title: "`::marker`"
 description: "Псевдоэлемент для работы с маркерами элементов списка."
+baseline:
+  - group: marker
+    features:
+      - css.selectors.marker.animation_and_transition_support
 authors:
   - blueingreen68
 contributors:
@@ -35,7 +39,7 @@ li::marker {
 }
 ```
 
-<iframe title="Демонстрация псевдоэлемента ::marker" src="demos/marker-example" height="400"></iframe>
+<iframe title="Демонстрация псевдоэлемента ::marker" src="demos/marker-example/" height="400"></iframe>
 
 ## Как пишется
 
@@ -99,8 +103,6 @@ li::marker {
 
 ⚠️ В Safari на данный момент псевдоэлемент `::marker` поддерживается не полностью. Нормально работает только свойство `color` и свойства для работы с текстом. Точно не работают свойства `content` и `direction`. А также отсутствует поддержка анимаций и переходов.
 
-Помимо Safari, анимации и переходы не поддерживаются в Firefox на Android.
-
 </aside>
 
 ## Генерация содержимого маркера
@@ -123,7 +125,7 @@ li::marker {
 }
 ```
 
-<iframe title="Демонстрация отсутсвия псевдоэлемента `::marker` у не элементов списка" src="demos/non-created-marker-example" height="400"></iframe>
+<iframe title="Демонстрация отсутсвия псевдоэлемента `::marker` у не элементов списка" src="demos/non-created-marker-example/" height="400"></iframe>
 
 Как видно, маркеры в виде кактусов не появились.
 
@@ -135,7 +137,7 @@ li::marker {
 }
 ```
 
-<iframe title="Воссоздание исскуственного ненумерованного списка" src="demos/created-marker-example" height="400"></iframe>
+<iframe title="Воссоздание исскуственного ненумерованного списка" src="demos/created-marker-example/" height="400"></iframe>
 
 Работает!
 
@@ -153,7 +155,7 @@ li::marker {
 }
 ```
 
-<iframe title="Порядок подстановки псевдоэлементов ::marker и ::before" src="demos/marker-before-example" height="400"></iframe>
+<iframe title="Порядок подстановки псевдоэлементов ::marker и ::before" src="demos/marker-before-example/" height="400"></iframe>
 
 Браузер решает как в итоге будет выглядеть `::marker` по порядку проверяя следующие условия:
 

@@ -1,6 +1,13 @@
 ---
 title: "`touch`"
 description: "Сенсорные экраны отправляют не только событие клика, но и собственное — `touch`."
+baseline:
+  - group: touch-events
+    features:
+      - api.Element.touchcancel_event
+      - api.Element.touchend_event
+      - api.Element.touchmove_event
+      - api.Element.touchstart_event
 authors:
   - windrushfarer
 contributors:
@@ -51,6 +58,22 @@ element.addEventListener('touchmove', (event) => {
 element.addEventListener('touchend', (event) => {
   console.log('Прикосновение закончено')
 })
+```
+
+Также можно обработать события через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+element.ontouchstart = (event) => {
+  console.log('Вы приложили палец к элементу')
+}
+
+element.ontouchmove = (event) => {
+  console.log('По мне ведут пальцем')
+}
+
+element.ontouchend = (event) => {
+  console.log('Прикосновение закончено')
+}
 ```
 
 ## Как понять

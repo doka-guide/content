@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - recipes/snow
-  - js/deal-with-forms
-  - tools/bundlers
-  - tools/cors
-  - js/async-in-js
-  - recipes/popup
-  - tools/how-to-test-and-why
-  - recipes/git-rebase-onto
-  - tools/gitlab-ci-cd
-  - js/function
-  - css/pseudoelements
   - a11y/aria-hidden
-  - js/execution-order
-  - recipes/ajax-form
-  - recipes/progress
-  - a11y/content-hidden
-  - html/form
-  - recipes/lets-encrypt-nginx
-  - css/media
-  - css/flexbox-guide
-  - html/section
+  - css/pseudoelements
+  - recipes/git-rebase-onto
   - html/flow
+  - tools/webpack
+  - recipes/character-counter
+  - recipes/progress
+  - js/execution-order
+  - html/nav
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - html/section
+  - html/input
   - js/infinite-scroll
+  - recipes/center
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - tools/agile
+  - html/article
+  - js/boolean
+  - tools/cli
+  - js/async-in-js
+  - js/array-entries
+  - css/flexbox-guide
+  - tools/bundlers
   - a11y/live-region
-  - html/video
   - css/attr
-  - css/display
-  - css/position
-  - html/img
-  - html/doctype
+  - css/box-sizing
+  - js/closures
+  - js/var-let
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/static-types
+  - html/form
+  - js/geolocation-api
+  - css/transform-function
+  - tools/cors
+  - tools/ci-cd
+  - css/custom-properties
   - css/box-model
   - tools/docker
-  - js/function-context
-  - tools/agile
-  - css/transform-function
-  - a11y/css-impact-on-a11y
-  - a11y/aria-intro
-  - css/keyframes
-  - js/geolocation-api
-  - tools/clean-architecture
-  - recipes/center
   - a11y/screenreaders
-  - css/custom-properties
-  - tools/static-types
-  - html/head
-  - css/box-sizing
-  - css/box-shadow
-  - tools/webpack
-  - js/boolean
-  - js/array-entries
-  - html/nav
-  - recipes/character-counter
-  - css/scrollbar-gutter
-  - css/grid-guide
-  - html/article
-  - tools/ci-cd
-  - tools/how-the-browser-creates-pages
-  - css/specificity
-  - html/div
-  - html/input
-  - tools/cli
-  - js/closures
-  - tools/markdown
-  - tools/oop
-  - js/var-let
+  - html/video
+  - js/function-context
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/position
+  - tools/gitlab-ci-cd
+  - a11y/content-hidden
+  - recipes/snow
   - tools/network
+  - a11y/css-impact-on-a11y
+  - html/doctype
+  - tools/markdown
+  - html/head
+  - css/specificity
+  - css/box-shadow
+  - recipes/ajax-form
+  - css/grid-guide
+  - css/display
   - js/array-reduce-right
+  - html/img
+  - tools/oop
+  - html/div
+  - js/function
+  - recipes/popup
+  - js/deal-with-forms
 ---
 

@@ -14,7 +14,14 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
@@ -25,13 +32,14 @@
     .container {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
     }
 
     .buttons {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 50px;
     }
 
     .button + .button {

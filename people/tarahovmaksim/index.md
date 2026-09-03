@@ -2,9 +2,8 @@
 name: 'Максим Тарахов'
 url: https://github.com/Maxi-Mini
 badges:
-    - first-contribution-small
-    - hackathon-practicum
-
+  - first-contribution-small
+  - hackathon-practicum
 roles:
-    - practicum-contributor
+  - practicum-contributor
 ---

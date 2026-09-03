@@ -164,11 +164,11 @@
     const searchResults = document.querySelector('.search-results')
 
     function debounce(callback, delay) {
-      let timer;
+      let timer
       return function perform(...args) {
-        clearTimeout(timer);
-        timer = setTimeout(() => callback.apply(this, args), delay);
-      };
+        clearTimeout(timer)
+        timer = setTimeout(() => callback.apply(this, args), delay)
+      }
     }
 
     function handleInput(e) {

@@ -1,6 +1,23 @@
 ---
 title: "`appearance`"
 description: "Сбрасывает стандартный внешний вид элементов."
+baseline:
+  - group: appearance
+    features:
+      - css.properties.appearance
+      - css.properties.appearance.auto
+      - css.properties.appearance.button
+      - css.properties.appearance.checkbox
+      - css.properties.appearance.listbox
+      - css.properties.appearance.menulist
+      - css.properties.appearance.menulist-button
+      - css.properties.appearance.meter
+      - css.properties.appearance.none
+      - css.properties.appearance.progress-bar
+      - css.properties.appearance.radio
+      - css.properties.appearance.searchfield
+      - css.properties.appearance.textarea
+      - css.properties.appearance.textfield
 authors:
   - ezhkov
 editors:
@@ -21,8 +38,6 @@ tags:
 Некоторые элементы форм имеют уникальный внешний вид в каждой операционной системе. Например, выпадающий список в macOS внешне выглядит совсем не так, как такой же выпадающий список в Windows.
 
 Свойство `appearance` позволяет задавать внешний вид одних элементов другим элементам. При этом браузер будет отрисовывать их с учётом текущей операционной системы пользователя и темы оформления.
-
-В настоящее время используется в основном `appearance: none` для сброса системных стилей, остальные значения не работают практически ни в одном браузере.
 
 ## Как понять
 

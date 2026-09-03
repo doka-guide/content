@@ -260,7 +260,7 @@ function processingUploadFile(file) {
       if (xhr.status == 200) {
         setStatus("Всё загружено")
       } else {
-        setStatus("Oшибка загрузки")
+        setStatus("Ошибка загрузки")
       }
       HTMLElement.style.display = "none"
     }
@@ -448,7 +448,7 @@ xhr.onload = function () {
   if (xhr.status == 200) {
     setStatus("Всё загружено")
   } else {
-    setStatus("Oшибка загрузки")
+    setStatus("Ошибка загрузки")
   }
   HTMLElement.style.display = "none"
 }
