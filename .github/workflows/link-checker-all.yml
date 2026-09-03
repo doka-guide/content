@@ -1,17 +1,28 @@
 name: Link Checker All
 
 on:
+  # Раз в неделю по расписанию и по кнопке: без ручного запуска проверку
+  # после починки ссылок приходится ждать до пятницы.
+  workflow_dispatch:
   schedule:
     - cron: '0 6 * * 5'
+
+permissions:
+  contents: read
 
 jobs:
   link-check:
     runs-on: ubuntu-latest
+    # У самого проверяльщика `run_timeout: 600`, остальное — установка и чекаут.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@v2.2.5
         with:
           url: https://doka.guide
-          cmd_params: --buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --timeout=20 --exclude=^https?:\/\/(localhost|127\.0\.0\.1|codepen.io)?(:[0-9]+)?(\/.*)?
+          # Фрагменты текста (`#:~:text=`) — не якоря: проверяльщик ищет по ним
+          # элемент с таким `id` и не находит. Без исключения демка
+          # `css/target-text` будет валить проверку всегда — она про них и есть.
+          cmd_params: --buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --timeout=20 --exclude=^https?:\/\/(localhost|127\.0\.0\.1|codepen.io)?(:[0-9]+)?(\/.*)? --exclude=#:~:text=
           run_timeout: 600

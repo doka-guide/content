@@ -2,15 +2,38 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs')
 const { promisify } = require('util')
-const { exec } = require('child_process')
+const { execFile } = require('child_process')
+
+// Коммит, которому проставляются даты. По вершине ветки его брать нельзя:
+// обслуживание main переделывает работу с новой вершины, когда пуш отклонён
+// соседним ботом, и на повторной попытке HEAD принадлежит уже чужому пушу —
+// даты уехали бы чужому коммиту, а своему не проставились вовсе.
+// Откат на HEAD оставлен, чтобы скрипт запускался и руками.
+// Значение уезжает в командную строку git, поэтому проверяется регуляркой.
+const COMMIT = /^[0-9a-f]{7,40}$/
+
+function targetCommit() {
+  const sha = (process.env.TARGET_SHA || '').trim()
+  if (!sha) {
+    return 'HEAD'
+  }
+  if (!COMMIT.test(sha)) {
+    throw new Error(`Не похоже на коммит: ${sha}`)
+  }
+  return sha
+}
 
 async function updateDates() {
-  // получение id последнего коммита
-  const lastCommitId = `git log --diff-filter=AMCR --format="%H" -n 1`
-  // получение отфильтрованных файлов последнего коммита
-  const gitCommand = `git diff-tree --no-commit-id --name-only -r $(echo $(${lastCommitId}))`
-
-  const { stdout } = await promisify(exec)(gitCommand)
+  const commit = targetCommit()
+  // отфильтрованные файлы нужного коммита
+  const { stdout } = await promisify(execFile)('git', [
+    'diff-tree',
+    '--no-commit-id',
+    '--name-only',
+    '--diff-filter=AMCR',
+    '-r',
+    commit,
+  ])
 
   const filePaths = stdout.split(os.EOL)
     .map(filePath => filePath.trim())

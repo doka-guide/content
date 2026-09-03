@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Белый становится прозрачным — background-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .demo-box {
+      width: 360px;
+      height: 240px;
+      border-radius: 8px;
+      /* Халфтон-паттерн (чёрные точки на белом фоне) поверх фото */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect width='20' height='20' fill='white'/%3E%3Ccircle cx='10' cy='10' r='5' fill='%231a1a1a'/%3E%3C/svg%3E"),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=720&h=480&fit=crop&auto=format&q=80");
+      background-size: auto, cover;
+      background-repeat: repeat, no-repeat;
+      background-position: center, center;
+      background-blend-mode: multiply;
+    }
+
+    .description {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.5);
+      font-style: italic;
+      text-align: center;
+      max-width: 360px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-label {
+      font-size: 13px;
+      font-family: monospace;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 24px;
+      transition: background-color 0.15s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.15s;
+    }
+
+    .switch input:checked + .slider {
+      background-color: #2E9AFF;
+      border-color: #2E9AFF;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px 16px 70px;
+      }
+
+      .demo-box {
+        width: 100%;
+        max-width: 360px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-box" id="box"></div>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label">background-blend-mode: multiply</span>
+  </div>
+
+  <p class="description" id="desc">Белый фон паттерна исчез — видны только точки на фото</p>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-blend-mode/">background-blend-mode — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const box = document.getElementById('box');
+    const desc = document.getElementById('desc');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        box.style.backgroundBlendMode = 'multiply';
+        desc.textContent = 'Белый фон паттерна исчез — видны только точки на фото';
+      } else {
+        box.style.backgroundBlendMode = 'normal';
+        desc.textContent = 'Белый фон паттерна перекрывает фотографию';
+      }
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
