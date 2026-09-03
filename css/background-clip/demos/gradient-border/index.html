@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Градиентная рамка — background-clip — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    /*
+      Градиентная рамка без border-image:
+      - первый слой: тёмный фон, clip: padding-box (заполняет контент + padding)
+      - второй слой: градиент, clip: border-box (заполняет всё включая рамку)
+      - сама рамка: transparent — сквозь неё виден второй слой
+    */
+    .card {
+      width: 280px;
+      padding: 28px 24px;
+      border: 4px solid transparent;
+      border-radius: 12px;
+      background-image:
+        linear-gradient(#282A2E, #282A2E),
+        linear-gradient(135deg, #2E9AFF 0%, #F498AD 100%);
+      background-origin: padding-box, border-box;
+      background-clip: padding-box, border-box;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      color: rgb(255 255 255 / 0.6);
+      font-size: 13px;
+    }
+
+    .code-hint {
+      font-family: monospace;
+      font-size: 11px;
+      color: rgb(255 255 255 / 0.35);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .code-hint b {
+      color: rgb(255 255 255 / 0.65);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <p class="card-title">Градиентная рамка</p>
+    <p class="card-text">Рамка сделана через два фоновых слоя и <code>border: transparent</code> — без border-image и псевдоэлементов.</p>
+  </div>
+
+  <div class="code-hint">
+    background-clip: <b>padding-box</b>, <b>border-box</b>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-clip/">background-clip — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

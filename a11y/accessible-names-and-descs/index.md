@@ -217,7 +217,7 @@ _Доступное описание (accessible description)_ — дополн�
 
 1. `aria-describedby` — самый высокий приоритет, связывает основной элемент с описанием, которое хранится в одном или нескольких других.
 1. `aria-description` — задаёт описание элементу напрямую.
-1. Cобственные описания из `<legend>` в `<fieldset>`, `<caption>` в `<table> `, `<figcaption>` в `<figure>`, `<desc>` в [`<svg>`](/html/svg/).
+1. Собственные описания из `<legend>` в `<fieldset>`, `<caption>` в `<table> `, `<figcaption>` в `<figure>`, `<desc>` в [`<svg>`](/html/svg/).
 1. `title` — наименьший приоритет, добавляет всплывающую подсказку.
 
 ![Приоритет источников для доступных описаний](images/desc-calculation.png)

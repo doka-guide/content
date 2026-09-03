@@ -1,6 +1,11 @@
 ---
 title: "Атрибут `inputmode`"
 description: "Если нужно ввести только цифры зачем показывать всю клавиатуру? Подсказка для браузера какой набор символов нужен."
+baseline:
+  - group: inputmode
+    features:
+      - api.HTMLElement.inputMode
+      - html.global_attributes.inputmode
 authors:
   - webdb81
 contributors:

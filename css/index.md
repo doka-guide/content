@@ -55,6 +55,13 @@ groups:
       - lang
       - root
       - indeterminate
+      - user-valid-invalid
+      - any-link
+      - dir
+      - blank
+      - picture-in-picture
+      - fullscreen
+      - autofill
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -67,6 +74,11 @@ groups:
       - selection
       - marker
       - backdrop
+      - scrollbar
+      - details-content
+      - cue
+      - file-selector-button
+      - target-text
   - name: 'Функции'
     items:
       - attr
@@ -87,6 +99,9 @@ groups:
       - clamp
       - color-function
       - light-dark
+      - color-mix
+      - env
+      - shape-function
   - name: 'Директивы'
     items:
       - font-face
@@ -96,6 +111,13 @@ groups:
       - supports
       - layer
       - starting-style
+      - counter-style
+      - namespace
+      - font-feature-values
+      - charset
+      - container
+      - scope
+      - view-transition
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -105,6 +127,7 @@ groups:
       - currentcolor
       - color-function
       - light-dark
+      - color-mix
   - name: 'Тёмная тема'
     items:
       - color-scheme
@@ -146,6 +169,8 @@ groups:
       - backface-visibility
       - will-change
       - rotate
+      - scale-function
+      - skew-function
   - name: 'Фон'
     items:
       - background
@@ -238,6 +263,7 @@ groups:
       - box-sizing
       - min
       - max
+      - logical-properties
   - name: 'Позиционирование'
     items:
       - position
@@ -246,6 +272,20 @@ groups:
       - stacking-context
       - z-index
       - inset
+  - name: 'Якорное позиционирование'
+    items:
+      - anchor-positioning-guide
+      - anchor-name
+      - position-anchor
+      - anchor-function
+      - position-area
+      - position-try-fallbacks
+      - position-try-rule
+      - position-try-order
+      - position-try
+      - position-visibility
+      - anchor-size-function
+      - anchor-scope
   - name: 'Списки'
     items:
       - list-style
@@ -361,6 +401,7 @@ groups:
       - overscroll-behavior
       - scroll-behavior
       - scroll-padding
+      - scroll-margin
       - scroll-snap-type
       - scroll-snap-align
       - scroll-snap-stop
@@ -377,9 +418,11 @@ groups:
       - custom-properties
       - root
       - var
+      - pseudo-private-custom-property
   - name: 'Стили для печати'
     items:
       - page
+      - break-after
       - orphans
       - widows
       - print-color-adjust
