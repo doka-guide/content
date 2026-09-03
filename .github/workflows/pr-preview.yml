@@ -179,6 +179,29 @@ jobs:
             )
             core.setOutput('state', done ? 'passed' : 'unfinished')
 
+      # Открывает галку «Превью» ровно в момент старта сборки: до сих пор она
+      # заводилась только в самом конце («Отчёт в пулреквесте»), и все
+      # ~10-15 минут сборки в списке проверок пулреквеста не было ни строки —
+      # узнать что-то можно было только из заметки в описании. `in_progress`
+      # даёт пулреквесту живой индикатор на всё время сборки; id уходит в
+      # отчёт, чтобы обновить эту же галку, а не плодить вторую.
+      - name: Открытие галки превью
+        id: check
+        if: ${{ steps.gate.outputs.state == 'passed' }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo
+            const { data } = await github.rest.checks.create({
+              owner,
+              repo,
+              name: 'Превью',
+              head_sha: process.env.HEAD_SHA,
+              status: 'in_progress',
+              details_url: process.env.RUN_URL,
+            })
+            core.setOutput('check-id', data.id)
+
       # Дальше — только если проверки прошли. Заметка о сборке пишется до
       # чекаута форка: пока в рабочем дереве нет чужого кода, писать в
       # пулреквест безопаснее.
@@ -338,6 +361,7 @@ jobs:
         if: ${{ always() && steps.gate.outputs.state != '' && steps.gate.outputs.state != 'idle' }}
         uses: actions/github-script@v7
         env:
+          CHECK_ID: ${{ steps.check.outputs.check-id }}
           DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
           FAILED: ${{ steps.gate.outputs.failed }}
           IS_PUBLISHED: ${{ steps.build.outcome == 'success' }}
@@ -389,21 +413,40 @@ jobs:
             // Джобы воркфлоу на `workflow_run` в списке проверок пулреквеста
             // не видны: сам прогон висит на вершине ветки по умолчанию, туда же
             // уходят его галки, а коммит пулреквеста лежит в
-            // `workflow_run.head_sha` и только здесь. Поэтому итоговую галку
-            // заводим руками, иначе о превью в пулреквесте не будет ни строки.
-            await github.rest.checks.create({
-              owner,
-              repo,
-              name: 'Превью',
-              head_sha: sha,
-              status: 'completed',
-              conclusion,
-              details_url: process.env.RUN_URL,
-              output: {
-                title: conclusion === 'success' ? 'Превью опубликовано' : 'Превью не опубликовано',
-                summary: message,
-              },
-            })
+            // `workflow_run.head_sha` и только здесь. Поэтому галку заводим
+            // руками, иначе о превью в пулреквесте не будет ни строки.
+            //
+            // Если шаг «Открытие галки превью» уже завёл её (гейт был
+            // `passed`), дозакрываем ту же галку — иначе в списке проверок
+            // повисли бы две строки «Превью» разом. Если не завёл (`failed`
+            // или `unfinished`, сборка не начиналась), заводим её здесь же.
+            const checkId = process.env.CHECK_ID
+            const output = {
+              title: conclusion === 'success' ? 'Превью опубликовано' : 'Превью не опубликовано',
+              summary: message,
+            }
+            if (checkId) {
+              await github.rest.checks.update({
+                owner,
+                repo,
+                check_run_id: Number(checkId),
+                status: 'completed',
+                conclusion,
+                details_url: process.env.RUN_URL,
+                output,
+              })
+            } else {
+              await github.rest.checks.create({
+                owner,
+                repo,
+                name: 'Превью',
+                head_sha: sha,
+                status: 'completed',
+                conclusion,
+                details_url: process.env.RUN_URL,
+                output,
+              })
+            }
 
       # Комментарии прошлой схемы. Убираем оставшиеся, чтобы в ленте не висело
       # вечное «Идёт сборка...». Шаг можно удалить, когда их не останется.
