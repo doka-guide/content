@@ -5,9 +5,14 @@ on:
     branches:
       - main
 
+# Проверка только читает: чекаут и список изменённых файлов коммита.
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
