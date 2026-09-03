@@ -132,7 +132,7 @@ p {
 В этом варианте элементам, которые необходимо оформить, добавляется атрибут [`style`](/html/global-attrs/#style). Значением этого атрибута могут быть свойства и значения CSS, которые и применятся к элементу:
 
 ```html
-<h1 style="сolor: yellow; margin: 10px 20px">Заголовок</h1>
+<h1 style="color: yellow; margin: 10px 20px">Заголовок</h1>
 <p style="text-align: right; font-size: 12px">Текст</p>
 ```
 
@@ -159,7 +159,7 @@ p {
 Согласитесь, что такой код читать намного труднее:
 
 ```html
-<h1 style="сolor: yellow; margin: 10px 20px 15px 10px;">Заголовок</h1>
+<h1 style="color: yellow; margin: 10px 20px 15px 10px;">Заголовок</h1>
 <div style="border: 1px solid red; max-widht: 500px; margin: auto">
   <p>У моей кошки <span style="color: lightblue;">светло-синие</span> глаза.</p>
 </div>

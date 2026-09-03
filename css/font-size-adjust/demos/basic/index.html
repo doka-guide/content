@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>font-size-adjust — font-size-adjust — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 40px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 30px 24px;
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .label {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #9B9FAB;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .text {
+      font-size: 40px;
+      line-height: 1.2;
+    }
+
+    .ref {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #FFFFFF;
+    }
+
+    .no-adjust {
+      font-family: "Times New Roman", Georgia, serif;
+      color: #F498AD;
+    }
+
+    .with-adjust {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size-adjust: 0.52;
+      color: #2E9AFF;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #2B2D31;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <div class="row">
+        <span class="label">Arial — эталон</span>
+        <p class="text ref">Hamburgefons</p>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="label">Times New Roman без font-size-adjust</span>
+        <p class="text no-adjust">Hamburgefons</p>
+      </div>
+      <div class="divider"></div>
+      <div class="row">
+        <span class="label">Times New Roman с font-size-adjust: 0.52</span>
+        <p class="text with-adjust">Hamburgefons</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

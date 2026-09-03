@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Переопределение языка шрифта — font-language-override — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px 40px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* ── Секция 1: две разные буквы ── */
+
+    .letters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .letter-card {
+      padding: 24px;
+      background-color: #282A2E;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .letter-card__glyph {
+      font-family: "EB Garamond", serif;
+      font-size: 96px;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+
+    .letter-card__name {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.45);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .letter-card__name strong {
+      display: block;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    /* ── Разделитель ── */
+
+    .divider {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: rgb(255 255 255 / 0.1);
+    }
+
+    .divider__text {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.3);
+      white-space: nowrap;
+    }
+
+    /* ── Секция 2: лигатура vs без ── */
+
+    .ligature-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .ligature-card {
+      padding: 24px;
+      background-color: #282A2E;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ligature-card__label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgb(255 255 255 / 0.35);
+    }
+
+    .ligature-card__fi {
+      font-family: "EB Garamond", serif;
+      font-size: 72px;
+      line-height: 1;
+      font-variant-ligatures: common-ligatures;
+    }
+
+    .ligature-card__fi--normal {
+      font-language-override: normal;
+    }
+
+    .ligature-card__fi--turkish {
+      font-language-override: "TRK";
+    }
+
+    .ligature-card__annotation {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.5);
+      line-height: 1.5;
+    }
+
+    .ligature-card__annotation em {
+      color: #F498AD;
+      font-style: normal;
+    }
+
+    .ligature-card__annotation .ok {
+      color: #2E9AFF;
+    }
+
+    .ligature-card__code {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.35);
+      font-family: monospace;
+      border-top: 1px solid rgb(255 255 255 / 0.08);
+      padding-top: 12px;
+      margin-top: auto;
+    }
+
+    .ligature-card__code span {
+      color: #2E9AFF;
+    }
+
+    @media (width <= 560px) {
+      body {
+        padding: 30px 20px 50px;
+      }
+
+      .letter-card__glyph {
+        font-size: 72px;
+      }
+
+      .ligature-card__fi {
+        font-size: 56px;
+      }
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Секция 1: две разные буквы турецкого алфавита -->
+  <div class="letters">
+    <div class="letter-card">
+      <div class="letter-card__glyph">i</div>
+      <div class="letter-card__name">
+        <strong>Dotted i</strong>
+        «i» с точкой
+      </div>
+    </div>
+    <div class="letter-card">
+      <div class="letter-card__glyph">ı</div>
+      <div class="letter-card__name">
+        <strong>Dotless ı</strong>
+        «ı» без точки
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <span class="divider__text">в турецком это разные буквы</span>
+  </div>
+
+  <!-- Секция 2: лигатура vs без лигатуры -->
+  <div class="ligature-cards">
+    <div class="ligature-card">
+      <div class="ligature-card__label">normal</div>
+      <div class="ligature-card__fi ligature-card__fi--normal">fi</div>
+      <div class="ligature-card__annotation">
+        Шрифт применяет лигатуру — точка над «i»
+        <em>сливается с «f»</em> и пропадает
+      </div>
+      <div class="ligature-card__code">
+        font-language-override: <span>normal</span>
+      </div>
+    </div>
+
+    <div class="ligature-card">
+      <div class="ligature-card__label">«TRK»</div>
+      <div class="ligature-card__fi ligature-card__fi--turkish">fi</div>
+      <div class="ligature-card__annotation">
+        Шрифт знает турецкие правила — точка
+        <span class="ok">сохранена</span>, буквы раздельны
+      </div>
+      <div class="ligature-card__code">
+        font-language-override: <span>"TRK"</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/font-language-override/">font-language-override — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

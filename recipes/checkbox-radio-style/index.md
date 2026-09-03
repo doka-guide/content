@@ -66,7 +66,7 @@ input[type="radio"] {
 
 - простота реализации;
 - сохранение стандартного поведения элемента (доступен для [скринридеров](/a11y/screenreaders/), поддерживает навигацию с клавиатуры);
-- хорошая [поддержка `accent-color` браузерами](https://caniuse.com/mdn-css_properties_accent-color), как и [`appearance`](/css/appearance).
+- хорошая [поддержка `accent-color` браузерами](https://caniuse.com/mdn-css_properties_accent-color), как и [`appearance`](/css/appearance/).
 
 Недостатки:
 

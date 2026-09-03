@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Эксклюзивный аккордеон — &lt;details&gt;, &lt;summary&gt; — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+    }
+
+    p {
+      padding: 15px 10px;
+      color: #000000;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    summary {
+      background-color: #FF8630;
+      padding: 10px 15px;
+      color: #000000;
+      font-size: 1em;
+      border-bottom: 1px solid #000000;
+      cursor: pointer;
+    }
+
+    summary::marker {
+      color: #000000;
+    }
+
+    details {
+      margin-bottom: 2px;
+      background-color: #ffd2b2;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- У всех трёх блоков одинаковый name — открытие одного закрывает остальные -->
+    <details name="faq">
+      <summary>Как заказать доставку?</summary>
+      <p>Выбираем товар и оформляем заказ в корзине. Доставка курьером или в пункт выдачи — на выбор.</p>
+    </details>
+
+    <details name="faq">
+      <summary>Можно ли вернуть товар?</summary>
+      <p>Да, в течение 14 дней с момента покупки. Товар должен сохранить товарный вид и упаковку.</p>
+    </details>
+
+    <details name="faq">
+      <summary>Как отследить заказ?</summary>
+      <p>По номеру заказа в личном кабинете или в SMS-уведомлениях от службы доставки.</p>
+    </details>
+  </div>
+</body>
+</html>
