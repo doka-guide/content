@@ -1,17 +1,34 @@
 name: Product Deploy
 
+# Цепочка: push в main → Main Maintenance → выкатка. Раньше звеньев было
+# четыре, и выкатка стартовала по нескольку раз на один мёрж — по разу на
+# каждый пуш бота.
 on:
   workflow_run:
     workflows:
-      - "Update CHANGELOG"
+      - "Main Maintenance"
     branches:
       - main
     types:
       - completed
 
+# Группа без cancel-in-progress: оборванный `rsync --delete` оставил бы сайт
+# наполовину синхронизированным. Лишняя выкатка подождёт своей очереди.
+concurrency:
+  group: Product Deploy
+
+permissions:
+  contents: read
+
 jobs:
   product-deploy:
+    # `completed` приходит и на упавший прогон, и на отменённый, и на
+    # пропущенный. Без этой проверки в продакшен уехал бы результат
+    # обслуживания, которое не отработало, — а заодно выкатка запускалась бы на
+    # собственном коммите бота, где обслуживание пропущено.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PATH_TO_CONTENT: ./content
@@ -29,9 +46,13 @@ jobs:
         with:
           repository: doka-guide/cache
           path: cache
+      # Версия берётся из .nvmrc платформы: именно её зависимости здесь
+      # ставятся. Зашитая версия разъезжается с платформой — так превью и
+      # выкатка сломались, когда платформа перешла на Node 24, а здесь
+      # осталась двадцатая.
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .nvmrc
       - name: Кэширование модулей
         uses: actions/cache@v3
         env:

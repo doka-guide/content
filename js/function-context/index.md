@@ -6,7 +6,7 @@ authors:
 editors:
   - tachisis
 contributors:
-  - lira_bazh
+  - lira-bazh
 keywords:
   - use strict
   - строгий режим
