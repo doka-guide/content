@@ -30,7 +30,7 @@ tags:
 
 На данный момент `scrollbar-width` поддерживается всеми браузерами, кроме Safari ([Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-width)).
 
-Также во всех демо мы зададим ползунку скроллбара белый цвет при помощи [`scrollbar-color`](/css/scrollbar-color), чтобы он лучше выделялся на тёмном фоне.
+Также во всех демо мы зададим ползунку скроллбара белый цвет при помощи [`scrollbar-color`](/css/scrollbar-color/), чтобы он лучше выделялся на тёмном фоне.
 
 </aside>
 
