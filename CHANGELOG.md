@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2026
+
+- 3 сентября, [`DataView`](https://doka.guide/js/data-view/), Светлана Маркова
+
 ## Август 2026
 
 - 31 августа, [`:autofill`](https://doka.guide/css/autofill/), DrakesWeb
