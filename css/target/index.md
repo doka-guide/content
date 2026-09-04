@@ -1,6 +1,10 @@
 ---
 title: "`:target`"
 description: "Управляет стилем элемента, на который ссылается якорная ссылка."
+baseline:
+  - group: target
+    features:
+      - css.selectors.target
 authors:
   - bellabzhu
 contributors:
