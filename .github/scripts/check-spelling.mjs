@@ -12,6 +12,12 @@ import { spawnSync } from 'node:child_process'
 const DICTIONARY = '.yaspeller.json'
 const CONFIG = 'cspell.json'
 
+// После установки npm лезет на старый эндпоинт аудита, который сам же выводит
+// из эксплуатации. С вечера 3 сентября 2026 реестр отвечает на него минутами:
+// шаг в CI вырос с семи секунд до семи минут, и всё это время процесс просто
+// ждал. Аудит тут и не нужен — линтер ставится на один прогон.
+const NPM_ENV = { ...process.env, npm_config_audit: 'false', npm_config_fund: 'false' }
+
 // Словарь разделён на два списка, чтобы русские слова и латиница не мешались:
 // dictionary — кириллица, latin — термины, имена и аббревиатуры.
 export function loadDictionary(source) {
@@ -56,7 +62,7 @@ function runCspell(files) {
       '--show-suggestions',
       ...files,
     ],
-    { encoding: 'utf8' },
+    { encoding: 'utf8', env: NPM_ENV },
   )
   if (result.error) throw result.error
   return parse((result.stdout || '') + '\n' + (result.stderr || ''))
