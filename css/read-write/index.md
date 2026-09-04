@@ -3,6 +3,8 @@ title: "`:read-write`"
 description: "Показываем возможность изменения элемента."
 authors:
   - delioncourts
+contributors:
+  - drakesbot12
 keywords:
   - псевдокласс
 related:
@@ -11,58 +13,78 @@ related:
   - css/pseudoclasses
 tags:
   - doka
-  - placeholder
 ---
-
 ## Кратко
 
-Псевдокласс `:read-write` показывает что элемент, например, [`<input>`](/html/input/) или [`<textarea>`](/html/textarea/), изменяется.
+Псевдокласс `:read-write` применяется к элементам формы и другим узлам, которые пользователь может редактировать. Он помогает отличать редактируемые поля от тех, которые доступны только для чтения.
+
+К таким элементам относятся, например, `<input>`, `<textarea>` и любые элементы с атрибутом `contenteditable`.
 
 ## Пример
 
-Псевдокласс `:read-write` показывает, что поле ввода можно изменить.
+Покажем базовое использование: выделим редактируемое поле синей рамкой.
 
 ```html
-<form>
-  <label for="input-field">Зима близко</label>
-  <input id="input-field" type="text">
-</form>
+<label>
+  Редактируемое поле
+  <input type="text" placeholder="Можно менять текст">
+</label>
+<label>
+  Только для чтения
+  <input type="text" value="Нельзя редактировать" readonly class="readonly">
+</label>
+<label>
+  Textarea (редактируемое)
+  <textarea placeholder="Пиши сюда..."></textarea>
+</label>
 ```
-
-```css
-input:read-write {
-  border: 1px solid blue;
-}
-```
-
-Как и другие селекторы псевдоклассов, `:read-write` может использоваться с другими псевдоэлементами и псевдоклассами.
-
-```css
-textarea:read-write:focus {
-  box-shadow: 0 5px 10px gray;
-}
-
-textarea:read-write::before {
-  content: "Что-то меняется...";
-  color: #aaa;
-}
-```
-
-## Как пишется
-
-Элементы, к которым применяется псевдокласс `:read-write`:
-
-- `<input>` — элементы любого типа, с возможностью редактирования и доступные не только для чтения. Это означает что у них не установлены атрибуты `:read-only` или [`disabled`](/html/disabled/).
-- `<textarea>` — элементы доступны для изменения (без атрибутов `:read-only` или `disabled`).
-- Любой элемент не `<input>` и не `<textarea>`, у которого установлен атрибут [contenteditable](/html/global-attrs/).
-
-После элемента из списка выше ставим двоеточие и пишем ключевое слово `read-write`.
 
 ```css
 input:read-write,
-input:-moz-read-write {
-  border: 1px solid red;
+textarea:read-write {
+  border-color: #2E9AFF;
 }
 ```
 
-Псевдокласс `:read-write` поддерживается в Chrome, Safari и Opera. Firefox поддерживает псевдокласс со специальным префиксом `-moz-`.
+<iframe title="Демонстрация работы :read-write" src="demos/basic/" height="420"></iframe>
+
+## Как пишется
+
+Псевдокласс `:read-write` выбирает элементы, которые можно редактировать.
+
+Это:
+
+- `<input>` без атрибутов `readonly` и `disabled`
+- `<textarea>` без `readonly` и `disabled`
+- элементы с `contenteditable`
+
+```css
+input:read-write,
+textarea:read-write,
+[contenteditable]:read-write {
+  border: 1px solid #2E9AFF;
+}
+```
+
+## Как понять
+
+Браузер автоматически определяет, можно ли изменять содержимое элемента.
+
+Если элемент:
+
+- не заблокирован (`disabled`)
+- не только для чтения (`readonly`)
+- или явно редактируем (`contenteditable`)
+
+-> он попадает под `:read-write`.
+
+## Подсказки
+
+💡 Чаще всего `:read-write` не используют напрямую в больших проектах, потому что его поведение почти совпадает с обычными селекторами для input/textarea.
+💡 Но он полезен, если у тебя есть гибкая форма, где состояние элементов меняется динамически через JavaScript.
+💡 В Firefox до сих пор может использоваться префикс:
+```css
+input:-moz-read-write {
+  border-color: #2E9AFF;
+}
+```
