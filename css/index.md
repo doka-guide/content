@@ -63,6 +63,9 @@ groups:
       - picture-in-picture
       - fullscreen
       - autofill
+      - past
+      - future
+      - current
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
