@@ -20,6 +20,7 @@ groups:
       - checkbox-radio-style
       - tooltip
       - skeleton
+      - star-rating
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
