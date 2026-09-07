@@ -59,18 +59,23 @@ jobs:
         uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: |
-            (css|html|js|tools|a11y)/**/index.md
+            (css|html|js|tools|a11y|recipes)/**/index.md
             !(pages|people)/**/index.md
       - name: Работает линтер
+        env:
+          # Через `env`: имена файлов приходят из пулреквеста, а имя папки
+          # задаёт автор.
+          FILES: ${{ steps.files.outputs.added_modified }}
         run: |
-          files='${{ steps.files.outputs.added_modified }}'
-          if ! [[ $files == "" ]]; then
-            echo "Проверка для файлов из PR"
-            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools|a11y)/[a-z-]+/index.md')
-            node .github/scripts/frontmatter.js
-          else
+          if [ -z "$FILES" ]; then
             echo "В PR нет файлов для проверки"
+            exit 0
           fi
+          echo "Проверка для файлов из PR"
+          # Цифры в слаге тоже бывают: `html/h1-h6`, `tools/ipv6-for-webdevs`.
+          # Без них grep не находил такие файлы, и проверка шла вхолостую.
+          npx yaml-cat --format json --output result.json $(echo "$FILES" | grep -o -E '(css|html|js|tools|a11y|recipes)/[a-z0-9-]+/index.md')
+          node .github/scripts/frontmatter.js
   # Обе проверки текста в одной джобе: чекаут и Node общие, а сами проверки
   # занимают секунды. Шаги не прерывают друг друга — при падении видно оба
   # отчёта сразу, а не только первый упавший.
@@ -109,11 +114,11 @@ jobs:
           fi
           node .github/scripts/check-yo.mjs $files
 
+  # Без `needs`: проверка идёт наравне с остальными, а не после них. Иначе
+  # опечатка в отступе прятала битые ссылки до следующего пуша — человек чинил
+  # по одной находке за круг.
   link-checker:
     name: Ссылки
-    needs:
-      - editorconfig
-      - frontmatter-checker
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

@@ -1,0 +1,92 @@
+# Заметка о том, чего ждать: превью соберётся не сразу, а у пулреквеста из
+# форка проверки и вовсе висят в состоянии action_required, пока мейнтейнер не
+# нажмёт «Approve and run».
+#
+# Отдельным воркфлоу, а не джобой в «PR Preview»: там триггер `workflow_run`,
+# он срабатывает уже после проверок, а заметка нужна в момент открытия
+# пулреквеста. Держать оба события в одном файле не выйдет — половина джоб
+# отсекалась бы по `if` и висела в списке проверок серыми строками.
+#
+# Тесты: node --test .github/scripts/preview-note.test.js
+
+name: PR Preview Note
+
+on:
+  pull_request_target:
+
+# Новый коммит в пулреквест отменяет прогон на предыдущем: старый финишировал
+# бы позже нового и затирал его заметку в описании.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  pull-requests: write
+  actions: read
+  contents: read
+
+jobs:
+  # Заметка живёт в описании пулреквеста, а не отдельным комментарием: GitHub
+  # шлёт письмо на создание комментария, а правку описания не рассылает вовсе.
+  note:
+    name: 'Превью: заметка'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Только `preview-note.js` и только из ветки по умолчанию. `ref` задан
+      # явно, а не оставлен по умолчанию: джоба ходит с правами на запись, и
+      # чекаут кода из форка означал бы выполнение чужого кода под этим
+      # токеном.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: .github/scripts
+          path: base
+      - uses: actions/github-script@v7
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          script: |
+            const note = require(`${process.env.GITHUB_WORKSPACE}/base/.github/scripts/preview-note.js`)
+            const { owner, repo } = context.repo
+            const pullNumber = context.payload.pull_request.number
+            const headSha = process.env.HEAD_SHA
+
+            // Прогон проверок появляется не мгновенно. Ждём недолго: дальше
+            // сообщение всё равно получится верным, а раннер держать незачем.
+            const deadline = Date.now() + 2 * 60 * 1000
+            let run = null
+            while (!run) {
+              const { data } = await github.rest.actions.listWorkflowRuns({
+                owner,
+                repo,
+                workflow_id: 'pr-checks.yml',
+                head_sha: headSha,
+                per_page: 100,
+              })
+              run = data.workflow_runs.sort((a, b) => b.run_number - a.run_number)[0] || null
+              if (run || Date.now() > deadline) break
+              await new Promise((resolve) => setTimeout(resolve, 10000))
+            }
+
+            // `action_required` разные ручки API показывают по-разному: где-то
+            // это `status`, где-то `conclusion` при `status: completed`.
+            const needsApproval =
+              run && (run.status === 'action_required' || run.conclusion === 'action_required')
+
+            // Заметка может проснуться позже отчёта — раннер ждал очереди. Тогда
+            // молчим: «идут проверки» затёрло бы итог навсегда, нового прогона
+            // на этом коммите уже не будет.
+            if (run && run.status === 'completed' && !needsApproval) {
+              core.info('Проверки уже завершились, заметку пишет отчёт')
+              return
+            }
+
+            const runUrl = run
+              ? run.html_url
+              : `https://github.com/${owner}/${repo}/actions/workflows/pr-checks.yml`
+            const message = needsApproval
+              ? `Проверки пулреквеста ждут одобрения мейнтейнера. Как их запустят, соберётся превью контента из ${headSha}. [Подробнее](${runUrl})`
+              : `Идут проверки пулреквеста, следом соберётся превью контента из ${headSha}. [Подробнее](${runUrl})`
+
+            await note.writeNote({ github, owner, repo, pullNumber, message, headSha })
