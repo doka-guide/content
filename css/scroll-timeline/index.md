@@ -1,6 +1,16 @@
 ---
 title: "`scroll-timeline`"
 description: "Связывает прогресс анимации с прокруткой элемента, превращая скролл в источник времени"
+baseline:
+  - group: scroll-driven-animations
+    features:
+      - css.properties.scroll-timeline
+      - css.properties.scroll-timeline-axis
+      - css.properties.scroll-timeline-axis.block
+      - css.properties.scroll-timeline-axis.inline
+      - css.properties.scroll-timeline-axis.x
+      - css.properties.scroll-timeline-axis.y
+      - css.properties.scroll-timeline-name
 authors:
   - drakesbot12
 keywords:
