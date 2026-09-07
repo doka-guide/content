@@ -4,6 +4,7 @@
 
 ## Сентябрь 2026
 
+- 4 сентября, [`:read-only`](https://doka.guide/css/read-only/), DrakesWeb
 - 3 сентября, [`DataView`](https://doka.guide/js/data-view/), Светлана Маркова
 
 ## Август 2026
