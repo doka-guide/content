@@ -1,6 +1,10 @@
 ---
 title: "`:future`"
 description: "Выбирает элементы, которые находятся в будущем относительно текущего состояния, например в субтитрах или временных треках."
+baseline:
+  - group: time-relative-selectors
+    features:
+      - css.selectors.future
 authors:
   - drakesbot12
 keywords:

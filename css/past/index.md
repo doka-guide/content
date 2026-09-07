@@ -1,6 +1,10 @@
 ---
 title: "`:past`"
 description: "Выбирает элементы, которые находятся в прошлом относительно текущего состояния, например в субтитрах или временных треках."
+baseline:
+  - group: time-relative-selectors
+    features:
+      - css.selectors.past
 authors:
   - drakesbot12
 keywords:
