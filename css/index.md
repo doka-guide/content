@@ -57,6 +57,7 @@ groups:
       - indeterminate
       - user-valid-invalid
       - any-link
+      - read-only
       - dir
       - blank
       - picture-in-picture

@@ -24,6 +24,10 @@ const IGNORE_FILE = '.yo-ignore'
 const DISABLE_BLOCK = /<!--\s*eyo-disable\s*-->[\s\S]*?(?:<!--\s*eyo-enable\s*-->|$)/g
 const DISABLE_NEXT_LINE = /<!--\s*eyo-disable-next-line\s*-->[^\n]*\n[^\n]*/g
 
+// То же, что в check-spelling.mjs: аудит npm упирается в выводимый из
+// эксплуатации эндпоинт и держит шаг минутами вместо секунд.
+const NPM_ENV = { ...process.env, npm_config_audit: 'false', npm_config_fund: 'false' }
+
 // Длина текста сохраняется, поэтому строки и колонки в выводе eyo совпадают
 // с исходным файлом.
 export function mask(text) {
@@ -111,6 +115,7 @@ function runEyo(files) {
     // оба потока независимо от кода.
     const result = spawnSync('npx', ['--yes', 'eyo', '--lint', '--no-colors', ...masked], {
       encoding: 'utf8',
+      env: NPM_ENV,
     })
     if (result.error) throw result.error
 

@@ -13,6 +13,15 @@ permissions:
 
 jobs:
   update-lists:
+    # Списки строятся полным пересчётом meta (editors, contributors, tags,
+    # description) по всем статьям, а не диффом. Автокоммит бота
+    # («Обновляет мету, даты, словарь и ченджлог» из main-maintenance.yml)
+    # трогает только даты, словарь и ченджлог — meta он не меняет, так что
+    # пересчёт на нём даёт тот же результат, что уже посчитал прогон на
+    # коммите, который бот обслуживал. Условие то же, что в
+    # main-maintenance.yml — отсекаем по сообщению коммита, а не по автору:
+    # под тем же Doka Dog в main пишет ещё и еженедельный featured.
+    if: ${{ !startsWith(github.event.head_commit.message, 'Обновляет мету, даты, словарь и ченджлог') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
