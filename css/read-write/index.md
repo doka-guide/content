@@ -1,6 +1,10 @@
 ---
 title: "`:read-write`"
 description: "Показываем возможность изменения элемента."
+baseline:
+  - group: read-write-pseudos
+    features:
+      - css.selectors.read-write
 authors:
   - delioncourts
 contributors:
