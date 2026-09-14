@@ -22,7 +22,7 @@ tags:
 
 **Синхронный** ресурс — это объект JavaScript с методом `[Symbol.dispose]()`. **Асинхронный** — с методом `[Symbol.asyncDispose]()`.
 
-Объявление переменной с помощью `using` связывает её с **синхронным** ресурсом. При выходе из блока, в котором переменная была объявлена, автоматически вызовется метод `[Symbol.dispose]()`, освобождая ресурс. Для **асинхронных** ресурсов применяется синтаксис `await using` и вызывается метод `[Symbol.asyncDispose]()`.
+Объявление переменной с помощью `using` связывает её с **синхронным** ресурсом. При выходе из блока, в котором переменная была объявлена, автоматически вызовется метод `[Symbol.dispose]()`, освобождая ресурс. Для **асинхронных** ресурсов применяется синтаксис `await using` и вызывается метод `[Symbol.asyncDispose]()` или `[Symbol.dispose]()`.
 
 ## Пример
 
@@ -31,56 +31,56 @@ tags:
 Создадим класс-обёртку для работы с экземпляром класса FileReader.
 
 ```js
-  // класс-обёртка для FileReader
-  class ManagedFileReader {
-    constructor(file) {
-      // Создание ресурса
-      this.reader = new FileReader();
-      console.log('FileReader экземпляр создан')
-      this.file = file
-    }
-
-    // Метод использования ресурса
-    read() {
-      return new Promise((resolve, reject) => {
-        this.reader.onload = () => resolve(this.reader.result)
-        this.reader.onerror = reject
-        this.reader.readAsText(this.file)
-      })
-    }
-
-    // Метод освобождения ресурса
-    close() {
-      this.reader.abort()
-      console.log('FileReader экземпляр освобождён')
-    }
+// класс-обёртка для FileReader
+class ManagedFileReader {
+  constructor(file) {
+    // Создание ресурса
+    this.reader = new FileReader();
+    console.log('FileReader экземпляр создан')
+    this.file = file
   }
+
+  // Метод использования ресурса
+  read() {
+    return new Promise((resolve, reject) => {
+      this.reader.onload = () => resolve(this.reader.result)
+      this.reader.onerror = reject
+      this.reader.readAsText(this.file)
+    })
+  }
+
+  // Метод освобождения ресурса
+  close() {
+    this.reader.abort()
+    console.log('FileReader экземпляр освобождён')
+  }
+}
 ```
 
 Добавим метод `[Symbol.dispose]()`, вызывающий `close()`:
 
 ```js
-  // класс-обёртка для FileReader
-  class ManagedFileReader {
-    // Существующая реализация
-    // ...
+// класс-обёртка для FileReader
+class ManagedFileReader {
+  // Существующая реализация
+  // ...
 
-    [Symbol.dispose]() {
-      this.close()
-    }
+  [Symbol.dispose]() {
+    this.close()
   }
+}
 ```
 
 Создадим функцию чтения файла. Обратите внимание, что нам не нужно явно вызывать метод экземпляра `close()`:
 
 ```js
-  const processFile = async (file) => {
-    using reader = new ManagedFileReader(file) // Создание
-    const content = await reader.read() // Использование
-    console.log('Содержимое файла:', content)
-  } // <-- Автоматическое освобождение при выходе
+const processFile = async (file) => {
+  using reader = new ManagedFileReader(file) // Создание
+  const content = await reader.read() // Использование
+  console.log('Содержимое файла:', content)
+} // <-- Автоматическое освобождение при выходе
 
-  processFile(file)
+processFile(file)
 ```
 
 Посмотреть как происходит создание и освобождение ресурса c эффектом замедления можно с помощью демки.
@@ -106,11 +106,6 @@ tags:
 где:
 - value — начальное значение переменной `name`. Значением переменной может быть: `null`, `undefined`, объект с методом `[Symbol.asyncDispose]()` или `[Symbol.dispose]()`.
 
-<aside>
-
-☝️ Обратите внимание, что использование оператора [`await`](/js/async-await/) указывает на возможность выполнение асинхронной операции но не при объявлении переменной, а при освобождении ресурса.
-
-</aside>
 
 `using` можно использовать внутри:
 - блока кода;
@@ -152,7 +147,7 @@ const processResource = () => {
 
 Функция освобождения ресурса `closeResource` вызывается в блоке `finally`. Это позволяет освободить ресурс даже в случае возникновения ошибки в блоке `try`. Однако если ошибка произойдёт в самой функции `closeResource()`, то ресурс может остаться неосвобождённым, а исходная ошибка будет заменена.
 
-Синтаксис `using` гарантирует, что ресурс будет освобождён корректно, а ошибка возникающая при освобождении ресурса не заменит исходную ошибку:
+Синтаксис `using` гарантирует, что ресурс будет освобождён корректно, а ошибка возникающая при освобождении ресурса, не заменит исходную ошибку:
 
 ```js
 const processResource = () => {
@@ -166,14 +161,14 @@ const processResource = () => {
 
 При работе с несколькими ресурсами важно учитывать порядок их освобождения. Это может быть критично, если ресурсы зависят друг от друга. Автоматическое освобождение ресурсов гарантирует, что ресурсы будут освобождаться в обратном порядке их создания (как в стеке).
 
-Например, при работе с базой данных, транзакция (tx) зависит от подключения к базе данных (connection):
+Например, при работе с базой данных, транзакция (tx) зависит от подключения к базе данных (connection). Если соединение закроется до завершения работы с транзакцией, это может привести к ошибке:
 
 ```js
 const processMultiResources = () => {
   // 1. Создаём соединение
-  const connection = new DatabaseConnection();
-  // 2. Создаём транзакцию (зависит от соединения)
-  const tx = new Transaction(connection);
+  const connection = new DatabaseConnection()
+  // 2. Создаём транзакцию (зависит от соединения с БД)
+  const tx = new Transaction(connection)
 
   // Работаем с объектом транзакции
   // ..
@@ -184,14 +179,14 @@ const processMultiResources = () => {
 }
 ```
 
-Если соединение закроется до завершения работы с транзакцией, это может привести к ошибке. Использование `using` автоматически гарантирует правильный порядок освобождения.
+Использование `using` автоматически гарантирует правильный порядок освобождения.
 
 ```js
 const processMultiResources = () => {
   // 1. Создаём соединение
-  using connection = new DatabaseConnection();
+  using connection = new DatabaseConnection()
   // 2. Создаём транзакцию (зависит от соединения)
-  using tx = new Transaction(connection);
+  using tx = new Transaction(connection)
 
   // Работаем с объектом транзакции
   // ..
@@ -200,3 +195,109 @@ const processMultiResources = () => {
 // 1. tx[Symbol.dispose]()
 // 2. connection[Symbol.dispose]()
 ```
+
+### Асинхронные ресурсы
+
+Некоторые ресурсы не могут быть освобождены синхронно. Например, для завершения работы с объектом класса `ReadableStream` требуется вызвать асинхронный метод `cancel()`. Ресурс, освобождение которого требует ожидания (закрытие соединения, завершение операций ввода-вывода) называется асинхронным. Для автоматического освобождения, асинхронный ресурс должен иметь метод `Symbol.asyncDispose` и объявляться с помощью синтаксиса `await using`:
+
+```js
+class AsyncResource {
+  [Symbol.asyncDispose]() {
+    return new Promise(resolve => {
+      console.log("Асинхронный ресурс освобождён")
+      resolve()
+    })
+  }
+
+  // Другие методы
+  // ..
+}
+
+const processAsyncResources = async () => {
+  await using resource = new AsyncResource()
+  // Работа с ресурсом
+  // ..
+
+} // Автоматический вызов `[Symbol.asyncDispose]()`
+
+processAsyncResources()
+// Асинхронный ресурс освобождён
+```
+
+<aside>
+
+☝️ Обратите внимание, что использование оператора [`await`](/js/async-await/) указывает на возможность выполнение асинхронной операции но не при объявлении переменной, а при освобождении ресурса.
+
+</aside>
+
+### Управление ресурсами в цикле
+
+Синтаксис `using` можно использовать в цикле. Например, это удобно для обработки нескольких файлов с помощью `FileReader`:
+
+```js
+// Класс-обёртка для чтения файла
+class MyFileReader {
+  constructor(file) {
+    this.reader = new FileReader()
+    this.file = file
+    console.log(`[${file.name}] Начало чтения...`)
+  }
+
+  read() {
+    return new Promise((resolve, reject) => {
+      this.reader.onload = () => {
+        console.log(`[${this.file.name}] Чтение завершено`)
+        resolve(this.reader.result)
+      }
+      this.reader.onerror = reject
+      this.reader.readAsText(this.file)
+    })
+  }
+
+  close() {
+    this.reader.abort()
+  }
+
+  [Symbol.dispose]() {
+    this.close()
+    console.log(`[${this.file.name}] Ресурс освобождён`)
+  }
+}
+
+// Обработка массива файлов
+async function processFiles(files) {
+  const results = []
+
+  for (const file of files) {
+    using fileResource = new MyFileReader(file)
+    try {
+      const content = await fileResource.read()
+      results.push({
+        name: file.name,
+        size: file.size,
+        length: content.length
+      })
+    } catch (error) {
+      console.error(`Ошибка при обработке ${file.name}:`, error)
+      results.push({ name: file.name, error: error.message })
+    }
+    // ресурс файла автоматически освобождается при переходе к следующей итерации
+  }
+
+  return results
+}
+
+document.querySelector('#file-input').addEventListener('change', async (e) => {
+  const files = Array.from(e.target.files)
+  if (files.length === 0) return
+
+  console.log(`Файлов для чтения: ${files.length}`)
+  const results = await processFiles(files)
+  console.log('Результаты:', results)
+})
+```
+
+Преимущества такого подхода:
+
+- Нет необходимости вручную вызывать метод экземпляра `close()`;
+- ресурс автоматически освобождается при завершении каждой итерации, даже если произойдёт ошибка.
