@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/keyframes
-  - css/grid-guide
-  - css/custom-properties
-  - recipes/git-rebase-onto
-  - css/box-shadow
-  - html/form
-  - css/scrollbar-gutter
-  - tools/gitlab-ci-cd
-  - css/media
-  - tools/webpack
-  - a11y/aria-hidden
-  - tools/how-the-browser-creates-pages
-  - tools/static-types
+  - html/input
+  - a11y/aria-intro
   - recipes/lets-encrypt-nginx
-  - css/transform-function
-  - tools/clean-architecture
-  - tools/agile
-  - html/doctype
-  - js/boolean
-  - recipes/progress
-  - js/function
   - recipes/center
-  - tools/markdown
-  - recipes/popup
-  - js/async-in-js
-  - css/box-model
-  - html/div
-  - tools/cors
-  - js/deal-with-forms
-  - a11y/screenreaders
-  - html/head
-  - html/flow
-  - html/article
-  - tools/ci-cd
-  - tools/docker
-  - js/geolocation-api
-  - js/array-entries
-  - tools/bundlers
+  - tools/webpack
   - recipes/character-counter
-  - css/position
-  - tools/how-to-test-and-why
-  - tools/cli
-  - a11y/live-region
-  - tools/network
-  - css/display
-  - js/array-reduce-right
-  - html/video
-  - recipes/snow
+  - html/form
+  - css/box-shadow
   - css/flexbox-guide
+  - js/async-in-js
+  - css/pseudoelements
+  - js/array-reduce-right
+  - html/doctype
+  - recipes/popup
+  - tools/how-the-browser-creates-pages
+  - js/function
+  - tools/ci-cd
+  - css/transform-function
+  - js/geolocation-api
+  - css/media
+  - recipes/snow
+  - tools/cli
+  - recipes/progress
+  - tools/bundlers
+  - css/keyframes
+  - tools/markdown
+  - a11y/screenreaders
+  - css/scrollbar-gutter
+  - html/head
+  - css/box-model
+  - tools/clean-architecture
+  - css/custom-properties
+  - css/display
+  - a11y/live-region
+  - css/attr
+  - tools/gitlab-ci-cd
+  - html/section
+  - js/boolean
+  - recipes/git-rebase-onto
+  - html/flow
+  - tools/agile
+  - html/nav
   - css/specificity
-  - a11y/content-hidden
+  - html/div
+  - tools/static-types
+  - tools/oop
   - css/box-sizing
   - a11y/css-impact-on-a11y
-  - recipes/ajax-form
-  - js/function-context
-  - a11y/aria-intro
-  - js/execution-order
-  - js/closures
-  - js/infinite-scroll
-  - html/nav
-  - html/section
-  - js/var-let
-  - html/input
-  - css/pseudoelements
-  - css/attr
   - html/img
-  - tools/oop
+  - a11y/aria-hidden
+  - html/article
+  - js/infinite-scroll
+  - tools/network
+  - css/grid-guide
+  - js/execution-order
+  - tools/how-to-test-and-why
+  - a11y/content-hidden
+  - tools/cors
+  - js/function-context
+  - tools/docker
+  - js/closures
+  - js/array-entries
+  - html/video
+  - css/position
+  - js/deal-with-forms
+  - js/var-let
+  - recipes/ajax-form
 ---
 
