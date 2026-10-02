@@ -74,6 +74,7 @@ groups:
       - gulp
       - preprocessors
       - css-in-js
+      - html-preprocessors
 
   - name: Развёртывание проекта
     items:
