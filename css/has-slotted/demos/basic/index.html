@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:has-slotted — пример — :has-slotted — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      font-size: 2rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <template id="my-element-template">
+    <style>
+      :has-slotted {
+        color: green;
+      }
+      :not(:has-slotted) {
+        color: red;
+      }
+    </style>
+    <slot><code>:has-slotted</code> Не работает!</slot>
+  </template>
+  <div class="container">
+    <my-element>
+      <code>:has-slotted</code> Работает!
+    </my-element>
+    <my-element></my-element>
+  </div>
+
+  <script>
+    class MyElement extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+        const template = document.getElementById('my-element-template');
+        shadow.appendChild(template.content.cloneNode(true));
+      }
+    }
+
+    customElements.define('my-element', MyElement);
+  </script>
+</body>
+</html>
