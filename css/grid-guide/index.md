@@ -182,7 +182,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ### `auto-fill` и `auto-fit`
 
-В тех случаях, когда количество колонок или строк не известно для свойств `grid-template-columns` и `grid-template-rows` можно установить значения `auto-fill` или `auto-fit` в формате:
+В тех случаях, когда количество колонок или строк неизвестно для свойств `grid-template-columns` и `grid-template-rows` можно установить значения `auto-fill` или `auto-fit` в формате:
 
 ```css
 .container {
