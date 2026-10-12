@@ -15,6 +15,7 @@ groups:
       - color-contrast
   - name: 'Вспомогательные технологии'
     items:
+      - assistive-technologies
       - screenreaders
       - speech-recognition
   - name: 'CSS и доступность'
