@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Название демо — Title статьи — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 320px;
+      height: 350px;
+
+      overflow-y: auto;
+
+      border-radius: 16px;
+      border: 1px solid #2E9AFF;
+      background: rgba(255,255,255,0.05);
+
+      scroll-timeline: --scroll-block y;
+    }
+
+
+    .container h1 {
+      font-weight: bold;
+      color: #2E9AFF;
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+
+    .progress {
+      position: sticky;
+      top: 0;
+
+      height: 5px;
+      width: 100%;
+      background: #2E9AFF;
+
+      transform-origin: left;
+      transform: scaleX(0);
+
+      animation: fill 1ms linear both;
+      animation-timeline: --scroll-block;
+    }
+
+    @keyframes fill {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .content {
+      padding: 16px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="progress"></div>
+    <div class="content">
+      <h1>Большая статья</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At itaque repudiandae dolorum aliquam harum saepe omnis ipsam, eius, temporibus rem quos consequuntur tempore numquam quasi corrupti nisi molestiae, in doloribus autem. Suscipit!</p>
+      <p>Вы дочитали статью до конца!</p>
+    </div>
+  </div>
+</body>
+</html>
