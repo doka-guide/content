@@ -175,3 +175,11 @@ tags:
 💡 Раньше свойство `display` нельзя было анимировать — оно дискретное, у него нет промежуточных значений между `none` и `block`. Теперь это можно обойти при помощи `transition-behavior: allow-discrete`, подробности — в статье про [`transition`](/css/transition/#cherez-display-i-transition-behavior-allow-discrete).
 
 💡 Значение по умолчанию у каждого HTML-элемента своё. Если нет уверенности — загляните в «Инструменты разработчика» в браузере.
+
+## 🎮 Интерактивная демка
+
+Попробуйте разные значения свойства `display` в этой интерактивной демке:
+
+<iframe src="demos/display-interactive/" height="600" style="width:100%; border: none; border-radius: 12px;"></iframe>
+
+Выберите значение из списка и наблюдайте, как меняется расположение блоков.
