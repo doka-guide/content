@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - recipes/progress
-  - js/var-let
-  - a11y/live-region
-  - html/div
-  - css/grid-guide
-  - html/input
-  - css/specificity
-  - js/function
-  - a11y/aria-hidden
-  - recipes/git-rebase-onto
-  - css/box-shadow
-  - css/transform-function
-  - tools/how-the-browser-creates-pages
-  - tools/oop
-  - js/async-in-js
-  - tools/clean-architecture
-  - tools/markdown
   - css/custom-properties
-  - html/section
-  - a11y/aria-intro
-  - tools/webpack
-  - css/box-model
-  - a11y/screenreaders
-  - tools/cli
-  - html/nav
-  - tools/static-types
-  - tools/how-to-test-and-why
-  - css/attr
-  - js/deal-with-forms
-  - css/position
-  - js/array-entries
   - recipes/popup
+  - js/function
+  - tools/clean-architecture
+  - tools/webpack
+  - tools/oop
+  - tools/gitlab-ci-cd
+  - js/deal-with-forms
+  - css/specificity
   - tools/ci-cd
+  - tools/how-to-test-and-why
   - a11y/css-impact-on-a11y
-  - a11y/content-hidden
-  - js/array-reduce-right
-  - html/article
-  - tools/bundlers
-  - tools/agile
-  - html/form
+  - recipes/ajax-form
+  - tools/static-types
   - recipes/character-counter
-  - recipes/snow
+  - css/position
+  - tools/agile
+  - js/async-in-js
+  - html/input
+  - recipes/progress
+  - css/transform-function
+  - css/attr
+  - css/scrollbar-gutter
+  - js/var-let
+  - html/head
+  - tools/how-the-browser-creates-pages
+  - js/geolocation-api
+  - css/media
+  - html/nav
+  - recipes/center
+  - css/box-shadow
+  - js/boolean
+  - js/infinite-scroll
+  - recipes/git-rebase-onto
+  - css/keyframes
+  - js/closures
+  - html/img
   - js/execution-order
+  - css/grid-guide
+  - css/box-sizing
+  - js/array-entries
+  - css/box-model
+  - html/div
+  - css/display
+  - a11y/aria-intro
+  - js/function-context
+  - tools/cli
+  - html/video
   - css/flexbox-guide
   - html/doctype
-  - html/video
-  - js/boolean
-  - css/display
-  - css/scrollbar-gutter
-  - html/head
-  - css/pseudoelements
-  - recipes/center
-  - html/img
-  - tools/network
   - html/flow
-  - js/closures
   - tools/cors
-  - js/function-context
-  - css/keyframes
+  - html/form
+  - a11y/live-region
   - recipes/lets-encrypt-nginx
+  - html/article
+  - recipes/snow
+  - a11y/content-hidden
+  - tools/bundlers
+  - js/array-reduce-right
+  - html/section
   - tools/docker
-  - tools/gitlab-ci-cd
-  - css/box-sizing
-  - css/media
-  - recipes/ajax-form
-  - js/infinite-scroll
-  - js/geolocation-api
+  - css/pseudoelements
+  - a11y/aria-hidden
+  - tools/markdown
+  - a11y/screenreaders
+  - tools/network
 ---
 
