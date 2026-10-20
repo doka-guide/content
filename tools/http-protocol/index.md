@@ -119,7 +119,7 @@ HTTP/1.1 200 OK
 - `404 Not Found` если запрошенного ресурса не существует.
 - `500 Internal Server Error` если работа программы на сервере выдала ошибку.
 
-Все возможные статусы описаны [в реестре кодов](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml), а так же на [справочных ресурсах](https://httpstatuses.net/).
+Все возможные статусы описаны [в реестре кодов](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml), а так же на [справочных ресурсах](https://httpstatuses.io/).
 
 ### Использование заголовков
 
