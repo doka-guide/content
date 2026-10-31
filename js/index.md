@@ -12,6 +12,7 @@ groups:
       - while
       - for
       - expressions-vs-statements
+      - operators
       - ref-type-vs-value-type
       - function
       - closures
