@@ -26,6 +26,7 @@ groups:
       - iterator
       - date
       - destructuring-assignment
+      - using
   - name: "Примитивные типы данных"
     items:
       - number
