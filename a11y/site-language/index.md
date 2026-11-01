@@ -146,7 +146,7 @@ span:lang(sv) {
 Также нужно перевести значения некоторых [ARIA-атрибутов](/a11y/aria-attrs/):
 
 - [`aria-label`](/a11y/aria-label/);
-- [`aria-roledescription`](/a11y/aria-roledescription/);
+- [`aria-description`](/a11y/aria-description/);
 - [`aria-placeholder`](/a11y/aria-placeholder/);
 - [`aria-roledescription`](/a11y/aria-roledescription/);
 - [`aria-valuetext`](/a11y/aria-valuetext/).
