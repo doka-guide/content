@@ -110,6 +110,7 @@ groups:
       - web-security
       - ssl-certificates
       - cors
+      - waf
 
   - name: Форматы данных
     items:
