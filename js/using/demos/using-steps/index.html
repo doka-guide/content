@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Управление ресурсом — Using — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .demo {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      margin: auto;
+    }
+
+    .file-label {
+      flex: 1 1 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .file-label-text {
+      flex: 0 0 auto;
+      max-width: 250px;
+      margin-right: 24px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .file-input {
+      text-transform: lowercase;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .file-input::file-selector-button {
+
+      min-width: 100px;
+      margin-right: 32px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #FFD829;
+      color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .file-input::file-selector-button:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    .file-input {
+      flex: 1 1 100%;
+    }
+
+    .file-content,
+    .resource-status,
+    .log {
+      padding: 14px 16px;
+      color: rgb(255 255 255 / 0.4);
+      border: 1px solid rgb(255 255 255 / 0.12);
+      border-radius: 10px;
+      background-color: #282A2E;
+    }
+
+    .file-content,
+    .log {
+      width: 100%;
+      max-width: 600px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .file-content {
+      height: 200px;
+      overflow: auto;
+    }
+
+    .file-content.using {
+      color: rgb(255 255 255 / 0.8);
+    }
+
+    .resource-status {
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: 10px;
+      color: #FFFFFF;
+    }
+
+    .status-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgb(255 255 255 / 0.3);
+      transition: background-color 0.2s;
+    }
+
+    .status-text {
+      font-size: 14px;
+    }
+
+    .resource-status.using .status-dot {
+      background-color: #58E28C;
+    }
+
+    .resource-status.disposed .status-dot {
+      background-color: #F498AD;
+    }
+
+    .log {
+      height: 150px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 13px;
+      color: #58E28C;
+    }
+
+    .log-placeholder {
+      color: rgb(255 255 255 / 0.4);
+    }
+
+    .indent {
+      margin-left: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: fit-content;
+      }
+
+      form, .file-content {
+        width: min( 100vw - 30px, 100% );
+        width: 100%;
+      }
+
+      .file-label {
+        display: block;
+        width: 100%;
+      }
+
+      .file-label-text {
+        display: block;
+        max-width: initial;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+
+      .file-input::file-selector-button {
+        min-width: initial;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="container" class="demo">
+    <form id="form" class="form">
+      <label for="form_file" class="file-label">
+        <span class="file-label-text">txt-файл:</span>
+        <input id="form_file" type="file" name="file_name" accept=".txt" class="file-input">
+      </label>
+    </form>
+    <div id="log" class="log">
+      <span class="log-placeholder">Выполнение функции processFile</span>
+    </div>
+    <div id="status" class="resource-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Ресурс не создан</span>
+    </div>
+    <div id="content"class="file-content">
+      Содержимое файла
+    </div>
+  </div>
+  <script>
+    const container = document.getElementById('container')
+    const fileInput = container.querySelector('#form_file')
+    const outputElem = container.querySelector('#content')
+    const statusElem = container.querySelector('#status')
+    const statusTextElem = statusElem.querySelector('.status-text')
+    const logElem = container.querySelector('#log')
+
+    const BYTES_IN_MB = 1048576
+
+    class ManagedFileReader {
+      constructor(file) {
+        this.reader = new FileReader()
+        console.log("FileReader экземпляр создан")
+        this.file = file;
+      }
+
+      // Метод использования ресурса
+      read() {
+        return new Promise((resolve, reject) => {
+          this.reader.onload = () => resolve(this.reader.result)
+          this.reader.onerror = reject
+          this.reader.readAsText(this.file)
+        })
+      }
+
+      // Метод освобождения ресурса
+      close() {
+        this.reader.abort();
+        console.log("FileReader экземпляр освобождён")
+      }
+
+      [Symbol.dispose]() {
+        this.close()
+      }
+    }
+
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+    const showMessage = async (text, indent = false) => {
+      const entry = document.createElement('div')
+      entry.className = `log-entry${indent ? ' indent' : ''}`
+      entry.textContent = text
+      logElem.appendChild(entry)
+      logElem.scrollTop = logElem.scrollHeight
+    }
+
+    const showStep = async (options = {}) => {
+      const { text, start = false, stop = false, timeout = 10 } = options
+
+      if (start) {
+        logElem.innerText = ''
+        outputElem.innerText = ''
+        statusElem.classList.remove('disposed')
+        statusElem.classList.add('using')
+        outputElem.classList.add('using')
+        showMessage('async function processFile(file) {')
+        showMessage('using reader = new ManagedFileReader(file) // Создание', true)
+        statusTextElem.innerText = 'Ресурс создан'
+      }
+
+      if (!stop && !start) {
+        showMessage('const content = await reader.readAsText() // Использование', true)
+      }
+
+      await delay(timeout)
+
+      if (stop) {
+        showMessage('} // <-- Автоматическое освобождение при выходе')
+        statusElem.classList.remove('using')
+        outputElem.classList.remove('using')
+        statusElem.classList.add('disposed')
+        statusTextElem.innerText = 'Ресурс освобождён'
+      }
+    }
+
+    // 2. Используем `using` для автоматического освобождения
+    const processFile = async (file) => {
+      using reader = new ManagedFileReader(file)
+      await showStep({start: true, timeout: 1000})
+      await delay(1500)
+      const content = await reader.read()
+      await showStep({timeout: 1500})
+      showMessage(`console.log(content)`, true)
+      outputElem.innerText = content
+      await showStep({stop: true, timeout: 1500})
+    }
+
+    fileInput.addEventListener("change", (e) => {
+      const file = e.target.files[0]
+      if (file.size > 2 * BYTES_IN_MB) {
+        alert('Принимается файл до 2 МБ')
+        logElem.innerText = ''
+        outputElem.innerText = ''
+      } else {
+        processFile(file)
+      }
+    })
+  </script>
+</body>
+</html>
