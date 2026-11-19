@@ -258,8 +258,8 @@ openssl s_client -connect doka.guide:443 -servername doka.guide </dev/null
 
 ```text
 Certificate chain
- 0 s:CN = doka.guide              # кому выдан сертификат
-   i:C = US, O = Let's Encrypt    # кто выдал
+0 s:CN = doka.guide               # кому выдан сертификат
+  i:C = US, O = Let's Encrypt     # кто выдал
 ---
 ALPN protocol: h2                 # договорились общаться по HTTP/2
 ---
