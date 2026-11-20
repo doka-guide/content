@@ -1,6 +1,10 @@
 ---
 title: "`<small>`"
 description: "Выводит текст мелким шрифтом."
+baseline:
+  - group: small
+    features:
+      - html.elements.small
 authors:
   - xpleesid
 contributors:

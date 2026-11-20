@@ -1,6 +1,10 @@
 ---
 title: "`<u>`"
 description: "Выделяет стилистически отличающийся текст."
+baseline:
+  - group: u
+    features:
+      - html.elements.u
 authors:
   - xpleesid
 contributors:

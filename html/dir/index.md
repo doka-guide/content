@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `dir`"
 description: "Указываем направление текста внутри всего документа или отдельного элемента."
+baseline:
+  - group: dir
+    features:
+      - html.global_attributes.dir
 authors:
   - s-dudko
 contributors:

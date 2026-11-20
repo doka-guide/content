@@ -1,6 +1,10 @@
 ---
 title: "`<wbr>`"
 description: "Вот тут можно сделать перенос. Но только если очень нужно."
+baseline:
+  - group: wbr
+    features:
+      - html.elements.wbr
 authors:
   - dimameh
 contributors:

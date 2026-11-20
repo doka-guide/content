@@ -1,6 +1,10 @@
 ---
 title: "`<fieldset>`"
 description: "Объединяет контролы формы группы."
+baseline:
+  - group: fieldset
+    features:
+      - html.elements.fieldset
 authors:
   - realetive
 contributors:

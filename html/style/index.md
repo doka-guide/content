@@ -1,6 +1,10 @@
 ---
 title: "`<style>`"
 description: "Задаёт стили прямо в HTML-коде страницы."
+baseline:
+  - group: style
+    features:
+      - html.elements.style
 authors:
   - doka-dog
 contributors:

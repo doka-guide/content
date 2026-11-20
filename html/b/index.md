@@ -1,6 +1,10 @@
 ---
 title: "`<b>`"
 description: "Тег для привлечения внимания, но без лишней важности."
+baseline:
+  - group: b
+    features:
+      - html.elements.b
 authors:
   - gkhabada
 contributors:

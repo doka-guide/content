@@ -1,6 +1,10 @@
 ---
 title: "`<aside>`"
 description: "Тег для дополнительного контента. Без него смысл не потеряется, но станет скучнее."
+baseline:
+  - group: aside
+    features:
+      - html.elements.aside
 authors:
   - realetive
 editors:

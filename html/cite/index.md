@@ -1,6 +1,10 @@
 ---
 title: "`<cite>`"
 description: "Указывает на источник цитаты или названия произведений."
+baseline:
+  - group: cite
+    features:
+      - html.elements.cite
 authors:
   - xpleesid
 contributors:

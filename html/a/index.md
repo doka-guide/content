@@ -1,6 +1,10 @@
 ---
 title: "`<a>`"
 description: "Ссылки — это то, что делает интернет настоящей паутиной."
+baseline:
+  - group: a
+    features:
+      - html.elements.a
 authors:
   - doka-dog
 contributors:

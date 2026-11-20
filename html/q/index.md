@@ -1,6 +1,10 @@
 ---
 title: "`<q>`"
 description: "Оформляет цитату внутри абзаца."
+baseline:
+  - group: q
+    features:
+      - html.elements.q
 authors:
   - solarrust
 contributors:

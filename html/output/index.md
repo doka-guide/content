@@ -1,6 +1,10 @@
 ---
 title: "`<output>`"
 description: "Элемент для вывода результатов вычислений или действий пользователя."
+baseline:
+  - group: output
+    features:
+      - html.elements.output
 authors:
   - webdb81
 contributors:

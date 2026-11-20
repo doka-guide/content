@@ -1,6 +1,10 @@
 ---
 title: "`<img>`"
 description: "Все любят картинки! Тег для вставки изображений на страницу."
+baseline:
+  - group: img
+    features:
+      - html.elements.img
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

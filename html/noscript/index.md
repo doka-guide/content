@@ -1,6 +1,10 @@
 ---
 title: "`<noscript>`"
 description: "Покажет контент пользователю, когда отключена поддержка JavaScript."
+baseline:
+  - group: script
+    features:
+      - html.elements.noscript
 authors:
   - kamenskaya
 keywords:

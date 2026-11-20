@@ -1,6 +1,10 @@
 ---
 title: "`<p>`"
 description: "Размечает абзац текста. Один из часто используемых тегов."
+baseline:
+  - group: p
+    features:
+      - html.elements.p
 authors:
   - doka-dog
 contributors:

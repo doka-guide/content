@@ -1,6 +1,10 @@
 ---
 title: "`<mark>`"
 description: "Выделяет фрагмент текста «маркером»."
+baseline:
+  - group: mark
+    features:
+      - html.elements.mark
 authors:
   - xpleesid
 contributors:

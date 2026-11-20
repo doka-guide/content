@@ -1,6 +1,10 @@
 ---
 title: "`<i>`"
 description: "Тег для изменения настроения текста, но без семантического значения."
+baseline:
+  - group: i
+    features:
+      - html.elements.i
 authors:
   - gkhabada
 contributors:

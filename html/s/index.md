@@ -1,6 +1,10 @@
 ---
 title: "`<s>`"
 description: "Размечает уже неактуальный контент."
+baseline:
+  - group: s
+    features:
+      - html.elements.s
 authors:
   - xpleesid
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`<area>`"
 description: "Размечает картинку невидимыми областями."
+baseline:
+  - group: image-maps
+    features:
+      - html.elements.area
 authors:
   - inventoris
 contributors:

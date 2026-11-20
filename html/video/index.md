@@ -1,6 +1,10 @@
 ---
 title: "`<video>`"
 description: "Нативный способ вставить видео на страницу сайта. В статье найдутся все нужные атрибуты, а также способы подключения видео в разных форматах."
+baseline:
+  - group: video
+    features:
+      - html.elements.video
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

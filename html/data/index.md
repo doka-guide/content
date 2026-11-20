@@ -1,6 +1,10 @@
 ---
 title: "`<data>`"
 description: "Тег для перевода данных с человеческого языка на компьютерный."
+baseline:
+  - group: data
+    features:
+      - html.elements.data
 authors:
   - furtivite
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`<abbr>`"
 description: "Правильный способ расшифровать аббревиатуры."
+baseline:
+  - group: abbr
+    features:
+      - html.elements.abbr
 authors:
   - xpleesid
 contributors:

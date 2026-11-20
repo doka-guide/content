@@ -1,6 +1,10 @@
 ---
 title: "`<audio>`"
 description: "Включите музыку, подкаст или аудио-подсказку."
+baseline:
+  - group: audio
+    features:
+      - html.elements.audio
 authors:
   - doka-dog
 contributors:

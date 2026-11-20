@@ -1,6 +1,10 @@
 ---
 title: "`<bdo>`"
 description: "Переопределяем направление текста — слева направо и справа налево."
+baseline:
+  - group: bdo
+    features:
+      - html.elements.bdo
 authors:
   - gingerraccoon
 contributors:

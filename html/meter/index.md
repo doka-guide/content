@@ -1,6 +1,10 @@
 ---
 title: "`<meter>`"
 description: "Отображает текущее значение в заданном диапазоне."
+baseline:
+  - group: meter
+    features:
+      - html.elements.meter
 authors:
   - tatianafokina
 contributors:
@@ -60,7 +64,7 @@ tags:
 
 Реальный пример, где хорошо подошёл бы `<meter>`, — шкала с используемыми в проекте языками на GitHub.
 
-![Шкала с жёлтым, фиолетовым и зелёным отрезками. Под ней расшифровка. JavaScript — 42.5%, CSS — 30.4%, Nunjacks — 27.1%.](images/github-languages.png)
+![Шкала с жёлтым, фиолетовым и зелёным отрезками. Под ней расшифровка. JavaScript — 42.5%, CSS — 30.4%, Nunjucks — 27.1%.](images/github-languages.png)
 
 Имейте в виду, что в случае `<meter>` всегда известны минимальное и максимальное значения. Так что не стоит использовать тег для диапазонов с неизвестным `max`.
 

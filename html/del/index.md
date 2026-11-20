@@ -1,6 +1,10 @@
 ---
 title: "`<del>`"
 description: "Отображаем удалённый контент."
+baseline:
+  - group: del
+    features:
+      - html.elements.del
 authors:
   - xpleesid
 contributors:

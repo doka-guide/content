@@ -1,6 +1,10 @@
 ---
 title: "`<object>`"
 description: "Встраиваем мультимедиа на страницу."
+baseline:
+  - group: object
+    features:
+      - html.elements.object
 authors:
   - kalpovskii
 contributors:

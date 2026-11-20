@@ -1,6 +1,10 @@
 ---
 title: "`<link>`"
 description: "Подключает внешние ресурсы — стили, фавиконки, шрифты и прочее."
+baseline:
+  - group: link
+    features:
+      - html.elements.link
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `step`"
 description: "Помогает, если в поля формы можно было вводить только определённые значения."
+baseline:
+  - group: input-number
+    features:
+      - html.elements.input.step
 authors:
   - ivkrylova
   - drakesbot12

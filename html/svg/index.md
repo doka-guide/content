@@ -1,6 +1,10 @@
 ---
 title: "`<svg>`"
 description: "Тег-обёртка для отображения векторной графики на странице."
+baseline:
+  - group: svg
+    features:
+      - api.DOMParser.parseFromString.svg
 authors:
   - solarrust
 contributors:

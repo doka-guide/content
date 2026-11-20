@@ -1,6 +1,10 @@
 ---
 title: "`<canvas>`"
 description: "Тег для рисования графики и анимаций прямо в браузере!"
+baseline:
+  - group: canvas
+    features:
+      - html.elements.canvas
 authors:
   - epodivilov
 contributors:

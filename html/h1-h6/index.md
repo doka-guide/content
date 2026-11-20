@@ -1,6 +1,11 @@
 ---
 title: "`<h1>`...`<h6>`"
 description: "Заголовки на странице для оформления структуры."
+baseline:
+  - group: headings
+    features:
+      - html.elements.h1
+      - html.elements.h6
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

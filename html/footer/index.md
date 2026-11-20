@@ -1,6 +1,10 @@
 ---
 title: "`<footer>`"
 description: "Создаёт подвал страницы."
+baseline:
+  - group: header-footer
+    features:
+      - html.elements.footer
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
