@@ -1,6 +1,10 @@
 ---
 title: "`font-size`"
 description: "Свойство для размера текста."
+baseline:
+  - group: font-size
+    features:
+      - css.properties.font-size
 authors:
   - doka-dog
 contributors:

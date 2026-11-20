@@ -1,6 +1,10 @@
 ---
 title: "`width`"
 description: "Управляем шириной элементов."
+baseline:
+  - group: width-height
+    features:
+      - css.properties.width
 authors:
   - solarrust
 contributors:

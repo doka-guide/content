@@ -1,6 +1,10 @@
 ---
 title: "`column-rule`"
 description: "Можно задать декоративную линию между колонками, если текст свёрстан как в газете."
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-rule
 authors:
   - xpleesid
 related:

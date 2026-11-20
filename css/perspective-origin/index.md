@@ -1,6 +1,10 @@
 ---
 title: "`perspective-origin`"
 description: "Определяем позицию смотрящего по отношению к 3D-объекту."
+baseline:
+  - group: transforms3d
+    features:
+      - css.properties.perspective-origin
 authors:
   - ra1nbow1
 related:

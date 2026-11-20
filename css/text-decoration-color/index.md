@@ -1,6 +1,10 @@
 ---
 title: "`text-decoration-color`"
 description: "Раскрашивает декоративные линии текста во все цвета радуги."
+baseline:
+  - group: text-decoration
+    features:
+      - css.properties.text-decoration-color
 authors:
   - inventoris
 keywords:

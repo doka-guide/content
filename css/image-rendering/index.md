@@ -1,6 +1,10 @@
 ---
 title: "`image-rendering`"
 description: "Интерполяция изображений: что это, какие алгоритмы и как этим управлять?"
+baseline:
+  - group: image-rendering
+    features:
+      - css.properties.image-rendering
 authors:
   - andreysukhov
 related:

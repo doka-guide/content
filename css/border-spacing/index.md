@@ -1,6 +1,10 @@
 ---
 title: "`border-spacing`"
 description: "Свойство для управления расстоянием между рамками ячеек таблицы."
+baseline:
+  - group: table
+    features:
+      - css.properties.border-spacing
 authors:
   - starhamster
 keywords:

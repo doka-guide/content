@@ -1,6 +1,10 @@
 ---
 title: "`box-sizing`"
 description: "Это свойство определяет как будут вести себя размеры блока."
+baseline:
+  - group: box-sizing
+    features:
+      - css.properties.box-sizing
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

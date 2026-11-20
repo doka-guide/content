@@ -1,6 +1,10 @@
 ---
 title: "`:checked`"
 description: "Псевдокласс, который отражает состояние чекбокса или радиокнопки."
+baseline:
+  - group: input-selectors
+    features:
+      - css.selectors.checked
 authors:
   - solarrust
 contributors:

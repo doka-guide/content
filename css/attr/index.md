@@ -1,6 +1,10 @@
 ---
 title: "`attr()`"
 description: "Хотите сделать атрибут элемента видимым на странице? Используйте эту функцию!"
+baseline:
+  - group: attr-contents
+    features:
+      - css.types.attr
 authors:
   - ezhkov
 contributors:

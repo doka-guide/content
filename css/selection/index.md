@@ -1,6 +1,10 @@
 ---
 title: "`::selection`"
 description: "Управляем стилями выделенного элемента."
+baseline:
+  - group: selection
+    features:
+      - css.selectors.selection
 authors:
   - rusakov
 editors:

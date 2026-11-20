@@ -1,6 +1,10 @@
 ---
 title: "`word-break`"
 description: "Что делать, если слово слишком длинное и не помещается в блок целиком?"
+baseline:
+  - group: word-break
+    features:
+      - css.properties.word-break
 authors:
   - goingtogogo
 keywords:

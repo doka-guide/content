@@ -1,6 +1,10 @@
 ---
 title: "`animation-delay`"
 description: "Если хочется, чтобы анимация начиналась не сразу."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-delay
 authors:
   - solarrust
 editors:

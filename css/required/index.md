@@ -1,6 +1,10 @@
 ---
 title: "`:required`"
 description: "Стилизуем поля формы, обязательные для заполнения."
+baseline:
+  - group: form-validity-pseudos
+    features:
+      - css.selectors.required
 authors:
   - ezhkov
 editors:

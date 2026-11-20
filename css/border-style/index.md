@@ -1,6 +1,10 @@
 ---
 title: "`border-style`"
 description: "Рамку можно сделать двойной, пунктирной и даже объёмной в точку! И всё это одним свойством."
+baseline:
+  - group: borders
+    features:
+      - css.properties.border-style
 authors:
   - solarrust
 contributors:

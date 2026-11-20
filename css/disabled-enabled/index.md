@@ -1,6 +1,11 @@
 ---
 title: "`:disabled`, `:enabled`"
 description: "Эта кнопка серая. Она не доступна для клика. Как написать селектор на основе состояния элемента?"
+baseline:
+  - group: input-selectors
+    features:
+      - css.selectors.disabled
+      - css.selectors.enabled
 authors:
   - solarrust
 contributors:

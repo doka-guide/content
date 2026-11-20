@@ -1,6 +1,19 @@
 ---
 title: "Глобальные ключевые слова"
 description: "Универсальные значения для любых свойств."
+baseline:
+  - group: inherit-value
+    features:
+      - css.types.global_keywords.inherit
+  - group: initial-value
+    features:
+      - css.types.global_keywords.initial
+  - group: unset-value
+    features:
+      - css.types.global_keywords.unset
+  - group: revert-value
+    features:
+      - css.types.global_keywords.revert
 authors:
   - solarrust
 related:

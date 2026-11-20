@@ -1,6 +1,10 @@
 ---
 title: "`mix-blend-mode`"
 description: "Смешиваем цвета накладывающихся элементов."
+baseline:
+  - group: mix-blend-mode
+    features:
+      - css.properties.mix-blend-mode
 authors:
   - solarrust
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`list-style-image`"
 description: "Скучные маркеры списка можно заменить на картинку."
+baseline:
+  - group: list-style
+    features:
+      - css.properties.list-style-image
 authors:
   - ezhkov
 contributors:

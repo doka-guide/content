@@ -1,6 +1,10 @@
 ---
 title: "`:default`"
 description: "Псевдокласс для стилизации элементов, которые используются по умолчанию в группе аналогичных элементов."
+baseline:
+  - group: default
+    features:
+      - css.selectors.default
 authors:
   - starhamster
 related:

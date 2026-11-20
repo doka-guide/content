@@ -1,6 +1,10 @@
 ---
 title: "`@font-feature-values`"
 description: "Задаём имена для значений OpenType‑фич конкретного шрифта и используем их через `font-variant-alternates`."
+baseline:
+  - group: font-variant-alternates
+    features:
+      - css.at-rules.font-feature-values
 authors:
   - drakesbot12
 keywords:

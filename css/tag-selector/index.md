@@ -1,6 +1,10 @@
 ---
 title: "Селектор по тегу"
 description: "Выбираем определённые теги в HTML для их стилизации."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.type
 authors:
   - ezhkov
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`background-color`"
 description: "Свойство, раскрашивающее фон элемента в яркие краски!"
+baseline:
+  - group: background-color
+    features:
+      - css.properties.background-color
 authors:
   - solarrust
 contributors:

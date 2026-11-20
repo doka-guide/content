@@ -1,6 +1,10 @@
 ---
 title: "`font-synthesis`"
 description: "Позволяем браузеру создать недостающие начертания шрифта."
+baseline:
+  - group: font-synthesis
+    features:
+      - css.properties.font-synthesis
 authors:
   - doka-dog
 related:

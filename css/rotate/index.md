@@ -1,6 +1,10 @@
 ---
 title: "`rotate`"
 description: "Как повернуть элементы на странице просто и быстро."
+baseline:
+  - group: individual-transforms
+    features:
+      - css.properties.rotate
 authors:
   - anastasiayarosh
 contributors:

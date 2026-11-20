@@ -1,6 +1,10 @@
 ---
 title: "`:where()`"
 description: "Псевдокласс для упрощения перечисления нескольких селекторов."
+baseline:
+  - group: where
+    features:
+      - css.selectors.where
 authors:
   - kotosha-real
 contributors:

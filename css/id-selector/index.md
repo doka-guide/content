@@ -1,6 +1,10 @@
 ---
 title: "Селектор по идентификатору"
 description: "Выбираем для стилизации элемент с уникальным атрибутом `id`."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.id
 authors:
   - solarrust
 keywords:

@@ -1,6 +1,10 @@
 ---
 title: "`height`"
 description: "Свойство для управления высотой элемента."
+baseline:
+  - group: width-height
+    features:
+      - css.properties.height
 authors:
   - solarrust
 contributors:

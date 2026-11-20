@@ -1,6 +1,10 @@
 ---
 title: "`radial-gradient()`"
 description: "Функция для создания кругового градиента."
+baseline:
+  - group: gradients
+    features:
+      - css.types.gradient.radial-gradient
 authors:
   - ezhkov
 editors:

@@ -1,6 +1,10 @@
 ---
 title: "`vertical-align`"
 description: "Выравниваем элемент по вертикали без флексов и гридов."
+baseline:
+  - group: vertical-align
+    features:
+      - css.properties.vertical-align
 authors:
   - solarrust
 contributors:

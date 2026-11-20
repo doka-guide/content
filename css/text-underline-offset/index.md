@@ -1,6 +1,10 @@
 ---
 title: "`text-underline-offset`"
 description: "Двигаем линию подчёркивания как нам угодно."
+baseline:
+  - group: text-underline-offset
+    features:
+      - css.properties.text-underline-offset
 authors:
   - doka-dog
 keywords:

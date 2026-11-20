@@ -1,6 +1,10 @@
 ---
 title: "`text-transform`"
 description: "Превращаем текст из маленьких букв в текст из БОЛЬШИХ букв."
+baseline:
+  - group: text-transform
+    features:
+      - css.properties.text-transform
 authors:
   - solarrust
 contributors:

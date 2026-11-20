@@ -1,6 +1,10 @@
 ---
 title: "Селектор по классу"
 description: "Удобный способ выбрать из HTML-разметки элементы только с нужным классом. И применить к ним стили."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.class
 authors:
   - ezhkov
 contributors:
