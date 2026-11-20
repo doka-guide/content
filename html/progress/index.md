@@ -1,6 +1,10 @@
 ---
 title: "`<progress>`"
 description: "Элемент, который показывает ход выполнения задачи."
+baseline:
+  - group: progress
+    features:
+      - html.elements.progress
 authors:
   - webdb81
 contributors:

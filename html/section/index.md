@@ -1,6 +1,10 @@
 ---
 title: "`<section>`"
 description: "Логические блоки сайта принято оборачивать в этот тег."
+baseline:
+  - group: section
+    features:
+      - html.elements.section
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

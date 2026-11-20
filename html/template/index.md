@@ -1,6 +1,10 @@
 ---
 title: "`<template>`"
 description: "Скрытая разметка для использования в качестве шаблона."
+baseline:
+  - group: template
+    features:
+      - html.elements.template
 authors:
   - nionka
 related:

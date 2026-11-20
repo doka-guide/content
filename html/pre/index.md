@@ -1,6 +1,10 @@
 ---
 title: "`<pre>`"
 description: "Отображает текст без обработки — сохраняя пробелы и переносы."
+baseline:
+  - group: pre
+    features:
+      - html.elements.pre
 authors:
   - nionka
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`<sup>`"
 description: "Выводит надстрочный текст."
+baseline:
+  - group: sub-sup
+    features:
+      - html.elements.sup
 authors:
   - xpleesid
 contributors:

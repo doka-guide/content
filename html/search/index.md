@@ -1,6 +1,10 @@
 ---
 title: "`<search>`"
 description: "Один тег чтобы обернуть секцию с поиском или фильтром."
+baseline:
+  - group: search
+    features:
+      - html.elements.search
 authors:
   - andreysukhov
 contributors:

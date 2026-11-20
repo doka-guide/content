@@ -1,6 +1,10 @@
 ---
 title: "`<source>`"
 description: "Указывает на разные форматы медиа, из которых браузер выбирает оптимальный."
+baseline:
+  - group: source
+    features:
+      - html.elements.source
 authors:
   - ezhkov
 contributors:
