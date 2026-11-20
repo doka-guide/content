@@ -29,7 +29,7 @@ tags:
 
 Текст на азербайджанском будет отображаться с турецкими начертаниями: в азербайджанском, как и в турецком, «i» с точкой и «ı» без точки — разные буквы, и шрифт должен это учитывать.
 
-<iframe title="font-language-override" src="demos/basic/?embed=1" height="620"></iframe>
+<iframe title="font-language-override" src="demos/basic/" height="620"></iframe>
 
 ## Как понять
 
