@@ -1,6 +1,10 @@
 ---
 title: "`prefers-reduced-transparency`"
 description: "Значение директивы `@media`, которое отслеживает настройки прозрачности."
+baseline:
+  - group: prefers-reduced-transparency
+    features:
+      - css.at-rules.media.prefers-reduced-transparency
 authors:
   - tatianafokina
 contributors:
