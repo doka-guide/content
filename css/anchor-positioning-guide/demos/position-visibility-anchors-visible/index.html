@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Показываем работу значения anchors-visible свойства position-visibility — Anchor Positioning — Дока</title>
+  <title>Показываем работу значения anchor-visible свойства position-visibility — Anchor Positioning — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,8 +80,10 @@
       position-visibility: always;
     }
 
-    .anchors-visible {
+    .anchor-visible {
+      /* Старое имя значения для Firefox */
       position-visibility: anchors-visible;
+      position-visibility: anchor-visible;
     }
 
     .checkbox-container {
@@ -146,13 +148,13 @@
       }
     }
 
-    @media (max-width: 840px) {
+    @media (width <= 840px) {
       .hide-on-medium {
         display: none;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
         font-size: 18px;
@@ -167,7 +169,7 @@
       }
     }
 
-    @media (max-width: 680px) {
+    @media (width <= 680px) {
       body {
         font-size: 16px;
       }
@@ -177,14 +179,14 @@
       }
     }
 
-    @media (max-width: 575px) {
+    @media (width <= 575px) {
       input[type="checkbox"] {
         width: 30px;
         height: 30px;
       }
     }
 
-    @media (max-width: 470px) {
+    @media (width <= 470px) {
       .notes-container {
         flex: 0 0 80px;
       }
@@ -194,7 +196,7 @@
       }
     }
 
-    @media (max-width: 420px) {
+    @media (width <= 420px) {
       .hide-on-small {
         display: none;
       }
@@ -204,7 +206,7 @@
       }
     }
 
-    @media (max-width: 380px) {
+    @media (width <= 380px) {
       .container {
         gap: 10px;
       }
@@ -218,7 +220,7 @@
       }
     }
 
-    @media (max-width: 349px) {
+    @media (width <= 349px) {
       body {
         font-size: 14px;
       }
@@ -238,7 +240,7 @@
     <div>
       <div class="checkbox-container">
         <label class="code">
-          <input type="checkbox" id="visibility-toggler"><span><span class="no-break"><span class="code__properties">position-visibility</span>:</span> <span class="code__value no-break">anchors-visible</span>;</span>
+          <input type="checkbox" id="visibility-toggler"><span><span class="no-break"><span class="code__properties">position-visibility</span>:</span> <span class="code__value no-break">anchor-visible</span>;</span>
         </label>
       </div>
       <div class="text-container">
@@ -264,7 +266,7 @@
 
     visibilityToggler.addEventListener('click', (event) => {
         const method = event.target.checked ? 'add' : 'remove';
-        target.classList[method]('anchors-visible');
+        target.classList[method]('anchor-visible');
     });
   </script>
   <div class="cap-supports-notification-container">
