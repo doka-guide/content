@@ -1,6 +1,13 @@
 ---
 title: "Атрибут `readonly`"
 description: "Этим атрибутом помечают поля формы, которые доступны только для чтения."
+baseline:
+  - group: input
+    features:
+      - html.elements.input.readonly
+  - group: textarea
+    features:
+      - html.elements.textarea.readonly
 authors:
   - tanugladkih
   - teplostanski

@@ -1,6 +1,10 @@
 ---
 title: "`<span>`"
 description: "Помогает выделить стилем часть текста в блоке."
+baseline:
+  - group: span
+    features:
+      - html.elements.span
 authors:
   - doka-dog
 contributors:

@@ -1,6 +1,13 @@
 ---
 title: "Атрибут `size`"
 description: "Задаёт размеры тегам `<input>` и `<select>`."
+baseline:
+  - group: input
+    features:
+      - html.elements.input.size
+  - group: select
+    features:
+      - html.elements.select.size
 authors:
   - inventoris
 contributors:

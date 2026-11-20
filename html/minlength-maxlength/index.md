@@ -1,6 +1,15 @@
 ---
 title: "Атрибуты `minlength` и `maxlength`"
 description: "Как задать минимальное и максимальное количество символов, которое принимает поле?"
+baseline:
+  - group: input
+    features:
+      - html.elements.input.minlength
+      - html.elements.input.maxlength
+  - group: textarea
+    features:
+      - html.elements.textarea.minlength
+      - html.elements.textarea.maxlength
 authors:
   - zeddybig
   - tatianafokina

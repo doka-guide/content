@@ -1,6 +1,16 @@
 ---
 title: "Атрибут `required`"
 description: "Этим атрибутом помечают обязательные поля формы."
+baseline:
+  - group: input
+    features:
+      - html.elements.input.required
+  - group: select
+    features:
+      - html.elements.select.required
+  - group: textarea
+    features:
+      - html.elements.textarea.required
 authors:
   - solarrust
 related:
