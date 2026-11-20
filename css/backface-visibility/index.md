@@ -1,6 +1,10 @@
 ---
 title: "`backface-visibility`"
 description: "Если создаёте 3D-трансформацию, не забывайте про изнанку элемента."
+baseline:
+  - group: transforms3d
+    features:
+      - css.properties.backface-visibility
 authors:
   - ra1nbow1
 keywords:

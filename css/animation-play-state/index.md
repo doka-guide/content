@@ -1,6 +1,10 @@
 ---
 title: "`animation-play-state`"
 description: "Раз, два, три, CSS-анимация замри! Ставим на паузу и запускаем снова анимации."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-play-state
 authors:
   - solarrust
 editors:

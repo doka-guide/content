@@ -1,6 +1,10 @@
 ---
 title: "`::after`"
 description: "Загадочный элемент, которого нет в разметке. Но вот же он, стоит после настоящего элемента!"
+baseline:
+  - group: before-after
+    features:
+      - css.selectors.after
 authors:
   - ezhkov
 contributors:

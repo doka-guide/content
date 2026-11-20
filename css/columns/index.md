@@ -1,6 +1,10 @@
 ---
 title: "`columns`"
 description: "Удобный шорткат для количества и ширины колонок текста."
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.columns
 authors:
   - solarrust
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`caret-color`"
 description: "С помощью `caret-color` можно менять цвет курсора в режиме набора текста."
+baseline:
+  - group: caret-color
+    features:
+      - css.properties.caret-color
 authors:
   - mishamad
 contributors:

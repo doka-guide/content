@@ -1,6 +1,10 @@
 ---
 title: "`border-color`"
 description: "Какого цвета будет рамка вокруг элемента? Решать вам!"
+baseline:
+  - group: borders
+    features:
+      - css.properties.border-color
 authors:
   - lordoys
 contributors:

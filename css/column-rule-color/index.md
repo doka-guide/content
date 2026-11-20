@@ -1,6 +1,10 @@
 ---
 title: "`column-rule-color`"
 description: "Управляем цветом линии между колонками текста."
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-rule-color
 authors:
   - xpleesid
 related:

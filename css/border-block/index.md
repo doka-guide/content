@@ -1,6 +1,10 @@
 ---
 title: "`border-block`"
 description: "Создаёт рамки элементу по блочной оси."
+baseline:
+  - group: logical-properties
+    features:
+      - css.properties.border-block
 authors:
   - inventoris
 contributors:

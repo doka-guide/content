@@ -1,6 +1,10 @@
 ---
 title: "`caption-side`"
 description: "Способ управлять положением подписи к таблице"
+baseline:
+  - group: table
+    features:
+      - css.properties.caption-side
 authors:
   - solarrust
 related:
