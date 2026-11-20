@@ -1,6 +1,10 @@
 ---
 title: "`<datalist>`"
 description: "Автодополнение полей ввода без JavaScript."
+baseline:
+  - group: datalist
+    features:
+      - html.elements.datalist
 authors:
   - blueingreen68
 contributors:
