@@ -1,6 +1,10 @@
 ---
 title: "`<body>`"
 description: "Один из тегов основной структуры любой HTML-страницы. Содержит в себе видимую часть сайта."
+baseline:
+  - group: body
+    features:
+      - html.elements.body
 authors:
   - doka-dog
 contributors:

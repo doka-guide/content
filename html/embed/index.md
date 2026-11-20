@@ -1,6 +1,10 @@
 ---
 title: "`<embed>`"
 description: "Блок для видео, аудио и прочего контента."
+baseline:
+  - group: embed
+    features:
+      - html.elements.embed
 authors:
   - solarrust
 contributors:

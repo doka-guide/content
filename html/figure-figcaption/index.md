@@ -1,6 +1,11 @@
 ---
 title: "`<figure>`, `<figcaption>`"
 description: "Добавляем изображение с подписью."
+baseline:
+  - group: figure
+    features:
+      - html.elements.figure
+      - html.elements.figcaption
 authors:
   - ezhkov
 contributors:

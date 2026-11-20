@@ -1,6 +1,10 @@
 ---
 title: "`<bdi>`"
 description: "Вставляем текст с другим направлением письма."
+baseline:
+  - group: bdi
+    features:
+      - html.elements.bdi
 authors:
   - xpleesid
 contributors:

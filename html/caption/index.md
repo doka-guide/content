@@ -1,6 +1,10 @@
 ---
 title: "`<caption>`"
 description: "Добавляет подпись таблице."
+baseline:
+  - group: table
+    features:
+      - html.elements.caption
 authors:
   - solarrust
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`<blockquote>`"
 description: "Любой текст сильнее с цитатой! Как её правильно вставить в HTML?"
+baseline:
+  - group: blockquote
+    features:
+      - html.elements.blockquote
 authors:
   - solarrust
 contributors:

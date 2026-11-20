@@ -1,6 +1,11 @@
 ---
 title: "Атрибуты `defer` и `async`"
 description: "С помощью этих атрибутов можно сказать браузеру как и в каком порядке загружать скрипты."
+baseline:
+  - group: script
+    features:
+      - html.elements.script.defer
+      - html.elements.script.async
 authors:
   - ra1nbow1
 keywords:
