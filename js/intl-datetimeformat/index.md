@@ -1,6 +1,10 @@
 ---
 title: "`Intl.DateTimeFormat`"
 description: "Объект для форматирования даты и времени с учётом локали."
+baseline:
+  - group: intl
+    features:
+      - javascript.builtins.Intl.DateTimeFormat
 authors:
   - antongorelov
 related:

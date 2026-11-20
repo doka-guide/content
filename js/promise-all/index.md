@@ -1,6 +1,10 @@
 ---
 title: "`Promise.all()`"
 description: "Запускаем несколько промисов параллельно и ждём, когда они все выполнятся."
+baseline:
+  - group: promise
+    features:
+      - javascript.builtins.Promise.all
 authors:
   - yurlovr
 editors:

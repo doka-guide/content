@@ -1,6 +1,10 @@
 ---
 title: "`invalid`"
 description: "Проверяем валидность формы."
+baseline:
+  - group: input
+    features:
+      - api.HTMLInputElement.invalid_event
 authors:
   - delioncourts
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`.toExponential()`"
 description: "Метод преобразует число в строковое представление числа в экспоненциальной записи."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Number.toExponential
 authors:
   - egorlem
 contributors:

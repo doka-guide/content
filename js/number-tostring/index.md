@@ -1,6 +1,10 @@
 ---
 title: "`.toString()`"
 description: "Метод преобразует число в строковое представление в указанной системе счисления."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Number.toString
 authors:
   - nlopin
 related:

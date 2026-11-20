@@ -1,6 +1,10 @@
 ---
 title: "Обёртка `Number`"
 description: "Обёртка примитивного типа «число», которая предоставляет дополнительные методы работы с числами."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Number
 authors:
   - nlopin
 keywords:

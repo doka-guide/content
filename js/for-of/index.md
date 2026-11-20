@@ -1,6 +1,10 @@
 ---
 title: "`for`...`of`"
 description: "Обходим перечисляемые свойства итерируемого объекта."
+baseline:
+  - group: iterators
+    features:
+      - javascript.statements.for_of
 authors:
   - vitya-ne
 related:

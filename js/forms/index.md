@@ -1,6 +1,10 @@
 ---
 title: "`.forms`"
 description: "Возвращает живую коллекцию всех форм, которые есть на странице."
+baseline:
+  - group: dom
+    features:
+      - api.Document.forms
 authors:
   - vchychuzhko
 editors:

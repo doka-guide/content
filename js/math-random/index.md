@@ -1,6 +1,10 @@
 ---
 title: "`Math.random()`"
 description: "Генерирует случайные числа от 0 до 1."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Math.random
 authors:
   - nlopin
 contributors:

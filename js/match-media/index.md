@@ -1,6 +1,10 @@
 ---
 title: "`window.matchMedia`"
 description: "Доступ к медиавыражениям из JavaScript."
+baseline:
+  - group: matchmedia
+    features:
+      - api.Window.matchMedia
 authors:
   - akellbl4
 keywords:

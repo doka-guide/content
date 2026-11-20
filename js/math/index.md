@@ -1,6 +1,10 @@
 ---
 title: "Объект `Math`"
 description: "Встроенный модуль с математическими функциями."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Math
 authors:
   - doka-dog
 related:
