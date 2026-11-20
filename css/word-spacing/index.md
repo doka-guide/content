@@ -1,6 +1,10 @@
 ---
 title: "`word-spacing`"
 description: "Стандартный пробел не достаточно широк? Управляйте его размером через CSS."
+baseline:
+  - group: word-spacing
+    features:
+      - css.properties.word-spacing
 authors:
   - ra1nbow1
 keywords:

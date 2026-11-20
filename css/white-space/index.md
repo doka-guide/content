@@ -1,6 +1,10 @@
 ---
 title: "`white-space`"
 description: "Решаем, будет ли текст переноситься по пробелам или нет."
+baseline:
+  - group: white-space
+    features:
+      - css.properties.white-space
 authors:
   - ezhkov
 contributors:

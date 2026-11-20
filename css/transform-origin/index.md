@@ -1,6 +1,10 @@
 ---
 title: "`transform-origin`"
 description: "«Точка опоры» для применения трансформаций к элементу."
+baseline:
+  - group: transforms2d
+    features:
+      - css.properties.transform-origin
 authors:
   - ezhkov
 contributors:

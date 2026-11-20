@@ -1,6 +1,10 @@
 ---
 title: "`transform-style`"
 description: "Будут ли дочерние элементы трансформироваться вместе с родителем?"
+baseline:
+  - group: transforms3d
+    features:
+      - css.properties.transform-style
 authors:
   - ezhkov
 contributors:

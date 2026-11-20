@@ -1,6 +1,13 @@
 ---
 title: "`vw`, `vh`, `vmin`, `vmax`"
 description: "Единицы измерения, которые считаются от размера окна браузера."
+baseline:
+  - group: viewport-units
+    features:
+      - css.types.length.vw
+      - css.types.length.vh
+      - css.types.length.vmin
+      - css.types.length.vmax
 authors:
   - ezhkov
 keywords:

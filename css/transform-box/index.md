@@ -1,6 +1,10 @@
 ---
 title: "`transform-box`"
 description: "Определяет область элемента к которой применяются свойства трансформации."
+baseline:
+  - group: transform-box
+    features:
+      - css.properties.transform-box
 authors:
   - bellabzhu
 related:
