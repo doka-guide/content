@@ -13,6 +13,6 @@ body {
 
 В демке ниже кнопка симулирует момент загрузки шрифта — переключает Arial на Times New Roman. Верхний блок без подстройки: строчные скачут вниз. Нижний с `font-size-adjust: 0.52`: строчные остаются на месте.
 
-<iframe title="font-size-adjust — снижение CLS" src="demos/cls/" height="400"></iframe>
+<iframe title="font-size-adjust — снижение CLS" src="../demos/cls/" height="400"></iframe>
 
 Аспектные значения популярных шрифтов: Arial — 0,52, Roboto — 0,53, Inter — 0,54, Times New Roman — 0,45. Для других шрифтов удобно воспользоваться сервисом [Font Style Matcher](https://meowni.ca/font-style-matcher/).
