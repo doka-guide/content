@@ -1,6 +1,10 @@
 ---
 title: "`Number.isNaN()`"
 description: "Проверяет, а не `NaN` ли нам прислали."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Number.isNaN
 authors:
   - ruslauz
 contributors:

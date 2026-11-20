@@ -1,6 +1,10 @@
 ---
 title: "`.innerHTML`"
 description: "Читаем и изменяем содержание HTML-элемента."
+baseline:
+  - group: dom
+    features:
+      - api.Element.innerHTML
 authors:
   - windrushfarer
 related:

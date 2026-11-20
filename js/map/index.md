@@ -1,6 +1,10 @@
 ---
 title: "`Map`"
 description: "Коллекция для хранения данных по ключу."
+baseline:
+  - group: map
+    features:
+      - javascript.builtins.Map
 authors:
   - vitalybaev
 related:

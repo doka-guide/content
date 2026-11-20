@@ -1,6 +1,10 @@
 ---
 title: "`Array.from()`"
 description: "Функция создаёт новый массив на основе итерируемого или массивоподобного объекта."
+baseline:
+  - group: array-from
+    features:
+      - javascript.builtins.Array.from
 authors:
   - nlopin
 editors:

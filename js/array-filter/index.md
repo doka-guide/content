@@ -1,6 +1,10 @@
 ---
 title: "`.filter()`"
 description: "Фильтры для воды удерживают вредные частицы, а фильтр JS — плохие значения."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.filter
 authors:
   - windrushfarer
 contributors:

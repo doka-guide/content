@@ -1,6 +1,10 @@
 ---
 title: "`URLSearchParams`"
 description: "Получить или отформатировать поисковые параметры из URL без боли."
+baseline:
+  - group: url
+    features:
+      - api.URLSearchParams
 authors:
   - akellbl4
 keywords:

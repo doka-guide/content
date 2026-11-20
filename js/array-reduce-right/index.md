@@ -1,6 +1,10 @@
 ---
 title: "`.reduceRight()`"
 description: "Приводит массив к одному значению."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.reduceRight
 authors:
   - alexafcode
 related:

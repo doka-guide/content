@@ -1,6 +1,10 @@
 ---
 title: "`.keys()`"
 description: "`.keys()` возвращает итератор для обхода значений коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.keys
 authors:
   - nlopin
 related:

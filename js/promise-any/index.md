@@ -1,6 +1,10 @@
 ---
 title: "`Promise.any()`"
 description: "Запускаем несколько промисов параллельно и дожидаемся первого успешного."
+baseline:
+  - group: promise-any
+    features:
+      - javascript.builtins.Promise.any
 authors:
   - yarkovaleksei
 related:

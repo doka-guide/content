@@ -1,6 +1,10 @@
 ---
 title: "`if`...`else`"
 description: "В зависимости от условия выполняет один или другой вариант кода."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.if_else
 authors:
   - nlopin
 keywords:

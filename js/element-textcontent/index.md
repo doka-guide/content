@@ -1,6 +1,10 @@
 ---
 title: "`.textContent`"
 description: "Считываем и записываем текстовое содержимое элемента."
+baseline:
+  - group: dom
+    features:
+      - api.Node.textContent
 authors:
   - windrushfarer
 related:

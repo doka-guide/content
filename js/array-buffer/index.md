@@ -1,6 +1,10 @@
 ---
 title: "`ArrayBuffer`"
 description: "Объект с бинарными данными фиксированной длины."
+baseline:
+  - group: typed-arrays
+    features:
+      - javascript.builtins.ArrayBuffer
 authors:
   - doka-dog
 keywords:

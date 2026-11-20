@@ -1,6 +1,10 @@
 ---
 title: "Объект пользовательского события `CustomEvent`"
 description: "Создаём свои события."
+baseline:
+  - group: events
+    features:
+      - api.CustomEvent
 authors:
   - akhmadullin
 related:

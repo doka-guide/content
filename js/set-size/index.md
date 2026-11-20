@@ -1,6 +1,10 @@
 ---
 title: "`.size`"
 description: "Свойство коллекции `Set`, содержит количество значений в коллекции."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.size
 authors:
   - nlopin
 related:

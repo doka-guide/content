@@ -1,6 +1,10 @@
 ---
 title: "`.shift()`"
 description: "Удаляет первый элемент массива и возвращает значение удалённого элемента."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.shift
 authors:
   - vitya-ne
 related:

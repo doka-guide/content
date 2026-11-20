@@ -1,6 +1,10 @@
 ---
 title: "`Date`"
 description: "Объект для манипуляции с датой и временем."
+baseline:
+  - group: date
+    features:
+      - javascript.builtins.Date
 authors:
   - kseniaSs
 related:

@@ -1,6 +1,13 @@
 ---
 title: "`.indexOf()`"
 description: "Ищет вхождение элемента в массив или подстроки в строку и возвращает индекс."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.indexOf
+  - group: strings
+    features:
+      - javascript.builtins.String.indexOf
 authors:
   - nlopin
 related:

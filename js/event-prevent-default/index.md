@@ -1,6 +1,10 @@
 ---
 title: "`.preventDefault()`"
 description: "Отменяет действие по умолчанию для события."
+baseline:
+  - group: events
+    features:
+      - api.Event.preventDefault
 authors:
   - g-milevski
 related:

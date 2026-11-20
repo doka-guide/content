@@ -1,6 +1,10 @@
 ---
 title: "`localStorage`"
 description: "Храним данные в браузере пользователя бесконечно долго (почти)."
+baseline:
+  - group: localstorage
+    features:
+      - api.Window.localStorage
 authors:
   - akellbl4
 contributors:

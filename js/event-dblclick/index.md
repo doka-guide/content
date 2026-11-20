@@ -1,6 +1,10 @@
 ---
 title: "`dblclick`"
 description: Что такое событие `dblclick` и чем оно отличается от `click`?"
+baseline:
+  - group: mouse-events
+    features:
+      - api.Element.dblclick_event
 authors:
   - ko1p
 related:

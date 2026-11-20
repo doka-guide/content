@@ -1,6 +1,10 @@
 ---
 title: "`click`"
 description: "Если у пользователя есть мышка, то он точно будет кликать курсором по странице."
+baseline:
+  - group: mouse-events
+    features:
+      - api.Element.click_event
 authors:
   - nlopin
 related:

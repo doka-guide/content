@@ -1,6 +1,11 @@
 ---
 title: "Генераторы и yield"
 description: "Генератор – это специальная функция, которая может приостанавливать своё выполнение и возвращать в результате объект-итератор."
+baseline:
+  - group: generators
+    features:
+      - javascript.statements.generator_function
+      - javascript.operators.yield
 authors:
   - windrushfarer
   - sergeykrasnolobov

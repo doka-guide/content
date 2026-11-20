@@ -1,6 +1,10 @@
 ---
 title: "`.toString()`"
 description: "Возвращает строковое представление массива."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.toString
 authors:
   - vitya-ne
 related:

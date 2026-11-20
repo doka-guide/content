@@ -1,6 +1,10 @@
 ---
 title: "`DataView`"
 description: "Читаем и записываем байты в буфере, как душе угодно."
+baseline:
+  - group: typed-arrays
+    features:
+      - javascript.builtins.DataView
 authors:
   - marss-hub
 editors:

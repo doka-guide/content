@@ -1,6 +1,10 @@
 ---
 title: "`.push()`"
 description: "Добавляет новый элемент в конец массива."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.push
 authors:
   - maksim631
 related:

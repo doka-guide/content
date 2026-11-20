@@ -1,6 +1,10 @@
 ---
 title: "`Intersection Observer`"
 description: "Определяет пересечение элемента с его родителем или окном браузера."
+baseline:
+  - group: intersection-observer
+    features:
+      - api.IntersectionObserver
 keywords:
   - отложенная загрузка
   - прогресс-бар сайта

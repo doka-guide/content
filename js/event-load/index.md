@@ -1,6 +1,10 @@
 ---
 title: "`load`"
 description: "Запускаем код, когда страница полностью загрузилась."
+baseline:
+  - group: window
+    features:
+      - api.Window.load_event
 authors:
   - nlopin
 contributors:

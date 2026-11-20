@@ -1,6 +1,10 @@
 ---
 title: "`.reverse()`"
 description: "Позволяет обратить порядок элементов в массиве."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.reverse
 authors:
   - yurlovr
 editors:

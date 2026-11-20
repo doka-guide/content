@@ -1,6 +1,10 @@
 ---
 title: "`.findLastIndex()`"
 description: "Найдёт индекс первого подходящего по условию элемента, обходя массив, начиная с конца."
+baseline:
+  - group: array-findlast
+    features:
+      - javascript.builtins.Array.findLastIndex
 authors:
   - vitya-ne
 related:

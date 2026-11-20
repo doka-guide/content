@@ -1,6 +1,10 @@
 ---
 title: "`CSSStyleDeclaration`"
 description: "Объект, который хранит информацию о ваших CSS-стилях."
+baseline:
+  - group: css-object-model
+    features:
+      - api.CSSStyleDeclaration
 authors:
   - doka-dog
 related:

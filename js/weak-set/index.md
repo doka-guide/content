@@ -1,6 +1,10 @@
 ---
 title: "`WeakSet`"
 description: "Коллекция, в которой временно хранятся уникальные объекты."
+baseline:
+  - group: weakset
+    features:
+      - javascript.builtins.WeakSet
 authors:
   - ra1nbow1
 keywords:

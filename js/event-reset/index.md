@@ -1,6 +1,10 @@
 ---
 title: "`reset`"
 description: "Событие для сброса введённых данных."
+baseline:
+  - group: form
+    features:
+      - api.HTMLFormElement.reset_event
 authors:
   - ivkrylova
 related:

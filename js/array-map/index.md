@@ -1,6 +1,10 @@
 ---
 title: "`.map()`"
 description: "Собирает новый массив из запчастей старого."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.map
 authors:
   - windrushfarer
 contributors:

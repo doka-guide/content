@@ -1,6 +1,10 @@
 ---
 title: "`.outerHTML`"
 description: "Читаем и заменяем HTML-элемент и всё его содержание на новое."
+baseline:
+  - group: dom
+    features:
+      - api.Element.outerHTML
 authors:
   - windrushfarer
 related:

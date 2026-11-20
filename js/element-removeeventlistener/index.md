@@ -1,6 +1,10 @@
 ---
 title: "`.removeEventListener()`"
 description: "Перестаём слушать события браузера."
+baseline:
+  - group: events
+    features:
+      - api.EventTarget.removeEventListener
 authors:
   - akellbl4
 contributors:

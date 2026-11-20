@@ -1,6 +1,10 @@
 ---
 title: "`.values()`"
 description: "Возвращает объект-итератор значений элементов массива."
+baseline:
+  - group: array-iterators
+    features:
+      - javascript.builtins.Array.values
 authors:
   - vitya-ne
 related:

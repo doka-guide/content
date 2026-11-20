@@ -1,6 +1,10 @@
 ---
 title: "`undefined`"
 description: "Примитивное значение. Используется, когда переменной не присвоено значение."
+baseline:
+  - group: javascript
+    features:
+      - javascript.builtins.undefined
 authors:
   - nlopin
 contributors:

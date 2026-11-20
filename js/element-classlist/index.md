@@ -1,6 +1,10 @@
 ---
 title: "`.classList`"
 description: "Динамически читаем, добавляем и удаляем классы у элементов."
+baseline:
+  - group: dom
+    features:
+      - api.Element.classList
 authors:
   - windrushfarer
 contributors:

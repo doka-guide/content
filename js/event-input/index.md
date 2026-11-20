@@ -1,6 +1,10 @@
 ---
 title: "`input`"
 description: "`Событие, срабатывающее каждый раз при изменении значения."
+baseline:
+  - group: input-event
+    features:
+      - api.Element.input_event
 authors:
   - tarahovmaksim
   - rrramble

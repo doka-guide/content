@@ -1,6 +1,10 @@
 ---
 title: "`Array.of()`"
 description: "Статический метод массива, создающий массив из переданных аргументов."
+baseline:
+  - group: array-of
+    features:
+      - javascript.builtins.Array.of
 authors:
   - hellsquirrel
   - vitya-ne

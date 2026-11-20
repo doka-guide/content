@@ -1,6 +1,10 @@
 ---
 title: "`.join()`"
 description: "Возвращает значения всех элементов массива, объединённых в строку."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.join
 authors:
   - vitya-ne
 related:

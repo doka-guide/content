@@ -1,6 +1,10 @@
 ---
 title: "`beforeunload`"
 description: "Событие ухода пользователя со страницы."
+baseline:
+  - group: beforeunload
+    features:
+      - api.Window.beforeunload_event
 authors:
   - kotosha-real
 related:

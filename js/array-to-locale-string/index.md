@@ -1,6 +1,10 @@
 ---
 title: "`.toLocaleString()`"
 description: "Возвращает строковое представление массива, основанное на результатах приведения каждого элемента к строке в соответствии с типом элемента и переданными параметрами локализации."
+baseline:
+  - group: intl
+    features:
+      - javascript.builtins.Array.toLocaleString
 authors:
   - vitya-ne
 related:

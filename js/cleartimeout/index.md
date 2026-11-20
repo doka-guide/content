@@ -1,6 +1,10 @@
 ---
 title: "`clearTimeout()`"
 description: "Отменяет регулярное выполнение функции, установленное вызовом `setTimeout()`."
+baseline:
+  - group: settimeout
+    features:
+      - api.clearTimeout
 authors:
   - windrushfarer
 related:

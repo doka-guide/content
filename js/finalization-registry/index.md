@@ -1,6 +1,10 @@
 ---
 title: "`FinalizationRegistry`"
 description: "Объект, который позволяет регистрировать обработчики сборки мусора на зарегистрированных в нём объектах."
+baseline:
+  - group: weak-references
+    features:
+      - javascript.builtins.FinalizationRegistry
 authors:
   - doka-dog
 related:

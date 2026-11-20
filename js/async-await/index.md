@@ -1,6 +1,11 @@
 ---
 title: "`async/await`"
 description: "Ждать выполнения асинхронного кода стало легче! Больше никаких колбэков и промисов, только новые ключевые слова."
+baseline:
+  - group: async-await
+    features:
+      - javascript.statements.async_function
+      - javascript.operators.await
 authors:
   - nlopin
 contributors:

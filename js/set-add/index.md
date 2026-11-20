@@ -1,6 +1,10 @@
 ---
 title: "`.add()`"
 description: "Добавляет значение в коллекцию `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.add
 authors:
   - nlopin
 related:

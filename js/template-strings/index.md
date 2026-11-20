@@ -1,6 +1,10 @@
 ---
 title: "Шаблонные строки"
 description: "Строки с переменными внутри."
+baseline:
+  - group: template-literals
+    features:
+      - javascript.grammar.template_literals
 authors:
   - windrushfarer
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`.closest()`"
 description: "Возвращаем ближайший родительский элемент, который соответствует нужному CSS-селектору."
+baseline:
+  - group: dom
+    features:
+      - api.Element.closest
 authors:
   - vitya-ne
 related:

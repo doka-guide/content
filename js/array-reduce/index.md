@@ -1,6 +1,10 @@
 ---
 title: "`.reduce()`"
 description: "Швейцарский нож для работы с массивами. Заменяет все остальные методы (не повторяйте дома)."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.reduce
 authors:
   - windrushfarer
 contributors:
