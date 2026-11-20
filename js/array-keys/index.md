@@ -1,6 +1,10 @@
 ---
 title: "`.keys()`"
 description: "Возвращает объект-итератор индексов элементов массива."
+baseline:
+  - group: array-iterators
+    features:
+      - javascript.builtins.Array.keys
 authors:
   - vitya-ne
 related:

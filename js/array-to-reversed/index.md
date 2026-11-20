@@ -1,6 +1,10 @@
 ---
 title: "`.toReversed()`"
 description: "Возвращает массив с изменённым порядком элементов."
+baseline:
+  - group: array-by-copy
+    features:
+      - javascript.builtins.Array.toReversed
 authors:
   - vitya-ne
 related:

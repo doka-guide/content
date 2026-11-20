@@ -1,6 +1,10 @@
 ---
 title: "`.splice()`"
 description: "Изменяет массив, удаляя и/или добавляя новые элементы."
+baseline:
+  - group: array-splice
+    features:
+      - javascript.builtins.Array.splice
 authors:
   - vitya-ne
 related:

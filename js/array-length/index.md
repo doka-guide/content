@@ -1,6 +1,10 @@
 ---
 title: "`.length`"
 description: "Свойство, которое возвращает количество элементов в массиве."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.length
 authors:
   - nlopin
 editors:

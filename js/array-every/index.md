@@ -1,6 +1,10 @@
 ---
 title: "`.every()`"
 description: "Проверить по списку, что все сделали домашнее задание? Проще простого с массивами и методом `every`."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.every
 authors:
   - windrushfarer
 editors:

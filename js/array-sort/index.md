@@ -1,6 +1,10 @@
 ---
 title: "`.sort()`"
 description: "Сортирует элементы массива."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.sort
 authors:
   - maksim631
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`.fill()`"
 description: "Заполняет элементы массива указанным значением."
+baseline:
+  - group: array-fill
+    features:
+      - javascript.builtins.Array.fill
 authors:
   - vitya-ne
 related:
