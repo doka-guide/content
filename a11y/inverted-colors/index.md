@@ -1,6 +1,10 @@
 ---
 title: "`inverted-colors`"
 description: "Значение директивы `@media`, которое отслеживает режим инвертированных цветов."
+baseline:
+  - group: inverted-colors
+    features:
+      - css.at-rules.media.inverted-colors
 authors:
   - doka-dog
 keywords:

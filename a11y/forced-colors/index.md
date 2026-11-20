@@ -1,6 +1,10 @@
 ---
 title: "`forced-colors`"
 description: "Значение директивы `@media`, которое отслеживает режим принудительных цветов."
+baseline:
+  - group: forced-colors
+    features:
+      - css.at-rules.media.forced-colors
 authors:
   - tatianafokina
 contributors:

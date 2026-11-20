@@ -1,6 +1,10 @@
 ---
 title: "`prefers-reduced-motion`"
 description: "Как управлять анимацией на сайте и сделать её доступной."
+baseline:
+  - group: prefers-reduced-motion
+    features:
+      - css.at-rules.media.prefers-reduced-motion
 authors:
   - katkopikat
 contributors:
