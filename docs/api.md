@@ -8,12 +8,12 @@
 
 Обычно в доках хранится описание методов, свойств, тегов — вы можете использовать их в качестве краткой справки. В своих приложениях или плагинах можно получить такую справку по всем материалам разделов в виде списков:
 
-- HTML: [https://doka.guide/html/index.json](https://doka.guide/html/index.json)
-- CSS: [https://doka.guide/css/index.json](https://doka.guide/css/index.json)
-- JavaScript: [https://doka.guide/js/index.json](https://doka.guide/js/index.json)
-- Рецепты: [https://doka.guide/recipes/index.json](https://doka.guide/recipes/index.json)
-- Доступность: [https://doka.guide/a11y/index.json](https://doka.guide/a11y/index.json)
-- Веб-платформа: [https://doka.guide/tools/index.json](https://doka.guide/tools/index.json)
+- HTML: `https://doka.guide/html/index.json`
+- CSS: `https://doka.guide/css/index.json`
+- JavaScript: `https://doka.guide/js/index.json`
+- Рецепты: `https://doka.guide/recipes/index.json`
+- Доступность: `https://doka.guide/a11y/index.json`
+- Веб-платформа: `https://doka.guide/tools/index.json`
 
 Формат информации для каждой доки в списке:
 
@@ -29,7 +29,7 @@
 
 ## Информация об участниках
 
-**Краткую информацию** об участниках Доки в виде списка можно получить по ссылке [https://doka.guide/people/info.json](https://doka.guide/people/info.json). Информация доступна в следующем формате для каждого:
+**Краткую информацию** об участниках Доки в виде списка можно получить по адресу `https://doka.guide/people/info.json`. Информация доступна в следующем формате для каждого:
 
 ```js
 {
