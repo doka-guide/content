@@ -1,6 +1,10 @@
 ---
 title: "`opacity`"
 description: "Прячем элемент на странице, делая его полностью или частично прозрачным."
+baseline:
+  - group: opacity
+    features:
+      - css.properties.opacity
 authors:
   - solarrust
 keywords:

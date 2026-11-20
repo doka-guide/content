@@ -1,6 +1,13 @@
 ---
 title: "`top`, `left`, `right`, `bottom`"
 description: "Указываем положение позиционированного элемента."
+baseline:
+  - group: physical-properties
+    features:
+      - css.properties.top
+      - css.properties.left
+      - css.properties.right
+      - css.properties.bottom
 authors:
   - spheno
 keywords:

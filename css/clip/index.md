@@ -1,6 +1,10 @@
 ---
 title: "`clip`"
 description: "CSS-ножницы для превращения банальных прямоугольников в разные причудливые фигуры."
+baseline:
+  - group: clip
+    features:
+      - css.properties.clip
 authors:
   - lordoys
 contributors:

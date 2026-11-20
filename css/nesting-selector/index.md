@@ -1,6 +1,10 @@
 ---
 title: "Селектор потомка"
 description: "Пишем CSS-селектор так, чтобы стилизовать вложенные элементы."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.descendant
 authors:
   - solarrust
 contributors:

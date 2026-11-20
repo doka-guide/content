@@ -1,6 +1,10 @@
 ---
 title: "`currentColor`"
 description: "Удобный способ _унаследовать_ цвет текста родительского элемента."
+baseline:
+  - group: currentcolor
+    features:
+      - css.types.color.currentcolor
 authors:
   - lordoys
 keywords:
