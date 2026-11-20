@@ -6,7 +6,7 @@
 }
 ```
 
-<iframe title="Табличные цифры tnum" src="demos/tnum/?embed=1" height="360"></iframe>
+<iframe title="Табличные цифры tnum" src="demos/tnum/" height="360"></iframe>
 
 🛠 Для книжной и журнальной вёрстки удобно сочетать строчные капители (`smcp`) с цифрами старого стиля (`onum`). Заголовки и имена собственные отображаются через капитель, а цифры не торчат выше строки — текст выглядит ровнее и изящнее.
 
@@ -16,4 +16,4 @@
 }
 ```
 
-<iframe title="Книжная типографика smcp и onum" src="demos/book-typo/?embed=1" height="360"></iframe>
+<iframe title="Книжная типографика smcp и onum" src="demos/book-typo/" height="360"></iframe>
