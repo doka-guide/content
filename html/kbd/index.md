@@ -1,6 +1,10 @@
 ---
 title: "`<kbd>`"
 description: "Пользовательский ввод? Нет, не слышал! Лучше один раз увидеть, каких действий ждёт от вас компьютер."
+baseline:
+  - group: kbd
+    features:
+      - html.elements.kbd
 authors:
   - webdb81
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`<li>`"
 description: "Элемент нумерованного или маркированного списка."
+baseline:
+  - group: list-elements
+    features:
+      - html.elements.li
 authors:
   - nionka
 editors:

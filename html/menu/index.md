@@ -1,6 +1,10 @@
 ---
 title: "`<menu>`"
 description: "Тег для создания меню — списка с интерактивными элементами."
+baseline:
+  - group: menu
+    features:
+      - html.elements.menu
 authors:
   - kozlovtseva
 related:

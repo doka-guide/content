@@ -1,6 +1,10 @@
 ---
 title: "`<header>`"
 description: "Надень на контент шапку, а то поисковый робот заругает."
+baseline:
+  - group: header-footer
+    features:
+      - html.elements.header
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

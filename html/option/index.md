@@ -1,6 +1,10 @@
 ---
 title: "`<option>`"
 description: "Один пункт в раскрывающемся списке `<select>`."
+baseline:
+  - group: select
+    features:
+      - html.elements.option
 authors:
   - ezhkov
 contributors:

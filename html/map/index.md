@@ -1,6 +1,10 @@
 ---
 title: "`<map>`"
 description: "Уютный контейнер для `<area>`."
+baseline:
+  - group: image-maps
+    features:
+      - html.elements.map
 authors:
   - inventoris
 contributors:

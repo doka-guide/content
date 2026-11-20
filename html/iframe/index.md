@@ -1,6 +1,10 @@
 ---
 title: "`<iframe>`"
 description: "Мы встроили одну страницу в другую страницу, чтобы ты смотрел страницу пока смотришь страницу."
+baseline:
+  - group: iframe
+    features:
+      - html.elements.iframe
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

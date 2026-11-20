@@ -1,6 +1,10 @@
 ---
 title: "`<hgroup>`"
 description: "Группируем заголовок и обычный текст в реал-тайм!"
+baseline:
+  - group: hgroup
+    features:
+      - html.elements.hgroup
 authors:
   - drakesbot12
 keywords:

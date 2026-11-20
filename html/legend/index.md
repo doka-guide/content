@@ -1,6 +1,10 @@
 ---
 title: "`<legend>`"
 description: "Добавляет заголовок полям ввода, сгруппированным при помощи `<fieldset>`."
+baseline:
+  - group: fieldset
+    features:
+      - html.elements.legend
 authors:
   - realetive
 contributors:

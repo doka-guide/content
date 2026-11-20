@@ -1,6 +1,10 @@
 ---
 title: "`<meter>`"
 description: "Отображает текущее значение в заданном диапазоне."
+baseline:
+  - group: meter
+    features:
+      - html.elements.meter
 authors:
   - tatianafokina
 contributors:

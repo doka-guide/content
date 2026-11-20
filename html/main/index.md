@@ -1,6 +1,10 @@
 ---
 title: "`<main>`"
 description: "Блок с главным контентом страницы."
+baseline:
+  - group: main
+    features:
+      - html.elements.main
 authors:
   - solarrust
   - pepelsbey

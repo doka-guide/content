@@ -1,6 +1,10 @@
 ---
 title: "`<input>`"
 description: "Многогранный тег <input> позволяет создавать поля ввода, кнопки, переключатели и другие интерактивные элементы."
+baseline:
+  - group: input
+    features:
+      - html.elements.input
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

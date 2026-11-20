@@ -1,6 +1,10 @@
 ---
 title: "`<ins>`"
 description: "Обозначаем только что добавленный контент."
+baseline:
+  - group: ins
+    features:
+      - html.elements.ins
 authors:
   - xpleesid
 contributors:

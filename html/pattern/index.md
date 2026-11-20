@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `pattern`"
 description: "Говорим браузеру, каким должно быть значение полей формы."
+baseline:
+  - group: input
+    features:
+      - html.elements.input.pattern
 authors:
   - solarrust
 contributors:
