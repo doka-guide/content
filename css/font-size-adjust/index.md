@@ -51,7 +51,7 @@ tags:
 }
 ```
 
-<iframe title="font-size-adjust — сравнение шрифтов" src="demos/basic/?embed=1" height="380"></iframe>
+<iframe title="font-size-adjust — сравнение шрифтов" src="demos/basic/" height="380"></iframe>
 
 Arial и Times New Roman при одинаковом `font-size: 40px` выглядят по-разному: у Times New Roman строчные буквы заметно ниже. С `font-size-adjust: 0.52` Times New Roman масштабируется так, что его строчные совпадают по высоте с Arial.
 

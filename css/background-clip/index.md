@@ -47,7 +47,7 @@ tags:
 .content-box { background-clip: content-box; }
 ```
 
-<iframe title="Три значения background-clip" src="demos/example/?embed=1" height="460"></iframe>
+<iframe title="Три значения background-clip" src="demos/example/" height="460"></iframe>
 
 ## Как понять
 
@@ -88,7 +88,7 @@ tags:
 
 С `border: 6px solid transparent` зазор будет полностью прозрачным — виден только родитель.
 
-<iframe title="Зазор между фоном и рамкой" src="demos/clip-trick/?embed=1" height="260"></iframe>
+<iframe title="Зазор между фоном и рамкой" src="demos/clip-trick/" height="260"></iframe>
 
 ### `content-box`
 
@@ -108,7 +108,7 @@ tags:
 }
 ```
 
-<iframe title="Текст с градиентным фоном" src="demos/text/?embed=1" height="320"></iframe>
+<iframe title="Текст с градиентным фоном" src="demos/text/" height="320"></iframe>
 
 <aside>
 
@@ -127,7 +127,7 @@ tags:
 }
 ```
 
-<iframe title="Два фона с разными значениями background-clip" src="demos/multiple/?embed=1" height="450"></iframe>
+<iframe title="Два фона с разными значениями background-clip" src="demos/multiple/" height="450"></iframe>
 
 ## Подсказки
 
