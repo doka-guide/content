@@ -1,6 +1,10 @@
 ---
 title: "`keydown`"
 description: "Событие, когда клавишу нажали."
+baseline:
+  - group: keyboard-events
+    features:
+      - api.Element.keydown_event
 authors:
   - stegur
 contributors:

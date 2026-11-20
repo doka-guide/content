@@ -1,6 +1,10 @@
 ---
 title: "`.scrollBy()`"
 description: "Прокрутить страницу на указанные величины."
+baseline:
+  - group: scroll-elements
+    features:
+      - api.Element.scrollBy
 authors:
   - starhamster
 related:

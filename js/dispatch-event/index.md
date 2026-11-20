@@ -1,6 +1,10 @@
 ---
 title: "`.dispatchEvent()`"
 description: "Инициируем отправку события."
+baseline:
+  - group: events
+    features:
+      - api.EventTarget.dispatchEvent
 authors:
   - akhmadullin
 related:

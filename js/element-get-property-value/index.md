@@ -1,6 +1,10 @@
 ---
 title: ".getPropertyValue()"
 description: "Получаем строку с CSS-свойством элемента."
+baseline:
+  - group: css-object-model
+    features:
+      - api.CSSStyleDeclaration.getPropertyValue
 authors:
   - madey-kv
 related:
