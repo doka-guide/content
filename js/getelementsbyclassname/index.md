@@ -1,6 +1,10 @@
 ---
 title: "`.getElementsByClassName()`"
 description: "Получаем список элементов с заданным классом."
+baseline:
+  - group: dom
+    features:
+      - api.Document.getElementsByClassName
 authors:
   - nlopin
 related:

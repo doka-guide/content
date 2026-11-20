@@ -1,6 +1,10 @@
 ---
 title: "Большое целое"
 description: "В математике числа бесконечны, а в программировании — нет. Если число не влезает в стандартный `number`, то есть его старший брат."
+baseline:
+  - group: bigint
+    features:
+      - javascript.builtins.BigInt
 authors:
   - ra1nbow1
 related:

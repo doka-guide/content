@@ -1,6 +1,10 @@
 ---
 title: "Тернарный оператор"
 description: "`if...else` в одну строку."
+baseline:
+  - group: javascript
+    features:
+      - javascript.operators.conditional
 authors:
   - gingerraccoon
 editors:

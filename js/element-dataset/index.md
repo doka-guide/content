@@ -1,6 +1,10 @@
 ---
 title: "`.dataset`"
 description: "Простейший способ хранить данные в HTML и читать их из JavaScript."
+baseline:
+  - group: dataset
+    features:
+      - api.HTMLElement.dataset
 authors:
   - windrushfarer
 related:

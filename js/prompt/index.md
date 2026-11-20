@@ -1,6 +1,10 @@
 ---
 title: "`prompt()`"
 description: "Вызываем модальное окно браузера с полем ввода."
+baseline:
+  - group: alerts
+    features:
+      - api.Window.prompt
 authors:
   - doka-dog
 related:

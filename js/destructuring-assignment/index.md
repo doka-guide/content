@@ -1,6 +1,10 @@
 ---
 title: "Деструктуризация"
 description: "Извлекаем свойства объектов в отдельные переменные."
+baseline:
+  - group: destructuring
+    features:
+      - javascript.operators.destructuring
 authors:
   - vitya-ne
 related:

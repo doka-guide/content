@@ -1,6 +1,11 @@
 ---
 title: "`window.history`"
 description: "History API позволяет работать с историей браузера в пределах одной сессии."
+baseline:
+  - group: history
+    features:
+      - api.Window.history
+      - api.History
 authors:
   - windrushfarer
 related:

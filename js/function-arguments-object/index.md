@@ -1,6 +1,10 @@
 ---
 title: "Объект `arguments`"
 description: "Устаревший способ получить все значения, переданные в функцию при вызове."
+baseline:
+  - group: functions
+    features:
+      - javascript.functions.arguments
 authors:
   - nlopin
 related:

@@ -1,6 +1,14 @@
 ---
 title: "Переменные `const`, `let` и `var`"
 description: "Чем отличаются `const`, `let` или `var`? Рассказываем, что такое переменные и какими они бывают."
+baseline:
+  - group: let-const
+    features:
+      - javascript.statements.let
+      - javascript.statements.const
+  - group: javascript
+    features:
+      - javascript.statements.var
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

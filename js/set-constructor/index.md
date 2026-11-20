@@ -1,6 +1,10 @@
 ---
 title: "Конструктор"
 description: "Создаёт экземпляр коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.Set
 authors:
   - nlopin
 related:

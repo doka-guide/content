@@ -1,6 +1,10 @@
 ---
 title: "`.focus()`"
 description: "Метод, который устанавливает фокус на DOM-элемент, на котором вызван."
+baseline:
+  - group: focus-events
+    features:
+      - api.HTMLElement.focus
 authors:
   - nlopin
 related:

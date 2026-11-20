@@ -1,6 +1,10 @@
 ---
 title: "`return`"
 description: "Возвращаем результат из функции."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.return
 authors:
   - doka-dog
 contributors:

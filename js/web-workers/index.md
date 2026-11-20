@@ -1,6 +1,10 @@
 ---
 title: "Web Workers"
 description: "Улучшаем производительность приложений при помощи Web Workers и переносим сложные задачи в фоновые потоки, чтобы не замедлять пользовательский интерфейс."
+baseline:
+  - group: dedicated-workers
+    features:
+      - api.Worker
 authors:
   - marsel
 related:

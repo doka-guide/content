@@ -1,6 +1,10 @@
 ---
 title: "`.toSorted()`"
 description: "Сортирует элементы массива так же, как и метод sort(), но возвращает новый массив."
+baseline:
+  - group: array-by-copy
+    features:
+      - javascript.builtins.Array.toSorted
 authors:
   - alexafcode
 related:

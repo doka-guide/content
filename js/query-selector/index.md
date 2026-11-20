@@ -1,6 +1,10 @@
 ---
 title: "`.querySelector()`"
 description: "Получить DOM-элемент по CSS-селектору."
+baseline:
+  - group: dom
+    features:
+      - api.Document.querySelector
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

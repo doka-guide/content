@@ -1,6 +1,10 @@
 ---
 title: "`.getElementsByTagName()`"
 description: "Получаем список элементов с искомым тегом."
+baseline:
+  - group: dom
+    features:
+      - api.Document.getElementsByTagName
 authors:
   - nlopin
 related:

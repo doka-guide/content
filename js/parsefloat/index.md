@@ -1,6 +1,10 @@
 ---
 title: "`parseFloat()`"
 description: "Преобразует строку в число с плавающей точкой."
+baseline:
+  - group: javascript
+    features:
+      - javascript.builtins.parseFloat
 authors:
   - doka-dog
 related:
