@@ -1,6 +1,10 @@
 ---
 title: "`object-fit`"
 description: "Подстраиваем картинку или видео под контейнер без деформации."
+baseline:
+  - group: object-fit
+    features:
+      - css.properties.object-fit
 authors:
   - solarrust
 contributors:

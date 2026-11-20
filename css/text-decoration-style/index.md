@@ -1,6 +1,10 @@
 ---
 title: "`text-decoration-style`"
 description: "Делает декоративные линии текста стильными."
+baseline:
+  - group: text-decoration
+    features:
+      - css.properties.text-decoration-style
 authors:
   - inventoris
 keywords:

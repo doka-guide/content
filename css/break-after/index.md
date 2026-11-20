@@ -1,6 +1,13 @@
 ---
 title: "Разрыв страницы"
 description: "Свойства `break-after` и `page-break-after` разбивают контент по страницам при печати."
+baseline:
+  - group: page-breaks
+    features:
+      - css.properties.break-after
+  - group: page-break-aliases
+    features:
+      - css.properties.page-break-after
 authors:
   - furtivite
   - tatianafokina

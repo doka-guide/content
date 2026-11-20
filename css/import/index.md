@@ -1,6 +1,10 @@
 ---
 title: "`@import`"
 description: "Импортируем одни файлы стилей в другие."
+baseline:
+  - group: import
+    features:
+      - css.at-rules.import
 authors:
   - solarrust
 editors:

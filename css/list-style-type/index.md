@@ -1,6 +1,10 @@
 ---
 title: "`list-style-type`"
 description: "Чаще всего этим свойством сбрасывают маркеры списка. Но можно и выбрать какой-то интересный маркер взамен стандартных."
+baseline:
+  - group: list-style
+    features:
+      - css.properties.list-style-type
 authors:
   - realetive
 contributors:

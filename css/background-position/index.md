@@ -1,6 +1,10 @@
 ---
 title: "`background-position`"
 description: "Фоновая картинка подчиняется этому свойству и занимает нужную позицию."
+baseline:
+  - group: background-position
+    features:
+      - css.properties.background-position
 authors:
   - solarrust
 contributors:

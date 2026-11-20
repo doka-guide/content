@@ -1,6 +1,10 @@
 ---
 title: "`inset`"
 description: "Указываем место позиционированному элементу."
+baseline:
+  - group: logical-properties
+    features:
+      - css.properties.inset
 authors:
   - doka-dog
 contributors:

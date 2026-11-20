@@ -1,6 +1,11 @@
 ---
 title: "`counter()`, `counters()`"
 description: "Функции для возвращения текущего значения счётчика."
+baseline:
+  - group: counters
+    features:
+      - css.types.counter
+      - css.types.counters
 authors:
   - blueingreen68
 related:

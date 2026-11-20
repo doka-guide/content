@@ -1,6 +1,10 @@
 ---
 title: "`border-width`"
 description: "Задаёт ширину рамки элемента. Часто указывается в шорткате, но иногда пригождается и отдельно."
+baseline:
+  - group: borders
+    features:
+      - css.properties.border-width
 authors:
   - lordoys
 contributors:

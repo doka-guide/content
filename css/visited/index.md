@@ -1,6 +1,10 @@
 ---
 title: "`:visited`"
 description: "Подсвечиваем ссылки, по которым пользователь уже ходил."
+baseline:
+  - group: link-selectors
+    features:
+      - css.selectors.visited
 authors:
   - solarrust
 contributors:

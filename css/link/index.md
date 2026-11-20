@@ -1,6 +1,10 @@
 ---
 title: "`:link`"
 description: "Можно задавать отдельные стили для ссылок, по которым ещё не переходили."
+baseline:
+  - group: link-selectors
+    features:
+      - css.selectors.link
 authors:
   - realetive
 editors:

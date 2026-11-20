@@ -1,6 +1,10 @@
 ---
 title: "`transition-property`"
 description: "Указываем точно, какое свойство будет меняться плавно."
+baseline:
+  - group: transitions
+    features:
+      - css.properties.transition-property
 authors:
   - ezhkov
 related:

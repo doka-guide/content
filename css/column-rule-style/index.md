@@ -1,6 +1,10 @@
 ---
 title: "`column-rule-style`"
 description: "Не хотите скучную декоративную линию между колонками? Сделайте её пунктирной или двойной!"
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-rule-style
 authors:
   - xpleesid
 related:

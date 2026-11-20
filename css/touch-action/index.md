@@ -1,6 +1,10 @@
 ---
 title: "`touch-action`"
 description: "Можно ли нажать на элемент пальцем? Что-то вроде тач-событий в JavaScript."
+baseline:
+  - group: touch-action
+    features:
+      - css.properties.touch-action
 authors:
   - ermachenkoboris
 related:

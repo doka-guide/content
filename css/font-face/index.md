@@ -1,6 +1,10 @@
 ---
 title: "`@font-face`"
 description: "Подключаем кастомные шрифты."
+baseline:
+  - group: font-face
+    features:
+      - css.at-rules.font-face
 authors:
   - solarrust
 editors:

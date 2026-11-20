@@ -1,6 +1,10 @@
 ---
 title: "`text-align`"
 description: "Выравниваем текст по левому или правому краю. А может быть по центру?"
+baseline:
+  - group: text-align
+    features:
+      - css.properties.text-align
 authors:
   - solarrust
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`animation-duration`"
 description: "Сколько продлится анимация? Секунду, две или всего пару миллисекунд?"
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-duration
 authors:
   - solarrust
 editors:

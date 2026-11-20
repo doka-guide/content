@@ -1,6 +1,10 @@
 ---
 title: "`column-rule-width`"
 description: "Хочется сделать линию между колонками пожирнее? Используйте это свойство!"
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-rule-width
 authors:
   - xpleesid
 related:

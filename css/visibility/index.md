@@ -1,6 +1,10 @@
 ---
 title: "`visibility`"
 description: "Свойство чтобы спрятать элемент."
+baseline:
+  - group: visibility
+    features:
+      - css.properties.visibility
 authors:
   - solarrust
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`:placeholder-shown`"
 description: "Стилизуем поля, в которых ничего не введено, виден плейсхолдер."
+baseline:
+  - group: placeholder-shown
+    features:
+      - css.selectors.placeholder-shown
 authors:
   - ezhkov
 contributors:

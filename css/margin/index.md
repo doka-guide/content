@@ -1,6 +1,10 @@
 ---
 title: "`margin`"
 description: "Свойство, которым можно отодвинуть элемент от соседей. Или придвинуть."
+baseline:
+  - group: margin
+    features:
+      - css.properties.margin
 authors:
   - doka-dog
 contributors:

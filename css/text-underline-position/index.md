@@ -1,6 +1,10 @@
 ---
 title: "`text-underline-position`"
 description: "Будет ли декоративная линия пересекать хвостик у буквы У?"
+baseline:
+  - group: text-underline-position
+    features:
+      - css.properties.text-underline-position
 authors:
   - doka-dog
 keywords:

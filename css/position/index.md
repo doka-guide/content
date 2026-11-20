@@ -1,6 +1,10 @@
 ---
 title: "`position`"
 description: "Нужно наложить элемент на элемент? Без позиционирования не обойтись."
+baseline:
+  - group: position
+    features:
+      - css.properties.position
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

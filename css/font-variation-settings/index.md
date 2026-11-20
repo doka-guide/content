@@ -1,6 +1,10 @@
 ---
 title: "`font-variation-settings`"
 description: "Панель управления настройками вариативного шрифта."
+baseline:
+  - group: font-variation-settings
+    features:
+      - css.properties.font-variation-settings
 authors:
   - doka-dog
 related:

@@ -1,6 +1,10 @@
 ---
 title: "Универсальный селектор"
 description: "Как выбрать все элементы на странице? И при чём тут лоботомированная сова?"
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.universal
 authors:
   - solarrust
 editors:

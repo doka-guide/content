@@ -1,6 +1,10 @@
 ---
 title: "`:focus-within`"
 description: "Выделяем элементы в фокусе и их родителей."
+baseline:
+  - group: focus-within
+    features:
+      - css.selectors.focus-within
 authors:
   - starhamster
 related:

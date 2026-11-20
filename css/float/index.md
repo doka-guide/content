@@ -1,6 +1,10 @@
 ---
 title: "`float`"
 description: "Текст обтекает картинку? Не забудьте про клиарфикс."
+baseline:
+  - group: float-clear
+    features:
+      - css.properties.float
 authors:
   - lenaryan
 editors:

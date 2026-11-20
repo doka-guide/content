@@ -1,6 +1,10 @@
 ---
 title: "`box-shadow`"
 description: "Свойство, с помощью которого можно задать блоку тень."
+baseline:
+  - group: box-shadow
+    features:
+      - css.properties.box-shadow
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

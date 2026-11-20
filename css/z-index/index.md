@@ -1,6 +1,10 @@
 ---
 title: "`z-index`"
 description: "Если сложить элементы друг на друга, то какой из них будет сверху?"
+baseline:
+  - group: z-index
+    features:
+      - css.properties.z-index
 authors:
   - solarrust
 contributors:
