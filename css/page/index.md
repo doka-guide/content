@@ -1,6 +1,10 @@
 ---
 title: "`@page`"
 description: "Создаём красивые страницы на печати при помощи CSS."
+baseline:
+  - group: page-setup
+    features:
+      - css.at-rules.page
 authors:
   - furtivite
 related:

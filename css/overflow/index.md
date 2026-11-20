@@ -1,6 +1,10 @@
 ---
 title: "`overflow`"
 description: "Обрезать ли то, что не поместилось в блок? Или показывать скролл?"
+baseline:
+  - group: overflow-shorthand
+    features:
+      - css.properties.overflow
 authors:
   - realetive
 related:

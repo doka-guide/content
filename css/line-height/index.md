@@ -1,6 +1,10 @@
 ---
 title: "`line-height`"
 description: "Управляем расстоянием между строками текста."
+baseline:
+  - group: line-height
+    features:
+      - css.properties.line-height
 authors:
   - doka-dog
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`list-style`"
 description: "Шорткат, которым удобно стилизовать маркеры списка."
+baseline:
+  - group: list-style
+    features:
+      - css.properties.list-style
 authors:
   - blueingreen68
 contributors:

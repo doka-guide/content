@@ -1,6 +1,10 @@
 ---
 title: "`:root`"
 description: "Селектор для выбора корневого элемента в HTML и SVG. Часто используют для кастомных свойств."
+baseline:
+  - group: root
+    features:
+      - css.selectors.root
 authors:
   - lenaryan
 editors:

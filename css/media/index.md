@@ -1,6 +1,10 @@
 ---
 title: "`@media`"
 description: "Сайт может подстраиваться под обстоятельства благодаря этой директиве."
+baseline:
+  - group: media-queries
+    features:
+      - css.at-rules.media
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

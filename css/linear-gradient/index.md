@@ -1,6 +1,10 @@
 ---
 title: "`linear-gradient()`"
 description: "Функция для создания фона в виде градиента или повторяющегося паттерна."
+baseline:
+  - group: gradients
+    features:
+      - css.types.gradient.linear-gradient
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

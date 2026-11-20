@@ -1,6 +1,10 @@
 ---
 title: "`letter-spacing`"
 description: "Управляем расстоянием между буквами текста."
+baseline:
+  - group: letter-spacing
+    features:
+      - css.properties.letter-spacing
 authors:
   - doka-dog
 contributors:

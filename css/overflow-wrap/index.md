@@ -1,6 +1,10 @@
 ---
 title: "`overflow-wrap`"
 description: "Говорим браузеру, как поступать со словами, которые не поместились в контейнер."
+baseline:
+  - group: overflow-wrap
+    features:
+      - css.properties.overflow-wrap
 authors:
   - solarrust
 editors:

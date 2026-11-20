@@ -1,6 +1,10 @@
 ---
 title: "`outline-offset`"
 description: "Отодвигаем обводку элемента от его края."
+baseline:
+  - group: outlines
+    features:
+      - css.properties.outline-offset
 authors:
   - solarrust
 editors:
