@@ -1,6 +1,10 @@
 ---
 title: "`font-variant`"
 description: "Управляем сразу многими свойствами вариативного шрифта."
+baseline:
+  - group: font-variant
+    features:
+      - css.properties.font-variant
 authors:
   - doka-dog
 related:

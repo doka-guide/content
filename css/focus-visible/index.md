@@ -1,6 +1,10 @@
 ---
 title: "`:focus-visible`"
 description: "Выделяем элементы в фокусе только тогда, когда это действительно необходимо."
+baseline:
+  - group: focus-visible
+    features:
+      - css.selectors.focus-visible
 authors:
   - starhamster
 keywords:

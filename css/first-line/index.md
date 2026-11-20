@@ -1,6 +1,10 @@
 ---
 title: "`::first-line`"
 description: "Стилизуем первую строку текста."
+baseline:
+  - group: first-line
+    features:
+      - css.selectors.first-line
 authors:
   - punkmachine
 keywords:

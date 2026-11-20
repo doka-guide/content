@@ -1,6 +1,10 @@
 ---
 title: "`counter-reset`"
 description: "Свойство для создания CSS-счётчика."
+baseline:
+  - group: counters
+    features:
+      - css.properties.counter-reset
 authors:
   - blueingreen68
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`font-variant-alternates`"
 description: "В вариативном шрифте бывает несколько видов одного символа."
+baseline:
+  - group: font-variant-alternates
+    features:
+      - css.properties.font-variant-alternates
 authors:
   - doka-dog
 related:

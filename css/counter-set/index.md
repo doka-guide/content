@@ -1,6 +1,10 @@
 ---
 title: "`counter-set`"
 description: "Свойство, которое управляет точным числовым значением существующих CSS-счётчиков."
+baseline:
+  - group: counter-set
+    features:
+      - css.properties.counter-set
 contributors:
   - solarrust
 authors:

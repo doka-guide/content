@@ -1,6 +1,10 @@
 ---
 title: "`:hover`"
 description: "Оживляем элементы, реагируем на наведение курсора."
+baseline:
+  - group: user-action-pseudos
+    features:
+      - css.selectors.hover
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

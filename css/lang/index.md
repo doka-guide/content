@@ -1,6 +1,10 @@
 ---
 title: "`:lang()`"
 description: "Задавайте стили тексту в зависимости от языка, на котором он написан."
+baseline:
+  - group: lang
+    features:
+      - css.selectors.lang
 authors:
   - almadef
 related:

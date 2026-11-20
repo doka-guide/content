@@ -1,6 +1,10 @@
 ---
 title: "`cursor`"
 description: "Меняем привычный курсор-стрелку на более подходящий."
+baseline:
+  - group: cursor
+    features:
+      - css.properties.cursor
 authors:
   - solarrust
 contributors:

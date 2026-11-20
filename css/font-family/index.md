@@ -1,6 +1,10 @@
 ---
 title: "`font-family`"
 description: "Каким шрифтом будем текст писать?"
+baseline:
+  - group: font-family
+    features:
+      - css.properties.font-family
 authors:
   - doka-dog
 contributors:

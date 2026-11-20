@@ -1,6 +1,10 @@
 ---
 title: "`filter`"
 description: "Изменяем изображения при помощи CSS."
+baseline:
+  - group: filter
+    features:
+      - css.properties.filter
 authors:
   - lenaryan
 contributors:

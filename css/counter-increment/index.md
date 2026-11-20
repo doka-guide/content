@@ -1,6 +1,10 @@
 ---
 title: "`counter-increment`"
 description: "Свойство, которое увеличивает значения существующих CSS-счётчиков."
+baseline:
+  - group: counters
+    features:
+      - css.properties.counter-increment
 authors:
   - blueingreen68
 contributors:
