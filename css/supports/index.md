@@ -1,6 +1,10 @@
 ---
 title: "`@supports`"
 description: "Директива позволяет проверить, поддерживает ли браузер свойство, правило или селектор."
+baseline:
+  - group: supports
+    features:
+      - css.at-rules.supports
 authors:
   - ipogorelova
 contributors:

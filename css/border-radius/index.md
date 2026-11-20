@@ -1,6 +1,10 @@
 ---
 title: "`border-radius`"
 description: "Сглаживает острые углы."
+baseline:
+  - group: border-radius
+    features:
+      - css.properties.border-radius
 authors:
   - solarrust
 contributors:

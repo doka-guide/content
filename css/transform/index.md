@@ -1,6 +1,10 @@
 ---
 title: "`transform`"
 description: "Вытворяем с элементами что попало: поворачиваем, искажаем, меняем масштаб."
+baseline:
+  - group: transforms2d
+    features:
+      - css.properties.transform
 authors:
   - ezhkov
 contributors:

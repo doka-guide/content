@@ -1,6 +1,10 @@
 ---
 title: "`border-collapse`"
 description: "Задаёт поведение границ таблицы и её ячеек."
+baseline:
+  - group: table
+    features:
+      - css.properties.border-collapse
 authors:
   - starhamster
 keywords:

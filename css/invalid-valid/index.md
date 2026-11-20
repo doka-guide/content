@@ -1,6 +1,11 @@
 ---
 title: "`:invalid`, `:valid`"
 description: "Валидируем форму прямо в браузере. Без JavaScript, регистрации и смс."
+baseline:
+  - group: form-validity-pseudos
+    features:
+      - css.selectors.invalid
+      - css.selectors.valid
 authors:
   - ezhkov
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`repeating-radial-gradient()`"
 description: "Создаёт градиент из повторяющихся круговых или эллиптических узоров."
+baseline:
+  - group: gradients
+    features:
+      - css.types.gradient.repeating-radial-gradient
 authors:
   - inventoris
 related:

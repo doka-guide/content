@@ -1,6 +1,10 @@
 ---
 title: "`font-stretch`"
 description: "Свойство для управления шириной букв для вариативных шрифтов."
+baseline:
+  - group: font-stretch
+    features:
+      - css.properties.font-stretch
 authors:
   - kalpovskii
   - starhamster

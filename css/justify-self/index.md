@@ -1,6 +1,10 @@
 ---
 title: "`justify-self`"
 description: "Выравниваем грид-элемент вопреки правилам грид-контейнера."
+baseline:
+  - group: grid
+    features:
+      - css.properties.justify-self
 authors:
   - solarrust
 keywords:

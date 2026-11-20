@@ -1,6 +1,10 @@
 ---
 title: "`:empty`"
 description: "Как в CSS определить, что элемент пустой? Легко! При помощи этого псевдокласса."
+baseline:
+  - group: empty
+    features:
+      - css.selectors.empty
 authors:
   - ezhkov
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`font-display`"
 description: "Управляем отображением шрифта во время загрузки страницы."
+baseline:
+  - group: font-display
+    features:
+      - css.at-rules.font-face.font-display
 authors:
   - ezhkov
 keywords:

@@ -1,6 +1,10 @@
 ---
 title: "`background-image`"
 description: "Полезное свойство, если нужно поставить на фон картинку или задать декоративное изображение. Можно даже градиент!"
+baseline:
+  - group: background-image
+    features:
+      - css.properties.background-image
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

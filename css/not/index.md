@@ -1,6 +1,10 @@
 ---
 title: "`:not`"
 description: "Отрицаем всё! Исключаем из выборки селектора элементы с определённым признаком."
+baseline:
+  - group: not
+    features:
+      - css.selectors.not
 authors:
   - solarrust
 contributors:

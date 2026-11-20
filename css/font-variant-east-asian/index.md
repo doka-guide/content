@@ -1,6 +1,10 @@
 ---
 title: "`font-variant-east-asian`"
 description: "Используем специальные символы для восточноазиатских языков."
+baseline:
+  - group: font-variant-east-asian
+    features:
+      - css.properties.font-variant-east-asian
 authors:
   - doka-dog
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`text-decoration`"
 description: "Добавляем любому тексту чёрточку. Или убираем, где она есть, но не нужна."
+baseline:
+  - group: text-decoration
+    features:
+      - css.properties.text-decoration
 authors:
   - solarrust
 contributors:

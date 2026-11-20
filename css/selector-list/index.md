@@ -1,6 +1,10 @@
 ---
 title: "Перечисление селекторов"
 description: "Пишем сразу несколько селекторов, к которым будут применяться стили."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.list
 authors:
   - solarrust
 contributors:

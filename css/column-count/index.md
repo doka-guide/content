@@ -1,6 +1,10 @@
 ---
 title: "`column-count`"
 description: "На сколько колонок разбить контент: на две, три или десять?"
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-count
 authors:
   - xpleesid
 contributors:

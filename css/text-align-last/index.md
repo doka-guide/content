@@ -1,6 +1,10 @@
 ---
 title: "`text-align-last`"
 description: "Как сделать финальный аккорд стильным? Управляем выравниванием последней строки."
+baseline:
+  - group: text-align-last
+    features:
+      - css.properties.text-align-last
 authors:
   - mbelinskaya
 related:

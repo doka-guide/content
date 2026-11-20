@@ -1,6 +1,10 @@
 ---
 title: "`repeating-linear-gradient()`"
 description: "Создаёт узоры из повторяющихся линий."
+baseline:
+  - group: gradients
+    features:
+      - css.types.gradient.repeating-linear-gradient
 authors:
   - inventoris
 related:

@@ -1,6 +1,14 @@
 ---
 title: "Псевдоклассы группы type"
 description: "Эти псевдоклассы позволяют выбирать среди элементов одного типа по порядковому номеру."
+baseline:
+  - group: nth-of-type
+    features:
+      - css.selectors.first-of-type
+      - css.selectors.last-of-type
+      - css.selectors.nth-of-type
+      - css.selectors.nth-last-of-type
+      - css.selectors.only-of-type
 authors:
   - realetive
 contributors:

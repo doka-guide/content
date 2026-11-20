@@ -1,6 +1,10 @@
 ---
 title: "`:focus`"
 description: "Меняем внешний вид элемента в фокусе."
+baseline:
+  - group: user-action-pseudos
+    features:
+      - css.selectors.focus
 authors:
   - solarrust
 contributors:

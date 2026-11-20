@@ -1,6 +1,10 @@
 ---
 title: "`orphans`"
 description: "Сколько строчек должно остаться на предыдущей странице при печати?"
+baseline:
+  - group: widows-orphans
+    features:
+      - css.properties.orphans
 authors:
   - furtivite
 contributors:

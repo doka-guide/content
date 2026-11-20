@@ -1,6 +1,10 @@
 ---
 title: "`font-weight`"
 description: "Как изменить толщину букв в тексте?"
+baseline:
+  - group: font-weight
+    features:
+      - css.properties.font-weight
 authors:
   - doka-dog
 contributors:

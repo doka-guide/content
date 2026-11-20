@@ -1,6 +1,10 @@
 ---
 title: "`list-style-position`"
 description: "Можно двигать маркеры списка внутрь или наружу строки."
+baseline:
+  - group: list-style
+    features:
+      - css.properties.list-style-position
 authors:
   - ezhkov
 contributors:

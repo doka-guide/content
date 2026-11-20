@@ -52,7 +52,8 @@
 
 - [Поиск](https://github.com/doka-guide/search#readme)
 - [Бэкенд](https://github.com/doka-guide/api#readme)
-- [Дока API](api.md)
+- [Дока API](api.md) — JSON, markdown-версии материалов, файлы для ИИ-агентов и MCP-сервер
+- [MCP-сервер Доки](https://github.com/doka-guide/mcp#readme)
 
 ## Как запустить Доку
 

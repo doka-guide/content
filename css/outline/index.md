@@ -1,6 +1,10 @@
 ---
 title: "`outline`"
 description: "Обводка вокруг элемента, не влияющая на его размеры."
+baseline:
+  - group: outline
+    features:
+      - css.properties.outline
 authors:
   - solarrust
 keywords:

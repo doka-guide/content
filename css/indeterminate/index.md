@@ -1,6 +1,10 @@
 ---
 title: "`:indeterminate`"
 description: "Псевдокласс, который отражает неопределённое состояние чекбокса, радиокнопки или прогресс-бара."
+baseline:
+  - group: indeterminate
+    features:
+      - css.selectors.indeterminate
 authors:
   - marybayt
 keywords:

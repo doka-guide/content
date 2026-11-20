@@ -1,6 +1,10 @@
 ---
 title: "`background-size`"
 description: "Нужно чтобы фоновая картинка заняла всю площадь элемента? Вам нужно это свойство!"
+baseline:
+  - group: background-size
+    features:
+      - css.properties.background-size
 authors:
   - solarrust
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`animation-name`"
 description: "Чтобы анимацию к чему-то применить её нужно сначала назвать."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-name
 authors:
   - solarrust
   - goingtogogo

@@ -1,6 +1,10 @@
 ---
 title: "`animation-iteration-count`"
 description: "Бесконечная анимация? Легко! Для этого есть отдельное свойство."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-iteration-count
 authors:
   - solarrust
 editors:

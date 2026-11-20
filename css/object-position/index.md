@@ -1,6 +1,10 @@
 ---
 title: "`object-position`"
 description: "Как картинка или видео должны располагаться внутри контейнера?"
+baseline:
+  - group: object-position
+    features:
+      - css.properties.object-position
 authors:
   - lenaryan
 keywords:

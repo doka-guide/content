@@ -1,6 +1,10 @@
 ---
 title: "`var()`"
 description: "Функция для использования кастомных свойств в CSS."
+baseline:
+  - group: custom-properties
+    features:
+      - css.types.var
 authors:
   - frontend-sensei
 keywords:
