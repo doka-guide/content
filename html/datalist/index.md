@@ -253,7 +253,7 @@ tags:
 </form>
 ```
 
-<iframe title="Пример работы <datalist> с интерактивным элементом datatime-local" src="demos/datalist-datetime-local/" height="320"></iframe>
+<iframe title="Пример работы <datalist> с интерактивным элементом datetime-local" src="demos/datalist-datetime-local/" height="320"></iframe>
 
 ### `number`
 
