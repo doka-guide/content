@@ -1,6 +1,13 @@
 ---
 title: '`.includes()`'
 description: 'Проверяет, есть ли элемент в массиве или подстрока в строке.'
+baseline:
+  - group: array-includes
+    features:
+      - javascript.builtins.Array.includes
+  - group: string-includes
+    features:
+      - javascript.builtins.String.includes
 authors:
   - nlopin
 related:

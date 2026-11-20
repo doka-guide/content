@@ -1,6 +1,10 @@
 ---
 title: "`window.location`"
 description: "Читаем информацию о текущем URL страницы."
+baseline:
+  - group: location
+    features:
+      - api.Window.location
 authors:
   - akellbl4
 keywords:

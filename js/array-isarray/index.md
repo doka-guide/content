@@ -1,6 +1,10 @@
 ---
 title: "`Array.isArray()`"
 description: "Отличит массив в толпе объектов."
+baseline:
+  - group: array-isarray
+    features:
+      - javascript.builtins.Array.isArray
 authors:
   - yurlovr
 editors:

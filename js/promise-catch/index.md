@@ -1,6 +1,10 @@
 ---
 title: "`.catch()`"
 description: "Обрабатываем ситуации, когда обещали, но не выполнили."
+baseline:
+  - group: promise
+    features:
+      - javascript.builtins.Promise.catch
 authors:
   - nlopin
 keywords:

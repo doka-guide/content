@@ -1,6 +1,10 @@
 ---
 title: "`.querySelectorAll()`"
 description: "Получить все DOM-элементы, подходящие под CSS-селектор."
+baseline:
+  - group: dom
+    features:
+      - api.Document.querySelectorAll
 authors:
   - nlopin
 keywords:

@@ -1,6 +1,10 @@
 ---
 title: "`.findIndex()`"
 description: "Найдёт индекс первого подходящего под условие элемента."
+baseline:
+  - group: array-find
+    features:
+      - javascript.builtins.Array.findIndex
 authors:
   - cergmin
 related:

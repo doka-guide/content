@@ -1,6 +1,10 @@
 ---
 title: "`for`...`in`"
 description: "Обходим имена перечисляемых свойств объекта."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.for_in
 authors:
   - windrushfarer
 contributors:

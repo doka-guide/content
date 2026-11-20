@@ -1,6 +1,10 @@
 ---
 title: ".trim()"
 description: "Метод для удаления пробелов в начале и конце строки."
+baseline:
+  - group: strings
+    features:
+      - javascript.builtins.String.trim
 authors:
   - punkmachine
 related:

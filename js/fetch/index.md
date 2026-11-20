@@ -1,6 +1,10 @@
 ---
 title: "`fetch()`"
 description: "Модно и современно отправляем запросы на сервер."
+baseline:
+  - group: fetch
+    features:
+      - api.fetch
 authors:
   - windrushfarer
 contributors:

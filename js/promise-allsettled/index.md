@@ -1,6 +1,10 @@
 ---
 title: "`Promise.allSettled()`"
 description: "Запускаем несколько промисов параллельно и ждём, когда они все завершатся."
+baseline:
+  - group: promise-allsettled
+    features:
+      - javascript.builtins.Promise.allSettled
 authors:
   - vadymstebakov
 related:

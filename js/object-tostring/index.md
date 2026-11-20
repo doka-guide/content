@@ -1,6 +1,10 @@
 ---
 title: "`.toString()`"
 description: "Возвращает строковое представление объекта."
+baseline:
+  - group: object-object
+    features:
+      - javascript.builtins.Object.toString
 authors:
   - nlopin
 related:

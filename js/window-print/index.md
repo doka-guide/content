@@ -1,6 +1,10 @@
 ---
 title: "`window.print()`"
 description: "Открывает диалог печати текущей страницы."
+baseline:
+  - group: print
+    features:
+      - api.Window.print
 authors:
   - nlopin
 contributors:

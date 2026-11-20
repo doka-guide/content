@@ -1,6 +1,10 @@
 ---
 title: "`.delete()`"
 description: "Удаляет значение из коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.delete
 authors:
   - nlopin
 related:

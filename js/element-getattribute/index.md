@@ -1,6 +1,10 @@
 ---
 title: "`.getAttribute()`"
 description: "Получить значение любого HTML-атрибута."
+baseline:
+  - group: dom
+    features:
+      - api.Element.getAttribute
 authors:
   - windrushfarer
 related:

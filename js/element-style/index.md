@@ -1,6 +1,10 @@
 ---
 title: "`.style`"
 description: "Меняем CSS-стили из кода."
+baseline:
+  - group: css-object-model
+    features:
+      - api.HTMLElement.style
 authors:
   - bespoyasov
 related:

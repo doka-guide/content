@@ -1,6 +1,10 @@
 ---
 title: "`Number.isFinite()`"
 description: "Поможет убедиться, что переданное значение — конечное число."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Number.isFinite
 authors:
   - windrushfarer
 related:

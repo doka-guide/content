@@ -1,6 +1,10 @@
 ---
 title: "`parseInt()`"
 description: "Преобразует строку в число по указанному основанию."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.parseInt
 authors:
   - doka-dog
 related:

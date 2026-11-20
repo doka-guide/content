@@ -1,6 +1,10 @@
 ---
 title: "`.entries()`"
 description: "Возвращает объект-итератор индексов и значений элементов массива."
+baseline:
+  - group: array-iterators
+    features:
+      - javascript.builtins.Array.entries
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

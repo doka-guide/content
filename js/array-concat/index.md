@@ -1,6 +1,10 @@
 ---
 title: "`.concat()`"
 description: "Возвращает новый массив, полученный при объединении нескольких массивов."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.concat
 authors:
   - vitya-ne
 related:

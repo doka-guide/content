@@ -1,6 +1,10 @@
 ---
 title: "WeakMap"
 description: "Коллекция из пар ключ-значение, позволяющая собирать свои ключи сборщиком мусора."
+baseline:
+  - group: weakmap
+    features:
+      - javascript.builtins.WeakMap
 authors:
   - hellsquirrel
 related:

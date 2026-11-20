@@ -1,6 +1,12 @@
 ---
 title: "`bind()`, `call()` и `apply()`"
 description: "Методы привязки контекста: `bind()`, `call()` и `apply()`"
+baseline:
+  - group: functions
+    features:
+      - javascript.builtins.Function.bind
+      - javascript.builtins.Function.call
+      - javascript.builtins.Function.apply
 authors:
   - lira-bazh
 related:

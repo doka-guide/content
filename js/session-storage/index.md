@@ -1,6 +1,10 @@
 ---
 title: "`sessionStorage`"
 description: "Храним данные пользователя в браузере, но только до момента, пока открыта текущая вкладка."
+baseline:
+  - group: localstorage
+    features:
+      - api.Window.sessionStorage
 authors:
   - akellbl4
 contributors:

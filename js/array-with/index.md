@@ -1,6 +1,10 @@
 ---
 title: "`.with()`"
 description: "Создаёт новый массив, изменяя один элемент исходного."
+baseline:
+  - group: array-by-copy
+    features:
+      - javascript.builtins.Array.with
 authors:
   - vitya-ne
 related:

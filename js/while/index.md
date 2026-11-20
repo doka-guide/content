@@ -1,6 +1,10 @@
 ---
 title: "`while`"
 description: "Классический цикл, который есть в каждом языке программирования."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.while
 authors:
   - nlopin
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`const`"
 description: "Создаём переменную, значение которой нельзя изменить."
+baseline:
+  - group: let-const
+    features:
+      - javascript.statements.const
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

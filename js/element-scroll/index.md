@@ -1,6 +1,11 @@
 ---
 title: "`scroll`"
 description: "Событие, когда что-то прокручивается."
+baseline:
+  - group: scroll-elements
+    features:
+      - api.Element.scroll_event
+      - api.Document.scroll_event
 authors:
   - nlopin
 contributors:

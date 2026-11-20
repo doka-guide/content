@@ -1,6 +1,10 @@
 ---
 title: "`.scrollIntoView()`"
 description: "Прокрутить окно браузера до указанного элемента."
+baseline:
+  - group: scroll-into-view
+    features:
+      - api.Element.scrollIntoView
 authors:
   - inventoris
 contributors:

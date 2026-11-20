@@ -1,6 +1,10 @@
 ---
 title: "`WeakRef`"
 description: "Слабая ссылка на объект."
+baseline:
+  - group: weak-references
+    features:
+      - javascript.builtins.WeakRef
 authors:
   - doka-dog
 related:

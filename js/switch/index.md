@@ -1,6 +1,10 @@
 ---
 title: "`switch`"
 description: "Выполняем код при совпадении значения переменной с ожидаемым значением."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.switch
 authors:
   - nlopin
 contributors:
@@ -80,7 +84,7 @@ if (memberStatus === 'vip') {
 }
 ```
 
-Код выше работает, но выглядит избыточно — в нем очень много сравнений с использованием `memberStatus`. Конструкция `switch` решает такую задачу меньшим объёмом кода:
+Код выше работает, но выглядит избыточно — в нём очень много сравнений с использованием `memberStatus`. Конструкция `switch` решает такую задачу меньшим объёмом кода:
 
 ```js
 let discount

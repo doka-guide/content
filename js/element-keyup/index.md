@@ -1,6 +1,10 @@
 ---
 title: "`keyup`"
 description: "Событие, когда клавишу отпустили."
+baseline:
+  - group: keyboard-events
+    features:
+      - api.Element.keyup_event
 authors:
   - stegur
 contributors:

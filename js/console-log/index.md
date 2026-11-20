@@ -1,6 +1,10 @@
 ---
 title: "`console.log()`"
 description: "Главный способ отладки кода в вебе."
+baseline:
+  - group: console
+    features:
+      - api.console.log_static
 authors:
   - doka-dog
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`.slice()`"
 description: "Возвращает новый массив, копируя часть исходного массива."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.slice
 authors:
   - vitya-ne
 related:

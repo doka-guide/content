@@ -1,6 +1,10 @@
 ---
 title: "`.findLast()`"
 description: "Найдёт первый подходящий по условию элемент, обходя массив, начиная с конца."
+baseline:
+  - group: array-findlast
+    features:
+      - javascript.builtins.Array.findLast
 authors:
   - vitya-ne
 related:

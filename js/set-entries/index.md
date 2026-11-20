@@ -1,6 +1,10 @@
 ---
 title: "`.entries()`"
 description: "Метод возвращает итератор пар [значение, значение] коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.entries
 authors:
   - nlopin
 related:

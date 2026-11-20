@@ -1,6 +1,11 @@
 ---
 title: "`HTMLCollection` и `NodeList`"
 description: "Коллекции элементов DOM-дерева. Похожие, но отличающиеся."
+baseline:
+  - group: dom
+    features:
+      - api.HTMLCollection
+      - api.NodeList
 authors:
   - nlopin
 tags:

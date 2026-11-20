@@ -1,6 +1,10 @@
 ---
 title: "Спред-синтаксис `...`"
 description: "Упрощает создание объектов и массивов на основе других объектов и массивов."
+baseline:
+  - group: spread
+    features:
+      - javascript.operators.spread
 authors:
   - nlopin
 editors:

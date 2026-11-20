@@ -1,6 +1,10 @@
 ---
 title: "`for`"
 description: "Классический цикл максимально удобен для работы со счётчиками."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.for
 authors:
   - doka-dog
 contributors:

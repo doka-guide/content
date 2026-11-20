@@ -1,6 +1,10 @@
 ---
 title: "`.length`"
 description: "Свойство возвращает количество символов в строке."
+baseline:
+  - group: strings
+    features:
+      - javascript.builtins.String.length
 authors:
   - nlopin
 related:

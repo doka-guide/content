@@ -1,6 +1,10 @@
 ---
 title: "`submit`"
 description: "Пользователь отправляет форму, а мы реагируем."
+baseline:
+  - group: form
+    features:
+      - api.HTMLFormElement.submit_event
 authors:
   - inventoris
 related:

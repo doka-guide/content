@@ -1,6 +1,10 @@
 ---
 title: "`.cookie`"
 description: "Единственный доступ в банку с оставленными сервером печеньками."
+baseline:
+  - group: cookies
+    features:
+      - api.Document.cookie
 authors:
   - akellbl4
 related:

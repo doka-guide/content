@@ -1,6 +1,10 @@
 ---
 title: "`.removeProperty()`"
 description: "Удаляем CSS-свойство у элемента."
+baseline:
+  - group: css-object-model
+    features:
+      - api.CSSStyleDeclaration.removeProperty
 authors:
   - bellabzhu
   - kiryshka1922

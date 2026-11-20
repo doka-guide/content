@@ -1,6 +1,10 @@
 ---
 title: "`.pop()`"
 description: "Удаляет последний элемент массива и возвращает значение удалённого элемента."
+baseline:
+  - group: array
+    features:
+      - javascript.builtins.Array.pop
 authors:
   - vitya-ne
 related:

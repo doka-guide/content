@@ -1,6 +1,10 @@
 ---
 title: "`.clear()`"
 description: "Удаляет все значения из коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.clear
 authors:
   - nlopin
 related:

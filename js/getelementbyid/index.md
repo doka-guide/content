@@ -1,6 +1,10 @@
 ---
 title: "`.getElementById()`"
 description: "Получаем DOM-элементы по атрибуту `id`."
+baseline:
+  - group: dom
+    features:
+      - api.Document.getElementById
 authors:
   - nlopin
 related:

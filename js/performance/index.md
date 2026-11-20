@@ -1,6 +1,10 @@
 ---
 title: "`performance`"
 description: "Изучаем, какие инструменты предоставляет браузер для измерения времени работы программ и функций."
+baseline:
+  - group: performance
+    features:
+      - api.performance
 keywords:
 authors:
   - mighty-peach
