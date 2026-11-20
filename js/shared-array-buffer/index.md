@@ -1,6 +1,10 @@
 ---
 title: "`SharedArrayBuffer`"
 description: "Объект с бинарными данными фиксированной длины для разделяемой области памяти."
+baseline:
+  - group: shared-memory
+    features:
+      - javascript.builtins.SharedArrayBuffer
 authors:
   - doka-dog
 keywords:

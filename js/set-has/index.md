@@ -1,6 +1,10 @@
 ---
 title: "`.has()`"
 description: "Метод проверяет наличие значения в коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.has
 authors:
   - nlopin
 related:

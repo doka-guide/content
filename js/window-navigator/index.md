@@ -1,6 +1,10 @@
 ---
 title: "`window.navigator`"
 description: "Возвращает описание браузера или приложения, которое выполняет скрипт."
+baseline:
+  - group: navigator
+    features:
+      - api.Window.navigator
 authors:
   - doka-dog
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`switch`"
 description: "Выполняем код при совпадении значения переменной с ожидаемым значением."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.switch
 authors:
   - nlopin
 contributors:

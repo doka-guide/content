@@ -1,6 +1,10 @@
 ---
 title: "`.values()`"
 description: "`.values()` возвращает итератор для обхода значений коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.values
 authors:
   - nlopin
 related:

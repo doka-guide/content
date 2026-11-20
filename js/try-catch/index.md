@@ -1,6 +1,10 @@
 ---
 title: "`try`...`catch`"
 description: "Позволяет обработать ситуацию, когда код выбрасывает ошибку, и не сломать приложение."
+baseline:
+  - group: javascript
+    features:
+      - javascript.statements.try_catch
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "`.finally()`"
 description: "Выполняем код вне зависимости от результата промиса."
+baseline:
+  - group: promise-finally
+    features:
+      - javascript.builtins.Promise.finally
 authors:
   - nlopin
 keywords:

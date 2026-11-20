@@ -1,6 +1,10 @@
 ---
 title: "`queueMicrotask()`"
 description: "Брат `setTimeout`, или как добавить синхронную функцию в очередь микрозадач."
+baseline:
+  - group: queuemicrotask
+    features:
+      - api.queueMicrotask
 authors:
   - corocoto
 contributors:

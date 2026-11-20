@@ -1,6 +1,10 @@
 ---
 title: "`setInterval()`"
 description: "Регулярно запускает функцию через указанный промежуток времени."
+baseline:
+  - group: setinterval
+    features:
+      - api.setInterval
 authors:
   - nlopin
 related:
