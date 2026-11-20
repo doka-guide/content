@@ -8,12 +8,12 @@
 
 Обычно в доках хранится описание методов, свойств, тегов — вы можете использовать их в качестве краткой справки. В своих приложениях или плагинах можно получить такую справку по всем материалам разделов в виде списков:
 
-- HTML: `https://doka.guide/html/index.json`
-- CSS: `https://doka.guide/css/index.json`
-- JavaScript: `https://doka.guide/js/index.json`
-- Рецепты: `https://doka.guide/recipes/index.json`
-- Доступность: `https://doka.guide/a11y/index.json`
-- Веб-платформа: `https://doka.guide/tools/index.json`
+- HTML: [https://doka.guide/html/index.json](https://doka.guide/html/index.json)
+- CSS: [https://doka.guide/css/index.json](https://doka.guide/css/index.json)
+- JavaScript: [https://doka.guide/js/index.json](https://doka.guide/js/index.json)
+- Рецепты: [https://doka.guide/recipes/index.json](https://doka.guide/recipes/index.json)
+- Доступность: [https://doka.guide/a11y/index.json](https://doka.guide/a11y/index.json)
+- Веб-платформа: [https://doka.guide/tools/index.json](https://doka.guide/tools/index.json)
 
 Формат информации для каждой доки в списке:
 
@@ -29,7 +29,7 @@
 
 ## Информация об участниках
 
-**Краткую информацию** об участниках Доки в виде списка можно получить по адресу `https://doka.guide/people/info.json`. Информация доступна в следующем формате для каждого:
+**Краткую информацию** об участниках Доки в виде списка можно получить по ссылке [https://doka.guide/people/info.json](https://doka.guide/people/info.json). Информация доступна в следующем формате для каждого:
 
 ```js
 {
@@ -122,8 +122,8 @@ license: "лицензия текста"
 
 Дока отдаёт два текстовых файла по соглашению [`llms.txt`](https://llmstxt.org):
 
-- `https://doka.guide/llms.txt` — краткая справка о проекте: что такое Дока, как получить markdown и JSON, какие есть разделы и сколько в них материалов, на каких условиях всё это можно использовать. Один запрос, несколько килобайт.
-- `https://doka.guide/llms-full.txt` — полный список материалов. Для каждого заголовок, краткое описание и ссылка на markdown-версию. Заготовки в список не попадают.
+- [https://doka.guide/llms.txt](https://doka.guide/llms.txt) — краткая справка о проекте: что такое Дока, как получить markdown и JSON, какие есть разделы и сколько в них материалов, на каких условиях всё это можно использовать. Один запрос, несколько килобайт.
+- [https://doka.guide/llms-full.txt](https://doka.guide/llms-full.txt) — полный список материалов. Для каждого заголовок, краткое описание и ссылка на markdown-версию. Заготовки в список не попадают.
 
 Начинайте с `llms.txt`: он объясняет, что в Доке есть, и ведёт дальше по ссылкам. `llms-full.txt` нужен, когда надо пройти по всем материалам сразу.
 

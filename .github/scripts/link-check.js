@@ -381,6 +381,17 @@ function lineNumberAt(content, index) {
   return content.slice(0, index).split('\n').length
 }
 
+// Машинные адреса сайта: index.json по разделам, info.json по людям, markdown-версия
+// материала, llms.txt, sitemap.xml. Их отдаёт платформа, в репозитории с контентом
+// материала для них нет, поэтому проверять их как ссылку на материал нельзя.
+// Относительные ссылки на файлы это не затрагивает: кросс-ссылки внутри docs/
+// (`contributing.md`) по-прежнему проверяются по диску.
+const MACHINE_FILE_EXTENSIONS = /\.(json|txt|md|xml|csv)$/
+
+function isMachineFileUrl(url) {
+  return MACHINE_FILE_EXTENSIONS.test(splitUrl(url).pathname.split('?')[0])
+}
+
 function shouldSkipUrl(url) {
   if (!url || url === '#') {
     return true
@@ -388,8 +399,12 @@ function shouldSkipUrl(url) {
   if (url.startsWith('mailto:') || url.startsWith('tel:')) {
     return true
   }
+  // Доковские адреса сюда не доходят: normalizeDokaUrl уже срезал домен
   if (url.startsWith('http://') || url.startsWith('https://')) {
-    return !url.startsWith('https://doka.guide')
+    return true
+  }
+  if (url.startsWith('/') && isMachineFileUrl(url)) {
+    return true
   }
   return false
 }
