@@ -343,12 +343,24 @@ jobs:
 
           echo "::group::Публикация превью"
           echo "Начало: $(date -u +%H:%M:%S) UTC. Отправляется $(du -sh dist | cut -f1)."
-          ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${PULL_NUMBER}
-          # --info=progress2 показывает общий прогресс одной обновляемой строкой,
-          # а не портянку из десятков тысяч имён файлов, как прежний --progress.
-          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" \
-            --archive --compress --delete --info=progress2 \
-            . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${PULL_NUMBER}
+          # Соединение с сервером иногда замирает посреди передачи: ssh жив, данные
+          # не идут, и rsync без таймаута ждёт до timeout-minutes джобы. --timeout
+          # обрывает такую передачу через минуту тишины, ServerAlive — мёртвое
+          # соединение. Повтор безопасен: rsync дошлёт только то, что не успел.
+          SSH_COMMAND="ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no -o BatchMode=yes \
+            -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
+          $SSH_COMMAND deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${PULL_NUMBER}
+          cd dist
+          for attempt in 1 2 3; do
+            # --info=progress2 показывает общий прогресс одной обновляемой строкой,
+            # а не портянку из десятков тысяч имён файлов, как прежний --progress.
+            rsync -e "$SSH_COMMAND" --timeout=60 --archive --compress --delete --info=progress2 \
+              . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${PULL_NUMBER} && break
+            [ "$attempt" -lt 3 ] || exit 1
+            echo ""
+            echo "::warning::rsync прервался, попытка $attempt из 3"
+            sleep 15
+          done
           echo ""
           echo "Готово: $(date -u +%H:%M:%S) UTC."
           echo "::endgroup::"
