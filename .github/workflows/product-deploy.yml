@@ -12,11 +12,6 @@ on:
     types:
       - completed
 
-# Группа без cancel-in-progress: оборванный `rsync --delete` оставил бы сайт
-# наполовину синхронизированным. Лишняя выкатка подождёт своей очереди.
-concurrency:
-  group: Product Deploy
-
 permissions:
   contents: read
 
@@ -27,6 +22,13 @@ jobs:
     # обслуживания, которое не отработало, — а заодно выкатка запускалась бы на
     # собственном коммите бота, где обслуживание пропущено.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Группа без cancel-in-progress: оборванный `rsync --delete` оставил бы сайт
+    # наполовину синхронизированным. Лишняя выкатка подождёт своей очереди.
+    # Группа стоит на job, а не на workflow: иначе пропущенный прогон с коммита
+    # бота вставал в очередь и отменял ждущую настоящую выкатку.
+    concurrency:
+      group: Product Deploy
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
