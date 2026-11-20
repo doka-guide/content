@@ -7,12 +7,12 @@
   <input type="checkbox" id="menu">
   <label for="menu">Выбери черепашку</label>
   <ul>
-    <li><a href="#">Леонардо</a></li>
-    <li><a href="#">Рафаэль</a></li>
-    <li><a href="#">Донателло</a></li>
-    <li><a href="#">Микеланджело</a></li>
-    <li><a href="#">Боттичелли</a></li>
-    <li><a href="#">Караваджо</a></li>
+    <li><button type="button">Леонардо</button></li>
+    <li><button type="button">Рафаэль</button></li>
+    <li><button type="button">Донателло</button></li>
+    <li><button type="button">Микеланджело</button></li>
+    <li><button type="button">Боттичелли</button></li>
+    <li><button type="button">Караваджо</button></li>
   </ul>
 </div>
 ```
@@ -44,8 +44,13 @@
   font-size: 20px;
 }
 
-.dropdown a {
+.dropdown button {
+  border: none;
+  background-color: transparent;
   color: #000000;
+  font-size: inherit;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .dropdown :checked ~ label {
