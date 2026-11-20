@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Настраиваемый выпадающий список — appearance — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 240px;
+    }
+
+    select {
+      font-family: inherit;
+      font-size: 18px;
+    }
+
+    /* Включаем настраиваемый вид и для кнопки, и для выпадающей части */
+    .custom,
+    .custom::picker(select) {
+      appearance: base-select;
+    }
+
+    .custom {
+      padding: 8px 12px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+    }
+
+    .custom::picker-icon {
+      color: #2E9AFF;
+      transition: rotate 0.2s;
+    }
+
+    .custom:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    .custom::picker(select) {
+      margin-top: 4px;
+      padding: 4px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: #282A2E;
+    }
+
+    .custom option {
+      padding: 8px 12px;
+      border-radius: 4px;
+      color: #FFFFFF;
+    }
+
+    .custom option:hover,
+    .custom option:focus-visible {
+      background-color: #18191C;
+    }
+
+    .custom option:checked {
+      color: #F498AD;
+    }
+
+    .custom option::checkmark {
+      color: #F498AD;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="field">
+    <label for="fruit-default">Список по умолчанию</label>
+    <select id="fruit-default">
+      <option>🍏 Яблоко</option>
+      <option>🍐 Груша</option>
+      <option>🍋 Лимон</option>
+      <option>🍉 Арбуз</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="fruit-custom">Список с <code>base-select</code></label>
+    <select id="fruit-custom" class="custom">
+      <option>🍏 Яблоко</option>
+      <option>🍐 Груша</option>
+      <option>🍋 Лимон</option>
+      <option>🍉 Арбуз</option>
+    </select>
+  </div>
+</body>
+</html>
