@@ -83,7 +83,7 @@ meta() {
   for section in "${SECTIONS[@]}"; do
     patterns+=( "$section/*/index.md" )
   done
-  npx --yes yaml-cat --format json --output result.json "${patterns[@]}" || return 1
+  npx --yes yaml-cat@0.4.2 --format json --output result.json "${patterns[@]}" || return 1
   node .github/scripts/frontmatter.js
 }
 

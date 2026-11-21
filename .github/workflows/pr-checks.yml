@@ -24,27 +24,36 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.2.0
+          node-version: 26
+      # Список файлов пулреквеста — из API, без стороннего экшена. Удалённые
+      # файлы проверять нечем. Переименованные без правок пропускаются: иначе
+      # переезд папки статьи падал бы на чужих старых ошибках.
+      # Файл со списком по строке на имя: имена не подставляются в shell.
+      - name: Изменённые файлы
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_URL: repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files
+        run: |
+          gh api --paginate "$PULL_URL?per_page=100" \
+            --jq '.[] | select(.status != "removed" and (.status != "renamed" or .changes > 0)) | .filename' > "$RUNNER_TEMP/files.txt"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/files.txt")"
+      # Версии обёртки и бинарника закреплены: обёртка по умолчанию качает
+      # бинарник «latest», и проверка меняла поведение сама по себе.
       - name: Работает линтер
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EC_VERSION: v4.0.2
         run: |
-          npm install editorconfig-checker --global
-          config=.editorconfig
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
-            if [ $changed_file == $config ]
-            then
-              echo "Проверка для всех файлов"
-              editorconfig-checker
-              break
-            else
-              echo "Проверка для ${changed_file}"
-              editorconfig-checker ${changed_file}
-            fi
-          done
+          npm install --global --ignore-scripts editorconfig-checker@7.0.0
+          if grep -qxF '.editorconfig' "$RUNNER_TEMP/files.txt"; then
+            echo "Проверка для всех файлов"
+            editorconfig-checker
+            exit 0
+          fi
+          while IFS= read -r changed_file; do
+            echo "Проверка для ${changed_file}"
+            editorconfig-checker "$changed_file" < /dev/null
+          done < "$RUNNER_TEMP/files.txt"
   frontmatter-checker:
     name: Мета
     runs-on: ubuntu-latest
@@ -53,28 +62,27 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.2.0
-        with:
-          filter: |
-            (css|html|js|tools|a11y|recipes)/**/index.md
-            !(pages|people)/**/index.md
-      - name: Работает линтер
+          node-version: 26
+      # Список файлов — как в «Форматировании» выше.
+      - name: Изменённые файлы
         env:
-          # Через `env`: имена файлов приходят из пулреквеста, а имя папки
-          # задаёт автор.
-          FILES: ${{ steps.files.outputs.added_modified }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_URL: repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files
         run: |
-          if [ -z "$FILES" ]; then
+          gh api --paginate "$PULL_URL?per_page=100" \
+            --jq '.[] | select(.status != "removed" and (.status != "renamed" or .changes > 0)) | .filename' > "$RUNNER_TEMP/files.txt"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/files.txt")"
+      - name: Работает линтер
+        run: |
+          # Цифры в слаге тоже бывают: `html/h1-h6`, `tools/ipv6-for-webdevs`.
+          # Без них grep не находил такие файлы, и проверка шла вхолостую.
+          mapfile -t files < <(grep -x -E '(css|html|js|tools|a11y|recipes)/[a-z0-9-]+/index.md' "$RUNNER_TEMP/files.txt" || true)
+          if [ ${#files[@]} -eq 0 ]; then
             echo "В PR нет файлов для проверки"
             exit 0
           fi
           echo "Проверка для файлов из PR"
-          # Цифры в слаге тоже бывают: `html/h1-h6`, `tools/ipv6-for-webdevs`.
-          # Без них grep не находил такие файлы, и проверка шла вхолостую.
-          npx yaml-cat --format json --output result.json $(echo "$FILES" | grep -o -E '(css|html|js|tools|a11y|recipes)/[a-z0-9-]+/index.md')
+          npx --yes yaml-cat@0.4.2 --format json --output result.json "${files[@]}"
           node .github/scripts/frontmatter.js
   # Обе проверки текста в одной джобе: чекаут и Node общие, а сами проверки
   # занимают секунды. Шаги не прерывают друг друга — при падении видно оба
@@ -89,30 +97,35 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.2.0
-        with:
-          filter: '*.md'
+          node-version: 26
+      # Список файлов — как в «Форматировании» выше.
+      - name: Изменённые файлы
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_URL: repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files
+        run: |
+          gh api --paginate "$PULL_URL?per_page=100" \
+            --jq '.[] | select(.status != "removed" and (.status != "renamed" or .changes > 0)) | .filename' > "$RUNNER_TEMP/files.txt"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/files.txt")"
       - name: Незнакомые слова
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.files.outcome == 'success' }}
         run: |
-          files='${{ steps.files.outputs.added_modified }}'
-          if [[ $files == "" ]]; then
+          mapfile -t files < <(grep -E '\.md$' "$RUNNER_TEMP/files.txt" || true)
+          if [ ${#files[@]} -eq 0 ]; then
             echo "В пулреквесте нет файлов для проверки"
             exit 0
           fi
-          node .github/scripts/check-spelling.mjs $files
+          node .github/scripts/check-spelling.mjs "${files[@]}"
       - name: Буква ё
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.files.outcome == 'success' }}
         run: |
-          files='${{ steps.files.outputs.added_modified }}'
-          if [[ $files == "" ]]; then
+          mapfile -t files < <(grep -E '\.md$' "$RUNNER_TEMP/files.txt" || true)
+          if [ ${#files[@]} -eq 0 ]; then
             echo "В пулреквесте нет файлов для проверки"
             exit 0
           fi
-          node .github/scripts/check-yo.mjs $files
+          node .github/scripts/check-yo.mjs "${files[@]}"
 
   # Без `needs`: проверка идёт наравне с остальными, а не после них. Иначе
   # опечатка в отступе прятала битые ссылки до следующего пуша — человек чинил
@@ -127,19 +140,27 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.2.0
-        with:
-          filter: '*.md'
-          format: 'space-delimited'
-      - name: Проверяет ссылки
-        if: ${{ steps.files.outputs.added_modified != '' || steps.files.outputs.removed != '' }}
+          node-version: 26
+      # Здесь нужны и удалённые файлы: на них могли ссылаться другие статьи.
+      - name: Изменённые файлы
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_URL: repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files
         run: |
-          npm install transliteration --no-save
-          node .github/scripts/link-check.js \
-            ${{ steps.files.outputs.added_modified }} \
-            ${{ steps.files.outputs.removed }}
+          # Отдельной командой, а не в конвейере: шаг идёт без pipefail, и сбой
+          # API в начале конвейера дал бы пустой список и ложный зелёный.
+          gh api --paginate "$PULL_URL?per_page=100" \
+            --jq '.[] | .filename, (.previous_filename // empty)' > "$RUNNER_TEMP/all.txt"
+          { grep -E '\.md$' "$RUNNER_TEMP/all.txt" || true; } | sort -u > "$RUNNER_TEMP/files.txt"
+          echo "Изменено файлов Markdown: $(wc -l < "$RUNNER_TEMP/files.txt")"
+      - name: Проверяет ссылки
+        run: |
+          mapfile -t files < "$RUNNER_TEMP/files.txt"
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "В пулреквесте нет файлов Markdown"
+            exit 0
+          fi
+          npm install --no-save --ignore-scripts transliteration@2.7.0
+          node .github/scripts/link-check.js "${files[@]}"
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
