@@ -113,25 +113,65 @@
       transform: translateX(-50%);
     }
 
-    /* Выбор значений для левой и правой половины */
-    .pickers {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      width: min(320px, 100%);
+    /* Подписи половин */
+    .label {
+      position: absolute;
+      top: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background-color: rgb(24 25 28 / 0.8);
+      font-size: 14px;
+      pointer-events: none;
     }
 
-    .pickers select {
-      flex: 1 1 0;
-      min-width: 0;
-      padding: 6px 8px;
+    .label-left {
+      left: 12px;
+    }
+
+    .label-right {
+      right: 12px;
+    }
+
+    /* Выбор значения для правой половины */
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      width: min(320px, 100%);
+      border: none;
+    }
+
+    .values label {
+      position: relative;
+    }
+
+    .values input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .values span {
+      display: block;
+      padding: 6px 10px;
       border: 1px solid #2E9AFF;
       border-radius: 4px;
       background-color: #282A2E;
-      color: #FFFFFF;
       font-family: "Roboto Mono", monospace;
       font-size: 14px;
       cursor: pointer;
+    }
+
+    .values input:checked + span {
+      background-color: #2E9AFF;
+      color: #18191C;
+    }
+
+    .values input:focus-visible + span {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
     .note {
@@ -191,38 +231,25 @@
       body {
         padding: 30px;
       }
-
-      .pickers select {
-        padding: 6px 4px;
-        font-size: 13px;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="pickers">
-    <select class="picker" data-side="left" aria-label="Значение для левой половины">
-      <option selected>auto</option>
-      <option>smooth</option>
-      <option>high-quality</option>
-      <option>crisp-edges</option>
-      <option>pixelated</option>
-    </select>
-    <select class="picker" data-side="right" aria-label="Значение для правой половины">
-      <option>auto</option>
-      <option>smooth</option>
-      <option>high-quality</option>
-      <option>crisp-edges</option>
-      <option selected>pixelated</option>
-    </select>
-  </div>
+  <fieldset class="values" aria-label="Значение для правой половины">
+    <label><input type="radio" name="value" value="pixelated" checked><span>pixelated</span></label>
+    <label><input type="radio" name="value" value="crisp-edges"><span>crisp-edges</span></label>
+    <label><input type="radio" name="value" value="smooth"><span>smooth</span></label>
+    <label><input type="radio" name="value" value="high-quality"><span>high-quality</span></label>
+  </fieldset>
 
   <div class="compare">
     <div class="layer layer-left">
       <img src="../images/cat.png" alt="Пиксельная мордочка кошки, левая половина">
+      <code class="label label-left">auto</code>
     </div>
     <div class="layer layer-right">
       <img src="../images/cat.png" alt="Та же мордочка кошки, правая половина">
+      <code class="label label-right">pixelated</code>
     </div>
     <div class="divider"></div>
     <input class="split" type="range" min="0" max="100" value="50" aria-label="Граница между половинами">
@@ -241,27 +268,20 @@
     const split = document.querySelector('.split');
     const scaleRange = document.querySelector('.scale-range');
     const scaleValue = document.querySelector('.scale-value');
-    const pickers = document.querySelectorAll('.picker');
+    const values = document.querySelectorAll('.values input');
+    const rightImg = document.querySelector('.layer-right img');
+    const rightLabel = document.querySelector('.label-right');
     const note = document.querySelector('.note');
 
-    // Значения, которые этот браузер не понимает, рисуются как auto
-    const updateNote = () => {
-      const unsupported = [...pickers]
-        .map((picker) => picker.value)
-        .filter((value) => !CSS.supports('image-rendering', value));
-      const unique = [...new Set(unsupported)];
-
-      note.textContent = unique.length
-        ? `Этот браузер не понимает ${unique.join(' и ')}, поэтому рисует картинку как при auto`
-        : '';
-    };
-
-    pickers.forEach((picker) => {
-      picker.addEventListener('change', () => {
-        const img = document.querySelector(`.layer-${picker.dataset.side} img`);
-        const supported = CSS.supports('image-rendering', picker.value);
-        img.style.imageRendering = supported ? picker.value : 'auto';
-        updateNote();
+    // Значение, которое браузер не понимает, рисуем как auto и пишем об этом
+    values.forEach((input) => {
+      input.addEventListener('change', () => {
+        const supported = CSS.supports('image-rendering', input.value);
+        rightImg.style.imageRendering = supported ? input.value : 'auto';
+        rightLabel.textContent = input.value;
+        note.textContent = supported
+          ? ''
+          : `Этот браузер не понимает ${input.value}, поэтому рисует картинку как при auto`;
       });
     });
 
