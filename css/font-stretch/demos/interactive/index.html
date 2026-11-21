@@ -45,12 +45,6 @@
       font-size: 24px;
     }
 
-    .note {
-      min-height: 1.4em;
-      color: #F498AD;
-      font-size: 16px;
-    }
-
     input[type="range"] {
       width: 100%;
       accent-color: #2E9AFF;
@@ -87,24 +81,19 @@
 <body>
   <div class="controls">
     <label class="value" for="width">font-stretch: <span id="output">100%</span>;</label>
-    <input type="range" id="width" min="25" max="200" step="1" value="100">
-    <p class="note" id="note"></p>
+    <input type="range" id="width" min="25" max="151" step="1" value="100">
   </div>
   <p class="sample" id="sample">Съешь же ещё этих мягких французских булок, да выпей чаю</p>
 
   <script>
     const slider = document.getElementById('width');
     const output = document.getElementById('output');
-    const note = document.getElementById('note');
     const sample = document.getElementById('sample');
 
     slider.addEventListener('input', () => {
       const value = slider.value + '%';
       sample.style.fontStretch = value;
       output.textContent = value;
-      note.textContent = slider.value > 151
-        ? 'Roboto Flex шире 151% не бывает'
-        : '';
     });
   </script>
 </body>
