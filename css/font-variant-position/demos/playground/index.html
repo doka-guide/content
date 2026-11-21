@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Песочница — font-variant-position — Дока</title>
+  <title>Индексы из шрифта и из тегов — font-variant-position — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&family=Coda&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
+    /* В шрифте Libertinus Serif есть OpenType-функции sups и subs */
     @font-face {
-      font-family: Source Sans Pro;
+      font-family: "Libertinus Serif";
       font-style: normal;
       font-weight: 400;
-      font-display: swap;
-      src: url(https://mdn.github.io/css-examples/font-features/SourceSansPro-Regular.otf) format("opentype");
+      font-display: block;
+      src: url("LibertinusSerif-subset.woff2") format("woff2");
     }
-
 
     *, *::before, *::after {
       margin: 0;
@@ -23,117 +23,154 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      color-scheme: dark;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      display: grid;
-      place-items: center;
-      background-color: #18191c;
-      color: #ffffff;
     }
 
     code {
       font-family: "Roboto Mono", monospace;
-      font-size: 17px;
     }
 
-    h1 code {
-      line-height: 1;
-      font-weight: 500;
-      font-size: 1.625rem;
+    .demo {
+      width: 100%;
+      max-width: 560px;
     }
 
-    h1, .option-description {
-      text-transform: lowercase;
-      text-align: right;
-      inline-size: 340px;
-    }
-
-    .option {
+    .controls {
       display: flex;
-      align-items: baseline;
-      margin-block-start: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      border: none;
     }
 
-    .option-description {
-      line-height: 1.2;
-      margin-inline-end: 40px;
+    .control input {
+      position: absolute;
+      opacity: 0;
     }
 
-    .option-example {
-      margin: 0;
-      font-family: "Source Sans Pro", sans-serif;
-      font-size: 36px;
+    .control span {
+      display: block;
+      padding: 8px 16px;
+      border: 2px solid #282A2E;
+      border-radius: 6px;
+      background-color: #282A2E;
+      font-family: "Roboto Mono", monospace;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .control input:checked + span {
+      border-color: #2E9AFF;
       color: #2E9AFF;
     }
 
-    .normal {
-      font-variant-position: normal;
+    .control input:focus-visible + span {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
-    .sub {
+    .row + .row {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #282A2E;
+    }
+
+    .caption {
+      margin-bottom: 8px;
+      color: rgb(255 255 255 / 0.6);
+      font-size: 16px;
+    }
+
+    .sample {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 40px;
+      font-family: "Libertinus Serif", serif;
+      font-size: 56px;
+      line-height: 1.2;
+    }
+
+    .index {
+      color: #2E9AFF;
+    }
+
+    /* Значение свойства меняется переключателями */
+    .demo:has([value="sub"]:checked) .index {
       font-variant-position: sub;
     }
 
-    .super {
+    .demo:has([value="super"]:checked) .index {
       font-variant-position: super;
     }
 
-    @media (max-width: 768px) {
+    /* Показываем пример, который подходит выбранному значению */
+    .demo:has([value="sub"]:checked) .formula-super,
+    .demo:has([value="super"]:checked) .formula-sub {
+      display: none;
+    }
+
+    /* Для сравнения: стили тегов из браузера по умолчанию */
+    sub,
+    sup {
+      color: #F498AD;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
-      h1, .option-description {
-        inline-size: 100%;
-      }
-
-      .option {
-        flex-direction: row-reverse;
-        margin-block-start: 50px;
-      }
-
-      .option-description {
-        margin-inline-end: auto;
-        margin-block-end: 10px;
-      }
-
-      .option-example {
-        white-space: nowrap;
-        font-size: 18px;
+      .sample {
+        font-size: 40px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1><code>font-variant-position</code></h1>
-    <div class="options">
-      <div class="option">
-        <p class="option-description"><code>normal</code></p>
-        <p class="option-example normal">H2O x2</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>sub</code></p>
-        <p class="option-example">H<sub class="sub">2</sub>O</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>super</code></p>
-        <p class="option-example">x<sup class="super">2</sup></p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>&lt;sub&gt;</code> без свойства</p>
-        <p class="option-example">H<sub>2</sub>O</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>&lt;sup&gt;</code> без свойства</p>
-        <p class="option-example">x<sup>2</sup></p>
-      </div>
+  <div class="demo">
+    <fieldset class="controls">
+      <legend class="caption">Значение <code>font-variant-position</code></legend>
+      <label class="control">
+        <input type="radio" name="position" value="normal" checked>
+        <span>normal</span>
+      </label>
+      <label class="control">
+        <input type="radio" name="position" value="sub">
+        <span>sub</span>
+      </label>
+      <label class="control">
+        <input type="radio" name="position" value="super">
+        <span>super</span>
+      </label>
+    </fieldset>
+
+    <div class="row">
+      <p class="caption">Свойство берёт глифы из шрифта</p>
+      <p class="sample">
+        <span class="formula-sub">H<span class="index">2</span>SO<span class="index">4</span></span>
+        <span class="formula-super">x<span class="index">2</span> + y<span class="index">2</span></span>
+      </p>
+    </div>
+
+    <div class="row">
+      <p class="caption">Теги <code>&lt;sub&gt;</code> и <code>&lt;sup&gt;</code> уменьшают и сдвигают обычные цифры</p>
+      <p class="sample">
+        <span class="formula-sub">H<sub>2</sub>SO<sub>4</sub></span>
+        <span class="formula-super">x<sup>2</sup> + y<sup>2</sup></span>
+      </p>
     </div>
   </div>
-  <script></script>
 </body>
 </html>
