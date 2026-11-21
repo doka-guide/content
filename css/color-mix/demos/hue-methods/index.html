@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Методы интерполяции оттенка — color-mix() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .demo {
+      width: 100%;
+      max-width: 720px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    /* Цветовой круг: оттенок 0° сверху, угол растёт по часовой стрелке */
+    .wheel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+    .wheel__colors {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-image: conic-gradient(
+        hsl(0 80% 55%),
+        hsl(60 80% 55%),
+        hsl(120 80% 55%),
+        hsl(180 80% 55%),
+        hsl(240 80% 55%),
+        hsl(300 80% 55%),
+        hsl(360 80% 55%)
+      );
+      opacity: 0.5;
+    }
+
+    .wheel__svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .wheel__arc {
+      fill: none;
+      stroke: #FFFFFF;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+
+    .wheel__point {
+      stroke: #FFFFFF;
+      stroke-width: 3;
+    }
+
+    .wheel__point--mix {
+      stroke: #18191C;
+    }
+
+    .wheel__label {
+      fill: #FFFFFF;
+      font-size: 14px;
+      text-anchor: middle;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .methods {
+      border: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .methods legend {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .methods input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .methods label {
+      padding: 6px 12px;
+      border: 2px solid #282A2E;
+      border-radius: 6px;
+      background-color: #282A2E;
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .methods input:checked + label {
+      border-color: #2E9AFF;
+    }
+
+    .methods input:focus-visible + label {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .range {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .range input {
+      grid-column: 1 / -1;
+      width: 100%;
+      accent-color: #2E9AFF;
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .result__gradient {
+      height: 32px;
+      border-radius: 6px;
+    }
+
+    .result__mix {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .result__swatch {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .result__code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .demo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .wheel {
+        width: 180px;
+        justify-self: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div class="wheel">
+      <div class="wheel__colors"></div>
+      <svg class="wheel__svg" viewBox="0 0 200 200" aria-hidden="true">
+        <text class="wheel__label" x="100" y="-6">0°</text>
+        <path class="wheel__arc" id="arc" d=""></path>
+        <circle class="wheel__point" id="point-start" r="7"></circle>
+        <circle class="wheel__point" id="point-end" r="7"></circle>
+        <circle class="wheel__point wheel__point--mix" id="point-mix" r="5"></circle>
+      </svg>
+    </div>
+
+    <div class="controls">
+      <fieldset class="methods">
+        <legend>Метод интерполяции оттенка</legend>
+        <input type="radio" name="method" id="shorter" value="shorter" checked>
+        <label for="shorter">shorter</label>
+        <input type="radio" name="method" id="longer" value="longer">
+        <label for="longer">longer</label>
+        <input type="radio" name="method" id="increasing" value="increasing">
+        <label for="increasing">increasing</label>
+        <input type="radio" name="method" id="decreasing" value="decreasing">
+        <label for="decreasing">decreasing</label>
+      </fieldset>
+
+      <div class="range">
+        <label for="start">Первый цвет</label>
+        <output id="start-value" for="start">0°</output>
+        <input type="range" id="start" min="0" max="359" value="0">
+      </div>
+
+      <div class="range">
+        <label for="end">Второй цвет</label>
+        <output id="end-value" for="end">240°</output>
+        <input type="range" id="end" min="0" max="359" value="240">
+      </div>
+
+      <div class="result">
+        <span>Путь от первого цвета ко второму</span>
+        <div class="result__gradient" id="gradient"></div>
+        <div class="result__mix">
+          <div class="result__swatch" id="swatch"></div>
+          <span id="mix-text"></span>
+        </div>
+        <code class="result__code" id="code"></code>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const start = document.getElementById('start');
+    const end = document.getElementById('end');
+    const startValue = document.getElementById('start-value');
+    const endValue = document.getElementById('end-value');
+    const arc = document.getElementById('arc');
+    const pointStart = document.getElementById('point-start');
+    const pointEnd = document.getElementById('point-end');
+    const pointMix = document.getElementById('point-mix');
+    const gradient = document.getElementById('gradient');
+    const swatch = document.getElementById('swatch');
+    const code = document.getElementById('code');
+    const mixText = document.getElementById('mix-text');
+
+    const CENTER = 100;
+    const RADIUS = 80;
+
+    // Точка на круге: 0° сверху, угол растёт по часовой стрелке
+    function toPoint(angle) {
+      const radian = ((angle - 90) * Math.PI) / 180;
+      return {
+        x: CENTER + RADIUS * Math.cos(radian),
+        y: CENTER + RADIUS * Math.sin(radian),
+      };
+    }
+
+    // На сколько градусов и в какую сторону браузер пройдёт по кругу
+    function getDelta(from, to, method) {
+      const diff = to - from;
+      if (method === 'increasing') {
+        return ((diff % 360) + 360) % 360;
+      }
+      if (method === 'decreasing') {
+        return -((((from - to) % 360) + 360) % 360);
+      }
+      let shorter = diff;
+      if (shorter > 180) shorter -= 360;
+      if (shorter < -180) shorter += 360;
+      if (method === 'shorter') {
+        return shorter;
+      }
+      // longer: та же пара точек, но другая дуга
+      if (shorter === 0) return 360;
+      return shorter > 0 ? shorter - 360 : shorter + 360;
+    }
+
+    function hsl(angle) {
+      return `hsl(${angle} 80% 55%)`;
+    }
+
+    function describeArc(from, delta) {
+      const a = toPoint(from);
+      // Полный круг рисуем двумя половинками
+      if (Math.abs(delta) === 360) {
+        const b = toPoint(from + 180);
+        return `M ${a.x} ${a.y} A ${RADIUS} ${RADIUS} 0 1 1 ${b.x} ${b.y} A ${RADIUS} ${RADIUS} 0 1 1 ${a.x} ${a.y}`;
+      }
+      const b = toPoint(from + delta);
+      const largeArc = Math.abs(delta) > 180 ? 1 : 0;
+      const sweep = delta > 0 ? 1 : 0;
+      return `M ${a.x} ${a.y} A ${RADIUS} ${RADIUS} 0 ${largeArc} ${sweep} ${b.x} ${b.y}`;
+    }
+
+    function setPoint(circle, angle) {
+      const point = toPoint(angle);
+      circle.setAttribute('cx', point.x);
+      circle.setAttribute('cy', point.y);
+      circle.style.fill = hsl(angle);
+    }
+
+    function update() {
+      const from = Number(start.value);
+      const to = Number(end.value);
+      const method = document.querySelector('input[name="method"]:checked').value;
+      const delta = getDelta(from, to, method);
+      const mix = (((from + delta / 2) % 360) + 360) % 360;
+
+      startValue.textContent = `${from}°`;
+      endValue.textContent = `${to}°`;
+
+      arc.setAttribute('d', describeArc(from, delta));
+      setPoint(pointStart, from);
+      setPoint(pointEnd, to);
+      setPoint(pointMix, mix);
+
+      // Переход и смесь считает сам браузер
+      const interpolation = `in hsl ${method} hue`;
+      gradient.style.backgroundImage = `linear-gradient(to right ${interpolation}, ${hsl(from)}, ${hsl(to)})`;
+      const mixFunction = `color-mix(${interpolation}, ${hsl(from)}, ${hsl(to)})`;
+      swatch.style.backgroundColor = mixFunction;
+      code.textContent = mixFunction;
+      mixText.textContent = `Смесь 50/50 — середина пути, оттенок ${Math.round(mix)}°`;
+    }
+
+    document.querySelectorAll('input').forEach((input) => {
+      input.addEventListener('input', update);
+    });
+
+    update();
+  </script>
+</body>
+</html>
