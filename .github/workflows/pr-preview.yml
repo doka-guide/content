@@ -400,6 +400,9 @@ jobs:
             -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
           PREVIEWS=/web/sites/dev.doka.guide/content
           $SSH_COMMAND deploy@dev.doka.guide mkdir -p "$PREVIEWS/${PULL_NUMBER}"
+          # Доступа к серверу у мейнтейнеров нет, и место на диске видно только
+          # здесь. Превью лежат на одном диске с продом.
+          $SSH_COMMAND deploy@dev.doka.guide df -h "$PREVIEWS" || true
 
           # У нового пулреквеста папка на сервере пустая, и rsync слал все
           # ~640 МБ по сети. При 300 кБ/с это дольше timeout-minutes: превью

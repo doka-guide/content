@@ -113,13 +113,19 @@ function runEyo(files) {
   try {
     // eyo печатает отчёт в stderr, а код возврата зависит от исхода. Читаем
     // оба потока независимо от кода.
-    const result = spawnSync('npx', ['--yes', 'eyo', '--lint', '--no-colors', ...masked], {
+    const result = spawnSync('npx', ['--yes', 'eyo@6.1.1', '--lint', '--no-colors', ...masked], {
       encoding: 'utf8',
       env: NPM_ENV,
     })
     if (result.error) throw result.error
 
-    return parse((result.stdout || '') + '\n' + (result.stderr || ''), fileByPath)
+    const output = (result.stdout || '') + '\n' + (result.stderr || '')
+    const found = parse(output, fileByPath)
+    // Ненулевой код без единой находки — сбой npm или eyo, а не чистый текст.
+    if (result.status !== 0 && found.length === 0) {
+      throw new Error(`eyo завершился с кодом ${result.status}:\n${output.trim()}`)
+    }
+    return found
   } finally {
     fs.rmSync(dir, { recursive: true, force: true })
   }
