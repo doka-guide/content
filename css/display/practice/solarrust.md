@@ -23,7 +23,12 @@
 🛠 Если нужно плавно показать или спрятать элемент, попробуйте анимировать сам `display`. Раньше элемент прятали через [`visibility`](/css/visibility/) и [`opacity`](/css/opacity/) или переключали стили из JavaScript. Сейчас `display` можно указать в [`transition`](/css/transition/#cherez-display-i-transition-behavior-allow-discrete) с ключевым словом `allow-discrete`. Состояние, с которого начинается появление, задайте в [`@starting-style`](/css/starting-style/). Например, покажем подсказку по нажатию на кнопку:
 
 ```html
-<button class="toggle" type="button" aria-expanded="false" aria-controls="note">
+<button
+  class="toggle"
+  type="button"
+  aria-expanded="false"
+  aria-controls="note"
+>
   Показать подсказку
 </button>
 <p class="note" id="note">Теперь ты читаешь скрытую подсказку! 🎉</p>
