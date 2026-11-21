@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Песочница — font-variant-position — Дока</title>
+  <title>Индексы из тегов и из шрифта — font-variant-position — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&family=Coda&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
+    /* В шрифте Libertinus Serif есть OpenType-функции sups и subs */
     @font-face {
-      font-family: Source Sans Pro;
+      font-family: "Libertinus Serif";
       font-style: normal;
       font-weight: 400;
-      font-display: swap;
-      src: url(https://mdn.github.io/css-examples/font-features/SourceSansPro-Regular.otf) format("opentype");
+      font-display: block;
+      src: url("LibertinusSerif-subset.woff2") format("woff2");
     }
-
 
     *, *::before, *::after {
       margin: 0;
@@ -23,117 +23,142 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      color-scheme: dark;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      display: grid;
-      place-items: center;
-      background-color: #18191c;
-      color: #ffffff;
     }
 
     code {
       font-family: "Roboto Mono", monospace;
-      font-size: 17px;
     }
 
-    h1 code {
-      line-height: 1;
-      font-weight: 500;
-      font-size: 1.625rem;
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
 
-    h1, .option-description {
-      text-transform: lowercase;
-      text-align: right;
-      inline-size: 340px;
+    .demo {
+      width: 100%;
+      max-width: 600px;
     }
 
-    .option {
+    .controls {
       display: flex;
-      align-items: baseline;
-      margin-block-start: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      border: none;
     }
 
-    .option-description {
-      line-height: 1.2;
-      margin-inline-end: 40px;
+    .control input {
+      position: absolute;
+      opacity: 0;
     }
 
-    .option-example {
-      margin: 0;
-      font-family: "Source Sans Pro", sans-serif;
-      font-size: 36px;
+    .control span {
+      display: block;
+      padding: 8px 16px;
+      border: 2px solid #282A2E;
+      border-radius: 6px;
+      background-color: #282A2E;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .control input:checked + span {
+      border-color: #2E9AFF;
+    }
+
+    .control input:focus-visible + span {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .text {
+      display: grid;
+      font-family: "Libertinus Serif", serif;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    /* Оба варианта абзаца лежат в одной ячейке грида: высота блока не меняется при переключении */
+    .variant {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    .variant-tags :is(sub, sup) {
+      color: #F498AD;
+    }
+
+    /* Сбрасываем стили тегов и берём глифы из шрифта */
+    .variant-font :is(sub, sup) {
+      vertical-align: baseline;
+      font-size: inherit;
       color: #2E9AFF;
     }
 
-    .normal {
-      font-variant-position: normal;
-    }
-
-    .sub {
+    .variant-font sub {
       font-variant-position: sub;
     }
 
-    .super {
+    .variant-font sup {
       font-variant-position: super;
     }
 
-    @media (max-width: 768px) {
+    /* Показываем вариант, выбранный переключателем */
+    .demo:has([value="tags"]:checked) .variant-font,
+    .demo:has([value="font"]:checked) .variant-tags {
+      visibility: hidden;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
-      h1, .option-description {
-        inline-size: 100%;
-      }
-
-      .option {
-        flex-direction: row-reverse;
-        margin-block-start: 50px;
-      }
-
-      .option-description {
-        margin-inline-end: auto;
-        margin-block-end: 10px;
-      }
-
-      .option-example {
-        white-space: nowrap;
-        font-size: 18px;
+      .text {
+        font-size: 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1><code>font-variant-position</code></h1>
-    <div class="options">
-      <div class="option">
-        <p class="option-description"><code>normal</code></p>
-        <p class="option-example normal">H2O x2</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>sub</code></p>
-        <p class="option-example">H<sub class="sub">2</sub>O</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>super</code></p>
-        <p class="option-example">x<sup class="super">2</sup></p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>&lt;sub&gt;</code> без свойства</p>
-        <p class="option-example">H<sub>2</sub>O</p>
-      </div>
-      <div class="option">
-        <p class="option-description"><code>&lt;sup&gt;</code> без свойства</p>
-        <p class="option-example">x<sup>2</sup></p>
-      </div>
+  <div class="demo">
+    <fieldset class="controls">
+      <legend class="visually-hidden">Как нарисовать индексы</legend>
+      <label class="control">
+        <input type="radio" name="variant" value="tags" checked>
+        <span>Теги <code>&lt;sub&gt;</code> и <code>&lt;sup&gt;</code></span>
+      </label>
+      <label class="control">
+        <input type="radio" name="variant" value="font">
+        <span>Теги и <code>font-variant-position</code></span>
+      </label>
+    </fieldset>
+
+    <div class="text">
+      <p class="variant variant-tags">
+        Вода — это H<sub>2</sub>O, а площадь квадрата — a<sup>2</sup>. Формулу E&nbsp;=&nbsp;mc<sup>2</sup> знают даже те, кто не дочитал до сноски<sup>1</sup>.
+      </p>
+      <p class="variant variant-font">
+        Вода — это H<sub>2</sub>O, а площадь квадрата — a<sup>2</sup>. Формулу E&nbsp;=&nbsp;mc<sup>2</sup> знают даже те, кто не дочитал до сноски<sup>1</sup>.
+      </p>
     </div>
   </div>
-  <script></script>
 </body>
 </html>
