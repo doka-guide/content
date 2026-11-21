@@ -53,7 +53,7 @@ tags:
 }
 ```
 
-<iframe title="Адаптивная ширина" src="demos/dynamic-width/?embed=1" height="430"></iframe>
+<iframe title="Адаптивная ширина" src="demos/dynamic-width/" height="430"></iframe>
 
 При изменении ширины фрейма срабатывает функция `clamp()` и высчитывает ширину.
 

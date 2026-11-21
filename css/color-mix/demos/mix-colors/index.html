@@ -322,7 +322,7 @@
         cursor: not-allowed;
       }
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         body {
           padding: 30px;
         }
@@ -332,7 +332,7 @@
         }
       }
 
-      @media (max-width: 425px) {
+      @media (width <= 425px) {
         body {
           align-items: flex-start;
           padding-block-start: 10dvh;
@@ -437,6 +437,11 @@
               <select class="select" id="color-space">
                 <option value="srgb">srgb</option>
                 <option value="srgb-linear">srgb-linear</option>
+                <option value="display-p3">display-p3</option>
+                <option value="display-p3-linear">display-p3-linear</option>
+                <option value="a98-rgb">a98-rgb</option>
+                <option value="prophoto-rgb">prophoto-rgb</option>
+                <option value="rec2020">rec2020</option>
                 <option value="lab">lab</option>
                 <option value="oklab" selected>oklab</option>
                 <option value="xyz">xyz</option>

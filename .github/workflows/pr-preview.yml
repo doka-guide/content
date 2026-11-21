@@ -1,5 +1,9 @@
-# Сборка превью пулреквеста: одна джоба — одна строка в списке проверок, а
-# гейт, сборка, публикация и отчёт разворачиваются внутри неё шагами.
+# Сборка превью пулреквеста. Четыре джобы: превью (гейт по галкам и заметка),
+# сборка, публикация и отчёт.
+#
+# Каждая джоба получает только те права и секреты, которые нужны ей самой.
+# Ключ публикации есть только у публикации, токен с правом записи — только у
+# превью и отчёта. Не объединяйте джобы обратно и не добавляйте секреты в сборку.
 #
 # У пулреквеста из форка прогон «PR Checks» (pull_request) не стартует сам: он
 # висит в состоянии action_required, пока мейнтейнер не нажмёт «Approve and
@@ -14,6 +18,7 @@
 # половину прогонов висят серыми.
 #
 # Тесты заметки: node --test .github/scripts/preview-note.test.js
+#               node --test .github/scripts/preview-links.test.js
 
 name: PR Preview
 
@@ -35,21 +40,28 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
-# `pull-requests` нужен и заметке, и шагу выборки файлов: всё, что не
-# перечислено, выставляется в none, и `gh api .../pulls/N/files` падает с 403.
-# `checks: write` — ради итоговой галки, см. шаг «Отчёт в пулреквесте».
-permissions:
-  contents: read
-  checks: write
-  pull-requests: write
+# Права у каждой джобы свои, на уровне воркфлоу — ничего.
+permissions: {}
 
 jobs:
+  # `pull-requests` нужен и заметке, и шагу выборки файлов: всё, что не
+  # перечислено, выставляется в none, и `gh api .../pulls/N/files` падает с 403.
+  # `checks: write` — ради галки «Превью».
   preview:
     name: Превью
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    outputs:
+      state: ${{ steps.gate.outputs.state }}
+      failed: ${{ steps.gate.outputs.failed }}
+      pull-number: ${{ steps.gate.outputs.pull-number }}
+      check-id: ${{ steps.check.outputs.check-id }}
+      links: ${{ steps.links.outputs.list }}
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
       PATH_TO_CONTENT: ./content
       RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -57,20 +69,16 @@ jobs:
       # Только `preview-note.js` и только из ветки по умолчанию. `ref` задан
       # явно, а не оставлен по умолчанию: джоба ходит с правами на запись, и
       # чекаут кода из форка означал бы выполнение чужого кода под этим
-      # токеном. Отдельный `path`, чтобы не столкнуться с чекаутом платформы.
+      # токеном. Отдельный `path`, чтобы не столкнуться с чекаутом контента.
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.repository.default_branch }}
           sparse-checkout: .github/scripts
           path: base
-      # Скрипт уезжает за пределы рабочего дерева: чекаут платформы идёт в
-      # корень воркспейса без `path` и сносит там всё, включая `base` —
-      # «Deleting the contents of …» в логе. Раньше это сходило с рук, потому
-      # что отчёт был отдельной джобой со своим чекаутом. Теперь он шаг этой же
-      # джобы, и без копии падал бы с MODULE_NOT_FOUND ровно тогда, когда
-      # превью собралось.
-      - name: Копия скрипта заметки
-        run: cp base/.github/scripts/preview-note.js "$RUNNER_TEMP/preview-note.js"
+          persist-credentials: false
+      # Скрипты лежат в RUNNER_TEMP, отдельно от файлов пулреквеста.
+      - name: Копия скриптов заметки
+        run: cp base/.github/scripts/preview-note.js base/.github/scripts/preview-links.js "$RUNNER_TEMP/"
 
       # Галки читаются один раз: проверки уже завершились, опрашивать нечего.
       - name: Галки проверок
@@ -225,152 +233,253 @@ jobs:
               headSha,
             })
 
-      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
-      # и адреса разное у разных разделов:
-      #   css/optional/index.md   → /css/optional/
-      #   pages/about/index.md    → /about/        папка раздела выпадает
-      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
-      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
-      # страниц тоже не имеют, поэтому в список не попадают.
-      - name: Выборка изменённых материалов
-        id: files
+      # Список файлов пулреквеста со статусом: по нему скрипт ссылок отличает
+      # удалённые и переименованные материалы. Файл лежит в RUNNER_TEMP, вне
+      # рабочего дерева, как и скрипты заметки.
+      # `continue-on-error` здесь и на шаге ссылок: без списка материалов
+      # превью всё равно нужно, а упавший шаг пропустил бы сборку, и отчёт
+      # написал бы «ошибка сборки», которой не было.
+      - name: Выборка изменённых файлов
         if: ${{ steps.gate.outputs.state == 'passed' }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
         run: |
           set -eu
-          urls=$(gh api --paginate \
-            "repos/${{ github.repository }}/pulls/${PULL_NUMBER}/files" \
-            --jq '.[].filename' \
-            | awk -F/ '
-                NF == 3 && $3 == "index.md" {
-                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
-                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
-                }' \
-            | sort -u \
-            | tr '\n' ' ')
-          echo "urls=$urls" >> "$GITHUB_OUTPUT"
-          echo "Затронуто страниц: $(echo $urls | wc -w)"
+          gh api --paginate \
+            "repos/${{ github.repository }}/pulls/${PULL_NUMBER}/files?per_page=100" \
+            --jq '.[] | {filename, status, previous_filename}' \
+            > "$RUNNER_TEMP/pr-files.jsonl"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/pr-files.jsonl")"
 
-      - name: Загрузка platform
-        if: ${{ steps.gate.outputs.state == 'passed' }}
-        uses: actions/checkout@v4
-        with:
-          repository: doka-guide/platform
+      # Контент здесь нужен только скрипту ссылок. Токен после чекаута не
+      # нужен, поэтому `persist-credentials: false`.
       - name: Загрузка контента
         if: ${{ steps.gate.outputs.state == 'passed' }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           path: content
+          persist-credentials: false
+          allow-unsafe-pr-checkout: true
+
+      # Какой файл куда ведёт — в preview-links.js: совет «На практике» — на
+      # якорь в статье, демка — на свою страницу, вопрос с собеседования — в
+      # статьи из его `related`. Поэтому шаг стоит после чекаута контента:
+      # `related` читается оттуда. Скрипт из ветки по умолчанию, файлы
+      # пулреквеста он только читает. Пустой выход — блока не будет.
+      - name: Формирование ссылок на материалы
+        id: links
+        if: ${{ steps.gate.outputs.state == 'passed' }}
+        continue-on-error: true
+        env:
+          DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
+          FILES: ${{ runner.temp }}/pr-files.jsonl
+        run: node "$RUNNER_TEMP/preview-links.js"
+
+  # Сборке не нужны секреты и запись: токен только читает и не сохраняется
+  # в `.git/config`.
+  build:
+    name: Сборка
+    needs: preview
+    if: ${{ needs.preview.outputs.state == 'passed' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      PATH_TO_CONTENT: ./content
+    steps:
+      - name: Загрузка platform
+        uses: actions/checkout@v4
+        with:
+          repository: doka-guide/platform
+          persist-credentials: false
+      - name: Загрузка контента
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          path: content
+          persist-credentials: false
           allow-unsafe-pr-checkout: true
       - name: Загрузка кеша
-        if: ${{ steps.gate.outputs.state == 'passed' }}
         uses: actions/checkout@v4
         with:
           repository: doka-guide/cache
           path: cache
+          persist-credentials: false
       # Версия берётся из .nvmrc платформы: именно её зависимости здесь
       # ставятся. Зашитая версия разъезжается с платформой — так превью и
       # выкатка сломались, когда платформа перешла на Node 24, а здесь
       # осталась двадцатая.
       - uses: actions/setup-node@v4
-        if: ${{ steps.gate.outputs.state == 'passed' }}
         with:
           node-version-file: .nvmrc
       - name: Установка модулей
-        if: ${{ steps.gate.outputs.state == 'passed' }}
         run: npm ci
       - name: Копирование кеша
-        if: ${{ steps.gate.outputs.state == 'passed' }}
         run: cp ./cache/issues.json ./.issues.json
-
-      # Блок со ссылками добавляется к сообщению только когда есть что
-      # показать: у пулреквестов, которые правят воркфлоу или служебные файлы,
-      # затронутых материалов нет, и раскрывашка там пустая и бессмысленная.
-      - name: Формирование ссылок на материалы
-        id: links
-        if: ${{ steps.gate.outputs.state == 'passed' }}
-        env:
-          DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
-          # Через `env`, а не подстановкой в саму команду: адреса собраны из
-          # имён папок пулреквеста, а имя папки задаёт автор. Папка вида
-          # `css/$(...)/index.md` выполнилась бы прямо здесь — в джобе, у
-          # которой есть ключ выкатки.
-          URLS: ${{ steps.files.outputs.urls }}
-        run: |
-          set -eu
-          items=""
-          for url in $URLS; do
-            items="${items}<li><a href=\"${DEPLOY_DOMAIN}${url}\">${url}</a></li>"
-          done
-          if [ -n "$items" ]; then
-            block="<details><summary>Затронутые материалы</summary><ul>${items}</ul></details>"
-          else
-            block=""
-          fi
-          echo "list=$block" >> "$GITHUB_OUTPUT"
-
-      - name: Установка ключа для пользователя
-        if: ${{ steps.gate.outputs.state == 'passed' }}
-        run: |
-          set -eu
-          mkdir "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
-          chmod 600 "$HOME/.ssh/doka_deploy"
-
-      # `continue-on-error`, чтобы отчёт написался и о поломке тоже. Красную
-      # строку в списке проверок ставит последний шаг джобы.
-      - name: Сборка и публикация сайта
-        id: build
-        if: ${{ steps.gate.outputs.state == 'passed' }}
-        continue-on-error: true
-        env:
-          DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
-          PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
+      # Сборка молчит около двух минут. Без отметок шаг выглядит зависшим.
+      - name: Сборка сайта
         run: |
           set -eu
           cp .env.example .env
-
-          # Сборка молчит около двух минут, а публикация — ещё дольше. Без
-          # отметок шаг выглядит зависшим, и непонятно, на чём именно он стоит.
-          echo "::group::Сборка сайта"
           echo "Начало: $(date -u +%H:%M:%S) UTC. Сборка занимает пару минут и молчит до конца."
           npm run build
           echo "Готово: $(date -u +%H:%M:%S) UTC. Страниц собрано: $(find dist -name '*.html' | wc -l)."
-          echo "::endgroup::"
+      # `include-hidden-files`, потому что в `dist` есть `.vite`, а без флага
+      # upload-artifact скрытые файлы пропускает. Симлинки upload-artifact
+      # разворачивает в обычные файлы, поэтому на сервер они не попадут.
+      - name: Сохранение сборки
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dist
+          path: dist
+          include-hidden-files: true
+          retention-days: 1
+          if-no-files-found: error
+          overwrite: true
 
-          echo "::group::Публикация превью"
+  # Единственная джоба с ключом публикации. Чекаут ей не нужен: она только
+  # скачивает `dist` и выгружает его по rsync.
+  deploy:
+    name: Публикация
+    needs: [preview, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions: {}
+    steps:
+      - name: Загрузка сборки
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: dist
+          path: dist
+      # Прод лежит на том же диске сервера. Если сборка разрастётся, она займёт
+      # место прода, поэтому выше 2 ГБ не шлём. Обычная сборка весит около 640 МБ.
+      - name: Проверка размера сборки
+        run: |
+          set -eu
+          LIMIT=$((2 * 1024 * 1024 * 1024))
+          SIZE=$(du -sb dist | cut -f1)
+          echo "Размер сборки: $((SIZE / 1024 / 1024)) МБ, предел $((LIMIT / 1024 / 1024)) МБ."
+          if [ "$SIZE" -gt "$LIMIT" ]; then
+            echo "::error::Сборка весит $((SIZE / 1024 / 1024)) МБ, больше предела. Превью не публикуем."
+            exit 1
+          fi
+      - name: Установка ключа для пользователя
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
+
+      - name: Публикация сайта
+        env:
+          DEPLOY_DOMAIN: https://content-${{ needs.preview.outputs.pull-number }}.dev.doka.guide
+          PULL_NUMBER: ${{ needs.preview.outputs.pull-number }}
+        run: |
+          set -eu
+          # Публикация молчит дольше сборки. Без отметок шаг выглядит зависшим.
           echo "Начало: $(date -u +%H:%M:%S) UTC. Отправляется $(du -sh dist | cut -f1)."
-          ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${PULL_NUMBER}
-          # --info=progress2 показывает общий прогресс одной обновляемой строкой,
-          # а не портянку из десятков тысяч имён файлов, как прежний --progress.
-          cd dist && rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" \
-            --archive --compress --delete --info=progress2 \
-            . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${PULL_NUMBER}
+          # Соединение с сервером иногда замирает посреди передачи: ssh жив, данные
+          # не идут, и rsync без таймаута ждёт до timeout-minutes джобы. --timeout
+          # обрывает такую передачу через минуту тишины, ServerAlive — мёртвое
+          # соединение. Повтор безопасен: rsync дошлёт только то, что не успел.
+          #
+          # --checksum, потому что у свежей сборки новые даты у всех файлов, и по
+          # размеру с датой rsync считал изменёнными почти все 11 тысяч файлов и
+          # переписывал их на сервере. Сборка детерминирована, так что по
+          # содержимому меняются только задетые пулреквестом страницы.
+          SSH_COMMAND="ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no -o BatchMode=yes \
+            -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
+          PREVIEWS=/web/sites/dev.doka.guide/content
+          $SSH_COMMAND deploy@dev.doka.guide mkdir -p "$PREVIEWS/${PULL_NUMBER}"
+
+          # У нового пулреквеста папка на сервере пустая, и rsync слал все
+          # ~640 МБ по сети. При 300 кБ/с это дольше timeout-minutes: превью
+          # #6196 оборвалось на 89%. --copy-dest берёт файлы из папок на том же
+          # сервере, и по сети едет только разница.
+          #
+          # rsync берёт из основы только файлы с тем же путём и тем же
+          # содержимым (по --checksum), лишнего не приносит. Файл он копирует
+          # локально на сервере. --link-dest вместо копии ставил бы жёсткую
+          # ссылку при совпавшем mtime, и у превью с продом появились бы общие
+          # файлы. Папки превью и прода должны быть независимы.
+          #
+          # Основы: прод и самое свежее соседнее превью. Прод всегда полный, а
+          # самая свежая папка превью часто ещё выгружается и полупустая. Нет
+          # папки или её нельзя прочитать — rsync предупредит и отправит файлы
+          # по сети, код выхода не изменится.
+          PRODUCTION=/web/sites/doka.guide/www
+          REFERENCE=$($SSH_COMMAND deploy@dev.doka.guide \
+            "ls -1t '$PREVIEWS'" 2>/dev/null \
+            | grep -E '^[0-9]+$' | grep -vx "${PULL_NUMBER}" | head -n 1 || true)
+          COPY_DEST=""
+          if [ -n "$REFERENCE" ]; then
+            COPY_DEST="--copy-dest=$PREVIEWS/$REFERENCE"
+            echo "Основа для выгрузки: прод и превью #$REFERENCE."
+          else
+            echo "Соседнего превью нет, основа — только прод."
+          fi
+
+          cd dist
+          for attempt in 1 2 3; do
+            # --info=progress2 показывает общий прогресс одной обновляемой строкой,
+            # а не портянку из десятков тысяч имён файлов, как прежний --progress.
+            rsync -e "$SSH_COMMAND" --timeout=60 --archive --checksum --compress --delete --info=progress2 \
+              "--copy-dest=$PRODUCTION" ${COPY_DEST:+"$COPY_DEST"} \
+              . "deploy@dev.doka.guide:$PREVIEWS/${PULL_NUMBER}" && break
+            [ "$attempt" -lt 3 ] || exit 1
+            echo ""
+            echo "::warning::rsync прервался, попытка $attempt из 3"
+            sleep 15
+          done
           echo ""
           echo "Готово: $(date -u +%H:%M:%S) UTC."
-          echo "::endgroup::"
 
           echo "Ссылка на превью — ${DEPLOY_DOMAIN}"
 
-      # Итоговая заметка. always(), иначе при упавших проверках или сборке в
-      # описании навсегда останется «идёт сборка...».
+  # Итоговая заметка. always(), иначе при упавших проверках или сборке в
+  # описании навсегда останется «идёт сборка…». Скрипт заметки снова из ветки
+  # по умолчанию: у отчёта своя машина, и копии скриптов из первой джобы сюда
+  # не попадают.
+  report:
+    name: Отчёт
+    needs: [preview, build, deploy]
+    if: ${{ always() && needs.preview.outputs.pull-number != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
+    env:
+      HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+      RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       - name: Отчёт в пулреквесте
-        if: ${{ always() && steps.gate.outputs.state != '' && steps.gate.outputs.state != 'idle' }}
+        if: ${{ always() && needs.preview.outputs.state != '' && needs.preview.outputs.state != 'idle' }}
         uses: actions/github-script@v7
         env:
-          CHECK_ID: ${{ steps.check.outputs.check-id }}
-          DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
-          FAILED: ${{ steps.gate.outputs.failed }}
-          IS_PUBLISHED: ${{ steps.build.outcome == 'success' }}
-          LINKS: ${{ steps.links.outputs.list }}
-          PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
-          STATE: ${{ steps.gate.outputs.state }}
+          CHECK_ID: ${{ needs.preview.outputs.check-id }}
+          DEPLOY_DOMAIN: https://content-${{ needs.preview.outputs.pull-number }}.dev.doka.guide
+          FAILED: ${{ needs.preview.outputs.failed }}
+          IS_PUBLISHED: ${{ needs.deploy.result == 'success' }}
+          LINKS: ${{ needs.preview.outputs.links }}
+          PULL_NUMBER: ${{ needs.preview.outputs.pull-number }}
+          STATE: ${{ needs.preview.outputs.state }}
         with:
           script: |
-            const note = require(`${process.env.RUNNER_TEMP}/preview-note.js`)
+            const note = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/preview-note.js`)
             const { owner, repo } = context.repo
             const pullNumber = Number(process.env.PULL_NUMBER)
             const sha = process.env.HEAD_SHA
@@ -387,26 +496,52 @@ jobs:
             // они не запускались вовсе.
             let message
             let conclusion
+            let tone
             if (state === 'failed') {
               const failed = process.env.FAILED ? ` (${process.env.FAILED})` : ''
               message = `Превью контента из ${sha} не опубликовано: не прошли проверки пулреквеста${failed}. [Подробнее](${process.env.RUN_URL})`
               // Красная галка нужна только на нашей поломке: провал проверок
               // уже виден отдельной красной галкой, дублировать его незачем.
               conclusion = 'neutral'
+              tone = 'warning'
             } else if (state !== 'passed') {
               message = `Превью контента из ${sha} не опубликовано: проверки пулреквеста не завершились. [Подробнее](${process.env.RUN_URL})`
               conclusion = 'neutral'
+              tone = 'warning'
             } else if (isPublished) {
-              message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${process.env.LINKS || ''}`
+              // Раскрывашка — отдельной строкой: так GitHub разбирает её как
+              // HTML-блок, а не как продолжение абзаца, и `_` в слагах не
+              // превращается в курсив.
+              const links = process.env.LINKS ? `\n${process.env.LINKS}` : ''
+              message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${links}`
               conclusion = 'success'
+              tone = 'tip'
             } else {
               message = `Превью контента из ${sha} не опубликовано. Ошибка сборки или публикации. [Подробнее](${process.env.RUN_URL})`
               conclusion = 'failure'
+              tone = 'caution'
             }
 
-            const written = await note.writeNote({ github, owner, repo, pullNumber, message, headSha: sha })
+            const written = await note.writeNote({ github, owner, repo, pullNumber, message, headSha: sha, tone })
+            const checkId = process.env.CHECK_ID
             if (written === null) {
               core.info(`Коммит ${sha} устарел, заметку не трогаем`)
+              // Галку «Превью» на этом коммите мог уже открыть шаг «Открытие
+              // галки превью». Без закрытия она навсегда висит `in_progress`.
+              if (checkId) {
+                await github.rest.checks.update({
+                  owner,
+                  repo,
+                  check_run_id: Number(checkId),
+                  status: 'completed',
+                  conclusion: 'neutral',
+                  details_url: process.env.RUN_URL,
+                  output: {
+                    title: 'Превью не опубликовано',
+                    summary: `В пулреквесте уже есть коммит новее ${sha}. Превью собирается для него.`,
+                  },
+                })
+              }
               return
             }
 
@@ -420,7 +555,6 @@ jobs:
             // `passed`), дозакрываем ту же галку — иначе в списке проверок
             // повисли бы две строки «Превью» разом. Если не завёл (`failed`
             // или `unfinished`, сборка не начиналась), заводим её здесь же.
-            const checkId = process.env.CHECK_ID
             const output = {
               title: conclusion === 'success' ? 'Превью опубликовано' : 'Превью не опубликовано',
               summary: message,
@@ -451,11 +585,11 @@ jobs:
       # Комментарии прошлой схемы. Убираем оставшиеся, чтобы в ленте не висело
       # вечное «Идёт сборка...». Шаг можно удалить, когда их не останется.
       - name: Уборка старых комментариев
-        if: ${{ always() && steps.gate.outputs.pull-number != '' }}
+        if: ${{ always() }}
         uses: actions/github-script@v7
         continue-on-error: true
         env:
-          PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
+          PULL_NUMBER: ${{ needs.preview.outputs.pull-number }}
         with:
           script: |
             const { owner, repo } = context.repo
@@ -472,13 +606,3 @@ jobs:
                 await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id })
               }
             }
-
-      # Сломанная сборка красит саму джобу, иначе в списке прогонов Actions она
-      # висела бы зелёной: `continue-on-error` на шаге сборки гасит её падение.
-      # В пулреквесте эту роль играет галка «Превью» из шага отчёта — джобы
-      # `workflow_run` там не показываются.
-      - name: Итог
-        if: ${{ always() && steps.build.outcome == 'failure' }}
-        run: |
-          echo "::error::Сборка или публикация превью не удалась"
-          exit 1

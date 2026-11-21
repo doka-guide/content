@@ -15,7 +15,7 @@
 }
 ```
 
-<iframe title="Параллакс без JavaScript" src="demos/parallax/?embed=1" height="500"></iframe>
+<iframe title="Параллакс без JavaScript" src="../demos/parallax/" height="500"></iframe>
 
 Важный нюанс: `fixed` не работает на iOS Safari — браузер отображает фон как `scroll`. Если сайт должен работать на мобильных, параллакс лучше делать через JS или CSS-трансформации.
 
@@ -31,7 +31,7 @@
 }
 ```
 
-<iframe title="local против scroll в контейнере со скроллом" src="demos/local/?embed=1" height="430"></iframe>
+<iframe title="local против scroll в контейнере со скроллом" src="../demos/local/" height="430"></iframe>
 
 🛠 `background-attachment: fixed` в связке с `background-clip: text` даёт эффект «фото сквозь текст». Изображение просвечивает через буквы, и при прокрутке разные части фото появляются в тексте — как через движущееся окно. С `scroll` изображение зафиксировано в тексте и не меняется при прокрутке. Разницу лучше один раз увидеть в демке.
 
@@ -47,4 +47,4 @@
 }
 ```
 
-<iframe title="Фото сквозь текст с background-clip" src="demos/clip-text/?embed=1" height="420"></iframe>
+<iframe title="Фото сквозь текст с background-clip" src="../demos/clip-text/" height="420"></iframe>

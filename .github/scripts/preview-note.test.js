@@ -2,10 +2,13 @@
 const test = require('node:test')
 const assert = require('node:assert/strict')
 
-const { startMarker, endMarker, applyNote, writeNote } = require('./preview-note.js')
+const { startMarker, endMarker, formatNote, applyNote, writeNote } = require('./preview-note.js')
 
 const NUMBER = 5888
-const note = (message, pullNumber = NUMBER) => `${startMarker(pullNumber)}\n${message}\n${endMarker(pullNumber)}`
+// Ожидаемый блок собран руками, а не через formatNote: иначе тест сверял бы
+// функцию саму с собой.
+const note = (message, pullNumber = NUMBER, kind = 'NOTE') =>
+  `${startMarker(pullNumber)}\n> [!${kind}]\n> ${message}\n${endMarker(pullNumber)}`
 
 // Поддельный клиент Octokit: помнит описание и записи в него.
 const fakeGithub = (body, headSha = 'abc1234') => {
@@ -129,4 +132,25 @@ test('на актуальном коммите заметка пишется', a
   })
 
   assert.equal(github.state.body, `Текст автора.\n\n${note('Превью опубликовано')}`)
+})
+
+test('цвет плашки задаётся итогом, неизвестный — синий по умолчанию', () => {
+  assert.equal(applyNote('', NUMBER, 'Превью опубликовано', 'tip'), note('Превью опубликовано', NUMBER, 'TIP'))
+  assert.equal(applyNote('', NUMBER, 'Сборка упала', 'caution'), note('Сборка упала', NUMBER, 'CAUTION'))
+  assert.equal(applyNote('', NUMBER, 'Идут проверки', 'что-то'), note('Идут проверки'))
+})
+
+test('все строки сообщения остаются внутри плашки', () => {
+  assert.equal(formatNote('Опубликовано.\n<details>…</details>\n\nХвост', 'tip'), '> [!TIP]\n> Опубликовано.\n> <details>…</details>\n>\n> Хвост')
+})
+
+test('блок в старом формате, без плашки, заменяется новым', () => {
+  const old = `${startMarker(NUMBER)}\nИдут проверки\n${endMarker(NUMBER)}`
+  assert.equal(applyNote(`Текст автора.\n\n${old}`, NUMBER, 'Превью опубликовано', 'tip'), `Текст автора.\n\n${note('Превью опубликовано', NUMBER, 'TIP')}`)
+})
+
+test('writeNote передаёт цвет плашки', async () => {
+  const github = fakeGithub('Текст автора.')
+  await writeNote({ github, owner: 'o', repo: 'r', pullNumber: NUMBER, message: 'Сборка упала', headSha: 'abc1234', tone: 'caution' })
+  assert.equal(github.state.body, `Текст автора.\n\n${note('Сборка упала', NUMBER, 'CAUTION')}`)
 })

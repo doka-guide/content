@@ -74,7 +74,7 @@ tags:
 
 Это позволяет выровнять содержимое вложенных элементов (например, шапку, тело и подвал карточек) по общим рядам родительского грида.
 
-<iframe title="subgrid для рядов" src="demos/subgrid/?embed=1" height="420"></iframe>
+<iframe title="subgrid для рядов" src="demos/subgrid/" height="420"></iframe>
 
 ## Подсказки
 

@@ -46,7 +46,7 @@ code {
 }
 ```
 
-<iframe title="font-feature-settings" src="demos/example/?embed=1" height="720"></iframe>
+<iframe title="font-feature-settings" src="demos/example/" height="720"></iframe>
 
 На демке видно, как одни и те же символы выглядят по-разному в зависимости от включённых функций шрифта.
 

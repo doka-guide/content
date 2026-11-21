@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:dir() и [dir] на разной разметке — :dir() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 840px;
+    }
+
+    .case {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #282A2E;
+    }
+
+    .case:last-child {
+      border-bottom: none;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      color: rgb(255 255 255 / 0.8);
+    }
+
+    .sample {
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: #282A2E;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Метка по умолчанию — «не совпало» */
+    .badge {
+      padding: 4px 8px;
+      border: 1px solid #282A2E;
+      border-radius: 4px;
+      font-family: "Roboto Mono", monospace;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.35);
+      text-decoration: line-through;
+      white-space: nowrap;
+    }
+
+    /* Подсвечиваем метку, если селектор совпал с абзацем */
+    .case:has(.sample:dir(rtl)) .badge-pseudo {
+      border-color: #2E9AFF;
+      background-color: rgb(46 154 255 / 0.2);
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    .case:has(.sample[dir="rtl"]) .badge-attr {
+      border-color: #F498AD;
+      background-color: rgb(244 152 173 / 0.2);
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .case {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Направление унаследовано от родителя -->
+    <div class="case">
+      <code>&lt;div dir="rtl"&gt;&lt;p&gt;</code>
+      <div dir="rtl" lang="ar">
+        <p class="sample">مرحبا بالعالم</p>
+      </div>
+      <div class="badges">
+        <span class="badge badge-pseudo">:dir(rtl)</span>
+        <span class="badge badge-attr">[dir="rtl"]</span>
+      </div>
+    </div>
+
+    <!-- Браузер определил направление по тексту -->
+    <div class="case">
+      <code>&lt;p dir="auto"&gt;</code>
+      <p class="sample" dir="auto" lang="he">שלום עולם</p>
+      <div class="badges">
+        <span class="badge badge-pseudo">:dir(rtl)</span>
+        <span class="badge badge-attr">[dir="rtl"]</span>
+      </div>
+    </div>
+
+    <!-- Направление задано явно -->
+    <div class="case">
+      <code>&lt;p dir="rtl"&gt;</code>
+      <p class="sample" dir="rtl" lang="ar">مرحبا بالعالم</p>
+      <div class="badges">
+        <span class="badge badge-pseudo">:dir(rtl)</span>
+        <span class="badge badge-attr">[dir="rtl"]</span>
+      </div>
+    </div>
+
+    <!-- Язык не меняет направление -->
+    <div class="case">
+      <code>&lt;p lang="ar"&gt;</code>
+      <p class="sample" lang="ar">مرحبا بالعالم</p>
+      <div class="badges">
+        <span class="badge badge-pseudo">:dir(rtl)</span>
+        <span class="badge badge-attr">[dir="rtl"]</span>
+      </div>
+    </div>
+
+    <!-- CSS-свойство direction не меняет направление в разметке -->
+    <div class="case">
+      <code>&lt;p style="direction: rtl"&gt;</code>
+      <p class="sample" style="direction: rtl" lang="ar">مرحبا بالعالم</p>
+      <div class="badges">
+        <span class="badge badge-pseudo">:dir(rtl)</span>
+        <span class="badge badge-attr">[dir="rtl"]</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

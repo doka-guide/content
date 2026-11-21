@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Абсолютный синтаксис — color() — Дока</title>
+  <title>Абсолютное значение — color() — Дока</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      height: 100%;
+    html {
+      color-scheme: dark;
     }
 
     body {
-      display: grid;
-      place-items: center;
-      place-content: center;
-      margin: 0;
+      min-height: 100vh;
       padding: 50px;
-      background-color: #18191c;
-      color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       gap: 20px;
-      -webkit-font-smoothing: antialiased;
+      background-color: #18191C;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
     body::after {
-      content: 'Пространство цветов Display P3 не поддерживается 😢';
+      content: 'Ваш экран не показывает цвета Display P3, поэтому блоки Display P3, a98-rgb и HEX выглядят одинаково 😢';
       display: block;
-      color: #ffffff;
+      color: #FFFFFF;
       font-size: 18px;
       text-align: center;
     }
@@ -59,12 +60,13 @@
     }
 
     .color {
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 200px;
       padding: 20px;
       text-align: center;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1 / 1;
     }
 
     .color-text {
@@ -99,14 +101,14 @@
       background-color: color(srgb-linear 0 0.5 1 / 0.5);
     }
 
-    @media (max-width: 1000px) {
+    @media (width <= 1000px) {
       .color {
         width: 150px;
         padding: 10px;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
         gap: 10px;
@@ -128,14 +130,14 @@
       }
 
       .color {
-        aspect-ratio: 3/2;
+        aspect-ratio: 3 / 2;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       .color {
         width: 135px;
-        aspect-ratio: 4/3;
+        aspect-ratio: 4 / 3;
       }
 
       .color-text {
