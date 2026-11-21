@@ -21,6 +21,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # Правила ярлыков — из ветки по умолчанию, а не из пулреквеста: иначе
+      # форк сам переписал бы себе `.github/labeler.yml`. Копия уходит во
+      # временную папку, потому что следующий чекаут вычищает рабочую.
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          sparse-checkout: .github/labeler.yml
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Копия правил ярлыков
+        run: cp .github/labeler.yml "$RUNNER_TEMP/labeler.yml"
+      # Голова пулреквеста всё же нужна: правила `meta:` читают шапку
+      # изменённых статей с диска.
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -33,4 +46,4 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           strategy: append
-          config: ".github/labeler.yml"
+          config: ${{ runner.temp }}/labeler.yml

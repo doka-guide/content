@@ -80,6 +80,10 @@ jobs:
           printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
           ssh-keyscan -H dev.doka.guide >> ~/.ssh/known_hosts
+          # Таймауты для rsync и docker по ssh. Без них замершее соединение
+          # держало шаг до timeout-minutes, а поиск в это время мог лежать.
+          printf '%s\n' 'Host dev.doka.guide' '  ConnectTimeout 20' '  ServerAliveInterval 15' '  ServerAliveCountMax 4' > "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
       - name: Публикация поискового индекса
         run: |
           CONTENT_PATH="/web/sites/search.doka.guide/www"
@@ -92,3 +96,16 @@ jobs:
           # сервера. С `--rm` он несовместим, поэтому `--rm` убран.
           docker rm -f search || true
           docker run -dti --restart unless-stopped -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
+          # `docker run -d` выходит с нулём, даже если поиск тут же упал, например
+          # на битом индексе. Тогда прогон был зелёным, а поиск лежал до
+          # следующего мёржа. Проверяем, что через десять секунд контейнер жив
+          # и ни разу не перезапускался: `--restart` поднимает упавший поиск, и
+          # без счётчика цикл падений выглядел бы как работающий контейнер.
+          sleep 10
+          STATE="$(docker inspect -f '{{.State.Status}} {{.RestartCount}}' search)"
+          if [ "$STATE" != "running 0" ]; then
+            echo "Состояние контейнера: $STATE"
+            docker logs --tail 50 search || true
+            echo "::error::Контейнер поиска не запустился."
+            exit 1
+          fi

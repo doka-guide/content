@@ -331,15 +331,15 @@ jobs:
           echo "Начало: $(date -u +%H:%M:%S) UTC. Сборка занимает пару минут и молчит до конца."
           npm run build
           echo "Готово: $(date -u +%H:%M:%S) UTC. Страниц собрано: $(find dist -name '*.html' | wc -l)."
-      # `include-hidden-files`, потому что в `dist` есть `.vite`, а без флага
-      # upload-artifact скрытые файлы пропускает. Симлинки upload-artifact
-      # разворачивает в обычные файлы, поэтому на сервер они не попадут.
+      # Скрытые файлы upload-artifact пропускает, и это нужно: штатная сборка
+      # их не создаёт, а файлы из форка вроде `.well-known/` оказались бы на
+      # поддомене Доки. Симлинки upload-artifact разворачивает в обычные
+      # файлы, поэтому на сервер они не попадут.
       - name: Сохранение сборки
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: dist
           path: dist
-          include-hidden-files: true
           retention-days: 1
           if-no-files-found: error
           overwrite: true
