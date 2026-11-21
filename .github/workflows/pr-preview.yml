@@ -70,7 +70,7 @@ jobs:
       # явно, а не оставлен по умолчанию: джоба ходит с правами на запись, и
       # чекаут кода из форка означал бы выполнение чужого кода под этим
       # токеном. Отдельный `path`, чтобы не столкнуться с чекаутом контента.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.repository.default_branch }}
           sparse-checkout: .github/scripts
@@ -83,7 +83,7 @@ jobs:
       # Галки читаются один раз: проверки уже завершились, опрашивать нечего.
       - name: Галки проверок
         id: gate
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const { owner, repo } = context.repo
@@ -196,7 +196,7 @@ jobs:
       - name: Открытие галки превью
         id: check
         if: ${{ steps.gate.outputs.state == 'passed' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const { owner, repo } = context.repo
@@ -215,7 +215,7 @@ jobs:
       # пулреквест безопаснее.
       - name: Заметка о сборке
         if: ${{ steps.gate.outputs.state == 'passed' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
         with:
@@ -257,7 +257,7 @@ jobs:
       # нужен, поэтому `persist-credentials: false`.
       - name: Загрузка контента
         if: ${{ steps.gate.outputs.state == 'passed' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           path: content
@@ -278,8 +278,8 @@ jobs:
           FILES: ${{ runner.temp }}/pr-files.jsonl
         run: node "$RUNNER_TEMP/preview-links.js"
 
-  # Сборке не нужны секреты и запись: токен только читает и не сохраняется
-  # в `.git/config`.
+  # Сборке не нужны секреты и запись: токен только читает и после чекаута
+  # не сохраняется.
   build:
     name: Сборка
     needs: preview
@@ -292,19 +292,19 @@ jobs:
       PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: doka-guide/platform
           persist-credentials: false
       - name: Загрузка контента
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           path: content
           persist-credentials: false
           allow-unsafe-pr-checkout: true
       - name: Загрузка кеша
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: doka-guide/cache
           path: cache
@@ -313,7 +313,7 @@ jobs:
       # ставятся. Зашитая версия разъезжается с платформой — так превью и
       # выкатка сломались, когда платформа перешла на Node 24, а здесь
       # осталась двадцатая.
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
       - name: Установка модулей
@@ -332,7 +332,7 @@ jobs:
       # upload-artifact скрытые файлы пропускает. Симлинки upload-artifact
       # разворачивает в обычные файлы, поэтому на сервер они не попадут.
       - name: Сохранение сборки
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: dist
           path: dist
@@ -351,7 +351,7 @@ jobs:
     permissions: {}
     steps:
       - name: Загрузка сборки
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: dist
           path: dist
@@ -460,7 +460,7 @@ jobs:
       HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
       RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.repository.default_branch }}
           sparse-checkout: .github/scripts
@@ -468,7 +468,7 @@ jobs:
 
       - name: Отчёт в пулреквесте
         if: ${{ always() && needs.preview.outputs.state != '' && needs.preview.outputs.state != 'idle' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           CHECK_ID: ${{ needs.preview.outputs.check-id }}
           DEPLOY_DOMAIN: https://content-${{ needs.preview.outputs.pull-number }}.dev.doka.guide
@@ -586,7 +586,7 @@ jobs:
       # вечное «Идёт сборка...». Шаг можно удалить, когда их не останется.
       - name: Уборка старых комментариев
         if: ${{ always() }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         continue-on-error: true
         env:
           PULL_NUMBER: ${{ needs.preview.outputs.pull-number }}
