@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono:wght@400&family=Inconsolata:wdth@50..200&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -22,111 +25,87 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      font-size: 16px;
       color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    code {
+    .list {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      align-items: center;
+      column-gap: 30px;
+      row-gap: 10px;
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .percent {
       font-family: "Roboto Mono", monospace;
-      font-size: calc(1em - 1px);
-    }
-
-    h1 {
-      font-weight: 500;
-      font-size: 30px;
-    }
-
-    .option-container {
-      display: flex;
-      align-items: flex-end;
-      margin-top: 30px;
-    }
-
-    .option-title {
-      margin-right: 50px;
-      font-size: 18px;
-      width: 210px;
+      font-size: 16px;
+      color: #F498AD;
       text-align: right;
     }
 
-    .option {
-      width: 450px;
-      padding: 35px 20px;
-      background-color: #2E9AFF;
-      color: #000000;
+    /* Название ключевого слова написано этим же ключевым словом */
+    .keyword {
+      padding: 12px 20px;
+      background-color: #282A2E;
+      border-left: 4px solid #2E9AFF;
+      font-family: "Inconsolata", monospace;
+      font-size: 30px;
+      white-space: nowrap;
     }
 
-    p {
-      margin: 7px 0;
-      font-size: 1em;
-      line-height: 1.4;
-      text-align: justify;
-      font-family: Inconsolata;
-    }
+    .ultra-condensed { font-stretch: ultra-condensed; }
+    .extra-condensed { font-stretch: extra-condensed; }
+    .condensed { font-stretch: condensed; }
+    .semi-condensed { font-stretch: semi-condensed; }
+    .normal { font-stretch: normal; }
+    .semi-expanded { font-stretch: semi-expanded; }
+    .expanded { font-stretch: expanded; }
+    .extra-expanded { font-stretch: extra-expanded; }
+    .ultra-expanded { font-stretch: ultra-expanded; }
 
-    .ultra-condensed {
-      font-stretch: ultra-condensed;
-    }
-    .condensed {
-      font-stretch: condensed;
-    }
-    .normal {
-      font-stretch: normal;
-    }
-    .expanded {
-      font-stretch: expanded;
-    }
-    .ultra-expanded {
-      font-stretch: ultra-expanded;
-    }
-
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
-        padding: 30px;
+        padding: 30px 15px;
       }
 
-      .option-container {
-        flex-direction: column;
+      .list {
+        column-gap: 15px;
       }
 
-      .option-title {
-        width: 100%;
+      .percent {
+        font-size: 14px;
       }
 
-      .option-title {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-
-      .option {
-        width: calc(100vw - 60px);
+      .keyword {
+        padding: 10px 12px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1><code>font-stretch</code></h1>
-    <div class="option-container">
-      <span class="option-title"><code>ultra-condensed</code></span>
-      <p class="option ultra-condensed">The quick brown fox jumps over the lazy dog</p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>condensed</code></span>
-      <p class="option condensed">The quick brown fox jumps over the lazy dog</p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>normal</code></span>
-      <p class="option normal">The quick brown fox jumps over the lazy dog</p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>expanded</code></span>
-      <p class="option expanded">The quick brown fox jumps over the lazy dog</p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>ultra-expanded</code></span>
-      <p class="option ultra-expanded">The quick brown fox jumps over the lazy dog</p>
-    </div>
+  <div class="list">
+    <span class="percent">50%</span>
+    <span class="keyword ultra-condensed">ultra-condensed</span>
+    <span class="percent">62.5%</span>
+    <span class="keyword extra-condensed">extra-condensed</span>
+    <span class="percent">75%</span>
+    <span class="keyword condensed">condensed</span>
+    <span class="percent">87.5%</span>
+    <span class="keyword semi-condensed">semi-condensed</span>
+    <span class="percent">100%</span>
+    <span class="keyword normal">normal</span>
+    <span class="percent">112.5%</span>
+    <span class="keyword semi-expanded">semi-expanded</span>
+    <span class="percent">125%</span>
+    <span class="keyword expanded">expanded</span>
+    <span class="percent">150%</span>
+    <span class="keyword extra-expanded">extra-expanded</span>
+    <span class="percent">200%</span>
+    <span class="keyword ultra-expanded">ultra-expanded</span>
   </div>
 </body>
 </html>
