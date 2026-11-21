@@ -14,6 +14,7 @@
 # половину прогонов висят серыми.
 #
 # Тесты заметки: node --test .github/scripts/preview-note.test.js
+#               node --test .github/scripts/preview-links.test.js
 
 name: PR Preview
 
@@ -69,8 +70,8 @@ jobs:
       # что отчёт был отдельной джобой со своим чекаутом. Теперь он шаг этой же
       # джобы, и без копии падал бы с MODULE_NOT_FOUND ровно тогда, когда
       # превью собралось.
-      - name: Копия скрипта заметки
-        run: cp base/.github/scripts/preview-note.js "$RUNNER_TEMP/preview-note.js"
+      - name: Копия скриптов заметки
+        run: cp base/.github/scripts/preview-note.js base/.github/scripts/preview-links.js "$RUNNER_TEMP/"
 
       # Галки читаются один раз: проверки уже завершились, опрашивать нечего.
       - name: Галки проверок
@@ -225,33 +226,25 @@ jobs:
               headSha,
             })
 
-      # Собирает адреса страниц, затронутых пулреквестом. Соответствие пути
-      # и адреса разное у разных разделов:
-      #   css/optional/index.md   → /css/optional/
-      #   pages/about/index.md    → /about/        папка раздела выпадает
-      #   interviews/…/index.md   → страницы нет, у вопросов её не бывает
-      # Демки, картинки, советы «На практике» и ответы лежат глубже и своих
-      # страниц тоже не имеют, поэтому в список не попадают.
-      - name: Выборка изменённых материалов
-        id: files
+      # Список файлов пулреквеста со статусом: по нему скрипт ссылок отличает
+      # удалённые и переименованные материалы. Файл лежит в RUNNER_TEMP, потому
+      # что чекаут платформы дальше вычищает воркспейс.
+      # `continue-on-error` здесь и на шаге ссылок: без списка материалов
+      # превью всё равно нужно, а упавший шаг пропустил бы сборку, и отчёт
+      # написал бы «ошибка сборки», которой не было.
+      - name: Выборка изменённых файлов
         if: ${{ steps.gate.outputs.state == 'passed' }}
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_NUMBER: ${{ steps.gate.outputs.pull-number }}
         run: |
           set -eu
-          urls=$(gh api --paginate \
-            "repos/${{ github.repository }}/pulls/${PULL_NUMBER}/files" \
-            --jq '.[].filename' \
-            | awk -F/ '
-                NF == 3 && $3 == "index.md" {
-                  if ($1 ~ /^(html|css|js|a11y|tools|recipes|people)$/) print "/" $1 "/" $2 "/"
-                  else if ($1 ~ /^(pages|specials)$/) print "/" $2 "/"
-                }' \
-            | sort -u \
-            | tr '\n' ' ')
-          echo "urls=$urls" >> "$GITHUB_OUTPUT"
-          echo "Затронуто страниц: $(echo $urls | wc -w)"
+          gh api --paginate \
+            "repos/${{ github.repository }}/pulls/${PULL_NUMBER}/files?per_page=100" \
+            --jq '.[] | {filename, status, previous_filename}' \
+            > "$RUNNER_TEMP/pr-files.jsonl"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/pr-files.jsonl")"
 
       - name: Загрузка platform
         if: ${{ steps.gate.outputs.state == 'passed' }}
@@ -286,31 +279,19 @@ jobs:
         if: ${{ steps.gate.outputs.state == 'passed' }}
         run: cp ./cache/issues.json ./.issues.json
 
-      # Блок со ссылками добавляется к сообщению только когда есть что
-      # показать: у пулреквестов, которые правят воркфлоу или служебные файлы,
-      # затронутых материалов нет, и раскрывашка там пустая и бессмысленная.
+      # Какой файл куда ведёт — в preview-links.js: совет «На практике» — на
+      # якорь в статье, демка — на свою страницу, вопрос с собеседования — в
+      # статьи из его `related`. Поэтому шаг стоит после чекаута контента:
+      # `related` читается оттуда. Скрипт из ветки по умолчанию, файлы
+      # пулреквеста он только читает. Пустой выход — блока не будет.
       - name: Формирование ссылок на материалы
         id: links
         if: ${{ steps.gate.outputs.state == 'passed' }}
+        continue-on-error: true
         env:
           DEPLOY_DOMAIN: https://content-${{ steps.gate.outputs.pull-number }}.dev.doka.guide
-          # Через `env`, а не подстановкой в саму команду: адреса собраны из
-          # имён папок пулреквеста, а имя папки задаёт автор. Папка вида
-          # `css/$(...)/index.md` выполнилась бы прямо здесь — в джобе, у
-          # которой есть ключ выкатки.
-          URLS: ${{ steps.files.outputs.urls }}
-        run: |
-          set -eu
-          items=""
-          for url in $URLS; do
-            items="${items}<li><a href=\"${DEPLOY_DOMAIN}${url}\">${url}</a></li>"
-          done
-          if [ -n "$items" ]; then
-            block="<details><summary>Затронутые материалы</summary><ul>${items}</ul></details>"
-          else
-            block=""
-          fi
-          echo "list=$block" >> "$GITHUB_OUTPUT"
+          FILES: ${{ runner.temp }}/pr-files.jsonl
+        run: node "$RUNNER_TEMP/preview-links.js"
 
       - name: Установка ключа для пользователя
         if: ${{ steps.gate.outputs.state == 'passed' }}
@@ -404,24 +385,33 @@ jobs:
             // они не запускались вовсе.
             let message
             let conclusion
+            let tone
             if (state === 'failed') {
               const failed = process.env.FAILED ? ` (${process.env.FAILED})` : ''
               message = `Превью контента из ${sha} не опубликовано: не прошли проверки пулреквеста${failed}. [Подробнее](${process.env.RUN_URL})`
               // Красная галка нужна только на нашей поломке: провал проверок
               // уже виден отдельной красной галкой, дублировать его незачем.
               conclusion = 'neutral'
+              tone = 'warning'
             } else if (state !== 'passed') {
               message = `Превью контента из ${sha} не опубликовано: проверки пулреквеста не завершились. [Подробнее](${process.env.RUN_URL})`
               conclusion = 'neutral'
+              tone = 'warning'
             } else if (isPublished) {
-              message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${process.env.LINKS || ''}`
+              // Раскрывашка — отдельной строкой: так GitHub разбирает её как
+              // HTML-блок, а не как продолжение абзаца, и `_` в слагах не
+              // превращается в курсив.
+              const links = process.env.LINKS ? `\n${process.env.LINKS}` : ''
+              message = `<a href="${process.env.DEPLOY_DOMAIN}">Превью контента</a> из ${sha} опубликовано.${links}`
               conclusion = 'success'
+              tone = 'tip'
             } else {
               message = `Превью контента из ${sha} не опубликовано. Ошибка сборки или публикации. [Подробнее](${process.env.RUN_URL})`
               conclusion = 'failure'
+              tone = 'caution'
             }
 
-            const written = await note.writeNote({ github, owner, repo, pullNumber, message, headSha: sha })
+            const written = await note.writeNote({ github, owner, repo, pullNumber, message, headSha: sha, tone })
             if (written === null) {
               core.info(`Коммит ${sha} устарел, заметку не трогаем`)
               return
