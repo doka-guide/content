@@ -151,7 +151,14 @@ color-mix(in hsl increasing hue, red, blue);
 
 <iframe title="Визуализация метода increasing hue" src="demos/increasing-hue/" height="700"></iframe>
 
-**`decreasing`** — идёт в сторону уменьшения угла. В примере выше это был бы путь от 0° через 360° → 300° → 240° (через пурпурный).
+**`decreasing`** — браузер всегда идёт в сторону уменьшения угла, независимо от того, какой путь короче.
+
+```css
+/* Красный (0°) и синий (240°) */
+color-mix(in hsl decreasing hue, red, blue);
+```
+
+С `decreasing hue` браузер пойдёт от 0° (оно же 360°) → 300° → 240° (через пурпурный).
 
 <iframe title="Визуализация метода decreasing hue" src="demos/decreasing-hue/" height="700"></iframe>
 
