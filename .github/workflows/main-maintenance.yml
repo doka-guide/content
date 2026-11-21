@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 26
       - name: Мета, даты, словарь и ченджлог
         env:
           # Коммит, ради которого всё затеяно. Даты и ченджлог считаются по
