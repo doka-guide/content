@@ -1,71 +1,232 @@
----
-title: "Интерактивная демка: значения CSS-свойства display"
-description: "Попробуйте разные значения display и посмотрите, как меняется поведение элементов"
----
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значения display — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<div style="background: #f5f5f5; padding: 20px; border-radius: 12px; margin: 20px 0;">
-    <style>
-        .demo-controls { margin-bottom: 20px; }
-        .demo-controls select { padding: 8px 12px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; }
-        .demo-boxes { background: #fff; padding: 20px; border-radius: 12px; border: 2px dashed #ccc; transition: all 0.3s; }
-        .demo-box { background: #3498db; color: white; text-align: center; padding: 15px; margin: 8px; border-radius: 8px; }
-        .demo-box:nth-child(2) { background: #2ecc71; }
-        .demo-box:nth-child(3) { background: #e74c3c; }
-        .demo-info { margin-top: 15px; padding: 10px; background: #e8f4fd; border-radius: 8px; font-size: 14px; }
-    </style>
+    html {
+      color-scheme: dark;
+    }
 
-    <div class="demo-controls">
-        <label>🎮 Выберите значение <code>display</code>: </label>
-        <select id="demoDisplaySelect">
-            <option value="block">block</option>
-            <option value="inline">inline</option>
-            <option value="inline-block">inline-block</option>
-            <option value="flex">flex</option>
-            <option value="grid">grid</option>
-        </select>
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .wrapper {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .toggle button {
+      padding: 8px 14px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .toggle button[aria-pressed="true"] {
+      background-color: #2E9AFF;
+      color: #18191C;
+      font-weight: 500;
+    }
+
+    /* Высота под самое длинное правило, чтобы демка не прыгала */
+    .code {
+      min-height: 7.5em;
+      margin-bottom: 8px;
+      font-family: monospace;
+      font-size: 15px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .code-value {
+      color: #F498AD;
+    }
+
+    .note {
+      min-height: 3em;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    /* Высота контейнера с запасом под режим block, чтобы демка не прыгала */
+    .container {
+      min-height: 276px;
+      padding: 10px;
+      border: 2px dashed #2E9AFF;
+      border-radius: 8px;
+      background-color: #282A2E;
+    }
+
+    .box {
+      width: 96px;
+      height: 56px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background-color: #2E9AFF;
+      color: #18191C;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 40px;
+      text-align: center;
+    }
+
+    /* block, inline и inline-block задаём самим элементам */
+    .container[data-value="block"] .box {
+      display: block;
+    }
+
+    .container[data-value="block"] .box + .box {
+      margin-top: 8px;
+    }
+
+    .container[data-value="inline"] .box {
+      display: inline;
+    }
+
+    .container[data-value="inline-block"] .box {
+      display: inline-block;
+    }
+
+    /* flex и grid задаём контейнеру: они меняют раскладку дочерних элементов */
+    .container[data-value="flex"] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .container[data-value="grid"] {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-content: start;
+      gap: 8px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px 16px;
+      }
+
+      .code {
+        font-size: 13px;
+      }
+
+      .note {
+        min-height: 4.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="toggle" role="group" aria-label="Значение display">
+      <button type="button" aria-pressed="true" data-value="block">block</button>
+      <button type="button" aria-pressed="false" data-value="inline">inline</button>
+      <button type="button" aria-pressed="false" data-value="inline-block">inline-block</button>
+      <button type="button" aria-pressed="false" data-value="flex">flex</button>
+      <button type="button" aria-pressed="false" data-value="grid">grid</button>
     </div>
 
-    <div class="demo-boxes" id="demoDisplayBoxes">
-        <div class="demo-box">Блок 1</div>
-        <div class="demo-box">Блок 2</div>
-        <div class="demo-box">Блок 3</div>
-        <div class="demo-box">Блок 4</div>
+    <div aria-live="polite">
+      <pre class="code"></pre>
+      <p class="note"></p>
     </div>
 
-    <div class="demo-info" id="demoDisplayInfo">
-        Текущее значение: <code>block</code>
+    <div class="container" data-value="block">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
     </div>
+  </div>
 
-    <script>
-        const select = document.getElementById('demoDisplaySelect');
-        const container = document.getElementById('demoDisplayBoxes');
-        const info = document.getElementById('demoDisplayInfo');
+  <script>
+    const container = document.querySelector('.container');
+    const buttons = document.querySelectorAll('.toggle button');
+    const code = document.querySelector('.code');
+    const note = document.querySelector('.note');
 
-        function updateDisplay() {
-            const value = select.value;
-            container.style.display = value;
-            info.innerHTML = `Текущее значение: <code>${value}</code><br><br>`;
+    // Кому задаём значение, какие свойства нужны ещё и что при этом происходит
+    const modes = {
+      'block': {
+        selector: '.box',
+        extra: [],
+        note: 'Каждый элемент занимает отдельную строку. Ширина и высота работают.',
+      },
+      'inline': {
+        selector: '.box',
+        extra: [],
+        note: 'Элементы идут в строку, как слова в тексте. Ширина и высота больше не работают: размер зависит от текста и отступов.',
+      },
+      'inline-block': {
+        selector: '.box',
+        extra: [],
+        note: 'Элементы идут в строку, но ширина и высота снова работают. Зазоры между элементами — это пробелы из разметки.',
+      },
+      'flex': {
+        selector: '.container',
+        extra: ['flex-wrap: wrap;', 'gap: 8px;'],
+        note: 'Значение задаём контейнеру. Элементы становятся флекс-элементами и выстраиваются в ряд.',
+      },
+      'grid': {
+        selector: '.container',
+        extra: ['grid-template-columns: repeat(2, 1fr);', 'gap: 8px;'],
+        note: 'Значение задаём контейнеру. Элементы становятся грид-элементами. Без grid-template-columns сетка была бы в одну колонку.',
+      },
+    };
 
-            if (value === 'flex') {
-                container.style.gap = '8px';
-                container.style.flexWrap = 'wrap';
-                info.innerHTML += 'Включён режим <strong>flex</strong> — элементы выстраиваются в гибкую строку.';
-            } else if (value === 'grid') {
-                container.style.display = 'grid';
-                container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(150px, 1fr))';
-                container.style.gap = '12px';
-                info.innerHTML += 'Включён режим <strong>grid</strong> — элементы располагаются в адаптивной сетке.';
-            } else {
-                container.style.gap = '';
-                container.style.flexWrap = '';
-                container.style.gridTemplateColumns = '';
-                if (value === 'inline') info.innerHTML += 'Режим <strong>inline</strong> — элементы располагаются в строку.';
-                else if (value === 'inline-block') info.innerHTML += ' Режим <strong>inline-block</strong> — как inline, но с размерами.';
-                else info.innerHTML += 'Режим <strong>block</strong> — каждый элемент с новой строки.';
-            }
-        }
+    function setMode(mode) {
+      const { selector, extra } = modes[mode];
+      const lines = extra.map((line) => `\n  ${line}`).join('');
 
-        select.addEventListener('change', updateDisplay);
-        updateDisplay();
-    </script>
-</div>
+      container.dataset.value = mode;
+      code.innerHTML = `${selector} {\n  display: <span class="code-value">${mode}</span>;${lines}\n}`;
+      note.textContent = modes[mode].note;
+
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', button.dataset.value === mode);
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => setMode(button.dataset.value));
+    });
+
+    setMode('block');
+  </script>
+</body>
+</html>
