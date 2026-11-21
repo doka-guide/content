@@ -83,7 +83,10 @@ jobs:
         run: |
           cp .env.example .env
           npm run build
+      # --checksum, потому что у свежей сборки новые даты у всех файлов, и по
+      # размеру с датой rsync переписывал на боевом сайте почти каждый файл.
+      # По содержимому меняются только действительно изменённые.
       - name: Публикация сайта
         run: |
           cd dist
-          rsync --exclude 'api.json' --exclude 'mail' --archive --progress --compress --delete . dev.doka.guide:/web/sites/doka.guide/www/
+          rsync --exclude 'api.json' --exclude 'mail' --archive --checksum --progress --compress --delete . dev.doka.guide:/web/sites/doka.guide/www/

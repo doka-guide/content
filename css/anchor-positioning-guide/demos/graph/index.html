@@ -104,7 +104,7 @@
       stroke-width: 4px;
     }
 
-    @container (max-width: calc(1em - 0.2px)) or (max-height: calc(1em - 0.2px)) {
+    @container (width <= calc(1em - 0.2px)) or (height <= calc(1em - 0.2px)) {
       svg {
         display: none;
       }
@@ -115,33 +115,33 @@
       height: 100%;
     }
 
-    @media (max-width: 980px) {
+    @media (width <= 980px) {
       .graph {
         scale: 0.9;
       }
     }
 
-    @media (max-width: 920px) {
+    @media (width <= 920px) {
       .graph {
         scale: 0.8;
         translate: -10%;
       }
     }
 
-    @media (max-width: 770px) {
+    @media (width <= 770px) {
       .graph {
         scale: 0.6;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (width <= 650px) {
       .graph {
         scale: 0.5;
         translate: -15%;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (width <= 650px) {
       body {
         font-size: 100px;
       }
@@ -152,14 +152,14 @@
       }
     }
 
-    @media (max-width: 450px) {
+    @media (width <= 450px) {
       .graph {
         scale: 0.3;
         translate: -25%;
       }
     }
 
-    @media (max-width: 330px) {
+    @media (width <= 330px) {
       .graph {
         translate: -35%;
       }

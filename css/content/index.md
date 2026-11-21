@@ -79,7 +79,7 @@ div::before {
 
 ```css
 div::before {
-  content: attr(value string);
+  content: attr(title);
 }
 ```
 
