@@ -16,7 +16,7 @@ jobs:
     # У самого проверяльщика `run_timeout: 600`, остальное — установка и чекаут.
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@afddb04bb0ce6fde172b24ac5686474ff5005c8a # v2.2.5
         with:
