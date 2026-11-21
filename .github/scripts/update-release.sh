@@ -35,11 +35,16 @@ esac
 CURRENT_MONTH=$(date -u +"%m")
 CURRENT_YEAR=$(date -u +"%Y")
 SHORT_YEAR=$(date -u +"%y")
-if [[ "$CURRENT_MONTH" == "01" ]]; then
-  CURRENT_YEAR="$(($CURRENT_YEAR - 1))"
-  SHORT_YEAR="$(($SHORT_YEAR - 1))"
-fi
+# Релиз подводит итог прошлого месяца, поэтому в январе это декабрь
+# прошлого года. Скрипт запускается через `sh` (dash), поэтому `[`, а не `[[`:
+# с `[[` условие молча не срабатывало, и 1 января 2026 вышел v.0.26
+# «December 2026» вместо v.12.25 «December 2025».
 RELEASE_MONTH="$((${CURRENT_MONTH#0} - 1))"
+if [ "$CURRENT_MONTH" = "01" ]; then
+  RELEASE_MONTH=12
+  CURRENT_YEAR="$((CURRENT_YEAR - 1))"
+  SHORT_YEAR="$(printf '%02d' "$((${SHORT_YEAR#0} - 1))")"
+fi
 
 TAG="v.$RELEASE_MONTH.$SHORT_YEAR"
 TITLE="$(MONTH_TO_ENG $CURRENT_MONTH) $CURRENT_YEAR ($TAG)"

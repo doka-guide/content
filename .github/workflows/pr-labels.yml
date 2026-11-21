@@ -25,6 +25,9 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           allow-unsafe-pr-checkout: true
+          # Код PR здесь не запускается, но токен с записью в `.git/config`
+          # пережил бы чекаут. Ярлыкам он передаётся отдельно, через `token`.
+          persist-credentials: false
       - name: Устанавливает необходимые ярлыки
         uses: doka-guide/doka-labeler@v1.0.1
         with:

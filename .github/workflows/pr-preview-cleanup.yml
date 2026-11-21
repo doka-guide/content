@@ -1,0 +1,61 @@
+name: PR Preview Cleanup
+
+# Раз в сутки удаляет превью закрытых пулреквестов. Каждое превью — полная
+# копия сайта, около 640 МБ, на том же диске, что и прод.
+#
+# По расписанию, а не на закрытие пулреквеста: `pull_request_target` разрешён
+# политикой репозитория только для списка файлов, а `pull_request` из форка
+# не получает ключ. Сутки задержки диску не страшны.
+on:
+  schedule:
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+permissions:
+  pull-requests: read
+
+jobs:
+  cleanup:
+    name: Уборка превью
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Установка ключа
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
+      - name: Удаление превью
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -eu
+          PREVIEWS=/web/sites/dev.doka.guide/content
+          remote() {
+            ssh -i "$HOME/.ssh/doka_deploy" -o StrictHostKeyChecking=no -o BatchMode=yes \
+              -o ConnectTimeout=20 deploy@dev.doka.guide "$@"
+          }
+
+          CANDIDATES=$(remote "ls -1 '$PREVIEWS'" | grep -E '^[0-9]+$' || true)
+          echo "Папок превью: $(echo "$CANDIDATES" | grep -c . || true)."
+
+          # Удаляем только папку с номером закрытого пулреквеста. Если GitHub
+          # не ответил, состояние пустое, и папка остаётся: лишнее превью
+          # дешевле удалённого живого.
+          for n in $CANDIDATES; do
+            case "$n" in *[!0-9]*|'') continue ;; esac
+            state=$(gh api "repos/$REPO/pulls/$n" --jq .state 2>/dev/null || true)
+            if [ "$state" = "closed" ]; then
+              remote "rm -rf '$PREVIEWS/$n'"
+              echo "Удалено превью #$n."
+            fi
+          done
+
+          remote "df -h '$PREVIEWS'" || true
