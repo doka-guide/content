@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Индексы из шрифта и из тегов — font-variant-position — Дока</title>
+  <title>Индексы из тегов и из шрифта — font-variant-position — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,9 +42,18 @@
       font-family: "Roboto Mono", monospace;
     }
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
     .demo {
       width: 100%;
-      max-width: 560px;
+      max-width: 600px;
     }
 
     .controls {
@@ -66,14 +75,12 @@
       border: 2px solid #282A2E;
       border-radius: 6px;
       background-color: #282A2E;
-      font-family: "Roboto Mono", monospace;
       font-size: 16px;
       cursor: pointer;
     }
 
     .control input:checked + span {
       border-color: #2E9AFF;
-      color: #2E9AFF;
     }
 
     .control input:focus-visible + span {
@@ -81,50 +88,42 @@
       outline-offset: 2px;
     }
 
-    .row + .row {
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid #282A2E;
-    }
-
-    .caption {
-      margin-bottom: 8px;
-      color: rgb(255 255 255 / 0.6);
-      font-size: 16px;
-    }
-
-    .sample {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 40px;
+    .text {
+      display: grid;
       font-family: "Libertinus Serif", serif;
-      font-size: 56px;
-      line-height: 1.2;
+      font-size: 32px;
+      line-height: 1.4;
     }
 
-    .index {
+    /* Оба варианта абзаца лежат в одной ячейке грида: высота блока не меняется при переключении */
+    .variant {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    .variant-tags :is(sub, sup) {
+      color: #F498AD;
+    }
+
+    /* Сбрасываем стили тегов и берём глифы из шрифта */
+    .variant-font :is(sub, sup) {
+      vertical-align: baseline;
+      font-size: inherit;
       color: #2E9AFF;
     }
 
-    /* Значение свойства меняется переключателями */
-    .demo:has([value="sub"]:checked) .index {
+    .variant-font sub {
       font-variant-position: sub;
     }
 
-    .demo:has([value="super"]:checked) .index {
+    .variant-font sup {
       font-variant-position: super;
     }
 
-    /* Показываем пример, который подходит выбранному значению */
-    .demo:has([value="sub"]:checked) .formula-super,
-    .demo:has([value="super"]:checked) .formula-sub {
-      display: none;
-    }
-
-    /* Для сравнения: стили тегов из браузера по умолчанию */
-    sub,
-    sup {
-      color: #F498AD;
+    /* Показываем вариант, выбранный переключателем */
+    .demo:has([value="tags"]:checked) .variant-font,
+    .demo:has([value="font"]:checked) .variant-tags {
+      visibility: hidden;
     }
 
     @media (width <= 768px) {
@@ -132,8 +131,8 @@
         padding: 30px;
       }
 
-      .sample {
-        font-size: 40px;
+      .text {
+        font-size: 24px;
       }
     }
   </style>
@@ -141,34 +140,23 @@
 <body>
   <div class="demo">
     <fieldset class="controls">
-      <legend class="caption">Значение <code>font-variant-position</code></legend>
+      <legend class="visually-hidden">Как нарисовать индексы</legend>
       <label class="control">
-        <input type="radio" name="position" value="normal" checked>
-        <span>normal</span>
+        <input type="radio" name="variant" value="tags" checked>
+        <span>Теги <code>&lt;sub&gt;</code> и <code>&lt;sup&gt;</code></span>
       </label>
       <label class="control">
-        <input type="radio" name="position" value="sub">
-        <span>sub</span>
-      </label>
-      <label class="control">
-        <input type="radio" name="position" value="super">
-        <span>super</span>
+        <input type="radio" name="variant" value="font">
+        <span>Теги и <code>font-variant-position</code></span>
       </label>
     </fieldset>
 
-    <div class="row">
-      <p class="caption">Свойство берёт глифы из шрифта</p>
-      <p class="sample">
-        <span class="formula-sub">H<span class="index">2</span>SO<span class="index">4</span></span>
-        <span class="formula-super">x<span class="index">2</span> + y<span class="index">2</span></span>
+    <div class="text">
+      <p class="variant variant-tags">
+        Вода — это H<sub>2</sub>O, а площадь квадрата — a<sup>2</sup>. Формулу E&nbsp;=&nbsp;mc<sup>2</sup> знают даже те, кто не дочитал до сноски<sup>1</sup>.
       </p>
-    </div>
-
-    <div class="row">
-      <p class="caption">Теги <code>&lt;sub&gt;</code> и <code>&lt;sup&gt;</code> уменьшают и сдвигают обычные цифры</p>
-      <p class="sample">
-        <span class="formula-sub">H<sub>2</sub>SO<sub>4</sub></span>
-        <span class="formula-super">x<sup>2</sup> + y<sup>2</sup></span>
+      <p class="variant variant-font">
+        Вода — это H<sub>2</sub>O, а площадь квадрата — a<sup>2</sup>. Формулу E&nbsp;=&nbsp;mc<sup>2</sup> знают даже те, кто не дочитал до сноски<sup>1</sup>.
       </p>
     </div>
   </div>
