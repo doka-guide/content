@@ -110,7 +110,10 @@ tags:
 Если нужно всё сразу, порядок такой: путь, `layer`, `supports()`, медиавыражения:
 
 ```css
-@import "cards.css" layer(components) supports(selector(:has(img))) (width >= 768px);
+@import "cards.css"
+  layer(components)
+  supports(selector(:has(img)))
+  (width >= 768px);
 ```
 
 ## Как понять
