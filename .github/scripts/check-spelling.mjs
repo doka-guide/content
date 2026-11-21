@@ -51,11 +51,14 @@ function runCspell(files) {
     'npx',
     [
       '--yes',
-      '--package=cspell',
-      '--package=@cspell/dict-ru_ru',
+      '--package=cspell@10.4.1',
+      '--package=@cspell/dict-ru_ru@2.3.4',
       'cspell',
       '--config',
       CONFIG,
+      // Без флага cspell выходит с 1, когда все файлы попали в ignorePaths
+      // (например, PR только с people/), и проверка краснела бы зря.
+      '--no-must-find-files',
       '--no-progress',
       '--no-summary',
       '--no-color',
@@ -65,7 +68,15 @@ function runCspell(files) {
     { encoding: 'utf8', env: NPM_ENV },
   )
   if (result.error) throw result.error
-  return parse((result.stdout || '') + '\n' + (result.stderr || ''))
+  const output = (result.stdout || '') + '\n' + (result.stderr || '')
+  const found = parse(output)
+  // cspell выходит с 1, когда нашёл слова. Ненулевой код без единого слова —
+  // это сбой (npm не скачал пакет, cspell сменил формат вывода), а не
+  // чистый текст: без этой проверки галка была бы зелёной.
+  if (result.status !== 0 && found.length === 0) {
+    throw new Error(`cspell завершился с кодом ${result.status}:\n${output.trim()}`)
+  }
+  return found
 }
 
 function main() {

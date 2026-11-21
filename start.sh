@@ -22,9 +22,11 @@ case $RESPONSE in
 
         ;;
     esac
-    echo "Остановить веб-сервер можно с помощью клавиш: Ctrl + c$"
+    echo "Остановить веб-сервер можно с помощью клавиш: Ctrl + C"
 
-    docker pull dokaguide/platform && docker run --rm -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content dokaguide/platform
+    # `-it` передаёт в контейнер нажатие Ctrl + C, а `--init` ставит перед npm
+    # init-процесс: без него npm работает как PID 1 и может не остановиться.
+    docker pull dokaguide/platform && docker run --rm -it --init -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content dokaguide/platform
 
     echo "Спасибо за ваш труд!"
 
