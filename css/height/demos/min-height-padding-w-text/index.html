@@ -6,31 +6,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      line-height: 1.5;
     }
 
     .container {
+      width: 100%;
       min-height: 150px;
       padding: 25px;
-      background-color: #1a5ad7;
+      background-color: #282A2E;
     }
 
     .item {
-      box-sizing: border-box;
       padding: 25px;
       margin: 0 10px;
-      color: #1a5ad7;
-      background-color: #ffffff;
+      outline: 2px solid #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="item">Вулкан был покорён в 1937 году польскими альпинистами Юстином Войжнисом и Яном Щепаньским. На пути к вершине исследователями были обнаружены следы жертвенных алтарей инков. По всей видимости, вулкан Охос-дель-Саладо почитался индейцами как священная гора. 21 апреля 2007 года чилийский спортсмен Гонсало Браво сумел на модифицированной Судзуки Самурай (Suzuki SJ) подняться по склону Охос-дель-Саладо на высоту 6688 метров, поставив таким образом мировой рекорд подъёма для автомобилей.</div>
+    <div class="item">Вулкан покорили в 1937 году польские альпинисты Юстин Войжнис и Ян Щепаньский. По пути к вершине они нашли следы жертвенных алтарей инков.</div>
   </div>
 </body>
 </html>
