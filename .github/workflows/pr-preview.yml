@@ -335,13 +335,40 @@ jobs:
           # содержимому меняются только задетые пулреквестом страницы.
           SSH_COMMAND="ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no -o BatchMode=yes \
             -o ConnectTimeout=20 -o ServerAliveInterval=15 -o ServerAliveCountMax=4"
-          $SSH_COMMAND deploy@dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${PULL_NUMBER}
+          PREVIEWS=/web/sites/dev.doka.guide/content
+          $SSH_COMMAND deploy@dev.doka.guide mkdir -p "$PREVIEWS/${PULL_NUMBER}"
+
+          # У нового пулреквеста папка на сервере пустая, и rsync слал все
+          # ~640 МБ по сети. При 300 кБ/с это дольше timeout-minutes: превью
+          # #6196 оборвалось на 89%. --link-dest берёт файлы из папки соседнего
+          # превью, которая лежит на том же сервере, и по сети едет только
+          # разница. Совпадение по --checksum — тот же критерий, что и для
+          # самой папки, поэтому чужие страницы в превью не попадут.
+          #
+          # Если у файла совпадают содержимое и атрибуты, rsync ставит жёсткую
+          # ссылку. Если отличается только дата — а у свежей сборки она новая
+          # всегда, — копирует файл локально на сервере. Общие inode безопасны:
+          # без --inplace rsync не правит файл на месте, а пишет новый и
+          # подменяет, так что следующая выгрузка соседа эту копию не тронет.
+          #
+          # Берётся самая свежая папка с номером, кроме своей. Нет такой или
+          # ssh не ответил — флага нет, и выгрузка идёт целиком, как раньше.
+          REFERENCE=$($SSH_COMMAND deploy@dev.doka.guide \
+            "ls -1t '$PREVIEWS'" 2>/dev/null \
+            | grep -E '^[0-9]+$' | grep -vx "${PULL_NUMBER}" | head -n 1 || true)
+          LINK_DEST=""
+          if [ -n "$REFERENCE" ]; then
+            LINK_DEST="--link-dest=$PREVIEWS/$REFERENCE"
+            echo "Основа для выгрузки: превью #$REFERENCE."
+          fi
+
           cd dist
           for attempt in 1 2 3; do
             # --info=progress2 показывает общий прогресс одной обновляемой строкой,
             # а не портянку из десятков тысяч имён файлов, как прежний --progress.
             rsync -e "$SSH_COMMAND" --timeout=60 --archive --checksum --compress --delete --info=progress2 \
-              . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${PULL_NUMBER} && break
+              ${LINK_DEST:+"$LINK_DEST"} \
+              . "deploy@dev.doka.guide:$PREVIEWS/${PULL_NUMBER}" && break
             [ "$attempt" -lt 3 ] || exit 1
             echo ""
             echo "::warning::rsync прервался, попытка $attempt из 3"
