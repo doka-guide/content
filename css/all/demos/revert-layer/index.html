@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с revert-layer — all — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    /* Сброс тоже лежит в слое: стили вне слоёв перебили бы стили из слоя base */
+    @layer reset, base, theme;
+
+    @layer reset {
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    }
+
+    @layer base {
+      p {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #FFFFFF;
+      }
+
+      p + p {
+        margin-top: 7px;
+      }
+    }
+
+    @layer theme {
+      p {
+        font-size: 21px;
+        font-weight: 500;
+        font-style: italic;
+        color: #18191C;
+      }
+
+      /* Откатываем все свойства абзацев к слою base */
+      .reverted p {
+        all: revert-layer;
+      }
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .card {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    .toggle {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .toggle input {
+      width: 22px;
+      height: 22px;
+      accent-color: #2E9AFF;
+      cursor: pointer;
+    }
+
+    .toggle code {
+      padding: 2px 6px;
+      background-color: #282A2E;
+      font-size: 16px;
+    }
+
+    @media (width <= 1024px) {
+      body {
+        padding: 30px;
+      }
+
+      .card {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+
+    @media (width <= 480px) {
+      body {
+        padding: 20px;
+      }
+
+      .card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<label class="toggle">
+  <input type="checkbox" id="toggle">
+  <span>Добавить абзацам <code>all: revert-layer</code></span>
+</label>
+
+<div class="card">
+  <p>Поговорим о многоножках:</p>
+  <p>
+    Тело каждой многоножки состоит из длинного туловища и округлённой головы. На голове есть пара усиков,
+    выполняющих функцию осязательного и обонятельного органа.
+  </p>
+</div>
+
+<script>
+  const card = document.querySelector('.card')
+
+  document.getElementById('toggle').addEventListener('change', (event) => {
+    card.classList.toggle('reverted', event.target.checked)
+  })
+</script>
+</body>
+</html>

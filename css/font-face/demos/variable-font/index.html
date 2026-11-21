@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вариативный шрифт — @font-face — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    /* Один вариативный файл покрывает всю жирность от 100 до 900 */
+    /* В файле только кириллица: так он весит меньше 20 КБ */
+    @font-face {
+      font-family: "Inter";
+      src: url("Inter-Variable.woff2") format("woff2");
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .demo {
+      width: 100%;
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .sample {
+      font-family: "Inter", sans-serif;
+      font-weight: var(--weight, 400);
+      font-size: clamp(28px, 7vw, 56px);
+      line-height: 1.2;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #282A2E;
+    }
+
+    .controls label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    .controls output {
+      font-family: monospace;
+      color: #2E9AFF;
+    }
+
+    .controls input {
+      width: 100%;
+      accent-color: #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <p class="sample">Шрифт из одного файла</p>
+
+    <div class="controls">
+      <label for="weight">
+        Жирность шрифта
+        <output id="weight-value" for="weight">font-weight: 400</output>
+      </label>
+      <input id="weight" type="range" min="100" max="900" step="1" value="400">
+    </div>
+  </div>
+
+  <script>
+    // Передаём значение слайдера в font-weight через кастомное свойство
+    const slider = document.getElementById('weight');
+    const output = document.getElementById('weight-value');
+    const sample = document.querySelector('.sample');
+
+    slider.addEventListener('input', () => {
+      sample.style.setProperty('--weight', slider.value);
+      output.textContent = `font-weight: ${slider.value}`;
+    });
+  </script>
+</body>
+</html>

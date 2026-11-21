@@ -14,4 +14,4 @@
 
 В этом примере второй градиент занимает область рамки, а первый закрывает контент и отступы. В результате рамка выглядит градиентной при `border: solid transparent`.
 
-<iframe title="Градиентная рамка через background-clip" src="demos/gradient-border/?embed=1" height="340"></iframe>
+<iframe title="Градиентная рамка через background-clip" src="../demos/gradient-border/" height="340"></iframe>

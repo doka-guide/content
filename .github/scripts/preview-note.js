@@ -12,13 +12,30 @@
 const startMarker = (pullNumber) => `<!-- doka-preview-${pullNumber} -->`
 const endMarker = (pullNumber) => `<!-- /doka-preview-${pullNumber} -->`
 
+// Заметка оформлена плашкой GitHub (`> [!NOTE]` и соседи). Обычной строкой она
+// сливалась с текстом автора, а цветная рамка отбивает её и сразу говорит об
+// итоге: синяя — проверки и сборка идут, зелёная — превью готово, жёлтая —
+// превью не собиралось из-за проверок, красная — сломалась сама сборка.
+const TONES = { note: 'NOTE', tip: 'TIP', warning: 'WARNING', caution: 'CAUTION' }
+
+// Каждая строка сообщения уходит в цитату: без `>` вторая строка, например
+// раскрывашка со ссылками, выпала бы из плашки.
+const formatNote = (message, tone = 'note') => {
+  const kind = TONES[tone] || TONES.note
+  const lines = String(message)
+    .split('\n')
+    .map((line) => (line ? `> ${line}` : '>'))
+  return [`> [!${kind}]`, ...lines].join('\n')
+}
+
 // Ставит блок в описание: заменяет прежний, если он есть, и дописывает в конец,
 // если его ещё нет. Второй вызов не должен добавить второй блок, а текст автора
-// вокруг блока должен остаться нетронутым.
-const applyNote = (body, pullNumber, message) => {
+// вокруг блока должен остаться нетронутым. Закрывающий маркер — HTML-комментарий,
+// он сам обрывает цитату, и текст автора после блока в плашку не попадает.
+const applyNote = (body, pullNumber, message, tone) => {
   const start = startMarker(pullNumber)
   const end = endMarker(pullNumber)
-  const block = `${start}\n${message}\n${end}`
+  const block = `${start}\n${formatNote(message, tone)}\n${end}`
 
   const current = body || ''
   const from = current.indexOf(start)
@@ -41,15 +58,15 @@ const applyNote = (body, pullNumber, message) => {
 // запушить ещё раз: заметка от прогона на устаревшем коммите затёрла бы свежую,
 // и в описании навсегда осталось бы «не опубликовано» от позапрошлой попытки.
 // Возвращает `null`, если писать нечего.
-const writeNote = async ({ github, owner, repo, pullNumber, message, headSha }) => {
+const writeNote = async ({ github, owner, repo, pullNumber, message, headSha, tone }) => {
   const { data: pull } = await github.rest.pulls.get({ owner, repo, pull_number: pullNumber })
   if (headSha && pull.head && pull.head.sha !== headSha) return null
 
-  const body = applyNote(pull.body, pullNumber, message)
+  const body = applyNote(pull.body, pullNumber, message, tone)
   if (body === (pull.body || '')) return body
 
   await github.rest.pulls.update({ owner, repo, pull_number: pullNumber, body })
   return body
 }
 
-module.exports = { startMarker, endMarker, applyNote, writeNote }
+module.exports = { startMarker, endMarker, formatNote, applyNote, writeNote }
