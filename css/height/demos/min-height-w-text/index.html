@@ -6,32 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      line-height: 1.5;
     }
 
     .container {
+      width: 100%;
       height: 150px;
       padding: 25px;
-      background-color: #afc9da;
+      background-color: #282A2E;
     }
 
     .item {
-      box-sizing: border-box;
       min-height: 50px;
       padding: 25px;
       margin: 0 10px;
-      color: #282a2e;
-      background-color: #ffffff;
+      outline: 2px solid #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    /* на узком экране текст выпадает сильнее, прижимаем контейнер к верху */
+    @media (width <= 480px) {
+      body {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="item">О́хос-дель-Сала́до (исп. Ojos del Salado) — высочайший вулкан на Земле и вторая по высоте вершина Южной Америки — после горы Аконкагуа. Расположен на границе между Аргентиной и Чили, высшая точка Чили. Высота составляет 6893 метра. К западу от вулкана и до побережья Тихого океана простирается пустыня Атакама. На восточном склоне в кратере вулкана расположено самое высокое в мире озеро на высоте 6390 метров.</div>
+    <div class="item">О́хос-дель-Сала́до (исп. Ojos del Salado) — высочайший вулкан на Земле и вторая по высоте вершина Южной Америки. Расположен на границе между Аргентиной и Чили. Высота вулкана — 6893 метра, а в его кратере лежит самое высокое озеро в мире.</div>
   </div>
 </body>
 </html>

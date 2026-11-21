@@ -43,24 +43,28 @@ tags:
   /* высота родителя */
   height: 150px;
   padding: 25px;
-  background-color: #AFC9DA;
+  box-sizing: border-box;
+  background-color: #282A2E;
 }
 
 .item {
   /* высота вложенного блока */
   height: 50px;
+  box-sizing: border-box;
   margin: 0 10px;
-  background-color: #FFFFFF;
+  outline: 2px solid #2E9AFF;
 }
 ```
 
-<iframe title="Высота для блока" src="demos/basic/" height="200"></iframe>
+<iframe title="Высота для блока" src="demos/basic/" height="250"></iframe>
 
 Оба блока, `.container` и `.item`, пустые, поэтому без стилей их высота была бы равна нулю.
 
-Добавим в элемент `.item` текст и внутренние отступы [`padding: 25px`](/css/padding/). А ещё [`box-sizing: border-box`](/css/box-sizing/): с ним отступы входят в высоту `50px`, а не прибавляются к ней.
+У обоих блоков [`box-sizing: border-box`](/css/box-sizing/): внутренние отступы входят в высоту, а не прибавляются к ней.
 
-<iframe title="Высота для блока с текстом" src="demos/basic-w-text/" height="200"></iframe>
+Добавим в элемент `.item` текст и внутренние отступы [`padding: 25px`](/css/padding/):
+
+<iframe title="Высота для блока с текстом" src="demos/basic-w-text/" height="400"></iframe>
 
 Из-за фиксированной высоты контент выпадает из блока. Как можно это исправить? Заменить `height` на `min-height`!
 
@@ -71,13 +75,13 @@ tags:
   padding: 25px;
   box-sizing: border-box;
   margin: 0 10px;
-  background-color: #FFFFFF;
+  outline: 2px solid #2E9AFF;
 }
 ```
 
 Если контента нет, высота блока — `50px`. Как только появится контент, блок растянется и уместит его целиком! Сам `.container` при этом не вырастет: у него по-прежнему фиксированная высота `150px`.
 
-<iframe title="Минимальная высота для блока с текстом" src="demos/min-height-w-text/" height="200"></iframe>
+<iframe title="Минимальная высота для блока с текстом" src="demos/min-height-w-text/" height="430"></iframe>
 
 ## Как понять
 

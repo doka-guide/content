@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Высота складывается из padding — height — Дока</title>
+  <title>Высота из padding, блок с текстом — height — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      font-family: "Roboto", sans-serif;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      line-height: 1.5;
+    }
+
     .container {
+      width: 100%;
       height: 150px;
       padding: 25px;
-      background-color: #1a5ad7;
+      background-color: #282A2E;
     }
 
     .item {
-      box-sizing: border-box;
       padding: 25px;
       margin: 0 10px;
-      color: #1a5ad7;
-      background-color: #ffffff;
+      outline: 2px solid #2E9AFF;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    /* на узком экране текст выпадает сильнее, прижимаем контейнер к верху */
+    @media (width <= 480px) {
+      body {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="item">Вулкан Охос-дель-Саладо считается потухшим, так как на протяжении всей истории наблюдений за ним не было зарегистрировано ни одного извержения. Однако изредка пассивная вулканическая деятельность всё же замечалась. Так, в 1937, 1956 и 1993 году имели место незначительные выбросы серы и водяного пара.</div>
+    <div class="item">Вулкан Охос-дель-Саладо считается потухшим: за всю историю наблюдений на нём не было ни одного извержения. Но изредка он всё же просыпается. Так, в 1937, 1956 и 1993 году вулкан выбрасывал немного серы и водяного пара.</div>
   </div>
 </body>
 </html>
