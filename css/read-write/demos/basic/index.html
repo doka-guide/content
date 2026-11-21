@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:read-write — Дока демо</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 360px;
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1px solid #ffffff;
+      background: transparent;
+      color: #fff;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:read-write,
+    textarea:read-write {
+      border-color: #2E9AFF;
+    }
+
+    input:read-write:focus,
+    textarea:read-write:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46, 154, 255, 0.25);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .readonly {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div>
+      <label>Редактируемое поле</label>
+      <input type="text" placeholder="Можно менять текст">
+    </div>
+
+    <div>
+      <label>Только для чтения</label>
+      <input type="text" value="Нельзя редактировать" readonly class="readonly">
+    </div>
+
+    <div>
+      <label>Textarea (редактируемое)</label>
+      <textarea placeholder="Пиши сюда..."></textarea>
+    </div>
+
+  </div>
+</body>
+</html>
