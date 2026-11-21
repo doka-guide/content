@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -32,7 +32,7 @@
       font-size: 16px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -50,7 +50,8 @@
     }
 
     p {
-      margin: 7px 0;
+      margin-top: 7px;
+      margin-bottom: 7px;
       font-size: 1rem;
       line-height: 1.4;
     }
@@ -61,14 +62,14 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       .grid {
         grid-template-columns: 1fr;
       }
     }
 
     .card {
-      background: #222328;
+      background-color: #222328;
       border: 1px solid #34353B;
       border-radius: 10px;
       padding: 18px;
@@ -80,11 +81,10 @@
     }
 
     blockquote {
-      background: #1E2024;
+      background-color: #282A2E;
       border-radius: 8px;
       padding: 12px 14px;
       border-inline-start: 3px solid #2E9AFF;
-      padding-inline-start: 14px;
     }
 
     blockquote:dir(rtl) {
@@ -100,13 +100,13 @@
 <body>
   <div class="container">
     <h1><code>:dir()</code></h1>
-    <p>Два блока с разными направлениями письма. Граница и отступ встают к «началу строки».</p>
+    <p>Два блока с разными направлениями письма. Рамка встаёт к началу строки, а <code>:dir(rtl)</code> перекрашивает её в розовый.</p>
 
     <div class="grid">
       <section class="card">
         <div class="title">LTR (русский)</div>
         <blockquote dir="ltr" lang="ru">
-          <p>Ничего на свете лучше нету, чем бродить друзьям по белу свету.</p>
+          <p>Направление письма определяет, где начинается строка.</p>
           <div class="lang">dir=ltr</div>
         </blockquote>
       </section>
