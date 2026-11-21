@@ -1,7 +1,9 @@
 🛠 Кроме импорта файлов внутри проекта директиву часто используют, чтобы подключить шрифты с сайта Google Fonts. Это один из предложенных на их сайте вариантов подключения.
 
 ```css
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url(
+  "https://fonts.googleapis.com/css2?family=Inter&display=swap"
+);
 ```
 
 После этого в коде ниже можно использовать подключённый шрифт. Минимум усилий — максимум результата.
