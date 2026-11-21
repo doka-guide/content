@@ -8,9 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { color-scheme: dark; font-size: 16px; }
+    html {
+      color-scheme: dark;
+    }
 
     body {
       min-height: 100vh;
@@ -23,81 +29,119 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (width <= 768px) { body { padding: 30px; } }
-
-    .container {
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      gap: 24px;
-      align-items: stretch;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
 
-    .frame {
-      container-type: inline-size;
-      border: 2px solid #2E9AFF;
-      background-color: #1E2024;
-      border-radius: 12px;
-      padding: 16px;
-      width: 50%;
-      min-width: 170px;
-      max-width: 100%;
-      overflow: auto;
-      resize: horizontal;
-    }
+    /* === демо === */
 
     .demo {
+      width: 100%;
+      max-width: 860px;
+    }
+
+    .controls {
+      margin-bottom: 20px;
+    }
+
+    .controls__label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: #C8CDD4;
+    }
+
+    .controls__status {
+      color: #2E9AFF;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .controls__range {
+      width: 100%;
+      accent-color: #2E9AFF;
+    }
+
+    /* Контейнер: его ширину меняет ползунок */
+    .catalog {
+      container-type: inline-size;
+      width: var(--catalog-width, 100%);
+      max-width: 100%;
+      padding: 16px;
+      border: 2px solid #2E9AFF;
+      border-radius: 12px;
+      background-color: #1E2024;
+    }
+
+    .cards {
       display: grid;
       gap: 12px;
       grid-template-columns: repeat(3, 1fr);
     }
 
     .card {
-      background: #26292F;
+      padding: 16px;
       border: 1px solid #2E3138;
       border-radius: 10px;
-      padding: 16px;
-      text-align: center;
+      background-color: #282A2E;
       color: #C8CDD4;
+      text-align: center;
     }
 
-    /* Меняем сетку в зависимости от ширины КОНТЕЙНЕРА (.frame), а не окна */
-    @container (max-width: 420px) {
-      .frame .demo { grid-template-columns: repeat(2, 1fr); }
+    /* Меняем сетку по ширине контейнера .catalog, а не окна */
+    @container (max-width: 600px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    @container (max-width: 250px) {
-      .frame .demo { grid-template-columns: 1fr; }
+    @container (max-width: 380px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
     }
-
-    .hint { grid-column: 1 / -1; color: #9AA0A6; font-size: 14px; }
-
-    .aside {
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px dashed #2E3138;
-      border-radius: 12px;
-      color: #9AA0A6;
-    }
-
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="frame">
-      <div class="demo">
-      <div class="card">1</div>
-      <div class="card">2</div>
-      <div class="card">3</div>
-      <div class="card">4</div>
-      <div class="card">5</div>
-      <div class="card">6</div>
-      <p class="hint">Потяните за правый край блока, колонки перестраиваются по ширине контейнера.</p>
-      </div>
+  <div class="demo">
+    <div class="controls">
+      <label class="controls__label" for="width">
+        <span>Двигайте ползунок, чтобы изменить ширину контейнера</span>
+        <span class="controls__status" aria-live="polite"></span>
+      </label>
+      <input class="controls__range" id="width" type="range" min="240" max="860" step="10" value="860">
     </div>
-    <div class="aside">Вне контейнера</div>
+
+    <section class="catalog">
+      <div class="cards">
+        <article class="card">1</article>
+        <article class="card">2</article>
+        <article class="card">3</article>
+        <article class="card">4</article>
+        <article class="card">5</article>
+        <article class="card">6</article>
+      </div>
+    </section>
   </div>
+
+  <script>
+    const range = document.querySelector('.controls__range');
+    const output = document.querySelector('.controls__status');
+    const catalog = document.querySelector('.catalog');
+    const cards = document.querySelector('.cards');
+
+    function update() {
+      catalog.style.setProperty('--catalog-width', `${range.value}px`);
+      const columns = getComputedStyle(cards).gridTemplateColumns.split(' ').length;
+      output.textContent = `${catalog.offsetWidth}px, колонок: ${columns}`;
+    }
+
+    range.addEventListener('input', update);
+    window.addEventListener('resize', update);
+    update();
+  </script>
 </body>
 </html>
