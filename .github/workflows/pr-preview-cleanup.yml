@@ -43,7 +43,10 @@ jobs:
               -o ConnectTimeout=20 deploy@dev.doka.guide "$@"
           }
 
-          CANDIDATES=$(remote "ls -1 '$PREVIEWS'" | grep -E '^[0-9]+$' || true)
+          # Без конвейера: при сбое ssh (протух ключ, сервер лежит) шаг должен
+          # упасть, а не пройти зелёным без единого удаления.
+          LISTING=$(remote "ls -1 '$PREVIEWS'")
+          CANDIDATES=$(printf '%s\n' "$LISTING" | grep -E '^[0-9]+$' || true)
           echo "Папок превью: $(echo "$CANDIDATES" | grep -c . || true)."
 
           # Удаляем только папку с номером закрытого пулреквеста. Если GitHub

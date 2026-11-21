@@ -56,6 +56,9 @@ function runCspell(files) {
       'cspell',
       '--config',
       CONFIG,
+      // Без флага cspell выходит с 1, когда все файлы попали в ignorePaths
+      // (например, PR только с people/), и проверка краснела бы зря.
+      '--no-must-find-files',
       '--no-progress',
       '--no-summary',
       '--no-color',
