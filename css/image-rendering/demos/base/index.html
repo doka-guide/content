@@ -25,7 +25,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 24px;
+      gap: 16px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -68,19 +68,19 @@
       max-width: none;
     }
 
-    .layer-auto {
+    .layer-left {
       clip-path: inset(0 calc(100% - var(--split)) 0 0);
     }
 
-    .layer-auto img {
+    .layer-left img {
       image-rendering: auto;
     }
 
-    .layer-pixelated {
+    .layer-right {
       clip-path: inset(0 0 0 var(--split));
     }
 
-    .layer-pixelated img {
+    .layer-right img {
       image-rendering: pixelated;
     }
 
@@ -113,22 +113,34 @@
       transform: translateX(-50%);
     }
 
-    .label {
-      position: absolute;
-      top: 12px;
-      padding: 4px 8px;
+    /* Выбор значений для левой и правой половины */
+    .pickers {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      width: min(320px, 100%);
+    }
+
+    .pickers select {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 6px 8px;
+      border: 1px solid #2E9AFF;
       border-radius: 4px;
-      background-color: rgb(24 25 28 / 0.8);
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
       font-size: 14px;
-      pointer-events: none;
+      cursor: pointer;
     }
 
-    .label-auto {
-      left: 12px;
-    }
-
-    .label-pixelated {
-      right: 12px;
+    .note {
+      width: min(320px, 100%);
+      min-height: 2lh;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #F498AD;
+      text-align: center;
     }
 
     /* Невидимый ползунок поверх картинки: его тянут мышью, пальцем или стрелками */
@@ -179,21 +191,41 @@
       body {
         padding: 30px;
       }
+
+      .pickers select {
+        padding: 6px 4px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="pickers">
+    <select class="picker" data-side="left" aria-label="Значение для левой половины">
+      <option selected>auto</option>
+      <option>smooth</option>
+      <option>high-quality</option>
+      <option>crisp-edges</option>
+      <option>pixelated</option>
+    </select>
+    <select class="picker" data-side="right" aria-label="Значение для правой половины">
+      <option>auto</option>
+      <option>smooth</option>
+      <option>high-quality</option>
+      <option>crisp-edges</option>
+      <option selected>pixelated</option>
+    </select>
+  </div>
+
   <div class="compare">
-    <div class="layer layer-auto">
-      <img src="../images/cat.png" alt="Пиксельная мордочка кошки, сглаженная">
-      <code class="label label-auto">auto</code>
+    <div class="layer layer-left">
+      <img src="../images/cat.png" alt="Пиксельная мордочка кошки, левая половина">
     </div>
-    <div class="layer layer-pixelated">
-      <img src="../images/cat.png" alt="Та же мордочка кошки с чёткими пикселями">
-      <code class="label label-pixelated">pixelated</code>
+    <div class="layer layer-right">
+      <img src="../images/cat.png" alt="Та же мордочка кошки, правая половина">
     </div>
     <div class="divider"></div>
-    <input class="split" type="range" min="0" max="100" value="50" aria-label="Граница между auto и pixelated">
+    <input class="split" type="range" min="0" max="100" value="50" aria-label="Граница между половинами">
   </div>
 
   <label class="scale">
@@ -202,11 +234,36 @@
     <output class="scale-value">12×</output>
   </label>
 
+  <p class="note" aria-live="polite"></p>
+
   <script>
     const compare = document.querySelector('.compare');
     const split = document.querySelector('.split');
     const scaleRange = document.querySelector('.scale-range');
     const scaleValue = document.querySelector('.scale-value');
+    const pickers = document.querySelectorAll('.picker');
+    const note = document.querySelector('.note');
+
+    // Значения, которые этот браузер не понимает, рисуются как auto
+    const updateNote = () => {
+      const unsupported = [...pickers]
+        .map((picker) => picker.value)
+        .filter((value) => !CSS.supports('image-rendering', value));
+      const unique = [...new Set(unsupported)];
+
+      note.textContent = unique.length
+        ? `Этот браузер не понимает ${unique.join(' и ')}, поэтому рисует картинку как при auto`
+        : '';
+    };
+
+    pickers.forEach((picker) => {
+      picker.addEventListener('change', () => {
+        const img = document.querySelector(`.layer-${picker.dataset.side} img`);
+        const supported = CSS.supports('image-rendering', picker.value);
+        img.style.imageRendering = supported ? picker.value : 'auto';
+        updateNote();
+      });
+    });
 
     split.addEventListener('input', () => {
       compare.style.setProperty('--split', `${split.value}%`);
