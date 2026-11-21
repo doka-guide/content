@@ -17,29 +17,35 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - id: files
-        uses: Ana06/get-changed-files@v2.3.0
+          node-version: 26
+      # Список файлов коммита — из API сравнения, без стороннего экшена.
+      # Удалённые файлы проверять нечем: `editorconfig-checker` на
+      # несуществующем пути падает с паникой и роняет всю проверку.
+      - name: Изменённые файлы
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMPARE_URL: repos/${{ github.repository }}/compare/${{ github.event.before }}...${{ github.event.after }}
+        run: |
+          gh api "$COMPARE_URL" \
+            --jq '.files[] | select(.status != "removed") | .filename' > "$RUNNER_TEMP/files.txt"
+          echo "Изменено файлов: $(wc -l < "$RUNNER_TEMP/files.txt")"
+      # Версии обёртки и бинарника закреплены: обёртка по умолчанию качает
+      # бинарник «latest», и проверка меняла поведение сама по себе.
       - name: Проверка линтером
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EC_VERSION: v4.0.2
         run: |
-          npm install editorconfig-checker --global
-          config=.editorconfig
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            if [ "$changed_file" == "$config" ]
-            then
-              echo "Проверка для всех файлов"
-              editorconfig-checker
-              break
-            elif [ -f "$changed_file" ]
-            then
+          npm install --global --ignore-scripts editorconfig-checker@7.0.0
+          if grep -qxF '.editorconfig' "$RUNNER_TEMP/files.txt"; then
+            echo "Проверка для всех файлов"
+            editorconfig-checker
+            exit 0
+          fi
+          while IFS= read -r changed_file; do
+            # Файл мог исчезнуть следующим коммитом того же пуша.
+            if [ -f "$changed_file" ]; then
               echo "Проверка для ${changed_file}"
-              editorconfig-checker "${changed_file}"
-            else
-              # Удалённые и переехавшие файлы тоже приходят в списке изменённых,
-              # а `editorconfig-checker` на несуществующем пути падает с паникой
-              # и роняет всю проверку.
-              echo "Пропускаем ${changed_file}: файла больше нет"
+              editorconfig-checker "$changed_file" < /dev/null
             fi
-          done
+          done < "$RUNNER_TEMP/files.txt"
