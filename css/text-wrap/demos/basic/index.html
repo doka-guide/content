@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Сравнение разных значений — text-wrap — Дока</title>
+  <title>Значения text-wrap — text-wrap — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -19,136 +16,110 @@
 
     html {
       color-scheme: dark;
-      block-size: 100%;
     }
 
     body {
-      min-block-size: 100%;
+      min-height: 100vh;
       padding: 50px;
-      display: grid;
-      place-items: center;
-      background-color: #18191c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
     }
 
-    code {
-      font-family: "Roboto Mono", monospace;
-      font-size: calc(1em - 1px);
-    }
-
-    h1 {
-      font-size: 26px;
-      font-weight: 500;
-      text-align: right;
-    }
-
-    .option-container {
+    fieldset {
       display: flex;
-      align-items: flex-end;
-      margin-block-start: 30px;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+      border: none;
     }
 
-    .option-title {
-      margin-inline-end: 50px;
-      text-align: right;
+    legend {
+      margin-bottom: 10px;
     }
 
-    h1,
-    .option-title {
-      inline-size: 150px;
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
     }
 
-    .option {
-      inline-size: 340px;
-      padding: 35px 20px;
-      background-color: #2E9AFF;
+    input {
+      accent-color: #2E9AFF;
     }
 
-    mark {
-      background-color: #2E9AFF;
+    .width {
+      display: flex;
+      align-items: center;
+      gap: 15px;
     }
 
-    .wrap {
-      text-wrap: wrap;
+    code,
+    output {
+      font-family: "Roboto Mono", monospace;
     }
 
-    .nowrap {
-      text-wrap: nowrap;
+    .box {
+      width: var(--width, 420px);
+      max-width: 100%;
+      overflow: auto;
+      padding: 20px;
+      border: 2px dashed #2E9AFF;
     }
 
-    .balance {
-      text-wrap: balance;
+    .title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.3;
+      text-wrap: var(--wrap, wrap);
     }
 
-    .pretty {
-      text-wrap: pretty;
-    }
-
-    .stable {
-      text-wrap: stable;
-    }
-
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
-        display: block;
         padding: 30px;
-      }
-
-      .option-container {
-        display: block;
-        overflow: scroll;
-      }
-
-      h1,
-      .option-title {
-        inline-size: 100%;
-      }
-
-      .option-title {
-        display: block;
-        margin-inline-end: 0;
-        margin-block-end: 10px;
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="parent">
-    <h1><code>text-wrap</code></h1>
-    <div class="option-container">
-      <span class="option-title"><code>wrap</code></span>
-      <p class="option wrap"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>— Ты забыл сказать «пожалуйста».</mark>
-      </p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>nowrap</code></span>
-      <p class="option nowrap"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>— Ты забыл сказать «пожалуйста».</mark>
-      </p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>balance</code></span>
-      <p class="option balance"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>— Ты забыл сказать «пожалуйста».</mark>
-      </p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>pretty</code></span>
-      <p class="option pretty"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>— Ты забыл сказать «пожалуйста».</mark>
-      </p>
-    </div>
-    <div class="option-container">
-      <span class="option-title"><code>stable</code></span>
-      <p class="option stable"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>— Ты забыл сказать «пожалуйста».</mark>
-      </p>
-    </div>
-  </div>
-</body>
+  <fieldset>
+    <legend>Значение <code>text-wrap</code></legend>
+    <label><input type="radio" name="wrap" value="wrap" checked> <code>wrap</code></label>
+    <label><input type="radio" name="wrap" value="nowrap"> <code>nowrap</code></label>
+    <label><input type="radio" name="wrap" value="balance"> <code>balance</code></label>
+    <label><input type="radio" name="wrap" value="pretty"> <code>pretty</code></label>
+  </fieldset>
 
+  <div class="width">
+    <label for="width">Ширина блока</label>
+    <input id="width" type="range" min="280" max="600" value="420">
+    <output for="width">420px</output>
+  </div>
+
+  <div class="box">
+    <h1 class="title">Как сверстать заголовок, который аккуратно переносится на любом экране</h1>
+  </div>
+
+  <script>
+    const box = document.querySelector('.box');
+    const title = document.querySelector('.title');
+    const width = document.getElementById('width');
+
+    document.querySelectorAll('input[name="wrap"]').forEach((radio) => {
+      radio.addEventListener('change', () => {
+        title.style.setProperty('--wrap', radio.value);
+      });
+    });
+
+    width.addEventListener('input', () => {
+      box.style.setProperty('--width', `${width.value}px`);
+      width.nextElementSibling.textContent = `${width.value}px`;
+    });
+  </script>
+</body>
 </html>
