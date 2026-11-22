@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Демо :read-only — Псевдокласс :read-only — Дока</title>
+  <title>Поля только для чтения — :read-only — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,124 +29,70 @@
       font-family: "Roboto", sans-serif;
     }
 
-    h1 {
-      margin-bottom: 17px;
-      font-weight: 500;
-      font-size: 1.625rem;
-    }
-
-    p {
-      margin: 7px 0;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-
-    .form-group {
-      margin-top: 30px;
-      background-color: #FFFFFF;
-      color: #333;
-      padding: 20px;
-      border-radius: 6px;
-    }
-
-    .form-row {
-      margin-bottom: 20px;
-    }
-
-    .form-row:last-child {
-      margin-bottom: 0;
+    form {
+      width: 100%;
+      max-width: 480px;
+      display: grid;
+      gap: 20px;
     }
 
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: 500;
-      font-size: 0.875rem;
-      color: #333;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
-      border: 1px solid #E0E0E0;
-      border-radius: 6px;
       padding: 10px 15px;
-      background-color: #FFFFFF;
-      color: #333;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #2E9AFF;
+      border: 2px solid #FFFFFF;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
     }
 
     textarea {
-      min-height: 80px;
+      min-height: 90px;
       resize: vertical;
     }
 
-    /* Стили для полей только для чтения */
-    input:read-only, textarea:read-only {
-      background-color: #f5f5f5;
-      color: #666;
-      border-color: #ddd;
-      cursor: not-allowed;
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid #2E9AFF;
+      outline-offset: 2px;
     }
 
-    /* Firefox поддержка */
-    input:-moz-read-only, textarea:-moz-read-only {
-      background-color: #f5f5f5;
-      color: #666;
-      border-color: #ddd;
-      cursor: not-allowed;
+    /* Поля только для чтения */
+    .field:read-only {
+      border-style: dashed;
+      border-color: rgb(255 255 255 / 0.4);
+      background-color: transparent;
+      color: rgb(255 255 255 / 0.7);
     }
 
-    .status {
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #E3F2FD;
-      border: 1px solid #2196F3;
-      border-radius: 4px;
-      font-size: 0.875rem;
-      color: #1976D2;
-    }
-
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
-      }
-
-      .container {
-        width: 100%;
-        padding: 55px 30px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="form-group">
-      <div class="form-row">
-        <label for="readonly-input">Поле только для чтения:</label>
-        <input type="text" id="readonly-input" value="Это поле нельзя редактировать" readonly>
-      </div>
-
-      <div class="form-row">
-        <label for="readonly-textarea">Текстовое поле только для чтения:</label>
-        <textarea id="readonly-textarea" readonly>Это текстовое поле тоже нельзя редактировать. Пользователь может выделить и скопировать текст, но не может изменить содержимое.</textarea>
-      </div>
-
-      <div class="form-row">
-        <label for="normal-input">Обычное поле для ввода:</label>
-        <input type="text" id="normal-input" value="Это поле можно редактировать">
-      </div>
-
-      <div class="status">
-        💡 Попробуйте кликнуть по полям и ввести текст. Поля только для чтения имеют серый фон и курсор "not-allowed".
-      </div>
+  <form>
+    <div>
+      <label for="order">Номер заказа</label>
+      <input class="field" type="text" id="order" value="DK-2026-0042" readonly>
     </div>
-  </div>
+    <div>
+      <label for="address">Адрес доставки</label>
+      <textarea class="field" id="address" readonly>улица Пушкина, дом 1</textarea>
+    </div>
+    <div>
+      <label for="comment">Комментарий к заказу</label>
+      <input class="field" type="text" id="comment" placeholder="Напишите, если нужно">
+    </div>
+  </form>
 </body>
 </html>
