@@ -1,10 +1,10 @@
-🛠 Используя `::selection` и [`text-shadow`](/css/text-shadow/), можно достичь интересного эффекта, задав тексту несколько теней.
+🛠 Используя `::selection` и [`text-shadow`](/css/text-shadow/), можно сделать выделенный текст объёмным: несколько теней сдвигаются вниз и вправо.
 
 ```css
 p::selection {
   --color-shadow: #000000;
   color: #ffffff;
-  background-color: #2e9aff;
+  background-color: #0066cc;
   text-shadow:
     1px 0 1px var(--color-shadow),
     0 1px 1px var(--color-shadow),
