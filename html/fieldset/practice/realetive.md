@@ -1,3 +1,3 @@
-🛠 Чтобы убрать (или стилизовать рамку), используется семейство CSS-свойств border: [`border`](/css/border/), [`border-radius`](/css/border-radius/) и другие:
+🛠 Вместо обычной рамки `<fieldset>` можно нарисовать картинку через [`border-image`](/css/border-image/):
 
-<iframe title="Стилизация рамки fieldset" src="../demos/border-styling/" height="370"></iframe>
+<iframe title="Стилизация рамки fieldset" src="../demos/border-styling/" height="480"></iframe>

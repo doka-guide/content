@@ -12,6 +12,10 @@
       margin: 0;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       padding: 50px;
       background-color: #18191C;
@@ -64,12 +68,40 @@
 
     .buttons {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 20px 40px;
       margin-top: 30px;
     }
 
-    .button + .button {
-      margin-left: 40px;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      fieldset {
+        padding: 30px 25px 35px;
+      }
+
+      legend {
+        font-size: 20px;
+      }
+
+      blockquote {
+        font-size: 14px;
+      }
+
+      .buttons {
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .button {
+        min-width: 0;
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -77,7 +109,7 @@
   <fieldset>
     <legend>Стражи Галактики. Часть 2</legend>
     <blockquote>
-      Просто представил, как ты по утру просыпаешься, смотришь в зеркало и на полном серьёзе говоришь себе: «Я наконец придумал реально отвязное имя — Шокерфейс!» Прям... Прям нарисовалась картинка. Ой, не могу! Слушай, слушай, а у тебя был второй вариант, типа «Чпок-в-пупок»?
+      Просто представил, как ты поутру просыпаешься, смотришь в зеркало и на полном серьёзе говоришь себе: «Я наконец придумал реально отвязное имя — Шокерфейс!» Прям… Прям нарисовалась картинка. Ой, не могу! Слушай, слушай, а у тебя был второй вариант, типа «Чпок-в-пупок»?
     </blockquote>
     <div class="buttons">
       <button class="button button-orange">Был, но я тебе не скажу</button>

@@ -1,6 +1,6 @@
 ---
 title: "`<fieldset>`"
-description: "Объединяет контролы формы группы."
+description: "Объединяет элементы формы в группу с общим заголовком."
 baseline:
   - group: fieldset
     features:
@@ -9,6 +9,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
+  - solarrust
 editors:
   - tachisis
 keywords:
@@ -23,7 +24,7 @@ tags:
 
 ## Кратко
 
-Тег `<fieldset>` группирует элементы формы (поля ввода [`<input>`](/html/input/), [`<textarea>`](/html/textarea/), выпадающие списки [`<select>`](/html/select/) и другие) в блок с характерным выделением границ. Опционально с помощью тега [`<legend>`](/html/legend/) внутри `<fieldset>` можно задать заголовок для создаваемой группы (он может быть только один и обязательно должен идти первым вложенным элементом).
+Тег `<fieldset>` группирует элементы формы (поля ввода [`<input>`](/html/input/), [`<textarea>`](/html/textarea/), выпадающие списки [`<select>`](/html/select/) и другие) в блок с рамкой. Заголовок группы задаёт тег [`<legend>`](/html/legend/).
 
 ## Пример
 
@@ -53,15 +54,13 @@ tags:
 
 ## Как понять
 
-В сложных формах количество контролов может устрашающе перегружать интерфейс, и правильным решением в этом случае будет группировка смысловых элементов.
+В сложной форме много элементов, и интерфейс легко перегрузить. Чтобы форму было проще понять, связанные по смыслу элементы объединяют в группы.
+
+Группа нужна не только для вида. Для вспомогательных технологий `<fieldset>` — это группа с [ARIA-ролью](/a11y/aria-roles/) `group`. Текст из `<legend>` становится её заголовком. Когда пользователь [скринридера](/a11y/screenreaders/) переходит к полю внутри группы, он слышит и подпись поля, и заголовок группы. Например, у радиокнопок из примера выше без `<legend>` был бы непонятен вопрос.
 
 ## Как пишется
 
-```html
-<fieldset>…</fieldset>
-```
-
-Для добавления подписи внутри `<fieldset>` следует использовать [`<legend>`](/html/legend/):
+Чтобы задать группе заголовок, первым внутри `<fieldset>` поставьте один `<legend>`:
 
 ```html
 <fieldset>
@@ -72,45 +71,50 @@ tags:
 
 ## Атрибуты
 
-- [`disabled`](/html/disabled/) — блокирует все контролы **внутри** тега (как будто каждому из них указали этот атрибут — очень удобно);
-- `form` — связывает контролы **внутри** тега с формой (будто они располагаются внутри) — для этого в значении атрибута следует указать ID формы;
-- также для `<fieldset>` доступны все [глобальные атрибуты](/html/global-attrs/).
+- [`disabled`](/html/disabled/) — блокирует элементы формы **внутри** тега. Исключение — элементы внутри первого `<legend>`: они остаются доступными для ввода.
+- `form` — связывает `<fieldset>` с формой по её `id`, даже если он стоит вне формы. Сам `<fieldset>` ничего не добавляет в отправку. Вложенные элементы эту связь не получают: каждому нужен свой атрибут `form`.
+- `name` — имя группы, по которому её можно найти в `form.elements`.
+- Также для `<fieldset>` доступны все [глобальные атрибуты](/html/global-attrs/).
 
 ## Подсказки
 
-<aside>
+💡 Одним атрибутом `disabled` можно заблокировать сразу всю группу, например, пока данные уходят на сервер через [`fetch()`](/js/fetch/):
 
-💡 Самое удобное в использовании `<fieldset>` — возможность заблокировать **все** вложенные контролы внутри тега одним атрибутом `disabled`:
+<iframe title="Блокирование всей формы при помощи disabled" src="demos/disabling/" height="420"></iframe>
 
-</aside>
+Вложенные элементы подходят под [`:disabled`](/css/disabled-enabled/), но атрибута у них нет: `input.disabled` вернёт `false`.
 
-<iframe title="Блокирование всей формы при помощи disabled" src="demos/disabling/" height="370"></iframe>
+Заблокированные элементы не попадают в отправку, и браузер их не проверяет. Поэтому сначала соберите данные через [`new FormData(form)`](/js/form-data/), а потом блокируйте группу:
 
-Внешний вид оформления рамки по умолчанию у `<legend>` немного отличается в зависимости от браузера и операционной системы:
+```js
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const data = new FormData(form, event.submitter);
+  fieldset.disabled = true;
+  try {
+    await fetch('/answer', { method: 'POST', body: data });
+  } finally {
+    fieldset.disabled = false;
+  }
+});
+```
 
-<section class="section section_column_2">
-  <figure class="section__item">
-    <img src="images/win-10-chrome-71.png" alt="Windows 10, Google Chrome 71.0">
-    <figcaption>Windows 10, Google Chrome 71.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/mac-chrome-71.png" alt="macOS Big Sur Big Sur, Google Chrome 71.0">
-    <figcaption>macOS Big Sur Big Sur, Google Chrome 71.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-10-edge-18.png" alt="Windows 10, Edge 18.0">
-    <figcaption>Windows 10, Edge 18.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/mac-safari-14.jpg" alt="macOS Big Sur Big Sur, Safari 14.0">
-    <figcaption>macOS Big Sur Big Sur, Safari 14.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">
-    <figcaption>Samsung Galaxy S7</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/google-nexus.png" alt="Google Nexus 6">
-    <figcaption>Google Nexus 6</figcaption>
-  </figure>
-</section>
+Если фокус стоял на кнопке внутри группы, браузер переносит его на [`<body>`](/html/body/). Скринридер при этом ничего не объявляет. Сообщите об отправке через [`aria-live`](/a11y/aria-live/), а после разблокировки верните фокус на кнопку.
+
+💡 Браузеры рисуют `<fieldset>` почти одинаково. По спецификации HTML у него:
+
+- рамка в [стиле](/css/border-style/) `groove` толщиной два пикселя;
+- внутренние отступы;
+- `<legend>` в разрыве верхней линии рамки.
+
+Оттенок рамки зависит от браузера и операционной системы. Рамку можно убрать или переделать через [`border`](/css/border/).
+
+💡 По умолчанию `<fieldset>` не становится уже своего содержимого: у него `min-inline-size: min-content`. Поэтому в узком контейнере, например в ячейке сетки, группа может вылезти за край. Снимите это ограничение:
+
+```css
+fieldset {
+  min-inline-size: 0;
+}
+```
+
+Теперь сжимается сама группа, а содержимое, которое не переносится на новую строку, вылезает уже за её рамку. Длинным словам поможет [`overflow-wrap: anywhere`](/css/overflow-wrap/). Широкую таблицу оберните в блок с [`overflow-x: auto`](/css/overflow/).
