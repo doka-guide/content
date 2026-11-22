@@ -21,15 +21,26 @@ a11y:
     - .github/*.yml
     - .github/scripts/*.js
     - .github/workflows/*.yml
+    - CHANGELOG.md
+    - docs/**/*
+    - pages/**/*
+'собеседование':
+  files:
+    # Только новые вопросы и ответы: правки старых ответов часто едут
+    # в одном пулреквесте со статьёй, и там этот ярлык лишний.
+    added:
+      - interviews/**/*
+# `css/*/**` вместо `css/**`: оглавление раздела `css/index.md` правят в каждом
+# пулреквесте с новой статьёй, и без исключения ярлык ставился бы и туда.
 'улучшение':
   files:
     modified:
-      - css/**/*.md
-      - html/**/*.md
-      - js/**/*.md
-      - tools/**/*.md
-      - a11y/**/*.md
-      - recipes/**/*.md
+      - css/*/**/*.md
+      - html/*/**/*.md
+      - js/*/**/*.md
+      - tools/*/**/*.md
+      - a11y/*/**/*.md
+      - recipes/*/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -40,12 +51,12 @@ a11y:
       - LICENSE-ND.md
       - LICENSE-SA.md
     removed:
-      - css/**/*.md
-      - html/**/*.md
-      - js/**/*.md
-      - tools/**/*.md
-      - a11y/**/*.md
-      - recipes/**/*.md
+      - css/*/**/*.md
+      - html/*/**/*.md
+      - js/*/**/*.md
+      - tools/*/**/*.md
+      - a11y/*/**/*.md
+      - recipes/*/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -56,12 +67,12 @@ a11y:
       - LICENSE-ND.md
       - LICENSE-SA.md
     renamed:
-      - css/**/*.md
-      - html/**/*.md
-      - js/**/*.md
-      - tools/**/*.md
-      - a11y/**/*.md
-      - recipes/**/*.md
+      - css/*/**/*.md
+      - html/*/**/*.md
+      - js/*/**/*.md
+      - tools/*/**/*.md
+      - a11y/*/**/*.md
+      - recipes/*/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -80,32 +91,18 @@ a11y:
       - tools/**/demos/**/*.html
       - a11y/**/demos/**/*.html
       - recipes/**/demos/**/*.html
-  assignee:
-    - skorobaeus
+# Тип материала ставится на любой пулреквест, который его трогает, а не только
+# на новый: так ярлыки работали годами, и редакция на них опирается.
 'дока':
-  files:
-    added:
-      - css/**/index.md
-      - html/**/index.md
-      - js/**/index.md
-      - tools/**/index.md
-      - a11y/**/index.md
-      - recipes/**/index.md
   meta:
     tags:
       - doka
 'статья':
-  files:
-    added:
-      - css/**/index.md
-      - html/**/index.md
-      - js/**/index.md
-      - tools/**/index.md
-      - a11y/**/index.md
-      - recipes/**/index.md
   meta:
     tags:
       - article
+# Условия ярлыка складываются через AND: только новая заготовка. Когда
+# заготовку дописывают до статьи, этот ярлык лишний.
 placeholder:
   files:
     added:

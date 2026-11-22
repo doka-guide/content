@@ -22,16 +22,16 @@ jobs:
     timeout-minutes: 10
     steps:
       # Правила ярлыков — из ветки по умолчанию, а не из пулреквеста: иначе
-      # форк сам переписал бы себе `.github/labeler.yml`. Копия уходит во
-      # временную папку, потому что следующий чекаут вычищает рабочую.
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-          sparse-checkout: .github/labeler.yml
-          sparse-checkout-cone-mode: false
-          persist-credentials: false
-      - name: Копия правил ярлыков
-        run: cp .github/labeler.yml "$RUNNER_TEMP/labeler.yml"
+      # форк сам переписал бы себе `.github/labeler.yml`. Файл скачивается
+      # через API, а не вторым чекаутом: после sparse-чекаута `main` в рабочей
+      # папке не оказывалось статей пулреквеста, и правила `meta:` молчали.
+      - name: Правила ярлыков из ветки по умолчанию
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: >
+          gh api "repos/$GITHUB_REPOSITORY/contents/.github/labeler.yml?ref=$DEFAULT_BRANCH"
+          -H "Accept: application/vnd.github.raw" > "$RUNNER_TEMP/labeler.yml"
       # Голова пулреквеста всё же нужна: правила `meta:` читают шапку
       # изменённых статей с диска.
       - uses: actions/checkout@v6
@@ -42,7 +42,7 @@ jobs:
           # пережил бы чекаут. Ярлыкам он передаётся отдельно, через `token`.
           persist-credentials: false
       - name: Устанавливает необходимые ярлыки
-        uses: doka-guide/doka-labeler@0726b96979f0f57387bbeda77c4ffe61ece48efd # v1.0.2
+        uses: doka-guide/doka-labeler@8d4f0c07338e889d367cb36526e006be48d93340 # v1.0.3
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           strategy: append
