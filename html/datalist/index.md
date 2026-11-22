@@ -19,7 +19,7 @@ related:
   - html/select
   - js/deal-with-forms
 tags:
-  - article
+  - doka
 ---
 
 ## Кратко
