@@ -1,56 +1,130 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Варианты значений — text-indent — Дока</title>
+  <title>Ключевые слова hanging и each-line — text-indent — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
       color-scheme: dark;
-      block-size: 100%;
-      display: grid;
-      place-items: center;
     }
 
     body {
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", Arial, sans-serif;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    code {
-      display: block;
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px 30px;
+      border: none;
+    }
+
+    legend {
+      margin-bottom: 10px;
+    }
+
+    .unsupported {
+      color: #F498AD;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2E9AFF;
+    }
+
+    code,
+    output {
       font-family: "Roboto Mono", monospace;
-      margin-block-end: 5px;
+      color: #F498AD;
     }
 
-    .ex {
-      inline-size: 600px;
-      margin-block-end: 30px;
+    .text {
+      max-width: 600px;
+      padding-left: 15px;
+      border-left: 2px solid #2E9AFF;
+      line-height: 1.5;
+      text-indent: var(--indent, 3em);
     }
 
-    .each-line {
-      text-indent: 3em each-line;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
-
-    .hanging {
-      text-indent: 3em hanging;
-    }
-
   </style>
 </head>
 <body>
-  <p><code>each-line</code></p>
-  <p class="ex each-line">
-    Область распространения красных волков обнимает длину реки Уссури, Южно-Уссурийский край и прибрежный район к северу от залива Ольги до мыса Плитняк. Другими словами, северная граница их обитания совпадает с границей распространения диких коз и пятнистых оленей. Чаще всего животное это встречается в Посьетском, Барабашском и Суйфунском районах. <!-- yaspeller ignore -->
+  <fieldset class="controls">
+    <legend>Ключевые слова</legend>
+    <label>
+      <input type="checkbox" name="hanging">
+      <code>hanging</code>
+    </label>
+    <label>
+      <input type="checkbox" name="each-line">
+      <code>each-line</code>
+    </label>
+  </fieldset>
+
+  <output class="result">text-indent: 3em;</output>
+
+  <p class="unsupported" hidden>Ваш браузер не поддерживает <code>hanging</code> и <code>each-line</code>, поэтому с включёнными чекбоксами отступ пропадёт.</p>
+
+  <p class="text">
+    Область распространения красных волков обнимает длину реки Уссури, Южно-Уссурийский край и прибрежный район к северу от залива Ольги.<br>
+    Северная граница их обитания совпадает с границей распространения диких коз и пятнистых оленей.<br>
+    Чаще всего животное это встречается в Приморье.
   </p>
-  <p><code>hanging</code></p>
-  <p class="ex hanging">
-    Область распространения красных волков обнимает длину реки Уссури, Южно-Уссурийский край и прибрежный район к северу от залива Ольги до мыса Плитняк. Другими словами, северная граница их обитания совпадает с границей распространения диких коз и пятнистых оленей. Чаще всего животное это встречается в Посьетском, Барабашском и Суйфунском районах. <!-- yaspeller ignore -->
-  </p>
+
+  <script>
+    const text = document.querySelector('.text');
+    const result = document.querySelector('.result');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    function update() {
+      const keywords = [...checkboxes]
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.name);
+      const value = ['3em', ...keywords].join(' ');
+
+      text.style.setProperty('--indent', value);
+      result.textContent = `text-indent: ${value};`;
+    }
+
+    checkboxes.forEach((checkbox) => checkbox.addEventListener('change', update));
+    update();
+
+    // Показываем сообщение, если браузер не знает ключевых слов
+    if (!CSS.supports('text-indent', '1em hanging')) {
+      document.querySelector('.unsupported').hidden = false;
+    }
+  </script>
 </body>
 </html>
