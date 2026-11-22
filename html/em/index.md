@@ -1,6 +1,10 @@
 ---
 title: "`<em>`"
 description: "Придаёт особый смысл отдельным словам или фразам в тексте."
+baseline:
+  - group: em
+    features:
+      - html.elements.em
 authors:
   - xpleesid
 contributors:

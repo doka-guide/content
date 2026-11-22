@@ -1,6 +1,10 @@
 ---
 title: "`font-variant-caps`"
 description: "Какие символы будем использовать для заглавных?"
+baseline:
+  - group: font-variant-caps
+    features:
+      - css.properties.font-variant-caps
 authors:
   - doka-dog
 related:

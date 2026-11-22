@@ -1,6 +1,12 @@
 ---
 title: "`<dl>`, `<dd>`, `<dt>`"
 description: "Три тега для оформления списка терминов."
+baseline:
+  - group: description-list
+    features:
+      - html.elements.dl
+      - html.elements.dd
+      - html.elements.dt
 authors:
   - ezhkov
 contributors:

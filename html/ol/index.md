@@ -1,6 +1,10 @@
 ---
 title: "`<ol>`"
 description: "Создаёт упорядоченный список элементов."
+baseline:
+  - group: list-elements
+    features:
+      - html.elements.ol
 authors:
   - ezhkov
 contributors:

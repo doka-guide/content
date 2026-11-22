@@ -1,6 +1,10 @@
 ---
 title: "`text-decoration-line`"
 description: "Свойство чтобы подводить черту!"
+baseline:
+  - group: text-decoration
+    features:
+      - css.properties.text-decoration-line
 authors:
   - inventoris
 keywords:

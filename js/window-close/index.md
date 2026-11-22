@@ -1,6 +1,10 @@
 ---
 title: "`window.close()`"
 description: "Закройте окно, а то что-то холодно."
+baseline:
+  - group: window
+    features:
+      - api.Window.close
 authors:
   - ra1nbow1
 contributors:

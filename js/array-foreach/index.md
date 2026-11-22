@@ -1,6 +1,10 @@
 ---
 title: "`.forEach()`"
 description: "Сколькими способами можно обойти массив? Это ещё один способ, но без явного описания цикла."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.forEach
 authors:
   - windrushfarer
 contributors:

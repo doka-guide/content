@@ -1,6 +1,13 @@
 ---
 title: "`.lastIndexOf()`"
 description: "Ищет последнее вхождение элемента в массиве или подстроки в строке и возвращает индекс найденного элемента."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.lastIndexOf
+  - group: strings
+    features:
+      - javascript.builtins.String.lastIndexOf
 authors:
   - eshevlyakova
 related:

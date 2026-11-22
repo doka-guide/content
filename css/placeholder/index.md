@@ -1,6 +1,10 @@
 ---
 title: "`::placeholder`"
 description: "Стилизуем плейсхолдеры в полях ввода."
+baseline:
+  - group: placeholder
+    features:
+      - css.selectors.placeholder
 authors:
   - ezhkov
 contributors:

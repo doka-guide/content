@@ -7,6 +7,12 @@ on:
 permissions:
   contents: read
 
+# Версии пакетов закреплены, а их зависимости — нет: без `before` npm взял бы
+# свежие, в том числе выпущенные минуту назад, пока рядом лежит токен или
+# ключ. Поднимая версию пакета, сдвиньте дату на день после её выхода.
+env:
+  NPM_CONFIG_BEFORE: "2026-11-07"
+
 jobs:
   featured-articles:
     name: Избранные статьи
@@ -15,17 +21,19 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 26
       # Ставится один раз, а не на каждую попытку: цикл повторов переделывает
-      # только саму работу.
+      # только саму работу. Версия точная и без install-скриптов: джоба ходит с
+      # токеном бота, который пушит в main, и свежая взломанная версия пакета
+      # получила бы этот токен.
       - name: Установка зависимостей скрипта
         run: |
-          npm install --global gray-matter
+          npm install --global --ignore-scripts gray-matter@4.0.3
           npm link gray-matter
       # Общий цикл повторов с обслуживанием main. В гонке мёржей этот воркфлоу
       # не участвует — он ходит раз в неделю по расписанию, — но пушит в ту же

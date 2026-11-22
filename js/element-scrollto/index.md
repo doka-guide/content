@@ -1,6 +1,10 @@
 ---
 title: "`.scrollTo()`"
 description: "Прокрутить страницу до точки координат."
+baseline:
+  - group: scroll-elements
+    features:
+      - api.Element.scrollTo
 authors:
   - inventoris
 contributors:

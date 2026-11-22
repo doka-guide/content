@@ -1,6 +1,10 @@
 ---
 title: "`Console`"
 description: "Обзор методов и возможностей"
+baseline:
+  - group: console
+    features:
+      - api.console
 authors:
   - vitya-ne
 related:

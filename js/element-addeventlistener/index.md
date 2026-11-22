@@ -1,6 +1,10 @@
 ---
 title: "`.addEventListener()`"
 description: "Учим приложение реагировать на действия пользователя."
+baseline:
+  - group: events
+    features:
+      - api.EventTarget.addEventListener
 authors:
   - akellbl4
 contributors:

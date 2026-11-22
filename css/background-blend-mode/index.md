@@ -37,7 +37,7 @@ tags:
 }
 ```
 
-<iframe title="Режимы наложения фона" src="demos/example/?embed=1" height="550"></iframe>
+<iframe title="Режимы наложения фона" src="demos/example/" height="550"></iframe>
 
 ## Как понять
 
@@ -134,7 +134,7 @@ tags:
 }
 ```
 
-<iframe title="Затемнение фото градиентом" src="demos/hero/?embed=1" height="500"></iframe>
+<iframe title="Затемнение фото градиентом" src="demos/hero/" height="500"></iframe>
 
 💡 Свойство не наследуется и не влияет на дочерние элементы — только на фоновые слои самого элемента. Чтобы смешивать элементы между собой, нужен `mix-blend-mode`.
 

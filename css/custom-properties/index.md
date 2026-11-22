@@ -1,6 +1,10 @@
 ---
 title: "Кастомные свойства"
 description: "Удобный способ сохранить повторяющееся значение и потом использовать его в разных местах кода. Как переменные в языках программирования."
+baseline:
+  - group: custom-properties
+    features:
+      - css.properties.custom-property
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

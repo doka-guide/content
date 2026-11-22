@@ -18,34 +18,94 @@ concurrency:
 permissions:
   contents: read
 
+# Версии пакетов закреплены, а их зависимости — нет: без `before` npm взял бы
+# свежие, в том числе выпущенные минуту назад, пока рядом лежит токен или
+# ключ. Поднимая версию пакета, сдвиньте дату на день после её выхода.
+env:
+  NPM_CONFIG_BEFORE: "2026-11-07"
+
 jobs:
-  update-index:
+  # Сборка и публикация разнесены по джобам: пакеты из npm выполняются только
+  # здесь, на раннере без ключа. Процесс, который пакет оставил бы в фоне,
+  # умрёт вместе с раннером и до ключа не дотянется.
+  build:
+    name: Сборка индекса
     # `completed` приходит и на упавший прогон, и на отменённый, и на
     # пропущенный: индекс собирался бы по контенту, который не обслужен.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
         with:
-          node-version: 20
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 26
+      # Версии точные и без install-скриптов, чтобы сборка не уехала на свежую
+      # версию сама.
+      - name: Сборка поискового индекса
+        run: |
+          set -eu
+          npm install --global --ignore-scripts natural@8.2.6 linkedom@0.18.15 html-escaper@3.0.3 markdown-it@15.0.3 yaml-cat@0.4.2
+          npm link natural linkedom html-escaper markdown-it
+          yaml-cat -f json 'a11y/**/index.md' 'css/**/index.md' 'html/**/index.md' 'js/**/index.md' 'recipes/**/index.md' 'tools/**/index.md' -o search-meta.json
+          node .github/scripts/search-index.js
+      - name: Сохранение индекса
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: search-content
+          path: search-content.json
+          retention-days: 1
+          if-no-files-found: error
+
+  # Единственная джоба с ключом. Чекаут и npm ей не нужны.
+  publish:
+    name: Публикация индекса
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions: {}
+    steps:
+      - name: Загрузка индекса
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: search-content
       - name: Установка ключа для пользователя
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
         run: |
           set -eu
           mkdir "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_rsa"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
           ssh-keyscan -H dev.doka.guide >> ~/.ssh/known_hosts
+          # Таймауты для rsync и docker по ssh. Без них замершее соединение
+          # держало шаг до timeout-minutes, а поиск в это время мог лежать.
+          printf '%s\n' 'Host dev.doka.guide' '  ConnectTimeout 20' '  ServerAliveInterval 15' '  ServerAliveCountMax 4' > "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
       - name: Публикация поискового индекса
         run: |
           CONTENT_PATH="/web/sites/search.doka.guide/www"
           PORT=8070
-          npm install natural linkedom html-escaper markdown-it yaml-cat --global
-          npm link natural linkedom html-escaper markdown-it
-          yaml-cat -f json 'a11y/**/index.md' 'css/**/index.md' 'html/**/index.md' 'js/**/index.md' 'recipes/**/index.md' 'tools/**/index.md' -o search-meta.json
-          node .github/scripts/search-index.js
           rsync --archive --progress --delete --compress search-content.json deploy@dev.doka.guide:$CONTENT_PATH
           export DOCKER_HOST="ssh://deploy@dev.doka.guide"
-          docker stop search
-          docker run -dti --rm -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
+          # `rm -f` не падает, если контейнера уже нет: раньше `docker stop` на
+          # упавшем поиске ронял шаг, и поиск не поднимался до следующего мёржа.
+          # `--restart unless-stopped` поднимает поиск после перезагрузки
+          # сервера. С `--rm` он несовместим, поэтому `--rm` убран.
+          docker rm -f search || true
+          docker run -dti --restart unless-stopped -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
+          # `docker run -d` выходит с нулём, даже если поиск тут же упал, например
+          # на битом индексе. Тогда прогон был зелёным, а поиск лежал до
+          # следующего мёржа. Проверяем, что через десять секунд контейнер жив
+          # и ни разу не перезапускался: `--restart` поднимает упавший поиск, и
+          # без счётчика цикл падений выглядел бы как работающий контейнер.
+          sleep 10
+          STATE="$(docker inspect -f '{{.State.Status}} {{.RestartCount}}' search)"
+          if [ "$STATE" != "running 0" ]; then
+            echo "Состояние контейнера: $STATE"
+            docker logs --tail 50 search || true
+            echo "::error::Контейнер поиска не запустился."
+            exit 1
+          fi

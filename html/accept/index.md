@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `accept`"
 description: "При выборе прикрепляемого файла этот атрибут покажет только разрешённые типы."
+baseline:
+  - group: input
+    features:
+      - html.elements.input.accept
 authors:
   - tanugladkih
   - teplostanski

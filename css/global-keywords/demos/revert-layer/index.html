@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>revert-layer — Глобальные ключевые слова — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Порядок слоёв: base раньше, theme позже */
+    @layer base, theme;
+
+    @layer base {
+      .card {
+        background-color: #282A2E;
+        color: #FFFFFF;
+      }
+    }
+
+    @layer theme {
+      .card {
+        background-color: #2E9AFF;
+        color: #18191C;
+        font-weight: 500;
+      }
+
+      /* Откатываем все свойства к слою base */
+      .card.reverted {
+        all: revert-layer;
+      }
+    }
+
+    /* Размеры задаём вне слоёв, их revert-layer не трогает */
+    .card {
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 6px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .toggle input {
+      width: 20px;
+      height: 20px;
+      accent-color: #2E9AFF;
+      cursor: pointer;
+    }
+
+    code {
+      font-family: monospace;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    Карточка со стилями из слоёв <code>base</code> и <code>theme</code>
+  </div>
+
+  <label class="toggle">
+    <input type="checkbox" class="switch">
+    Добавить <code>all: revert-layer</code>
+  </label>
+
+  <script>
+    const card = document.querySelector('.card')
+    const switcher = document.querySelector('.switch')
+
+    switcher.addEventListener('change', () => {
+      card.classList.toggle('reverted', switcher.checked)
+    })
+  </script>
+</body>
+</html>

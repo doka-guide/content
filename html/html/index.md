@@ -1,6 +1,10 @@
 ---
 title: "`<html>`"
 description: "Содержит всю страницу внутри — и метаданные, и контент."
+baseline:
+  - group: html
+    features:
+      - html.elements.html
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

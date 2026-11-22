@@ -1,6 +1,10 @@
 ---
 title: "`null`"
 description: "Примитивное значение. Представляет собой намеренное отсутствие значения объекта. Состоит из единственного значения `null` и обозначает объект с неопределённой структурой."
+baseline:
+  - group: javascript
+    features:
+      - javascript.operators.null
 authors:
   - nlopin
 keywords:

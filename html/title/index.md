@@ -1,6 +1,10 @@
 ---
 title: "`<title>`"
 description: "Заголовок на вкладке страницы в браузере."
+baseline:
+  - group: title
+    features:
+      - html.elements.title
 authors:
   - doka-dog
 contributors:

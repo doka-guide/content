@@ -1,6 +1,13 @@
 ---
 title: "`rem`, `em`"
 description: "Относительные единицы измерения, которые считаются от размера шрифта."
+baseline:
+  - group: rem
+    features:
+      - css.types.length.rem
+  - group: em-unit
+    features:
+      - css.types.length.em
 authors:
   - realetive
 keywords:

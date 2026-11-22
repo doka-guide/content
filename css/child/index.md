@@ -1,6 +1,14 @@
 ---
 title: "Псевдоклассы группы child"
 description: "Группа этих псевдоклассов позволяет выбирать элементы не по классу или тегу, а по порядковому номеру."
+baseline:
+  - group: nth-child
+    features:
+      - css.selectors.first-child
+      - css.selectors.last-child
+      - css.selectors.nth-child
+      - css.selectors.nth-last-child
+      - css.selectors.only-child
 authors:
   - solarrust
 contributors:

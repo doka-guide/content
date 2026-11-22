@@ -1,6 +1,10 @@
 ---
 title: "`<div>`"
 description: "Некоторые сайты на 99% состоят из этого элемента. Универсальный строительный блок без семантического значения."
+baseline:
+  - group: div
+    features:
+      - html.elements.div
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

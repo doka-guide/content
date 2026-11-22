@@ -1,6 +1,10 @@
 ---
 title: "`animation-fill-mode`"
 description: "Свойство, решающее, что будет после окончания анимации."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-fill-mode
 authors:
   - solarrust
 contributors:

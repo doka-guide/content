@@ -1,8 +1,11 @@
 name: Product Deploy
 
-# Цепочка: push в main → Main Maintenance → выкатка. Раньше звеньев было
-# четыре, и выкатка стартовала по нескольку раз на один мёрж — по разу на
-# каждый пуш бота.
+# Цепочка: push в main → Main Maintenance → выкатка в платформе.
+#
+# Сайт собирает и выкладывает «Product Deploy» репозитория платформы, здесь его
+# только запускают и ждут. У платформы проверка артефакта, `--delete-after`,
+# `--max-delete` и одна очередь на оба репозитория. Своя копия rsync шла в
+# отдельной очереди и могла писать в прод одновременно с платформой.
 on:
   workflow_run:
     workflows:
@@ -11,11 +14,6 @@ on:
       - main
     types:
       - completed
-
-# Группа без cancel-in-progress: оборванный `rsync --delete` оставил бы сайт
-# наполовину синхронизированным. Лишняя выкатка подождёт своей очереди.
-concurrency:
-  group: Product Deploy
 
 permissions:
   contents: read
@@ -28,60 +26,65 @@ jobs:
     # собственном коммите бота, где обслуживание пропущено.
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      PATH_TO_CONTENT: ./content
+    # С запасом: запуск может ждать в очереди платформы чужую выкатку.
+    timeout-minutes: 90
     steps:
-      - name: Загрузка platform
-        uses: actions/checkout@v4
-        with:
-          repository: doka-guide/platform
-      - name: Загрузка контента
-        uses: actions/checkout@v4
-        with:
-          path: content
-      - name: Загрузка кеша
-        uses: actions/checkout@v4
-        with:
-          repository: doka-guide/cache
-          path: cache
-      # Версия берётся из .nvmrc платформы: именно её зависимости здесь
-      # ставятся. Зашитая версия разъезжается с платформой — так превью и
-      # выкатка сломались, когда платформа перешла на Node 24, а здесь
-      # осталась двадцатая.
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-      - name: Кэширование модулей
-        uses: actions/cache@v3
+      # PLATFORM_DEPLOY_TOKEN — fine-grained токен бота: только
+      # doka-guide/platform, Actions: Read and write. GITHUB_TOKEN этого
+      # репозитория чужие воркфлоу запускать не может.
+      #
+      # Прогон ждёт выкатку до конца, чтобы её падение было видно здесь: письмо
+      # об упавшем прогоне получит тот, кто мёржил, а не владелец токена.
+      - name: Выкатка через платформу
         env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Установка ключа для пользователя
+          GH_TOKEN: ${{ secrets.PLATFORM_DEPLOY_TOKEN }}
+          PLATFORM: doka-guide/platform
         run: |
           set -eu
-          mkdir "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
-          chmod 600 "$HOME/.ssh/doka_deploy"
-          echo "${{ secrets.DEPLOY_CONFIG }}" > "$HOME/.ssh/config"
-          chmod 600 "$HOME/.ssh/config"
-          ssh -o StrictHostKeyChecking=no deploy@dev.doka.guide
-      - name: Установка модулей
-        run: npm ci
-      - name: Копирование кеша
-        run: cp ./cache/issues.json ./.issues.json
-      - name: Сборка сайта
-        run: |
-          cp .env.example .env
-          npm run build
-      - name: Публикация сайта
-        run: |
-          cd dist
-          rsync --exclude 'api.json' --exclude 'mail' --archive --progress --compress --delete . dev.doka.guide:/web/sites/doka.guide/www/
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Нет секрета PLATFORM_DEPLOY_TOKEN, выкатку запустить нечем."
+            exit 1
+          fi
+
+          # Номер запуска возвращает сам API (`return_run_details`), искать
+          # свой запуск среди чужих не нужно.
+          RUN_ID=$(gh api --method POST "repos/$PLATFORM/actions/workflows/product-deploy.yml/dispatches" \
+            -f ref=main -F return_run_details=true --jq '.workflow_run_id // empty')
+          if [ -z "$RUN_ID" ]; then
+            echo "::error::Платформа не вернула номер запуска выкатки."
+            exit 1
+          fi
+          echo "Выкатка: https://github.com/$PLATFORM/actions/runs/$RUN_ID"
+
+          # Свой цикл, а не `gh run watch`: тому для аннотаций нужны права на
+          # check-runs, которых у токена нет. Сбой сети — не повод ронять шаг,
+          # следующая попытка через полминуты.
+          STATUS=""
+          until [ "$STATUS" = "completed" ]; do
+            sleep 30
+            STATUS=$(gh run view "$RUN_ID" -R "$PLATFORM" --json status --jq .status || true)
+          done
+
+          # Смотрим джобу публикации, а не весь запуск: рядом идёт валидация
+          # разметки, и её падение сайт не останавливает. Имя джобы должно
+          # совпадать с `name` в product-deploy.yml платформы.
+          DEPLOYED=$(gh run view "$RUN_ID" -R "$PLATFORM" --json jobs \
+            --jq '.jobs[] | select(.name == "Публикация сайта") | .conclusion')
+          CONCLUSION=$(gh run view "$RUN_ID" -R "$PLATFORM" --json conclusion --jq .conclusion)
+          if [ "$DEPLOYED" = "success" ]; then
+            echo "Сайт выкачен."
+            [ "$CONCLUSION" = "success" ] || echo "::warning::В запуске платформы есть упавшие джобы, сайт при этом выкачен."
+            exit 0
+          fi
+
+          # Ждущий запуск GitHub отменяет, когда в очередь встаёт более новый.
+          # Тот соберёт свежий main, в том числе этот коммит. Отмена без более
+          # нового запуска — ручная или по таймауту, это провал.
+          NEWER=$(gh run list -R "$PLATFORM" --workflow product-deploy.yml --limit 1 \
+            --json databaseId --jq ".[] | select(.databaseId > $RUN_ID) | .databaseId")
+          if [ "$CONCLUSION" = "cancelled" ] && [ -n "$NEWER" ]; then
+            echo "::notice::Выкатку вытеснил запуск $NEWER, он выкатит и этот коммит."
+            exit 0
+          fi
+          echo "::error::Сайт не выкачен: запуск платформы завершился так: $CONCLUSION."
+          exit 1

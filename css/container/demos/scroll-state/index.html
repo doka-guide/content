@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Прилипшая шапка — @container scroll-state() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    /* === демо === */
+
+    .demo {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* Прокручиваемая область — скроллится она, а не body */
+    .page {
+      height: 300px;
+      overflow-y: auto;
+      border: 2px solid #282A2E;
+      border-radius: 12px;
+      background-color: #1E2024;
+    }
+
+    /* Шапка — контейнер, который знает, прилип ли он */
+    .header {
+      position: sticky;
+      top: 0;
+      container-type: scroll-state;
+    }
+
+    .header__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background-color: #1E2024;
+      border-bottom: 2px solid transparent;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, padding 0.2s;
+    }
+
+    .header__title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .header__status {
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      background-color: #282A2E;
+      color: #9AA0A6;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .header__status::after {
+      content: "не прилипла";
+    }
+
+    /* Шапка прилипла к верхнему краю — меняем вид её содержимого */
+    @container scroll-state(stuck: top) {
+      .header__inner {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #282A2E;
+        border-bottom-color: #2E9AFF;
+        box-shadow: 0 6px 16px rgb(0 0 0 / 0.5);
+      }
+
+      .header__status {
+        background-color: rgb(46 154 255 / 0.2);
+        color: #2E9AFF;
+      }
+
+      .header__status::after {
+        content: "прилипла";
+      }
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content p {
+      margin-bottom: 16px;
+      color: #C8CDD4;
+      line-height: 1.5;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #9AA0A6;
+      text-align: center;
+    }
+
+    .fallback {
+      display: none;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #F498AD;
+      text-align: center;
+    }
+
+    /* Браузер не знает scroll-state — показываем предупреждение */
+    @supports not (container-type: scroll-state) {
+      .fallback {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <div class="page">
+      <header class="header">
+        <div class="header__inner">
+          <span class="header__title">Дока</span>
+          <span class="header__status"></span>
+        </div>
+      </header>
+      <div class="content">
+        <p>Пока шапка стоит на своём месте, она выглядит как обычный блок в потоке.</p>
+        <p>Начните прокручивать текст. Шапка прилипнет к верхнему краю, и контейнерный запрос это заметит.</p>
+        <p>В этот момент сработает <code>@container scroll-state(stuck: top)</code>. Шапка станет компактнее, получит тень и синюю границу снизу.</p>
+        <p>Раньше для такого эффекта нужен был JavaScript с <code>IntersectionObserver</code> или обработчиком прокрутки.</p>
+        <p>Теперь хватает пары строк CSS: <code>position: sticky</code> с <code>top: 0</code>, <code>container-type: scroll-state</code> и сам запрос.</p>
+        <p>Прокрутите обратно наверх — шапка вернётся в поток, и стили снова станут обычными.</p>
+      </div>
+    </div>
+    <p class="hint">Прокрутите текст внутри рамки</p>
+    <p class="fallback">Ваш браузер пока не поддерживает <code>scroll-state()</code>, поэтому шапка не изменится</p>
+  </div>
+</body>
+</html>

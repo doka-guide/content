@@ -1,6 +1,10 @@
 ---
 title: "`.innerText`"
 description: "Читаем весь текст во вложенных элементах или записываем свой."
+baseline:
+  - group: dom
+    features:
+      - api.HTMLElement.innerText
 authors:
   - windrushfarer
 related:

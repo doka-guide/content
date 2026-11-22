@@ -1,6 +1,11 @@
 ---
 title: "Popover API"
 description: "Нативный способ создавать всплывающие элементы."
+baseline:
+  - group: popover
+    features:
+      - html.global_attributes.popover
+      - html.elements.button.popovertarget
 authors:
   - solarrust
 contributors:

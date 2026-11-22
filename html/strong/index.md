@@ -1,6 +1,10 @@
 ---
 title: "`<strong>`"
 description: "Семантически выделяет важный текст."
+baseline:
+  - group: strong
+    features:
+      - html.elements.strong
 authors:
   - gingerraccoon
 contributors:

@@ -1,6 +1,13 @@
 ---
 title: "Атрибут `multiple`"
 description: "Позволяет выбрать несколько значений или файлов."
+baseline:
+  - group: input-file-multiple
+    features:
+      - html.elements.input.multiple
+  - group: select
+    features:
+      - html.elements.select.multiple
 authors:
   - inventoris
 contributors:

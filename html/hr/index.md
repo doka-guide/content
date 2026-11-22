@@ -1,6 +1,10 @@
 ---
 title: "`<hr>`"
 description: "Подвести черту."
+baseline:
+  - group: hr
+    features:
+      - html.elements.hr
 authors:
   - lenaryan
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`<nav>`"
 description: "Удобный тег, объединяющий элементы навигации по сайту."
+baseline:
+  - group: nav
+    features:
+      - html.elements.nav
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

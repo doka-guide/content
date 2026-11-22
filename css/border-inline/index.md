@@ -1,6 +1,10 @@
 ---
 title: "`border-inline`"
 description: "Создаёт рамки элементу по строчной оси."
+baseline:
+  - group: logical-properties
+    features:
+      - css.properties.border-inline
 authors:
   - starhamster
 related:

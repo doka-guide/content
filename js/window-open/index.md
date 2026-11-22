@@ -1,6 +1,10 @@
 ---
 title: "window.open()"
 description: "Открывает ссылку в новом окне, в новой вкладке или в iframe."
+baseline:
+  - group: window
+    features:
+      - api.Window.open
 authors:
   - tanugladkih
 related:

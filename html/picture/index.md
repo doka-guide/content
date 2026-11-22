@@ -1,6 +1,10 @@
 ---
 title: "`<picture>`"
 description: "Адаптирует картинки под разные устройства и поддерживаемые форматы."
+baseline:
+  - group: picture
+    features:
+      - html.elements.picture
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

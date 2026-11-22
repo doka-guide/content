@@ -1,6 +1,10 @@
 ---
 title: "`<textarea>`"
 description: "Поле многострочного ввода в формах."
+baseline:
+  - group: textarea
+    features:
+      - html.elements.textarea
 authors:
   - ezhkov
 contributors:

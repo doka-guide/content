@@ -1,6 +1,10 @@
 ---
 title: "`.find()`"
 description: "Поиск по массиву будет искать по тем критериям, которые вы придумали."
+baseline:
+  - group: array-find
+    features:
+      - javascript.builtins.Array.find
 authors:
   - kognitivnayabuena
 editors:

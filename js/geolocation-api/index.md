@@ -1,6 +1,10 @@
 ---
 title: "Geolocation API"
 description: "Узнаём местоположение пользователя 🧭"
+baseline:
+  - group: geolocation
+    features:
+      - api.Geolocation
 authors:
   - inventoris
 keywords:

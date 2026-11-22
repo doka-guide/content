@@ -1,6 +1,10 @@
 ---
 title: "`alert()`"
 description: "Разработчики делают красивые модальные окна неделю, но у нас всегда есть готовое некрасивое."
+baseline:
+  - group: alerts
+    features:
+      - api.Window.alert
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Строка блоков: inline-block, хак с font-size: 0 и флекс с gap — display — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .wrapper {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .toggle button {
+      padding: 8px 16px;
+      border: 2px solid #2E9AFF;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .toggle button.active {
+      background-color: #2E9AFF;
+    }
+
+    .list {
+      padding: 10px;
+      border: 2px dashed #2E9AFF;
+      background-color: #F498AD;
+      list-style: none;
+      font-size: 24px;
+    }
+
+    .item {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #2E9AFF;
+      background-color: #282A2E;
+      line-height: 56px;
+      text-align: center;
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    /* Между строчно-блочными элементами видны пробелы из разметки */
+    .list.is-inline-block .item,
+    .list.is-hack .item {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    /* Старый хак: пробелы пропадают, но вместе с ними и всё, что задано в em */
+    .list.is-hack {
+      font-size: 0;
+    }
+
+    /* Новый способ: пробелы не отрисовываются, отступ задаёт gap */
+    .list.is-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .status {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .status code {
+      color: #F498AD;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="toggle">
+      <button type="button" class="active" data-mode="inline-block">inline-block</button>
+      <button type="button" data-mode="hack">font-size: 0</button>
+      <button type="button" data-mode="flex">flex + gap</button>
+    </div>
+
+    <ul class="list is-inline-block" id="list">
+      <li class="item">1</li>
+      <li class="item">2</li>
+      <li class="item">3</li>
+      <li class="item">4</li>
+    </ul>
+
+    <p class="status" id="status"></p>
+  </div>
+
+  <script>
+    const list = document.querySelector('#list')
+    const status = document.querySelector('#status')
+    const buttons = document.querySelectorAll('.toggle button')
+
+    const messages = {
+      'inline-block': 'Розовые полоски между блоками — пробелы из разметки. Их ширина зависит от <code>font-size</code> родителя.',
+      'hack': 'Пробелы пропали, но цифры тоже: размер шрифта в блоках задан в <code>em</code> и стал нулём.',
+      'flex': 'Пробелы между флекс-элементами не отрисовываются. Отступ ровно такой, какой задан в <code>gap</code>.',
+    }
+
+    function setMode(mode) {
+      list.classList.remove('is-inline-block', 'is-hack', 'is-flex')
+      list.classList.add(`is-${mode}`)
+      status.innerHTML = messages[mode]
+
+      buttons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.mode === mode)
+      })
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => setMode(button.dataset.mode))
+    })
+
+    setMode('inline-block')
+  </script>
+</body>
+</html>

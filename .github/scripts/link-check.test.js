@@ -107,6 +107,21 @@ test('регрессия: опечатка в названии раздела и
   assert.match(output, /нет материала по пути «\/totally-made-up-section\/here\/»/)
 })
 
+test('машинные адреса сайта (index.json, index.md, llms.txt) не считаются битыми', () => {
+  // их отдаёт платформа, материала в контенте для них нет: см. docs/api.md
+  const dir = makeRepo({
+    'docs/api.md': article(
+      'Списки: [CSS](https://doka.guide/css/index.json) и [люди](https://doka.guide/people/info.json).\n\n'
+        + 'Markdown материала: [overflow-wrap](https://doka.guide/css/overflow-wrap/index.md).\n\n'
+        + 'Справка для агентов: [llms.txt](https://doka.guide/llms.txt).'
+    ),
+  })
+
+  const { code, output } = runCheck(dir, ['docs/api.md'])
+
+  assert.equal(code, 0, output)
+})
+
 test('платформенные роуты (/, /people/, /subscribe/) не считаются битыми', () => {
   const dir = makeRepo({
     'pages/newsletters/index.md': article(

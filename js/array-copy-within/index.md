@@ -1,6 +1,10 @@
 ---
 title: "`.copyWithin()`"
 description: "Копирует одну часть массива в другую."
+baseline:
+  - group: array-copywithin
+    features:
+      - javascript.builtins.Array.copyWithin
 authors:
   - vitya-ne
 related:

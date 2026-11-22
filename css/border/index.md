@@ -1,6 +1,10 @@
 ---
 title: "`border`"
 description: "Одним свойством задаём все стили рамки элемента."
+baseline:
+  - group: borders
+    features:
+      - css.properties.border
 authors:
   - solarrust
 contributors:

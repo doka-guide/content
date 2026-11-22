@@ -1,6 +1,11 @@
 ---
 title: "Модули, `import`/`export`"
 description: "Используем функции и переменные из других файлов."
+baseline:
+  - group: js-modules
+    features:
+      - javascript.statements.import
+      - javascript.statements.export
 authors:
   - bespoyasov
 contributors:

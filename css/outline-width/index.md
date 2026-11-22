@@ -1,6 +1,10 @@
 ---
 title: "`outline-width`"
 description: "Задаём ширину для обводки элемента."
+baseline:
+  - group: outlines
+    features:
+      - css.properties.outline-width
 authors:
   - granondo
 related:

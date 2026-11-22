@@ -1,6 +1,10 @@
 ---
 title: "`FormData`"
 description: "Асинхронно отправлять JSON на сервер может каждый, а файлы — только `FormData`."
+baseline:
+  - group: xhr
+    features:
+      - api.FormData
 authors:
   - vitalybaev
 related:

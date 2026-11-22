@@ -1,6 +1,10 @@
 ---
 title: "`setTimeout()`"
 description: "Отложенный вызов функции. Вызывает функцию через указанный промежуток времени."
+baseline:
+  - group: settimeout
+    features:
+      - api.setTimeout
 authors:
   - windrushfarer
 keywords:

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -154,7 +154,7 @@
       color: #FFFFFF;
       font-family: inherit;
       font-size: inherit;
-      font-weight: 300;
+      font-weight: 400;
       cursor: pointer;
       -webkit-appearance: none;
       appearance: none;
@@ -176,7 +176,30 @@
       color: #18191C;
     }
 
-    @media (max-width: 768px) {
+    /* Настраиваемый список: браузеры без поддержки пропустят это правило */
+    select,
+    ::picker(select) {
+      appearance: base-select;
+    }
+
+    ::picker(select) {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      background-color: #18191C;
+    }
+
+    /* Стрелка уже есть в .select-wrapper, встроенная не нужна */
+    select::picker-icon {
+      display: none;
+    }
+
+    option {
+      padding: 10px 15px;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }

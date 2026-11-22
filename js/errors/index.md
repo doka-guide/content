@@ -1,6 +1,16 @@
 ---
 title: "`Error` и стандартные ошибки"
 description: "Какие бывают стандартные ошибки в JavaScript, и как создавать собственные типы ошибок."
+baseline:
+  - group: javascript
+    features:
+      - javascript.builtins.Error
+      - javascript.builtins.TypeError
+      - javascript.builtins.SyntaxError
+      - javascript.builtins.ReferenceError
+      - javascript.builtins.RangeError
+      - javascript.builtins.URIError
+      - javascript.builtins.EvalError
 authors:
   - stegur
   - alexbaumgertner

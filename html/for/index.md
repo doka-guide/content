@@ -1,6 +1,13 @@
 ---
 title: "Атрибут `for`"
 description: "Когда двум тегам нужно почувствовать связь 👉👈"
+baseline:
+  - group: label
+    features:
+      - html.elements.label.for
+  - group: output
+    features:
+      - html.elements.output.for
 authors:
   - inventoris
 contributors:

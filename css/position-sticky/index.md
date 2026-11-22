@@ -1,6 +1,10 @@
 ---
 title: "`position: sticky`"
 description: "Уникальное позиционирование, которое создаёт липкий элемент."
+baseline:
+  - group: sticky-positioning
+    features:
+      - css.properties.position.sticky
 authors:
   - lenaryan
 contributors:

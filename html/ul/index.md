@@ -1,6 +1,10 @@
 ---
 title: "`<ul>`"
 description: "Добавляет на страницу неупорядоченный маркированный список."
+baseline:
+  - group: list-elements
+    features:
+      - html.elements.ul
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

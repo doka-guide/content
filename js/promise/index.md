@@ -1,6 +1,10 @@
 ---
 title: "`Promise`"
 description: "Как уйти за значением выражения и вернуться, когда оно будет доступно."
+baseline:
+  - group: promise
+    features:
+      - javascript.builtins.Promise
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

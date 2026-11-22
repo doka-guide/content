@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `capture`"
 description: "Направляем камеру или микрофон пользователя 📷"
+baseline:
+  - group: html-media-capture
+    features:
+      - html.elements.input.capture
 authors:
   - inventoris
   - eshevlyakova

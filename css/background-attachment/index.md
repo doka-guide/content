@@ -47,7 +47,7 @@ tags:
 }
 ```
 
-<iframe title="Параллакс с background-attachment: fixed" src="demos/example/?embed=1" height="350"></iframe>
+<iframe title="Параллакс с background-attachment: fixed" src="demos/example/" height="350"></iframe>
 
 При прокрутке страницы фон секции `.hero` остаётся зафиксированным, создавая глубину между слоями.
 
@@ -104,7 +104,7 @@ tags:
 
 Первое изображение (`stars.png`) зафиксировано, второе (`sky.jpg`) прокручивается вместе с элементом.
 
-<iframe title="Несколько фонов с разными значениями" src="demos/multiple/?embed=1" height="460"></iframe>
+<iframe title="Несколько фонов с разными значениями" src="demos/multiple/" height="460"></iframe>
 
 ## Подсказки
 

@@ -10,11 +10,11 @@ permissions:
 
 jobs:
   release:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Загрузка контента
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Создание черновика релиза
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

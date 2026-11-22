@@ -1,6 +1,10 @@
 ---
 title: "`Atomics`"
 description: "Специальный объект, который содержит статические методы для выполнения атомарных операций."
+baseline:
+  - group: shared-memory
+    features:
+      - javascript.builtins.Atomics
 authors:
   - doka-dog
   - vsezol

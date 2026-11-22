@@ -1,6 +1,10 @@
 ---
 title: "Стрелочные функции"
 description: "Более компактная запись, чем у обычных функций."
+baseline:
+  - group: functions
+    features:
+      - javascript.functions.arrow_functions
 authors:
   - alexafcode
 contributors:

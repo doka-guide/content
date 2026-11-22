@@ -1,6 +1,10 @@
 ---
 title: "`<label>`"
 description: "Подписывает поля ввода и другие элементы формы."
+baseline:
+  - group: label
+    features:
+      - html.elements.label
 authors:
   - ezhkov
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`<address>`"
 description: "Выделите контактные данные на странице. Так поисковым роботам будет удобнее."
+baseline:
+  - group: address
+    features:
+      - html.elements.address
 authors:
   - ezhkov
 contributors:

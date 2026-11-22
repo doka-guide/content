@@ -1,6 +1,10 @@
 ---
 title: "`text-shadow`"
 description: "Создайте эффект объёмного текста."
+baseline:
+  - group: text-shadow
+    features:
+      - css.properties.text-shadow
 authors:
   - solarrust
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`Element`"
 description: "Теги HTML превращаются в элементы JavaScript, чтобы их можно было потрогать из кода."
+baseline:
+  - group: dom
+    features:
+      - api.Element
 authors:
   - nlopin
 contributors:

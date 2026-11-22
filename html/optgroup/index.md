@@ -1,6 +1,10 @@
 ---
 title: "`<optgroup>`"
 description: "Группирует опции внутри раскрывающегося списка."
+baseline:
+  - group: select
+    features:
+      - html.elements.optgroup
 authors:
   - granondo
 keywords:

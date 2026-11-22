@@ -1,6 +1,10 @@
 ---
 title: "`<sub>`"
 description: "Выводит подстрочный текст."
+baseline:
+  - group: sub-sup
+    features:
+      - html.elements.sub
 authors:
   - xpleesid
 contributors:

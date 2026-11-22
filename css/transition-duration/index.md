@@ -1,6 +1,10 @@
 ---
 title: "`transition-duration`"
 description: "За какое время элемент изменится?"
+baseline:
+  - group: transitions
+    features:
+      - css.properties.transition-duration
 authors:
   - ezhkov
 related:

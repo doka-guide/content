@@ -1,6 +1,10 @@
 ---
 title: "`transition-delay`"
 description: "Откладываем изменение элемента на некоторое время."
+baseline:
+  - group: transitions
+    features:
+      - css.properties.transition-delay
 authors:
   - ezhkov
 contributors:

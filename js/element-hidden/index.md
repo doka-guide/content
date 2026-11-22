@@ -1,6 +1,10 @@
 ---
 title: "`.hidden`"
 description: "Свойство, с помощью которого узнают или изменяют значение HTML-атрибута `hidden`."
+baseline:
+  - group: dom
+    features:
+      - api.HTMLElement.hidden
 authors:
   - windrushfarer
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`<head>`"
 description: "Какие настройки страницы скрываются в невидимой голове? Говорим о заголовке страницы, фавиконке, способах подключения стилей и скриптов."
+baseline:
+  - group: head
+    features:
+      - html.elements.head
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "`.some()`"
 description: "Проверит, есть ли в массиве хоть один элемент, подходящий под условие."
+baseline:
+  - group: array-iteration-methods
+    features:
+      - javascript.builtins.Array.some
 authors:
   - windrushfarer
 contributors:

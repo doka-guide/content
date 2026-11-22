@@ -1,6 +1,10 @@
 ---
 title: "`<select>`"
 description: "Поле выбора значения из раскрывающегося списка."
+baseline:
+  - group: select
+    features:
+      - html.elements.select
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "`animation-direction`"
 description: "Решаем, в каком направлении будет проигрываться анимация."
+baseline:
+  - group: animations-css
+    features:
+      - css.properties.animation-direction
 authors:
   - solarrust
 editors:

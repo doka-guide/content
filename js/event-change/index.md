@@ -1,6 +1,10 @@
 ---
 title: "`change`"
 description: "Работаем со значением, когда пользователь зафиксирует свои изменения."
+baseline:
+  - group: change-event
+    features:
+      - api.HTMLElement.change_event
 authors:
   - kejjero
   - ra1nbow1

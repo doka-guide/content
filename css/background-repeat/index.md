@@ -1,6 +1,10 @@
 ---
 title: "`background-repeat`"
 description: "При помощи этого свойства и небольшой картинки можно создавать красивые паттерны на фоне."
+baseline:
+  - group: background-repeat
+    features:
+      - css.properties.background-repeat
 authors:
   - solarrust
 editors:

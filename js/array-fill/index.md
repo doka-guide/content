@@ -1,6 +1,10 @@
 ---
 title: "`.fill()`"
 description: "Заполняет элементы массива указанным значением."
+baseline:
+  - group: array-fill
+    features:
+      - javascript.builtins.Array.fill
 authors:
   - vitya-ne
 related:
@@ -120,7 +124,7 @@ console.log(persons)
 
 ## Подсказки
 
-💡 Для корректного заполнения массива значениями непримитивого типа можно воспользоваться методом `Array.from()`:
+💡 Для корректного заполнения массива значениями непримитивного типа можно воспользоваться методом `Array.from()`:
 
 ```js
 const persons = Array.from( new Array(3), () => ({ name: 'имя', position: null }))

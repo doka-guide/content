@@ -1,6 +1,10 @@
 ---
 title: "`.setProperty()`"
 description: "Как задать CSS-свойство, используя `setProperty()`."
+baseline:
+  - group: css-object-model
+    features:
+      - api.CSSStyleDeclaration.setProperty
 authors:
   - artem-chumak
 related:

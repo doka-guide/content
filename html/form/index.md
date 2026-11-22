@@ -1,6 +1,10 @@
 ---
 title: "`<form>`"
 description: "Формы разные нужны, формы разные важны. Без этого тега ни одна форма работать не будет!"
+baseline:
+  - group: form
+    features:
+      - html.elements.form
 authors:
   - doka-dog
 contributors:

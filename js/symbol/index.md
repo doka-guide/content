@@ -1,6 +1,10 @@
 ---
 title: "Символ"
 description: "Примитивный тип, представляющий собой уникальный идентификатор. Используется как имя свойств в объектах."
+baseline:
+  - group: symbol
+    features:
+      - javascript.builtins.Symbol
 authors:
   - nlopin
 related:

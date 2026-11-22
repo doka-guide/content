@@ -1,6 +1,10 @@
 ---
 title: "`clearInterval()`"
 description: "Отменяет регулярное выполнение функции, установленное вызовом `setInterval()`."
+baseline:
+  - group: setinterval
+    features:
+      - api.clearInterval
 authors:
   - nlopin
 related:

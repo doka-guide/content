@@ -25,6 +25,12 @@ on:
 permissions:
   contents: read
 
+# Версии пакетов закреплены, а их зависимости — нет: без `before` npm взял бы
+# свежие, в том числе выпущенные минуту назад, пока рядом лежит токен или
+# ключ. Поднимая версию пакета, сдвиньте дату на день после её выхода.
+env:
+  NPM_CONFIG_BEFORE: "2026-11-07"
+
 jobs:
   maintenance:
     name: Обслуживание main
@@ -38,15 +44,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
           # Ченджлогу нужна вся история: он читает `git show ${sha}^:${file}`,
           # а нужный коммит на повторной попытке уже не в вершине ветки.
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 26
       - name: Мета, даты, словарь и ченджлог
         env:
           # Коммит, ради которого всё затеяно. Даты и ченджлог считаются по

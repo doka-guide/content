@@ -1,6 +1,10 @@
 ---
 title: "`wheel`"
 description: "Событие, когда кто-то крутит колесо мыши 🖱"
+baseline:
+  - group: wheel-events
+    features:
+      - api.Element.wheel_event
 authors:
   - nlopin
 contributors:

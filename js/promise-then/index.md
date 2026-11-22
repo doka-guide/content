@@ -1,6 +1,10 @@
 ---
 title: "`.then()`"
 description: "Обрабатываем ситуацию, когда пообещали значение — и выполнили обещание."
+baseline:
+  - group: promise
+    features:
+      - javascript.builtins.Promise.then
 authors:
   - nlopin
 related:

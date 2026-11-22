@@ -1,6 +1,10 @@
 ---
 title: "Селектор по атрибуту"
 description: "Находим элемент на странице по конкретному атрибуту."
+baseline:
+  - group: selectors
+    features:
+      - css.selectors.attribute
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

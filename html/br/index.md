@@ -1,6 +1,10 @@
 ---
 title: "`<br>`"
 description: "Брутальный способ перенести текст или элемент на новую строку."
+baseline:
+  - group: br
+    features:
+      - html.elements.br
 authors:
   - ezhkov
 contributors:

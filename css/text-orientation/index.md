@@ -1,6 +1,10 @@
 ---
 title: "`text-orientation`"
 description: "Если текст поставить боком, то повернётся вся строка или каждый символ отдельно?"
+baseline:
+  - group: text-orientation
+    features:
+      - css.properties.text-orientation
 authors:
   - doka-dog
 keywords:

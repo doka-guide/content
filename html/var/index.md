@@ -1,6 +1,10 @@
 ---
 title: "`<var>`"
 description: "Семантически выделяет математические выражения и переменные."
+baseline:
+  - group: var
+    features:
+      - html.elements.var
 authors:
   - xpleesid
 contributors:

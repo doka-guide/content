@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Полоски прогресса из атрибутов — attr() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .skills {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 18px;
+    }
+
+    .track {
+      height: 24px;
+      border-radius: 12px;
+      background-color: #282A2E;
+      overflow: hidden;
+    }
+
+    /* Запасные значения для браузеров без типизированного attr() */
+    .bar {
+      width: 50%;
+      height: 100%;
+      border-radius: 12px;
+      background-color: #2E9AFF;
+      transition: width 0.3s ease-out;
+    }
+
+    /* Ширина и цвет берутся из атрибутов */
+    .bar {
+      width: attr(data-progress %, 0%);
+      background-color: attr(data-color type(<color>), #2E9AFF);
+    }
+
+    /* Значение атрибута в тексте — строковая attr() */
+    .skill .value::after {
+      content: attr(data-progress) "%";
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bar {
+        transition: none;
+      }
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: 2px solid #2E9AFF;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .warning {
+      display: none;
+      max-width: 560px;
+      padding: 15px 20px;
+      border-left: 4px solid #F498AD;
+      background-color: #282A2E;
+      line-height: 1.4;
+    }
+
+    @supports not (width: attr(data-progress %)) {
+      .warning {
+        display: block;
+      }
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul class="skills">
+    <li class="skill">
+      <span id="html-label">HTML <span class="value" data-progress="90" aria-hidden="true"></span></span>
+      <div class="track">
+        <div class="bar" data-progress="90" data-color="#FF8630" role="progressbar" aria-labelledby="html-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"></div>
+      </div>
+    </li>
+    <li class="skill">
+      <span id="css-label">CSS <span class="value" data-progress="75" aria-hidden="true"></span></span>
+      <div class="track">
+        <div class="bar" data-progress="75" data-color="#2E9AFF" role="progressbar" aria-labelledby="css-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"></div>
+      </div>
+    </li>
+    <li class="skill">
+      <span id="javascript-label">JavaScript <span class="value" data-progress="40" aria-hidden="true"></span></span>
+      <div class="track">
+        <div class="bar" data-progress="40" data-color="#FFD829" role="progressbar" aria-labelledby="javascript-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"></div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="controls">
+    <button type="button" class="shuffle">Перемешать</button>
+  </div>
+
+  <p class="warning">
+    Ваш браузер пока не поддерживает тип в <code>attr()</code>, поэтому все полоски одинаковые.
+    Откройте демку в Chrome, Edge или Firefox.
+  </p>
+
+  <script>
+    // Кнопка меняет только атрибуты, стили обновляются сами
+    document.querySelector('.shuffle').addEventListener('click', () => {
+      document.querySelectorAll('.skill').forEach((skill) => {
+        const progress = String(Math.round(Math.random() * 90) + 10)
+        skill.querySelectorAll('[data-progress]').forEach((element) => {
+          element.dataset.progress = progress
+        })
+        skill.querySelector('.bar').setAttribute('aria-valuenow', progress)
+      })
+    })
+  </script>
+</body>
+</html>

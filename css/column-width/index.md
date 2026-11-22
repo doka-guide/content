@@ -1,6 +1,10 @@
 ---
 title: "`column-width`"
 description: "Какой ширины должны быть колонки, на которые вы разобьёте текст?"
+baseline:
+  - group: multi-column
+    features:
+      - css.properties.column-width
 authors:
   - xpleesid
 editors:

@@ -1,6 +1,10 @@
 ---
 title: "`::before`"
 description: "Удобный способ создать элемент без дополнительной HTML-разметки."
+baseline:
+  - group: before-after
+    features:
+      - css.selectors.before
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

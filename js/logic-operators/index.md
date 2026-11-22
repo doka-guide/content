@@ -1,6 +1,12 @@
 ---
 title: "Логические операторы"
 description: "Объединяем несколько простых условий в одно сложное."
+baseline:
+  - group: javascript
+    features:
+      - javascript.operators.logical_and
+      - javascript.operators.logical_or
+      - javascript.operators.logical_not
 authors:
   - nlopin
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`queueMicrotask()`"
 description: "Брат `setTimeout`, или как добавить синхронную функцию в очередь микрозадач."
+baseline:
+  - group: queuemicrotask
+    features:
+      - api.queueMicrotask
 authors:
   - corocoto
 contributors:
@@ -80,7 +84,7 @@ queueMicrotask(() => {
 
 Основная причина использования `queueMicrotask()` — обеспечение последовательности выполнения задач и снижение риска заметных пользователю задержек в операциях.
 
-Представим ситуацию, когда получаем данные по указаному URL или когда запрос выполнялся ранее. Запрашиваем данные из кэша:
+Представим ситуацию, когда получаем данные по указанному URL или когда запрос выполнялся ранее. Запрашиваем данные из кэша:
 
 ```js
 const output = document.querySelector('.logging-form__output')

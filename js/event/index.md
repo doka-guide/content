@@ -1,6 +1,10 @@
 ---
 title: "Объект события `Event`"
 description: "Информация о событии, произошедшем на странице."
+baseline:
+  - group: events
+    features:
+      - api.Event
 authors:
   - akellbl4
 related:

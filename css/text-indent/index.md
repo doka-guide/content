@@ -1,6 +1,10 @@
 ---
 title: "`text-indent`"
 description: "С помощью `text-indent` можно создать «красную строку» — добавить отступ для первой строки абзаца."
+baseline:
+  - group: text-indent
+    features:
+      - css.properties.text-indent
 authors:
   - ra1nbow1
 keywords:

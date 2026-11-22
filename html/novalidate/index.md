@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `novalidate`"
 description: "Отключает валидацию формы. Зачем нам валидация формы браузером, когда у нас есть JavaScript?"
+baseline:
+  - group: form
+    features:
+      - html.elements.form.novalidate
 authors:
   - vchychuzhko
 contributors:

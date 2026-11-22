@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Цветовое пространство градиента — linear-gradient — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .element {
+      width: 100%;
+      max-width: 600px;
+      height: 120px;
+      border-radius: 6px;
+      /* значение меняет скрипт */
+      background-image: linear-gradient(to right, #2E9AFF, #FFD829);
+    }
+
+    .controls {
+      border: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 24px;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    input {
+      accent-color: #2E9AFF;
+    }
+
+    code {
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: #282A2E;
+      font-size: 16px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .element {
+        height: 80px;
+      }
+
+      code {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="element"></div>
+
+  <fieldset class="controls">
+    <legend class="visually-hidden">Цветовое пространство</legend>
+    <label><input type="radio" name="space" value="" checked> по умолчанию</label>
+    <label><input type="radio" name="space" value="in srgb"> srgb</label>
+    <label><input type="radio" name="space" value="in oklab"> oklab</label>
+    <label><input type="radio" name="space" value="in oklch"> oklch</label>
+    <label><input type="radio" name="space" value="in oklch longer hue"> oklch longer hue</label>
+  </fieldset>
+
+  <code class="output" aria-live="polite">linear-gradient(to right, #2E9AFF, #FFD829)</code>
+
+  <script>
+    const element = document.querySelector('.element');
+    const output = document.querySelector('.output');
+
+    document.querySelectorAll('input[name="space"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        const space = input.value ? `to right ${input.value}` : 'to right';
+        const value = `linear-gradient(${space}, #2E9AFF, #FFD829)`;
+        element.style.backgroundImage = value;
+        output.textContent = value;
+      });
+    });
+  </script>
+</body>
+</html>

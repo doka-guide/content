@@ -1,6 +1,13 @@
 ---
 title: "`Math.floor()`, `Math.round()`, `Math.ceil()` и `Math.trunc()`"
 description: "Округляем разными способами."
+baseline:
+  - group: number
+    features:
+      - javascript.builtins.Math.floor
+      - javascript.builtins.Math.round
+      - javascript.builtins.Math.ceil
+      - javascript.builtins.Math.trunc
 authors:
   - nlopin
 related:

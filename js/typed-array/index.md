@@ -1,6 +1,10 @@
 ---
 title: "`TypedArray`"
 description: "Объект для представления бинарных данных из буфера."
+baseline:
+  - group: typed-arrays
+    features:
+      - javascript.builtins.TypedArray
 authors:
   - doka-dog
 keywords:

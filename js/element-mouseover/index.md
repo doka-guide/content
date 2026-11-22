@@ -1,6 +1,10 @@
 ---
 title: "`mouseover`"
 description: "Реагируем, когда пользователь наводит курсор на элемент."
+baseline:
+  - group: mouse-events
+    features:
+      - api.Element.mouseover_event
 authors:
   - nlopin
 contributors:

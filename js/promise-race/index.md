@@ -1,6 +1,10 @@
 ---
 title: "`Promise.race()`"
 description: "Запускаем несколько промисов и дожидаемся того, который выполнится быстрее."
+baseline:
+  - group: promise
+    features:
+      - javascript.builtins.Promise.race
 authors:
   - agarkov
 contributors:

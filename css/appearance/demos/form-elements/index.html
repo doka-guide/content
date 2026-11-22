@@ -6,96 +6,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
-      font-family: "Roboto", sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
+      align-items: center;
       justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     form {
-      width: 200px;
-      margin-left: 20px;
-      margin-right: 20px;
+      width: 220px;
     }
 
+    form > p {
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    h3 {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 400;
+      color: #2E9AFF;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    /* Сбрасываем системный вид чекбоксов и радиокнопок */
     .custom input {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        display: inline-block;
-        vertical-align: middle;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #2E9AFF;
+      background-color: #18191C;
+      background-clip: content-box;
+      cursor: pointer;
     }
 
     .custom input[type="checkbox"] {
-        border: 2px solid #49a16c;
-        width: 20px;
-        height: 20px;
-        outline: none;
-        padding: 3px;
-        box-sizing: border-box;
-    }
-
-    .custom input[type="checkbox"]:checked {
-        background: #49a16c;
-        background-clip: content-box;
+      padding: 3px;
+      border-radius: 4px;
     }
 
     .custom input[type="radio"] {
-        border: 2px solid #49a16c;
-        border-radius: 10px;
-        width: 20px;
-        height: 20px;
-        outline: none;
-        padding: 4px;
+      padding: 4px;
+      border-radius: 50%;
     }
 
-    .custom input[type="radio"]:checked {
-        background: #49a16c;
-        background-clip: content-box;
+    .custom input:checked {
+      background-color: #2E9AFF;
+    }
+
+    /* Заметная рамка фокуса на тёмном фоне */
+    .custom input:focus-visible {
+      outline: 2px solid #F498AD;
+      outline-offset: 2px;
+    }
+
+    /* В режиме высокой контрастности браузер заменяет фон, поэтому отметку рисуем системным цветом */
+    @media (forced-colors: active) {
+      .custom input:checked {
+        forced-color-adjust: none;
+        border-color: Highlight;
+        background-color: Highlight;
+      }
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <form action="">
-    <p>Форма со стилями по умолчанию</p>
-    <h3>Чекбокс:</h3>
-    <p>
+  <form>
+    <p>Стили по умолчанию</p>
+    <h3>Чекбокс</h3>
+    <div class="option">
       <input type="checkbox" id="check1">
       <label for="check1">Выбери меня</label>
-    </p>
-    <h3>Радио-кнопки:</h3>
-    <p>
-      <input type="radio" name="radio" id="radio11">
-      <label for="radio11">Option A</label>
-    </p>
-    <p>
-      <input type="radio" name="radio" id="radio12">
-      <label for="radio12">Option B</label>
-    </p>
+    </div>
+    <h3>Радиокнопки</h3>
+    <div class="option">
+      <input type="radio" name="radio1" id="radio11">
+      <label for="radio11">Вариант А</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="radio1" id="radio12">
+      <label for="radio12">Вариант Б</label>
+    </div>
   </form>
-  <form action="" class="custom">
-    <p>Форма с нестандартными стилями</p>
-    <h3>Чекбокс:</h3>
-    <p>
+  <form class="custom">
+    <p>Свои стили</p>
+    <h3>Чекбокс</h3>
+    <div class="option">
       <input type="checkbox" id="check2">
       <label for="check2">Выбери меня</label>
-    </p>
-    <h3>Радио-кнопки:</h3>
-    <p>
+    </div>
+    <h3>Радиокнопки</h3>
+    <div class="option">
       <input type="radio" name="radio2" id="radio21">
-      <label for="radio21">Option A</label>
-    </p>
-    <p>
+      <label for="radio21">Вариант А</label>
+    </div>
+    <div class="option">
       <input type="radio" name="radio2" id="radio22">
-      <label for="radio22">Option B</label>
-    </p>
+      <label for="radio22">Вариант Б</label>
+    </div>
   </form>
 </body>
 </html>

@@ -1,6 +1,10 @@
 ---
 title: "`outline-style`"
 description: "Задаём стиль обводки элемента. Сплошная, пунктирная или объёмная."
+baseline:
+  - group: outlines
+    features:
+      - css.properties.outline-style
 authors:
   - doka-dog
 related:

@@ -1,6 +1,10 @@
 ---
 title: "`will-change`"
 description: "Заранее сообщаем браузеру, какие свойства у элементов будут меняться."
+baseline:
+  - group: will-change
+    features:
+      - css.properties.will-change
 authors:
   - madey-kv
 related:

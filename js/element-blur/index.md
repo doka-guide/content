@@ -1,6 +1,10 @@
 ---
 title: "`.blur()`"
 description: "Снимает фокус с DOM-элемента, на котором вызван."
+baseline:
+  - group: focus-events
+    features:
+      - api.HTMLElement.blur
 authors:
   - windrushfarer
 related:

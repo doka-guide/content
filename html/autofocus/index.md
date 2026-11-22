@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `autofocus`"
 description: "Удобный атрибут для автоматической установки фокуса."
+baseline:
+  - group: autofocus
+    features:
+      - html.global_attributes.autofocus
 authors:
   - kozlovtseva
 keywords:

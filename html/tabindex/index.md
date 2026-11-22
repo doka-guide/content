@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `tabindex`"
 description: "Атрибут для управления порядком фокуса на вашем сайте."
+baseline:
+  - group: tabindex
+    features:
+      - html.global_attributes.tabindex
 authors:
   - tatianafokina
 contributors:

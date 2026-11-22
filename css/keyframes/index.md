@@ -1,6 +1,10 @@
 ---
 title: "`@keyframes`"
 description: "Как настоящие художники-постановщики, создаём раскадровку для анимации."
+baseline:
+  - group: animations-css
+    features:
+      - css.at-rules.keyframes
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

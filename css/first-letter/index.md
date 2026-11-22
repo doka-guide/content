@@ -1,6 +1,10 @@
 ---
 title: "`::first-letter`"
 description: "Стилизуем первую букву в тексте."
+baseline:
+  - group: first-letter
+    features:
+      - css.selectors.first-letter
 authors:
   - punkmachine
 keywords:

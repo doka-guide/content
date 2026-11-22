@@ -1,6 +1,10 @@
 ---
 title: "`<time>`"
 description: "Разметка для даты и времени — и для людей, и для роботов."
+baseline:
+  - group: time
+    features:
+      - html.elements.time
 authors:
   - slavarazum
 contributors:

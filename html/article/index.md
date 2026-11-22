@@ -1,6 +1,10 @@
 ---
 title: "`<article>`"
 description: "Тег для создания самостоятельных единиц контента: от карточек до комментов. Не для статей!"
+baseline:
+  - group: article
+    features:
+      - html.elements.article
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

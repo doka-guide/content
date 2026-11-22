@@ -35,7 +35,7 @@ a11y:
       - docs/images/*.png
       - docs/license/*/*.svg
       - pages/**/index.md
-      - people/**/index.md"
+      - people/**/index.md
       - README.md
       - LICENSE-ND.md
       - LICENSE-SA.md
@@ -51,7 +51,7 @@ a11y:
       - docs/images/*.png
       - docs/license/*/*.svg
       - pages/**/index.md
-      - people/**/index.md"
+      - people/**/index.md
       - README.md
       - LICENSE-ND.md
       - LICENSE-SA.md
@@ -67,7 +67,7 @@ a11y:
       - docs/images/*.png
       - docs/license/*/*.svg
       - pages/**/index.md
-      - people/**/index.md"
+      - people/**/index.md
       - README.md
       - LICENSE-ND.md
       - LICENSE-SA.md

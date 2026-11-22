@@ -1,6 +1,10 @@
 ---
 title: "`quotes`"
 description: "Свойство для управления внешним видом кавычек."
+baseline:
+  - group: quotes
+    features:
+      - css.properties.quotes
 authors:
   - solarrust
 contributors:

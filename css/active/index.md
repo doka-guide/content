@@ -1,6 +1,10 @@
 ---
 title: "`:active`"
 description: "Один из псевдоклассов, показывающих, что интерфейс откликается на действия пользователя"
+baseline:
+  - group: user-action-pseudos
+    features:
+      - css.selectors.active
 authors:
   - solarrust
 contributors:

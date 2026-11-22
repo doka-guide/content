@@ -1,6 +1,10 @@
 ---
 title: "`<track>`"
 description: "Тег `<track>` добавляет субтитры, описания или переводы к видео и аудио через отдельный текстовый файл."
+baseline:
+  - group: text-tracks
+    features:
+      - html.elements.track
 authors:
   - drakesbot12
 keywords:

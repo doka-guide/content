@@ -1,6 +1,13 @@
 ---
 title: "Атрибут `placeholder`"
 description: "Удобный атрибут для подсказки в поле ввода. Но есть нюансы!"
+baseline:
+  - group: input
+    features:
+      - html.elements.input.placeholder
+  - group: textarea
+    features:
+      - html.elements.textarea.placeholder
 authors:
   - minich
 contributors:

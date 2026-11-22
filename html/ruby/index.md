@@ -1,6 +1,10 @@
 ---
 title: "`<ruby>`"
 description: "Добавляем надстрочные подсказки к символам с помощью HTML."
+baseline:
+  - group: ruby
+    features:
+      - html.elements.ruby
 authors:
   - drakesbot12
 related:

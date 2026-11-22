@@ -1,6 +1,10 @@
 ---
 title: "`<dfn>`"
 description: "Расшифровываем термины и сокращения."
+baseline:
+  - group: dfn
+    features:
+      - html.elements.dfn
 authors:
   - xpleesid
 contributors:

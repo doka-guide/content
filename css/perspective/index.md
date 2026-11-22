@@ -1,6 +1,10 @@
 ---
 title: "`perspective`"
 description: "Перспектива есть всегда, даже в двумерном вебе."
+baseline:
+  - group: transforms3d
+    features:
+      - css.properties.perspective
 authors:
   - sqlzzy
 contributors:

@@ -1,6 +1,10 @@
 ---
 title: "`.forEach()`"
 description: "Метод используется для обхода элементов коллекции `Set`."
+baseline:
+  - group: set
+    features:
+      - javascript.builtins.Set.forEach
 authors:
   - nlopin
 related:

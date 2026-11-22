@@ -1,6 +1,10 @@
 ---
 title: "`<button>`"
 description: "Тег чтобы добавить на страницу кнопку."
+baseline:
+  - group: button
+    features:
+      - html.elements.button
 authors:
   - doka-dog
 contributors:

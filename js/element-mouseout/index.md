@@ -1,6 +1,10 @@
 ---
 title: "`mouseout`"
 description: "Реагируем, когда курсор пользователя покидает элемент."
+baseline:
+  - group: mouse-events
+    features:
+      - api.Element.mouseout_event
 authors:
   - nlopin
 contributors:

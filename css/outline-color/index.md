@@ -1,6 +1,10 @@
 ---
 title: "`outline-color`"
 description: "Отдельное свойство для управления цветом обводки элемента."
+baseline:
+  - group: outlines
+    features:
+      - css.properties.outline-color
 authors:
   - timbilalov
 related:

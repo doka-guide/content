@@ -1,6 +1,10 @@
 ---
 title: "`confirm()`"
 description: "Функция придёт на помощь когда лень делать красивое модальное окно."
+baseline:
+  - group: alerts
+    features:
+      - api.Window.confirm
 authors:
   - doka-dog
 contributors:

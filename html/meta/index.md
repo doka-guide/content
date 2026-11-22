@@ -1,6 +1,10 @@
 ---
 title: "`<meta>`"
 description: "Кусочек метаданных страницы. Описывает содержание страницы для браузера, поисковиков и соцсетей."
+baseline:
+  - group: meta
+    features:
+      - html.elements.meta
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "`<samp>`"
 description: "Программа запущена — что она ответит? Элемент для показа пользователю выходных данных программы."
+baseline:
+  - group: samp
+    features:
+      - html.elements.samp
 authors:
   - webdb81
 contributors:

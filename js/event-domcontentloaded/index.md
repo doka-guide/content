@@ -1,6 +1,10 @@
 ---
 title: "`DOMContentLoaded`"
 description: "Запускаем код, когда браузер построил DOM-дерево 🏠"
+baseline:
+  - group: dom
+    features:
+      - api.Document.DOMContentLoaded_event
 authors:
   - nlopin
 contributors:

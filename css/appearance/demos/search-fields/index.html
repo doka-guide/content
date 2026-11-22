@@ -6,37 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 20px;
       text-align: center;
     }
 
-    p {
-      margin-bottom: 5px;
+    label {
+      margin-top: 12px;
     }
 
+    /* Без рамки и фона: Safari отключает системный вид, если их задать */
     input[type="search"] {
-      border: 2px solid red;
+      width: 260px;
+      font-family: inherit;
+      font-size: 18px;
     }
 
+    /* Убираем системный вид поля поиска */
     .no-appearance {
-      -webkit-appearance: none;
-      -moz-appearance: none;
       appearance: none;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>Поле поиска по умолчанию</p>
-  <input type="search">
-  <p>Поле поиска со сброшенным appearance</p>
-  <input type="search" class="no-appearance">
+  <label for="search-default">Поле поиска по умолчанию</label>
+  <input type="search" id="search-default" placeholder="Поиск">
+  <label for="search-none">Поле поиска с <code>appearance: none</code></label>
+  <input type="search" id="search-none" class="no-appearance" placeholder="Поиск">
 </body>
 </html>

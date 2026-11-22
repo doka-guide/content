@@ -1,6 +1,10 @@
 ---
 title: "`text-overflow`"
 description: "Красиво обрезаем текст, не влезающий в блок. Можем даже добавить в конце многоточие…"
+baseline:
+  - group: text-overflow
+    features:
+      - css.properties.text-overflow
 authors:
   - solarrust
 related:

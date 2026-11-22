@@ -1,6 +1,10 @@
 ---
 title: "`text-decoration-skip-ink`"
 description: "Как линию будем рисовать? Поверх хвостиков букв или не касаясь их?"
+baseline:
+  - group: text-decoration-skip-ink
+    features:
+      - css.properties.text-decoration-skip-ink
 authors:
   - parabolabam
 contributors:

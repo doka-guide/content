@@ -1,6 +1,10 @@
 ---
 title: "`<code>`"
 description: "Тег для оформления программного кода."
+baseline:
+  - group: code
+    features:
+      - html.elements.code
 authors:
   - xpleesid
 contributors:

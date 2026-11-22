@@ -1,6 +1,10 @@
 ---
 title: "`padding`"
 description: "Внутренний отступ, от края элемента до вложенного в него контента."
+baseline:
+  - group: padding
+    features:
+      - css.properties.padding
 authors:
   - solarrust
 contributors:

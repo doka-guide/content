@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Валидация формы — :invalid и :valid — Дока</title>
+  <title>Валидация после ввода — :user-invalid и :user-valid — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -58,8 +62,8 @@
     }
 
     .input:focus {
-      border-color: #2E9AFF;
-      outline: none;
+      outline: 2px solid #2E9AFF;
+      outline-offset: 2px;
     }
 
     .input + .validity-icon {
@@ -68,30 +72,25 @@
       top: 10px;
     }
 
-    .input:invalid {
+    .input:user-invalid {
       border-color: #FF8630;
-      background-color: rgba(255, 134, 48, 0.1);
+      background-color: rgb(255 134 48 / 0.1);
     }
 
-    .input:invalid + .validity-icon::before {
+    .input:user-invalid + .validity-icon::before {
       content: '✖';
       color: #FF8630;
     }
 
-    .input:valid + .validity-icon::before {
+    .input:user-valid + .validity-icon::before {
       content: '✓';
     }
 
-    .checkbox:invalid + .checkbox-title::before {
-      border-color: #FF8630;
-      background-color: rgba(255, 134, 48, 0.1);
-    }
-
-    .input, .button, .checkbox-container {
+    .input, .button {
       width: 350px;
     }
 
-    .button, .checkbox-container {
+    .button {
       margin-left: auto;
     }
 
@@ -128,17 +127,7 @@
       background-color: #2E9AFF;
     }
 
-    .input:invalid:placeholder-shown {
-      border-color: #ffffff;
-      background-color: transparent;
-    }
-
-    .input:invalid:placeholder-shown + .validity-icon::before,
-    .input:valid:placeholder-shown + .validity-icon::before {
-      visibility: hidden;
-    }
-
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -167,12 +156,12 @@
   <form>
     <div class="form-row">
       <label class="input-title" for="first-name">Имя:</label>
-      <input class="input" type="text" name="first-name" id="first-name" required placeholder="Например, Пётр">
+      <input class="input" type="text" name="first-name" id="first-name" required>
       <span class="validity-icon"></span>
     </div>
     <div class="form-row">
       <label class="input-title" for="email">E-mail:</label>
-      <input class="input" type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+      <input class="input" type="email" name="email" id="email">
       <span class="validity-icon"></span>
     </div>
     <div class="form-row">

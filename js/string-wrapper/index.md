@@ -1,6 +1,10 @@
 ---
 title: "Обёртка `String`"
 description: "Обёртка с дополнительными методами для работы со строками."
+baseline:
+  - group: strings
+    features:
+      - javascript.builtins.String
 authors:
   - nlopin
 contributors:

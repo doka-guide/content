@@ -1,6 +1,10 @@
 ---
 title: "`tab-size`"
 description: "В CSS можно управлять размером табуляции."
+baseline:
+  - group: tab-size
+    features:
+      - css.properties.tab-size
 authors:
   - pepelsbey
 editors:
