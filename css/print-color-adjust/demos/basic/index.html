@@ -31,9 +31,10 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
+        font-size: 18px;
       }
     }
 
@@ -43,21 +44,50 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    .keep-color, .auto-color {
+    .print {
+      grid-column: 1 / -1;
+      justify-self: center;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .print:hover {
+      background-color: #2E9AFF;
+    }
+
+    /* Кнопку не печатаем */
+    @media print {
+      .print {
+        display: none;
+      }
+    }
+
+    .keep-color, .economy-color {
+      min-height: 120px;
+      padding: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
 
     .keep-color {
       background: #FF8630;
-      color: white;
+      color: #000000;
+      /* Префикс для старых Chrome, Edge и Safari */
+      -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    .auto-color {
+    .economy-color {
       background: #2E9AFF;
-      color: white;
+      color: #000000;
       print-color-adjust: economy;
     }
   </style>
@@ -65,7 +95,14 @@
 <body>
   <div class="container">
     <div class="keep-color">Цвет останется при печати</div>
-    <div class="auto-color">Цвет может измениться при печати</div>
+    <div class="economy-color">Цвет может измениться при печати</div>
+    <button class="print" type="button">Открыть предпросмотр печати</button>
   </div>
+
+  <script>
+    document.querySelector('.print').addEventListener('click', () => {
+      window.print();
+    });
+  </script>
 </body>
 </html>
