@@ -42,7 +42,7 @@ jobs:
           # пережил бы чекаут. Ярлыкам он передаётся отдельно, через `token`.
           persist-credentials: false
       - name: Устанавливает необходимые ярлыки
-        uses: doka-guide/doka-labeler@0726b96979f0f57387bbeda77c4ffe61ece48efd # v1.0.2
+        uses: doka-guide/doka-labeler@8d4f0c07338e889d367cb36526e006be48d93340 # v1.0.3
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           strategy: append
