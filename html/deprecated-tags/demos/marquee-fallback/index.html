@@ -33,8 +33,11 @@
 
     .marquee {
       position: relative;
+      /* Шире двух копий и сдвига справа появится пустое место */
+      width: 100%;
+      max-width: 1200px;
       overflow: hidden;
-      --offset: 20vw;
+      --offset: 200px;
       --move-initial: calc(-25% + var(--offset));
       --move-final: calc(-50% + var(--offset));
     }
@@ -50,10 +53,8 @@
 
     .marquee__content {
       font-size: 130px;
-    }
-
-    .marquee__content + .marquee__content {
-      margin-left: 50px;
+      /* Одинаковый отступ у всех копий, чтобы цикл был бесшовным */
+      padding: 0 25px;
     }
 
     .marquee:hover .marquee__inner {
@@ -69,15 +70,21 @@
         transform: translate3d(var(--move-final), 0, 0);
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee:hover .marquee__inner {
+        animation-play-state: paused;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="marquee">
-    <div class="marquee__inner" aria-hidden="true">
+    <div class="marquee__inner">
       <span class="marquee__content">Showreel</span>
-      <span class="marquee__content">Showreel</span>
-      <span class="marquee__content">Showreel</span>
-      <span class="marquee__content">Showreel</span>
+      <span class="marquee__content" aria-hidden="true">Showreel</span>
+      <span class="marquee__content" aria-hidden="true">Showreel</span>
+      <span class="marquee__content" aria-hidden="true">Showreel</span>
     </div>
   </div>
 </body>
