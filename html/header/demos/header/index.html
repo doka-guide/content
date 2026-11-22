@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       padding-bottom: 50px;
       background-color: #18191C;
@@ -106,7 +110,7 @@
       display: flex;
       flex-flow: column;
       padding: 20px;
-      border: 1px solid rgb(104, 104, 104);
+      border: 1px solid rgb(104 104 104);
       box-sizing: border-box;
       height: 100%;
     }
@@ -139,13 +143,12 @@
       line-height: 1.5;
     }
 
-    .card-article__header {
+    .card-article__footer {
       font-size: 14px;
-      color: rgb(168, 168, 168);
+      color: rgb(168 168 168);
     }
 
-
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding-bottom: 30px;
       }
@@ -155,6 +158,25 @@
         min-width: auto;
         padding-left: 20px;
         padding-right: 20px;
+      }
+
+      .portfolio {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .portfolio-articles {
+        gap: 15px;
+        margin-block-start: 30px;
+      }
+
+      /* На узком экране прячем превью работ, чтобы демка влезла по высоте */
+      .portfolio-work {
+        display: none;
+      }
+
+      .card-article__description {
+        margin-block: 10px 15px;
       }
 
       nav a {
@@ -179,7 +201,7 @@
   <!-- Шапка -->
   <header class="portfolio-header">
     <div class="portfolio-container">
-      <img class="logo" src="images/logo.svg" width="100" alt="Лого">
+      <img class="logo" src="images/logo.svg" width="100" alt="Портфолио дизайнера Ольги">
       <nav class="links">
         <a class="link" href="#">Мои работы</a>
         <a class="link" href="#">Мои навыки</a>
@@ -189,7 +211,7 @@
   </header>
   <!-- / Шапка -->
   <main class="portfolio">
-    <h1 class="portfolio-title">Портфолио Ольги Сасквотч</h1>
+    <h1 class="portfolio-title">Портфолио Ольги Сасквоч</h1>
     <p class="text">Добро пожаловать!</p>
     <p class="text">Рада приветствовать вас на своём сайте. Здесь вы можете посмотреть уже готовые работы и узнать, что ещё я могу сделать для вас.</p>
 
@@ -201,11 +223,8 @@
             <p class="card-article__description">
               Анализ гималайских экспедиций прошлого века.
             </p>
-            <!--
-              header может находится в любом месте секционного контента.
-              Он отделяет сопутствующего описание от основного контента
-            -->
-            <header class="card-article__header">Авторы: Ольга Сасквотч</header>
+            <!-- Подпись с авторами завершает карточку, поэтому это footer -->
+            <footer class="card-article__footer">Авторы: Ольга Сасквоч</footer>
           </article>
         </li>
         <li>
@@ -215,7 +234,7 @@
             <p class="card-article__description">
               Документальный фильм о снежном человеке.
             </p>
-            <header class="card-article__header">Авторы: Ольга Сасквотч, Нина Альпинова</header>
+            <footer class="card-article__footer">Авторы: Ольга Сасквоч, Нина Альпинова</footer>
           </article>
         </li>
         <li>
@@ -225,14 +244,14 @@
             <p class="card-article__description">
               Экспедиция в ледяные пещеры в высокогорных регионах.
             </p>
-            <header class="card-article__header">Авторы: Ольга Сасквотч, Александр Ледянин</header>
+            <footer class="card-article__footer">Авторы: Ольга Сасквоч, Александр Ледянин</footer>
           </article>
         </li>
       </ul>
 
   </main>
   <footer class="portfolio-footer">
-    <p class="text">Ольга Сасквотч</p>
+    <p class="text">Ольга Сасквоч</p>
     <p class="text">2023</p>
   </footer>
 </body>
