@@ -45,20 +45,19 @@
       width: 400px;
       border: 1px solid #ffffff;
       border-radius: 6px;
-      padding: 10px 15px;
+      padding: 10px 50px 10px 15px;
       background-color: #18191c;
       color: #ffffff;
       font-family: inherit;
       font-size: inherit;
       font-weight: 300;
       cursor: pointer;
-      -webkit-appearance: none;
       appearance: none;
     }
 
-    .select:focus {
-      border: 1px solid #ff8630;
-      outline: none;
+    .select:focus-visible {
+      outline: 2px solid #ff8630;
+      outline-offset: 2px;
     }
 
     .select-wrapper {
@@ -66,10 +65,11 @@
     }
 
     .select-wrapper::after {
-      content: '🔽';
+      content: "🔽" / "";
       position: absolute;
-      right: 9px;
-      top: 9px;
+      top: 50%;
+      right: 15px;
+      translate: 0 -50%;
       pointer-events: none;
     }
 
@@ -80,7 +80,7 @@
     }
 
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -107,7 +107,7 @@
     <label class="select-label" for="city-select">Нестандартная стрелочка</label>
     <div class="select-wrapper">
       <select class="select" name="city" id="city-select">
-        <option selected disabled>-- Выберите город --</option>
+        <option value="">-- Выберите город --</option>
         <option value="petersburg">Санкт-Петербург</option>
         <option value="samara">Самара</option>
         <option value="perm">Пермь</option>

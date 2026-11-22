@@ -58,7 +58,6 @@
       font-size: inherit;
       font-weight: 300;
       cursor: pointer;
-      -webkit-appearance: none;
       appearance: none;
     }
 
@@ -66,9 +65,9 @@
       cursor: not-allowed;
     }
 
-    .select:focus {
-      border: 1px solid #ff8630;
-      outline: none;
+    .select:focus-visible {
+      outline: 2px solid #ff8630;
+      outline-offset: 2px;
     }
 
     .select-wrapper {
@@ -103,7 +102,7 @@
       border-bottom-right-radius: 0;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -118,9 +117,15 @@
         width: 100%;
       }
 
+      .select-container + .select-container {
+        margin-top: 20px;
+      }
+
       .select-label {
         margin-right: 0;
         margin-bottom: 10px;
+        padding: 0;
+        font-size: 20px;
         text-align: left;
       }
 
@@ -173,8 +178,8 @@
       </select>
     </div>
     <div class="select-container">
-      <label class="select-label" for="city-select2">Атрибут size="6"</label>
-      <select class="select select-multi" name="city4" id="city-select4" multiple size="6">
+      <label class="select-label" for="city-select4">Атрибут size="6"</label>
+      <select class="select select-multi" name="city4" id="city-select4" size="6">
         <option value="petersburg" selected>Санкт-Петербург</option>
         <option value="moscow">Москва</option>
         <option value="kazan">Казань</option>
