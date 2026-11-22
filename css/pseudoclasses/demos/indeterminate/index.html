@@ -60,7 +60,7 @@
       margin-bottom: 25px;
     }
 
-    .inputs-container, .progress-bar, .button {
+    .inputs-container, .mood-controls {
       width: 440px;
     }
 
@@ -174,12 +174,25 @@
       border-bottom-left-radius: 6px;
     }
 
+    .mood {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid rgb(255 255 255 / 0.2);
+      margin-bottom: 0;
+    }
+
+    .mood-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
     .button {
       display: block;
       min-width: 210px;
       border: 2px solid transparent;
       border-radius: 6px;
-      margin-left: auto;
       padding: 10px;
       color: #000000;
       font-size: 18px;
@@ -203,7 +216,7 @@
       background-color: #2E9AFF;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -226,15 +239,16 @@
         margin-right: 10px;
       }
 
-      .inputs-container, .progress-bar, .button {
+      .inputs-container, .mood-controls {
         width: 100%;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (width <= 400px) {
       .inputs-container {
-        flex-direction: column;
-        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 20px;
       }
     }
   </style>
@@ -273,40 +287,42 @@
           </label>
           <label class="input-label">
             <input class="radio" name="additional" type="radio">
-            <span class="radio-title">Лаванда</input>
+            <span class="radio-title">Лаванда</span>
           </label>
         </div>
       </fieldset>
-      <fieldset class="form-section">
-        <p class="group-title">Настроение:</p>
-        <progress class="progress-bar" id="progress"></progress>
-      </fieldset>
-      <button class="button button-blue" type="button" id="button">Выпить кофе</button>
     </form>
+    <div class="form-section mood">
+      <p class="group-title">Настроение:</p>
+      <div class="mood-controls">
+        <progress class="progress-bar" id="progress"></progress>
+        <button class="button button-blue" type="button" id="button">Выпить кофе</button>
+      </div>
+    </div>
   </div>
 
   <script>
-    const inputs = document.getElementsByTagName('input')
+    const inputs = document.getElementsByTagName('input');
 
     for (let i = 0; i < inputs.length; i++) {
-      inputs[i].indeterminate = true
+      inputs[i].indeterminate = true;
     }
 
-    const progress = document.getElementById('progress')
+    const progress = document.getElementById('progress');
 
     function progressToggle() {
       if (!progress.value) {
-        progress.value = 90
-        progress.max = 100
-        this.textContent = 'Удалить значение'
+        progress.value = 90;
+        progress.max = 100;
+        this.textContent = 'Сбросить настроение';
       } else {
-        progress.removeAttribute('value')
-        progress.removeAttribute('max')
-        this.textContent = 'Установить значение'
+        progress.removeAttribute('value');
+        progress.removeAttribute('max');
+        this.textContent = 'Выпить кофе';
       }
     }
 
-    document.getElementById('button').addEventListener('click', progressToggle)
+    document.getElementById('button').addEventListener('click', progressToggle);
   </script>
 </body>
 </html>

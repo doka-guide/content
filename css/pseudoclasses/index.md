@@ -222,7 +222,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Для чекбокса [`<input>`](/html/input/) состояние `indeterminate` можно задать только через JavaScript.
 
-<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="400"></iframe>
+<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="590"></iframe>
 
 ### `:in-range` и `:out-of-range`
 
@@ -283,7 +283,7 @@ img:not([alt]) {
 
 Выбирает элемент, чей `id` совпадает с фрагментом адреса страницы — частью после `#`. Например, после клика по ссылке `#contacts` псевдокласс получит элемент с `id="contacts"`:
 
-<iframe title="Подсветка активной секции" src="demos/target/" height="600"></iframe>
+<iframe title="Подсветка активной секции" src="demos/target/" height="590"></iframe>
 
 ### `:valid` и `:invalid`
 
