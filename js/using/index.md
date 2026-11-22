@@ -1,6 +1,6 @@
 ---
 title: "using"
-description: "Декларативный подход для описания ресурсов"
+description: "Автоматически освобождает ресурсы при выходе из области видимости."
 baseline:
   - group: explicit-resource-management
     features:
@@ -11,7 +11,7 @@ authors:
 related:
   - js/var-let
   - js/try-catch
-  - js/generators
+  - js/async-await
 tags:
   - doka
 ---
@@ -41,16 +41,16 @@ const processFile = async (filePath) => {
 processFile('./example.txt')
 ```
 
-При выходе из функции `await using` дождётся закрытия файлового дескриптора. `FileHandle` представляет ресурс, который нужно закрыть после использования.
+При выходе из функции `await using` дождётся закрытия файлового дескриптора.
 
 Демонстрация работы с ресурсом в браузере:
 
-<iframe title="Управление ресурсом с помощью using" src="demos/using-steps/" height="600"></iframe>
+<iframe title="Управление ресурсом с помощью using" src="demos/using-steps/" height="440"></iframe>
 
 ## Как пишется
 
 ```js
-  using name = value
+using name = value
 ```
 
 где:
@@ -118,7 +118,7 @@ const processResource = () => {
 
 Функция освобождения ресурса `closeResource()` вызывается в блоке `finally`. Это позволяет вызвать её даже в случае возникновения ошибки в блоке `try`. Однако если сама функция `closeResource()` выбросит исключение, оно может заменить исходное исключение из блока `try`.
 
-Синтаксис `using` гарантирует вызов метода освобождения при выходе из области видимости — в том числе при исключении. Но он не гарантирует, что само освобождение завершится успешно: метод `[Symbol.dispose]()` тоже может выбросить ошибку. Если исключение возникло и в основном коде, и при освобождении ресурса, они не теряются: движок выбрасывает `SuppressedError`. В его свойстве `error` находится ошибка, возникшая при освобождении, а в `suppressed` — ошибка, которая уже обрабатывалась. Свойство `message` содержит стандартное сообщение «An error was suppressed during disposal».
+Синтаксис `using` гарантирует вызов метода освобождения при выходе из области видимости — в том числе при исключении. Но он не гарантирует, что само освобождение завершится успешно: метод `[Symbol.dispose]()` тоже может выбросить ошибку. Если исключение возникло и в основном коде, и при освобождении ресурса, они не теряются: движок выбрасывает `SuppressedError`. В его свойстве `error` находится ошибка, возникшая при освобождении, а в `suppressed` — ошибка, которая уже обрабатывалась. В Chrome и Node.js свойство `message` содержит сообщение «An error was suppressed during disposal».
 
 ```js
 function openResource() {
@@ -136,7 +136,7 @@ try {
   console.log(error instanceof SuppressedError)
   // true
   console.log(error.message)
-  // 'An error was suppressed during disposal'
+  // 'An error was suppressed during disposal' в Chrome и Node.js
   console.log(error.error.message)
   // 'Ошибка при освобождении ресурса'
   console.log(error.suppressed.message)
@@ -146,7 +146,7 @@ try {
 
 При работе с несколькими ресурсами важно учитывать порядок их освобождения. Это может быть критично, если ресурсы зависят друг от друга. Автоматическое освобождение выполняется в обратном порядке объявления ресурсов (как в стеке). Даже если освобождение одного ресурса завершится ошибкой, движок продолжит освобождать остальные ресурсы.
 
-Например, при работе с базой данных, транзакция (tx) зависит от подключения к базе данных (connection). Если соединение закроется до завершения работы с транзакцией, это может привести к ошибке:
+Например, при работе с базой данных транзакция (tx) зависит от подключения к базе данных (connection). Если соединение закроется до завершения работы с транзакцией, это может привести к ошибке:
 
 ```js
 const processMultiResources = () => {
@@ -187,11 +187,8 @@ const processMultiResources = () => {
 
 ```js
 class AsyncResource {
-  [Symbol.asyncDispose]() {
-    return new Promise(resolve => {
-      console.log("Асинхронный ресурс освобождён")
-      resolve()
-    })
+  async [Symbol.asyncDispose]() {
+    console.log('Асинхронный ресурс освобождён')
   }
 
   // Другие методы
@@ -257,7 +254,7 @@ processFiles(['./first.txt', './second.txt'])
 
 ## Подсказки
 
-💡 При использовании `await using` ресурс может быть освобождён с помощью синхронного метода `[Symbol.dispose]()` если отсутствует метод `[Symbol.asyncDispose]()`. Освобождение произойдёт синхронно, даже если попытаться вернуть промис:
+💡 При использовании `await using` ресурс может быть освобождён с помощью синхронного метода `[Symbol.dispose]()`, если отсутствует метод `[Symbol.asyncDispose]()`. Освобождение произойдёт синхронно, даже если попытаться вернуть промис:
 
 ```js
 class Resource {
@@ -268,7 +265,7 @@ class Resource {
   }
 }
 
-async function process() {
+async function runTask() {
   await using resource = new Resource()
   // await using не будет ждать завершения Promise
   console.log('Работа завершена')
