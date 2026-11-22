@@ -4,6 +4,9 @@
   <title>Родительский контекст наложения — Контекст наложения — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -15,13 +18,16 @@
       min-height: 100vh;
       padding: 50px;
       display: flex;
+      flex-direction: column;
+      gap: 40px;
       align-items: center;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -44,7 +50,7 @@
       width: 50px;
       height: 50px;
       border: 1px dashed;
-      background-color: #F498AD;
+      background-color: #663613;
     }
 
     .red {
@@ -57,16 +63,46 @@
       position: relative;
       z-index: -9999999;
       margin-top: -25px;
-      margin-left: 90px;
+      margin-left: 60px;
+      width: 100px;
       background-color: #FFD829;
+    }
+
+    /* Родитель без своего контекста наложения */
+    .parent.no-context {
+      z-index: auto;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: #2E9AFF;
     }
   </style>
 </head>
 <body>
+  <label>
+    <input type="checkbox" checked>
+    У родителя <code>z-index: 1</code>
+  </label>
   <div class="block parent">
     <div class="child brown"></div>
     <div class="child red"></div>
     <div class="child yellow"></div>
   </div>
+  <script>
+    const parent = document.querySelector('.parent');
+
+    document.querySelector('input').addEventListener('change', (event) => {
+      parent.classList.toggle('no-context', !event.target.checked);
+    });
+  </script>
 </body>
 </html>
