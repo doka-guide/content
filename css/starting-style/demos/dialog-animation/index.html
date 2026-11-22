@@ -6,8 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -20,12 +30,6 @@
       font-size: 18px;
     }
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     .button {
       display: block;
       min-width: 210px;
@@ -34,7 +38,7 @@
       padding: 9px 15px;
       color: #000000;
       font-size: inherit;
-      font-weight: 300;
+      font-weight: 400;
       font-family: inherit;
       transition: background-color 0.15s ease-in;
       cursor: pointer;
@@ -46,7 +50,6 @@
     }
 
     .dialog-button {
-      border-color: #000000;
       width: 100%;
     }
 
@@ -62,20 +65,24 @@
     dialog {
       padding: 20px;
       border: none;
+      border-radius: 6px;
       margin: auto;
+      background-color: #282A2E;
+      color: #FFFFFF;
     }
 
-    /* стили для открытого диалога */
+    /* Стили для открытого диалога */
     dialog {
       opacity: 1;
       scale: 1;
       transition:
         opacity 0.4s ease-in,
         scale 0.4s ease-in,
-        display 0.4s ease-in allow-discrete;
+        display 0.4s ease-in allow-discrete,
+        overlay 0.4s ease-in allow-discrete;
     }
 
-    /* стили для открывающегося диалога */
+    /* Стили для открывающегося диалога */
     @starting-style {
       dialog {
         opacity: 0;
@@ -83,13 +90,39 @@
       }
     }
 
-    /* стили для закрывающегося диалога */
+    /* Стили для закрывающегося диалога */
     dialog:not([open]) {
       opacity: 0;
       scale: 0.8;
     }
 
-    @media (max-width: 768px) {
+    /* Подложка модального диалога */
+    dialog::backdrop {
+      background-color: rgb(0 0 0 / 0);
+      transition:
+        background-color 0.4s ease-in,
+        display 0.4s ease-in allow-discrete,
+        overlay 0.4s ease-in allow-discrete;
+    }
+
+    dialog[open]::backdrop {
+      background-color: rgb(0 0 0 / 0.5);
+    }
+
+    @starting-style {
+      dialog[open]::backdrop {
+        background-color: rgb(0 0 0 / 0);
+      }
+    }
+
+    /* Обход для браузеров без overlay: закрытие без анимации */
+    @supports not (overlay: auto) {
+      dialog {
+        transition-behavior: normal;
+      }
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -104,17 +137,17 @@
         <button id="close-dialog" class="button dialog-button">Закрыть диалог</button>
     </dialog>
     <script>
-        const dialog = document.querySelector('#animated-dialog')
-        const openDialogButton = document.querySelector('#open-dialog')
-        const closeDialogButton = document.querySelector('#close-dialog')
+        const dialog = document.querySelector('#animated-dialog');
+        const openDialogButton = document.querySelector('#open-dialog');
+        const closeDialogButton = document.querySelector('#close-dialog');
 
         openDialogButton?.addEventListener('click', () => {
-            dialog?.showModal()
-        })
+            dialog?.showModal();
+        });
 
         closeDialogButton?.addEventListener('click', () => {
-            dialog?.close()
-        })
+            dialog?.close();
+        });
     </script>
 </body>
 </html>
