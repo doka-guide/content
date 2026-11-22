@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Управление ресурсом — using — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .demo {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .demo[hidden] {
+      display: none;
+    }
+
+    .run-button {
+      align-self: flex-start;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #FFD829;
+      color: #18191C;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .run-button:hover:not(:disabled) {
+      opacity: 0.85;
+    }
+
+    .run-button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .run-button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    /* Код функции, текущая строка подсвечивается */
+    .code,
+    .output {
+      padding: 12px 0;
+      border-radius: 10px;
+      background-color: #282A2E;
+      font-family: "Roboto Mono", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .code {
+      overflow-x: auto;
+    }
+
+    /* Подсветка строки тянется на всю ширину кода при прокрутке */
+    .code code {
+      display: inline-block;
+      min-width: 100%;
+    }
+
+    .code-line {
+      display: block;
+      padding: 0 16px;
+      border-left: 3px solid transparent;
+      white-space: pre;
+      color: rgb(255 255 255 / 0.6);
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .code-line.active {
+      border-left-color: #FFD829;
+      background-color: rgb(255 216 41 / 0.15);
+      color: #FFFFFF;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .status-dot {
+      flex-shrink: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgb(255 255 255 / 0.3);
+      transition: background-color 0.2s;
+    }
+
+    .status[data-state="created"] .status-dot {
+      background-color: #FFD829;
+    }
+
+    .status[data-state="disposed"] .status-dot {
+      background-color: #F498AD;
+    }
+
+    .output {
+      min-height: 70px;
+      padding: 12px 16px;
+      white-space: pre-wrap;
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    .output.filled {
+      color: #FFFFFF;
+    }
+
+    .unsupported {
+      max-width: 480px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo">
+    <button class="run-button" type="button">Запустить processFile()</button>
+    <pre class="code"><code><span class="code-line">const processFile = async (file) =&gt; {</span><span class="code-line">  using reader = new ManagedFileReader(file);</span><span class="code-line">  const content = await reader.read();</span><span class="code-line">  output.textContent = content;</span><span class="code-line">};</span></code></pre>
+    <div class="status" data-state="idle" aria-live="polite">
+      <span class="status-dot"></span>
+      <span class="status-text">Ресурс не создан</span>
+    </div>
+    <div class="output" aria-live="polite">Здесь появится содержимое файла example.txt</div>
+  </div>
+  <p class="unsupported" hidden>Ваш браузер пока не поддерживает <code>using</code>. Откройте демку в Chrome или Firefox.</p>
+
+  <script>
+    // Отдельный скрипт: если браузер не знает using, второй скрипт не запустится
+    const isUsingSupported = (() => {
+      try {
+        new Function('{ using resource = null; }');
+        return true;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (!isUsingSupported) {
+      document.querySelector('.demo').hidden = true;
+      document.querySelector('.unsupported').hidden = false;
+    }
+  </script>
+
+  <script>
+    const button = document.querySelector('.run-button');
+    const lines = document.querySelectorAll('.code-line');
+    const statusElement = document.querySelector('.status');
+    const statusText = document.querySelector('.status-text');
+    const output = document.querySelector('.output');
+
+    const file = new File(
+      ['Первая строка файла.\nВторая строка файла.'],
+      'example.txt',
+      { type: 'text/plain' }
+    );
+
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    const setStatus = (state, text) => {
+      statusElement.dataset.state = state;
+      statusText.textContent = text;
+    };
+
+    // Подсвечивает строку кода перед её выполнением
+    const showLine = async (index) => {
+      await delay(1000);
+      lines.forEach((line, i) => line.classList.toggle('active', i === index));
+    };
+
+    class ManagedFileReader {
+      constructor(file) {
+        this.file = file;
+        this.reader = new FileReader();
+        setStatus('created', 'Ресурс создан');
+      }
+
+      read() {
+        return new Promise((resolve, reject) => {
+          this.reader.onload = () => resolve(this.reader.result);
+          this.reader.onerror = () => reject(this.reader.error);
+          this.reader.readAsText(this.file);
+        });
+      }
+
+      // Этот метод вызывает движок при выходе из функции
+      [Symbol.dispose]() {
+        this.reader.abort();
+        setStatus('disposed', 'Ресурс освобождён: вызван [Symbol.dispose]()');
+      }
+    }
+
+    const processFile = async (file) => {
+      await showLine(1);
+      using reader = new ManagedFileReader(file);
+      await showLine(2);
+      const content = await reader.read();
+      await showLine(3);
+      output.textContent = content;
+      output.classList.add('filled');
+      await showLine(4);
+    };
+
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      output.textContent = 'Здесь появится содержимое файла example.txt';
+      output.classList.remove('filled');
+      setStatus('idle', 'Ресурс не создан');
+      lines.forEach((line, i) => line.classList.toggle('active', i === 0));
+
+      await processFile(file);
+
+      await delay(1500);
+      lines.forEach((line) => line.classList.remove('active'));
+      button.textContent = 'Запустить ещё раз';
+      button.disabled = false;
+    });
+  </script>
+</body>
+</html>
