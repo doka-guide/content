@@ -6,20 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
       padding: 50px;
-      background-color: #18191c;
-      color: #ffffff;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      text-align: center;
     }
 
     a {
+      border-radius: 3px;
       font-size: 24px;
-      color: #ffffff;
+      color: #FFFFFF;
       text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
@@ -27,12 +41,20 @@
 
     a:hover {
       background-color: #FF8630;
-      border-radius: 3px;
-      transition: background-color 0.2s linear;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      a {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <a href="mailto:nowhere@yandex.ru">Отправить сообщение в никуда</a>
+  <a href="mailto:nowhere@example.com">Отправить сообщение в никуда</a>
 </body>
 </html>
