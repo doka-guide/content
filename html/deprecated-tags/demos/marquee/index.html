@@ -69,21 +69,13 @@
       color: #000000;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       html {
         --gap: 20px;
       }
 
       .to-left {
-        height: calc(var(--gap) * 7);
-      }
-
-      .to-top {
-        height: calc(var(--gap) * 12);
-      }
-
-      .to-other {
-        height: calc(var(--gap) * 20);
+        font-size: 2.5rem;
       }
     }
   </style>
