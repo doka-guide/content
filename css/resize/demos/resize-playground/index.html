@@ -102,10 +102,10 @@
         justify-content: center;
         align-items: center;
 
-        width: 100%;
+        width: 60%;
         max-width: 100%;
 
-        height: 100%;
+        height: 200px;
         max-height: 50vh;
 
         padding: 8px;
@@ -117,7 +117,7 @@
         resize: both;
     }
 
-    @media (max-width: 992px) {
+    @media (width <= 992px) {
       body {
         padding: 16px;
 
@@ -129,6 +129,20 @@
         flex-direction: column;
 
         max-width: 90%;
+      }
+
+      .resize-demo__values {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 12px;
+      }
+
+      .resize-demo__item + .resize-demo__item {
+        margin-top: 0;
+      }
+
+      .resize-demo__content {
+        height: 120px;
       }
     }
   </style>
@@ -158,11 +172,21 @@
             <input class="radio resize-demo__value" type="radio" id="resize-vertical" name="resize-value" value="vertical" />
             <span class="radio-title resize-demo__value-label">resize: vertical</span>
         </label>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-block" name="resize-value" value="block" />
+            <span class="radio-title resize-demo__value-label">resize: block</span>
+        </label>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-inline" name="resize-value" value="inline" />
+            <span class="radio-title resize-demo__value-label">resize: inline</span>
+        </label>
       </fieldset>
     </aside>
 
     <section class="resize-demo__view">
-      <div class="resize-demo__content">Потяните за правый нижний угол, чтобы изменить размер текстового поля</div>
+      <div class="resize-demo__content">Потяните за правый нижний угол, чтобы изменить размер блока</div>
     </section>
   </main>
 
@@ -175,7 +199,7 @@
     }
 
     function changeDemoView(event) {
-        demoContent.style.resize = event.target.value
+        demoContent.style.resize = event.target.value;
     }
   </script>
 </body>
