@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -21,7 +25,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
@@ -39,15 +43,22 @@
       font-weight: 500;
     }
 
-    address {
+    .author {
       color: #2E9AFF;
       font-size: 16px;
-      font-style: italic;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
+      }
+
+      li + li {
+        margin-top: 30px;
+      }
+
+      h2 {
+        font-size: 20px;
       }
     }
   </style>
@@ -57,19 +68,19 @@
     <li>
       <article>
         <h2>Обзор кафе «Тарелко эль Торреро»</h2>
-        <address>Григорий Гаспатчев</address>
+        <p class="author">Григорий Гаспатчев</p>
       </article>
     </li>
     <li>
       <article>
         <h2>Заказываем пиццу из «Саранчи»</h2>
-        <address>Мария Пепперони</address>
+        <p class="author">Мария Пепперони</p>
       </article>
     </li>
     <li>
       <article>
         <h2>Где попробовать тэппанъяки?</h2>
-        <address>Василиса Васаби</address>
+        <p class="author">Василиса Васаби</p>
       </article>
     </li>
   </ol>

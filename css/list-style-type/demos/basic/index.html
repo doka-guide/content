@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -20,12 +24,13 @@
       justify-content: center;
       min-height: 100vh;
       padding: 50px;
-      background-color: #18191c;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
 
     .container {
       display: flex;
+      gap: 100px;
     }
 
     ol,
@@ -38,7 +43,6 @@
     }
 
     ul {
-      margin-left: 100px;
       color: #F498AD;
     }
 
@@ -46,18 +50,18 @@
       margin-top: 15px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
       .container {
-        flex-direction: column;
+        gap: 40px;
       }
 
+      ol,
       ul {
-        margin-left: 0;
-        margin-top: 50px;
+        font-size: 18px;
       }
     }
   </style>

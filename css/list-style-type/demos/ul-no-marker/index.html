@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
@@ -21,7 +25,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
@@ -38,9 +42,10 @@
     }
 
     a {
+      padding: 2px 6px;
+      border-radius: 4px;
       font-size: 24px;
-      color: #ffffff;
-      -webkit-text-decoration-color: #2E9AFF;
+      color: #FFFFFF;
       text-decoration-color: #2E9AFF;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
@@ -48,11 +53,15 @@
 
     a:hover {
       background-color: #2E9AFF;
-      border-radius: 3px;
-      transition: background-color 0.2s linear;
+      color: #18191C;
     }
 
-    @media (max-width: 768px) {
+    a:focus-visible {
+      outline: 2px solid #2E9AFF;
+      outline-offset: 2px;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -60,16 +69,18 @@
   </style>
 </head>
 <body>
-  <ul>
-    <li>
-      <a href="#">Статьи</a>
-    </li>
-    <li>
-      <a href="#">Авторы</a>
-    </li>
-    <li>
-      <a href="#">Контакты</a>
-    </li>
-  </ul>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Статьи</a>
+      </li>
+      <li>
+        <a href="#">Авторы</a>
+      </li>
+      <li>
+        <a href="#">Контакты</a>
+      </li>
+    </ul>
+  </nav>
 </body>
 </html>

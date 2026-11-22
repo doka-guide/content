@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,204 +14,185 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 50px;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    .wrapper {
+    .demo {
       width: 100%;
-      max-width: 960px;
+      max-width: 720px;
     }
 
-    code {
-      padding: 0.2em 0.4em;
-      background-color: #282a2e;
+    .code {
+      padding: 12px 16px;
+      background-color: #282A2E;
+      border-radius: 4px;
       color: #2E9AFF;
+      font-size: 16px;
+      white-space: pre-wrap;
     }
 
-    .header, .list {
-      width: 100%;
+    .preview {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 24px;
     }
 
-    .header code {
-      display: block;
-      padding: 30px 50px;
-      font-size: 1rem;
+    .sample {
+      flex-shrink: 0;
+      padding-left: 40px;
+      font-size: 20px;
       line-height: 1.5;
     }
 
-    .list {
-      margin-top: 30px;
-      font-size: 18px;
-      font-weight: 300;
+    .hint {
+      min-height: 3em;
+      color: #F498AD;
+      font-size: 16px;
       line-height: 1.5;
-      padding: 0 24px 0 50px;
     }
 
-    .list__item:hover {
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .button {
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-family: monospace;
+      font-size: 14px;
       cursor: pointer;
     }
 
-    .list__item + .list__item {
-      margin-top: 10px;
+    .button:hover {
+      border-color: rgb(255 255 255 / 0.4);
     }
 
-    .list__item_active {
-      font-weight: 700;
+    .button:focus-visible {
+      outline: 2px solid #2E9AFF;
+      outline-offset: 2px;
     }
 
-    @media (max-width: 768px) {
-      body, .header code {
+    .button[aria-pressed="true"] {
+      border-color: #2E9AFF;
+      background-color: #2E9AFF;
+      color: #18191C;
+    }
+
+    @media (width <= 768px) {
+      body {
         padding: 30px;
       }
 
-      .header code {
-        white-space: normal;
+      .preview {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .sample {
+        font-size: 18px;
+      }
+
+      .button {
+        padding: 4px 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="header">
-      <pre><code>ul { list-style-type: circle }</code></pre>
+  <div class="demo">
+    <pre class="code"><code>ul { list-style-type: disc; }</code></pre>
+    <div class="preview">
+      <ul class="sample">
+        <li>Первый пункт</li>
+        <li>Второй пункт</li>
+        <li>Третий пункт</li>
+      </ul>
+      <p class="hint" aria-live="polite"></p>
     </div>
-    <ul class="list" style="list-style-type: circle">
-    <li class="list__item list__item_active" data-type="circle">
-      <code>circle</code>
-      <span class="list__title">маркер в виде кружка</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="disc">
-      <code>disc</code>
-      <span class="list__title">маркер в виде точки</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="square">
-      <code>square</code>
-      <span class="list__title">маркер в виде квадрата</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="armenian">
-      <code>armenian</code>
-      <span class="list__title">традиционная армянская нумерация</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="decimal">
-      <code>decimal</code>
-      <span class="list__title">арабские числа (1, 2, 3, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="decimal-leading-zero">
-      <code>decimal-leading-zero</code>
-      <span class="list__title">арабские числа с нулём впереди для цифр меньше десяти (01, 02, 03, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="georgian">
-      <code>georgian</code>
-      <span class="list__title">традиционная грузинская нумерация</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="lower-greek">
-      <code>lower-greek</code>
-      <span class="list__title">строчные греческие буквы (α, β, γ, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="lower-alpha">
-      <code>lower-alpha</code>
-      <span class="list__title">строчные латинские буквы (a, b, c, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="lower-latin">
-      <code>lower-latin</code>
-      <span class="list__title">это значение аналогично lower-alpha</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="upper-alpha">
-      <code>upper-alpha</code>
-      <span class="list__title">заглавные латинские буквы (A, B, C, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="upper-latin">
-      <code>upper-latin</code>
-      <span class="list__title">это значение аналогично upper-alpha</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="lower-roman">
-      <code>lower-roman</code>
-      <span class="list__title">римские числа в нижнем регистре (i, ii, iii, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="upper-roman">
-      <code>upper-roman</code>
-      <span class="list__title">римские числа в верхнем регистре (I, II, III, …)</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="disclosure-open">
-      <code>disclosure-open</code>
-      <span class="list__title">открытый тогглер</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="disclosure-closed">
-      <code>disclosure-closed</code>
-      <span class="list__title">закрытый тогглер</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="none">
-      <code>none</code>
-      <span class="list__title">отменяет маркеры для списка</span>
-    </li>
-    <li class="list__item list__item_inactive" data-type="'💎'">
-      <code>"💎"</code>
-      <span class="list__title">кастомный маркер — можно задать любой символ или текст (в кавычках)</span>
-    </li>
-  </ul>
+    <div class="controls" role="group" aria-label="Значение list-style-type"></div>
   </div>
 
   <script>
-    const SELECTORS = {
-      list: '.list',
-      listItems: '.list__item',
-      headerCode: '.header code',
-    }
+    // Значение и пояснение к нему
+    const VALUES = [
+      ['disc', 'маркер в виде точки, по умолчанию у <ul>'],
+      ['circle', 'маркер в виде кружка'],
+      ['square', 'маркер в виде квадрата'],
+      ['disclosure-open', 'треугольник открытого <details>'],
+      ['disclosure-closed', 'треугольник закрытого <details>'],
+      ['decimal', 'арабские цифры, по умолчанию у <ol>'],
+      ['decimal-leading-zero', 'цифры с нулём впереди: 01, 02, 03'],
+      ['lower-roman', 'строчные римские цифры'],
+      ['upper-roman', 'заглавные римские цифры'],
+      ['lower-alpha', 'строчные латинские буквы'],
+      ['upper-alpha', 'заглавные латинские буквы'],
+      ['lower-greek', 'строчные греческие буквы'],
+      ['lower-armenian', 'строчная армянская нумерация'],
+      ['georgian', 'традиционные грузинские цифры'],
+      ['cjk-decimal', 'китайские десятичные цифры'],
+      ['hiragana', 'японская азбука хирагана'],
+      ['"→ "', 'строка в кавычках вместо маркера'],
+      [
+        'symbols(cyclic "◆" "◇")',
+        'свой набор маркеров прямо в значении',
+      ],
+      ['none', 'без маркера'],
+    ];
 
-    const list = document.querySelector(SELECTORS.list)
-    const listItems = Array.from(document.querySelectorAll(SELECTORS.listItems))
-    const headerCode = document.querySelector(SELECTORS.headerCode)
+    const code = document.querySelector('.code code');
+    const sample = document.querySelector('.sample');
+    const hint = document.querySelector('.hint');
+    const controls = document.querySelector('.controls');
 
-    listItems.forEach((listItem) =>
-      listItem.addEventListener('mouseover', () => {
-        list.classList.add('paused')
-        changeListType(listItem)
-      })
-    )
+    const buttons = VALUES.map(([value, text]) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'button';
+      button.textContent = value;
+      button.addEventListener('click', () => {
+        select(button, value, text);
+      });
+      controls.append(button);
+      return button;
+    });
 
-    list.addEventListener('mouseleave', () => list.classList.remove('paused'))
+    function select(current, value, text) {
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', button === current);
+      });
+      code.textContent = `ul { list-style-type: ${value}; }`;
 
-    function cycle() {
-      if (list.classList.contains('paused')) return
-      const index = listItems.findIndex((listItem) =>
-        listItem.classList.contains('list__item_active')
-      )
-      if (index !== -1) {
-        listItems[index].classList.remove('list__item_active')
-        listItems[index].classList.add('list__item_inactive')
-        const nextItem = listItems[index + 1] || listItems[0]
-        changeListType(nextItem)
-      }
-    }
-
-    function changeListType(item) {
-      const listType = item.dataset.type
-      headerCode.innerHTML = `ul { list-style-type: ${listType} }`
-      list.style.listStyleType = listType
-      listItems.forEach((listItem) =>
-        listItem.classList.remove('list__item_active')
-      )
-      item.classList.add('list__item_active')
-    }
-
-    let timerId
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].intersectionRatio > 0) {
-        timerId = setInterval(cycle, 1200)
+      if (CSS.supports('list-style-type', value)) {
+        sample.style.listStyleType = value;
+        hint.textContent = text;
       } else {
-        clearInterval(timerId)
+        sample.style.listStyleType = '';
+        hint.textContent = 'Этот браузер пока не понимает значение, ' +
+          'поэтому показывает маркер по умолчанию';
       }
-    })
-    const target = document.querySelector('body')
-    observer.observe(target)
+    }
+
+    select(buttons[0], ...VALUES[0]);
   </script>
 </body>
 </html>
