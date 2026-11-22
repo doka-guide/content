@@ -12,6 +12,10 @@
       margin: 0;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       padding: 50px;
       background-color: #18191C;
@@ -21,6 +25,9 @@
 
     header {
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      column-gap: 25px;
     }
 
     header, form {
@@ -81,6 +88,12 @@
       opacity: 0;
     }
 
+    /* Видимый фокус для клавиатуры: сама радиокнопка скрыта */
+    .fieldset-radio-input:focus-visible + .fieldset-label::before {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
+    }
+
     .fieldset-radio-input:checked + .fieldset-label::before {
       background: radial-gradient(
         circle,
@@ -109,7 +122,6 @@
 
     code {
       border-bottom: 1px solid #5e6064;
-      margin-left: 25px;
       padding: 15px 0;
       flex-grow: 1;
       font-family: "Roboto Mono", monospace;
@@ -123,6 +135,12 @@
 
     .fieldset-legend {
       padding: 0 10px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -150,23 +168,23 @@
       fieldset: '.js-fieldset',
       toggle: '.js-toggle',
       code: '.js-code'
-    }
+    };
 
-    const fieldset = document.querySelector(SELECTORS.fieldset)
-    const toggle = document.querySelector(SELECTORS.toggle)
-    const code = document.querySelector(SELECTORS.code)
+    const fieldset = document.querySelector(SELECTORS.fieldset);
+    const toggle = document.querySelector(SELECTORS.toggle);
+    const code = document.querySelector(SELECTORS.code);
 
-    toggle.addEventListener('click', (event) => {
+    toggle.addEventListener('click', () => {
       if (fieldset.disabled) {
-        fieldset.disabled = false
-        toggle.innerText = 'Disable'
-        code.innerText = '<fieldset>'
+        fieldset.disabled = false;
+        toggle.textContent = 'Disable';
+        code.textContent = '<fieldset>';
       } else {
-        fieldset.disabled = true
-        toggle.innerText = 'Enable'
-        code.innerText = '<fieldset disabled>'
+        fieldset.disabled = true;
+        toggle.textContent = 'Enable';
+        code.textContent = '<fieldset disabled>';
       }
-    })
+    });
   </script>
 </body>
 </html>
