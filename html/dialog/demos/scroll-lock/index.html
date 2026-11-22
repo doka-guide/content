@@ -32,7 +32,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -106,7 +106,10 @@
       width: calc(100% - 40px);
       max-width: 400px;
       border: none;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       position: fixed;
     }
 
@@ -141,7 +144,7 @@
       overflow: hidden;
     }
 
-    @media (min-width: 600px) {
+    @media (width >= 600px) {
       .mock {
         place-items: center;
       }
@@ -167,14 +170,14 @@
     function openModalAndLockScroll({
       target: buttonOpener
     }) {
-      const dialogID = buttonOpener.getAttribute('aria-controls')
-      const dialogElement = document.querySelector(`#${dialogID}`)
-      dialogElement.showModal()
-      document.body.classList.add("scroll-lock")
+      const dialogID = buttonOpener.getAttribute('aria-controls');
+      const dialogElement = document.querySelector(`#${dialogID}`);
+      dialogElement.showModal();
+      document.body.classList.add("scroll-lock");
     }
 
     function returnScroll() {
-      document.body.classList.remove("scroll-lock")
+      document.body.classList.remove("scroll-lock");
     }
   </script>
 </body>

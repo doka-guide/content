@@ -34,7 +34,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -105,20 +105,16 @@
       width: calc(100% - 50px);
       max-width: 580px;
       border: none;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       transition: transform 0.3s ease-in-out;
       position: fixed;
     }
 
-    .dialog::-webkit-backdrop {
-      background-color: rgb(0 0 0 / 0.6);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-
     .dialog::backdrop {
       background-color: rgb(0 0 0 / 0.6);
-      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
 
@@ -134,7 +130,7 @@
       gap: 10px 20px;
     }
 
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
       .dialog__options {
         grid-template-columns: auto auto;
       }
@@ -163,13 +159,16 @@
     function addOrRemoveBug({
       target: dialog
     }) {
-      const bugs = document.querySelector(".bugs")
+      const bugs = document.querySelector(".bugs");
 
       if (dialog.returnValue === "debug") {
-        bugs.innerText = bugs.innerText.substring(0, bugs.innerText.length - 2)
-      } else {
-        bugs.innerText += "🐞"
+        bugs.innerText = bugs.innerText.slice(0, -2);
+      } else if (dialog.returnValue === "reproduction") {
+        bugs.innerText += "🐞";
       }
+
+      // Сбрасываем значение, чтобы закрытие по Esc ничего не меняло
+      dialog.returnValue = "";
     }
   </script>
 </body>
