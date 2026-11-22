@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       padding: 50px;
       background-color: #18191C;
@@ -37,19 +41,67 @@
     p {
       transition: font-size 0.3s linear;
     }
+
+    .pause {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: 2px solid #000000;
+      border-radius: 6px;
+      background-color: transparent;
+      color: #000000;
+      font-family: inherit;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .pause:focus-visible {
+      outline: 2px solid #000000;
+      outline-offset: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 30px 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Подключение скриптов</h1>
     <p id="blinking">Скрипты можно подключить разными способами. Например, описать их прямо внутри HTML-страницы. Но лучше всё же в отдельном файле.</p>
+    <button class="pause" type="button">Пауза</button>
   </div>
   <script>
-    const p = document.getElementById('blinking')
-    setInterval(function () {
-      const newFontSize = p.style.fontSize !== '10px' ? 10 : 20
-      p.style.fontSize = `${newFontSize}px`
-    }, 2000)
+    const p = document.getElementById('blinking');
+    const pauseButton = document.querySelector('.pause');
+    let timerId = null;
+
+    function start() {
+      timerId = setInterval(function () {
+        const newFontSize = p.style.fontSize !== '10px' ? 10 : 20;
+        p.style.fontSize = `${newFontSize}px`;
+      }, 2000);
+    }
+
+    // Кнопка останавливает и снова запускает анимацию
+    pauseButton.addEventListener('click', function () {
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+        pauseButton.textContent = 'Продолжить';
+      } else {
+        start();
+        pauseButton.textContent = 'Пауза';
+      }
+    });
+
+    start();
   </script>
 </body>
 </html>
