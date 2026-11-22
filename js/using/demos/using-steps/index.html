@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Управление ресурсом — Using — Дока</title>
+  <title>Управление ресурсом — using — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,94 +37,68 @@
       gap: 16px;
     }
 
-    .form {
-      display: flex;
-      align-items: flex-end;
-      width: 100%;
-      margin: auto;
+    .demo[hidden] {
+      display: none;
     }
 
-    .file-label {
-      flex: 1 1 100%;
-      display: flex;
-      align-items: center;
-    }
-
-    .file-label-text {
-      flex: 0 0 auto;
-      max-width: 250px;
-      margin-right: 24px;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .file-input {
-      text-transform: lowercase;
-      font-size: 18px;
-      font-weight: 300;
-      font-family: inherit;
-    }
-
-    .file-input::file-selector-button {
-
-      min-width: 100px;
-      margin-right: 32px;
+    .run-button {
+      align-self: flex-start;
       padding: 10px 16px;
       border: none;
       border-radius: 8px;
       background-color: #FFD829;
       color: #18191C;
-      font-family: "Roboto", sans-serif;
+      font-family: inherit;
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
       transition: opacity 0.15s;
     }
 
-    .file-input::file-selector-button:hover:not(:disabled) {
+    .run-button:hover:not(:disabled) {
       opacity: 0.85;
     }
 
-    .file-input {
-      flex: 1 1 100%;
+    .run-button:disabled {
+      opacity: 0.5;
+      cursor: default;
     }
 
-    .file-content,
-    .resource-status,
-    .log {
-      padding: 14px 16px;
-      color: rgb(255 255 255 / 0.4);
-      border: 1px solid rgb(255 255 255 / 0.12);
+    /* Код функции, текущая строка подсвечивается */
+    .code,
+    .output {
+      padding: 12px 0;
       border-radius: 10px;
       background-color: #282A2E;
-    }
-
-    .file-content,
-    .log {
-      width: 100%;
-      max-width: 600px;
-      overflow-y: auto;
       font-family: monospace;
       font-size: 13px;
       line-height: 1.6;
     }
 
-    .file-content {
-      height: 200px;
-      overflow: auto;
+    .code {
+      overflow-x: auto;
     }
 
-    .file-content.using {
-      color: rgb(255 255 255 / 0.8);
+    .code-line {
+      display: block;
+      padding: 0 16px;
+      border-left: 3px solid transparent;
+      white-space: pre;
+      color: rgb(255 255 255 / 0.6);
+      transition: background-color 0.2s, color 0.2s;
     }
 
-    .resource-status {
+    .code-line.active {
+      border-left-color: #FFD829;
+      background-color: rgb(255 216 41 / 0.15);
+      color: #FFFFFF;
+    }
+
+    .status {
       display: flex;
-      width: fit-content;
       align-items: center;
       gap: 10px;
-      color: #FFFFFF;
+      font-size: 14px;
     }
 
     .status-dot {
@@ -136,184 +110,141 @@
       transition: background-color 0.2s;
     }
 
-    .status-text {
-      font-size: 14px;
+    .status[data-state="created"] .status-dot {
+      background-color: #FFD829;
     }
 
-    .resource-status.using .status-dot {
-      background-color: #58E28C;
-    }
-
-    .resource-status.disposed .status-dot {
+    .status[data-state="disposed"] .status-dot {
       background-color: #F498AD;
     }
 
-    .log {
-      height: 150px;
-      overflow-y: auto;
-      font-family: monospace;
-      font-size: 13px;
-      color: #58E28C;
-    }
-
-    .log-placeholder {
+    .output {
+      min-height: 70px;
+      padding: 12px 16px;
+      white-space: pre-wrap;
       color: rgb(255 255 255 / 0.4);
     }
 
-    .indent {
-      margin-left: 18px;
+    .output.filled {
+      color: #FFFFFF;
     }
 
-    @media (max-width: 768px) {
+    .unsupported {
+      max-width: 480px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
-      }
-
-      .container {
-        width: fit-content;
-      }
-
-      form, .file-content {
-        width: min( 100vw - 30px, 100% );
-        width: 100%;
-      }
-
-      .file-label {
-        display: block;
-        width: 100%;
-      }
-
-      .file-label-text {
-        display: block;
-        max-width: initial;
-        margin-right: 0;
-        margin-bottom: 25px;
-      }
-
-      .file-input::file-selector-button {
-        min-width: initial;
-        margin-right: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <div id="container" class="demo">
-    <form id="form" class="form">
-      <label for="form_file" class="file-label">
-        <span class="file-label-text">txt-файл:</span>
-        <input id="form_file" type="file" name="file_name" accept=".txt" class="file-input">
-      </label>
-    </form>
-    <div id="log" class="log">
-      <span class="log-placeholder">Выполнение функции processFile</span>
-    </div>
-    <div id="status" class="resource-status">
+  <div class="demo">
+    <button class="run-button" type="button">Запустить processFile()</button>
+    <pre class="code"><code><span class="code-line">const processFile = async (file) =&gt; {</span><span class="code-line">  using reader = new ManagedFileReader(file);</span><span class="code-line">  const content = await reader.read();</span><span class="code-line">  output.textContent = content;</span><span class="code-line">};</span></code></pre>
+    <div class="status" data-state="idle">
       <span class="status-dot"></span>
       <span class="status-text">Ресурс не создан</span>
     </div>
-    <div id="content"class="file-content">
-      Содержимое файла
-    </div>
+    <div class="output">Здесь появится содержимое файла example.txt</div>
   </div>
-  <script>
-    const container = document.getElementById('container')
-    const fileInput = container.querySelector('#form_file')
-    const outputElem = container.querySelector('#content')
-    const statusElem = container.querySelector('#status')
-    const statusTextElem = statusElem.querySelector('.status-text')
-    const logElem = container.querySelector('#log')
+  <p class="unsupported" hidden>Ваш браузер пока не поддерживает <code>using</code>. Откройте демку в Chrome или Firefox.</p>
 
-    const BYTES_IN_MB = 1048576
+  <script>
+    // Отдельный скрипт: если браузер не знает using, второй скрипт не запустится
+    const isUsingSupported = (() => {
+      try {
+        new Function('{ using resource = null; }');
+        return true;
+      } catch {
+        return false;
+      }
+    })();
+
+    if (!isUsingSupported) {
+      document.querySelector('.demo').hidden = true;
+      document.querySelector('.unsupported').hidden = false;
+    }
+  </script>
+
+  <script>
+    const button = document.querySelector('.run-button');
+    const lines = document.querySelectorAll('.code-line');
+    const statusElement = document.querySelector('.status');
+    const statusText = document.querySelector('.status-text');
+    const output = document.querySelector('.output');
+
+    const file = new File(
+      ['Первая строка файла.\nВторая строка файла.'],
+      'example.txt',
+      { type: 'text/plain' }
+    );
+
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    const setStatus = (state, text) => {
+      statusElement.dataset.state = state;
+      statusText.textContent = text;
+    };
+
+    // Подсвечивает строку кода перед её выполнением
+    const showLine = async (index) => {
+      await delay(1000);
+      lines.forEach((line, i) => line.classList.toggle('active', i === index));
+    };
 
     class ManagedFileReader {
       constructor(file) {
-        this.reader = new FileReader()
-        console.log("FileReader экземпляр создан")
         this.file = file;
+        this.reader = new FileReader();
+        setStatus('created', 'Ресурс создан');
       }
 
-      // Метод использования ресурса
       read() {
         return new Promise((resolve, reject) => {
-          this.reader.onload = () => resolve(this.reader.result)
-          this.reader.onerror = reject
-          this.reader.readAsText(this.file)
-        })
+          this.reader.onload = () => resolve(this.reader.result);
+          this.reader.onerror = () => reject(this.reader.error);
+          this.reader.readAsText(this.file);
+        });
       }
 
-      // Метод освобождения ресурса
-      close() {
-        this.reader.abort();
-        console.log("FileReader экземпляр освобождён")
-      }
-
+      // Этот метод вызывает движок при выходе из функции
       [Symbol.dispose]() {
-        this.close()
+        this.reader.abort();
+        setStatus('disposed', 'Ресурс освобождён: вызван [Symbol.dispose]()');
       }
     }
 
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-
-    const showMessage = async (text, indent = false) => {
-      const entry = document.createElement('div')
-      entry.className = `log-entry${indent ? ' indent' : ''}`
-      entry.textContent = text
-      logElem.appendChild(entry)
-      logElem.scrollTop = logElem.scrollHeight
-    }
-
-    const showStep = async (options = {}) => {
-      const { text, start = false, stop = false, timeout = 10 } = options
-
-      if (start) {
-        logElem.innerText = ''
-        outputElem.innerText = ''
-        statusElem.classList.remove('disposed')
-        statusElem.classList.add('using')
-        outputElem.classList.add('using')
-        showMessage('async function processFile(file) {')
-        showMessage('using reader = new ManagedFileReader(file) // Создание', true)
-        statusTextElem.innerText = 'Ресурс создан'
-      }
-
-      if (!stop && !start) {
-        showMessage('const content = await reader.readAsText() // Использование', true)
-      }
-
-      await delay(timeout)
-
-      if (stop) {
-        showMessage('} // <-- Автоматическое освобождение при выходе')
-        statusElem.classList.remove('using')
-        outputElem.classList.remove('using')
-        statusElem.classList.add('disposed')
-        statusTextElem.innerText = 'Ресурс освобождён'
-      }
-    }
-
-    // 2. Используем `using` для автоматического освобождения
     const processFile = async (file) => {
-      using reader = new ManagedFileReader(file)
-      await showStep({start: true, timeout: 1000})
-      await delay(1500)
-      const content = await reader.read()
-      await showStep({timeout: 1500})
-      showMessage(`console.log(content)`, true)
-      outputElem.innerText = content
-      await showStep({stop: true, timeout: 1500})
-    }
+      await showLine(1);
+      using reader = new ManagedFileReader(file);
+      await showLine(2);
+      const content = await reader.read();
+      await showLine(3);
+      output.textContent = content;
+      output.classList.add('filled');
+      await showLine(4);
+    };
 
-    fileInput.addEventListener("change", (e) => {
-      const file = e.target.files[0]
-      if (file.size > 2 * BYTES_IN_MB) {
-        alert('Принимается файл до 2 МБ')
-        logElem.innerText = ''
-        outputElem.innerText = ''
-      } else {
-        processFile(file)
-      }
-    })
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      output.textContent = 'Здесь появится содержимое файла example.txt';
+      output.classList.remove('filled');
+      setStatus('idle', 'Ресурс не создан');
+      lines.forEach((line, i) => line.classList.toggle('active', i === 0));
+
+      await processFile(file);
+
+      await delay(1500);
+      lines.forEach((line) => line.classList.remove('active'));
+      button.textContent = 'Запустить ещё раз';
+      button.disabled = false;
+    });
   </script>
 </body>
 </html>
