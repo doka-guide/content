@@ -7,11 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
-      padding: 20px;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -60,9 +64,9 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
-        padding: 0;
+        padding: 30px;
       }
     }
   </style>
