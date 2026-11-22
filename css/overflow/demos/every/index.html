@@ -6,88 +6,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
-      font-family: "Roboto", sans-serif;
-      height: 100vh;
-    }
-
-    h2 {
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .container {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      justify-content: space-between;
-      width: 80%;
-      max-width: 550px;
-      margin-left: auto;
-      margin-right: auto;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    .buttons, .text {
-      width: 45%;
+    /* Кнопки слева, блок с текстом справа */
+    .demo {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     button {
-      display: block;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 18px;
+      padding: 8px 12px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-size: 16px;
+      text-align: left;
       cursor: pointer;
     }
 
-    button > code {
-      pointer-events: none;
+    button[aria-pressed="true"] {
+      border-color: #2E9AFF;
     }
 
-    button._active {
-      outline: 2px solid #1a5ad7;
-    }
-
+    /* Текст не помещается в блок по высоте */
     .text {
-      height: 150px;
-      border: 2px solid #49a16c;
+      width: 220px;
+      height: 120px;
+      padding: 8px;
+      border: 2px solid #2E9AFF;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .demo {
+        gap: 16px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+
+      .text {
+        width: 150px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-    <h2><code>overflow</code></h2>
-    <div class="container">
-      <div class="buttons">
-        <button class="visible"><code>overflow: visible</code></button>
-        <button class="hidden"><code>overflow: hidden</code></button>
-        <button class="scroll"><code>overflow: scroll</code></button>
-        <button class="auto"><code>overflow: auto</code></button>
-      </div>
-      <p class="text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque eaque error et facere id, necessitatibus odit, officia quia repellendus voluptates? Ab aliquid architecto atque eius impedit quo quos.
-      </p>
+  <div class="demo">
+    <div class="buttons">
+      <button type="button" data-value="visible" aria-pressed="true">
+        <code>visible</code>
+      </button>
+      <button type="button" data-value="hidden" aria-pressed="false">
+        <code>hidden</code>
+      </button>
+      <button type="button" data-value="clip" aria-pressed="false">
+        <code>clip</code>
+      </button>
+      <button type="button" data-value="scroll" aria-pressed="false">
+        <code>scroll</code>
+      </button>
+      <button type="button" data-value="auto" aria-pressed="false">
+        <code>auto</code>
+      </button>
     </div>
+    <p class="text">
+      Однажды, в студёную зимнюю пору я из лесу вышел; был сильный
+      мороз. Гляжу, поднимается медленно в гору лошадка, везущая
+      хворосту воз.
+    </p>
+  </div>
+
   <script>
-    let textBlock = document.querySelector('.text')
-    let buttons = Array.from(document.querySelectorAll('button'))
-    buttons.map((btn) => {
-      btn.addEventListener('click', (e) => {
-        buttons.forEach(el => el.classList.remove('_active'))
-        textBlock.style.overflow = e.target.classList
-        e.target.classList.add('_active')
-      })
-    })
+    const textBlock = document.querySelector('.text');
+    const buttons = document.querySelectorAll('button');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        buttons.forEach((el) => {
+          el.setAttribute('aria-pressed', 'false');
+        });
+        button.setAttribute('aria-pressed', 'true');
+        textBlock.style.overflow = button.dataset.value;
+      });
+    });
   </script>
 </body>
 </html>
