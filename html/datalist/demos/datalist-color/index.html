@@ -17,6 +17,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        color-scheme: dark;
+      }
+
       body {
         min-height: 100vh;
         padding: 50px;
@@ -44,8 +48,7 @@
 
       input {
         width: 300px;
-        height: 33px;
-        padding-right: 40px;
+        height: 48px;
         border: 1px solid #ffffff;
         border-radius: 6px;
         padding: 10px 15px;
@@ -62,28 +65,8 @@
         outline: none;
       }
 
-      [list]::-webkit-calendar-picker-indicator {
-        display: none !important;
-      }
 
-      .select-wrapper {
-        position: relative;
-      }
-
-      .select-wrapper::after {
-        content: "";
-        position: absolute;
-        width: 14px;
-        top: calc(50% - 4px);
-        height: 8px;
-        right: 15px;
-        background-image: url("images/arrow-down.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100%;
-      }
-
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         body {
             padding: 30px;
         }
@@ -109,14 +92,12 @@
 <body>
   <form>
       <label for="colorInput">Укажите цвет:</label>
-      <input type="color" list="colorList" id="colorInput">
-      <div class="select-wrapper">
-        <datalist id="colorList">
-            <option value="#FF6347" label="Tomato">
-            <option value="#F5DEB3" label="Wheat">
-            <option value="#DDA0DD" label="Plum">
-        </datalist>
-      </div>
+      <input type="color" list="colorList" id="colorInput" value="#FF6347">
+      <datalist id="colorList">
+          <option value="#FF6347" label="Tomato">
+          <option value="#F5DEB3" label="Wheat">
+          <option value="#DDA0DD" label="Plum">
+      </datalist>
   </form>
 </body>
 
