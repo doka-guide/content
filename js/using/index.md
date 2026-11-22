@@ -43,7 +43,9 @@ processFile('./example.txt')
 
 При выходе из функции `await using` дождётся закрытия файлового дескриптора. `FileHandle` представляет ресурс, который нужно закрыть после использования.
 
-<iframe title="Управление ресурсом с помощью using" src="demos/using-steps/" height="700"></iframe>
+Демонстация работы с ресурсом в браузере:
+
+<iframe title="Управление ресурсом с помощью using" src="demos/using-steps/" height="600"></iframe>
 
 ## Как пишется
 
