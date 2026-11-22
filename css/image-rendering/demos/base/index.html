@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Разные режимы — image-rendering — Дока</title>
+  <title>auto и pixelated — image-rendering — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono:wght@400&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -16,101 +16,283 @@
 
     html {
       color-scheme: dark;
-      block-size: 100%;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    /* Сравнение: слева auto, справа pixelated */
+    .compare {
+      --split: 50%;
+      --scale: 12;
+      position: relative;
+      width: min(320px, 100%);
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 6px;
+      background-color: #282A2E;
+    }
+
+    .compare:has(.split:focus-visible) {
+      outline: 2px solid #2E9AFF;
+      outline-offset: 4px;
+    }
+
+    .layer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       display: grid;
       place-items: center;
-      min-block-size: 100%;
-      padding: 50px;
-      background-color: #18191c;
-      font-family: "Roboto Mono", monospace;
-      font-size: 24px;
-      text-align: center;
     }
 
-    .card {
-      margin-bottom: 12px;
+    .layer img {
+      width: calc(16px * var(--scale));
+      height: calc(16px * var(--scale));
+      max-width: none;
     }
 
-    .card-description {
-      margin-bottom: 4px;
-      font-size: 16px;
-      color: #f1f1f1;
+    .layer-left {
+      clip-path: inset(0 calc(100% - var(--split)) 0 0);
     }
 
-    .img-wrap {
-      width: 370px;
-      height: 370px;
-      max-width: 600px;
-      max-height: 600px;
-      resize: both;
-      overflow: hidden;
-      border: 1px solid #f1f1f1;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    img {
-      width: 150%;
-    }
-
-    .auto {
+    .layer-left img {
       image-rendering: auto;
     }
 
-    .crisp-edges {
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: -o-crisp-edges;
-      image-rendering: -moz-crisp-edges;
-      image-rendering: crisp-edges;
+    .layer-right {
+      clip-path: inset(0 0 0 var(--split));
     }
 
-    .pixelated {
+    .layer-right img {
       image-rendering: pixelated;
     }
 
-    form {
+    /* Разделитель */
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split);
+      width: 2px;
+      background-color: #2E9AFF;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .divider::after {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      content: "‹ ›";
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border: 2px solid #2E9AFF;
+      border-radius: 50%;
+      background-color: #18191C;
+      color: #2E9AFF;
+      font-size: 12px;
+      transform: translateX(-50%);
+    }
+
+    /* Подписи половин */
+    .label {
+      position: absolute;
+      top: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background-color: rgb(24 25 28 / 0.8);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .label-left {
+      left: 12px;
+    }
+
+    .label-right {
+      right: 12px;
+    }
+
+    /* Выбор значения для правой половины */
+    .values {
       display: flex;
       flex-wrap: wrap;
-      gap: 35px;
+      justify-content: center;
+      gap: 8px;
+      max-width: 100%;
+      border: none;
+    }
+
+    .values label {
+      position: relative;
+    }
+
+    .values input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .values span {
+      display: block;
+      padding: 6px 10px;
+      border: 1px solid #2E9AFF;
+      border-radius: 4px;
+      background-color: #282A2E;
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .values input:checked + span {
+      background-color: #2E9AFF;
+      color: #18191C;
+    }
+
+    .values input:focus-visible + span {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .note {
+      width: min(320px, 100%);
+      min-height: 2lh;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #F498AD;
+      text-align: center;
+    }
+
+    /* Невидимый ползунок поверх картинки: его тянут мышью, пальцем или стрелками */
+    .split {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      appearance: none;
+      background: none;
+      opacity: 0;
+      cursor: ew-resize;
+      touch-action: none;
+    }
+
+    .split::-webkit-slider-thumb {
+      appearance: none;
+      width: 32px;
+      height: 320px;
+    }
+
+    .split::-moz-range-thumb {
+      width: 32px;
+      height: 320px;
+    }
+
+    /* Масштаб */
+    .scale {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(320px, 100%);
+      font-size: 16px;
+    }
+
+    .scale input {
+      flex-grow: 1;
+      accent-color: #2E9AFF;
+    }
+
+    .scale output {
+      min-width: 3.5ch;
+      text-align: right;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <form>
-    <label>
-      <input type="radio" value="auto" name="image-rendering" checked>
-      <code>auto</code>
-    </label>
-    <label>
-      <input type="radio" value="crisp-edges" name="image-rendering">
-      <code>crisp-edges</code>
-    </label>
-    <label>
-      <input type="radio" value="pixelated" name="image-rendering">
-      <code>pixelated</code>
-    </label>
-  </form>
-  <div class="card">
-    <div class="img-wrap">
-      <img src="../images/triangle.jpg" alt="белый треугольник" class="auto">
+  <fieldset class="values" aria-label="Значение для правой половины">
+    <label><input type="radio" name="value" value="pixelated" checked><span>pixelated</span></label>
+    <label><input type="radio" name="value" value="crisp-edges"><span>crisp-edges</span></label>
+    <label><input type="radio" name="value" value="smooth"><span>smooth</span></label>
+    <label><input type="radio" name="value" value="high-quality"><span>high-quality</span></label>
+  </fieldset>
+
+  <div class="compare">
+    <div class="layer layer-left">
+      <img src="../images/cat.png" alt="Пиксельная мордочка кошки, левая половина">
+      <code class="label label-left">auto</code>
     </div>
+    <div class="layer layer-right">
+      <img src="../images/cat.png" alt="Та же мордочка кошки, правая половина">
+      <code class="label label-right">pixelated</code>
+    </div>
+    <div class="divider"></div>
+    <input class="split" type="range" min="0" max="100" value="50" aria-label="Граница между половинами">
   </div>
 
-  <script>
-    const radios = document.querySelectorAll('input[type="radio"]')
-    const img = document.querySelector('img')
+  <label class="scale">
+    Масштаб
+    <input class="scale-range" type="range" min="1" max="20" step="0.5" value="12">
+    <output class="scale-value">12×</output>
+  </label>
 
-    radios.forEach(radio => {
-      radio.addEventListener('click', (event) => {
-        if (event.target.checked) {
-          img.className = ''
-          img.classList.add(event.target.value)
-        }
-      })
-    })
+  <p class="note" aria-live="polite"></p>
+
+  <script>
+    const compare = document.querySelector('.compare');
+    const split = document.querySelector('.split');
+    const scaleRange = document.querySelector('.scale-range');
+    const scaleValue = document.querySelector('.scale-value');
+    const values = document.querySelectorAll('.values input');
+    const rightImg = document.querySelector('.layer-right img');
+    const rightLabel = document.querySelector('.label-right');
+    const note = document.querySelector('.note');
+
+    // Значение, которое браузер не понимает, рисуем как auto и пишем об этом
+    values.forEach((input) => {
+      input.addEventListener('change', () => {
+        const supported = CSS.supports('image-rendering', input.value);
+        rightImg.style.imageRendering = supported ? input.value : 'auto';
+        rightLabel.textContent = input.value;
+        note.textContent = supported
+          ? ''
+          : `Этот браузер не понимает ${input.value}, поэтому рисует картинку как при auto`;
+      });
+    });
+
+    split.addEventListener('input', () => {
+      compare.style.setProperty('--split', `${split.value}%`);
+    });
+
+    scaleRange.addEventListener('input', () => {
+      compare.style.setProperty('--scale', scaleRange.value);
+      scaleValue.textContent = `${scaleRange.value.replace('.', ',')}×`;
+    });
   </script>
 </body>
 </html>
