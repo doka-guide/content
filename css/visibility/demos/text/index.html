@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Прозрачность параграфов — visibility — Дока</title>
+  <title>Скрытый параграф — visibility — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
       display: grid;
       place-items: center;
       padding: 5%;
-      color: #ffffff;
+      color: #FFFFFF;
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
@@ -35,6 +35,16 @@
 
     .visibility-hidden {
       visibility: hidden;
+    }
+
+    @media (width <= 768px) {
+      body {
+        font-size: 16px;
+      }
+
+      article {
+        max-inline-size: none;
+      }
     }
   </style>
 </head>

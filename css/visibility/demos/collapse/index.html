@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значения hidden и collapse в таблице — visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+    }
+
+    .controls label {
+      padding: 8px 16px;
+      border-radius: 6px;
+      background-color: #282A2E;
+      cursor: pointer;
+    }
+
+    .controls label:has(input:checked) {
+      outline: 2px solid #2E9AFF;
+    }
+
+    .controls label:has(input:focus-visible) {
+      outline: 2px solid #F498AD;
+    }
+
+    .controls input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      min-width: 280px;
+    }
+
+    th,
+    td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #282A2E;
+      text-align: left;
+    }
+
+    th {
+      font-weight: 500;
+    }
+
+    /* Строка, которую прячем */
+    .target {
+      color: #2E9AFF;
+      visibility: var(--visibility, visible);
+    }
+
+    .result {
+      font-family: monospace;
+      font-size: 16px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <fieldset class="controls">
+    <legend hidden>Значение visibility</legend>
+    <label><input type="radio" name="value" value="visible" checked> visible</label>
+    <label><input type="radio" name="value" value="hidden"> hidden</label>
+    <label><input type="radio" name="value" value="collapse"> collapse</label>
+  </fieldset>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Город</th>
+        <th>Население</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Москва</td>
+        <td>13 млн</td>
+      </tr>
+      <tr class="target">
+        <td>Санкт-Петербург</td>
+        <td>5,6 млн</td>
+      </tr>
+      <tr>
+        <td>Новосибирск</td>
+        <td>1,6 млн</td>
+      </tr>
+      <tr>
+        <td>Екатеринбург</td>
+        <td>1,5 млн</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <output class="result">.target { visibility: visible; }</output>
+
+  <script>
+    const target = document.querySelector('.target');
+    const result = document.querySelector('.result');
+
+    document.querySelectorAll('input[name="value"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        target.style.setProperty('--visibility', input.value);
+        result.textContent = `.target { visibility: ${input.value}; }`;
+      });
+    });
+  </script>
+</body>
+</html>
