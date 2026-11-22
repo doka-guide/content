@@ -35,7 +35,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -96,22 +96,17 @@
       width: calc(100% - 40px);
       max-width: 400px;
       border: none;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       transition: transform 0.3s ease-in-out;
       position: fixed;
       padding: 0;
     }
 
-    .dialog::-webkit-backdrop {
-      background-color: rgba(0, 0, 0, 0.5);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      cursor: pointer;
-    }
-
     .dialog::backdrop {
-      background-color: rgba(0, 0, 0, 0.5);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: rgb(0 0 0 / 0.5);
       backdrop-filter: blur(10px);
       cursor: pointer;
     }
@@ -139,7 +134,7 @@
     Открыть модальное окно
   </button>
 
-  <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)" aria-labelledby="dialog-name">
+  <dialog class="dialog" id="modal-example" closedby="any" aria-labelledby="dialog-name">
     <form class="dialog__wrapper" method="dialog">
       <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
       <p>Но меня можно закрыть как по кнопке снизу, так и по нажатию по подложке.</p>
@@ -148,14 +143,22 @@
   </dialog>
 
   <script>
+    const dialogElement = document.getElementById("modal-example");
+    const supportsClosedBy = "closedBy" in HTMLDialogElement.prototype;
+
+    // Скрипт нужен только там, где браузер не знает closedby
+    if (!supportsClosedBy) {
+      dialogElement.addEventListener("click", closeOnBackDropClick);
+    }
+
     function closeOnBackDropClick({
       currentTarget,
       target
     }) {
-      const dialogElement = currentTarget
-      const isClickedOnBackDrop = target === dialogElement
+      const dialogElement = currentTarget;
+      const isClickedOnBackDrop = target === dialogElement;
       if (isClickedOnBackDrop) {
-        dialogElement.close()
+        dialogElement.close();
       }
     }
   </script>

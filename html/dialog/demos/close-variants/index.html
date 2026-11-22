@@ -35,7 +35,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (min-width: 580px) {
+    @media (width >= 580px) {
       body {
         align-content: center;
         align-items: center;
@@ -107,13 +107,15 @@
       width: calc(100% - 40px);
       max-width: 400px;
       border: none;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       position: fixed;
     }
 
     .dialog::backdrop {
       background-color: rgb(0 0 0 / 0.6);
-      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
 
@@ -130,7 +132,7 @@
       line-height: 1.4;
     }
 
-    @media (max-width: 579px) {
+    @media (width <= 579px) {
       .dialog {
         /* Сдвигаем диалоговые окна ближе к низу страницы, чтобы они не перекрывали кнопки на демке */
         margin-bottom: 30px;
@@ -149,7 +151,7 @@
   Открыть модальное окно
 </button>
 
-<dialog open="open" id="closeMe" class="dialog" aria-labelledby="dialog-name">
+<dialog id="closeMe" class="dialog" aria-labelledby="dialog-name">
   <h2 class="dialog__title" id="dialog-name">Закрой меня! 🙏</h2>
   <p>Результат этих кнопок одинаковый.</p>
   <button class="dialog__button button-orange" type="button" onclick="window['closeMe'].close()">
@@ -160,6 +162,10 @@
       Закрыть с помощью формы
     </button>
   </form>
+  <!-- Команда close закрывает диалог без JavaScript -->
+  <button class="dialog__button button-orange" type="button" commandfor="closeMe" command="close">
+    Закрыть командой
+  </button>
 </dialog>
 </body>
 </html>

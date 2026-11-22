@@ -35,7 +35,7 @@
       grid-auto-columns: min(100%, 250px);
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -96,7 +96,10 @@
       width: calc(100% - 40px);
       max-width: 400px;
       border: none;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       transition: transform 0.3s ease-in-out;
       position: fixed;
       padding: 0;
@@ -135,28 +138,33 @@
       target: button
     }) {
       const dialogID = button.getAttribute("aria-controls");
-      const dialogElement = document.querySelector(`#${dialogID}`)
-      dialogElement.show()
+      const dialogElement = document.querySelector(`#${dialogID}`);
+      // Окно уже открыто: клик закроет обработчик на document
+      if (dialogElement.open) {
+        return;
+      }
+
+      dialogElement.show();
 
       setTimeout(() => {
-        document.addEventListener("click", closeDialogOnOutsideClick)
-        dialogElement.addEventListener("close", () =>
-          document.removeEventListener("click", closeDialogOnOutsideClick)
-        )
-      }, 100)
+        document.addEventListener("click", closeDialogOnOutsideClick);
+        dialogElement.addEventListener("close", () => {
+          document.removeEventListener("click", closeDialogOnOutsideClick);
+        }, { once: true });
+      }, 100);
 
       function closeDialogOnOutsideClick({
         target
       }) {
-        const isClickOnDialog = target === dialogElement
-        const isClickOnDialogChildrenNodes = dialogElement.contains(target)
+        const isClickOnDialog = target === dialogElement;
+        const isClickOnDialogChildrenNodes = dialogElement.contains(target);
 
         const isClickOutsideOfDialog = !(
           isClickOnDialog || isClickOnDialogChildrenNodes
         );
 
         if (isClickOutsideOfDialog) {
-          dialogElement.close()
+          dialogElement.close();
         }
       }
     }
