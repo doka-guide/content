@@ -167,7 +167,7 @@ tags:
 </dialog>
 ```
 
-<iframe title="Варианты закрытия" src="demos/close-variants/" height="300"></iframe>
+<iframe title="Варианты закрытия" src="demos/close-variants/" height="390"></iframe>
 
 #### Атрибут `closedby`
 
