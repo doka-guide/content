@@ -1,28 +1,37 @@
-🛠 Обычно, когда я хочу точно-точно спрятать элемент, чтобы он не получал фокус ни при каких обстоятельствах и не был виден даже скринридерам, но при этом хочу плавно показать его по какому-то триггеру, то указываю одновременно несколько _скрывающих_ свойств и использую трюк с `transition`:
+🛠 Иногда мне нужно спрятать элемент наверняка: чтобы он не получал фокус и скринридеры его не видели. Но показать его я хочу плавно, по какому-то событию. Тогда я задаю сразу два _скрывающих_ свойства и меняю их вместе через `transition`:
 
 ```css
-.parent {
+.card {
   padding: 15px;
   border: 1px solid currentColor;
 }
 
-.block {
+.card-hint {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+  transition: opacity 300ms, visibility 300ms;
 }
 
-.parent:hover .block {
+.card:hover .card-hint,
+.card:focus-within .card-hint {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s linear 0s, opacity 300ms;
 }
 ```
 
+Отдельная задержка для `visibility` не нужна. При скрытии элемент остаётся видимым, пока меняется прозрачность, а при показе становится видимым сразу.
+
 ```html
-<div class="parent">
-  <div class="block">Я простой текст. Наводишь курсор и я показываюсь</div>
+<div class="card">
+  <button type="button" aria-describedby="hint">
+    Наведи или нажми Tab
+  </button>
+  <div class="card-hint" id="hint">
+    Я появляюсь, когда кнопка в фокусе или курсор над карточкой.
+  </div>
 </div>
 ```
 
-<iframe title="Свойство visibility" src="../demos/trick/" height="200"></iframe>
+Скринридер не прочитает спрятанную подсказку сам по себе. Поэтому кнопка ссылается на неё через [`aria-describedby`](/a11y/aria-describedby/): скринридер читает текст по такой ссылке, даже если элемент спрятан.
+
+<iframe title="Свойство visibility" src="../demos/trick/" height="280"></iframe>
