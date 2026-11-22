@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Скрываем рекламу для тарифа премиум — Атрибут hidden — Дока</title>
+  <title>Прячем рекламу для премиум-подписки — Атрибут hidden — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body { padding: 30px; }
     }
 
@@ -78,12 +78,24 @@
       padding: 8px 12px;
       border-radius: 6px;
       border: 1px solid #6B6C70;
-      background: #1E1F23;
-      color: #fff;
+      background: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
     }
 
     button:hover {
-      background: #2B2C31;
+      background: #34363B;
+    }
+
+    button:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ad {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -92,7 +104,7 @@
     <section class="controls" aria-label="Переключатель премиума">
       <button id="become-premium" type="button">Стать премиум</button>
       <button id="cancel-premium" type="button" hidden>Отменить премиум</button>
-      <p id="premium-msg" role="status" hidden>Вы премиум! Реклама скрыта.</p>
+      <p id="premium-msg" role="status"></p>
     </section>
 
     <aside id="ad" class="ad" aria-label="Рекламный блок">
@@ -100,28 +112,38 @@
     </aside>
 
     <section class="content">
-      <p>Это основное содержимое. Когда включён премиум, реклама скрывается с помощью булевого атрибута <code>hidden</code>.</p>
+      <p>Это основное содержимое. Когда включён премиум, реклама прячется с помощью атрибута <code>hidden</code>.</p>
     </section>
   </div>
 
   <script>
-    let isPremium = false
+    let isPremium = false;
 
-    const ad = document.getElementById('ad')
-    const premiumMsg = document.getElementById('premium-msg')
-    const becomeBtn = document.getElementById('become-premium')
-    const cancelBtn = document.getElementById('cancel-premium')
+    const ad = document.getElementById('ad');
+    const premiumMessage = document.getElementById('premium-msg');
+    const becomeButton = document.getElementById('become-premium');
+    const cancelButton = document.getElementById('cancel-premium');
 
     function render() {
-      ad.hidden = isPremium
-      premiumMsg.hidden = !isPremium
-      becomeBtn.hidden = isPremium
-      cancelBtn.hidden = !isPremium
+      ad.hidden = isPremium;
+      becomeButton.hidden = isPremium;
+      cancelButton.hidden = !isPremium;
     }
 
-    becomeBtn.addEventListener('click', () => { isPremium = true; render() })
-    cancelBtn.addEventListener('click', () => { isPremium = false; render() })
-    render()
+    becomeButton.addEventListener('click', () => {
+      isPremium = true;
+      render();
+      premiumMessage.textContent = 'Вы премиум! Реклама скрыта.';
+      cancelButton.focus();
+    });
+    cancelButton.addEventListener('click', () => {
+      isPremium = false;
+      render();
+      premiumMessage.textContent =
+        'Премиум отключён. Реклама снова видна.';
+      becomeButton.focus();
+    });
+    render();
   </script>
 </body>
 </html>
