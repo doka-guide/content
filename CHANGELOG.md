@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2026
+
+- 22 ноября, [using](https://doka.guide/js/using/), Viktar Nezhbart
+
 ## Сентябрь 2026
 
 - 4 сентября, [`:read-only`](https://doka.guide/css/read-only/), DrakesWeb
