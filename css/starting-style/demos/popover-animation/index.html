@@ -6,8 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -20,12 +30,6 @@
       font-size: 18px;
     }
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     .button {
       display: block;
       min-width: 210px;
@@ -34,7 +38,7 @@
       padding: 9px 15px;
       color: #000000;
       font-size: inherit;
-      font-weight: 300;
+      font-weight: 400;
       font-family: inherit;
       transition: background-color 0.15s ease-in;
       cursor: pointer;
@@ -52,7 +56,10 @@
     [popover] {
       padding: 20px;
       border: none;
+      border-radius: 6px;
       margin: auto;
+      background-color: #282A2E;
+      color: #FFFFFF;
     }
 
     [popover] {
@@ -60,17 +67,18 @@
         opacity 0.4s ease-in,
         scale 0.4s ease-in,
         translate 0.4s ease-in,
-        display 0.4s ease-in allow-discrete;
+        display 0.4s ease-in allow-discrete,
+        overlay 0.4s ease-in allow-discrete;
     }
 
-    /* стили для открытого поповера */
+    /* Стили для открытого поповера */
     [popover]:popover-open {
       opacity: 1;
       scale: 1;
       translate: 0;
     }
 
-    /* стили для открывающегося поповера */
+    /* Стили для открывающегося поповера */
     @starting-style {
       [popover]:popover-open {
         opacity: 0;
@@ -79,14 +87,14 @@
       }
     }
 
-    /* стили для закрывающегося поповера */
+    /* Стили для закрывающегося поповера */
     [popover]:not(:popover-open) {
       opacity: 0;
       scale: 0.5;
       translate: 0 50px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
