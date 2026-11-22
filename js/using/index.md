@@ -317,3 +317,36 @@ document.querySelector('#file-input').addEventListener('change', async (e) => {
 
 - Нет необходимости вручную вызывать метод экземпляра `close()`;
 - ресурс автоматически освобождается при завершении каждой итерации, даже если произойдёт ошибка.
+
+## Подсказки
+
+💡 При использовании `await using` ресурс может быть освобождён с помощью синхронного метода `[Symbol.dispose]()`. Освобождение произойдёт синхронно, даже если попытаться вернуть промис:
+
+```js
+class Resource {
+  [Symbol.dispose]() {
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
+  }
+}
+
+async function process() {
+  await using resource = new Resource()
+  // await using не будет ждать завершения Promise
+  console.log('Работа завершена')
+}
+```
+
+💡 Структура объекта ошибки может включать в себя информацию о связанных ресурсах. Например, если два ресурса выбросили ошибки при освобождении:
+
+```js
+SuppressedError {
+  error: Error,          // ошибка последнего освобождения
+  suppressed: SuppressedError {
+    error: Error,        // ошибка предыдущего освобождения
+    suppressed: Error    // исходная ошибка
+  }
+}
+```
+💡 Освобождение ресурса в цикле происходит также при `break`, `continue` и исключениях.
