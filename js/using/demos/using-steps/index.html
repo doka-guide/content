@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -59,6 +59,11 @@
       opacity: 0.85;
     }
 
+    .run-button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
     .run-button:disabled {
       opacity: 0.5;
       cursor: default;
@@ -70,13 +75,19 @@
       padding: 12px 0;
       border-radius: 10px;
       background-color: #282A2E;
-      font-family: monospace;
+      font-family: "Roboto Mono", monospace;
       font-size: 13px;
       line-height: 1.6;
     }
 
     .code {
       overflow-x: auto;
+    }
+
+    /* Подсветка строки тянется на всю ширину кода при прокрутке */
+    .code code {
+      display: inline-block;
+      min-width: 100%;
     }
 
     .code-line {
@@ -122,7 +133,7 @@
       min-height: 70px;
       padding: 12px 16px;
       white-space: pre-wrap;
-      color: rgb(255 255 255 / 0.4);
+      color: rgb(255 255 255 / 0.6);
     }
 
     .output.filled {
@@ -147,11 +158,11 @@
   <div class="demo">
     <button class="run-button" type="button">Запустить processFile()</button>
     <pre class="code"><code><span class="code-line">const processFile = async (file) =&gt; {</span><span class="code-line">  using reader = new ManagedFileReader(file);</span><span class="code-line">  const content = await reader.read();</span><span class="code-line">  output.textContent = content;</span><span class="code-line">};</span></code></pre>
-    <div class="status" data-state="idle">
+    <div class="status" data-state="idle" aria-live="polite">
       <span class="status-dot"></span>
       <span class="status-text">Ресурс не создан</span>
     </div>
-    <div class="output">Здесь появится содержимое файла example.txt</div>
+    <div class="output" aria-live="polite">Здесь появится содержимое файла example.txt</div>
   </div>
   <p class="unsupported" hidden>Ваш браузер пока не поддерживает <code>using</code>. Откройте демку в Chrome или Firefox.</p>
 
