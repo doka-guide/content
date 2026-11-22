@@ -17,6 +17,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        color-scheme: dark;
+      }
+
       body {
         min-height: 100vh;
         padding: 50px;
@@ -92,7 +96,7 @@
         background-size: 100%;
       }
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         body {
             padding: 30px;
         }
@@ -143,11 +147,11 @@
 
   <!-- Search -->
   <form class="second-form">
-      <label for="my-browser">Поле поиска:</label>
-      <input type="search" list="browsers" id="my-browser" name="my-browser" placeholder="Какой браузер вы ищите?">
+      <label for="my-search">Поле поиска:</label>
+      <input type="search" list="browsers-search" id="my-search" name="my-search" placeholder="Какой браузер вы ищете?">
       <div class="select-wrapper">
-        <datalist id="browsers">
-            <option label="Google" label="Chrome">
+        <datalist id="browsers-search">
+            <option value="Chrome" label="Google">
             <option value="Firefox" label="Mozilla">
             <option value="Opera" label="Opera">
         </datalist>

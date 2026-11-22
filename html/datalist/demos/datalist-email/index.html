@@ -17,6 +17,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -88,7 +92,7 @@
       background-size: 100%;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -123,25 +127,25 @@
   <!-- Без multiple -->
   <form>
     <label for="emails">Выберите почту:</label>
-    <input type="email" list="emails-list" id="emails" name="emails" placeholder="Hello@doka.ru">
+    <input type="email" list="emails-list" id="emails" name="emails" placeholder="hello@example.com">
     <div class="select-wrapper">
       <datalist id="emails-list">
-        <option value="peafowls@doka.ru" label="Моя первая почта">
-        <option value="work68@doka.ru" label="Рабочая почта">
-        <option value="adversting68@doka.ru" label="Почта для рекламных предложений">
+        <option value="peafowls@example.com" label="Моя первая почта">
+        <option value="work68@example.com" label="Рабочая почта">
+        <option value="adversting68@example.com" label="Почта для рекламных предложений">
       </datalist>
     </div>
   </form>
 
   <!-- С multiple -->
   <form class="second-form">
-    <label for="emails">Укажите несколько почт:</label>
-    <input type="email" list="emails-list" id="emails" name="emails" placeholder="World@doka.ru" multiple>
+    <label for="emails-multiple">Укажите несколько почт:</label>
+    <input type="email" list="emails-multiple-list" id="emails-multiple" name="emails-multiple" placeholder="world@example.com" multiple>
     <div class="select-wrapper">
-      <datalist id="emails-list">
-        <option value="peafowls@doka.ru" label="Моя первая почта">
-        <option value="work68@doka.ru" label="Рабочая почта">
-        <option value="adversting68@doka.ru" label="Почта для рекламных предложений">
+      <datalist id="emails-multiple-list">
+        <option value="peafowls@example.com" label="Моя первая почта">
+        <option value="work68@example.com" label="Рабочая почта">
+        <option value="adversting68@example.com" label="Почта для рекламных предложений">
       </datalist>
     </div>
   </form>

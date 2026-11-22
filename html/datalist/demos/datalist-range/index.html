@@ -17,6 +17,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        color-scheme: dark;
+      }
+
       body {
         min-height: 100vh;
         padding: 50px;
@@ -43,13 +47,13 @@
 
       input {
         width: 300px;
-        padding: 10px 15px;
+        padding: 10px 0;
         color: #ffffff;
         cursor: pointer;
         accent-color: #FF8630;
       }
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         body {
             padding: 30px;
         }
@@ -87,7 +91,7 @@
       </datalist>
   </form>
   <script>
-      `use strict`;
+      'use strict';
 
       const range = document.querySelector('input[type=range]');
       const output = document.querySelector('output');
