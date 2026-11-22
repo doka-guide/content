@@ -1,104 +1,144 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Сочетание трансформаций — skew — Дока</title>
+  <title>skew() и цепочка skewX() skewY() — skew() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      height: 100%;
+    html {
+      color-scheme: dark;
     }
 
     body {
-      background-color: #2E9AFF;
-      font-family: "Roboto", sans-serif;
-      color: #18191c;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
+      gap: 70px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    code {
+    .stage {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    .ghost,
+    .skew,
+    .chain {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    /* Элемент без искажения */
+    .ghost {
+      border: 2px dashed rgb(255 255 255 / 0.4);
+    }
+
+    /* Оба угла сразу */
+    .skew {
+      background-color: rgb(46 154 255 / 0.6);
+      transform: skew(20deg, 30deg);
+    }
+
+    /* Те же углы по очереди */
+    .chain {
+      border: 3px solid #F498AD;
+      transform: skewX(20deg) skewY(30deg);
+    }
+
+    .chain.reversed {
+      transform: skewY(30deg) skewX(20deg);
+    }
+
+    .legend {
+      display: grid;
+      gap: 10px;
       font-family: "Roboto Mono", monospace;
-      font-size: calc(1em - 1px);
+      font-size: 14px;
     }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
+    .legend span {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+      vertical-align: middle;
     }
 
-    .box {
-      width: 150px;
-      height: 150px;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #18191c;
-      font-weight: bold;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-      transition: transform 0.5s ease;
-      margin-bottom: 40px;
+    .legend-skew {
+      background-color: rgb(46 154 255 / 0.6);
     }
 
-    .demo1:hover {
-      /* skew + rotate */
-      transform: skew(20deg) rotate(15deg);
+    .legend-chain {
+      border: 3px solid #F498AD;
     }
 
-    .demo2:hover {
-      /* rotate + skew */
-      transform: rotate(30deg) skew(-15deg);
+    button {
+      padding: 10px 20px;
+      border: 2px solid #2E9AFF;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
+      cursor: pointer;
     }
 
-    .demo3:hover {
-      /* translate + skew */
-      transform: translate(30px, 20px) skew(10deg, -5deg);
+    button:hover,
+    button:focus-visible {
+      background-color: #2E9AFF;
+      color: #000000;
     }
 
-    .label {
-      text-align: center;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #18191c;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Демонстрация <code>skew()</code>, <code>rotate()</code> и <code>translate()</code></h2>
-  <p>Наведите курсор на каждый блок, чтобы увидеть трансформацию</p>
-  <div class="container">
-    <div>
-      <div class="box demo1"><code>skew() + rotate()</code></div>
-      <div class="label"><code>transform: skew(20deg) rotate(15deg);</code></div>
-    </div>
-    <div>
-      <div class="box demo2"><code>rotate() + skew()</code></div>
-      <div class="label"><code>transform: rotate(30deg) skew(-15deg);</code></div>
-    </div>
-    <div>
-      <div class="box demo3"><code>translate() + skew()</code></div>
-      <div class="label"><code>transform: translate(30px, 20px) skew(10deg, -5deg);</code></div>
-    </div>
+  <div class="stage">
+    <div class="ghost"></div>
+    <div class="skew"></div>
+    <div class="chain"></div>
   </div>
+
+  <div class="legend">
+    <div><span class="legend-skew"></span>skew(20deg, 30deg)</div>
+    <div><span class="legend-chain"></span><code class="chain-code" aria-live="polite">skewX(20deg) skewY(30deg)</code></div>
+  </div>
+
+  <button type="button">Поменять порядок в цепочке</button>
+
+  <script>
+    const chain = document.querySelector('.chain');
+    const chainCode = document.querySelector('.chain-code');
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', () => {
+      chain.classList.toggle('reversed');
+      chainCode.textContent = chain.classList.contains('reversed')
+        ? 'skewY(30deg) skewX(20deg)'
+        : 'skewX(20deg) skewY(30deg)';
+    });
+  </script>
 </body>
 </html>
