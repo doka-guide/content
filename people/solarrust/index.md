@@ -1,6 +1,6 @@
 ---
 name: 'Алёна Батицкая'
-url: https://twitter.com/ABatickaya
+url: https://blog.alena.rocks/
 photo: photo.png
 roles:
   - doka-core-team
