@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>::selection с сочетании с text-shadow — ::selection — Дока</title>
+  <title>::selection в сочетании с text-shadow — ::selection — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      margin: 0;
-      padding: 0 15px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      background-color: #18191c;
       text-align: center;
     }
 
     p {
-      margin: 50px 0 0 0;
-      color: #ffffff;
       font-size: 2rem;
+      font-weight: 500;
     }
 
     p::selection {
-      color: #ffffff;
-      background-color: #2e9aff;
-      --color-shadow: #000;
+      --color-shadow: #000000;
+      color: #FFFFFF;
+      background-color: #0066CC;
       text-shadow:
         1px 0 1px var(--color-shadow),
         0 1px 1px var(--color-shadow),
@@ -39,15 +51,18 @@
     }
 
     .prompt {
-      display: inline-block;
-      margin-top: 5px;
-      font-size: 1rem;
-      color: #c5c5c5;
+      color: #C5C5C5;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>Некий параграф</p>
-  <span class="prompt">*выделите текст выше</span>
+  <p>Выделите этот текст</p>
+  <span class="prompt">Выделенный текст станет объёмным</span>
 </body>
 </html>

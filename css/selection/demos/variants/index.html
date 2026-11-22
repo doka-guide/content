@@ -4,78 +4,105 @@
   <title>Базовый пример — ::selection — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      margin: 0;
-      padding: 0 15px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      background-color: antiquewhite;
-      color: #000000;
     }
 
     ul {
-      display: block;
       width: 100%;
       max-width: 568px;
-      margin: 50px auto;
-      padding: 30px 40px 20px;
-      border: 5px solid #000000;
-      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding-left: 20px;
+      line-height: 1.5;
     }
 
     li + li {
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
-    p,
-    input {
-      color: #000000;
-      margin-bottom: 15px;
+    li::marker {
+      color: #2E9AFF;
     }
 
     input {
       width: 100%;
-      padding: 5px 10px;
-      font-size: 1em;
+      padding: 8px 12px;
       border: none;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font: inherit;
     }
 
+    /* Только цвет текста: фон выделения станет прозрачным */
     .selection-color::selection {
-      color: hsl(209, 100%, 59%);
+      color: #F498AD;
     }
 
+    /* Только фон: цвет текста останется обычным */
     .selection-background-color::selection {
-      background-color: hsl(25, 100%, 59%);
+      background-color: #0066CC;
     }
 
     .selection-background::selection {
-      background-color: hsl(49, 100%, 58%);
+      background: hsl(25 100% 35%);
     }
 
     .selection-background-input::selection {
-      background-color: hsl(122, 78%, 58%);
+      background-color: hsl(122 60% 28%);
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
   <ul>
     <li>Пункт списка со стандартным выделением</li>
-    <li class="selection-color">При выделении этого пункта списка меняется цвет текста</li>
-    <li class="selection-background-color">У этого пункта при выделении меняется фоновый цвет</li>
-    <li class="selection-background">Пункт с сокращённым свойством background тоже прекрасно работает</li>
+    <li class="selection-color">
+      Задан только цвет текста: фон выделения пропал
+    </li>
+    <li class="selection-background-color">
+      Задан только цвет фона: текст остался обычного цвета
+    </li>
+    <li class="selection-background">
+      Сокращённое свойство background тоже работает
+    </li>
     <li>
-      А тут пример с изменением стандартного выделения
+      А тут меняется выделение
       <strong class="selection-background-color">отдельной части</strong>
       текста
     </li>
     <li>
-      <input class="selection-background-input" type="text" value="Некий текст для примера выделения текста в поле ввода">
+      <input
+        class="selection-background-input"
+        type="text"
+        value="Текст в поле ввода тоже можно выделить"
+        aria-label="Поле ввода для примера выделения"
+      >
     </li>
   </ul>
 </body>
