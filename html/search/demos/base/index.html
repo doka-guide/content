@@ -22,6 +22,7 @@
     body {
       display: grid;
       place-items: center;
+      align-content: center;
       min-block-size: 100%;
       gap: 50px;
       padding: 50px;
@@ -167,7 +168,7 @@
       font-size: inherit;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -195,11 +196,11 @@
     </style>
 </head>
 <body>
-  <search role="search">
+  <search aria-label="По сайту">
     <form>
       <div class="form-row">
-        <label class="row-label" for="search">Форма поиска</label>
-        <input class="input" type="search" id="search" placeholder="Что вы хотите найти?">
+        <label class="row-label" for="search">Поиск по сайту</label>
+        <input class="input" type="search" id="search" name="q" placeholder="Что вы хотите найти?">
       </div>
       <div class="form-row">
         <button class="button button-orange">Поиск</button>
@@ -207,7 +208,7 @@
     </form>
   </search>
 
-  <search>
+  <search aria-label="Фильтры">
     <form class="select-form">
       <label class="select-label" for="color">Фильтр по цвету</label>
       <div class="select-wrapper">
