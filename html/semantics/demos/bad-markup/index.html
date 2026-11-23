@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -27,7 +27,6 @@
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-weight: 300;
       font-family: "Roboto", sans-serif;
     }
 
@@ -35,7 +34,6 @@
     .copyright__link {
       border-radius: 3px;
       color: inherit;
-      -webkit-text-decoration-color: #FF8630;
       text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
@@ -88,7 +86,7 @@
       display: flex;
       flex-direction: column;
       padding: 24px 20px 16px;
-      background-color: #252525;
+      background-color: #282A2E;
     }
 
     .card__content {
@@ -142,8 +140,9 @@
         padding: 16px;
       }
 
-      .nav {
-        padding: 12px 0;
+      .container {
+        width: 100%;
+        min-width: 0;
       }
 
       .heading {
@@ -151,30 +150,17 @@
       }
 
       .wrapper {
-        margin-top: 16px;
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 85%;
         gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
       }
 
       .card {
         padding: 16px;
-      }
-
-      .card__header {
-        margin-bottom: 8px;
-      }
-
-      .card__img {
-        aspect-ratio: 4 / 1;
-      }
-
-      .card__heading {
-        margin-bottom: 4px;
-        font-size: 1.125rem;
-      }
-
-      .card__author,
-      .card__description {
-        font-size: 0.875rem;
+        scroll-snap-align: start;
       }
 
       .footer {
