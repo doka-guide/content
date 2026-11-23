@@ -1,10 +1,10 @@
 ---
 pinned:
-  - css/layer
-  - tools/structure-data-in-js
-  - html/semantics
-  - js/web-workers
-  - tools/algorithm-complexity
+  - js/using
+  - html/dialog
+  - css/linear-gradient
+  - css/container
+  - html/datalist
 ready:
   - a11y/live-region
   - a11y/screenreaders
@@ -23,6 +23,9 @@ ready:
   - html/doctype
   - html/div
   - html/head
+  - html/footer
+  - html/tables
+  - html/select
   - css/transform-function
   - css/keyframes
   - css/position
@@ -38,6 +41,8 @@ ready:
   - css/display
   - css/grid-guide
   - css/scrollbar-gutter
+  - css/web-colors
+  - css/animation
   - js/var-let
   - js/boolean
   - js/function
@@ -47,32 +52,27 @@ ready:
   - js/deal-with-forms
   - js/execution-order
   - js/closures
-  - js/geolocation-api
-  - js/array-entries
-  - js/array-reduce-right
+  - js/events
+  - js/promise
   - tools/cors
   - tools/oop
   - tools/clean-architecture
-  - tools/agile
   - tools/markdown
   - tools/network
-  - tools/bundlers
   - tools/gitlab-ci-cd
-  - tools/cli
-  - tools/static-types
   - tools/docker
   - tools/webpack
   - tools/ci-cd
   - tools/how-the-browser-creates-pages
-  - tools/how-to-test-and-why
+  - tools/json
+  - tools/web-security
   - recipes/snow
-  - recipes/lets-encrypt-nginx
   - recipes/progress
   - recipes/character-counter
   - recipes/center
-  - recipes/ajax-form
   - recipes/popup
   - recipes/git-rebase-onto
+  - recipes/checkbox-radio-style
 active:
   - css/layer
   - tools/structure-data-in-js
