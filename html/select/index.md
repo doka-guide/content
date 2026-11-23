@@ -123,18 +123,18 @@ select,
 Чтобы оформить сам список, поставьте первым дочерним элементом однострочного `<select>` тег [`<button>`](/html/button/). Внутрь кнопки положите `<selectedcontent>`. В него браузер копирует содержимое выбранной опции вместе с картинками:
 
 ```html
-<label for="theme">Цвет акцента</label>
-<select id="theme" name="theme">
+<label for="status">Статус задачи</label>
+<select id="status" name="status">
   <button>
     <selectedcontent></selectedcontent>
   </button>
-  <option value="orange">
-    <span class="swatch orange"></span>
-    Оранжевый
+  <option value="new">
+    <span class="dot new"></span>
+    Новая
   </option>
-  <option value="blue">
-    <span class="swatch blue"></span>
-    Синий
+  <option value="in-progress">
+    <span class="dot in-progress"></span>
+    В работе
   </option>
 </select>
 ```

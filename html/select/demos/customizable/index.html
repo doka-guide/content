@@ -105,27 +105,27 @@
       color: #FF8630;
     }
 
-    .swatch {
+    .dot {
       flex-shrink: 0;
       width: 18px;
       height: 18px;
       border-radius: 50%;
     }
 
-    .orange {
-      background-color: #FF8630;
+    .new {
+      background-color: #F498AD;
     }
 
-    .blue {
+    .in-progress {
       background-color: #2E9AFF;
     }
 
-    .yellow {
+    .review {
       background-color: #FFD829;
     }
 
-    .pink {
-      background-color: #F498AD;
+    .done {
+      background-color: #FF8630;
     }
 
     /* В кнопке показываем копию выбранной опции */
@@ -160,26 +160,26 @@
   </style>
 </head>
 <body>
-  <label for="theme">Цвет акцента</label>
-  <select id="theme" name="theme">
+  <label for="status">Статус задачи</label>
+  <select id="status" name="status">
     <button>
       <selectedcontent></selectedcontent>
     </button>
-    <option value="orange">
-      <span class="swatch orange"></span>
-      Оранжевый
+    <option value="new">
+      <span class="dot new"></span>
+      Новая
     </option>
-    <option value="blue">
-      <span class="swatch blue"></span>
-      Синий
+    <option value="in-progress">
+      <span class="dot in-progress"></span>
+      В работе
     </option>
-    <option value="yellow">
-      <span class="swatch yellow"></span>
-      Жёлтый
+    <option value="review">
+      <span class="dot review"></span>
+      На проверке
     </option>
-    <option value="pink">
-      <span class="swatch pink"></span>
-      Розовый
+    <option value="done">
+      <span class="dot done"></span>
+      Готова
     </option>
   </select>
   <p class="note">Ваш браузер пока не поддерживает настраиваемый select, поэтому список выглядит как обычно.</p>
