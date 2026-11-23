@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Настраиваемый выпадающий список — select — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Список вверху, чтобы панель открывалась вниз */
+      justify-content: flex-start;
+      gap: 20px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    label {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    /* Включаем настраиваемый режим для списка и для выпадающей панели */
+    select,
+    ::picker(select) {
+      appearance: base-select;
+    }
+
+    select {
+      width: 300px;
+      padding: 10px 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      background-color: #282A2E;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+    }
+
+    select:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
+    }
+
+    /* Стрелка справа */
+    select::picker-icon {
+      color: #FF8630;
+      transition: rotate 0.2s ease-out;
+    }
+
+    select:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    /* Выпадающая панель с опциями */
+    ::picker(select) {
+      margin-top: 6px;
+      padding: 6px;
+      border: 1px solid #FF8630;
+      border-radius: 6px;
+      background-color: #282A2E;
+    }
+
+    option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    option:hover {
+      background-color: #18191C;
+    }
+
+    option:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: -2px;
+    }
+
+    /* Галочка у выбранной опции */
+    option::checkmark {
+      order: 1;
+      margin-left: auto;
+      color: #FF8630;
+    }
+
+    .dot {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
+
+    .new {
+      background-color: #F498AD;
+    }
+
+    .in-progress {
+      background-color: #2E9AFF;
+    }
+
+    .review {
+      background-color: #FFD829;
+    }
+
+    .done {
+      background-color: #FF8630;
+    }
+
+    /* В кнопке показываем копию выбранной опции */
+    selectedcontent {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .note {
+      max-width: 420px;
+      color: rgb(255 255 255 / 0.6);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @supports (appearance: base-select) {
+      .note {
+        display: none;
+      }
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <label for="status">Статус задачи</label>
+  <select id="status" name="status">
+    <button>
+      <selectedcontent></selectedcontent>
+    </button>
+    <option value="new">
+      <span class="dot new"></span>
+      Новая
+    </option>
+    <option value="in-progress">
+      <span class="dot in-progress"></span>
+      В работе
+    </option>
+    <option value="review">
+      <span class="dot review"></span>
+      На проверке
+    </option>
+    <option value="done">
+      <span class="dot done"></span>
+      Готова
+    </option>
+  </select>
+  <p class="note">Ваш браузер пока не поддерживает настраиваемый select, поэтому список выглядит как обычно.</p>
+</body>
+</html>
