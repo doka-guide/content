@@ -2,30 +2,30 @@
 
 ```js
 function SearchComponent() {
-  const [search, setSearch] = useState('');
-  const API_URL = 'https://jsonplaceholder.typicode.com';
+  const [search, setSearch] = useState('')
+  const API_URL = 'https://jsonplaceholder.typicode.com'
 
   useEffect(() => {
-    if (!search) return;
+    if (!search) return
 
-    const controller = new AbortController();
-    const params = new URLSearchParams({ userId: search });
+    const controller = new AbortController()
+    const params = new URLSearchParams({ userId: search })
 
     // Запрос отменится при новом поиске или размонтировании
-    const { signal } = controller;
+    const { signal } = controller
     fetch(`${API_URL}/posts?${params}`, { signal })
       .then((response) => response.json())
       .then((data) => console.log('Результаты:', data))
       .catch((error) => {
-        if (error.name === 'AbortError') return;
-        console.error(error);
-      });
+        if (error.name === 'AbortError') return
+        console.error(error)
+      })
 
     // Очистка перед новым запуском эффекта и при размонтировании
-    return () => controller.abort();
-  }, [search]);
+    return () => controller.abort()
+  }, [search])
 
-  return (/* ... */);
+  return (/* ... */)
 }
 ```
 
@@ -36,17 +36,17 @@ function SearchComponent() {
 ```js
 function EventComponent() {
   useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    const onResize = () => console.log(window.innerWidth);
-    const onKeyDown = (event) => console.log(event.key);
+    const controller = new AbortController()
+    const { signal } = controller
+    const onResize = () => console.log(window.innerWidth)
+    const onKeyDown = (event) => console.log(event.key)
 
     // Один сигнал для всех обработчиков
-    window.addEventListener('resize', onResize, { signal });
-    window.addEventListener('keydown', onKeyDown, { signal });
+    window.addEventListener('resize', onResize, { signal })
+    window.addEventListener('keydown', onKeyDown, { signal })
 
     // Очистка при размонтировании
-    return () => controller.abort();
-  }, []);
+    return () => controller.abort()
+  }, [])
 }
 ```

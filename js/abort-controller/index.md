@@ -32,21 +32,21 @@ tags:
 Отменим запрос, если он идёт дольше двух секунд:
 
 ```js
-const controller = new AbortController();
-const url = 'https://jsonplaceholder.typicode.com/posts';
+const controller = new AbortController()
+const url = 'https://jsonplaceholder.typicode.com/posts'
 
 fetch(url, { signal: controller.signal })
   .then((response) => response.json())
   .then((posts) => console.log(posts.length))
   .catch((error) => {
     if (error.name === 'AbortError') {
-      console.log('Запрос отменён');
-      return;
+      console.log('Запрос отменён')
+      return
     }
-    console.error(error);
-  });
+    console.error(error)
+  })
 
-setTimeout(() => controller.abort(), 2000);
+setTimeout(() => controller.abort(), 2000)
 ```
 
 ## Как понять
@@ -76,15 +76,15 @@ setTimeout(() => controller.abort(), 2000);
 
 ```js
 // Создаём контроллер
-const controller = new AbortController();
-const API_URL = 'https://jsonplaceholder.typicode.com';
+const controller = new AbortController()
+const API_URL = 'https://jsonplaceholder.typicode.com'
 
 // Передаём операции сигнал контроллера
 fetch(`${API_URL}/posts/1`, { signal: controller.signal })
-  .catch((error) => console.log(error.name)); // AbortError
+  .catch((error) => console.log(error.name)) // AbortError
 
 // Отменяем операцию
-controller.abort();
+controller.abort()
 ```
 
 Сервер при этом мог уже получить запрос и выполнить его. Отмена не откатит, например, уже сохранённые данные.
@@ -94,21 +94,21 @@ controller.abort();
 ### Использование с событиями
 
 ```js
-const controller = new AbortController();
-const { signal } = controller;
-const button = document.querySelector('button');
+const controller = new AbortController()
+const { signal } = controller
+const button = document.querySelector('button')
 
-const handler = () => console.log('Клик!');
+const handler = () => console.log('Клик!')
 
 // Добавляем обработчик с сигналом
-button.addEventListener('click', handler, { signal });
+button.addEventListener('click', handler, { signal })
 
 // Удаляем обработчик через AbortController
-controller.abort();
+controller.abort()
 
 // Это аналогично удалению через removeEventListener:
-button.addEventListener('click', handler);
-button.removeEventListener('click', handler);
+button.addEventListener('click', handler)
+button.removeEventListener('click', handler)
 ```
 
 ### Отмена нескольких операций
@@ -116,9 +116,9 @@ button.removeEventListener('click', handler);
 Один сигнал можно использовать для отмены нескольких операций:
 
 ```js
-const controller = new AbortController();
-const { signal } = controller;
-const API_URL = 'https://jsonplaceholder.typicode.com';
+const controller = new AbortController()
+const { signal } = controller
+const API_URL = 'https://jsonplaceholder.typicode.com'
 
 // Запускаем несколько запросов
 Promise.all([
@@ -127,14 +127,14 @@ Promise.all([
   fetch(`${API_URL}/posts/3`, { signal }),
 ]).catch((error) => {
   if (error.name === 'AbortError') {
-    console.log('Все запросы отменены');
-    return;
+    console.log('Все запросы отменены')
+    return
   }
-  console.error(error);
-});
+  console.error(error)
+})
 
 // Отменяем все запросы одной командой
-controller.abort();
+controller.abort()
 ```
 
 ### Передача причины отмены
@@ -142,17 +142,17 @@ controller.abort();
 Можно указать причину отмены, передав её в метод `abort()`. Удобнее всего передавать ошибку: у неё есть имя, сообщение и стек вызовов. Примеры с [`await`](/js/async-await/) ниже работают в модуле (`<script type="module">`) или в консоли браузера.
 
 ```js
-const controller = new AbortController();
-const API_URL = 'https://jsonplaceholder.typicode.com';
+const controller = new AbortController()
+const API_URL = 'https://jsonplaceholder.typicode.com'
 
-controller.abort(new DOMException('Операция устарела', 'AbortError'));
+controller.abort(new DOMException('Операция устарела', 'AbortError'))
 
 // В обработчике ошибок
 try {
-  await fetch(`${API_URL}/posts/1`, { signal: controller.signal });
+  await fetch(`${API_URL}/posts/1`, { signal: controller.signal })
 } catch (error) {
   if (error.name === 'AbortError') {
-    console.log(error.message); // Операция устарела
+    console.log(error.message) // Операция устарела
   }
 }
 ```
@@ -160,17 +160,17 @@ try {
 Если передать в качестве `reason` строку, а не объект, то и в обработчик ошибок попадёт строка:
 
 ```js
-const controller = new AbortController();
-const API_URL = 'https://jsonplaceholder.typicode.com';
+const controller = new AbortController()
+const API_URL = 'https://jsonplaceholder.typicode.com'
 
-controller.abort('Операция устарела');
+controller.abort('Операция устарела')
 
 // В обработчике ошибок
 try {
-  await fetch(`${API_URL}/posts/1`, { signal: controller.signal });
+  await fetch(`${API_URL}/posts/1`, { signal: controller.signal })
 } catch (error) {
   if (error === 'Операция устарела') {
-    console.log(error);
+    console.log(error)
   }
 }
 ```
@@ -187,21 +187,21 @@ try {
 Через свойство `onabort` можно быстро назначить обработчик события `abort`:
 
 ```js
-const controller = new AbortController();
-const { signal } = controller;
+const controller = new AbortController()
+const { signal } = controller
 
 // Через onabort — быстро и просто
 signal.onabort = () => {
-  console.log('Операция отменена');
-  console.log('Причина:', signal.reason);
-};
+  console.log('Операция отменена')
+  console.log('Причина:', signal.reason)
+}
 
 // Через addEventListener — больше кода
 const handler = () => {
-  console.log('Операция отменена');
-  console.log('Причина:', signal.reason);
-};
-signal.addEventListener('abort', handler);
+  console.log('Операция отменена')
+  console.log('Причина:', signal.reason)
+}
+signal.addEventListener('abort', handler)
 ```
 
 Плюсы:
@@ -223,24 +223,24 @@ signal.addEventListener('abort', handler);
 `fetch` следит за сигналом сам. А в своём коде сигнал никто не слушает, и проверять его нужно вручную: например, перед каждым шагом цикла. Для такой проверки есть `throwIfAborted()`:
 
 ```js
-const wait = (ms) => new Promise((done) => setTimeout(done, ms));
+const wait = (ms) => new Promise((done) => setTimeout(done, ms))
 
 async function countdown(signal) {
   for (let i = 3; i > 0; i--) {
     // Перед каждым шагом проверяем сигнал
-    signal.throwIfAborted();
-    console.log(i);
-    await wait(1000);
+    signal.throwIfAborted()
+    console.log(i)
+    await wait(1000)
   }
 }
 
-const controller = new AbortController();
+const controller = new AbortController()
 
 countdown(controller.signal).catch((error) => {
-  console.log(error); // Операция устарела
-});
+  console.log(error) // Операция устарела
+})
 
-setTimeout(() => controller.abort('Операция устарела'), 1500);
+setTimeout(() => controller.abort('Операция устарела'), 1500)
 ```
 
 Код выведет 3 и 2, а на третьем шаге остановится. Это короче, чем проверять `signal.aborted` и выбрасывать `signal.reason` своими руками.
@@ -250,17 +250,17 @@ setTimeout(() => controller.abort('Операция устарела'), 1500);
 Объединим сигналы двух контроллеров в один:
 
 ```js
-const url = 'https://jsonplaceholder.typicode.com/posts';
+const url = 'https://jsonplaceholder.typicode.com/posts'
 
 // Создаём два контроллера
-const controller1 = new AbortController();
-const controller2 = new AbortController();
+const controller1 = new AbortController()
+const controller2 = new AbortController()
 
 // Сигнал сработает при отмене любого из контроллеров
 const signal = AbortSignal.any([
   controller1.signal,
   controller2.signal,
-]);
+])
 
 // Используем общий сигнал для запроса
 fetch(url, { signal })
@@ -268,14 +268,14 @@ fetch(url, { signal })
   .catch((error) => {
     if (error.name === 'AbortError') {
       // Safari заменяет текст ошибки, а reason хранит исходный
-      console.log('Запрос отменён:', signal.reason.message);
+      console.log('Запрос отменён:', signal.reason.message)
     }
-  });
+  })
 
 // Отмена любого из контроллеров отменит и запрос
 controller1.abort(
   new DOMException('Отмена через первый контроллер', 'AbortError')
-);
+)
 ```
 
 Это полезно, когда операцию нужно отменить по любой из нескольких причин: например, по кнопке пользователя или по таймауту.
@@ -285,10 +285,10 @@ controller1.abort(
 Отменим запрос через две секунды без контроллера и [`setTimeout()`](/js/settimeout/):
 
 ```js
-const url = 'https://jsonplaceholder.typicode.com/posts';
+const url = 'https://jsonplaceholder.typicode.com/posts'
 
 // Создаём сигнал с таймаутом в 2 секунды
-const signal = AbortSignal.timeout(2000);
+const signal = AbortSignal.timeout(2000)
 
 // Используем сигнал для запроса
 fetch(url, { signal })
@@ -296,9 +296,9 @@ fetch(url, { signal })
   .catch((error) => {
     // По таймауту в reason лежит DOMException с именем TimeoutError
     if (['TimeoutError', 'AbortError'].includes(error.name)) {
-      console.log('Запрос отменён по таймауту:', error.message);
+      console.log('Запрос отменён по таймауту:', error.message)
     }
-  });
+  })
 ```
 
 Проверяйте оба имени ошибки. В Chrome до 124-й версии по таймауту приходил `AbortError`, а не `TimeoutError`. Safari по таймауту тоже отдаёт `AbortError`: к этому моменту запрос уже идёт.
