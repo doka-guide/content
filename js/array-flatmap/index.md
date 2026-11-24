@@ -45,7 +45,7 @@ const orders = [
       { name: 'Зефир', price: 8.99 },
     ]
   }
-];
+]
 ```
 
 Одним из решений будет сначала дважды вызвать метод `map()`, а затем сделать массив плоским с помощью метода `flat()`.
@@ -55,7 +55,7 @@ const orders = [
 ```js
 orders.map(
   (order) => order.products.map(product => product.name)
-);
+)
 ```
 
 Получим следующий результат:
@@ -69,7 +69,7 @@ orders.map(
 ```js
 orders
   .map((order) => order.products.map((product) => product.name))
-  .flat();
+  .flat()
 ```
 
 ```js
@@ -81,7 +81,7 @@ orders
 ```js
 orders.flatMap(
   (order) => order.products.map(product => product.name)
-);
+)
 ```
 
 Результат тот же:
@@ -106,7 +106,7 @@ const cart = [
     count: 1,
     price: 800,
   }
-];
+]
 ```
 
 Если человек покупает телефон, то нужно добавить зарядное устройство. Для этого вызовем `flatMap()` и будем возвращать массив из телефона и зарядного устройства вместо одного объекта с телефоном.
@@ -119,12 +119,12 @@ cart.flatMap(
         name: 'Зарядное устройство',
         count: item.count,
         price: 50,
-      }];
+      }]
     }
 
-    return item;
+    return item
   }
-);
+)
 ```
 
 `flatMap()` сделает массив плоским, и мы получим массив элементов в корзине:
@@ -156,13 +156,13 @@ cart.reduce((list, item) => {
       name: 'Зарядное устройство',
       count: item.count,
       price: 50,
-    });
+    })
   } else {
-    list.push(item);
+    list.push(item)
   }
 
-  return list;
-}, []);
+  return list
+}, [])
 ```
 
 ## Как пишется
@@ -178,38 +178,38 @@ cart.reduce((list, item) => {
 Колбэк может вернуть один элемент или массив. Массив `flatMap()` развернёт, и все его элементы попадут в результат. Если вернуть пустой массив, элемент пропадёт из результата. Так можно одновременно отфильтровать и преобразовать данные:
 
 ```js
-const numbers = [1, -2, 3, -4];
+const numbers = [1, -2, 3, -4]
 
-const doubledPositive = numbers.flatMap((n) => n > 0 ? [n * 2] : []);
+const doubledPositive = numbers.flatMap((n) => n > 0 ? [n * 2] : [])
 
-console.log(doubledPositive);
+console.log(doubledPositive)
 // [2, 6]
 ```
 
 `flatMap()` разворачивает только один уровень вложенности. Если колбэк вернёт массив массивов, внутренние массивы останутся как есть:
 
 ```js
-console.log([1, 2].flatMap((n) => [[n, n * 10]]));
+console.log([1, 2].flatMap((n) => [[n, n * 10]]))
 // [[1, 10], [2, 20]]
 ```
 
 `flatMap()` разворачивает только массивы, то есть значения, для которых [`Array.isArray()`](/js/array-isarray/) вернёт `true`. Массивоподобный объект попадёт в результат целиком, хотя у него есть `length` и индексы:
 
 ```js
-console.log([1].flatMap(() => ({ length: 1, 0: 'x' })));
+console.log([1].flatMap(() => ({ length: 1, 0: 'x' })))
 // [{ 0: 'x', length: 1 }]
 ```
 
 Вторым аргументом в `flatMap()` можно передать значение [`this`](/js/function-context/) для колбэка:
 
 ```js
-const range = { min: 2 };
+const range = { min: 2 }
 
 const fromFunction = [1, 2, 3].flatMap(function (n) {
-  return n >= this.min ? [n] : [];
-}, range);
+  return n >= this.min ? [n] : []
+}, range)
 
-console.log(fromFunction);
+console.log(fromFunction)
 // [2, 3]
 ```
 
@@ -222,11 +222,11 @@ const filter = {
     return numbers.flatMap(
       (n) => n >= this.min ? [n] : [],
       { min: 100 }
-    );
+    )
   },
-};
+}
 
-console.log(filter.pick([1, 2, 3]));
+console.log(filter.pick([1, 2, 3]))
 // [2, 3]
 ```
 
@@ -246,15 +246,15 @@ console.log(filter.pick([1, 2, 3]));
 const allActivities = [
   { title: 'Офис', coordinates: [50.123, 3.291] },
   { title: 'Спортзал', coordinates: [1.238, 4.292] },
-];
+]
 
 const mappedCoordinates = allActivities.map(
   (activity) => activity.coordinates
-);
+)
 
 const flatMappedCoordinates = allActivities.flatMap(
   (activity) => activity.coordinates
-);
+)
 ```
 
 Теперь взглянем на результаты с применением `map()`:
