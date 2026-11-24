@@ -26,18 +26,18 @@ tags:
 Получим последний элемент массива:
 
 ```js
-const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго'];
+const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго']
 
-console.log(beatles.at(3));
+console.log(beatles.at(3))
 // Ринго
 ```
 
 Получим последний элемент массива, используя отрицательный индекс:
 
 ```js
-const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго'];
+const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго']
 
-console.log(beatles.at(-1));
+console.log(beatles.at(-1))
 // Ринго
 ```
 
@@ -53,11 +53,11 @@ console.log(beatles.at(-1));
 `at()` возвращает значение элемента. Если элемента с таким индексом нет, метод вернёт `undefined`:
 
 ```js
-const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго'];
+const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго']
 
-console.log(beatles.at(4));
+console.log(beatles.at(4))
 // undefined
-console.log(beatles.at(-5));
+console.log(beatles.at(-5))
 // undefined
 ```
 
@@ -66,44 +66,44 @@ console.log(beatles.at(-5));
 Обычно, чтобы получить значение элемента массива по индексу, используют скобочную запись:
 
 ```js
-const elements = ['ветер', 'туман', 'и', 'снег'];
+const elements = ['ветер', 'туман', 'и', 'снег']
 
-console.log(elements[1]);
+console.log(elements[1])
 // туман
 ```
 
 Для неотрицательного целого индекса `at()` работает так же, как скобочная запись:
 
 ```js
-const elements = ['ветер', 'туман', 'и', 'снег'];
+const elements = ['ветер', 'туман', 'и', 'снег']
 
-console.log(elements.at(1) === elements[1]);
+console.log(elements.at(1) === elements[1])
 // true
 ```
 
 Чтобы получить последний элемент через скобки, сначала вычисляют его индекс через [длину массива](/js/array-length/):
 
 ```js
-const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо'];
-const lastIndex = hobbits.length - 1;
-console.log(hobbits[lastIndex]);
+const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
+const lastIndex = hobbits.length - 1
+console.log(hobbits[lastIndex])
 // Бильбо
 ```
 
 С `at()` это проще:
 
 ```js
-const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо'];
-console.log(hobbits.at(-1));
+const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
+console.log(hobbits.at(-1))
 // Бильбо
 ```
 
 Такой же метод `at()` есть у [строк](/js/string/) и [типизированных массивов](/js/typed-array/):
 
 ```js
-const word = 'фонарь';
+const word = 'фонарь'
 
-console.log(word.at(-1));
+console.log(word.at(-1))
 // ь
 ```
 
@@ -112,15 +112,15 @@ console.log(word.at(-1));
 💡 У дробного индекса метод отбрасывает дробную часть, а строку превращает в число. Без аргумента метод считает индекс равным `0` и вернёт первый элемент:
 
 ```js
-const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго'];
+const beatles = ['Джон', 'Пол', 'Джордж', 'Ринго']
 
-console.log(beatles.at(1.7));
+console.log(beatles.at(1.7))
 // Пол
-console.log(beatles.at('-1'));
+console.log(beatles.at('-1'))
 // Ринго
-console.log(beatles.at());
+console.log(beatles.at())
 // Джон
-console.log(beatles.at(-0.5));
+console.log(beatles.at(-0.5))
 // Джон
 ```
 
@@ -131,11 +131,11 @@ console.log(beatles.at(-0.5));
 💡 Строковый `at()` считает не символы, а кодовые единицы UTF-16: 16-битные части, из которых JavaScript хранит строку. Многие эмодзи занимают две такие единицы, и `at(-1)` вернёт только вторую половину. Чтобы получить такой эмодзи целиком, сначала превратите строку в массив с помощью [спред-оператора](/js/spread/):
 
 ```js
-const greeting = 'Привет 👋';
+const greeting = 'Привет 👋'
 
-console.log(greeting.at(-1) === '👋');
+console.log(greeting.at(-1) === '👋')
 // false
-console.log([...greeting].at(-1));
+console.log([...greeting].at(-1))
 // 👋
 ```
 
