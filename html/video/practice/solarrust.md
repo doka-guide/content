@@ -52,13 +52,13 @@
 1. Если в системе включено уменьшение движения, видео лучше не запускать вовсе. Эту настройку проверяет медиазапрос [`prefers-reduced-motion`](/a11y/prefers-reduced-motion/). В JavaScript его читают методом [`matchMedia()`](/js/match-media/):
 
 ```js
-const video = document.querySelector('.background-video');
+const video = document.querySelector('.background-video')
 const reduceMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
-);
+)
 
 if (reduceMotion.matches) {
-  video.pause();
+  video.pause()
 }
 ```
 

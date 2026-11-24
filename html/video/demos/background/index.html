@@ -80,28 +80,28 @@
       <button class="pause" type="button">Остановить видео</button>
     </article>
     <script>
-      const video = document.querySelector('video');
-      const button = document.querySelector('.pause');
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const video = document.querySelector('video')
+      const button = document.querySelector('.pause')
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
       if (reduceMotion.matches) {
-        video.pause();
+        video.pause()
       }
 
       function updateButton() {
-        button.textContent = video.paused ? 'Запустить видео' : 'Остановить видео';
+        button.textContent = video.paused ? 'Запустить видео' : 'Остановить видео'
       }
 
       button.addEventListener('click', () => {
         if (video.paused) {
-          video.play();
+          video.play()
         } else {
-          video.pause();
+          video.pause()
         }
-      });
-      video.addEventListener('play', updateButton);
-      video.addEventListener('pause', updateButton);
-      updateButton();
+      })
+      video.addEventListener('play', updateButton)
+      video.addEventListener('pause', updateButton)
+      updateButton()
     </script>
 </body>
 </html>
