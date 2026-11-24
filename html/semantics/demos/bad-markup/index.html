@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -27,7 +27,6 @@
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-weight: 300;
       font-family: "Roboto", sans-serif;
     }
 
@@ -35,7 +34,6 @@
     .copyright__link {
       border-radius: 3px;
       color: inherit;
-      -webkit-text-decoration-color: #FF8630;
       text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
@@ -79,20 +77,16 @@
 
     .wrapper {
       margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
       gap: 20px;
     }
 
     .card {
       display: flex;
       flex-direction: column;
-      width: 300px;
-      height: 420px;
       padding: 24px 20px 16px;
-      background-color: #252525;
-      cursor: pointer;
+      background-color: #282A2E;
     }
 
     .card__content {
@@ -118,6 +112,8 @@
 
     .card__img {
       width: 100%;
+      aspect-ratio: 3 / 1;
+      object-fit: cover;
       margin-bottom: 12px;
     }
 
@@ -133,14 +129,42 @@
       text-align: center;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
+    }
+
+    @media (width <= 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .container {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .heading {
+        font-size: 1.375rem;
+      }
+
+      .wrapper {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 85%;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
 
       .card {
-        width: auto;
-        height: fit-content;
+        padding: 16px;
+        scroll-snap-align: start;
+      }
+
+      .footer {
+        margin-top: 24px;
       }
     }
   </style>
