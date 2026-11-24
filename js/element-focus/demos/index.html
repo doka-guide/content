@@ -1,28 +1,152 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Установка фокуса на элементы — Element.focus() — Дока</title>
+  <title>Перенос фокуса на элемент — .focus() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* Панель выбора: куда перенести фокус */
+    .control,
+    .picker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    form {
+      width: 100%;
+      max-width: 560px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    form label {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    form .checkbox {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+
+    input,
+    select,
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    input:not([type="checkbox"]),
+    form select {
+      width: 100%;
+    }
+
+    input:not([type="checkbox"]),
+    select {
+      padding: 8px 10px;
+      border: 1px solid #282A2E;
+      border-radius: 6px;
+      background-color: #282A2E;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: #FFD829;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #FFD829;
+      color: #18191C;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* Элемент в фокусе выделяем цветом раздела */
+    input:focus,
+    select:focus,
+    button:focus {
+      outline: 3px solid #FFD829;
+      outline-offset: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+        gap: 16px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+
+      form {
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <label>Куда переместить фокус?
-    <select id="focus-selector">
-      <option value="" disabled selected>Никуда</option>
-      <option value="name">Имя</option>
-      <option value="email">Почта</option>
-      <option value="age">Возраст</option>
-      <option value="specialization">Профессия</option>
-      <option value="nasa">Опыт в NASA</option>
-      <option value="photo">Фото</option>
-      <option value="submit">Кнопка отправки</option>
-    </select>
-  </label>
-  <h1>Регистрация в экспедицию на Марс</h1>
-  <form action="/apply" method="POST">
+  <div class="control">
+    <label class="picker">
+      Куда перенести фокус?
+      <select id="focus-selector">
+        <option value="name">Имя</option>
+        <option value="email">Почта</option>
+        <option value="age">Возраст</option>
+        <option value="specialization">Профессия</option>
+        <option value="nasa">Опыт в NASA</option>
+        <option value="submit">Кнопка отправки</option>
+      </select>
+    </label>
+    <button class="move-button" type="button">Перенести фокус</button>
+  </div>
+
+  <h1>Заявка на экспедицию на Марс</h1>
+
+  <form class="form">
     <label>
       Имя:
       <input type="text" name="name" id="name">
@@ -48,27 +172,27 @@
       </select>
     </label>
 
-    <label>
-      Я работал в NASA
+    <label class="checkbox">
       <input type="checkbox" name="nasaExperience" id="nasa" value="1">
-    </label>
-
-    <label>
-      Фото:
-      <input type="file" accept="image/jpeg" name="photo" id="photo" required>
+      Есть опыт работы в NASA
     </label>
 
     <button type="submit" id="submit">Подать заявку</button>
   </form>
+
   <script>
-    const focusSelector = document.getElementById("focus-selector")
-    focusSelector.value = ""
-    focusSelector.addEventListener("change", (e) => {
-      const chosenId = e.target.value
-      if (chosenId) {
-        const choice = document.getElementById(chosenId)
-        choice.focus()
-      }
+    const focusSelector = document.getElementById('focus-selector')
+    const moveButton = document.querySelector('.move-button')
+    const form = document.querySelector('.form')
+
+    moveButton.addEventListener('click', () => {
+      const choice = document.getElementById(focusSelector.value)
+      choice.focus()
+    })
+
+    // Демка ничего не отправляет
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
     })
   </script>
 </body>
