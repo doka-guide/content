@@ -217,7 +217,11 @@ await getFirstCharacterFromMovie(1)
 ```
 
 В Chrome ошибка выглядит так:
-`SyntaxError: await is only valid in async functions and the top level bodies of modules`.
+
+```
+SyntaxError: await is only valid in async functions
+and the top level bodies of modules
+```
 
 Такой код сработает в двух случаях:
 
