@@ -58,14 +58,9 @@
       background-color: #663613;
     }
 
-    table {
-      position: relative;
-    }
-
     thead th {
-      position: -webkit-sticky;
       position: sticky;
-      top: -4px;
+      top: 0;
       z-index: 1;
       background-color: #18191C;
     }
@@ -81,7 +76,7 @@
       background-color: #FF8630;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
