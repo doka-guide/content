@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       padding: 50px;
       background-color: #18191C;
@@ -29,11 +33,22 @@
       color: #663613;
     }
 
-    @media all and (max-width: 500px) {
-      p {
-        background-color: #FF8630;
-        color: #000000;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
       }
+
+      p {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+  <!-- Эти стили сработают, только когда ширина окна не больше 500px -->
+  <style media="(width <= 500px)">
+    p {
+      width: 100%;
+      background-color: #FF8630;
+      color: #000000;
     }
   </style>
 </head>
