@@ -68,21 +68,21 @@
     }
 
     .sprite-demo__btn:hover .sprite-demo__social-icon_vk,
-    .sprite-demo__btn:focus .sprite-demo__social-icon_vk {
+    .sprite-demo__btn:focus-visible .sprite-demo__social-icon_vk {
       fill: rgb(76 117 163);
     }
 
     .sprite-demo__btn:hover .sprite-demo__social-icon_twitter,
-    .sprite-demo__btn:focus .sprite-demo__social-icon_twitter {
+    .sprite-demo__btn:focus-visible .sprite-demo__social-icon_twitter {
       fill: rgb(29 161 242);
     }
 
     .sprite-demo__btn:hover .sprite-demo__social-icon_facebook,
-    .sprite-demo__btn:focus .sprite-demo__social-icon_facebook {
+    .sprite-demo__btn:focus-visible .sprite-demo__social-icon_facebook {
       fill: rgb(66 103 178);
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -95,23 +95,23 @@
       <span class="sprite-demo__heading">Наведите курсор на иконку, чтобы изменить её стиль</span>
 
       <div class="sprite-demo__share">
-      <button class="sprite-demo__btn">
-        <svg class="sprite-demo__social-icon sprite-demo__social-icon_vk" viewBox="0 0 24 24" width="24" height="24">
-          <use href="sprite.svg#social-vk"></use>
-        </svg>
-      </button>
+        <a class="sprite-demo__btn" href="https://vk.com/" target="_blank" aria-label="ВКонтакте">
+          <svg class="sprite-demo__social-icon sprite-demo__social-icon_vk" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+            <use href="sprite.svg#social-vk"></use>
+          </svg>
+        </a>
 
-      <button class="sprite-demo__btn">
-        <svg class="sprite-demo__social-icon sprite-demo__social-icon_twitter" viewBox="0 0 24 24" width="24" height="24">
-          <use href="sprite.svg#social-twitter"></use>
-        </svg>
-      </button>
+        <a class="sprite-demo__btn" href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+          <svg class="sprite-demo__social-icon sprite-demo__social-icon_twitter" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+            <use href="sprite.svg#social-twitter"></use>
+          </svg>
+        </a>
 
-      <button class="sprite-demo__btn">
-        <svg class="sprite-demo__social-icon sprite-demo__social-icon_facebook" viewBox="0 0 24 24" width="24" height="24">
-          <use href="sprite.svg#social-facebook"></use>
-        </svg>
-      </button>
+        <a class="sprite-demo__btn" href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+          <svg class="sprite-demo__social-icon sprite-demo__social-icon_facebook" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+            <use href="sprite.svg#social-facebook"></use>
+          </svg>
+        </a>
       </div>
     </section>
   </main>

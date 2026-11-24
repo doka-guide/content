@@ -34,7 +34,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px
+      gap: 32px;
     }
 
     .sprite-demo__btn {
@@ -48,15 +48,16 @@
       border-radius: 6px;
       background-color: rgb(255 134 48);
 
-      background-image: url(fragments.svg#bad);
+      background-image: url('fragments.svg#bad');
+      background-size: 24px 24px;
     }
 
     .sprite-demo__btn:hover,
-    .sprite-demo__btn:focus {
+    .sprite-demo__btn:focus-visible {
       background-image: url('fragments.svg#good');
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -67,7 +68,8 @@
   <main class="sprite-demo">
     <section class="sprite-demo__container">
       <span class="sprite-demo__heading">Наведите курсор на иконку:</span>
-      <button class="sprite-demo__btn"></button>
+      <button class="sprite-demo__btn" type="button" aria-label="Настроение"></button>
+    </section>
   </main>
 </body>
 </html>
