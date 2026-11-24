@@ -28,10 +28,10 @@ tags:
 ```js
 const months = [
   'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь'
-];
-const newMonths = months.toSpliced(3, 2);
+]
+const newMonths = months.toSpliced(3, 2)
 
-console.log(newMonths);
+console.log(newMonths)
 // ['Май', 'Июнь', 'Июль', 'Октябрь']
 ```
 
@@ -40,10 +40,10 @@ console.log(newMonths);
 ```js
 const versions = [
   'ES2016', 'ES2017', 'ES2018', 'неизвестно', 'неизвестно'
-];
-const newVersions = versions.toSpliced(-2, 2, 'ES2019', 'ES2020');
+]
+const newVersions = versions.toSpliced(-2, 2, 'ES2019', 'ES2020')
 
-console.log(newVersions);
+console.log(newVersions)
 // ['ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020']
 ```
 
@@ -73,27 +73,27 @@ console.log(newVersions);
 Добавим три элемента, начиная с индекса 1, и ничего не удалим:
 
 ```js
-const days = ['ПН', 'ПТ'];
-const workDays = days.toSpliced(1, 0, 'ВТ', 'СР', 'ЧТ');
-console.log(workDays);
+const days = ['ПН', 'ПТ']
+const workDays = days.toSpliced(1, 0, 'ВТ', 'СР', 'ЧТ')
+console.log(workDays)
 // ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ']
 
 // Исходный массив не изменился
-console.log(days);
+console.log(days)
 // ['ПН', 'ПТ']
 ```
 
 В отличие от метода [`splice()`](/js/array-splice/), `toSpliced()` не меняет исходный массив и не возвращает удаляемые элементы:
 
 ```js
-const numbers = [10, 20, 30, 40];
-const newNumbers = numbers.toSpliced(1, 2);
-console.log(newNumbers, numbers);
+const numbers = [10, 20, 30, 40]
+const newNumbers = numbers.toSpliced(1, 2)
+console.log(newNumbers, numbers)
 // [10, 40] [10, 20, 30, 40]
 
 // А вот как работает splice()
-const deletedNumbers = numbers.splice(1, 2);
-console.log(deletedNumbers, numbers);
+const deletedNumbers = numbers.splice(1, 2)
+console.log(deletedNumbers, numbers)
 // [20, 30] [10, 40]
 ```
 
@@ -104,11 +104,11 @@ console.log(deletedNumbers, numbers);
 Заменим в массиве последний элемент:
 
 ```js
-const colors = ['crimson', , , 'purple'];
-console.log(colors.toSpliced(-1, 1, 'blueviolet'));
+const colors = ['crimson', , , 'purple']
+console.log(colors.toSpliced(-1, 1, 'blueviolet'))
 // ['crimson', undefined, undefined, 'blueviolet']
 
-console.log(colors);
+console.log(colors)
 // ['crimson', <2 empty items>, 'purple']
 ```
 
@@ -117,22 +117,22 @@ console.log(colors);
 ```js
 const skills = [
   {name: 'HTML'}, {name: 'CSS'}, {name: 'PHP'}
-];
+]
 
 // Добавим новый элемент
-const result = skills.toSpliced(2, 0, {name: 'JS'});
-console.log(result);
+const result = skills.toSpliced(2, 0, {name: 'JS'})
+console.log(result)
 // [
 //  {name: 'HTML'}, {name: 'CSS'}, {name: 'JS'}, {name: 'PHP'}
 // ]
 
 // Изменим элемент исходного массива
-skills[0].year = 2005;
-console.log(skills);
+skills[0].year = 2005
+console.log(skills)
 // [{name: 'HTML', year: 2005}, {name: 'CSS'}, {name: 'PHP'}]
 
 // Изменения также видны в новом массиве
-console.log(result);
+console.log(result)
 // [
 //  {name: 'HTML', year: 2005}, {name: 'CSS'},
 //  {name: 'JS'}, {name: 'PHP'}
@@ -142,11 +142,11 @@ console.log(result);
 💡 Метод `toSpliced()` появился в ES2023. С июля 2023 года он работает во всех основных браузерах, а в [Node.js](/tools/nodejs/) — с версии 20. Если вашему коду нужно работать в старых окружениях, скопируйте массив и вызовите у копии `splice()`:
 
 ```js
-const numbers = [1, 2, 3];
-const newNumbers = [...numbers];
-newNumbers.splice(1, 0, 1.5);
+const numbers = [1, 2, 3]
+const newNumbers = [...numbers]
+newNumbers.splice(1, 0, 1.5)
 
-console.log(newNumbers);
+console.log(newNumbers)
 // [1, 1.5, 2, 3]
 ```
 
