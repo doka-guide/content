@@ -34,7 +34,7 @@
       font-weight: 700;
     }
 
-    thead th:first-child, tbody td:first-child.vendor, tfoot td:first-child  {
+    thead th:first-child, tbody th.vendor, tfoot td:first-child {
       text-align: left;
       padding-left: 0;
     }
@@ -54,7 +54,7 @@
       text-align: left;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -81,7 +81,7 @@
     </thead>
     <tbody>
       <tr>
-        <td rowspan="3" class="vendor">iPhone</td>
+        <th rowspan="3" scope="rowgroup" class="vendor">iPhone</th>
         <td>12 Pro</td>
         <td>$999</td>
       </tr>
@@ -96,7 +96,7 @@
     </tbody>
     <tbody>
       <tr>
-        <td rowspan="2" class="vendor">Xiaomi</td>
+        <th rowspan="2" scope="rowgroup" class="vendor">Xiaomi</th>
         <td>Mi 10</td>
         <td>$768</td>
       </tr>

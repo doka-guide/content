@@ -58,12 +58,8 @@
       background-color: #663613;
     }
 
-    table {
-      position: relative;
-    }
-
+    /* Сдвиг на половину верхней границы таблицы, иначе над шапкой видны строки */
     thead th {
-      position: -webkit-sticky;
       position: sticky;
       top: -4px;
       z-index: 1;
@@ -81,7 +77,7 @@
       background-color: #FF8630;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
