@@ -48,7 +48,7 @@
 
     select {
       padding: 10px 12px;
-      border: 2px solid #FFD829;
+      border: 2px solid rgb(255 255 255 / 0.35);
       border-radius: 6px;
       background-color: #282A2E;
       color: #FFFFFF;
@@ -57,9 +57,11 @@
       cursor: pointer;
     }
 
-    select:focus-visible {
-      outline: 2px solid #FFFFFF;
-      outline-offset: 2px;
+    /* Фокус и наведение показывает жёлтая рамка вместо кольца */
+    select:hover,
+    select:focus {
+      border-color: #FFD829;
+      outline: none;
     }
 
     .rows {
