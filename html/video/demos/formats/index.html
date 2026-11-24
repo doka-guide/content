@@ -17,11 +17,10 @@
 </head>
 <body>
   <video controls muted poster="images/cinema-vs-reality.jpg" width="580">
+    <!-- Сначала WebM с кодеком AV1: файл легче -->
+    <source src="video/cinema-vs-reality.webm" type='video/webm; codecs="av01.0.01M.08, opus"'>
+    <!-- Запасной вариант: MP4 с кодеком H.264, его проигрывают все браузеры -->
     <source src="video/cinema-vs-reality.mp4" type="video/mp4">
-    <!-- Видео в формате mp4 с кодеком HEVC специально для Safari-->
-    <source src="video/cinema-vs-reality_safari.mp4" type="video/mp4">
-    <source src="video/cinema-vs-reality.ogv" type="video/ogg">
-    <source src="video/cinema-vs-reality.avi" type="video/avi">
     Ваш браузер не поддерживает встроенные видео.
   </video>
 </body>
