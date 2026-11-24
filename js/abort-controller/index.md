@@ -7,52 +7,70 @@ baseline:
       - api.AbortController
       - api.AbortController.abort
       - api.AbortController.signal
+  - group: abortsignal-any
+    features:
+      - api.AbortSignal.any_static
+  - group: abortsignal-timeout
+    features:
+      - api.AbortSignal.timeout_static
 authors:
   - teplostanski
+contributors:
+  - solarrust
 tags:
   - doka
 ---
 
 ## Кратко
 
-`AbortController` — это встроенный объект, который позволяет отменять выполнение любых операций. Появился в ES2018 (ES9) для отмены [fetch](/js/fetch/) запросов, но позже его применение расширилось на другие операции.
+`AbortController` — это встроенный объект, который подаёт сигнал отмены асинхронным операциям. Операция остановится, только если она приняла этот сигнал и следит за ним. Сначала его придумали для отмены [`fetch`](/js/fetch/)-запросов, а теперь сигнал понимают и другие API: [`addEventListener()`](/js/element-addeventlistener/), потоки данных (Streams API), таймеры в Node.js.
+
+`AbortController` — часть стандарта DOM, а не языка JavaScript (ECMAScript). В Node.js он есть с версий 15.0.0 и 14.17.0.
+
+## Пример
+
+Отменим запрос, если он идёт дольше двух секунд:
+
+```js
+const controller = new AbortController()
+const url = 'https://jsonplaceholder.typicode.com/posts'
+
+fetch(url, { signal: controller.signal })
+  .then((response) => response.json())
+  .then((posts) => console.log(posts.length))
+  .catch((error) => {
+    if (error.name === 'AbortError') {
+      console.log('Запрос отменён')
+      return
+    }
+    console.error(error)
+  })
+
+setTimeout(() => controller.abort(), 2000)
+```
 
 ## Как понять
 
-`AbortController` - это механизм для отмены операций. С его помощью можно:
+Вызов `abort()` переводит сигнал в состояние «отменён». Дальше всё решает операция, которая получила сигнал: `fetch` прерывает запрос и отклоняет [промис](/js/promise/).
 
-- отменять [fetch](/js/fetch/) запросы
-- удалять обработчики событий
-- останавливать стримы
-- прерывать любые другие операции
+Контроллер состоит из:
 
-Состоит из:
-
-1. Метода `abort([reason])` для отмены операции, где `reason` - необязательный параметр.
-
-При вызове метода `abort([reason])` `reason` будет доступен через `signal.reason`. В `reason` можно передать любое значение: строку, число, объект, ошибку и т.д.
-
-2. Свойства `signal`, возвращает объект, который является экземпляром [`AbortSignal`](https://developer.mozilla.org/ru/docs/Web/API/AbortSignal) со следующими свойствами и методами:
-  - `aborted` — булево значение, указывающее было ли выполнено прерывание;
-  - `reason` — причина отмены;
+- метода `abort([reason])` для отмены операции с необязательной причиной `reason`;
+- свойства `signal` — объекта [`AbortSignal`](https://developer.mozilla.org/ru/docs/Web/API/AbortSignal) со свойствами и методами:
+  - `aborted` — `true`, если сигнал отменён;
+  - `reason` — причина отмены: любое значение, которое передали в `abort()`, например строка, число, объект или ошибка;
   - `onabort` — обработчик события отмены;
-  - `throwIfAborted()` — выбрасывает ошибку с причиной отмены, если сигнал в состоянии "отменён".
+  - `throwIfAborted()` — выбрасывает `signal.reason`, если сигнал в состоянии «отменён».
 
-При отмене операций чаще всего возникает ошибка типа "AbortError". Она появляется в трёх случаях:
+Если вызвать `abort()` без аргумента, `signal.reason` станет объектом `DOMException` с именем `AbortError`. Отдельного типа `AbortError` нет, это значение свойства `error.name`.
 
-- Не передан `reason` в `abort()`;
-- При использовании встроенных API (например [`fetch`](/js/fetch/)), которые сами создают AbortError;
-- При создании через `new DOMException()` с именем "AbortError".
-
-В остальных случаях тип ошибки будет зависеть от того, что было передано в `reason`.
-
-Также у [`AbortSignal`](https://developer.mozilla.org/ru/docs/Web/API/AbortSignal) есть статические методы:
+Также у `AbortSignal` есть статические методы:
 
 - `AbortSignal.abort([reason])` — создаёт уже отменённый сигнал;
 - `AbortSignal.timeout(milliseconds)` — создаёт сигнал, который будет отменён через указанное время;
 - `AbortSignal.any(signals)` — создаёт сигнал, который будет отменён, если хотя бы один из переданных сигналов отменён.
 
-Статические методы используются в случаях, когда не нужен контроллер для ручной отмены.
+`AbortSignal.abort()` и `AbortSignal.timeout()` пригодятся, когда не нужен контроллер для ручной отмены. Заранее отменённый сигнал удобен в тестах и там, где функция ждёт сигнал, а операцию уже не нужно запускать. А `AbortSignal.any()` объединяет сигналы, в том числе сигналы разных контроллеров.
 
 ## Как пишется
 
@@ -61,38 +79,36 @@ tags:
 const controller = new AbortController()
 const API_URL = 'https://jsonplaceholder.typicode.com'
 
-// Делаем запрос с сигналом
+// Передаём операции сигнал контроллера
 fetch(`${API_URL}/posts/1`, { signal: controller.signal })
-  .then((response) => response.json())
-  .catch((error) => {
-    if (error.name === 'AbortError') {
-      console.log('Запрос был отменён')
-    }
-  })
+  .catch((error) => console.log(error.name)) // AbortError
 
-// Отменяем запрос через 2 секунды
-setTimeout(() => {
-  controller.abort()
-}, 2000)
+// Отменяем операцию
+controller.abort()
 ```
+
+Сервер при этом мог уже получить запрос и выполнить его. Отмена не откатит, например, уже сохранённые данные.
+
+Если вызвать `abort()`, когда ответ сервера уже получен, но тело ещё читается, `response.json()` тоже отклонится. Если всё уже прочитано, сигнал перейдёт в состояние «отменён», но на запрос это уже не повлияет.
 
 ### Использование с событиями
 
 ```js
 const controller = new AbortController()
 const { signal } = controller
+const button = document.querySelector('button')
 
 const handler = () => console.log('Клик!')
 
 // Добавляем обработчик с сигналом
-element.addEventListener('click', handler, { signal })
+button.addEventListener('click', handler, { signal })
 
 // Удаляем обработчик через AbortController
 controller.abort()
 
 // Это аналогично удалению через removeEventListener:
-element.addEventListener('click', handler)
-element.removeEventListener('click', handler)
+button.addEventListener('click', handler)
+button.removeEventListener('click', handler)
 ```
 
 ### Отмена нескольких операций
@@ -112,7 +128,9 @@ Promise.all([
 ]).catch((error) => {
   if (error.name === 'AbortError') {
     console.log('Все запросы отменены')
+    return
   }
+  console.error(error)
 })
 
 // Отменяем все запросы одной командой
@@ -121,17 +139,20 @@ controller.abort()
 
 ### Передача причины отмены
 
-Можно указать причину отмены, передав её в метод `abort()`:
+Можно указать причину отмены, передав её в метод `abort()`. Удобнее всего передавать ошибку: у неё есть имя, сообщение и стек вызовов. Примеры с [`await`](/js/async-await/) ниже работают в модуле (`<script type="module">`) или в консоли браузера.
 
 ```js
-controller.abort({ name: 'AbortError', message: 'Операция устарела' })
+const controller = new AbortController()
+const API_URL = 'https://jsonplaceholder.typicode.com'
 
-// В обработчике ошибки
+controller.abort(new DOMException('Операция устарела', 'AbortError'))
+
+// В обработчике ошибок
 try {
-  ...
+  await fetch(`${API_URL}/posts/1`, { signal: controller.signal })
 } catch (error) {
   if (error.name === 'AbortError') {
-    console.log(error.message) // "Операция устарела"
+    console.log(error.message) // Операция устарела
   }
 }
 ```
@@ -139,11 +160,14 @@ try {
 Если передать в качестве `reason` строку, а не объект, то и в обработчик ошибок попадёт строка:
 
 ```js
+const controller = new AbortController()
+const API_URL = 'https://jsonplaceholder.typicode.com'
+
 controller.abort('Операция устарела')
 
-// В обработчике ошибки
+// В обработчике ошибок
 try {
-  ...
+  await fetch(`${API_URL}/posts/1`, { signal: controller.signal })
 } catch (error) {
   if (error === 'Операция устарела') {
     console.log(error)
@@ -151,18 +175,28 @@ try {
 }
 ```
 
+По спецификации `fetch` отклоняет промис со значением `signal.reason`. Браузеры делают это не везде:
+
+- Chrome — только с версии 124;
+- Safari — только если сигнал отменили до вызова `fetch`. Для запроса, который уже идёт, Safari отдаёт обычный `AbortError` со своим текстом в `message`.
+
+Чтобы хотя бы имя ошибки было одинаковым везде, передавайте причину как `new DOMException('Текст', 'AbortError')`.
+
 ### Использование onabort
 
-`onabort` - это свойство для быстрого назначения обработчика события отмены:
+Через свойство `onabort` можно быстро назначить обработчик события `abort`:
 
 ```js
-// Через onabort - быстро и просто
+const controller = new AbortController()
+const { signal } = controller
+
+// Через onabort — быстро и просто
 signal.onabort = () => {
   console.log('Операция отменена')
   console.log('Причина:', signal.reason)
 }
 
-// Через addEventListener - больше кода
+// Через addEventListener — больше кода
 const handler = () => {
   console.log('Операция отменена')
   console.log('Причина:', signal.reason)
@@ -172,86 +206,107 @@ signal.addEventListener('abort', handler)
 
 Плюсы:
 
-- Простой способ узнать момент отмены операции;
-- Лаконичный синтаксис;
-- Не нужно хранить ссылку на функцию-обработчик.
+- простой способ узнать момент отмены операции;
+- лаконичный синтаксис;
+- не нужно хранить ссылку на функцию-обработчик.
 
 Минусы:
 
-- Можно установить только один обработчик;
-- При повторном присвоении предыдущий обработчик теряется;
-- Нет прямого способа удалить обработчик (только присвоить null).
+- можно установить только один обработчик;
+- при повторном присвоении предыдущий обработчик теряется;
+- убрать обработчик можно, только присвоив `null`, а обработчики из `addEventListener()` при этом останутся.
+
+Событие `abort` срабатывает один раз. Обработчик, который добавили после отмены, уже не вызовется. Поэтому сначала проверяйте `signal.aborted`.
 
 ### Использование throwIfAborted()
 
-Метод `throwIfAborted()` полезен для проверки состояния сигнала - он выбросит ошибку, если сигнал находится в состоянии "отменён":
+`fetch` следит за сигналом сам. А в своём коде сигнал никто не слушает, и проверять его нужно вручную: например, перед каждым шагом цикла. Для такой проверки есть `throwIfAborted()`:
 
 ```js
-controller.abort('Операция устарела')
+const wait = (ms) => new Promise((done) => setTimeout(done, ms))
 
-try {
-  // Проверяем состояние сигнала
-  signal.throwIfAborted()
-  // Этот код не выполнится, если сигнал отменён
-  await someAsyncOperation()
-} catch (error) {
-  console.log(error) // "Операция устарела"
+async function countdown(signal) {
+  for (let i = 3; i > 0; i--) {
+    // Перед каждым шагом проверяем сигнал
+    signal.throwIfAborted()
+    console.log(i)
+    await wait(1000)
+  }
 }
+
+const controller = new AbortController()
+
+countdown(controller.signal).catch((error) => {
+  console.log(error) // Операция устарела
+})
+
+setTimeout(() => controller.abort('Операция устарела'), 1500)
 ```
 
-Это более декларативный способ проверки состояния сигнала по сравнению с проверкой `signal.aborted`.
+Код выведет 3 и 2, а на третьем шаге остановится. Это короче, чем проверять `signal.aborted` и выбрасывать `signal.reason` своими руками.
 
 ### Использование AbortSignal.any()
 
-`AbortSignal.any()` создаёт сигнал, который будет отменён, если хотя бы один из переданных сигналов отменён:
+Объединим сигналы двух контроллеров в один:
 
 ```js
-// Создаем два контроллера
+const url = 'https://jsonplaceholder.typicode.com/posts'
+
+// Создаём два контроллера
 const controller1 = new AbortController()
 const controller2 = new AbortController()
 
-// Создаем сигнал, который сработает при отмене любого из контроллеров
-const signal = AbortSignal.any([controller1.signal, controller2.signal])
+// Сигнал сработает при отмене любого из контроллеров
+const signal = AbortSignal.any([
+  controller1.signal,
+  controller2.signal,
+])
 
 // Используем общий сигнал для запроса
 fetch(url, { signal })
   .then((response) => response.json())
   .catch((error) => {
     if (error.name === 'AbortError') {
-      console.log('Запрос отменён:', error.message)
+      // Safari заменяет текст ошибки, а reason хранит исходный
+      console.log('Запрос отменён:', signal.reason.message)
     }
   })
 
-// Отмена любого из контроллеров приведёт к отмене запроса
-controller1.abort({ name: 'AbortError', message:'Отмена через первый контроллер'})
-  controller2.abort({ name: 'AbortError', message:'Отмена через второй контроллер'})
+// Отмена любого из контроллеров отменит и запрос
+controller1.abort(
+  new DOMException('Отмена через первый контроллер', 'AbortError')
+)
 ```
 
-Это полезно для отмены нескольких операций, которые могут быть отменены независимо друг от друга.
+Это полезно, когда операцию нужно отменить по любой из нескольких причин: например, по кнопке пользователя или по таймауту.
 
 ### Использование AbortSignal.timeout()
 
-`AbortSignal.timeout()` создаёт сигнал, который будет автоматически отменён через указанное количество миллисекунд:
+Отменим запрос через две секунды без контроллера и [`setTimeout()`](/js/settimeout/):
 
 ```js
-// Создаем сигнал с таймаутом в 5 секунд
+const url = 'https://jsonplaceholder.typicode.com/posts'
+
+// Создаём сигнал с таймаутом в 2 секунды
 const signal = AbortSignal.timeout(2000)
 
 // Используем сигнал для запроса
 fetch(url, { signal })
   .then((response) => response.json())
   .catch((error) => {
-    if (error.name === 'TimeoutError') {
-      // При таймауте reason будет установлен как "TimeoutError" DOMException
+    // По таймауту в reason лежит DOMException с именем TimeoutError
+    if (['TimeoutError', 'AbortError'].includes(error.name)) {
       console.log('Запрос отменён по таймауту:', error.message)
     }
   })
 ```
 
-Это полезно для отмены долгих операций, которые могут занять больше времени, чем ожидалось. Удобная альтернатива ручной установке таймера с `setTimeout()` и созданию `AbortController`.
+Проверяйте оба имени ошибки. В Chrome до 124-й версии по таймауту приходил `AbortError`, а не `TimeoutError`. Safari по таймауту тоже отдаёт `AbortError`: к этому моменту запрос уже идёт.
 
 ## Подсказки
 
-💡 Создавайте новый контроллер для каждой группы связанных операций. После вызова `abort()` сигнал остаётся в состоянии "отменён", поэтому для новых операций нужно создать новый контроллер. Не используйте один контроллер для всего приложения.
+💡 Создавайте новый контроллер для каждой группы связанных операций. После вызова `abort()` сигнал остаётся в состоянии «отменён», поэтому для новых операций нужно создать новый контроллер. Не используйте один контроллер для всего приложения.
 
-💡 Метод `abort()` нужно вызывать только в контексте контроллера: `controller.abort()`. Деструктуризация метода приведёт к потере контекста.
+💡 Вызывайте `abort()` как метод: `controller.abort()`. После `const { abort } = controller` вызов `abort()` упадёт с `TypeError`, и сигнал не отменится: методу нужен контроллер в `this`. Для колбэка оберните вызов: `() => controller.abort()`. `signal` можно доставать [деструктуризацией](/js/destructuring-assignment/): это готовый объект, а не метод.
+
+💡 Сам контроллер и отмена `fetch` появились в браузерах в 2017–2019 годах. Свойство `reason`, метод `throwIfAborted()` и `AbortSignal.timeout()` добавили в браузеры в 2022 году. `AbortSignal.any()` работает во всех основных браузерах с 2024 года.
