@@ -47,10 +47,16 @@
     }
 
     select {
-      padding: 10px 12px;
+      padding: 10px 44px 10px 12px;
       border: 2px solid rgb(255 255 255 / 0.35);
       border-radius: 6px;
+      appearance: none;
       background-color: #282A2E;
+      /* Своя стрелка вместо системной */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      background-size: 14px 8px;
       color: #FFFFFF;
       font-family: inherit;
       font-size: 18px;
