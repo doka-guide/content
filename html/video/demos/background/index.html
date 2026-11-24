@@ -37,8 +37,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      color: #f1f1f1;
+      background: rgb(0 0 0 / 0.5);
+      color: rgb(241 241 241);
     }
 
     h1 {
@@ -50,17 +50,58 @@
     p {
       font-size: 18px;
     }
+
+    .pause {
+      margin-top: 24px;
+      padding: 10px 20px;
+      border: 2px solid rgb(241 241 241);
+      border-radius: 6px;
+      background-color: transparent;
+      color: rgb(241 241 241);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .pause:hover,
+    .pause:focus-visible {
+      background-color: rgb(241 241 241);
+      color: rgb(0 0 0);
+    }
   </style>
 </head>
 <body>
-    <video autoplay muted loop>
+    <video autoplay muted loop playsinline>
+      <source src="video/storm.webm" type='video/webm; codecs="av01.0.05M.08"'>
       <source src="video/storm.mp4" type="video/mp4">
-      <!-- Видео в формате mp4 с кодеком HEVC специально для Safari-->
-      <source src="video/storm_safari.mp4" type="video/mp4">
     </video>
     <article>
       <h1>Банановый эквивалент</h1>
       <p>Мы живём в радиоактивном мире. Это нормально?</p>
+      <button class="pause" type="button">Остановить видео</button>
     </article>
+    <script>
+      const video = document.querySelector('video');
+      const button = document.querySelector('.pause');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      if (reduceMotion.matches) {
+        video.pause();
+      }
+
+      function updateButton() {
+        button.textContent = video.paused ? 'Запустить видео' : 'Остановить видео';
+      }
+
+      button.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+      video.addEventListener('play', updateButton);
+      video.addEventListener('pause', updateButton);
+      updateButton();
+    </script>
 </body>
 </html>
