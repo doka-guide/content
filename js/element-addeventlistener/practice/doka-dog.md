@@ -1,7 +1,7 @@
 🛠 Базовая обработка событий клавиатуры.
 
-С помощью событий, можно обрабатывать нажатие клавиш на клавиатуре, когда фокус установлен в поле ввода.
-В момент нажатия клавиш будем выводить код клавиши, а по нажатию клавиши _Enter_ добавлять сообщение, которое было введено в поле.
+С помощью событий можно обрабатывать нажатие клавиш на клавиатуре, когда фокус установлен в поле ввода.
+В момент нажатия клавиш будем выводить значение клавиши из свойства `key`, а по нажатию клавиши <kbd>Enter</kbd> добавлять сообщение, которое было введено в поле.
 
 ```html
 <div class="event">Ожидание ввода...</div>
@@ -9,33 +9,41 @@
 <div class="result"></div>
 ```
 
-Для этого подпишемся на событие [`keydown`](/js/element-keydown/). Каждое нажатие клавиши будет создавать событие 'keydown' и функция будет срабатывать. Внутри функции будем получать код клавиши из свойства `key` объекта события. Если код клавиши оказался `'Enter'`, то будем сбрасывать значение в поле ввода и выводить результат.
+Для этого подпишемся на событие [`keydown`](/js/element-keydown/). Оно срабатывает на каждое нажатие клавиши. Значение клавиши берём из свойства `key` объекта события. Если это `'Enter'`, сбрасываем поле ввода и выводим сообщение.
+
+Исключение — набор через IME. Это способ ввода, где слово собирают из нескольких нажатий: так набирают по-китайски или по-японски. Там <kbd>Enter</kbd> подтверждает слово, поэтому проверяем две вещи:
+
+- `event.isComposing` — набор ещё идёт;
+- `event.keyCode === 229` — нужно для Safari. Он присылает этот <kbd>Enter</kbd> уже после конца набора, с `isComposing`, равным `false`. Код `229` проверяем через устаревшее свойство `keyCode`.
 
 ```js
 const element = document.querySelector('input')
 
 element.addEventListener('keydown', function (event) {
-  const message = '<code>' + event.key + '</code>'
   const value = event.target.value
 
-  if (event.key === 'Enter' && value.length > 0) {
+  const isIme = event.isComposing || event.keyCode === 229
+
+  if (event.key === 'Enter' && !isIme && value.length > 0) {
     const messageElement = document.createElement('div')
 
     messageElement.classList.add('message')
-    messageElement.innerText = value
+    messageElement.textContent = value
     document.querySelector('.result').appendChild(messageElement)
     event.target.value = ''
   }
 
-  document.querySelector('.event').innerHTML = message
+  const keyElement = document.createElement('code')
+  keyElement.textContent = event.key
+  document.querySelector('.event').replaceChildren(keyElement)
 })
 ```
 
-<iframe title="Обработка событий клавиатуры" src="../demos/keyboard-events/" height="450"></iframe>
+<iframe title="Обработка событий клавиатуры" src="../demos/keyboard-events/" height="480"></iframe>
 
-🛠 Предотвращение срабатывания события по умолчанию.
+🛠 Отмена стандартного действия браузера.
 
-В этом примере мы заменим стандартное поведение в случае, когда пользователь кликает на ссылку. Чтобы стандартное поведение не сработало, нужно вызывать метод `preventDefault` у события.
+Заменим стандартное поведение при клике по ссылке. Чтобы стандартное поведение не сработало, нужно вызвать метод `preventDefault()` у события.
 
 ```html
 <a href="https://yandex.ru" target="_blank">
@@ -47,7 +55,7 @@ element.addEventListener('keydown', function (event) {
 <div id="result"></div>
 ```
 
-Подпишемся на событие клика по ссылке и вызовем метод `preventDefault`. После этого определим собственное поведение элемента. Например, будем выводить сообщение на экран:
+Подпишемся на событие клика по ссылке и вызовем метод `preventDefault()`. После этого определим собственное поведение элемента. Например, будем выводить сообщение на экран:
 
 ```js
 const linkElement = document.querySelector('#custom')
@@ -56,7 +64,8 @@ const resultElement = document.querySelector('#result')
 linkElement.addEventListener('click', function (event) {
   event.preventDefault()
 
-  resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+  resultElement.innerText =
+    'Вы нажали на ссылку, но ничего не произошло!'
   setTimeout(function () {
     resultElement.innerText = ''
   }, 2500)
