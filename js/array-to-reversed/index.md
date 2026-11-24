@@ -23,13 +23,13 @@ tags:
 ## Пример
 
 ```js
-const planets = ['Меркурий', 'Венера', 'Земля', 'Марс'];
-const reversedPlanets = planets.toReversed();
-console.log(reversedPlanets);
+const planets = ['Меркурий', 'Венера', 'Земля', 'Марс']
+const reversedPlanets = planets.toReversed()
+console.log(reversedPlanets)
 // ['Марс', 'Земля', 'Венера', 'Меркурий']
 
 // Исходный массив не изменился
-console.log(planets);
+console.log(planets)
 // ['Меркурий', 'Венера', 'Земля', 'Марс']
 ```
 
@@ -44,17 +44,17 @@ console.log(planets);
 У массивов уже есть метод [`reverse()`](/js/array-reverse/), который тоже разворачивает массив. Но `reverse()` меняет исходный массив и возвращает ссылку на него же, а не копию. Потренируемся на кошках:
 
 ```js
-const cats = ['Мурка', 'Кузя', 'Мурр', 'Чеширский кот'];
-const reversedCats = cats.reverse();
-console.log(reversedCats);
+const cats = ['Мурка', 'Кузя', 'Мурр', 'Чеширский кот']
+const reversedCats = cats.reverse()
+console.log(reversedCats)
 // ['Чеширский кот', 'Мурр', 'Кузя', 'Мурка']
 
 // Исходный массив изменился!
-console.log(cats);
+console.log(cats)
 // ['Чеширский кот', 'Мурр', 'Кузя', 'Мурка']
 
 // Это один и тот же массив
-console.log(reversedCats === cats);
+console.log(reversedCats === cats)
 // true
 ```
 
@@ -65,19 +65,19 @@ console.log(reversedCats === cats);
 ```js
 const versions = [
   { name: 'ES6' }, { name: 'ES2016' }, { name: 'ES2017' }
-];
-const result = versions.toReversed();
-console.log(result);
+]
+const result = versions.toReversed()
+console.log(result)
 // [{name: 'ES2017'}, {name: 'ES2016'}, {name: 'ES6'}]
 
 // Изменим элемент исходного массива
-versions[0].year = 2015;
+versions[0].year = 2015
 
-console.log(versions);
+console.log(versions)
 // [{name: 'ES6', year: 2015}, {name: 'ES2016'}, {name: 'ES2017'}]
 
 // Изменения тоже видны в новом массиве
-console.log(result);
+console.log(result)
 // [{name: 'ES2017'}, {name: 'ES2016'}, {name: 'ES6', year: 2015}]
 ```
 
@@ -88,13 +88,13 @@ console.log(result);
 💡 Если в массиве есть незаполненные элементы, то `toReversed()` вернёт [`undefined`](/js/undefined/) как значение для всех незаполненных элементов:
 
 ```js
-const poets = ['Эмили Дикинсон'];
-poets[3] = 'Роберт Фрост';
+const poets = ['Эмили Дикинсон']
+poets[3] = 'Роберт Фрост'
 
-console.log(poets);
+console.log(poets)
 // ['Эмили Дикинсон', <2 empty items>, 'Роберт Фрост']
 
-console.log(poets.toReversed());
+console.log(poets.toReversed())
 // ['Роберт Фрост', undefined, undefined, 'Эмили Дикинсон']
 ```
 
