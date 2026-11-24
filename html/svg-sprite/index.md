@@ -45,8 +45,8 @@ SVG-спрайт — это один файл, в котором собраны 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg">
   ...
-  <symbol id="social-facebook" viewBox="0 0 6 12">
-    <path d="M1.09903 2.72854C1.09903 ..."/>
+  <symbol id="social-bluesky" viewBox="0 0 24 24">
+    <path d="M5.202 2.857C7.954 4.922 ..."/>
   </symbol>
 
   <symbol id="social-twitter" viewBox="0 0 16 11">
