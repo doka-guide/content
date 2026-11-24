@@ -29,7 +29,7 @@
     }
 
     .container {
-      width: 500px;
+      max-width: 500px;
       margin: auto;
     }
 
@@ -47,8 +47,9 @@
     }
 
     .event kbd {
-      font-size: 100px;
+      font-size: 64px;
       line-height: 1;
+      overflow-wrap: anywhere;
     }
 
     .hint {
@@ -62,22 +63,22 @@
 </head>
 <body>
   <div class="container">
-    <div class="event" id="output"><span>Нажмите любую клавишу</span></div>
+    <div class="event" id="output"><span>Кликните сюда и нажмите любую клавишу</span></div>
 
-    <div class="hint">Чтобы остановить обработку нажатий клавиатуры нажмите <kbd class="inline-key">Escape</kbd></div>
+    <div class="hint">Чтобы остановить обработку нажатий клавиатуры, нажмите <kbd class="inline-key">Escape</kbd></div>
   </div>
 
   <script>
     const output = document.getElementById('output')
 
     function handleKey(event) {
-      const msg = '<kbd>' + event.key + '</kbd>'
-
       if (event.key === 'Escape') {
         window.removeEventListener('keydown', handleKey)
       }
 
-      output.innerHTML = msg
+      const key = document.createElement('kbd')
+      key.textContent = event.key
+      output.replaceChildren(key)
     }
 
     window.addEventListener('keydown', handleKey)
