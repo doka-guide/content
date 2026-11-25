@@ -20,7 +20,8 @@ const container = document.getElementById('container')
 container.addEventListener('click', containerClick)
 
 function containerClick(event) {
-  console.log(`Зарегистрировано событие на контейнере ${event.currentTarget.tagName}`)
+  const tag = event.currentTarget.tagName
+  console.log(`Зарегистрировано событие на контейнере ${tag}`)
 }
 ```
 
@@ -50,7 +51,8 @@ container.addEventListener('click', handleClick)
 body.addEventListener('click', handleClick)
 
 function handleClick(event) {
-  console.log(`Зарегистрировано событие на элементе ${event.currentTarget.tagName}`)
+  const tag = event.currentTarget.tagName
+  console.log(`Зарегистрировано событие на элементе ${tag}`)
 }
 ```
 
@@ -102,7 +104,8 @@ body.addEventListener('click', handleClick)
 
 function handleClick(event) {
   event.stopPropagation()
-  console.log(`Зарегистрировано событие на элементе ${event.currentTarget.tagName}`)
+  const tag = event.currentTarget.tagName
+  console.log(`Зарегистрировано событие на элементе ${tag}`)
 }
 ```
 Тогда при клике на нашу кнопку `handleClick()` будет вызвана только один раз. В консоли браузера мы увидим:

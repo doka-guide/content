@@ -16,64 +16,82 @@
 
     html, body {
       height: 100%;
-      font-size: 24px;
     }
 
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    h4 {
-      margin-bottom: 17px;
-      font-weight: 500;
-      font-size: 1.125rem;
-      align-self: flex-start;
+    .container {
+      width: 100%;
+      max-width: 320px;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
+    h4 {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 22px;
     }
 
     ul {
-      padding-left: 50px;
       display: flex;
       flex-direction: column;
       gap: 10px;
       list-style-type: none;
     }
 
-    li {
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 15px;
+      border: 2px solid rgb(255 255 255 / 0.2);
+      border-radius: 6px;
+      font: inherit;
+      text-align: left;
+      color: inherit;
+      background-color: transparent;
       cursor: pointer;
-      position: relative;
-      padding-left: 25px;
-      text-transform: lowercase;
+      transition: border-color 0.2s linear;
     }
 
-    li::before {
+    /* Квадрат-отметка слева от текста */
+    .task::before {
       content: "";
-      position: absolute;
-      top: 10px;
-      left: 0;
-      width: 14px;
-      height: 14px;
-      background-color: #FF8630;
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #FFD829;
+      border-radius: 4px;
+      transition: background-color 0.2s linear;
     }
 
-    li:hover {
-      color: #FFD829;
+    .task:hover {
+      border-color: #FFD829;
     }
 
-    li.completed {
+    .task:focus-visible {
+      outline: 2px solid #FFD829;
+      outline-offset: 2px;
+    }
+
+    /* Выполненная задача */
+    .task[aria-pressed="true"] {
+      color: rgb(255 255 255 / 0.6);
       text-decoration: line-through;
+    }
+
+    .task[aria-pressed="true"]::before {
+      background-color: #FFD829;
     }
   </style>
 </head>
@@ -81,23 +99,26 @@
   <div class="container">
     <h4>Задачи:</h4>
     <ul id="tasks">
-      <li>Купить хлеб</li>
-      <li>Покормить кота</li>
-      <li>Сделать ДЗ</li>
+      <li><button class="task" type="button" aria-pressed="false">Купить хлеб</button></li>
+      <li><button class="task" type="button" aria-pressed="false">Покормить кота</button></li>
+      <li><button class="task" type="button" aria-pressed="false">Сделать ДЗ</button></li>
     </ul>
   </div>
-
 
   <script>
     const tasksList = document.getElementById('tasks')
 
     tasksList.addEventListener('click', (event) => {
-      const li = event.target.closest('li'); // Ищем ближайший li
+      // Ищем ближайшую кнопку задачи
+      const task = event.target.closest('.task')
 
-      if (li) {
-        li.classList.toggle('completed'); // Зачеркиваем задачу
+      // Проверяем, что кнопка внутри нашего списка
+      if (task && tasksList.contains(task)) {
+        // Отмечаем задачу выполненной или снимаем отметку
+        const isDone = task.getAttribute('aria-pressed') === 'true'
+        task.setAttribute('aria-pressed', String(!isDone))
       }
-    });
+    })
   </script>
 </body>
 </html>
