@@ -1,12 +1,14 @@
-🛠 Базовый пример использования `AbortController` для отписки от слушателя событий.
+🛠 Базовый пример использования `AbortController` для отписки от обработчика событий.
 
-По умолчанию в большинстве случаев для отписки стоит использовать `removeEventListener`. Но, если при подписке была использована анонимная функция, то отписаться от такого слушателя через `removeEventListener` не получится, так как вторым параметром необходимо передать ссылку на функцию-обработчик.
+Обычно для отписки используют `removeEventListener()`. Но если при подписке использовали анонимную функцию, отписаться через `removeEventListener()` не получится: вторым аргументом нужно передать ссылку на функцию-обработчик.
 
 ```js
 const abortController = new AbortController()
 const element = document.querySelector('#element1')
 
-element.addEventListener('click', () => console.log('Подписка активна'), {
+element.addEventListener('click', () => {
+  console.log('Подписка активна')
+}, {
   signal: abortController.signal
 })
 
@@ -16,7 +18,7 @@ abortController.abort()
 
 🛠 Отписка сразу от нескольких обработчиков.
 
-`AbortController` может быть удобнее, чем `removeEventListener` в случае, если нам нужно отписаться сразу от нескольких обработчиков:
+`AbortController` удобнее, чем `removeEventListener()`, если нужно отписаться сразу от нескольких обработчиков:
 
 ```js
 const abortController = new AbortController()
@@ -34,9 +36,9 @@ element2.addEventListener('click', () => {
 abortController.abort()
 ```
 
-🛠 Вешаем слушатель событий на `AbortController`.
+🛠 Подписываемся на событие `abort` у `AbortSignal`.
 
-В случае, если необходимо реализовать логику после отписки, то можно слушать событие `abort` на `AbortSignal`:
+Если после отписки нужно что-то сделать, слушайте событие `abort`:
 
 ```js
 const abortController = new AbortController()

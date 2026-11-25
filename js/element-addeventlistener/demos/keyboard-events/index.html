@@ -24,17 +24,25 @@
       overflow: hidden;
     }
 
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
     code {
       font-family: "Roboto Mono", monospace;
     }
 
     .container {
-      width: 500px;
+      max-width: 500px;
       margin: auto;
     }
 
     .event {
       position: relative;
+      display: flex;
+      align-items: flex-end;
       min-height: 100px;
     }
 
@@ -47,8 +55,12 @@
     }
 
     .event code {
-      font-size: 100px;
+      width: 100%;
+      overflow: hidden;
+      font-size: clamp(32px, 10vw, 100px);
       line-height: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     input {
@@ -88,6 +100,7 @@
     .result {
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       align-items: flex-start;
       height: 100px;
       padding-top: 10px;
@@ -136,19 +149,23 @@
     const element = document.querySelector('input')
 
     element.addEventListener('keydown', function (event) {
-      const message = '<code>' + event.key + '</code>'
       const value = event.target.value
 
-      if (event.key === 'Enter' && value.length > 0) {
+      // Enter во время набора через IME подтверждает слово, а не отправляет сообщение
+      const isIme = event.isComposing || event.keyCode === 229
+
+      if (event.key === 'Enter' && !isIme && value.length > 0) {
         const messageElement = document.createElement('div')
 
         messageElement.classList.add('message')
-        messageElement.innerText = value
+        messageElement.textContent = value
         document.querySelector('.result').appendChild(messageElement)
         event.target.value = ''
       }
 
-      document.querySelector('.event').innerHTML = message
+      const keyElement = document.createElement('code')
+      keyElement.textContent = event.key
+      document.querySelector('.event').replaceChildren(keyElement)
     })
   </script>
 </body>
