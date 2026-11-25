@@ -169,7 +169,9 @@ container.addEventListener('click', function() {
     '#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD',
     '#623D45', '#FF8630', '#663613', '#FFD829', '#665610'
   ]
-  const randomColorIndex = Math.floor(Math.random() * colors.length)
+  const randomColorIndex = Math.floor(
+    Math.random() * colors.length
+  )
   container.style.backgroundColor = colors[randomColorIndex]
 })
 
@@ -196,10 +198,15 @@ let active
 let counter = 0
 
 // Обрабатываем событие click на всех <div>
-const divs = Array.from(document.querySelectorAll('div')).reverse()
+const divs = Array.from(
+  document.querySelectorAll('div')
+).reverse()
 for (let i = 0; i < divs.length; ++i) {
   const isLast = (i + 1 === divs.length)
-  divs[i].addEventListener('click', clickHandlerGenerator(isLast))
+  divs[i].addEventListener(
+    'click',
+    clickHandlerGenerator(isLast)
+  )
 }
 
 function clickHandlerGenerator(isLast = false) {
@@ -274,10 +281,12 @@ container.addEventListener('click', function(event) {
     '#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD',
     '#623D45', '#FF8630', '#663613', '#FFD829', '#665610'
   ]
-  const randomColorIndex = Math.floor(Math.random() * colors.length)
+  const randomColorIndex = Math.floor(
+    Math.random() * colors.length
+  )
   container.style.backgroundColor = colors[randomColorIndex]
 
-  // Если индекс цвета не соответствует условию (зелёный или голубой),
+  // Если цвет не зелёный и не голубой,
   // останавливаем распространение события
   if (randomColorIndex !== 0 && randomColorIndex !== 2) {
     event.stopPropagation()
