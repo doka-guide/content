@@ -16,35 +16,32 @@
 
     html, body {
       height: 100%;
-      font-size: 24px;
     }
 
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    h4 {
-      margin-bottom: 17px;
-      font-weight: 500;
-      font-size: 1.125rem;
-      align-self: flex-start;
+    .container {
+      width: 100%;
+      max-width: 320px;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
+    h4 {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 22px;
     }
 
     ul {
-      padding-left: 50px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -52,16 +49,34 @@
     }
 
     .task {
-      position: relative;
-      padding: 0 0 0 25px;
-      border: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 8px 15px;
+      border: 2px solid rgb(255 255 255 / 0.2);
+      border-radius: 6px;
       font: inherit;
-      font-size: 1rem;
       text-align: left;
-      text-transform: lowercase;
       color: inherit;
       background-color: transparent;
       cursor: pointer;
+      transition: border-color 0.2s linear;
+    }
+
+    /* Квадрат-отметка слева от текста */
+    .task::before {
+      content: "";
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #FFD829;
+      border-radius: 4px;
+      transition: background-color 0.2s linear;
+    }
+
+    .task:hover {
+      border-color: #FFD829;
     }
 
     .task:focus-visible {
@@ -69,22 +84,14 @@
       outline-offset: 2px;
     }
 
-    .task::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 0;
-      width: 14px;
-      height: 14px;
-      background-color: #FF8630;
-    }
-
-    .task:hover {
-      color: #FFD829;
-    }
-
+    /* Выполненная задача */
     .task[aria-pressed="true"] {
+      color: rgb(255 255 255 / 0.6);
       text-decoration: line-through;
+    }
+
+    .task[aria-pressed="true"]::before {
+      background-color: #FFD829;
     }
   </style>
 </head>
