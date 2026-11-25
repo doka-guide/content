@@ -1,78 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>String - метод toLowerCase</title>
+  <title>Метод toLowerCase — Дока</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
-      height: 150px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      color: #FFD829;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      overflow: hidden;
     }
 
-    form {
-      padding: 1rem .5rem;
+    /* === стили демо === */
+
+    .form {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    .row {
-      padding-bottom: .5rem;
+    .label {
+      font-size: 18px;
+      font-weight: 500;
     }
 
-    .match {
-      color: rgb(64, 231, 70);
+    .field {
+      width: 100%;
+      padding: 10px 16px;
+      border: 2px solid #282A2E;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 18px;
+      color: #FFFFFF;
+      background-color: #282A2E;
     }
 
-    .mismatch {
-      color: rgb(255, 133, 46);
+    .field:focus-visible {
+      outline: none;
+      border-color: #FFD829;
+    }
+
+    .button {
+      align-self: flex-start;
+      margin-top: 4px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 18px;
+      font-weight: 500;
+      color: #18191C;
+      background-color: #FFD829;
+      cursor: pointer;
+    }
+
+    .button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+    }
+
+    .result {
+      min-height: 1.5em;
+      font-size: 18px;
+    }
+
+    .result.match {
+      color: #41E847;
+    }
+
+    .result.mismatch {
+      color: #FF8630;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Регистронезависимое подтверждение почты</h1>
-  <form>
-    <div class="row">
-      <label>
-        Почта:
-        <input type="email" name="email">
-      </label>
-    </div>
-    <div class="row">
-      <label>
-        Подтверждение почты:
-        <input type="email" name="confirm-email">
-      </label>
-    </div>
-    <div class="row">
-      <button type="submit">Сравнить</button>
-    </div>
+  <form class="form">
+    <label class="label" for="email">Почта</label>
+    <input class="field" id="email" type="email" value="Doka@Example.com">
+    <label class="label" for="confirm-email">Подтверждение почты</label>
+    <input class="field" id="confirm-email" type="email" value="doka@example.com">
+    <button class="button" type="submit">Сравнить</button>
+    <p class="result" aria-live="polite"></p>
   </form>
-  <p id='result'></p>
-  <script>
-    const emailInput = document.querySelector('[name=email]')
-    const confirmEmailInput = document.querySelector('[name=confirm-email]')
-    const output = document.getElementById('result')
-    const button = document.querySelector('button[type=submit]')
 
-    button.addEventListener('click', function(e) {
-      e.preventDefault()
+  <script>
+    const form = document.querySelector('.form')
+    const emailInput = document.getElementById('email')
+    const confirmEmailInput = document.getElementById('confirm-email')
+    const output = document.querySelector('.result')
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault()
+
       const email = emailInput.value.toLowerCase()
       const confirmEmail = confirmEmailInput.value.toLowerCase()
       const isMatch = email === confirmEmail
-      const comparison = isMatch ? 'равен' : 'не равен'
 
-      output.className = isMatch ? 'match' : 'mismatch'
-      output.textContent = `"${email}" ${comparison} "${email}"`
-    });
+      output.classList.toggle('match', isMatch)
+      output.classList.toggle('mismatch', !isMatch)
+      output.textContent = isMatch
+        ? `«${email}» совпадает с «${confirmEmail}»`
+        : `«${email}» не совпадает с «${confirmEmail}»`
+    })
   </script>
 </body>
 </html>
