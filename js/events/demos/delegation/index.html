@@ -51,14 +51,25 @@
       list-style-type: none;
     }
 
-    li {
-      cursor: pointer;
+    .task {
       position: relative;
-      padding-left: 25px;
+      padding: 0 0 0 25px;
+      border: none;
+      font: inherit;
+      font-size: 1rem;
+      text-align: left;
       text-transform: lowercase;
+      color: inherit;
+      background-color: transparent;
+      cursor: pointer;
     }
 
-    li::before {
+    .task:focus-visible {
+      outline: 2px solid #FFD829;
+      outline-offset: 2px;
+    }
+
+    .task::before {
       content: "";
       position: absolute;
       top: 10px;
@@ -68,11 +79,11 @@
       background-color: #FF8630;
     }
 
-    li:hover {
+    .task:hover {
       color: #FFD829;
     }
 
-    li.completed {
+    .task[aria-pressed="true"] {
       text-decoration: line-through;
     }
   </style>
@@ -81,23 +92,26 @@
   <div class="container">
     <h4>Задачи:</h4>
     <ul id="tasks">
-      <li>Купить хлеб</li>
-      <li>Покормить кота</li>
-      <li>Сделать ДЗ</li>
+      <li><button class="task" type="button" aria-pressed="false">Купить хлеб</button></li>
+      <li><button class="task" type="button" aria-pressed="false">Покормить кота</button></li>
+      <li><button class="task" type="button" aria-pressed="false">Сделать ДЗ</button></li>
     </ul>
   </div>
-
 
   <script>
     const tasksList = document.getElementById('tasks')
 
     tasksList.addEventListener('click', (event) => {
-      const li = event.target.closest('li'); // Ищем ближайший li
+      // Ищем ближайшую кнопку задачи
+      const task = event.target.closest('.task')
 
-      if (li) {
-        li.classList.toggle('completed'); // Зачеркиваем задачу
+      // Проверяем, что кнопка внутри нашего списка
+      if (task && tasksList.contains(task)) {
+        // Отмечаем задачу выполненной или снимаем отметку
+        const isDone = task.getAttribute('aria-pressed') === 'true'
+        task.setAttribute('aria-pressed', String(!isDone))
       }
-    });
+    })
   </script>
 </body>
 </html>
