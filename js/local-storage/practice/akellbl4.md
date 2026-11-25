@@ -1,77 +1,79 @@
-🛠 При помощи `localStorage` можно сохранять данные, относящиеся к пользователю, не храня их на сервере. В следующем примере будем запоминать размер шрифта на сайте и восстанавливать размер из хранилища, если он был изменён до этого.
+🛠 При помощи `localStorage` можно сохранять данные, относящиеся к пользователю, не храня их на сервере. Запомним размер шрифта на сайте и восстановим его из хранилища при следующем визите.
 
-<iframe title="Сохранение пользовательских настроек" src="../demos/user-settings/" height="530"></iframe>
+<iframe title="Сохранение пользовательских настроек" src="../demos/user-settings/" height="560"></iframe>
 
 🛠 Можно использовать для синхронизации нескольких открытых в браузере вкладок. При изменении размера шрифта в одной вкладке мы узнаем об этом во всех остальных и тоже изменим размер.
 
 ```js
 function changePageFontSize(size) {
-  document.style.fontSize = `${size}px`
+  document.documentElement.style.fontSize = `${size}em`
 }
 
 window.addEventListener('storage', function (evt) {
-  if (evt.key === 'pageFontSize') {
+  // После removeItem() в newValue придёт null
+  if (evt.key === 'pageFontSize' && evt.newValue !== null) {
     changePageFontSize(evt.newValue)
   }
 })
 ```
 
-🛠 Иногда нам нужно сохранить не просто текст, а целую структуру данных. В этом нам поможет [`JSON.stringify()`](/tools/json/#primer-preobrazovaniya-obekta-javascript-v-format-json).
+🛠 Иногда нужно сохранить не просто текст, а целую структуру данных. Для этого подойдёт [`JSON.stringify()`](/tools/json/#primer-preobrazovaniya-obekta-javascript-v-format-json).
 
 ```js
-const user = {
-  name: 'Дока Дог',
-  avatarUrl: 'mascot-doka.svg'
+const settings = {
+  theme: 'dark',
+  fontSize: 1.2
 }
 
-localStorage.setItem('user', JSON.stringify(user))
+localStorage.setItem('settings', JSON.stringify(settings))
 ```
 
-И после чтения парсим:
+После чтения превращаем строку обратно в объект через `JSON.parse()`:
 
 ```js
-function readUser() {
-  const userJSON = localStorage.getItem('user')
+function readSettings() {
+  const settingsJSON = localStorage.getItem('settings')
 
-  if (userJSON === null) {
+  if (settingsJSON === null) {
     return undefined
   }
 
-  // Если вдруг в хранилище оказался невалидный JSON,
-  // предохраняемся от этого
+  // Если в хранилище некорректный JSON, удаляем его
   try {
-    return JSON.parse(userJSON)
+    return JSON.parse(settingsJSON)
   } catch (e) {
-    localStorage.removeItem('user')
+    localStorage.removeItem('settings')
     return undefined
   }
 }
 
-console.log(readUser())
+console.log(readSettings())
 // {
-//  name: 'Дока Дог',
-//  avatarUrl: 'mascot-doka.svg'
+//  theme: 'dark',
+//  fontSize: 1.2
 // }
 ```
 
-🛠 Если ваш сайт использует скрипты аналитики или другие внешние библиотеки, то они также имеют доступ к хранилищу. Поэтому лучше именовать ключи для записи в хранилище с префиксом в едином стиле. Например, при записи чего-либо на таком сайте я бы выбрал префикс `YD_{название ключа}`, тогда можно сгруппировать только нужные значения или отфильтровать их в инструментах разработчика.
+🛠 Скрипты аналитики и другие внешние библиотеки пишут в то же хранилище, что и ваш сайт. Чтобы ваши ключи не совпали с чужими, давайте им общий префикс, например `doka_theme` и `doka_fontSize`. По префиксу свои ключи легко найти в инструментах разработчика. Защиты префикс не даёт: чужой скрипт прочитает такие ключи так же легко.
 
-🛠 Используйте функции-обёртки для предотвращения ошибок, связанных с неудачными попытками записи, отсутствием `localStorage` в браузере и дублированием кода.
+🛠 Используйте функции-обёртки. Они перехватывают ошибки и избавляют от дублирования кода. Ошибка бывает, когда хранилище переполнено (`QuotaExceededError`) или браузер запретил сайту доступ к нему, например если пользователь заблокировал данные сайтов. `setItem()` здесь возвращает `false`, если запись не удалась.
 
 ```js
-function getItem(key, value) {
+function getItem(key) {
   try {
     return window.localStorage.getItem(key)
   } catch (e) {
-    console.log(e)
+    console.error(e)
   }
 }
 
 function setItem(key, value) {
   try {
-    return window.localStorage.setItem(key, value)
+    window.localStorage.setItem(key, value)
+    return true
   } catch (e) {
-    console.log(e)
+    console.error(e)
+    return false
   }
 }
 
@@ -79,9 +81,10 @@ function setJSON(key, value) {
   try {
     const json = JSON.stringify(value)
 
-    setItem(key, json)
+    return setItem(key, json)
   } catch (e) {
     console.error(e)
+    return false
   }
 }
 
