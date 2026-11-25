@@ -126,15 +126,21 @@
       display: block;
     }
 
-    @media (max-width: 1024px) {
+    @media (width <= 1024px) {
       .container {
         width: 85%;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
-        padding: 30px;
+        padding: 20px;
+      }
+
+      article {
+        height: 260px;
+        margin-top: 30px;
+        padding: 30px 20px;
       }
 
       .container {
@@ -180,10 +186,19 @@
     const decreaseButton = document.getElementById('decrease-font-size')
     const fontSizeElement = document.getElementById('current-font-size')
     const articleElement = document.getElementById('article')
-    let currentSize = Number(localStorage.getItem('pageFontSize') || DEFAULT_FONT_SIZE)
+    let currentSize = Number(localStorage.getItem('pageFontSize')) || DEFAULT_FONT_SIZE
 
     if (currentSize !== DEFAULT_FONT_SIZE) {
       changeFontSize(currentSize)
+    }
+
+    // Блокируем кнопки, если сохранённый размер уже на границе
+    if (currentSize >= 1.4) {
+      increaseButton.setAttribute('disabled', '')
+    }
+
+    if (currentSize <= 0.6) {
+      decreaseButton.setAttribute('disabled', '')
     }
 
     function changeFontSize(size) {
@@ -197,7 +212,7 @@
       currentSize = parseFloat((currentSize + 0.2).toFixed(1))
 
       if (decreaseButton.hasAttribute('disabled')) {
-        decreaseButton.removeAttribute('disabled', '')
+        decreaseButton.removeAttribute('disabled')
       }
 
       if (currentSize >= 1.4) {
@@ -205,14 +220,14 @@
       }
 
       changeFontSize(currentSize)
-    });
+    })
 
     decreaseButton.addEventListener('click', function (evt) {
       evt.preventDefault()
       currentSize = parseFloat((currentSize - 0.2).toFixed(1))
 
       if (increaseButton.hasAttribute('disabled')) {
-        increaseButton.removeAttribute('disabled', '')
+        increaseButton.removeAttribute('disabled')
       }
 
       if (currentSize <= 0.6) {
