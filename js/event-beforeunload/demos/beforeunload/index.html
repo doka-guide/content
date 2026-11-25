@@ -1,124 +1,127 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <title>Демонстрация работы обработки события beforeunload</title>
+  <title>Обработка события beforeunload — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      height: 100%;
-    }
-
     html {
-      font-size: 62.5%;
-
-      background-color: snow;
-    }
-
-    body,
-    button,
-    input {
-      font-family: 'Roboto', sans-serif;
+      color-scheme: dark;
     }
 
     body {
-      width: 1000px;
-      max-width: 100%;
-
-      margin: auto;
-      padding: 1em;
-
-      font-size: 1.4rem;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    @media (min-width: 768px) {
-      body {
-        font-size: 1.6rem;
-      }
+    /* === стили демо === */
+
+    .demo {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    h1 {
-      font-size: 1.5em;
+    .label {
+      font-size: 18px;
+      font-weight: 500;
     }
 
-    code {
-      font-family: 'Roboto Mono',  monospace;
-      white-space: pre-wrap;
-
-      background-color: aquamarine;
+    .field {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #282A2E;
+      border-radius: 6px;
+      font: inherit;
+      font-size: 18px;
+      color: #FFFFFF;
+      background-color: #282A2E;
     }
 
-    button {
-      padding: 0.5em 1em;
+    .field:focus-visible {
+      outline: none;
+      border-color: #FFD829;
+    }
 
+    .button {
+      align-self: flex-start;
+      padding: 12px 20px;
       border: none;
-      border-radius: 12px;
-
-      font-size: inherit;
-      color: white;
-
-      background-color: rgb(0 0 0 / 100%);
-    }
-
-    button:hover {
+      border-radius: 6px;
+      font: inherit;
+      font-size: 18px;
+      font-weight: 500;
+      color: #18191C;
+      background-color: #FFD829;
       cursor: pointer;
     }
 
-    input {
-      padding: 0.5em 1em;
-
-      border: 1px solid black;
+    .button:focus-visible {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
-    header,
-    main {
-      margin-bottom: 2em;
+    .status {
+      font-size: 16px;
+      color: rgb(255 255 255 / 0.7);
     }
 
-    main,
-    footer {
-      display: flex;
-      justify-content: center;
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <h1>Обработка события <code>beforeunload</code></h1>
-  <p>При вводе текста в поле ввода, на объект <code>window</code> будет добавлен обработчик события <code>beforeunload</code>. При очистке поля ввода, обработчик снимется. Для того, чтобы проверить его работу, попробуйте обновить страницу или нажмите на кнопку под полем ввода.</p>
-</header>
-<main>
-  <input type="text">
-</main>
-<footer>
-  <button onclick="window.location.reload()">Обновить страницу</button>
-</footer>
-<script>
-  const checkInput = (event) => {
-    if (event.target.value !== '') {
-      window.addEventListener('beforeunload', onBeforeUnloadCallback)
-    } else {
-      window.removeEventListener('beforeunload', onBeforeUnloadCallback)
+  <div class="demo">
+    <label class="label" for="note">Заметка</label>
+    <input class="field" id="note" type="text" autocomplete="off">
+    <button class="button" type="button">Обновить страницу</button>
+    <p class="status" aria-live="polite">Поле пустое, страница обновится без окна подтверждения.</p>
+  </div>
+
+  <script>
+    const input = document.querySelector('.field')
+    const button = document.querySelector('.button')
+    const status = document.querySelector('.status')
+
+    function handleBeforeUnload(event) {
+      event.preventDefault()
+      // Для браузеров на Chromium до 119
+      event.returnValue = true
     }
-  }
 
-  const onBeforeUnloadCallback = (event) => {
-    event.preventDefault()
+    input.addEventListener('input', () => {
+      if (input.value !== '') {
+        window.addEventListener('beforeunload', handleBeforeUnload)
+        status.textContent = 'Есть несохранённый текст, браузер покажет окно подтверждения.'
+      } else {
+        window.removeEventListener('beforeunload', handleBeforeUnload)
+        status.textContent = 'Поле пустое, страница обновится без окна подтверждения.'
+      }
+    })
 
-    event.returnValue = ''
-  }
-
-  const input = document.querySelector('input')
-
-  input.addEventListener('input', checkInput)
-</script>
+    button.addEventListener('click', () => {
+      window.location.reload()
+    })
+  </script>
 </body>
 </html>
