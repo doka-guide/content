@@ -5,7 +5,6 @@ baseline:
   - group: beforeunload
     features:
       - api.Window.beforeunload_event
-      - api.Window.beforeunload_event.preventdefault_activation
 authors:
   - kotosha-real
 contributors:
