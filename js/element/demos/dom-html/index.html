@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,140 +14,165 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    h1,
-    h2,
-    h3 {
-      margin-bottom: 17px;
-      font-weight: 500;
+    .demo {
+      width: 100%;
+      max-width: 560px;
     }
 
-    h2,
-    h3 {
-      margin-top: 40px;
+    .hint {
+      margin-bottom: 12px;
+      color: rgb(255 255 255 / 0.6);
+      font-size: 14px;
     }
 
-    h1 {
-      font-size: 26px;
-    }
-
-    h2 {
-      font-size: 22px;
-    }
-
-    h3 {
-      font-size: 20px;
-    }
-
-    p {
-      margin: 7px 0;
-      font-size: 16px;
-      line-height: 140%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .playground {
-      padding: 20px;
-      background-color: #282A2E;
-    }
-
+    /* Меню, по которому кликают */
     .menu {
-      padding: 20px;
-      border: 1px solid currentColor;
+      padding: 12px;
+      border: 1px solid #282A2E;
+      border-radius: 6px;
       list-style: none;
+      cursor: pointer;
     }
 
     .menu-item {
-      position: relative;
-      padding: 5px 10px 5px 30px;
-      background-color: #E6E6E6;
-      color: #282A2E;
-    }
-
-    .menu-item::before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: calc(50% - 7px);
-      width: 14px;
-      height: 14px;
-      background-color: currentColor;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background-color: #282A2E;
     }
 
     .menu-item + .menu-item {
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
-    .description {
-      margin-top: 40px;
+    .menu-item a {
+      color: #FFFFFF;
     }
 
+    /* Выбранный элемент */
     .active {
-      background-color: #FFD829;
-      color: #000000;
+      outline: 2px solid #FFD829;
+      outline-offset: 2px;
+    }
+
+    .info {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .info p + p,
+    .info h2 + p {
+      margin-top: 6px;
+    }
+
+    .info h2 {
+      font-size: 14px;
+      font-weight: 500;
+      color: #FFD829;
+    }
+
+    .info p + h2 {
+      margin-top: 14px;
+    }
+
+    .label {
+      color: rgb(255 255 255 / 0.6);
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    @media (width <= 768px) {
+      /* Высота подписей меняется, поэтому прижимаем демку к верху, чтобы меню не прыгало */
+      body {
+        padding: 30px;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="playground">
-    <ul id="main-menu" class="menu">
-      <li id="1" class="menu-item"><a href="#">Главная</a></li>
-      <li id="2" class="menu-item"><a href="#">Статьи</a></li>
-      <li id="3" class="menu-item"><a href="#">Контакты</a></li>
-    </ul>
-  </header>
-  <article id="description" class="description">
-    <h1>innerHTML, outerHTML, textContent</h1>
-    <p>Кликай на элементы страницы</p>
-    <h2></h2>
-    <h3>innerHTML</h3>
-    <p id="innerHTML"></p>
-    <h3>outerHTML</h3>
-    <p id="outerHTML"></p>
-    <h3>textContent</h3>
-    <p id="textContent"></p>
-  </article>
+  <div class="demo">
+    <p class="hint">Кликните на пункт меню или ссылку</p>
+    <div class="playground">
+      <ul id="main-menu" class="menu">
+        <li id="home" class="menu-item"><a href="#">Главная</a></li>
+        <li id="articles" class="menu-item"><a href="#">Статьи</a></li>
+        <li id="contacts" class="menu-item"><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+    <div class="info">
+      <p><span class="label">Выделен:</span> <code id="current"></code></p>
+      <h2>innerHTML</h2>
+      <p><code id="inner"></code></p>
+      <h2>outerHTML</h2>
+      <p><code id="outer"></code></p>
+      <h2>textContent</h2>
+      <p><code id="text"></code></p>
+    </div>
+  </div>
+
   <script>
-    const currentInfo = document.getElementsByTagName('h2')[0]
-    const innerHTMLInfo = document.getElementById('innerHTML')
-    const outerHTMLInfo = document.getElementById('outerHTML')
-    const textContentInfo = document.getElementById('textContent')
+    const menu = document.getElementById('main-menu')
+    const currentInfo = document.getElementById('current')
+    const innerInfo = document.getElementById('inner')
+    const outerInfo = document.getElementById('outer')
+    const textInfo = document.getElementById('text')
     let active
 
-    window.addEventListener('click', function(event) {
-      const current = event.target
+    function getInfo(element) {
+      const tag = `<${element.tagName.toLowerCase()}>`
+      return element.id ? `${tag}, id: ${element.id}` : tag
+    }
 
-      if (current === innerHTMLInfo || current === outerHTMLInfo) return
-
+    function select(element) {
       if (active) {
         active.classList.remove('active')
+        // У ссылок своего класса нет, убираем пустой атрибут
+        if (active.classList.length === 0) {
+          active.removeAttribute('class')
+        }
       }
-      current.classList.add('active')
 
-      currentInfo.innerText = 'Выделен ' + getInfo(current)
-      innerHTMLInfo.textContent = current.innerHTML
-      outerHTMLInfo.textContent = current.outerHTML
-      textContentInfo.textContent = current.textContent
+      // Читаем свойства до подсветки, чтобы в разметку не попал класс active
+      currentInfo.textContent = getInfo(element)
+      innerInfo.textContent = element.innerHTML
+      outerInfo.textContent = element.outerHTML
+      textInfo.textContent = element.textContent
 
-      active = current;
-    });
-
-    function getInfo(el) {
-      if (!el) {
-        return 'Нет'
-      }
-      return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '')
+      element.classList.add('active')
+      active = element
     }
+
+    menu.addEventListener('click', (event) => {
+      // Ссылки в демке никуда не ведут
+      event.preventDefault()
+      // Список целиком не выбираем: его разметка слишком длинная
+      if (event.target === menu) {
+        return
+      }
+      select(event.target)
+    })
+
+    select(document.getElementById('articles'))
   </script>
 </body>
 </html>
