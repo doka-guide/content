@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Стилизация <optgroup> — <optgroup> — Дока</title>
+  <title>Стилизация optgroup — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
       align-items: center;
       justify-content: center;
       gap: 50px;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
@@ -40,16 +40,44 @@
     select {
       width: 300px;
       padding: 10px 15px;
-      font-size: 18px;
+      font: inherit;
     }
 
     optgroup {
       color: #FF8630;
-      font-size: 18px;
       background-color: #000000;
     }
 
-    @media (max-width: 768px) {
+    /* Настраиваемый select: Chrome и Edge с версии 135, Safari с версии 27 */
+    select,
+    ::picker(select) {
+      appearance: base-select;
+    }
+
+    ::picker(select) {
+      border: 2px solid #FF8630;
+      border-radius: 6px;
+      background-color: #000000;
+    }
+
+    optgroup legend {
+      padding: 6px 15px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    option {
+      padding: 6px 15px 6px 30px;
+      color: #FFFFFF;
+    }
+
+    option:hover,
+    option:focus-visible {
+      color: #000000;
+      background-color: #FF8630;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
         flex-direction: column;
@@ -59,12 +87,17 @@
   </style>
 </head>
 <body>
-  <label for="colors">Выберите оттенок оранжевого:</label>
+  <label for="colors">Выберите оттенок:</label>
   <select id="colors">
-    <optgroup label="Оттенки оранжевого">
+    <optgroup label="Оранжевые">
+      <legend>Оранжевые</legend>
       <option>Коралловый</option>
       <option>Тыквенный</option>
-      <option>Морковный</option>
+    </optgroup>
+    <optgroup label="Жёлтые">
+      <legend>Жёлтые</legend>
+      <option>Лимонный</option>
+      <option>Горчичный</option>
     </optgroup>
   </select>
 </body>
