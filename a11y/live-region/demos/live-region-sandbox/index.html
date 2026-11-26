@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Песочница — Что такое изменяющаяся область — Дока</title>
+  <title>Песочница — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,7 @@
       min-height: 100vh;
       padding: 50px;
       display: flex;
+      align-items: flex-start;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
@@ -130,7 +131,7 @@
       width: 300px;
       border: 1px solid #FFFFFF;
       border-radius: 6px;
-      padding: 10px 15px;
+      padding: 10px 40px 10px 15px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: inherit;
@@ -177,21 +178,24 @@
       border: 0;
     }
 
-    .live-region {
+    .sandbox {
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
       max-width: 650px;
       padding: 20px;
       gap: 10px;
-      border: 1px solid white;
+      border: 1px solid #FFFFFF;
       border-radius: 6px;
     }
 
-    .live-region__content {
+    .live-region {
       display: flex;
       flex-wrap: wrap;
+      min-height: 70px;
+      padding: 10px;
       gap: 20px;
+      border: 1px dashed #F498AD;
+      border-radius: 6px;
     }
 
     .live-region__item {
@@ -248,28 +252,61 @@
       margin-top: 25px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
-      .row {
-        display: block;
+      .row + .row {
+        margin-top: 15px;
       }
 
-      .row-title, select {
-        width: 100%;
-        min-width: 280px;
+      .row-label {
+        margin-top: 25px;
+        margin-bottom: 15px;
       }
 
       .row-title {
-        display: block;
-        margin-right: 0;
-        margin-bottom: 10px;
+        width: auto;
+        margin-right: 10px;
+        font-size: 14px;
+        white-space: nowrap;
       }
 
-      .button, .radio {
-        margin-bottom: 15px;
+      .row:has(> .select-wrapper) {
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .select-wrapper {
+        flex: 0 0 150px;
+      }
+
+      select {
+        width: 100%;
+        font-size: 16px;
+      }
+
+      fieldset > .row:has(.radio-label) {
+        flex-wrap: wrap;
+        gap: 10px 25px;
+      }
+
+      .radio-label + .radio-label {
+        margin-left: 0;
+      }
+
+      .button {
+        min-width: 0;
+        flex: 1;
+        padding: 9px 8px;
+        font-size: 16px;
+      }
+
+      .status-message {
+        height: auto;
+        min-height: 22px;
+        margin-top: 15px;
       }
     }
   </style>
@@ -377,31 +414,29 @@
       </fieldset>
 
       <div class="row row--center">
-        <button class="button button-aqua" type="button" id="set-button" aria-controls="output">Применить 🚀</button>
-        <button class="button button-aqua" type="reset" id="reset-button" >Сбросить 🧹</button>
+        <button class="button button-aqua" type="button" id="set-button">Применить 🚀</button>
+        <button class="button button-aqua" type="reset" id="reset-button">Сбросить 🧹</button>
       </div>
 
-      <div class="status-message"></div>
+      <div class="status-message" role="status"></div>
     </form>
 
     <div class="row row--column">
       <h2 class="row-label">Область для тестирования со скринридерами</h2>
-      <div class="live-region">
+      <div class="sandbox">
         <div class="row row--center">
-          <button class="button button-aqua button-small" id="add-button">Добавить</button>
-          <button class="button button-aqua button-small" id="delete-button">Удалить</button>
+          <button class="button button-aqua button-small" type="button" id="add-button">Добавить</button>
+          <button class="button button-aqua button-small" type="button" id="delete-button">Удалить</button>
         </div>
-        <p>Под этим текстом добавляются или удаляются карточки с цифрами при нажатии на кнопки «Добавить» и «Удалить».</p>
-        <div class="live-region__content">
-        </div>
+        <p>Кнопки добавляют и удаляют карточки с цифрами. Изменяющаяся область — блок с карточками под этим текстом, кнопки лежат снаружи.</p>
+        <!-- Роль и ARIA-атрибуты получает только этот блок -->
+        <div class="live-region"></div>
       </div>
     </div>
   </div>
   <script>
     const liveRegion = document.querySelector('.live-region')
-    const liveRegionContent = document.querySelector('.live-region__content')
     const liveRegionItemName = 'live-region__item'
-    const radioButton = document.getElementsByName('role')
     const setButton = document.getElementById('set-button')
     const resetButton = document.getElementById('reset-button')
     const addButton = document.getElementById('add-button')
@@ -411,54 +446,73 @@
     let itemNumber = 1
 
     addButton.addEventListener('click', function() {
-      const element = document.createElement('article')
+      const element = document.createElement('div')
 
       element.className = liveRegionItemName
-      element.innerHTML = itemNumber++
-      liveRegionContent.appendChild(element)
+      element.textContent = itemNumber++
+      liveRegion.append(element)
     })
 
     deleteButton.addEventListener('click', function() {
-      const element = liveRegionContent.lastElementChild
+      const element = liveRegion.lastElementChild
 
-      if (element && element.classList.contains(liveRegionItemName)) {
-        liveRegionContent.removeChild(element);
+      if (element) {
+        element.remove()
       }
 
-      if (liveRegionContent.childElementCount === 0) {
+      if (liveRegion.childElementCount === 0) {
         itemNumber = 1
       }
     })
 
     setButton.addEventListener('click', function() {
-      const selectLive = document.getElementById('live')
-      const selectAtomic = document.getElementById('atomic')
-      const selectRelevant = document.getElementById('relevant')
-      const selectBusy = document.getElementById('busy')
+      const selects = [
+        document.getElementById('live'),
+        document.getElementById('atomic'),
+        document.getElementById('relevant'),
+        document.getElementById('busy')
+      ]
+      const checkedRole = document.querySelector('[name="role"]:checked')
 
-      radioButton.forEach(function(radio) {
-        if(radio.checked) {
-          let selectedValue = radio.value
-          liveRegion.setAttribute('role', selectedValue)
-          statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
-        }
+      if (checkedRole) {
+        liveRegion.setAttribute('role', checkedRole.value)
+      } else {
+        liveRegion.removeAttribute('role')
+      }
+
+      selects.forEach(function(select) {
+        setSelectAttribute(liveRegion, select)
       })
 
-      setSelectAttribute(liveRegion, selectLive)
-      setSelectAttribute(liveRegion, selectAtomic)
-      setSelectAttribute(liveRegion, selectRelevant)
-      setSelectAttribute(liveRegion, selectBusy)
+      const liveRoles = ['status', 'log', 'alert']
+      const liveValues = ['polite', 'assertive']
+      const live = selects[0].value
+      const isLive = liveValues.includes(live)
+        || (live === 'none' && checkedRole && liveRoles.includes(checkedRole.value))
+
+      if (isLive) {
+        showStatus('Настройки применились. Блок с карточками стал изменяющейся областью.')
+      } else if (checkedRole || selects.some(select => select.value !== 'none')) {
+        showStatus('Блок с карточками не стал изменяющейся областью: нужна роль status, log, alert или aria-live со значением polite или assertive.')
+      } else {
+        showStatus('Выберите роль или атрибут.')
+      }
     })
 
     const setSelectAttribute = (element, select) => {
-      let selectedValue = select.value
-
-      if(selectedValue !== 'none') {
-        element.setAttribute(`${select.name}`, selectedValue)
-        statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
+      if (select.value !== 'none') {
+        element.setAttribute(select.name, select.value)
       } else {
-        element.removeAttribute(`${select.name}`, selectedValue)
+        element.removeAttribute(select.name)
       }
+    }
+
+    // Очищаем сообщение, чтобы скринридер объявил и повторный текст
+    const showStatus = (text) => {
+      statusMessage.textContent = ''
+      setTimeout(() => {
+        statusMessage.textContent = text
+      }, 100)
     }
 
     resetButton.addEventListener('click', function() {
@@ -477,7 +531,7 @@
           liveRegion.removeAttribute(attr)
         })
 
-        statusMessage.textContent = 'Настройки очищены. Блок ниже больше не изменяющаяся область.'
+        showStatus('Настройки очищены. Блок с карточками больше не изменяющаяся область.')
       }
     })
   </script>
