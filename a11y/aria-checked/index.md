@@ -12,10 +12,6 @@ related:
   - html/input
   - a11y/role-option
   - a11y/role-checkbox
-baseline:
-  - group: aria-attribute-reflection
-    features:
-      - api.Element.ariaChecked
 tags:
   - doka
 ---
