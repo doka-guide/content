@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Формула Тейлора в MathML — math — Дока</title>
+  <title>Формула Тейлора в MathML — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,9 +31,10 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
+        font-size: 1.25rem;
       }
     }
     .container {
@@ -45,18 +46,18 @@
 </head>
 <body>
   <div class="container">
-    <h3>Формула Тейлора в MathML</h3>
-    <math>
-      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo>
+    <math display="block">
+      <mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow>
+      <mo>=</mo>
       <munderover>
         <mo>∑</mo>
         <mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow>
-        <mo>∞</mo>
+        <mi>∞</mi>
       </munderover>
       <mfrac>
         <mrow>
-          <msup><mi>f</mi><mo>⁽ⁿ⁾</mo></msup>
-          <mo>(</mo><mi>a</mi><mo>)</mo>
+          <msup><mi>f</mi><mrow><mo>(</mo><mi>n</mi><mo>)</mo></mrow></msup>
+          <mrow><mo>(</mo><mi>a</mi><mo>)</mo></mrow>
         </mrow>
         <mrow>
           <mi>n</mi><mo>!</mo>
