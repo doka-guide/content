@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Атрибут placeholder в поле ввода — Атрибут placeholder — Дока</title>
+  <title>Атрибут placeholder в поле ввода — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,13 +39,12 @@
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
-      -webkit-appearance: none;
       appearance: none;
     }
 
-    input:focus {
-      border-color: #FF8630;
-      outline: none;
+    input:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
     }
 
     textarea {
@@ -63,9 +62,14 @@
       font-family: inherit;
     }
 
-    textarea:focus {
-      border-color: #FF8630;
-      outline: none;
+    textarea:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #9E9E9E;
     }
 
     .form-row {
@@ -90,7 +94,7 @@
       width: 350px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -123,7 +127,9 @@
       </div>
       <div class="form-row">
         <label class="row-label" for="about">О вас:</label>
-        <textarea id="about" placeholder="Томясь в бездействии досуга&#10;Без службы, без жены, без дел,&#10;Ничем заняться не умел"></textarea>
+        <textarea id="about" placeholder="Томясь в бездействии досуга
+Без службы, без жены, без дел,
+Ничем заняться не умел"></textarea>
       </div>
     </form>
 </body>
