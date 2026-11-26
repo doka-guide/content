@@ -60,19 +60,16 @@
     }
 
     button:focus-visible {
-      border: 2px solid #FFFFFF;
-      outline: none;
-    }
-
-    button:focus {
-      border: 2px solid #FFFFFF;
-      outline: none;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
     [popover] {
       border: none;
-      margin-inline: auto;
-      inset-inline: 0;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
       inset-block-start: 50%;
       transform: translateY(-200%);
       padding: 10px 40px;
@@ -80,7 +77,7 @@
       color: #000000;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }

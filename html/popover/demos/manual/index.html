@@ -68,19 +68,16 @@
     }
 
     button:focus-visible {
-      border: 2px solid #FFFFFF;
-      outline: none;
-    }
-
-    button:focus {
-      border: 2px solid #FFFFFF;
-      outline: none;
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
     }
 
     [popover] {
       border: none;
-      margin-inline: auto;
-      inset-inline: 0;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
       inset-block-start: 50%;
       padding: 10px 40px;
       background-color: #FFFFFF;
@@ -103,7 +100,7 @@
       transform: translateY(350%);
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -137,7 +134,7 @@
     </button>
 
     <div id="popover-auto" popover="auto">
-      <p>Закрываю другие всплывашки. Легко закрываюсь сам.</p>
+      <p>Закрываю другие всплывашки <code>auto</code>. Легко закрываюсь сам.</p>
     </div>
 
     <button popovertarget="popover-auto-2">
