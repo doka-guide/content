@@ -8,13 +8,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    html {
+      color-scheme: dark;
+    }
+
     body {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-size: 24px;
       font-family: "Roboto", sans-serif;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #FF8630;
+      color: #000000;
+      font: inherit;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -24,10 +46,14 @@
     <legend>Второй</legend>
     <legend>Третий</legend>
   </fieldset>
+  <button type="button">Переставить легенды</button>
   <script>
-    setInterval(() => {
-      document.querySelector('fieldset').appendChild(document.querySelector('legend'))
-    }, 1000)
+    const fieldset = document.querySelector('fieldset')
+
+    document.querySelector('button').addEventListener('click', () => {
+      // Первая легенда уходит в конец, её место в рамке занимает следующая
+      fieldset.appendChild(fieldset.querySelector('legend'))
+    })
   </script>
 </body>
 </html>

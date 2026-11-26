@@ -4,39 +4,72 @@
   <title>Стилизованная легенда — <legend> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    html {
+      color-scheme: dark;
+    }
+
     body {
       background-color: #6d695c;
       background-image:
-      repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-      repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
-      linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
-      linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+        repeating-linear-gradient(120deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgb(0 0 0 / 0.1) 25%, transparent 25%, transparent 75%, rgb(0 0 0 / 0.1) 75%, rgb(0 0 0 / 0.1)),
+        linear-gradient(120deg, rgb(0 0 0 / 0.1) 25%, transparent 25%, transparent 75%, rgb(0 0 0 / 0.1) 75%, rgb(0 0 0 / 0.1));
       background-size: 70px 120px;
-      margin: 1em;
-      color: #fff;
+      margin: 0;
+      padding: 50px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     fieldset {
       font-size: 1.5rem;
+      border-width: 2px;
       border-style: dashed;
+      border-color: #FFFFFF;
       border-radius: 1em;
       padding: 1em;
     }
 
     legend {
       margin: 0 auto;
-      padding: 0 .5em;
+      padding: 0 0.5em;
+    }
+
+    label {
+      display: block;
+      margin-top: 0.5em;
+    }
+
+    input {
+      width: 0.8em;
+      height: 0.8em;
+      accent-color: #FF8630;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      fieldset {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <fieldset>
-    <legend>Стражи Галактики. Часть 2</legend>
-    <blockquote>
-      Просто представил, как ты по утру просыпаешься, смотришь в зеркало и на полном серьёзе говоришь себе: «Я наконец придумал реально отвязное имя — Шокерфейс!» Прям... Прям нарисовалась картинка. Ой, не могу! Слушай, слушай, а у тебя был второй вариант, типа «Чпок-в-пупок»?
-      <footer>— Ракета (Rocket)</footer>
-    </blockquote>
-  </fieldset>
+  <form>
+    <fieldset>
+      <legend>Кто из Стражей Галактики говорит «Я есть Грут»?</legend>
+      <label><input type="radio" name="guardian" value="groot"> Грут</label>
+      <label><input type="radio" name="guardian" value="rocket"> Ракета</label>
+      <label><input type="radio" name="guardian" value="drax"> Дракс</label>
+    </fieldset>
+  </form>
 </body>
 </html>

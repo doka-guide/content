@@ -8,11 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    html {
+      color-scheme: dark;
+    }
+
     body {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-size: 24px;
       font-family: "Roboto", sans-serif;
     }
@@ -23,6 +27,13 @@
 
     .legend_align_right {
       margin-left: auto;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
