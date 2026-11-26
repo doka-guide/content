@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Встраивание PDF — <object> — Дока</title>
+  <title>PDF внутри object — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,19 +33,29 @@
     a {
       border-radius: 3px;
       color: inherit;
-      -webkit-text-decoration-color: #FF8630;
       text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
     }
 
-    a:hover, a:focus {
+    a:hover {
       background-color: #FF8630;
-      transition: background-color 0.2s linear;
-      outline-width: 0;
     }
 
-    @media (max-width: 768px) {
+    a:focus-visible {
+      outline: 2px solid #FF8630;
+      outline-offset: 2px;
+    }
+
+    object {
+      max-width: 100%;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -54,9 +64,10 @@
 </head>
 <body>
   <div class="container">
-    <object type="application/pdf" data="example.pdf" width="600" height="700">
-      <a href="example.pdf">Лунная соната № 14 PDF</a>
+    <object type="application/pdf" data="example.pdf" width="600" height="700" title="Ноты «Лунной сонаты»">
+      <p>Не получилось показать ноты в браузере.</p>
     </object>
+    <p><a href="example.pdf">Скачать ноты в PDF</a></p>
   </div>
 </body>
 </html>
