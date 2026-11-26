@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Анализ производительности приложения – performance – Дока</title>
+  <title>Анализ производительности приложения — performance — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +36,7 @@
       margin-bottom: 30px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -126,9 +126,9 @@
   <div id="container">
     <ol>
       <li>Откройте инструменты разработчика и перейдите в раздел «Производительность» (Performance)</li>
-      <li>Нажмите круглую кнопку «Запись» или <kbd>Ctrl E</kbd></li>
+      <li>Нажмите круглую кнопку «Запись» или <kbd>Ctrl E</kbd> (<kbd>Cmd E</kbd> в macOS)</li>
       <li>Нажмите кнопку для запуска специально замедленного кода — <button id="start-button" class="button button-yellow">Запустить</button></li>
-      <li>Нажмите красную кнопку «Стоп» или <kbd>Ctrl E</kbd></li>
+      <li>Нажмите красную кнопку «Стоп» или <kbd>Ctrl E</kbd> (<kbd>Cmd E</kbd> в macOS)</li>
     </ol>
   </div>
   <p id="result" class="hidden" aria-live="polite">Готово 🎉</p>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Измерение времени работы функции – Performance – Doka</title>
+  <title>Измерение времени работы функции — performance — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,91 +14,135 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      margin: 8px 16px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
-      font-weight: 400;
-      background-color: #18191c;
+      line-height: 1.5;
+    }
+
+    .button {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 6px 16px;
+      background-color: #FFD829;
+      color: #000000;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border-color: #FFFFFF;
+      outline: none;
+    }
+
+    .button:disabled {
+      background-color: #282A2E;
       color: #FFFFFF;
+      cursor: wait;
     }
 
     .result {
       display: flex;
       flex-direction: column;
+      text-align: center;
     }
 
-    .button {
-      padding: 4px 8px;
+    .time {
+      font-weight: 500;
+      color: #FFD829;
     }
 
     .hidden {
       display: none;
     }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <p id="button-container">Нажмите для старта измерений - <button id="start-button" class="button">Запустить</button></p>
-    <p id="loader" class="hidden">Расчёт...</p>
-    <p id="result-container" class="result hidden">
-      <span>Время работы функции function_1: <span id="first-function-measure"></span></span>
-      <span>Время работы функции function_2: <span id="second-function-measure"></span></span>
-    </p>
-  </main>
+  <button id="start-button" class="button" type="button">Запустить измерения</button>
+  <p id="result-container" class="result hidden" aria-live="polite">
+    <span>function_1: <span id="first-function-measure" class="time"></span></span>
+    <span>function_2: <span id="second-function-measure" class="time"></span></span>
+  </p>
   <script>
     const resultContainer = document.getElementById('result-container')
-    const buttonContainer = document.getElementById('button-container')
     const startButton = document.getElementById('start-button')
-    const loader = document.getElementById('loader')
     const firstFunctionMeasure = document.getElementById('first-function-measure')
     const secondFunctionMeasure = document.getElementById('second-function-measure')
 
+    // Обе функции выполняют настоящие вычисления, а не ждут таймер
     const function_1 = function() {
-      return new Promise(function (resolve) {
-        setTimeout(function () {
-          console.log('first computing')
-          resolve()
-        }, 900)
-      })
+      let sum = 0
+      for (let i = 0; i < 30_000_000; i++) {
+        sum += Math.sqrt(i)
+      }
+      return sum
     }
 
     const function_2 = function() {
-      return new Promise(function (resolve) {
-        setTimeout(function () {
-          console.log('second computing')
-          resolve()
-        }, 500)
-      })
+      let sum = 0
+      for (let i = 0; i < 10_000_000; i++) {
+        sum += Math.sqrt(i)
+      }
+      return sum
     }
 
-    startButton.addEventListener('click', function(evt) {
-      evt.preventDefault()
+    startButton.addEventListener('click', function() {
+      startButton.disabled = true
+      startButton.textContent = 'Считаем…'
 
-      buttonContainer.classList.add('hidden')
-      loader.classList.remove('hidden')
+      // Даём браузеру отрисовать кнопку перед тяжёлыми вычислениями
+      setTimeout(function () {
+        performance.mark('start first function')
+        function_1()
+        performance.mark('finish first function')
 
-      const markA = 'start first function'
-      const markB = 'finish first function'
-      const markC = 'start second function'
-      const markD = 'finish second function'
-      performance.mark(markA)
-      function_1().then(function() {
-        performance.mark(markB)
+        performance.mark('start second function')
+        function_2()
+        performance.mark('finish second function')
 
-        performance.mark(markC)
-        function_2().then(function() {
-          performance.mark(markD)
+        const first = performance.measure(
+          'firstFunction',
+          'start first function',
+          'finish first function'
+        )
+        const second = performance.measure(
+          'secondFunction',
+          'start second function',
+          'finish second function'
+        )
 
-          performance.measure('firstFunction', markA, markB)
-          performance.measure('secondFunction', markC, markD)
-
-          loader.classList.add('hidden')
-          firstFunctionMeasure.innerText = `${performance.getEntriesByName('firstFunction')[0].duration} миллисекунд`
-          secondFunctionMeasure.innerText = `${performance.getEntriesByName('secondFunction')[0].duration} миллисекунд`
-          resultContainer.classList.remove('hidden')
-        })
-      })
+        firstFunctionMeasure.textContent = `${first.duration.toFixed(1)} мс`
+        secondFunctionMeasure.textContent = `${second.duration.toFixed(1)} мс`
+        resultContainer.classList.remove('hidden')
+        startButton.disabled = false
+        startButton.textContent = 'Запустить ещё раз'
+      }, 50)
     })
   </script>
 </body>
