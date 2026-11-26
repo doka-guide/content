@@ -4,6 +4,7 @@
 
 ## Ноябрь 2026
 
+- 26 ноября, [`aria-braillelabel`](https://doka.guide/a11y/aria-braillelabel/), Алёна Батицкая
 - 26 ноября, [window.open()](https://doka.guide/js/window-open/), Алёна Батицкая
 - 26 ноября, [`SharedArrayBuffer`](https://doka.guide/js/shared-array-buffer/), Алёна Батицкая
 - 22 ноября, [using](https://doka.guide/js/using/), Viktar Nezhbart
