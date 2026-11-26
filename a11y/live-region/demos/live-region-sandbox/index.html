@@ -485,15 +485,20 @@
       })
 
       const liveRoles = ['status', 'log', 'alert']
-      const liveValues = ['polite', 'assertive']
+      const quietRoles = ['marquee', 'timer']
       const live = selects[0].value
-      const isLive = liveValues.includes(live)
-        || (live === 'none' && checkedRole && liveRoles.includes(checkedRole.value))
+      const role = checkedRole ? checkedRole.value : null
+      const isLive = ['polite', 'assertive'].includes(live)
+        || (live === 'none' && liveRoles.includes(role))
+      const isQuiet = live === 'off'
+        || (live === 'none' && quietRoles.includes(role))
 
       if (isLive) {
         showStatus('Настройки применились. Блок с карточками стал изменяющейся областью.')
-      } else if (checkedRole || selects.some(select => select.value !== 'none')) {
-        showStatus('Блок с карточками не стал изменяющейся областью: нужна роль status, log, alert или aria-live со значением polite или assertive.')
+      } else if (isQuiet) {
+        showStatus('Блок с карточками стал изменяющейся областью с aria-live="off": скринридер сам не объявит изменения.')
+      } else if (selects.some(select => select.value !== 'none')) {
+        showStatus('Блок с карточками не стал изменяющейся областью: нужна роль или aria-live.')
       } else {
         showStatus('Выберите роль или атрибут.')
       }
