@@ -22,14 +22,13 @@
       text-align: center;
     }
 
-    .parent {
+    .image-wrapper {
       position: relative;
       width: 50%;
       margin: auto;
-      padding: 10px;
     }
 
-    .parent::after {
+    .image-wrapper::after {
       content: "";
       position: absolute;
       top: 0;
@@ -39,12 +38,12 @@
       background-color: rgb(46 154 255 / 20%);
     }
 
-    .child {
+    .image {
       display: block;
       width: 100%;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -52,8 +51,8 @@
   </style>
 </head>
 <body>
-  <div class="parent">
-    <img class="child" src="images/sleeping-dogs.png" alt="Три собаки, все закрыли глаза и спят">
+  <div class="image-wrapper">
+    <img class="image" src="images/sleeping-dogs.png" alt="Три собаки, все закрыли глаза и спят">
   </div>
 </body>
 </html>
