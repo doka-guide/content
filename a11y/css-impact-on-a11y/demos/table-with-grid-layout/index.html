@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Таблица с display: grid — Влияние CSS на доступность — Дока</title>
+  <title>Таблица с display: grid — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,7 +51,7 @@
     }
 
     .element-wrapper {
-      min-width: 600px;
+      max-width: 640px;
       margin-top: 48px;
     }
 
@@ -106,7 +106,6 @@
 
     .table-layout__row {
       display: flex;
-      flex-wrap: wrap;
       border-bottom: 1px solid #10F3AF;
     }
 
@@ -119,15 +118,15 @@
     }
 
     .table-layout__col:nth-child(3n + 1) {
-      min-width: 360px;
+      flex: 3 1 0;
     }
 
     .table-layout__col:nth-child(3n + 2) {
-      min-width: 140px;
+      flex: 2 1 0;
     }
 
     .table-layout__col:nth-child(3n) {
-      min-width: 110px;
+      flex: 1 1 0;
     }
 
     .table-layout__col--heading:first-of-type,
@@ -136,21 +135,9 @@
       text-align: left;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
-      }
-
-      .table-layout__col:nth-child(3n + 1) {
-        min-width: 50%;
-      }
-
-      .table-layout__col:nth-child(3n + 2) {
-        min-width: 30%;
-      }
-
-      .table-layout__col:nth-child(3n) {
-        min-width: 20%;
       }
     }
   </style>
@@ -160,8 +147,8 @@
   <h1>Чек</h1>
 
   <div class="element-wrapper">
-    <h2 id="fake-heading">Контейнеры и <code>display: table</code></h2>
-    <div class="table table-layout" aria-labelledby="fake-heading">
+    <h2>Контейнеры и <code>display: table</code></h2>
+    <div class="table table-layout">
       <div class="table-layout__row">
         <p class="table-layout__col table-layout__col--heading">Продукт</p>
         <p class="table-layout__col table-layout__col--heading">Количество</p>
