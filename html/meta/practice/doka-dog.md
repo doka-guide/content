@@ -3,3 +3,5 @@
 ```html
 <meta name="format-detection" content="telephone=no">
 ```
+
+В сети встречаются советы дописать сюда `email=no`, `address=no` или `date=no`. Это не работает: Safari разбирает в этом теге только `telephone`, а Chrome не читает его вовсе.
