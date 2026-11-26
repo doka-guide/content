@@ -58,7 +58,7 @@ SVG-картинка с запасной PNG-картинкой:
 <p><a href="example.pdf">Скачать ноты в PDF</a></p>
 ```
 
-<iframe title="PDF-файл, встроенный с помощью object" src="demos/show-pdf/" height="830"></iframe>
+<iframe title="PDF-файл, встроенный с помощью object" src="demos/show-pdf/" height="880"></iframe>
 
 Атрибуты:
 
