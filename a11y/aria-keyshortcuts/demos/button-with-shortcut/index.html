@@ -86,7 +86,7 @@
     <button class="button button-aqua" type="button" aria-keyshortcuts="Alt+Shift+F">
       Развернуть
     </button>
-    <p class="hint">Нажмите кнопку или <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></p>
+    <p class="hint">Нажмите кнопку или <kbd class="alt-key">Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></p>
   </div>
 
   <script>
@@ -99,6 +99,12 @@
     }
 
     button.addEventListener('click', toggle)
+
+    // На macOS клавиша Alt называется Option
+    const platform = navigator.userAgentData?.platform ?? navigator.platform
+    if (/mac/i.test(platform)) {
+      document.querySelector('.alt-key').textContent = 'Option'
+    }
 
     // aria-keyshortcuts только сообщает о сочетании, обработчик нужен свой
     document.addEventListener('keydown', (event) => {
