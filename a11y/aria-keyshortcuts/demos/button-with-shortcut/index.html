@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Клавиатурное сокращение для кнопки — aria-keyshortcuts — Дока</title>
+  <title>Сочетание клавиш для кнопки — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,7 +63,18 @@
       background-color: #10F3AF;
     }
 
-    @media (max-width: 768px) {
+    .demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hint {
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -71,8 +82,46 @@
   </style>
 </head>
 <body>
-  <button class="button button-aqua" aria-keyshortcuts="Shift+F">
-    Развернуть
-  </button>
+  <div class="demo">
+    <button class="button button-aqua" type="button" aria-keyshortcuts="Alt+Shift+F">
+      Развернуть
+    </button>
+    <p class="hint">Нажмите кнопку или <kbd class="alt-key">Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd></p>
+  </div>
+
+  <script>
+    const button = document.querySelector('.button')
+    let isExpanded = false
+
+    function toggle() {
+      isExpanded = !isExpanded
+      button.textContent = isExpanded ? 'Свернуть' : 'Развернуть'
+    }
+
+    button.addEventListener('click', toggle)
+
+    // На macOS клавиша Alt называется Option
+    const platform = navigator.userAgentData?.platform ?? navigator.platform
+    if (/mac/i.test(platform)) {
+      document.querySelector('.alt-key').textContent = 'Option'
+    }
+
+    // aria-keyshortcuts только сообщает о сочетании, обработчик нужен свой
+    document.addEventListener('keydown', (event) => {
+      // В полях ввода сочетание не перехватываем: на macOS
+      // Option + Shift + буква печатает символ
+      if (event.target.closest('input, textarea, [contenteditable]')) {
+        return
+      }
+
+      const isShortcut = event.altKey && event.shiftKey &&
+        !event.ctrlKey && !event.metaKey && event.code === 'KeyF'
+
+      if (isShortcut) {
+        event.preventDefault()
+        toggle()
+      }
+    })
+  </script>
 </body>
 </html>
