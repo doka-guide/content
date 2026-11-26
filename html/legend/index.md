@@ -1,6 +1,6 @@
 ---
 title: "`<legend>`"
-description: "Добавляет заголовок полям ввода, сгруппированным при помощи `<fieldset>`."
+description: "Добавляет подпись к группе полей в `<fieldset>`."
 baseline:
   - group: fieldset
     features:
@@ -9,6 +9,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
+  - solarrust
 keywords:
   - легенда
 related:
@@ -21,69 +22,61 @@ tags:
 
 ## Кратко
 
-Добавляет заголовок в [`<fieldset>`](/html/fieldset/), который по умолчанию оформляется браузером как текст, органично вписанный в рамку.
+Добавляет подпись, или легенду, в [`<fieldset>`](/html/fieldset/). Браузер рисует её поверх верхней линии рамки, и линия прерывается под легендой.
 
 ## Пример
 
 ```html
 <fieldset>
-  <legend>Заголовок для группы контролов</legend>
-  …
+  <legend>Способ доставки</legend>
+  <label>
+    <input type="radio" name="delivery" value="courier">
+    Курьером
+  </label>
+  <label>
+    <input type="radio" name="delivery" value="pickup">
+    Самовывоз
+  </label>
 </fieldset>
 ```
 
 ## Как понять
 
-`<legend>` позволяет описать содержимое `<fieldset>`, но семантически он не является «представителем» [заголовков](/html/h1-h6/), хотя выполняет схожую функцию. Он не задаёт иерархию, а лишь характеризует контент внутри «своей» группы — как [`<label>`](/html/label/) для соответствующего контрола.
+`<legend>` описывает содержимое `<fieldset>`. Роль у него похожа на [заголовок](/html/h1-h6/), но семантически это не заголовок: легенда не задаёт иерархию. Она подписывает только свою группу, как [`<label>`](/html/label/) подписывает своё поле.
+
+[Скринридеры](/a11y/screenreaders/) на компьютере объявляют текст `<legend>` как название группы, когда пользователь попадает в неё. VoiceOver на iOS и TalkBack легенду часто пропускают. Поэтому не прячьте в `<legend>` единственную подсказку к полям.
+
+Внутрь `<legend>` можно положить заголовок `<h1>`–`<h6>`. Так делают, когда `<legend>` служит главным заголовком страницы, например в опросе с одним вопросом на экране.
 
 ## Как пишется
 
 ```html
 <fieldset>
-  <legend>Заголовок для группы</legend>
+  <legend>Подпись группы</legend>
   …
 </fieldset>
 ```
 
 <aside>
 
-⚠️ Важно, чтобы `<legend>` был первым дочерним элементом внутри `<fieldset>`. Если внутри `<fieldset>` будет больше одного `<legend>`, отобразится только первый, все остальные отобразятся как обычные блочные элементы:
+⚠️ По спецификации `<legend>` должен быть первым дочерним элементом `<fieldset>`. Браузер помещает в разрыв рамки первый `<legend>` без [`float`](/css/float/) и без [`position`](/css/position/) со значением `absolute` или `fixed`. Остальные `<legend>` браузер покажет как обычные блочные элементы:
 
 </aside>
 
-<iframe title="Меняющаяся легенда" src="demos/legend-rotate/" height="200"></iframe>
+<iframe title="Меняющаяся легенда" src="demos/legend-rotate/" height="310"></iframe>
 
 ## Атрибуты
 
-У `<legend>` нет никаких своих атрибутов, ему доступны все [глобальные атрибуты](/html/global-attrs/).
+У `<legend>` нет своих атрибутов, ему доступны все [глобальные атрибуты](/html/global-attrs/). Устаревший атрибут `align` браузеры ещё понимают, но разметка с ним невалидна.
 
 ## Подсказки
 
-Внешний вид оформления рамки по умолчанию у `<legend>` немного отличается в зависимости от браузера и операционной системы:
+💡 Браузеры рисуют `<legend>` почти одинаково. По спецификации HTML:
 
-<section class="section section_column_2">
-  <figure class="section__item">
-    <img src="images/win-10-chrome-71.png" alt="Windows 10, Google Chrome 71.0">
-    <figcaption>Windows 10, Google Chrome 71.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/mac-chrome-71.png" alt="macOS Big Sur, Google Chrome 71.0">
-    <figcaption>macOS Big Sur, Google Chrome 71.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-10-edge-18.png" alt="Windows 10, Edge 18.0">
-    <figcaption>Windows 10, Edge 18.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/mac-safari-14.jpg" alt="macOS Big Sur, Safari 14.0">
-    <figcaption>macOS Big Sur, Safari 14.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">
-    <figcaption>Samsung Galaxy S7</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/google-nexus.png" alt="Google Nexus 6">
-    <figcaption>Google Nexus 6</figcaption>
-  </figure>
-</section>
+- легенда стоит в разрыве верхней линии рамки у начала строки: слева, а на страницах с письмом справа налево — справа;
+- у легенды внутренние отступы по два пикселя слева и справа, поэтому разрыв в рамке шире текста;
+- длинный текст легенды переносится на несколько строк, и линия рамки проходит через их середину.
+
+Положение, отступы и рамку можно поменять через CSS. Примеры — в разделе «На практике».
+
+💡 Спецификация разрешает класть `<legend>` и первым элементом в [`<optgroup>`](/html/optgroup/). Так у группы пунктов в [`<select>`](/html/select/) с [`appearance: base-select`](/css/appearance/) появляется подпись, в которую можно положить теги, а не только текст из атрибута `label`. Поддержка в браузерах пока неполная.
