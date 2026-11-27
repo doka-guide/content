@@ -44,7 +44,6 @@ ready:
   - css/web-colors
   - css/animation
   - js/var-let
-  - js/boolean
   - js/function
   - js/function-context
   - js/infinite-scroll
@@ -58,21 +57,22 @@ ready:
   - tools/oop
   - tools/clean-architecture
   - tools/markdown
-  - tools/network
-  - tools/gitlab-ci-cd
-  - tools/docker
   - tools/webpack
-  - tools/ci-cd
   - tools/how-the-browser-creates-pages
   - tools/json
   - tools/web-security
   - recipes/snow
-  - recipes/progress
-  - recipes/character-counter
   - recipes/center
   - recipes/popup
   - recipes/git-rebase-onto
   - recipes/checkbox-radio-style
+  - html/a
+  - html/details
+  - css/stacking-context
+  - css/list-style-type
+  - css/transition
+  - js/window-open
+  - js/array-foreach
 active:
   - js/using
   - html/dialog
