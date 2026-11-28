@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация whenDefined() — window.customElements — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    custom-element, custom-element:not(:defined) {
+      display: block;
+      min-width: 320px;
+      min-height: 120px;
+      border: 2px solid;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      padding: 2rem 1.5rem;
+      position: relative;
+      background: none;
+      transition: all 0.3s;
+    }
+
+    custom-element:not(:defined) {
+      border-color: grey;
+      color: grey;
+      background: #222;
+    }
+
+    custom-element:defined {
+      background-color: wheat;
+      border-color: black;
+      color: black;
+    }
+
+    custom-element:not(:defined)::before {
+      content: "Загрузка…";
+      position: absolute;
+      inset: 0 0 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 2rem;
+      background-color: #fff;
+      color: #222;
+      border-radius: 1rem;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Убираем сообщение после определения */
+    custom-element:defined::before {
+      content: "";
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <custom-element>
+      <h1 slot="title">Кастомный элемент</h1>
+      <p slot="content">Контент появился после инициализации</p>
+    </custom-element>
+  </div>
+  <template id="custom-element-template">
+    <style>
+      .card {
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        padding: 24px 27px;
+        min-width: 320px;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        background: #fffbe7;
+      }
+      ::slotted(h1) {
+        font-weight: bold;
+        color: #FF8630;
+        margin-bottom: 8px;
+        font-size: 2rem;
+      }
+      ::slotted(p) {
+        font-size: 1.2rem;
+      }
+    </style>
+    <div class="card">
+      <slot name="title">Пустой элемент 😔</slot>
+      <slot name="content"></slot>
+    </div>
+  </template>
+  <script>
+    class CustomElement extends HTMLElement {
+      constructor() {
+        super()
+        const shadow = this.attachShadow({ mode: "open" })
+        const template = document.getElementById("custom-element-template")
+        shadow.appendChild(template.content.cloneNode(true))
+      }
+    }
+
+    customElements.whenDefined('custom-element').then(() => {
+      console.log('Элемент custom-element определен!');
+
+      const element = document.querySelector('custom-element');
+      element.setAttribute('data-defined', 'true');
+    });
+
+    customElements.define("custom-element", CustomElement);
+  </script>
+</body>
+</html>

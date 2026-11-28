@@ -1,0 +1,135 @@
+---
+title: "`.attachShadow()`"
+description: "Создаёт и прикрепляет Shadow DOM к элементу, позволяя инкапсулировать стили и разметку"
+authors:
+  - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.Element.attachShadow
+      - api.Element.attachShadow.options_clonable_parameter
+      - api.Element.attachShadow.options_delegatesFocus_parameter
+      - api.Element.attachShadow.options_serializable_parameter
+keywords:
+  - shadow
+  - attachShadow
+  - web components
+  - веб-компоненты
+  - инкапсуляция
+related:
+  - js/window-customelements
+  - html/exportparts
+  - css/slotted
+tags:
+  - doka
+---
+
+## Кратко
+
+`.attachShadow()` — это метод, который позволяет создать и прикрепить [Shadow DOM](/js/shadowdom/) к HTML-элементу. Он используется в веб-компонентах для инкапсуляции структуры и стилей.
+
+## Пример
+
+```html
+<template id="my-box-template">
+  <style>
+    :host {
+      display: block;
+      padding: 1em;
+      background: lightgray;
+      border-radius: 6px;
+    }
+  </style>
+  <slot></slot>
+</template>
+
+<my-box>Содержимое бокса</my-box>
+
+<script>
+class MyBox extends HTMLElement {
+  constructor() {
+    super()
+    const shadowRoot = this.attachShadow({ mode: 'open' })
+    const template = document.getElementById('my-box-template')
+    shadowRoot.appendChild(template.content.cloneNode(true))
+  }
+}
+
+customElements.define('my-box', MyBox)
+</script>
+```
+
+<aside>
+
+📦 Этот компонент инкапсулирует стили внутри себя — снаружи их не видно, и они не протекают наружу.
+
+</aside>
+
+## Как пишется
+
+```js
+element.attachShadow({ mode: 'open' })
+```
+
+Метод принимает объект с опциями:
+
+- `mode`: (обязательно) `open` (по умолчанию) или `closed`. В режиме `open` можно получить доступ к [`.shadowRoot`](/js/element-shadowroot/) извне. В `closed` — нет.
+- `delegatesFocus`: (опционально) `true`, если нужно передавать фокус внутрь компонента.
+- `slotAssignment`: (опционально) `named` или `manual` — режим работы со слотами (по умолчанию `named`).
+- `clonable`, `serializable`: (опционально) экспериментальные, пока редко используются.
+
+## Как понять
+
+Если вы создаёте свой HTML-элемент ([`customElements.define(...)`](/js/window-customelements/)), то скорее всего захотите добавить [Shadow DOM](/js/shadowdom/) для:
+
+- изоляции CSS от внешней среды;
+- использования слотов (`<slot>`) для вставки содержимого;
+- лучшего контроля над внутренней структурой компонента.
+
+Без вызова `.attachShadow()` компонент остаётся обычным элементом.
+
+<aside>
+
+⚠️ Есть некоторые ограничения на добавление [Shadow DOM](/js/shadowdom/) к элементам, вот список **разрешённых** элементов:
+- любой кастомный [анонимный элемент](#anonimnyy-komponent) с [правильным названием](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name);
+- [`<article>`](/html/article/);
+- [`<aside>`](/html/aside/);
+- [`<blockquote>`](/html/blockquote/);
+- [`<body>`](/html/body/);
+- [`<div>`](/html/div/);
+- [`<footer>`](/html/footer/);
+- [`h1-h6`](/html/h1-h6/);
+- [`<header>`](/html/header/);
+- [`<main>`](/html/main/);
+- [`<nav>`](/html/nav/);
+- [`<p>`](/html/p/);
+- [`<section>`](/html/section/);
+- [`<span>`](/html/span/).
+
+</aside>
+
+### Анонимный компонент
+
+Это такой компонент, который объявлен с помощью `HTMLElement`. Например:
+
+```js
+class MyBox extends HTMLElement { ... }
+
+customElements.define('my-box', MyBox)
+```
+
+Но уже вот такой компонент НЕ считается анонимным:
+
+```js
+class MySection extends HTMLSectionElement { ... }
+
+customElements.define('my-section', MySection)
+```
+
+Он не считается анонимным из-за того, что он объявлен как HTML-элемент [`<section>`](/html/section/).
+
+
+## Подсказки
+
+💡 [Shadow DOM](/js/shadowdom/) — отличный способ инкапсуляции, но не подходит, если вам нужно, чтобы внешние стили влияли на компонент.
+💡 Если [Shadow DOM](/js/shadowdom/) в режиме `closed`, то получить его через [`element.shadowRoot`](/js/element-shadowroot/) будет невозможно — даже из консоли.
