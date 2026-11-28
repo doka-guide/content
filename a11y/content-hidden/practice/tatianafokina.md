@@ -1,3 +1,3 @@
-🛠 По идее, скрытый контент с помощью класса `.visually-hidden` не влияет на поисковую выдачу в Google и [не нарушает правила](https://developers.google.com/search/docs/essentials/spam-policies#hidden-text-and-links), если делаете это для улучшения доступности. Однако наверняка знать не может никто кроме самого Google.
+🛠 Google не считает спамом текст, скрытый классом `.visually-hidden`, если он помогает пользователям скринридеров. [Правила Google о спаме](https://developers.google.com/search/docs/essentials/spam-policies#hidden-text-and-links) прямо называют такой текст допустимым.
 
 🛠 Декоративные картинки из [`<img>`](/html/img/), у которых нет смысловой нагрузки, скрывайте от скринридеров пустым атрибутом `alt`. Не стоит усложнять код и добавлять `aria-hidden` или что-то ещё.
