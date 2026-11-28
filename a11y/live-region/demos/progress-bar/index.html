@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Прогресс-бар с <progress> — Что такое изменяющаяся область — Дока</title>
+  <title>Прогресс-бар с <progress> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +130,7 @@
       width: 350px;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -152,7 +152,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <label for="progress-bar" class="row-label">Очищаем корзину:</label>
+      <label for="progress-bar" class="row-label">Очищаем корзину</label>
       <div id="progress-counter" class="progress__counter">0%</div>
       <div class="progress">
         <progress id="progress-bar" class="progress__indicator" value="0" max="100"></progress>
@@ -167,13 +167,24 @@
     const progressBar = document.getElementById('progress-bar')
     const uploadCounter = document.getElementById('progress-counter')
     let progressWidth = 0
+    let timerId = null
 
     function start() {
-      setInterval(() => {
+      if (timerId) {
+        return
+      }
+
+      // Повторное нажатие запускает очистку заново
+      if (progressWidth >= 100) {
+        progressWidth = 0
+      }
+
+      timerId = setInterval(() => {
         if (progressWidth >= 100) {
-          clearInterval()
+          clearInterval(timerId)
+          timerId = null
         } else {
-          progressWidth++;
+          progressWidth++
           progressBar.style.width = progressWidth + '%'
           progressBar.value = progressWidth
           uploadCounter.textContent = progressWidth + '%'
