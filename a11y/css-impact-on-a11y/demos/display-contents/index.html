@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Ссылка с display: contents — Влияние CSS на доступность — Дока</title>
+  <title>Ссылка с display: contents — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
       place-items: center;
       margin: 0;
       padding: 50px;
-      background-color: #18191c;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
       color: #FFFFFF;
     }
@@ -36,22 +36,14 @@
     a {
       display: contents;
       font-size: 34px;
-      border-radius: 3px;
       color: inherit;
-      -webkit-text-decoration-color: #10F3AF;
-      text-decoration-color: #10F3AF;
-      text-decoration-thickness: 2px;
-      transition: background-color 0.2s linear;
     }
 
-    a:hover,
-    a:focus {
-      background-color: #10F3AF;
-      transition: background-color 0.2s linear;
-      outline-width: 0;
+    a:hover {
+      color: #10F3AF;
     }
 
-    @media (max-width: 768px) {
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
